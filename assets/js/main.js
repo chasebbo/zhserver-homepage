@@ -4,28 +4,39 @@ const guestbookForm = document.querySelector("#guestbook-form");
 
 if (guestbookForm) {
 
-    guestbookForm.addEventListener("submit", function(event) {
+    guestbookForm.addEventListener("submit", async function(event) {
 
-        
+        event.preventDefault();
 
-        const name = document.querySelector("#guestbook-name").value;
-        const message = document.querySelector("#guestbook-message").value;
+        const formData = new FormData(guestbookForm);
 
-
-        if (!name || !message) {
-
-            alert("Bitte Name und Nachricht ausfüllen.");
-            return;
-
-        }
-
-
-        alert(
-            "Danke für deinen Eintrag! Er wird nach Prüfung freigeschaltet."
+        const response = await fetch(
+            "https://formspree.io/f/xqerjqjz",
+            {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "Accept": "application/json"
+                }
+            }
         );
 
 
-        guestbookForm.reset();
+        if (response.ok) {
+
+            alert(
+                "Vielen Dank für deinen Eintrag! Er wird nach Prüfung freigeschaltet."
+            );
+
+            guestbookForm.reset();
+
+        } else {
+
+            alert(
+                "Es gab einen Fehler beim Senden. Bitte versuche es später erneut."
+            );
+
+        }
 
     });
 
