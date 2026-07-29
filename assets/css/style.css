@@ -1515,3 +1515,78 @@ if (guestbookEntries) {
     loadGuestbookEntries();
 
 }
+/* ================= SHOP ================= */
+
+.shop-box {
+
+    margin-top:40px;
+    padding:40px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    border-radius:20px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
+
+}
+
+
+.shop-text {
+
+    text-align:center;
+
+    max-width:800px;
+
+    margin:0 auto 40px;
+
+}
+
+
+.shop-text h3 {
+
+    font-family:"Cinzel",serif;
+
+    font-size:32px;
+
+    margin-bottom:20px;
+
+}
+
+
+.shop-text p {
+
+    color:#c9d1d9;
+
+    line-height:1.8;
+
+    font-size:18px;
+
+    margin-bottom:15px;
+
+}
+
+
+.shop-container {
+
+    width:100%;
+
+    min-height:700px;
+
+    overflow:hidden;
+
+    border-radius:15px;
+
+}
+
+
+/* Spreadshop Anpassung */
+
+#myShop {
+
+    width:100%;
+
+    min-height:650px;
+
+}
