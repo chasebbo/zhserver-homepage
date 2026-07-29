@@ -98,9 +98,9 @@
 
                 </a>
 
-                <a href="#forum" class="btn btn-outline">
+                <a href="#guestbook" class="btn btn-outline">
 
-                    Forum
+                    Gästebuch
 
                 </a>
 
@@ -214,6 +214,8 @@
     </div>
 
 </section>
+
+
 <!-- ================= ADMINBASE ARCHIV ================= -->
 
 <section id="adminbase" class="section adminbase">
@@ -1456,17 +1458,37 @@ Alte Screenshots aus der Community.
                 Eintrag schreiben
             </h3>
 
-            <form>
+            <form 
+    id="guestbook-form"
+    action="https://formspree.io/f/xqerjqjz"
+    method="POST">
 
-                <input type="text" placeholder="Name / Nickname">
+    <input
+        id="guestbook-name"
+        type="text"
+        name="name"
+        placeholder="Name / Nickname"
+        required>
 
-                <textarea placeholder="Deine Nachricht"></textarea>
 
-                <button type="submit" class="btn btn-gold">
-                    Eintrag absenden
-                </button>
+    <textarea
+        id="guestbook-message"
+        name="message"
+        placeholder="Deine Nachricht"
+        required></textarea>
 
-            </form>
+
+    <input
+        type="hidden"
+        name="_subject"
+        value="Neuer ZHServer Gästebuch-Eintrag">
+
+
+    <button type="submit" class="btn btn-gold">
+        Eintrag absenden
+    </button>
+
+</form>
 
 
             <p class="guestbook-info">
