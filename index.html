@@ -1458,39 +1458,31 @@ Alte Screenshots aus der Community.
                 Eintrag schreiben
             </h3>
 
-            <form 
-    id="guestbook-form"
-    action="https://formspree.io/f/xqerjqjz"
-    method="POST">
 
-    <input
-        id="guestbook-name"
-        type="text"
-        name="name"
-        placeholder="Name / Nickname"
-        required>
+            <form id="guestbook-form">
 
 
-    <textarea
-        id="guestbook-message"
-        name="message"
-        placeholder="Deine Nachricht"
-        required></textarea>
+                <input
+                    id="guestbook-name"
+                    type="text"
+                    name="name"
+                    placeholder="Name / Nickname"
+                    required>
 
 
-    <input
-        type="hidden"
-        name="_subject"
-        value="Neuer ZHServer Gästebuch-Eintrag">
+                <textarea
+                    id="guestbook-message"
+                    name="message"
+                    placeholder="Deine Nachricht"
+                    required></textarea>
 
-    
+
+                <button type="submit" class="btn btn-gold">
+                    Eintrag absenden
+                </button>
 
 
-    <button type="submit" class="btn btn-gold">
-        Eintrag absenden
-    </button>
-
-</form>
+            </form>
 
 
             <p class="guestbook-info">
@@ -1500,35 +1492,13 @@ Alte Screenshots aus der Community.
 
             </p>
 
-        </div>
-
-
-        <div class="guestbook-entries">
-
-
-            <div class="guestbook-card">
-
-                <span>
-                    ZH-G001
-                </span>
-
-                <h3>
-                    Beispiel Eintrag
-                </h3>
-
-                <p>
-                    Hier könnte dein Text stehen.
-                </p>
-
-                <small>
-                    Freigeschaltet am 29.07.2026
-                </small>
-
-            </div>
-
 
         </div>
 
+
+      <div id="guestbook-entries" class="guestbook-entries">
+
+</div>
 
     </div>
 
