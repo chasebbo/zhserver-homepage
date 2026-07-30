@@ -7,3 +7,16 @@
 .admin-card:hover{
     transform:translateY(-6px);
 }
+.admin-actions{
+
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+
+}
+
+.admin-actions .btn{
+
+    flex:1;
+
+}
