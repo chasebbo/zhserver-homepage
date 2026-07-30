@@ -1689,3 +1689,45 @@ grid-template-columns:1fr;
     transform:translateY(0);
 
 }
+/* ================= ARCHIVSTATISTIK ================= */
+
+.archive-stats{
+    padding:70px 0;
+    background:var(--bg2);
+}
+
+.stats-grid{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.stat-card{
+    text-align:center;
+    padding:45px 30px;
+}
+
+.stat-card span{
+    display:block;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:.85rem;
+    margin-bottom:20px;
+}
+
+.stat-card h2{
+    margin:0;
+    font-family:"Cinzel", serif;
+    font-size:3.5rem;
+    color:var(--gold);
+}
+
+@media(max-width:900px){
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+}
