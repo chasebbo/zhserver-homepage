@@ -1657,44 +1657,35 @@ if (guestbookEntries) {
 
     .nav-menu{
 
-        display:flex;
-        flex-direction:column;
-        gap:18px;
+    display:none;
 
-        position:absolute;
-        top:80px;
-        left:15px;
-        right:15px;
+    flex-direction:column;
+    gap:18px;
 
-        padding:24px;
+    position:absolute;
+    top:80px;
+    left:15px;
+    right:15px;
 
-        background:rgba(15,20,27,.82);
-        backdrop-filter:blur(18px);
-        -webkit-backdrop-filter:blur(18px);
+    padding:24px;
 
-        border:1px solid rgba(255,255,255,.08);
-        border-radius:18px;
+    background:rgba(15,20,27,.82);
 
-        box-shadow:0 20px 45px rgba(0,0,0,.45);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 
-        opacity:0;
-        visibility:hidden;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
 
-        transform:translateY(-15px);
+    box-shadow:0 20px 45px rgba(0,0,0,.45);
 
-        transition:
-            opacity .3s ease,
-            transform .3s ease,
-            visibility .3s ease;
-    }
+}
 
-    .nav-menu.active{
+  .nav-menu.active{
 
-        opacity:1;
-        visibility:visible;
-        transform:translateY(0);
+    display:flex;
 
-    }
+}
 
 }
 
