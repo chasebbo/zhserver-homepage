@@ -312,7 +312,7 @@ if (latestGallery) {
 
 async function loadLatestGallery() {
 
-    const { data, error } = await supabase
+    const { data, error } = await sb
         .from("gallery")
         .select("*")
         .eq("approved", true)
