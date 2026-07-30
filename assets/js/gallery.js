@@ -10,7 +10,7 @@ async function loadGallery() {
 
     galleryGrid.innerHTML = "";
 
-    const { data, error } = await sb
+    const { data, error } = await supabaseClient
         .from("gallery")
         .select("*")
         .eq("approved", true)
@@ -75,7 +75,7 @@ uploadForm.addEventListener("submit", async (e) => {
 
     const fileName = `${Date.now()}-${file.name}`;
 
-    const { error: uploadError } = await sb
+    const { error: uploadError } = await supabaseClient
         .storage
         .from("gallery")
         .upload(fileName, file);
@@ -87,12 +87,12 @@ uploadForm.addEventListener("submit", async (e) => {
 
     }
 
-    const { data: urlData } = sb
+    const { data: urlData } = supabaseClient
         .storage
         .from("gallery")
         .getPublicUrl(fileName);
 
-    const { error: insertError } = await sb
+    const { error: insertError } = await supabaseClient
         .from("gallery")
         .insert({
 
