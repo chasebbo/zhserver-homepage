@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <head>
 
     <meta charset="UTF-8">
@@ -25,67 +25,31 @@
 
 <section class="section dark">
 
-    <div class="container">
+    <div class="container login-container">
 
         <span class="section-title">
             ZHSERVER ADMIN
         </span>
 
-        <h2>Kontrollzentrum</h2>
+        <h2>Anmeldung</h2>
 
-        <div class="cards">
+        <div class="card login-card">
 
-            <div class="card admin-card">
+            <input
+                type="email"
+                id="email"
+                placeholder="E-Mail">
 
-                <i class="fa-solid fa-book archive-icon"></i>
+            <input
+                type="password"
+                id="password"
+                placeholder="Passwort">
 
-                <h3>Gästebuch</h3>
+            <button id="loginBtn" class="btn">
+                Anmelden
+            </button>
 
-                <p>
-                    Ausstehende Gästebucheinträge prüfen,
-                    freigeben oder löschen.
-                </p>
-
-            </div>
-
-            <div class="card admin-card">
-
-                <i class="fa-regular fa-images archive-icon"></i>
-
-                <h3>Screenshots</h3>
-
-                <p>
-                    Neue Uploads der Community
-                    verwalten und veröffentlichen.
-                </p>
-
-            </div>
-
-            <div class="card admin-card">
-
-                <i class="fa-solid fa-newspaper archive-icon"></i>
-
-                <h3>News</h3>
-
-                <p>
-                    Historische Beiträge
-                    bearbeiten oder ergänzen.
-                </p>
-
-            </div>
-
-            <div class="card admin-card">
-
-                <i class="fa-solid fa-chart-line archive-icon"></i>
-
-                <h3>Statistik</h3>
-
-                <p>
-                    Besucherzahlen und
-                    Archivinformationen.
-                </p>
-
-            </div>
+            <p id="loginMessage"></p>
 
         </div>
 
