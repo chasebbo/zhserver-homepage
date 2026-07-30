@@ -285,9 +285,13 @@ body{
     background-position:70% center;
 }
 
+.hero-container{
+    padding-top:180px;
+}
+
 .hero h1{
     font-size:3rem;
-}
+}S
 }
 .history-grid{
 display:grid;
