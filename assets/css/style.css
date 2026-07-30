@@ -1630,3 +1630,57 @@ if (guestbookEntries) {
     padding:14px 35px;
 
 }
+/* ================= MOBILE MENU ================= */
+
+.menu-toggle{
+    display:none;
+}
+
+@media(max-width:900px){
+
+    .navbar{
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+    .menu-toggle{
+        display:block;
+        background:none;
+        border:none;
+        color:white;
+        font-size:32px;
+        cursor:pointer;
+    }
+
+    .nav-menu{
+
+        display:none;
+
+        position:absolute;
+
+        top:80px;
+
+        left:0;
+
+        width:100%;
+
+        background:#161b22;
+
+        padding:25px;
+
+        flex-direction:column;
+
+        gap:18px;
+
+        border-top:1px solid rgba(255,255,255,.08);
+
+    }
+
+    .nav-menu.active{
+
+        display:flex;
+
+    }
+
+}
