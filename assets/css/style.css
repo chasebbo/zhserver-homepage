@@ -1733,9 +1733,9 @@ if (guestbookEntries) {
 
     align-items:center;
 
-    opacity:0;
+    opacity:1;
 
-    visibility:hidden;
+    visibility:visible;
 
     transform:translateY(20px);
 
