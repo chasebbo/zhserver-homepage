@@ -1,0 +1,9 @@
+.admin-card{
+    text-align:center;
+    padding:40px 30px;
+    transition:.3s;
+}
+
+.admin-card:hover{
+    transform:translateY(-6px);
+}
