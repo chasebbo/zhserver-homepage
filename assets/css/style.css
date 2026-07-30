@@ -1642,6 +1642,7 @@ if (guestbookEntries) {
         flex-direction:row;
         justify-content:space-between;
         align-items:center;
+        position:relative;
     }
 
     .menu-toggle{
@@ -1651,39 +1652,53 @@ if (guestbookEntries) {
         color:white;
         font-size:32px;
         cursor:pointer;
+        z-index:1002;
     }
 
     .nav-menu{
 
-        display:none;
-
-        position:absolute;
-
-        top:80px;
-
-        left:0;
-
-        width:100%;
-
-        background:#161b22;
-
-        padding:25px;
-
+        display:flex;
         flex-direction:column;
-
         gap:18px;
 
-        border-top:1px solid rgba(255,255,255,.08);
+        position:absolute;
+        top:80px;
+        left:15px;
+        right:15px;
 
+        padding:24px;
+
+        background:rgba(15,20,27,.82);
+        backdrop-filter:blur(18px);
+        -webkit-backdrop-filter:blur(18px);
+
+        border:1px solid rgba(255,255,255,.08);
+        border-radius:18px;
+
+        box-shadow:0 20px 45px rgba(0,0,0,.45);
+
+        opacity:0;
+        visibility:hidden;
+
+        transform:translateY(-15px);
+
+        transition:
+            opacity .3s ease,
+            transform .3s ease,
+            visibility .3s ease;
     }
 
     .nav-menu.active{
 
-        display:flex;
+        opacity:1;
+        visibility:visible;
+        transform:translateY(0);
 
     }
 
 }
+
+
 /* ================= BACK TO TOP ================= */
 
 .back-to-top{
