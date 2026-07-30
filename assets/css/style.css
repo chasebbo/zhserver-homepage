@@ -1684,3 +1684,68 @@ if (guestbookEntries) {
     }
 
 }
+/* ================= BACK TO TOP ================= */
+
+.back-to-top{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:52px;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(22,27,34,.92);
+
+    border:1px solid rgba(212,175,55,.45);
+
+    color:var(--gold);
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(20px);
+
+    transition:.3s;
+
+    z-index:999;
+
+}
+
+.back-to-top:hover{
+
+    background:var(--gold);
+
+    color:#111;
+
+    transform:translateY(-3px);
+
+}
+
+.back-to-top.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+}
