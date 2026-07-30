@@ -1730,4 +1730,65 @@ grid-template-columns:1fr;
         grid-template-columns:1fr;
     }
 
+}/* ================= ARCHIV KARTEN ================= */
+
+.archive-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:40px 30px;
+    transition:.3s ease;
+    height:100%;
+}
+
+.archive-card:hover{
+    transform:translateY(-6px);
+}
+
+.archive-icon{
+    font-size:3.2rem;
+    color:var(--gold);
+    margin-bottom:22px;
+    transition:.3s ease;
+}
+
+.archive-card:hover .archive-icon{
+    transform:scale(1.12);
+}
+
+.archive-card h3{
+    margin-bottom:15px;
+}
+
+.archive-card p{
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:30px;
+    flex:1;
+}
+
+.archive-card .btn{
+    margin-top:auto;
+}/* ================= ARCHIV BUTTON ================= */
+
+.archive-card .btn{
+    width:100%;
+    margin-top:auto;
+    padding:12px 20px;
+    border:1px solid var(--gold);
+    border-radius:10px;
+    background:transparent;
+    color:var(--gold);
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    transition:all .3s ease;
+}
+
+.archive-card .btn:hover{
+    background:var(--gold);
+    color:#111;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(212,175,55,.25);
 }
