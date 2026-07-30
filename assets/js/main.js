@@ -166,7 +166,6 @@ if (menuToggle) {
 
 }
 
-}
 document.querySelectorAll(".nav-menu a").forEach(link => {
 
     link.addEventListener("click", () => {
