@@ -277,7 +277,13 @@ body{
 
 .navbar{
     flex-direction:column;
-    gap:20px;
+    gap:10px;
+    padding:10px 15px;
+}
+
+.header{
+    position:relative;
+    padding:10px 0;
 }
 
 .nav-menu{
@@ -294,8 +300,8 @@ body{
 }
 
 .hero-container{
-    padding-top:0;
-    padding-bottom:120px;
+    padding-top:100px;
+    padding-bottom:80px;
 }
 
 .hero h1{
