@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Galerie | ZHServer </title>
+
+    <meta name="description"
+        content="Community Screenshots und Erinnerungen aus der Geschichte der ZHServer Community.">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="container">
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                ZHServer.de / Zombiehölle.de
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle">
+                ☰
+            </button>
+
+            <ul class="nav-menu">
+
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="#upload">Screenshot hochladen</a></li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="hero" style="min-height:45vh;">
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-container">
+
+        <div class="hero-content">
+
+            <span class="hero-est">
+
+                COMMUNITY
+
+            </span>
+
+            <h1>
+
+                Screenshot Galerie
+
+            </h1>
+
+            <p>
+
+                Erinnerungen an Zombiehölle und ZHServer.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="upload">
+
+    <div class="container">
+
+        <span class="section-title">
+
+            SCREENSHOT HOCHLADEN
+
+        </span>
+
+        <h2>
+
+            Teile deine Erinnerungen
+
+        </h2>
+
+        <p>
+
+            Jeder Screenshot wird vor der Veröffentlichung geprüft.
+
+        </p>
+
+        <form id="uploadForm" class="guestbook-box">
+
+            <input
+                id="uploader"
+                type="text"
+                placeholder="Name / Nickname"
+                required>
+
+            <textarea
+                id="description"
+                placeholder="Beschreibung (optional)"></textarea>
+
+            <input
+                id="image"
+                type="file"
+                accept="image/*"
+                required>
+
+            <button
+                class="btn btn-gold"
+                type="submit">
+
+                Screenshot hochladen
+
+            </button>
+
+            <p id="uploadStatus"></p>
+
+        </form>
+
+    </div>
+
+</section>
+
+<section class="section dark">
+
+    <div class="container">
+
+        <span class="section-title">
+
+            Bilder/Erinnerungen
+
+        </span>
+
+        <h2>
+
+            Freigegebene Screenshots
+
+        </h2>
+
+        <div
+            id="galleryGrid"
+            class="gallery-grid">
+
+        </div>
+
+    </div>
+
+</section>
+
+<div id="lightbox" class="lightbox">
+
+    <span id="closeLightbox">&times;</span>
+
+    <img id="lightboxImage">
+
+</div>
+
+<footer>
+
+    <div class="container footer">
+
+        <div>
+
+            <h3>
+
+                ZHServer Community
+
+            </h3>
+
+            <p>
+
+                Seit 2013
+
+            </p>
+
+        </div>
+
+        <div>
+
+            <a href="pages/impressum.html">
+
+                Impressum
+
+            </a>
+
+            |
+
+            <a href="pages/datenschutz.html">
+
+                Datenschutz
+
+            </a>
+
+            <br><br>
+
+            © 2013–2026 ZHServer Community
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="assets/js/supabase.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/gallery.js"></script>
+
+</body>
+
+</html>

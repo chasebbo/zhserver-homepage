@@ -30,7 +30,7 @@
         <nav class="navbar">
 
             <a href="#" class="logo">
-                ZHServer Community
+                ZHServer.de / Zombiehölle.de
             </a>
 
             <button class="menu-toggle" id="menu-toggle">
@@ -40,12 +40,12 @@
             <ul class="nav-menu">
 
                 <li><a href="#hero">Start</a></li>
-                <li><a href="#history">Geschichte</a></li>
-                <li><a href="#timeline">Timeline</a></li>
-                <li><a href="#gallery">Galerie</a></li>
-                <li><a href="#archive">Archiv</a></li>
-                <li><a href="#guestbook">Gästebuch</a></li>
-                <li><a href="#forum">Forum</a></li>
+<li><a href="#history">Geschichte</a></li>
+<li><a href="#timeline">Timeline</a></li>
+<li><a href="gallery.html">Galerie</a></li>
+<li><a href="gallery.html#upload">Bilder hochladen</a></li>
+<li><a href="#guestbook">Gästebuch</a></li>
+<li><a href="#forum">Forum</a></li>
 
             </ul>
 
@@ -97,21 +97,21 @@
 
                 <a href="#history" class="btn btn-gold">
 
-                    Community entdecken
+    Community entdecken
 
-                </a>
+</a>
 
-                <a href="#archive" class="btn btn-outline">
+<a href="gallery.html#upload" class="btn btn-outline">
 
-                    Archiv
+    Bilder hochladen
 
-                </a>
+</a>
 
-                <a href="#guestbook" class="btn btn-outline">
+<a href="#guestbook" class="btn btn-outline">
 
-                    Gästebuch
+    Gästebuch
 
-                </a>
+</a>
 
             </div>
 
@@ -243,7 +243,15 @@
         </div>
 
     </div>
+<div class="history-scroll">
 
+    <span>Weiter nach unten</span>
+
+    <div class="mouse">
+        <div class="wheel"></div>
+    </div>
+
+</div>
 </section>
 
 
@@ -1422,6 +1430,7 @@
 
 <!-- ================= GALERIE ================= -->
 
+
 <section id="gallery" class="section">
 
     <div class="container">
@@ -1431,104 +1440,32 @@
         </span>
 
         <h2>
-            Erinnerungen aus Chernarus
+            Ihr habt noch Screenshots oder Bilder? Her damit.
         </h2>
 
+        <p>
+            Ob ARMA 2, DayZ, Epoch, ARMA 3 oder Exile – wenn ihr noch alte Screenshots oder besondere Momente habt, könnt ihr sie hier teilen. Nach einer kurzen Prüfung erscheinen sie in der Galerie.
+        </p>
 
-        <div class="gallery-grid">
-
-
-            <article class="gallery-card">
-
-                <div class="gallery-image">
-
-                    <img src="assets/images/adminbase.png" alt="Adminbase">
-
-                </div>
-
-                <div class="gallery-info">
-
-                    <span>
-                        ZH-001
-                    </span>
-
-                    <h3>
-                        Adminbase
-                    </h3>
-
-                    <p>
-                        ARMA 2 DayZ · Chernarus · 2013
-                    </p>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="gallery-card empty">
-
-                <div class="gallery-placeholder">
-
-                    <span>
-                        ZH-002
-                    </span>
-
-                    <h3>
-                        Weitere Erinnerungen
-                    </h3>
-
-                  <p>
-<p>
-Alte Screenshots aus der Community.
-</p>
-
-<div class="zh002-images">
-
-    <img src="assets/images/Erinnerung3.webp"
-    alt="Chernarus Erinnerung">
-
-
-    <img src="assets/images/Erinnerung2.webp"
-    alt="Chernarus Community Moment">
-
-</div>
-
-</div>
-
-</article>
-
-
-
-            <article class="gallery-card empty">
-
-                <div class="gallery-placeholder">
-
-                    <span>
-                        ZH-003
-                    </span>
-
-                    <h3>
-                        Community Events
-                    </h3>
-
-                    <p>
-                        Alte Momente aus der Community.
-                    </p>
-
-                </div>
-
-            </article>
-
+        <div id="latestGallery" class="gallery-grid">
 
         </div>
 
+        <div style="text-align:center; margin-top:50px;">
+
+            <a href="gallery.html" class="btn btn-gold">
+                Alle Bilder ansehen
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
+<section id="archive" class="section">
 
+    <div class="container">
 
 <div class="cards">
 
@@ -1606,6 +1543,9 @@ Alte Screenshots aus der Community.
            class="btn btn-outline">
             Galerie öffnen
         </a>
+    </div>
+
+</section>
 
     </div>
 
@@ -1803,6 +1743,7 @@ Alte Screenshots aus der Community.
     ↑
 </button>
 
+<script src="assets/js/supabase.js"></script>
 <script src="assets/js/main.js"></script>
 
 </body>

@@ -297,3 +297,62 @@ async function registerVisitor() {
 if (todayVisitors && totalVisitors) {
     registerVisitor();
 }
+// ==============================
+// Neueste Community Screenshots
+// ==============================
+
+const latestGallery = document.getElementById("latestGallery");
+
+if (latestGallery) {
+
+    loadLatestGallery();
+
+}
+
+async function loadLatestGallery() {
+
+    const { data, error } = await supabase
+        .from("gallery")
+        .select("*")
+        .eq("approved", true)
+        .order("created_at", { ascending: false })
+        .limit(6);
+
+    if (error) {
+
+        console.error(error);
+        return;
+
+    }
+
+    latestGallery.innerHTML = "";
+
+    data.forEach(entry => {
+
+        latestGallery.innerHTML += `
+
+            <article class="gallery-card">
+
+                <div class="gallery-image">
+
+                    <img
+                        src="${entry.image_url}"
+                        alt="${entry.description ?? ""}">
+
+                </div>
+
+                <div class="gallery-info">
+
+                    <span>${entry.uploader}</span>
+
+                    <p>${entry.description ?? ""}</p>
+
+                </div>
+
+            </article>
+
+        `;
+
+    });
+
+}
