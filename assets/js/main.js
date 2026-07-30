@@ -1,6 +1,10 @@
+
 // ================= SUPABASE =================
 
+const SUPABASE_URL = "https://yawadxzeyyrozmlrokun.supabase.co";
 const SUPABASE_KEY = SUPABASE_ANON_KEY;
+
+// ================= GÄSTEBUCH SPEICHERN =================
 
 // ================= GÄSTEBUCH SPEICHERN =================
 
