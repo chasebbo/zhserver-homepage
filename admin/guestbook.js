@@ -95,14 +95,24 @@ async function loadEntries(){
 
 async function approve(id){
 
-    await sb
+    const { data, error } = await sb
         .from("guestbook")
-        .update({approved:true})
-        .eq("id",id);
+        .update({ approved: true })
+        .eq("id", id)
+        .select();
+
+    console.log("UPDATE DATA:", data);
+    console.log("UPDATE ERROR:", error);
+
+    if(error){
+        alert(error.message);
+        return;
+    }
 
     loadEntries();
 
 }
+
 
 async function removeEntry(id){
 
