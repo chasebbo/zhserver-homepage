@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Spiele das ZH Game der ZHServer Community.">
+    <title>ZH Game | ZHServer Community</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container">
+        <nav class="navbar">
+            <a href="index.html" class="logo">ZHServer.de / ZombiehÃ¶lle.de</a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menü öffnen">
+                &#9776;
+            </button>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html#hero">Start</a></li>
+                <li><a href="index.html#history">Geschichte</a></li>
+                <li><a href="index.html#timeline">Timeline</a></li>
+                <li><a href="gallery.html">Galerie</a></li>
+                <li><a href="gallery.html#upload">Bilder hochladen</a></li>
+                <li><a href="game.html" aria-current="page">ZH Game spielen</a></li>
+                <li><a href="index.html#guestbook">Gästebuch</a></li>
+                <li><a href="index.html#forum">Forum</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="game-page">
+    <section class="section game-section">
+        <div class="container center">
+            <span class="section-title">ZHSERVER GAME</span>
+            <h1 class="game-page-title">ZH Game spielen</h1>
+
+            <p class="game-intro">
+                Das ZH Game befindet sich in Entwicklung. Hier kannst du es später direkt im Browser starten und gemeinsam mit anderen spielen.
+            </p>
+
+            <div class="game-embed game-placeholder" role="status">
+                <div class="game-placeholder-icon" aria-hidden="true">
+                    <i class="fa-solid fa-gamepad"></i>
+                </div>
+
+                <h2>Spiel wird vorbereitet</h2>
+
+                <p>
+                    Der Webexport wird hier eingebunden, sobald die erste spielbare Version bereit ist.
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer">
+        <div>
+            <h3>ZHServer Community</h3>
+            <p>Seit 2013</p>
+        </div>
+
+        <div>
+            <a href="pages/impressum.html">Impressum</a> |
+            <a href="pages/datenschutz.html">Datenschutz</a>
+            <br><br>
+            &copy; 2013–2026 ZHServer Community
+        </div>
+    </div>
+</footer>
+
+<script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navMenu = document.getElementById("nav-menu");
+
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+    });
+</script>
+
+</body>
+</html>
