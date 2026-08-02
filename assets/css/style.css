@@ -2100,6 +2100,80 @@ grid-template-columns:1fr;
     white-space:nowrap;
 }
 
+/* ================= FORUM ================= */
+
+.forum-section{
+    padding-top:35px;
+    padding-bottom:70px;
+}
+
+.forum-card{
+    display:grid;
+    grid-template-columns:auto minmax(0, 1fr);
+    align-items:center;
+    gap:26px;
+    padding:30px 34px;
+    border:1px solid rgba(212,175,55,.22);
+    border-radius:14px;
+    background:linear-gradient(110deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+}
+
+.forum-icon{
+    display:grid;
+    place-items:center;
+    width:58px;
+    height:58px;
+    border:1px solid rgba(212,175,55,.55);
+    border-radius:50%;
+    color:var(--gold);
+    font-size:23px;
+}
+
+.forum-copy .section-title{
+    display:block;
+    margin-bottom:8px;
+    font-size:.72rem;
+}
+
+.forum-copy h2{
+    margin:0 0 8px;
+    font-family:Cinzel,serif;
+    font-size:1.35rem;
+}
+
+.forum-copy p{
+    margin:0;
+    color:#c9d1d9;
+}
+
+.community-links{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:9px 16px;
+    margin-top:16px;
+    font-size:.88rem;
+}
+
+.community-links span{
+    color:#9ca7b3;
+}
+
+.community-links a{
+    color:#d7dde4;
+    text-decoration:none;
+    transition:color .2s ease;
+}
+
+.community-links a:hover{
+    color:var(--gold);
+}
+
+.community-links i{
+    margin-right:5px;
+    color:var(--gold);
+}
+
 @media(max-width:700px){
     .game-embed{
         min-height:360px;
@@ -2110,5 +2184,16 @@ grid-template-columns:1fr;
         justify-items:center;
         padding:26px;
         text-align:center;
+    }
+
+    .forum-card{
+        grid-template-columns:1fr;
+        justify-items:center;
+        padding:28px;
+        text-align:center;
+    }
+
+    .community-links{
+        justify-content:center;
     }
 }
