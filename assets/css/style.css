@@ -2349,3 +2349,8 @@ grid-template-columns:1fr;
 .game-section #game-fullscreen:hover{transform:none;background:#304038;border-color:rgba(177,194,177,.62);}
 .game-embed{max-width:1080px;margin:14px auto 0;border-color:rgba(151,172,151,.25);border-radius:12px;background:#0a1011;box-shadow:0 18px 38px rgba(0,0,0,.27);}
 .survival-leaderboard{margin-top:28px;padding:24px;border-color:rgba(151,172,151,.24);background:rgba(22,31,29,.72);box-shadow:0 14px 32px rgba(0,0,0,.2);}
+.game-eyebrow{display:block;margin-bottom:14px;color:#a8c2aa;font-size:.72rem;font-weight:700;letter-spacing:.19em;}
+.game-page-title{color:#f0f3ed;text-shadow:0 8px 28px rgba(0,0,0,.25);}
+.game-status{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;}
+.game-intro{font-size:1.02rem;}
+.game-multiplayer-note{display:flex;align-items:center;justify-content:center;gap:2px;max-width:610px;text-align:center;color:#adc6b4;background:transparent;border-left:0;}
