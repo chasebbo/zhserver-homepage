@@ -2354,3 +2354,4 @@ grid-template-columns:1fr;
 .game-status{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;}
 .game-intro{font-size:1.02rem;}
 .game-multiplayer-note{display:flex;align-items:center;justify-content:center;gap:2px;max-width:610px;text-align:center;color:#adc6b4;background:transparent;border-left:0;}
+.legacy-game-eyebrow{display:none;}
