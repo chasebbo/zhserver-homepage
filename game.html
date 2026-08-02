@@ -51,7 +51,7 @@
                 Das ZH Game befindet sich in Entwicklung. Hier kannst du es später direkt im Browser starten und gemeinsam mit anderen spielen.
             </p>
 
-            <iframe class="game-embed" src="game/index.html" title="Oldschool Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <iframe id="game-embed" class="game-embed" src="game/index.html" title="Oldschool Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
         </div>
     </section>
@@ -74,6 +74,11 @@
 </footer>
 
 <script>
+    const gameEmbed = document.getElementById("game-embed");
+    const requestedServer = new URLSearchParams(window.location.search).get("server");
+    if (requestedServer) {
+        gameEmbed.src = "game/index.html?server=" + encodeURIComponent(requestedServer);
+    }
     const menuToggle = document.getElementById("menu-toggle");
     const navMenu = document.getElementById("nav-menu");
 
