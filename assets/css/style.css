@@ -2117,6 +2117,19 @@ grid-template-columns:1fr;
     box-shadow:0 20px 45px rgba(0,0,0,.35);
 }
 
+.game-multiplayer-note{
+    width:min(900px, 100%);
+    margin:18px auto 20px;
+    padding:12px 18px;
+    border:1px solid rgba(98,182,151,.34);
+    border-radius:8px;
+    background:rgba(38,82,63,.22);
+    color:#d4e8da;
+    font-size:.92rem;
+}
+
+.game-multiplayer-note i{margin-right:9px;color:#8ed6a5;}
+
 .game-placeholder{
     display:flex;
     flex-direction:column;
