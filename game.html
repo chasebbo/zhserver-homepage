@@ -54,6 +54,19 @@
             <button id="game-fullscreen" type="button" class="btn">⛶ Vollbild</button>
             <iframe id="game-embed" class="game-embed" src="game/index.html" title="Oldschool Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
+            <section class="survival-leaderboard" aria-labelledby="leaderboard-title">
+                <div class="leaderboard-heading">
+                    <div>
+                        <span class="section-title">ÜBERLEBENDE DER WOCHE</span>
+                        <h2 id="leaderboard-title"><i class="fa-solid fa-trophy" aria-hidden="true"></i> TOP 10 PUNKTE</h2>
+                    </div>
+                    <span id="leaderboard-updated" class="leaderboard-updated">Lade Rangliste …</span>
+                </div>
+                <div id="leaderboard-list" class="leaderboard-list" aria-live="polite">
+                    <p class="leaderboard-loading">Die besten Überlebenden werden geladen …</p>
+                </div>
+            </section>
+
         </div>
     </section>
 </main>
@@ -83,6 +96,45 @@
     document.getElementById("game-fullscreen").addEventListener("click", () => {
         if (gameEmbed.requestFullscreen) gameEmbed.requestFullscreen();
     });
+
+    const leaderboardList = document.getElementById("leaderboard-list");
+    const leaderboardUpdated = document.getElementById("leaderboard-updated");
+    const supabaseUrl = "https://yawadxzeyyrozmlrokun.supabase.co";
+    const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlhd2FkeHpleXlyb3ptbHJva3VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMzQ4MTIsImV4cCI6MjEwMDkxMDgxMn0.B53O3gHURnfxUkVGKaZJ5ssx27Bj9FNMU70Yn85tfxE";
+
+    function escapeHtml(value) {
+        const element = document.createElement("span");
+        element.textContent = String(value);
+        return element.innerHTML;
+    }
+
+    async function loadLeaderboard() {
+        try {
+            const response = await fetch(`${supabaseUrl}/rest/v1/rpc/get_leaderboard`, {
+                method: "POST",
+                headers: { "apikey": supabaseAnonKey, "Content-Type": "application/json" },
+                body: "{}"
+            });
+            if (!response.ok) throw new Error("Rangliste nicht verfügbar");
+            const players = await response.json();
+            if (!Array.isArray(players) || players.length === 0) {
+                leaderboardList.innerHTML = '<p class="leaderboard-loading">Noch keine Punkte gesammelt – sei der Erste.</p>';
+            } else {
+                leaderboardList.innerHTML = players.map((player, index) => {
+                    const place = Number(player.rank || index + 1);
+                    const medal = place === 1 ? "gold" : place === 2 ? "silver" : place === 3 ? "bronze" : "normal";
+                    return `<article class="leaderboard-row ${medal}"><span class="leaderboard-place">${place}</span><span class="leaderboard-player"><i class="fa-solid fa-skull" aria-hidden="true"></i>${escapeHtml(player.nickname)}</span><strong>${Number(player.points || 0).toLocaleString("de-DE")} <small>Punkte</small></strong></article>`;
+                }).join("");
+            }
+            leaderboardUpdated.textContent = "Aktualisiert: " + new Date().toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" });
+        } catch (error) {
+            leaderboardList.innerHTML = '<p class="leaderboard-loading">Die Rangliste wird gerade vorbereitet.</p>';
+            leaderboardUpdated.textContent = "Aktualisierung folgt";
+        }
+    }
+
+    loadLeaderboard();
+    window.setInterval(loadLeaderboard, 60 * 60 * 1000);
     const menuToggle = document.getElementById("menu-toggle");
     const navMenu = document.getElementById("nav-menu");
 
