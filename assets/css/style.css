@@ -79,6 +79,36 @@ body{
 .nav-menu a:hover{color:#fff}
 .nav-menu a:hover::after{width:100%}
 
+.nav-menu a.nav-game-link{
+    color:#f2a64a;
+    animation:game-nav-pulse 2.4s ease-in-out infinite;
+}
+
+.nav-menu a.nav-game-link::after{
+    width:100%;
+    background:#f2a64a;
+    opacity:.35;
+}
+
+.nav-menu a.nav-game-link:hover{
+    color:#ffd08a;
+}
+
+@keyframes game-nav-pulse{
+    0%, 100%{
+        text-shadow:0 0 0 rgba(242,166,74,0);
+    }
+    50%{
+        text-shadow:0 0 10px rgba(242,166,74,.65);
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    .nav-menu a.nav-game-link{
+        animation:none;
+    }
+}
+
 /* Hero */
 
 .hero{
