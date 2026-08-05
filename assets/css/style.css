@@ -2484,3 +2484,10 @@ grid-template-columns:1fr;
     .survival-changelog .changelog-details summary{padding:0 13px;}
     .survival-changelog .changelog-list{padding:14px 14px 16px 30px;}
 }
+/* Erweiterbare Spieler-Rangliste */
+.leaderboard-more{margin-top:10px;border:1px solid rgba(151,172,151,.24);border-radius:8px;background:rgba(7,14,12,.23);overflow:hidden;}
+.leaderboard-more summary{padding:13px 15px;color:#c5d5c7;cursor:pointer;font-size:.84rem;font-weight:700;list-style:none;}
+.leaderboard-more summary::-webkit-details-marker{display:none;}
+.leaderboard-more summary::after{content:"v";float:right;color:#a7c5ad;font-size:1.12rem;line-height:.8;}
+.leaderboard-more[open] summary{border-bottom:1px solid rgba(151,172,151,.18);background:rgba(84,123,95,.12);}
+.leaderboard-list-more{margin:0;padding:10px;}

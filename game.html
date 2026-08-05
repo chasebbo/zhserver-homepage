@@ -62,7 +62,7 @@
             <p class="game-multiplayer-note"><i class="fa-solid fa-users" aria-hidden="true"></i> Online-Multiplayer &middot; Fortschritt und Inventar werden gespeichert.</p>
 
             <button id="game-fullscreen" type="button" class="btn">⛶ Vollbild</button>
-            <iframe id="game-embed" class="game-embed" src="game/survival-v22.html" title="Oldschool Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <iframe id="game-embed" class="game-embed" src="game/survival-v23.html" title="Oldschool Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
             <section class="survival-live-status" aria-live="polite" aria-label="Live-Status der Spielwelt">
                 <span id="live-status-dot" class="live-status-dot"></span>
                 <span id="live-status-label">Spielwelt: Status wird geprueft</span>
@@ -102,8 +102,8 @@
             <section class="survival-leaderboard" aria-labelledby="leaderboard-title">
                 <div class="leaderboard-heading">
                     <div>
-                        <span class="section-title">ÜBERLEBENDE DER WOCHE</span>
-                        <h2 id="leaderboard-title"><i class="fa-solid fa-trophy" aria-hidden="true"></i> TOP 10 PUNKTE</h2>
+                        <span class="section-title">REGISTRIERTE SPIELER</span>
+                        <h2 id="leaderboard-title"><i class="fa-solid fa-trophy" aria-hidden="true"></i> SPIELER &amp; PUNKTE</h2>
                     </div>
                     <span id="leaderboard-updated" class="leaderboard-updated">Lade Rangliste …</span>
                 </div>
@@ -136,7 +136,7 @@
     const gameEmbed = document.getElementById("game-embed");
     const requestedServer = new URLSearchParams(window.location.search).get("server");
     if (requestedServer) {
-        gameEmbed.src = "game/survival-v22.html?server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v23.html?server=" + encodeURIComponent(requestedServer);
     }
     document.getElementById("game-fullscreen").addEventListener("click", () => {
         if (gameEmbed.requestFullscreen) gameEmbed.requestFullscreen();
@@ -182,28 +182,31 @@
                 headers: { "apikey": supabaseAnonKey, "Content-Type": "application/json" },
                 body: "{}"
             });
-            if (!response.ok) throw new Error("Rangliste nicht verfügbar");
+            if (!response.ok) throw new Error("Rangliste nicht verfuegbar");
             const players = await response.json();
             if (!Array.isArray(players) || players.length === 0) {
-                leaderboardList.innerHTML = '<p class="leaderboard-loading">Noch keine Punkte gesammelt – sei der Erste.</p>';
+                leaderboardList.innerHTML = '<p class="leaderboard-loading">Noch keine registrierten Spieler.</p>';
             } else {
-                leaderboardList.innerHTML = players.map((player, index) => {
+                const createRows = (entries) => entries.map((player, index) => {
                     const place = Number(player.rank || index + 1);
                     const medal = place === 1 ? "gold" : place === 2 ? "silver" : place === 3 ? "bronze" : "normal";
-                    return `<article class="leaderboard-row ${medal}"><span class="leaderboard-place">${place}</span><span class="leaderboard-player"><i class="fa-solid fa-skull" aria-hidden="true"></i>${escapeHtml(player.nickname)}</span><strong>${Number(player.points || 0).toLocaleString("de-DE")} <small>Punkte</small></strong></article>`;
+                    return `<article class="leaderboard-row ${medal}"><span class="leaderboard-place">${place}</span><span class="leaderboard-player"><i class="fa-solid fa-user" aria-hidden="true"></i>${escapeHtml(player.nickname)}</span><strong>${Number(player.points || 0).toLocaleString("de-DE")} <small>Punkte</small></strong></article>`;
                 }).join("");
+                const visiblePlayers = players.slice(0, 15);
+                const furtherPlayers = players.slice(15);
+                const morePlayers = furtherPlayers.length
+                    ? `<details class="leaderboard-more"><summary>Weitere ${furtherPlayers.length} Spieler anzeigen</summary><div class="leaderboard-list leaderboard-list-more">${createRows(furtherPlayers)}</div></details>`
+                    : "";
+                leaderboardList.innerHTML = createRows(visiblePlayers) + morePlayers;
             }
-            leaderboardUpdated.textContent = "Aktualisiert: " + new Date().toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" });
+            leaderboardUpdated.textContent = "Aktualisierung: alle 24 Stunden";
         } catch (error) {
             leaderboardList.innerHTML = '<p class="leaderboard-loading">Die Rangliste wird gerade vorbereitet.</p>';
             leaderboardUpdated.textContent = "Aktualisierung folgt";
         }
     }
-
-    loadLiveStatus();
-    window.setInterval(loadLiveStatus, 20 * 1000);
     loadLeaderboard();
-    window.setInterval(loadLeaderboard, 60 * 60 * 1000);
+    window.setInterval(loadLeaderboard, 24 * 60 * 60 * 1000);
     const menuToggle = document.getElementById("menu-toggle");
     const navMenu = document.getElementById("nav-menu");
 
