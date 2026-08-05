@@ -63,7 +63,7 @@
 
             <button id="game-fullscreen" type="button" class="btn">⛶ Vollbild</button>
             <p class="game-mobile-hint"><strong>Mobile Steuerung aktiv:</strong> Am besten im Querformat spielen. Links laufen, rechts feuern; E durchsucht, INV oeffnet das Inventar.</p>
-            <iframe id="game-embed" class="game-embed" src="game/survival-v38.html" title="Zombiehölle Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <iframe id="game-embed" class="game-embed" src="game/survival-v39.html" title="Zombiehölle Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
             <section class="survival-live-status" aria-live="polite" aria-label="Live-Status der Spielwelt">
                 <span id="live-status-dot" class="live-status-dot"></span>
                 <span id="live-status-label">Spielwelt: Status wird geprueft</span>
@@ -79,7 +79,7 @@
                         <h2 id="changelog-title">Alpha 0.1.4</h2>
                         <p>20 dokumentierte Aenderungen: Welt, Multiplayer, Handel und Charaktere wurden erweitert.</p>
                     </div>
-                    <span id="changelog-counter" class="changelog-cycle">0 / 20 Aenderungen bis Alpha 0.1.5</span>
+                    <span id="changelog-counter" class="changelog-cycle">1 / 20 Aenderungen bis Alpha 0.1.5</span>
                 </div>
 
                 <div class="changelog-current" aria-label="Die fuenf neuesten Aenderungen">
@@ -92,7 +92,7 @@
                         <li><strong>Charakterauswahl:</strong> Waldgruen, Nachtschwarz, Dunkelrot, Sandgelb oder Blau direkt vor dem Start waehlen.</li>
                         <li><strong>Handelsplatz:</strong> Rucksaecke, Westen und Helme kaufen sowie Kleidung und Ausruestung verkaufen.</li>
                         <li><strong>Mobile Steuerung:</strong> virtueller Stick zum Laufen; nur der FIRE-Kreis rechts schiesst.</li>
-                        <li><strong>Safe Zone:</strong> Wachen feuern auf Zombies, loesen bei Horden Alarm aus und bekommen Verstaerkung.</li>
+                        <li><strong>Spawn-Hinweis:</strong> Neue Spieler werden im Login vor dem Start in der lootfreien Adminbase gewarnt.</li>
                     </ul>
                 </div>
 
@@ -162,7 +162,7 @@
     const gameEmbed = document.getElementById("game-embed");
     const requestedServer = new URLSearchParams(window.location.search).get("server");
     if (requestedServer) {
-        gameEmbed.src = "game/survival-v38.html?server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v39.html?server=" + encodeURIComponent(requestedServer);
     }
     document.getElementById("game-fullscreen").addEventListener("click", () => {
         if (gameEmbed.requestFullscreen) gameEmbed.requestFullscreen();
