@@ -209,7 +209,7 @@
     const gameEmbed = document.getElementById("game-embed");
     const requestedServer = new URLSearchParams(window.location.search).get("server");
     if (requestedServer) {
-        gameEmbed.src = "game/index.html?build=vehicle-fix-20260805?server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/index.html?build=vehicle-fix-20260805&server=" + encodeURIComponent(requestedServer);
     }
     document.getElementById("game-fullscreen").addEventListener("click", () => {
         if (gameEmbed.requestFullscreen) gameEmbed.requestFullscreen();
