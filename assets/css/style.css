@@ -2429,3 +2429,22 @@ grid-template-columns:1fr;
     .changelog-list{padding:0 16px 18px 33px;}
     .changelog-archive{padding:0 16px 18px;}
 }
+/* ================= GAME LIVE STATUS ================= */
+.survival-live-status{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    width:min(980px,100%);
+    margin:13px auto 0;
+    padding:10px 15px;
+    border:1px solid rgba(151,172,151,.2);
+    border-radius:9px;
+    background:rgba(21,31,28,.62);
+    color:#bfd0c2;
+    font-size:.83rem;
+}
+.live-status-dot{width:8px;height:8px;border-radius:50%;background:#7fcf91;box-shadow:0 0 0 3px rgba(127,207,145,.12);}
+.live-status-dot.is-offline{background:#b9a36d;box-shadow:0 0 0 3px rgba(185,163,109,.12);}
+.live-status-divider{width:1px;height:15px;background:rgba(151,172,151,.26);}
+@media(max-width:520px){.survival-live-status{align-items:flex-start;flex-wrap:wrap;justify-content:flex-start;gap:6px 9px;font-size:.78rem;}.live-status-divider{display:none;}}

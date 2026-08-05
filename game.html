@@ -62,7 +62,13 @@
             <p class="game-multiplayer-note"><i class="fa-solid fa-users" aria-hidden="true"></i> Online-Multiplayer &middot; Fortschritt und Inventar werden gespeichert.</p>
 
             <button id="game-fullscreen" type="button" class="btn">⛶ Vollbild</button>
-            <iframe id="game-embed" class="game-embed" src="game/survival-v21.html" title="Oldschool Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <iframe id="game-embed" class="game-embed" src="game/survival-v22.html" title="Oldschool Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <section class="survival-live-status" aria-live="polite" aria-label="Live-Status der Spielwelt">
+                <span id="live-status-dot" class="live-status-dot"></span>
+                <span id="live-status-label">Spielwelt: Status wird geprueft</span>
+                <span class="live-status-divider" aria-hidden="true"></span>
+                <span id="live-player-count">Spieler online: --</span>
+            </section>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen wird die Versionsnummer erhoeht und dieser Bereich aktualisiert. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
@@ -130,7 +136,7 @@
     const gameEmbed = document.getElementById("game-embed");
     const requestedServer = new URLSearchParams(window.location.search).get("server");
     if (requestedServer) {
-        gameEmbed.src = "game/survival-v21.html?server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v22.html?server=" + encodeURIComponent(requestedServer);
     }
     document.getElementById("game-fullscreen").addEventListener("click", () => {
         if (gameEmbed.requestFullscreen) gameEmbed.requestFullscreen();
@@ -147,6 +153,28 @@
         return element.innerHTML;
     }
 
+    async function loadLiveStatus() {
+        const label = document.getElementById("live-status-label");
+        const count = document.getElementById("live-player-count");
+        const dot = document.getElementById("live-status-dot");
+        try {
+            const response = await fetch(`${supabaseUrl}/rest/v1/rpc/get_online_player_count`, {
+                method: "POST",
+                headers: { "apikey": supabaseAnonKey, "Content-Type": "application/json" },
+                body: "{}"
+            });
+            if (!response.ok) throw new Error("Live-Status nicht verfuegbar");
+            const data = await response.json();
+            const online = Number(data || 0);
+            label.textContent = "Spielwelt: online";
+            count.textContent = `Spieler online: ${online}`;
+            dot.classList.remove("is-offline");
+        } catch (error) {
+            label.textContent = "Spielwelt: Status nicht verfuegbar";
+            count.textContent = "Spieler online: --";
+            dot.classList.add("is-offline");
+        }
+    }
     async function loadLeaderboard() {
         try {
             const response = await fetch(`${supabaseUrl}/rest/v1/rpc/get_leaderboard`, {
@@ -172,6 +200,8 @@
         }
     }
 
+    loadLiveStatus();
+    window.setInterval(loadLiveStatus, 20 * 1000);
     loadLeaderboard();
     window.setInterval(loadLeaderboard, 60 * 60 * 1000);
     const menuToggle = document.getElementById("menu-toggle");
