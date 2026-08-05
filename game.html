@@ -63,7 +63,7 @@
 
             <button id="game-fullscreen" type="button" class="btn">⛶ Vollbild</button>
             <p class="game-mobile-hint"><strong>Mobile Steuerung aktiv:</strong> Am besten im Querformat spielen. Links laufen, rechts feuern; E durchsucht, INV oeffnet das Inventar.</p>
-            <iframe id="game-embed" class="game-embed" src="game/survival-v80.html?build=state-load-check-v80-20260805" title="Zombiehölle Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <iframe id="game-embed" class="game-embed" src="game/survival-v81.html?build=state-rpc-v81-20260805" title="Zombiehölle Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
             <section class="survival-live-status" aria-live="polite" aria-label="Live-Status der Spielwelt">
                 <span id="live-status-dot" class="live-status-dot"></span>
                 <span id="live-status-label">Spielwelt: Status wird geprueft</span>
@@ -79,7 +79,7 @@
                         <h2 id="changelog-title">AENDERUNGEN - Alpha 0.1.7</h2>
                         
                     </div>
-                    <span id="changelog-counter" class="changelog-cycle">2 / 20 Aenderungen in dieser Version</span>
+                    <span id="changelog-counter" class="changelog-cycle">3 / 20 Aenderungen in dieser Version</span>
                 </div>
 
                 <div class="changelog-current" aria-label="Alle Aenderungen der aktuellen Version">
@@ -88,6 +88,7 @@
                         <small>Alpha 0.1.7</small>
                     </div>
                     <ul id="latest-change-list" class="changelog-list">
+                        <li>Spielstand-Abruf über sicheren Kontodatenbank-Aufruf vorbereitet.</li>
                         <li>Spielstand-Laden abgesichert: Fehler werden ohne Überschreiben des gespeicherten Standes eindeutig ausgewertet.</li>
                         <li>Browser-Start repariert: Die fehlende Clan-Statusvariable ist enthalten; die Webversion wurde vollständig neu exportiert.</li>
                     </ul>
@@ -215,7 +216,7 @@
     const gameEmbed = document.getElementById("game-embed");
     const requestedServer = new URLSearchParams(window.location.search).get("server");
     if (requestedServer) {
-        gameEmbed.src = "game/survival-v80.html?build=state-load-check-v80-20260805&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v81.html?build=state-rpc-v81-20260805&server=" + encodeURIComponent(requestedServer);
     }
     document.getElementById("game-fullscreen").addEventListener("click", () => {
         if (gameEmbed.requestFullscreen) gameEmbed.requestFullscreen();
