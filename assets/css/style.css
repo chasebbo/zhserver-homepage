@@ -2491,3 +2491,19 @@ grid-template-columns:1fr;
 .leaderboard-more summary::after{content:"v";float:right;color:#a7c5ad;font-size:1.12rem;line-height:.8;}
 .leaderboard-more[open] summary{border-bottom:1px solid rgba(151,172,151,.18);background:rgba(84,123,95,.12);}
 .leaderboard-list-more{margin:0;padding:10px;}
+/* Mobile Web-Spielansicht */
+@media(max-width:700px){
+    .game-page{padding-top:84px;}
+    .game-page-title{font-size:clamp(1.75rem,10vw,2.35rem);}
+    .game-intro{padding:0 8px;font-size:.94rem;}
+    .game-section #game-fullscreen{display:none;}
+    .game-embed{
+        width:calc(100vw - 20px);
+        min-height:clamp(410px,72svh,600px);
+        margin:12px auto 0;
+        border-radius:10px;
+    }
+}
+@media(max-width:700px) and (orientation:portrait){
+    .game-embed{min-height:clamp(460px,76svh,620px);}
+}
