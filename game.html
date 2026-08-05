@@ -63,7 +63,7 @@
 
             <button id="game-fullscreen" type="button" class="btn">⛶ Vollbild</button>
             <p class="game-mobile-hint"><strong>Mobile Steuerung aktiv:</strong> Am besten im Querformat spielen. Links laufen, rechts feuern; E durchsucht, INV oeffnet das Inventar.</p>
-            <iframe id="game-embed" class="game-embed" src="game/survival-v52.html" title="Zombiehölle Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <iframe id="game-embed" class="game-embed" src="game/survival-v53.html" title="Zombiehölle Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
             <section class="survival-live-status" aria-live="polite" aria-label="Live-Status der Spielwelt">
                 <span id="live-status-dot" class="live-status-dot"></span>
                 <span id="live-status-label">Spielwelt: Status wird geprueft</span>
@@ -79,7 +79,7 @@
                         <h2 id="changelog-title">Alpha 0.1.5</h2>
                         
                     </div>
-                    <span id="changelog-counter" class="changelog-cycle">3 / 20 Aenderungen bis Alpha 0.1.6</span>
+                    <span id="changelog-counter" class="changelog-cycle">4 / 20 Aenderungen bis Alpha 0.1.6</span>
                 </div>
 
                 <div class="changelog-current" aria-label="Die fuenf neuesten Aenderungen">
@@ -87,12 +87,12 @@
                         <span>LETZTE 5 AENDERUNGEN</span>
                         <small>Alpha 0.1.5</small>
                     </div>
-                                                                                <ul id="latest-change-list" class="changelog-list">
+                                                                                                    <ul id="latest-change-list" class="changelog-list">
+                        <li><strong>Versionsanzeige:</strong> Ingame-Version und Website-Version werden ab jetzt bei jeder Änderung gemeinsam aktualisiert.</li>
                         <li><strong>Kartenaufdeckung:</strong> Jeder Charakter behält seine erkundete Karte nach dem Login; erst der Tod setzt sie zurück.</li>
                         <li><strong>Straßen &amp; Kollision:</strong> keine Straßen durch Gebäude; Fahrzeuge fahren nicht mehr in Häuser.</li>
                         <li><strong>Tankstellen:</strong> funktionierende und leere Zapfsäulen, automatisches Tanken und Benzinkanister an leeren Pumpen.</li>
                         <li><strong>Fahrzeugtank:</strong> hält doppelt so lange; Benzinverbrauch bleibt im Gelände höher.</li>
-                        <li><strong>Wegweiser:</strong> Pfeile zeigen zu Städten, Krankenhaus, Tankstellen und Adminbase.</li>
                     </ul>
                 </div>
 
@@ -193,7 +193,7 @@
     const gameEmbed = document.getElementById("game-embed");
     const requestedServer = new URLSearchParams(window.location.search).get("server");
     if (requestedServer) {
-        gameEmbed.src = "game/survival-v52.html?server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v53.html?server=" + encodeURIComponent(requestedServer);
     }
     document.getElementById("game-fullscreen").addEventListener("click", () => {
         if (gameEmbed.requestFullscreen) gameEmbed.requestFullscreen();
