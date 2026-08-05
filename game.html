@@ -262,6 +262,8 @@
             leaderboardUpdated.textContent = "Aktualisierung folgt";
         }
     }
+    loadLiveStatus();
+    window.setInterval(loadLiveStatus, 30 * 1000);
     loadLeaderboard();
     window.setInterval(loadLeaderboard, 24 * 60 * 60 * 1000);
     const menuToggle = document.getElementById("menu-toggle");
