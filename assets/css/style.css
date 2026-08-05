@@ -2507,3 +2507,8 @@ grid-template-columns:1fr;
 @media(max-width:700px) and (orientation:portrait){
     .game-embed{min-height:clamp(460px,76svh,620px);}
 }
+.game-mobile-hint{display:none;}
+@media(pointer:coarse),(max-width:700px){
+    .game-mobile-hint{display:block;width:min(720px,100%);margin:12px auto 8px;padding:10px 13px;border-left:2px solid rgba(126,186,145,.75);background:rgba(84,121,95,.1);color:#bed1c2;font-size:.82rem;line-height:1.45;text-align:left;}
+    .game-mobile-hint strong{color:#e6efe5;}
+}
