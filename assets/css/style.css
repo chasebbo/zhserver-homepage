@@ -2448,3 +2448,39 @@ grid-template-columns:1fr;
 .live-status-dot.is-offline{background:#b9a36d;box-shadow:0 0 0 3px rgba(185,163,109,.12);}
 .live-status-divider{width:1px;height:15px;background:rgba(151,172,151,.26);}
 @media(max-width:520px){.survival-live-status{align-items:flex-start;flex-wrap:wrap;justify-content:flex-start;gap:6px 9px;font-size:.78rem;}.live-status-divider{display:none;}}
+/* Klar getrennte, aufklappbare Versionskaesten */
+.survival-changelog{padding:13px;background:rgba(20,30,27,.78);}
+.survival-changelog .changelog-summary{padding:10px 10px 16px;}
+.survival-changelog .changelog-details{
+    margin:0 0 9px;
+    overflow:hidden;
+    border:1px solid rgba(151,172,151,.24);
+    border-radius:9px;
+    background:rgba(7,14,12,.28);
+}
+.survival-changelog .changelog-details:last-child{margin-bottom:0;}
+.survival-changelog .changelog-details summary{
+    min-height:48px;
+    padding:0 16px;
+    background:rgba(79,111,87,.12);
+}
+.survival-changelog .changelog-details[open] summary{
+    border-bottom:1px solid rgba(151,172,151,.18);
+    background:rgba(84,123,95,.19);
+}
+.survival-changelog .changelog-details summary::after{
+    content:"⌄";
+    color:#a9c5ae;
+    font-size:1.2rem;
+    line-height:1;
+    transition:transform .18s ease;
+}
+.survival-changelog .changelog-details[open] summary::after{transform:rotate(180deg);}
+.survival-changelog .changelog-hint{margin-left:auto;margin-right:7px;}
+.survival-changelog .changelog-list{padding:16px 19px 18px 37px;}
+.survival-changelog .changelog-archive{padding:16px 18px 18px;}
+@media(max-width:700px){
+    .survival-changelog{padding:10px;}
+    .survival-changelog .changelog-details summary{padding:0 13px;}
+    .survival-changelog .changelog-list{padding:14px 14px 16px 30px;}
+}

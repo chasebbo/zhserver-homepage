@@ -212,93 +212,38 @@ backToTop.addEventListener("click", () => {
 
 const todayVisitors = document.querySelector("#today-visitors");
 const totalVisitors = document.querySelector("#total-visitors");
-
 const VISITOR_KEY = "zhserver_last_visit";
 
-async function loadVisitorStats() {
-
-    const response = await fetch(
-        `${SUPABASE_URL}/rest/v1/visitor_stats?id=eq.1`,
-        {
-            headers: {
-                "apikey": SUPABASE_KEY,
-                "Authorization": `Bearer ${SUPABASE_KEY}`
-            }
-        }
-    );
-
+async function callVisitorStats(functionName) {
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${functionName}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "apikey": SUPABASE_KEY
+        },
+        body: "{}"
+    });
     if (!response.ok) return null;
-
     const data = await response.json();
-
-    if (!data.length) return null;
-
-    return data[0];
+    return Array.isArray(data) && data.length ? data[0] : null;
 }
 
-async function updateVisitorDisplay() {
-
-    const stats = await loadVisitorStats();
-
-    if (!stats) return;
-
-    todayVisitors.textContent = Number(stats.today_visitors).toLocaleString("de-DE");
-    totalVisitors.textContent = Number(stats.total_visitors).toLocaleString("de-DE");
+function renderVisitorStats(stats) {
+    if (!stats || !todayVisitors || !totalVisitors) return;
+    todayVisitors.textContent = Number(stats.today_visitors || 0).toLocaleString("de-DE");
+    totalVisitors.textContent = Number(stats.total_visitors || 0).toLocaleString("de-DE");
 }
 
 async function registerVisitor() {
-
-    const lastVisit = localStorage.getItem(VISITOR_KEY);
-
-    if (lastVisit) {
-
-        const diff = Date.now() - Number(lastVisit);
-
-        if (diff < 24 * 60 * 60 * 1000) {
-            await updateVisitorDisplay();
-            return;
-        }
-    }
-
-    let stats = await loadVisitorStats();
-
+    const lastVisit = Number(localStorage.getItem(VISITOR_KEY) || 0);
+    const isNewDailyVisit = !lastVisit || Date.now() - lastVisit >= 24 * 60 * 60 * 1000;
+    const stats = await callVisitorStats(isNewDailyVisit ? "register_visitor" : "get_visitor_stats");
     if (!stats) return;
-
-    const today = new Date().toISOString().split("T")[0];
-
-    let todayVisitorsCount = Number(stats.today_visitors);
-
-    if (stats.today_date !== today) {
-        todayVisitorsCount = 0;
-    }
-
-    const body = {
-        total_visitors: Number(stats.total_visitors) + 1,
-        today_visitors: todayVisitorsCount + 1,
-        today_date: today
-    };
-
-    await fetch(
-        `${SUPABASE_URL}/rest/v1/visitor_stats?id=eq.1`,
-        {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-                "apikey": SUPABASE_KEY,
-                "Authorization": `Bearer ${SUPABASE_KEY}`
-            },
-            body: JSON.stringify(body)
-        }
-    );
-
-    localStorage.setItem(VISITOR_KEY, Date.now());
-
-    await updateVisitorDisplay();
+    if (isNewDailyVisit) localStorage.setItem(VISITOR_KEY, String(Date.now()));
+    renderVisitorStats(stats);
 }
 
-if (todayVisitors && totalVisitors) {
-    registerVisitor();
-}
+if (todayVisitors && totalVisitors) registerVisitor();
 // ==============================
 // Neueste Community Screenshots
 // ==============================
