@@ -63,7 +63,7 @@
 
             <button id="game-fullscreen" type="button" class="btn">⛶ Vollbild</button>
             <p class="game-mobile-hint"><strong>Mobile Steuerung aktiv:</strong> Am besten im Querformat spielen. Links laufen, rechts feuern; E durchsucht, INV oeffnet das Inventar.</p>
-            <iframe id="game-embed" class="game-embed" src="game/survival-v64.html" title="Zombiehölle Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <iframe id="game-embed" class="game-embed" src="game/survival-v65.html" title="Zombiehölle Survival" allow="autoplay; fullscreen" allowfullscreen></iframe>
             <section class="survival-live-status" aria-live="polite" aria-label="Live-Status der Spielwelt">
                 <span id="live-status-dot" class="live-status-dot"></span>
                 <span id="live-status-label">Spielwelt: Status wird geprueft</span>
@@ -79,7 +79,7 @@
                         <h2 id="changelog-title">AENDERUNGEN - Alpha 0.1.6</h2>
                         
                     </div>
-                    <span id="changelog-counter" class="changelog-cycle">5 / 20 Aenderungen in dieser Version</span>
+                    <span id="changelog-counter" class="changelog-cycle">6 / 20 Aenderungen in dieser Version</span>
                 </div>
 
                 <div class="changelog-current" aria-label="Alle Aenderungen der aktuellen Version">
@@ -96,6 +96,7 @@
                         <li>Ausrüstungs-Inventar erweitert: feste Slots fuer Primaerwaffe, Sekundaerwaffe, Werkzeug, Rucksack und Weste sowie sechs Schnellslots.</li>
                     
                         <li>Datenbank-Laden abgesichert: Konto-Fortschritt und Kartenaufdeckung werden erst nach erfolgreicher Antwort gespeichert und nicht mehr durch Gast- oder Leerstaende überschrieben.</li>
+                        <li><strong>Online-Spielerzahl:</strong> eingeloggte Spieler senden nun wieder einen sicheren Präsenz-Heartbeat, damit die Website aktive Spieler zählen kann.</li>
                     </ul>
                 </div>
 
@@ -196,7 +197,7 @@
     const gameEmbed = document.getElementById("game-embed");
     const requestedServer = new URLSearchParams(window.location.search).get("server");
     if (requestedServer) {
-        gameEmbed.src = "game/survival-v64.html?server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v65.html?server=" + encodeURIComponent(requestedServer);
     }
     document.getElementById("game-fullscreen").addEventListener("click", () => {
         if (gameEmbed.requestFullscreen) gameEmbed.requestFullscreen();
