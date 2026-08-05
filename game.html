@@ -71,36 +71,61 @@
                 <span id="live-player-count">Spieler online: --</span>
             </section>
 
-            <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen wird die Versionsnummer erhoeht und dieser Bereich aktualisiert. -->
+            <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
                 <div class="changelog-summary">
                     <div>
                         <span class="changelog-kicker">ENTWICKLUNGSSTAND</span>
                         <h2 id="changelog-title">Alpha 0.1.4</h2>
-                        <p>Letzte Aktualisierung: Basenbau, Safe Zone und Spielwelt.</p>
+                        <p>20 dokumentierte Aenderungen: Welt, Multiplayer, Handel und Charaktere wurden erweitert.</p>
                     </div>
                     <span id="changelog-counter" class="changelog-cycle">0 / 20 Aenderungen bis Alpha 0.1.5</span>
                 </div>
 
-                <details class="changelog-details" open>
-                    <summary><span>Letzte Aenderungen</span><span class="changelog-hint">Einklappen</span></summary>
+                <div class="changelog-current" aria-label="Die fuenf neuesten Aenderungen">
+                    <div class="changelog-current-heading">
+                        <span>LETZTE 5 AENDERUNGEN</span>
+                        <small>Alpha 0.1.4</small>
+                    </div>
                     <ul class="changelog-list">
-                        <li><strong>Basisflagge:</strong> geschuetzter Basisradius und langfristige Aktivitaet fuer gebaute Basen.</li>
-                        <li><strong>Modularer Bau:</strong> Holz-, Stein- und Metallteile, Tueren, Tore und Garagentore.</li>
-                        <li><strong>Basisobjekte:</strong> Lager, Werkbaenke, Wasser- und Versorgungsobjekte wurden vorbereitet.</li>
-                        <li><strong>Spielwelt:</strong> grosse Staedte, Adminbase, Safe Zone, Fahrzeuge und neue Loot-Orte erweitert.</li>
+                        <li><strong>Charakterfarben:</strong> Weste, Hose, Rucksack und Helm nutzen nun sichtbar den gewaehlten Stil.</li>
+                        <li><strong>Charakterauswahl:</strong> Waldgruen, Nachtschwarz, Dunkelrot, Sandgelb oder Blau direkt vor dem Start waehlen.</li>
+                        <li><strong>Handelsplatz:</strong> Rucksaecke, Westen und Helme kaufen sowie Kleidung und Ausruestung verkaufen.</li>
+                        <li><strong>Mobile Steuerung:</strong> virtueller Stick zum Laufen; nur der FIRE-Kreis rechts schiesst.</li>
+                        <li><strong>Safe Zone:</strong> Wachen feuern auf Zombies, loesen bei Horden Alarm aus und bekommen Verstaerkung.</li>
+                    </ul>
+                </div>
+
+                <details class="changelog-details">
+                    <summary><span>Weitere 15 Aenderungen in Alpha 0.1.4</span><span class="changelog-hint">Aufklappen</span></summary>
+                    <ul class="changelog-list">
+                        <li><strong>Erzadern:</strong> selten, farblich markiert und nur im offenen Gelaende ausserhalb von Gebaeuden und Zonen.</li>
+                        <li><strong>Loot &amp; Rohstoffe:</strong> Spitzhacke, Angel, Fischfang sowie Kupfer, Silber und Gold hinzugefuegt.</li>
+                        <li><strong>Welt-Events:</strong> Konvois, Forschungsstationen, Horden, Banditenlager und Abwuerfe erscheinen kartenweit.</li>
+                        <li><strong>Fahrzeuge:</strong> dynamische Spawnpunkte nahe Strassen statt immer gleicher Standorte.</li>
+                        <li><strong>Ausruestung:</strong> neue Rucksaecke, Jacken, Hosen, Stiefel und Helme als Loot.</li>
+                        <li><strong>Spielwelt:</strong> Baumdichte reduziert, Sicht verbessert und Sektor-Update fuer grosse Karte optimiert.</li>
+                        <li><strong>Login:</strong> Zombiehoelle Survival einheitlich im Login, Fenstertitel und Ladebild.</li>
+                        <li><strong>Fortschritt:</strong> Ingame-Logout und lokaler Spielstand fuer Charakterstil ergaenzt.</li>
+                        <li><strong>Mobile:</strong> Erkennung, Hinweis und Bedienelemente fuer Browser auf dem Handy vorbereitet.</li>
+                        <li><strong>Basen:</strong> Basisflagge, geschuetzter Radius und langfristige Basisaktivitaet.</li>
+                        <li><strong>Bauen:</strong> Holz-, Stein- und Metallteile, Tueren, Tore und Garagentore erweitert.</li>
+                        <li><strong>Versorgung:</strong> Lager, Werkbaenke, Wasser- und Versorgungsobjekte vorbereitet.</li>
+                        <li><strong>Adminbase:</strong> Safe Zone, Wachen, Haendler und Fahrzeugbereich ausgebaut.</li>
+                        <li><strong>Stabilitaet:</strong> mehrere Parser- und Eingabefehler in Loot, Haendler und Wachen korrigiert.</li>
+                        <li><strong>Online:</strong> Browser-Export, Live-Spielseite und Mehrspieler-Grundlage weitergefuehrt.</li>
                     </ul>
                 </details>
 
                 <details class="changelog-details">
-                    <summary><span>Fruehere Alpha-Aenderungen</span><span class="changelog-hint">Archiv</span></summary>
+                    <summary><span>Fruehere Versionen</span><span class="changelog-hint">Archiv</span></summary>
                     <div class="changelog-archive">
-                        <strong>Alpha 0.1.4</strong>
-                        <span>Login, gespeicherte Profile, Gruppen, Chat, Rangliste und Multiplayer-Grundlage.</span>
+                        <article><strong>Alpha 0.1.3</strong><span>Erste grosse Online-Spielwelt: Staedte, Spawnpunkte, Karte, Gruppen, Chat, Inventar und persistente Profile.</span></article>
+                        <article><strong>Alpha 0.1.2</strong><span>Grundlagen fuer Survival: Leben, Hunger, Wasser, Loot, Zombies, Waffen, Bauen und Fahrzeuge.</span></article>
+                        <article><strong>Alpha 0.1.1</strong><span>Erster spielbarer Prototyp mit Chernarus-inspirierter Draufsicht und lokaler Spielwelt.</span></article>
                     </div>
                 </details>
-            </section>
-            <section class="survival-leaderboard" aria-labelledby="leaderboard-title">
+            </section>            <section class="survival-leaderboard" aria-labelledby="leaderboard-title">
                 <div class="leaderboard-heading">
                     <div>
                         <span class="section-title">REGISTRIERTE SPIELER</span>
