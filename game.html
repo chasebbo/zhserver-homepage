@@ -88,24 +88,24 @@
                         <small>Alpha 0.1.7</small>
                     </div>
                     <ul id="latest-change-list" class="changelog-list">
-                        <li>Loot: 56 serverautorit&auml;re Lootpunkte in St&auml;dten, POIs und wichtigen Weltbereichen.</li>
-                        <li>Loot: Best&auml;tigte Funde zeigen nun direkt eine schwebende Meldung wie + 1 Wasser oder + 8 9mm Munition.</li>
-                        <li>Bauen: Materialstatus im Baumen&uuml; pr&uuml;ft alle Anforderungen; einzelne Materialzeilen zeigen ausreichend oder fehlt korrekt.</li>
-                        <li>Bauen: N&auml;gel verwenden intern eine einheitliche ID; alte gespeicherte Varianten werden beim Laden zusammengef&uuml;hrt.</li>
-                        <li>Bauen: Platzierung und Serverablehnungen pr&uuml;fen Basisrechte sowie den zul&auml;ssigen Baubereich.</li>
-                        <li>Loot-Synchronisierung: Dedicated-Server-Snapshots kommen beim Join zuverlaessig an.</li>
-                        <li>Startstaedte: Neue serverseitige Lootkisten nahe Nord, Ost, Sued und West.</li>
-                        <li>Basen: Baubereich kann dauerhaft dezent angezeigt und gezielt hervorgehoben werden.</li>
-                        <li>UI: Basisgrenze, Menue- und Hilfetexte weiter stabilisiert.</li>
-                        <li>Online-Spielstand stabilisiert: kompatibler Save ohne Datenbank-400, Save-Warteschlange und sicherer Logout.</li>
+                        <li>Deutlich mehr Lootkisten auf der gesamten Karte verteilt.</li>
+                        <li>Beim Aufheben von Gegenst&auml;nden wird jetzt direkt angezeigt, was du erhalten hast.</li>
+                        <li>Das Baumen&uuml; zeigt korrekt an, welche Geb&auml;ude du mit deinen vorhandenen Materialien bauen kannst.</li>
+                        <li>Probleme mit N&auml;geln als Baumaterial wurden behoben. Bereits vorhandene N&auml;gel werden weiterhin korrekt erkannt.</li>
+                        <li>Beim Bauen wird jetzt verst&auml;ndlich angezeigt, warum eine Platzierung nicht m&ouml;glich ist.</li>
+                        <li>Lootkisten werden beim Betreten der Welt jetzt zuverl&auml;ssiger geladen.</li>
+                        <li>In den vier Startst&auml;dten findest du jetzt mehr Lootkisten.</li>
+                        <li>Dein gesch&uuml;tzter Baubereich ist an der Basis jetzt besser erkennbar.</li>
+                        <li>Hilfetexte und Basisanzeigen wurden klarer und zuverl&auml;ssiger gemacht.</li>
+                        <li>Dein Fortschritt wird beim Spielen und Abmelden zuverl&auml;ssiger gespeichert.</li>
                         <li>Mobil: Feuerbutton feuert Einzelschusswaffen und liegt nicht mehr über der Karte.</li>
                         <li>Mobil: Abmelden reagiert direkt auf Berührung.</li>
                         <li>Inventar: eigenständige Slots für Helm, Oberteil und Hose ergänzt.</li>
-                        <li>Supabase-Webantworten: Komprimierung abgeschaltet, damit Spielstände im Browser korrekt als JSON geladen werden.</li>
-                        <li>Spielstand-Antwort im Browser: JSON-Rückgabe wird jetzt ausdrücklich angefordert und sicher verarbeitet.</li>
-                        <li>Spielstand-Abruf über sicheren Kontodatenbank-Aufruf vorbereitet.</li>
-                        <li>Spielstand-Laden abgesichert: Fehler werden ohne Überschreiben des gespeicherten Standes eindeutig ausgewertet.</li>
-                        <li>Browser-Start repariert: Die fehlende Clan-Statusvariable ist enthalten; die Webversion wurde vollständig neu exportiert.</li>
+                        <li>Spielstände werden im Browser zuverlässiger geladen.</li>
+                        <li>Der zuletzt gespeicherte Fortschritt wird beim Anmelden genauer wiederhergestellt.</li>
+                        <li>Dein Konto-Fortschritt wird beim Anmelden besser geschützt geladen.</li>
+                        <li>Ein Ladefehler kann deinen bereits gespeicherten Fortschritt nicht mehr versehentlich ersetzen.</li>
+                        <li>Der Spielstart im Browser wurde weiter stabilisiert.</li>
                     </ul>
                 </div>
 
@@ -113,7 +113,7 @@
                     <details class="changelog-details">
                         <summary><span>Alpha 0.1.6 - vollstaendiges Protokoll: 20 Aenderungen</span><span class="changelog-hint">Aufklappen</span></summary>
                         <ul class="changelog-list"><li><strong>Gastmodus:</strong> Gäste starten unabhängig und übernehmen weder Kartenaufdeckung noch Fortschritt eines vorherigen Kontos.</li>
-                        <li><strong>Spielstand:</strong> Datenbank-Laden und automatisches Speichern sind getrennt; eine erfolgreiche Speicherung zeigt nicht mehr fälschlich einen Ladefehler.</li>
+                        <li><strong>Spielstand:</strong> Speichern und Laden zeigen jetzt klarer an, ob dein Fortschritt sicher übernommen wurde.</li>
                         <li><strong>Prestige-Seite:</strong> Mit P siehst du Rang, dauerhafte Punkte und erreichte oder gesperrte Meilensteine.</li>
                         <li><strong>Ausrüstungs-Inventar:</strong> Figur und Ausrüstungsübersicht links, Inventar mit Drag-&amp;-Drop rechts.</li>
                         <li><strong>Fahrzeuge:</strong> Beim Einsteigen wird das Fahrzeug sichtbar übernommen, fährt mit dir und bleibt am Ausstiegsort stehen.</li>
@@ -123,13 +123,13 @@
                     
                         <li>Ausrüstungs-Inventar erweitert: feste Slots fuer Primaerwaffe, Sekundaerwaffe, Werkzeug, Rucksack und Weste sowie sechs Schnellslots.</li>
                     
-                        <li>Datenbank-Laden abgesichert: Konto-Fortschritt und Kartenaufdeckung werden erst nach erfolgreicher Antwort gespeichert und nicht mehr durch Gast- oder Leerstaende überschrieben.</li>
-                        <li><strong>Online-Spielerzahl:</strong> eingeloggte Spieler senden nun wieder einen sicheren Präsenz-Heartbeat, damit die Website aktive Spieler zählen kann.</li>
+                        <li>Dein Konto-Fortschritt und deine Kartenaufdeckung bleiben beim Anmelden besser erhalten.</li>
+                        <li><strong>Online-Spielerzahl:</strong> Die Website zeigt aktive Spieler jetzt zuverlässiger an.</li>
                         <li><strong>Mobile Steuerung:</strong> Eigene Tasten fuer Waffenwechsel, Bauen, Prestige, Hilfe, Gruppe und Karte; Touches im Baumenue loesen keinen Schuss mehr aus.</li>
                         <li><strong>Karte wiederhergestellt:</strong> Karte ist erneut seltener Zufallsloot; bestehende Charaktere erhalten sie beim Laden zurueck.</li>
-                        <li><strong>Kontoschutz:</strong> Ein hoeherer lokaler Punkte-Backupstand wird bei Datenbankwert 0 einmalig wiederhergestellt und sofort gesichert.</li>
-                        <li><strong>Kontoladen:</strong> Die Welt startet erst nach dem vollstaendigen Laden des Datenbank-Spielstands; Profilpunkte koennen den Spielstand nicht mehr ueberschreiben.</li>
-                        <li><strong>Fortschrittsspeicher:</strong> Jedes Konto speichert Punkte, Inventar und Position alle 15 Sekunden sowie sofort beim Abmelden.</li>
+                        <li><strong>Kontoschutz:</strong> Bereits erreichte Punkte werden beim Laden besser vor Verlust gesch&uuml;tzt.</li>
+                        <li><strong>Kontoladen:</strong> Du startest erst, wenn dein gespeicherter Charakterstand vollst&auml;ndig bereit ist.</li>
+                        <li><strong>Fortschrittsspeicher:</strong> Punkte, Inventar und Position werden regelm&auml;&szlig;ig und beim Abmelden gespeichert.</li>
                         <li><strong>Mobile Menues:</strong> Ein sichtbarer X-Zu-Knopf schliesst Inventar, Gruppe, Handel, Lager, Bauen und Prestige am Handy.</li>
                         <li><strong>Spieleridentitaet:</strong> Der Prestige-Rang steht nun direkt vor dem eigenen Namen im HUD und in der Gruppenliste.</li>
                         <li><strong>Steuerungsfix:</strong> Der Bauen-Tastaturblock wurde repariert; Desktop und Mobile laufen wieder getrennt.</li>
@@ -151,7 +151,7 @@
                             <li>Holz-, Stein- und Metallteile, Tueren, Tore und Garagentore erweitert.</li>
                             <li>Lager, Werkbaenke, Wasser- und Versorgungsobjekte vorbereitet.</li>
                             <li>Adminbase mit Safe Zone, Wachen, Haendlern und Fahrzeugbereich ausgebaut.</li>
-                            <li>Browser-Export, Live-Spielseite und Mehrspieler-Grundlage erweitert.</li>
+                            <li>Die Browser-Version und das gemeinsame Spielen wurden weiter verbessert.</li>
                             <li>Gemeinsame Weltzeit und Loot-Reset alle fuenf Minuten.</li>
                             <li>Neue Spieler starten mit Karte und Minikarte.</li>
                             <li>Spawn-Hinweis zur lootfreien Adminbase ergaenzt.</li>
@@ -178,8 +178,8 @@
                             <li>Karte, Kompass, Erkundung und markierte Adminbase.</li>
                             <li>Gruppen, Clans, Einladungen und Gruppenanzeige.</li>
                             <li>Ingame-Chat und Anzeige fuer Online-Spieler.</li>
-                            <li>Supabase-Profile und persistenter Fortschritt vorbereitet.</li>
-                            <li>Web-Export und Einbindung auf der ZH-Game-Seite.</li>
+                            <li>Konten und gespeicherter Fortschritt wurden vorbereitet.</li>
+                            <li>Das Spiel kann direkt auf der ZH-Game-Seite im Browser gestartet werden.</li>
                             <li>Spawnstaedte mit Krankenhaus, Tankstelle, Werkstatt und Fahrzeugen.</li>
                             <li>Adminbase mit Checkpoint, Wachtuermen, Haendlern und Schutzbereich.</li>
                             <li>Grundlegende mobile Steuerung und Vollbildmodus vorbereitet.</li>
