@@ -129,8 +129,8 @@ body{
 .hero{
     position:relative;
     min-height:100vh;
-    display:flex;
-    align-items:center;
+    height:auto;
+    padding:142px 0 56px;
     background:
         linear-gradient(rgba(8,10,14,.25),rgba(8,10,14,.65),#0f141b),
         url("../images/hero.png") center right/cover no-repeat;
@@ -202,16 +202,14 @@ body{
 }
 
 .scroll-indicator{
-    position:absolute;
-    left:50%;
-    bottom:20px;
-    transform:translateX(-50%);
+    position:static;
     display:flex;
     flex-direction:column;
     align-items:center;
     gap:10px;
+    width:fit-content;
+    margin:34px auto 0;
     color:#c8d0d7;
-    z-index:2;
 }
 
 @media(max-width:900px){
@@ -410,14 +408,18 @@ body{
     background-position:70% center;
 }
 
+.hero{
+    padding:0 0 52px;
+}
+
 .hero-container{
-    padding-top:100px;
-    padding-bottom:80px;
+    padding-top:52px;
+    padding-bottom:0;
 }
 
 .hero h1{
     font-size:3rem;
-}S
+}
 }
 .history-grid{
 display:grid;
@@ -2520,3 +2522,380 @@ grid-template-columns:1fr;
 .changelog-archive article{display:grid;gap:5px;padding:12px 0;border-bottom:1px solid rgba(151,172,151,.14);}
 .changelog-archive article:last-child{padding-bottom:0;border-bottom:0;}
 @media(max-width:700px){.changelog-current-heading{padding:12px 13px;font-size:.72rem;}.changelog-current .changelog-list{padding-top:12px;}}
+/* Primary Zombiehoelle Survival entry point */
+.survival-hero-cta{
+    margin-top:28px;
+    max-width:590px;
+    padding:24px 26px 20px;
+    border:1px solid rgba(212,175,55,.52);
+    border-radius:14px;
+    background:linear-gradient(135deg,rgba(20,18,15,.88),rgba(28,23,17,.74));
+    box-shadow:0 18px 38px rgba(0,0,0,.26), inset 0 1px 0 rgba(255,229,172,.08);
+}
+.survival-cta-header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.survival-cta-kicker{color:#f2c36b;font-size:.75rem;font-weight:700;letter-spacing:.18em}
+.survival-cta-badge{padding:6px 9px;border:1px solid rgba(132,196,141,.55);border-radius:999px;color:#bce5c0;background:rgba(43,91,57,.32);font-size:.68rem;font-weight:700;letter-spacing:.09em}
+.survival-hero-cta h2{margin:15px 0 9px;font-family:"Cinzel",serif;color:#f8f0df;font-size:clamp(1.35rem,2.5vw,1.9rem)}
+.survival-hero-cta p{margin:0 0 17px;color:#d0c9bd;font-size:1rem;line-height:1.6}
+.survival-play-button{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px 20px;border-radius:8px;background:linear-gradient(135deg,#d6a74e,#f0cf83);color:#17130e;font-weight:800;letter-spacing:.08em;text-decoration:none;box-shadow:0 8px 18px rgba(0,0,0,.24);transition:transform .2s ease,box-shadow .2s ease}
+.survival-play-button:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.34)}
+.survival-cta-features{display:flex;flex-wrap:wrap;gap:8px 14px;margin:17px 0 0;padding:0;list-style:none;color:#b7c7b4;font-size:.77rem;text-transform:uppercase;letter-spacing:.06em}
+.survival-cta-features li::before{content:"•";margin-right:6px;color:#d6ad5f}
+@media (max-width:700px){.survival-hero-cta{padding:20px;margin-top:22px}.survival-cta-header{align-items:flex-start;flex-direction:column;gap:8px}.survival-cta-features{gap:8px 12px}.survival-play-button{padding:16px}}
+/* Homepage content polish: keeps the existing ZHServer survival identity. */
+.section{
+    position:relative;
+    padding:clamp(82px,9vw,124px) 0;
+}
+
+.section + .section{
+    border-top:1px solid rgba(212,175,55,.12);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.section > .container > .section-title{
+    display:block;
+    margin-bottom:12px;
+    color:#dfbc61;
+    font-size:.74rem;
+    font-weight:700;
+    letter-spacing:.22em;
+}
+
+.section > .container > h2{
+    max-width:22ch;
+    margin:0 0 20px;
+    line-height:1.17;
+}
+
+.section > .container > p{
+    max-width:68ch;
+    color:#c5ced7;
+    line-height:1.85;
+}
+
+.card,
+.history-card,
+.timeline-content,
+.gallery-card,
+.guestbook-box,
+.guestbook-card,
+.forum-card,
+.support-box{
+    border-color:rgba(212,175,55,.24);
+    background:linear-gradient(145deg,rgba(28,35,43,.78),rgba(16,22,29,.78));
+    box-shadow:0 16px 36px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.card,
+.history-card,
+.timeline-content,
+.gallery-card,
+.guestbook-box,
+.guestbook-card,
+.forum-card{
+    border-radius:16px;
+}
+
+.card:hover,
+.history-card:hover,
+.timeline-content:hover,
+.gallery-card:hover,
+.guestbook-card:hover,
+.forum-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(221,184,93,.56);
+    box-shadow:0 22px 42px rgba(0,0,0,.28),0 0 0 1px rgba(212,175,55,.08);
+}
+
+.cards,
+.stats-grid,
+.gallery-grid{
+    gap:24px;
+}
+
+.history-grid{
+    gap:clamp(34px,6vw,72px);
+    align-items:start;
+}
+
+.history-left p{
+    max-width:66ch;
+    margin:0;
+    font-size:1.04rem;
+    line-height:1.9;
+}
+
+.history-card{
+    padding:32px;
+    backdrop-filter:none;
+}
+
+.history-card h3{
+    margin-bottom:25px;
+}
+
+.history-info{
+    gap:17px;
+}
+
+.history-info div{
+    padding-bottom:15px;
+    border-bottom-color:rgba(212,175,55,.13);
+}
+
+.timeline-new{
+    max-width:1060px;
+    margin:54px auto 0;
+}
+
+.timeline-new::before{
+    width:1px;
+    background:linear-gradient(to bottom,transparent,rgba(212,175,55,.62) 8%,rgba(212,175,55,.62) 92%,transparent);
+}
+
+.timeline-entry{
+    margin-bottom:48px;
+}
+
+.timeline-year{
+    padding-right:20px;
+    font-size:clamp(1.8rem,3.2vw,2.65rem);
+    letter-spacing:.04em;
+}
+
+.timeline-dot{
+    width:14px;
+    height:14px;
+    border:3px solid #17202a;
+    box-shadow:0 0 0 3px rgba(212,175,55,.22),0 0 18px rgba(212,175,55,.32);
+}
+
+.timeline-content{
+    padding:25px 28px;
+    transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+
+.timeline-content h3{
+    margin-bottom:10px;
+    color:#f3ead6;
+}
+
+.timeline-content p{
+    max-width:56ch;
+}
+
+.gallery-grid{
+    grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));
+    margin-top:42px;
+}
+
+.gallery-card{
+    border-color:rgba(212,175,55,.22);
+    transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+
+.gallery-card img,
+.gallery-image{
+    height:auto;
+    aspect-ratio:16 / 10;
+}
+
+.gallery-card img,
+.gallery-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.gallery-info{
+    padding:22px 24px 24px;
+}
+
+.gallery-info span,
+.gallery-placeholder span{
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.16em;
+}
+
+.gallery-info h3,
+.gallery-placeholder h3{
+    margin:11px 0 9px;
+}
+
+.guestbook-box{
+    max-width:780px;
+    margin-top:34px;
+    padding:30px;
+}
+
+.guestbook-box input,
+.guestbook-box textarea{
+    border-color:rgba(212,175,55,.2);
+    border-radius:9px;
+    background:rgba(7,12,17,.58);
+}
+
+.guestbook-box input:focus,
+.guestbook-box textarea:focus{
+    outline:none;
+    border-color:rgba(222,184,91,.82);
+    box-shadow:0 0 0 3px rgba(212,175,55,.12);
+}
+
+.guestbook-entries{
+    max-width:780px;
+    gap:16px;
+}
+
+.guestbook-card{
+    padding:22px 25px;
+    border:1px solid rgba(212,175,55,.18);
+    border-left:3px solid #c9a227;
+    transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+
+.guestbook-card h3{
+    margin:7px 0 5px;
+    color:#f2e7ce;
+}
+
+.guestbook-card small,
+.guestbook-card span{
+    color:#aeb8c4;
+}
+
+.forum-section{
+    padding-top:clamp(72px,8vw,104px);
+    padding-bottom:clamp(82px,9vw,124px);
+}
+
+.forum-card{
+    gap:30px;
+    padding:34px 38px;
+    transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+
+.forum-icon{
+    width:62px;
+    height:62px;
+    background:rgba(212,175,55,.06);
+}
+
+.forum-copy h2{
+    max-width:none;
+    line-height:1.25;
+}
+
+.community-links{
+    padding-top:4px;
+}
+
+.btn-outline{
+    background:rgba(13,20,27,.5);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.btn-outline:hover{
+    border-color:rgba(229,193,100,.82);
+    background:rgba(212,175,55,.14);
+    box-shadow:0 10px 22px rgba(0,0,0,.2);
+}
+
+.btn:focus-visible,
+.gallery-card a:focus-visible,
+.community-links a:focus-visible{
+    outline:2px solid #e5bd63;
+    outline-offset:3px;
+}
+
+@media(max-width:800px){
+    .section{
+        padding:72px 0;
+    }
+
+    .section > .container > h2{
+        max-width:24ch;
+    }
+
+    .timeline-new{
+        margin-top:38px;
+    }
+
+    .timeline-new::before{
+        left:9px;
+    }
+
+    .timeline-entry{
+        grid-template-columns:34px minmax(0,1fr);
+        gap:0 10px;
+        margin-bottom:32px;
+    }
+
+    .timeline-year{
+        padding-right:0;
+        margin-bottom:9px;
+        font-size:1.65rem;
+    }
+
+    .timeline-content{
+        padding:20px;
+    }
+
+    .guestbook-box,
+    .guestbook-card,
+    .forum-card{
+        padding:22px;
+    }
+
+    .forum-card{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+}
+
+@media(max-width:520px){
+    .section{
+        padding:58px 0;
+    }
+
+    .section > .container > .section-title{
+        font-size:.68rem;
+        letter-spacing:.17em;
+    }
+
+    .section > .container > h2{
+        max-width:none;
+        font-size:clamp(1.85rem,9vw,2.45rem);
+    }
+
+    .history-card,
+    .guestbook-box,
+    .guestbook-card,
+    .forum-card{
+        padding:19px;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .btn{
+        min-height:48px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    .card,
+    .history-card,
+    .timeline-content,
+    .gallery-card,
+    .guestbook-card,
+    .forum-card,
+    .gallery-card img,
+    .gallery-image img{
+        transition:none;
+    }
+}

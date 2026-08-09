@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Spiele das ZH Game der ZHServer Community.">
-    <title>ZH Game | ZHServer Community</title>
+    <title>Zombiehoelle Survival | ZHServer Community</title>
 
-    <link rel="stylesheet" href="assets/css/style.css?v=game-calm-2">
+    <link rel="stylesheet" href="assets/css/style.css?v=survival-release-v86">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@
                 <li><a href="index.html#timeline">Timeline</a></li>
                 <li><a href="gallery.html">Galerie</a></li>
                 <li><a href="gallery.html#upload">Bilder hochladen</a></li>
-                <li><a href="game.html" class="nav-game-link" aria-current="page">ZH Game spielen</a></li>
+                <li><a href="game.html" class="nav-game-link" aria-current="page">SPIELEN</a></li>
                 <li><a href="index.html#guestbook">Gästebuch</a></li>
                 <li><a href="index.html#forum">Community</a></li>
             </ul>
@@ -63,7 +63,7 @@
 
             <button id="game-fullscreen" type="button" class="btn">⛶ Vollbild</button>
             <p class="game-mobile-hint"><strong>Mobile Steuerung aktiv:</strong> Am besten im Querformat spielen. Links laufen, rechts feuern; E durchsucht, INV oeffnet das Inventar.</p>
-            <iframe id="game-embed" class="game-embed" src="game/survival-v85.html?build=save-stability-v85-20260807" title="Zombiehölle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="game-embed" class="game-embed" src="game/survival-v86.html?build=alpha-0-1-7-v86-20260809" title="Zombiehölle Survival" allow="autoplay; fullscreen"></iframe>
             <section class="survival-live-status" aria-live="polite" aria-label="Live-Status der Spielwelt">
                 <span id="live-status-dot" class="live-status-dot"></span>
                 <span id="live-status-label">Spielwelt: Status wird geprueft</span>
@@ -79,7 +79,7 @@
                         <h2 id="changelog-title">AENDERUNGEN - Alpha 0.1.7</h2>
                         
                     </div>
-                    <span id="changelog-counter" class="changelog-cycle">9 / 20 Aenderungen in dieser Version</span>
+                    <span id="changelog-counter" class="changelog-cycle">13 / 20 Aenderungen in dieser Version</span>
                 </div>
 
                 <div class="changelog-current" aria-label="Alle Aenderungen der aktuellen Version">
@@ -88,6 +88,10 @@
                         <small>Alpha 0.1.7</small>
                     </div>
                     <ul id="latest-change-list" class="changelog-list">
+                        <li>Loot-Synchronisierung: Dedicated-Server-Snapshots kommen beim Join zuverlaessig an.</li>
+                        <li>Startstaedte: Neue serverseitige Lootkisten nahe Nord, Ost, Sued und West.</li>
+                        <li>Basen: Baubereich kann dauerhaft dezent angezeigt und gezielt hervorgehoben werden.</li>
+                        <li>UI: Basisgrenze, Menue- und Hilfetexte weiter stabilisiert.</li>
                         <li>Online-Spielstand stabilisiert: kompatibler Save ohne Datenbank-400, Save-Warteschlange und sicherer Logout.</li>
                         <li>Mobil: Feuerbutton feuert Einzelschusswaffen und liegt nicht mehr über der Karte.</li>
                         <li>Mobil: Abmelden reagiert direkt auf Berührung.</li>
@@ -222,7 +226,7 @@
     const gameEmbed = document.getElementById("game-embed");
     const requestedServer = new URLSearchParams(window.location.search).get("server");
     if (requestedServer) {
-        gameEmbed.src = "game/survival-v85.html?build=save-stability-v85-20260807&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v86.html?build=alpha-0-1-7-v86-20260809&server=" + encodeURIComponent(requestedServer);
     }
     document.getElementById("game-fullscreen").addEventListener("click", () => {
         if (gameEmbed.requestFullscreen) gameEmbed.requestFullscreen();
