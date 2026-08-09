@@ -431,18 +431,52 @@
     loadLeaderboard();
     window.setInterval(loadLeaderboard, 24 * 60 * 60 * 1000);
 
-    const changelogEntries = Array.from(document.querySelectorAll(".changelog-details"));
-    changelogEntries.forEach((entry, index) => {
-        const hint = entry.querySelector(".changelog-hint");
-        entry.open = index === 0;
+    const versionLog = document.querySelector(".version-log-list");
+    const changelogEntries = versionLog ? Array.from(versionLog.querySelectorAll(":scope > .changelog-details")) : [];
+    const visibleChangelogEntries = changelogEntries.slice(0, 5);
+    const olderChangelogEntries = changelogEntries.slice(5);
+
+    if (versionLog && olderChangelogEntries.length) {
+        const olderVersions = document.createElement("details");
+        olderVersions.className = "changelog-details changelog-older-versions";
+        olderVersions.open = false;
+        olderVersions.innerHTML = `<summary><span class="changelog-version-title">ÄLTERE VERSIONEN</span><span class="changelog-hint">${olderChangelogEntries.length} Versionen</span></summary><div class="changelog-older-list"></div>`;
+        const olderList = olderVersions.querySelector(".changelog-older-list");
+        olderChangelogEntries.forEach((entry) => {
+            entry.open = false;
+            olderList.appendChild(entry);
+        });
+        versionLog.appendChild(olderVersions);
+    }
+
+    const updateChangelogHint = (entry) => {
+        const hint = entry.querySelector(":scope > summary .changelog-hint");
         if (hint) hint.textContent = entry.open ? "Geoeffnet" : "Aufklappen";
+    };
+    visibleChangelogEntries.forEach((entry, index) => {
+        entry.open = index === 0;
+        updateChangelogHint(entry);
         entry.addEventListener("toggle", () => {
             if (entry.open) {
-                changelogEntries.forEach((other) => {
+                visibleChangelogEntries.forEach((other) => {
                     if (other !== entry) other.open = false;
                 });
             }
-            if (hint) hint.textContent = entry.open ? "Geoeffnet" : "Aufklappen";
+            updateChangelogHint(entry);
+        });
+    });
+
+    const archivedChangelogEntries = Array.from(document.querySelectorAll(".changelog-older-list > .changelog-details"));
+    archivedChangelogEntries.forEach((entry) => {
+        entry.open = false;
+        updateChangelogHint(entry);
+        entry.addEventListener("toggle", () => {
+            if (entry.open) {
+                archivedChangelogEntries.forEach((other) => {
+                    if (other !== entry) other.open = false;
+                });
+            }
+            updateChangelogHint(entry);
         });
     });
     const menuToggle = document.getElementById("menu-toggle");
