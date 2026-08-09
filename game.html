@@ -109,7 +109,7 @@
                 </section>
             </section>
 
-            <iframe id="spiel-starten" class="game-embed" src="game/survival-v92.html?build=alpha-0-1-8-v92-20260809" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" src="game/survival-v93.html?build=alpha-0-1-8-v93-20260809" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
@@ -132,6 +132,12 @@
                             <li>Als online gelten nur Spieler, die sich erfolgreich mit dem Spielserver verbunden haben.</li>
                             <li>Der Vollbild-Button startet das Spiel wieder im Vollbild und kann es auch verlassen.</li>
                             <li>Spielbare Inhalte, laufende Entwicklung und geplante Erweiterungen sind klarer getrennt.</li>
+                            <li>Die Spielwelt wirkt durch abwechslungsreicheren Boden, Wasser, Straßen und Wälder atmosphärischer.</li>
+                            <li>Gebäude, Lootkisten und größere Objekte heben sich jetzt klarer von ihrer Umgebung ab.</li>
+                            <li>Neue zurückhaltende Soundeffekte begleiten Nachladen, Loot, Bauen und Fahrzeuge.</li>
+                            <li>Über F10 kannst du Gesamtlautstärke, Soundeffekte und Umgebung getrennt einstellen.</li>
+                            <li>Fahrzeuge zeigen jetzt klarer an, ob sie kaputt, frei, besetzt oder gerade in Fahrt sind.</li>
+                            <li>Auf Handy und Tablet lassen sich Nickname und Passwort jetzt direkt im Login eingeben.</li>
                         </ul>
                     </details>
 
@@ -299,7 +305,7 @@
     }
 
     if (requestedServer && gameEmbed) {
-        gameEmbed.src = "game/survival-v92.html?build=alpha-0-1-8-v92-20260809&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v93.html?build=alpha-0-1-8-v93-20260809&server=" + encodeURIComponent(requestedServer);
     }
 
     if (fullscreenButton) {
