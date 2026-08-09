@@ -7,7 +7,7 @@
     <meta name="description" content="Spiele das ZH Game der ZHServer Community.">
     <title>Zombiehoelle Survival | ZHServer Community</title>
 
-    <link rel="stylesheet" href="assets/css/style.css?v=survival-release-v86">
+    <link rel="stylesheet" href="assets/css/style.css?v=survival-release-v92">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,60 +41,103 @@
 
 <main class="game-page">
     <section class="section game-section">
-        <div class="container center">
-            <span class="legacy-game-eyebrow">ZHSERVER GAME</span>
-            <!--
-            <h1 class="game-page-title">ZH Game spielen</h1>
+        <div class="container center">            <header class="survival-game-hero">
+                <span class="game-eyebrow">ZHSERVER &middot; ONLINE ALPHA</span>
+                <h1 class="game-page-title">Zombieh&ouml;lle Survival</h1>
+                <p class="game-hero-tagline">ZOMBIEH&Ouml;LLE IS ALIVE &ndash; IN 2D.</p>
+                <p class="game-intro">Ein 2D-Online-Survival-Spiel in aktiver Entwicklung.</p>
+                <div class="game-status-grid" aria-live="polite" aria-label="Aktueller Spielstatus">
+                    <article class="game-status-card">
+                        <span>SPIELWELT</span>
+                        <strong><i id="live-status-dot" class="live-status-dot" aria-hidden="true"></i><span id="live-status-label">WIRD GEPR&Uuml;FT</span></strong>
+                    </article>
+                    <article class="game-status-card">
+                        <span>SPIELER ONLINE</span>
+                        <strong id="live-player-count">--</strong>
+                    </article>
+                    <article class="game-status-card">
+                        <span>REGISTRIERTE SPIELER</span>
+                        <strong id="registered-player-count">--</strong>
+                    </article>
+                    <article class="game-status-card">
+                        <span>VERSION</span>
+                        <strong>ALPHA 0.1.8</strong>
+                    </article>
+                    <article class="game-status-card">
+                        <span>ENTWICKLUNG</span>
+                        <strong>AKTIV</strong>
+                    </article>
+                </div>
+                <div class="game-hero-actions">
+                    <a class="btn game-play-cta" href="#spiel-starten">JETZT SPIELEN</a>
+                    <button id="game-fullscreen" type="button" class="btn game-fullscreen-button">VOLLBILD</button>
+                    <span id="fullscreen-message" class="fullscreen-message" role="status" aria-live="polite"></span>
+                </div>
+                <p class="game-mobile-hint"><strong>Mobile Steuerung aktiv:</strong> Am besten im Querformat spielen. Links laufen, rechts feuern; E durchsucht, INV &ouml;ffnet das Inventar.</p>
+            </header>
 
-            <p class="game-status"><span aria-hidden="true"></span>In Entwicklung</p>
-
-            <p class="game-intro">
-                Das ZH Game befindet sich in Entwicklung. Hier kannst du es später direkt im Browser starten und gemeinsam mit anderen spielen.
-            </p>
-
-            <p class="game-multiplayer-note"><i class="fa-solid fa-users" aria-hidden="true"></i> <strong>Persistentes Online-Multiplayer-Spiel:</strong> Melde dich mit deinem Konto an – dein Fortschritt, deine Punkte und dein Inventar werden gespeichert. Andere Spieler können gleichzeitig in derselben Welt unterwegs sein.</p>
-
-            -->
-            <span class="game-eyebrow">ZHSERVER &middot; ONLINE ALPHA</span>
-            <h1 class="game-page-title">Zombiehölle Survival</h1>
-            <p class="game-status"><span aria-hidden="true"></span>Spielwelt online</p>
-            <p class="game-intro">Eine Welt zum Erkunden, &Uuml;berleben und gemeinsamen Bauen.</p>
-            <p class="game-multiplayer-note"><i class="fa-solid fa-users" aria-hidden="true"></i> Online-Multiplayer &middot; Fortschritt und Inventar werden gespeichert.</p>
-
-            <button id="game-fullscreen" type="button" class="btn">⛶ Vollbild</button>
-            <p class="game-mobile-hint"><strong>Mobile Steuerung aktiv:</strong> Am besten im Querformat spielen. Links laufen, rechts feuern; E durchsucht, INV oeffnet das Inventar.</p>
-            <iframe id="game-embed" class="game-embed" src="game/survival-v91.html?build=alpha-0-1-8-v91-20260809" title="Zombiehölle Survival" allow="autoplay; fullscreen"></iframe>
-            <section class="survival-live-status" aria-live="polite" aria-label="Live-Status der Spielwelt">
-                <span id="live-status-dot" class="live-status-dot"></span>
-                <span id="live-status-label">Spielwelt: Status wird geprueft</span>
-                <span class="live-status-divider" aria-hidden="true"></span>
-                <span id="live-player-count">Spieler online: --</span>
+            <section class="game-project-overview" aria-label="&Uuml;ber Zombieh&ouml;lle Survival">
+                <div class="game-project-intro">
+                    <span class="game-overview-kicker">WORUM GEHT ES?</span>
+                    <p>Zombieh&ouml;lle Survival ist ein 2D-Online-Survival-Spiel in aktiver Entwicklung. Du erkundest die Welt, k&auml;mpfst gegen Zombies, sammelst Loot und baust gemeinsam mit anderen Spielern deine Basis.</p>
+                    <p>Die Spielwelt wird laufend erweitert. Langfristiges Ziel ist eine umfangreiche isometrische Survival-Welt mit mehreren Gebieten, Portalen, Fahrzeugen und deutlich erweitertem Basenbau.</p>
+                </div>
+                <div class="game-feature-grid">
+                    <article class="game-feature-card game-feature-playable">
+                        <span class="game-overview-kicker">BEREITS SPIELBAR</span>
+                        <div class="game-feature-columns">
+                            <div><strong>WELT &amp; &Uuml;BERLEBEN</strong><ul><li>Online-Spielwelt mit gespeichertem Charakter</li><li>Zombies, Kampf, Loot und Inventar</li><li>Erkunden verschiedener Orte</li></ul></div>
+                            <div><strong>BASEN</strong><ul><li>Basenbau und gesch&uuml;tzte Bauzonen</li><li>Basisstufen und gemeinsames Bauen</li></ul></div>
+                            <div><strong>MULTIPLAYER</strong><ul><li>Gemeinsam spielen, Chat und Gruppen</li><li>Gespeicherter Fortschritt</li></ul></div>
+                            <div><strong>FAHRZEUGE</strong><ul><li>Erste Fahrzeuge und Reparaturen</li><li>Erkundung mit Fahrzeugen</li></ul></div>
+                        </div>
+                    </article>
+                    <article class="game-development-note">
+                        <span class="game-overview-kicker">IN ENTWICKLUNG</span>
+                        <p>Welt, Grafik, Loot, Bedienung und Online-Spielerlebnis werden laufend weiter verbessert.</p>
+                    </article>
+                </div>
+                <section class="game-roadmap" aria-labelledby="roadmap-title">
+                    <div class="game-roadmap-heading"><span class="game-overview-kicker">ROADMAP</span><h2 id="roadmap-title">GEPLANT</h2></div>
+                    <div class="game-roadmap-grid">
+                        <article><h3>WELT &amp; PORTALE</h3><ul><li>Mehrere Portale und verbundene Gebiete</li><li>Zus&auml;tzliche St&auml;dte, D&ouml;rfer und besondere Orte</li><li>Gr&ouml;&szlig;ere, abwechslungsreichere Spielwelt</li></ul></article>
+                        <article><h3>BAUEN &amp; BASEN</h3><ul><li>Erweitertes Bausystem und mehr Bauteile</li><li>Gr&ouml;&szlig;ere, individuellere Basen</li><li>Mehr Verwaltungs- und Gruppenfunktionen</li></ul></article>
+                        <article><h3>FAHRZEUGE</h3><ul><li>Weitere Fahrzeugtypen</li><li>Ausbau des Fahrzeugsystems</li><li>Sp&auml;ter auch Flugger&auml;te</li></ul></article>
+                        <article><h3>GRAFIK</h3><ul><li>Laufende Grafikupdates</li><li>Detailliertere Geb&auml;ude und Weltobjekte</li><li>Schrittweise Richtung isometrische Ansicht</li></ul></article>
+                        <article><h3>GAMEPLAY</h3><ul><li>Mehr Zombies, Loot und Gegenst&auml;nde</li><li>Weitere &Uuml;berlebensmechaniken</li><li>Mehr Missionen, Events und Fundorte</li></ul></article>
+                    </div>
+                </section>
             </section>
+
+            <iframe id="spiel-starten" class="game-embed" src="game/survival-v92.html?build=alpha-0-1-8-v92-20260809" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
                 <div class="changelog-summary">
                     <div>
                         <span class="changelog-kicker">ENTWICKLUNGSSTAND</span>
-                        <h2 id="changelog-title">AENDERUNGEN - Alpha 0.1.8</h2>
+                        <h2 id="changelog-title">&Auml;NDERUNGEN &ndash; Alpha 0.1.8</h2>
                         
                     </div>
-                    <span id="changelog-counter" class="changelog-cycle">1 / 20 Aenderungen in dieser Version</span>
+                    <span id="changelog-counter" class="changelog-cycle">4 / 20 &Auml;nderungen in dieser Version</span>
                 </div>
 
-                <div class="changelog-current" aria-label="Alle Aenderungen der aktuellen Version">
-                    <div class="changelog-current-heading">
-                        <span>AENDERUNGEN DIESER VERSION</span>
-                        <small>Alpha 0.1.8</small>
-                    </div>
-                    <ul id="latest-change-list" class="changelog-list">
-                        <li>Beim Aufheben von Gegenst&auml;nden wird jetzt sichtbar angezeigt, was du aufgenommen hast.</li>
-                    </ul>
-                </div>
+                <div class="version-log-list" aria-label="Vollst&auml;ndige Versionsprotokolle">
+                    <details class="changelog-details changelog-current" open aria-label="Aktueller Changelog Alpha 0.1.8">
+                        <summary>
+                            <span class="changelog-version-title">Alpha 0.1.8 <span class="changelog-current-badge">AKTUELL</span></span>
+                            <span class="changelog-hint">Ge&ouml;ffnet</span>
+                        </summary>
+                        <ul id="latest-change-list" class="changelog-list">
+                            <li><strong>OBERFL&Auml;CHE:</strong> Die Spielseite zeigt jetzt getrennt aktuelle Spieler und registrierte Spielaccounts an.</li>
+                            <li><strong>MULTIPLAYER:</strong> Als online gelten nur Spieler, die sich erfolgreich mit dem Spielserver verbunden haben.</li>
+                            <li><strong>OBERFL&Auml;CHE:</strong> Der Vollbild-Button startet das Spiel wieder im Vollbild und kann es auch verlassen.</li>
+                            <li><strong>ROADMAP:</strong> Spielbare Inhalte, laufende Entwicklung und geplante Erweiterungen sind klarer getrennt.</li>
+                        </ul>
+                    </details>
 
-                <div class="version-log-list" aria-label="Vollstaendige Versionsprotokolle">
                     <details class="changelog-details">
-                        <summary><span>Alpha 0.1.7 - vollstaendiges Protokoll: 20 Aenderungen</span><span class="changelog-hint">Aufklappen</span></summary>
+                        <summary><span class="changelog-version-title">Alpha 0.1.7</span><span class="changelog-hint">Aufklappen</span></summary>
                         <ul class="changelog-list">
 <li>Deutlich mehr Lootkisten auf der gesamten Karte verteilt.</li>
                         <li>Beim Aufheben von Gegenst&auml;nden wird jetzt direkt angezeigt, was du erhalten hast.</li>
@@ -121,7 +164,7 @@
 
 
                     <details class="changelog-details">
-                        <summary><span>Alpha 0.1.6 - vollstaendiges Protokoll: 20 Aenderungen</span><span class="changelog-hint">Aufklappen</span></summary>
+                        <summary><span class="changelog-version-title">Alpha 0.1.6</span><span class="changelog-hint">Aufklappen</span></summary>
                         <ul class="changelog-list"><li><strong>Gastmodus:</strong> Gäste starten unabhängig und übernehmen weder Kartenaufdeckung noch Fortschritt eines vorherigen Kontos.</li>
                         <li><strong>Spielstand:</strong> Speichern und Laden zeigen jetzt klarer an, ob dein Fortschritt sicher übernommen wurde.</li>
                         <li><strong>Prestige-Seite:</strong> Mit P siehst du Rang, dauerhafte Punkte und erreichte oder gesperrte Meilensteine.</li>
@@ -145,8 +188,8 @@
                         <li><strong>Steuerungsfix:</strong> Der Bauen-Tastaturblock wurde repariert; Desktop und Mobile laufen wieder getrennt.</li>
                         <li><strong>Mobile Schnellzugriffe:</strong> Slots 4 bis 6 sind antippbar; DREHEN richtet die aktuelle Bauvorschau um 90 Grad aus.</li>
                         <li><strong>Bekleidung:</strong> Neuer Kleidung-Reiter mit Helm-, Oberteil- und Hosenslots; angelegte Teile veraendern die Figur sichtbar.</li>                        </ul>
-                    </details>                    <details class="changelog-details" open>
-                        <summary><span>Alpha 0.1.5 - vollstaendiges Protokoll: 20 Aenderungen</span><span class="changelog-hint">Aufklappen</span></summary>
+                    </details>                    <details class="changelog-details">
+                        <summary><span class="changelog-version-title">Alpha 0.1.5</span><span class="changelog-hint">Aufklappen</span></summary>
                         <ul class="changelog-list">
                             <li>Erzadern, Spitzhacke, Angel, Fischfang sowie Kupfer, Silber und Gold.</li>
                             <li>Welt-Events: Konvois, Forschungsstationen, Horden, Banditenlager und Abwuerfe.</li>
@@ -171,7 +214,7 @@
                         </ul>
                     </details>
                     <details class="changelog-details">
-                        <summary><span>Alpha 0.1.4 - vollstaendiges Protokoll: 20 Aenderungen</span><span class="changelog-hint">Aufklappen</span></summary>
+                        <summary><span class="changelog-version-title">Alpha 0.1.4</span><span class="changelog-hint">Aufklappen</span></summary>
                         <ul class="changelog-list">
                             <li>Grosse offene Spielwelt mit Staedten, Doerfern, Kueste, Waeldern und Landstrassen.</li>
                             <li>Tag-/Nachtwechsel sowie Wetter, Nebel und Regen vorbereitet.</li>
@@ -197,7 +240,7 @@
                     </details>
 
                     <details class="changelog-details">
-                        <summary><span>Fruehere Versionen</span><span class="changelog-hint">Archiv</span></summary>
+                        <summary><span class="changelog-version-title">Fr&uuml;here Versionen</span><span class="changelog-hint">Archiv</span></summary>
                         <div class="changelog-archive">
                             <article><strong>Alpha 0.1.3</strong><span>Erste grosse Online-Spielwelt: Staedte, Spawnpunkte, Karte, Gruppen, Chat, Inventar und persistente Profile.</span></article>
                             <article><strong>Alpha 0.1.2</strong><span>Grundlagen fuer Survival: Leben, Hunger, Wasser, Loot, Zombies, Waffen, Bauen und Fahrzeuge.</span></article>
@@ -238,17 +281,52 @@
 </footer>
 
 <script>
-    const gameEmbed = document.getElementById("game-embed");
+    const gameEmbed = document.getElementById("spiel-starten");
+    const fullscreenButton = document.getElementById("game-fullscreen");
+    const fullscreenMessage = document.getElementById("fullscreen-message");
     const requestedServer = new URLSearchParams(window.location.search).get("server");
-    if (requestedServer) {
-        gameEmbed.src = "game/survival-v91.html?build=alpha-0-1-8-v91-20260809&server=" + encodeURIComponent(requestedServer);
-    }
-    document.getElementById("game-fullscreen").addEventListener("click", () => {
-        if (gameEmbed.requestFullscreen) gameEmbed.requestFullscreen();
-    });
 
+    function showFullscreenMessage(message) {
+        if (fullscreenMessage) fullscreenMessage.textContent = message;
+    }
+
+    function updateFullscreenButton() {
+        if (!fullscreenButton) return;
+        fullscreenButton.textContent = document.fullscreenElement ? "VOLLBILD VERLASSEN" : "VOLLBILD";
+    }
+
+    if (requestedServer && gameEmbed) {
+        gameEmbed.src = "game/survival-v92.html?build=alpha-0-1-8-v92-20260809&server=" + encodeURIComponent(requestedServer);
+    }
+
+    if (fullscreenButton) {
+        fullscreenButton.addEventListener("click", async () => {
+            if (!gameEmbed) {
+                showFullscreenMessage("Das Spiel konnte nicht gefunden werden.");
+                return;
+            }
+            try {
+                if (document.fullscreenElement) {
+                    await document.exitFullscreen();
+                } else if (document.fullscreenEnabled && gameEmbed.requestFullscreen) {
+                    await gameEmbed.requestFullscreen();
+                } else {
+                    showFullscreenMessage("Vollbild wird von diesem Browser nicht unterstuetzt.");
+                }
+            } catch (error) {
+                showFullscreenMessage("Vollbild wurde vom Browser nicht geoeffnet. Bitte erneut versuchen.");
+            }
+        });
+    }
+
+    document.addEventListener("fullscreenchange", () => {
+        updateFullscreenButton();
+        if (document.fullscreenElement) showFullscreenMessage("");
+    });
+    updateFullscreenButton();
     const leaderboardList = document.getElementById("leaderboard-list");
     const leaderboardUpdated = document.getElementById("leaderboard-updated");
+    const registeredPlayerCount = document.getElementById("registered-player-count");
     const supabaseUrl = "https://yawadxzeyyrozmlrokun.supabase.co";
     const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlhd2FkeHpleXlyb3ptbHJva3VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMzQ4MTIsImV4cCI6MjEwMDkxMDgxMn0.B53O3gHURnfxUkVGKaZJ5ssx27Bj9FNMU70Yn85tfxE";
 
@@ -271,15 +349,33 @@
             if (!response.ok) throw new Error("Live-Status nicht verfuegbar");
             const data = await response.json();
             const online = Number(data || 0);
-            label.textContent = "Spielwelt: online";
-            count.textContent = `Spieler online: ${online}`;
+            label.textContent = "ONLINE";
+            count.textContent = `${online}`;
             dot.classList.remove("is-offline");
         } catch (error) {
-            label.textContent = "Spielwelt: Status nicht verfuegbar";
-            count.textContent = "Spieler online: --";
+            label.textContent = "OFFLINE";
+            count.textContent = "--";
             dot.classList.add("is-offline");
         }
     }
+    async function loadRegisteredPlayerCount() {
+        if (!registeredPlayerCount) return;
+        try {
+            const response = await fetch(`${supabaseUrl}/rest/v1/rpc/get_registered_player_count`, {
+                method: "POST",
+                headers: { "apikey": supabaseAnonKey, "Content-Type": "application/json" },
+                body: "{}"
+            });
+            if (!response.ok) throw new Error("Registered player count unavailable");
+            const total = Number(await response.json());
+            if (!Number.isFinite(total) || total < 0) throw new Error("Invalid registered player count");
+            registeredPlayerCount.textContent = total.toLocaleString("de-DE");
+        } catch (error) {
+            // The existing public ranking endpoint below supplies an exact fallback
+            // while fewer than 100 registered accounts exist.
+        }
+    }
+
     async function loadLeaderboard() {
         try {
             const response = await fetch(`${supabaseUrl}/rest/v1/rpc/get_leaderboard`, {
@@ -304,16 +400,30 @@
                     : "";
                 leaderboardList.innerHTML = createRows(visiblePlayers) + morePlayers;
             }
+            if (registeredPlayerCount && registeredPlayerCount.textContent === "--" && players.length < 100) {
+                registeredPlayerCount.textContent = String(players.length);
+            }
             leaderboardUpdated.textContent = "Aktualisierung: alle 24 Stunden";
         } catch (error) {
             leaderboardList.innerHTML = '<p class="leaderboard-loading">Die Rangliste wird gerade vorbereitet.</p>';
             leaderboardUpdated.textContent = "Aktualisierung folgt";
+            if (registeredPlayerCount) registeredPlayerCount.textContent = "--";
         }
     }
     loadLiveStatus();
-    window.setInterval(loadLiveStatus, 30 * 1000);
+    window.setInterval(loadLiveStatus, 5 * 1000);
+    loadRegisteredPlayerCount();
+    window.setInterval(loadRegisteredPlayerCount, 24 * 60 * 60 * 1000);
     loadLeaderboard();
     window.setInterval(loadLeaderboard, 24 * 60 * 60 * 1000);
+
+    document.querySelectorAll(".changelog-details").forEach((entry) => {
+        const hint = entry.querySelector(".changelog-hint");
+        if (!hint) return;
+        entry.addEventListener("toggle", () => {
+            hint.textContent = entry.open ? "Geoeffnet" : "Aufklappen";
+        });
+    });
     const menuToggle = document.getElementById("menu-toggle");
     const navMenu = document.getElementById("nav-menu");
 

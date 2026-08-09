@@ -208,9 +208,7 @@ backToTop.addEventListener("click", () => {
     });
 
 });
-// ================= ARCHIVSTATISTIK =================
-
-const todayVisitors = document.querySelector("#today-visitors");
+// ================= BESUCHERZ&Auml;HLER =================
 const totalVisitors = document.querySelector("#total-visitors");
 const VISITOR_KEY = "zhserver_last_visit";
 
@@ -229,8 +227,7 @@ async function callVisitorStats(functionName) {
 }
 
 function renderVisitorStats(stats) {
-    if (!stats || !todayVisitors || !totalVisitors) return;
-    todayVisitors.textContent = Number(stats.today_visitors || 0).toLocaleString("de-DE");
+    if (!stats || !totalVisitors) return;
     totalVisitors.textContent = Number(stats.total_visitors || 0).toLocaleString("de-DE");
 }
 
@@ -243,7 +240,7 @@ async function registerVisitor() {
     renderVisitorStats(stats);
 }
 
-if (todayVisitors && totalVisitors) registerVisitor();
+if (totalVisitors) registerVisitor();
 // ==============================
 // Neueste Community Screenshots
 // ==============================
