@@ -157,7 +157,7 @@
                 </div>
             </section>
 
-            <iframe id="spiel-starten" class="game-embed" src="game/survival-v100.html?build=alpha-0-1-9-v100-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" src="game/survival-v101.html?build=alpha-0-1-9-v101-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
@@ -183,6 +183,12 @@
                             <li>Der Prestige-Rang anderer Spieler wird jetzt korrekt angezeigt.</li>
                             <li>Die Gruppen-Taste G wird jetzt im Steuerungsbereich angezeigt.</li>
                             <li>Der Info- und Steuerungsbereich wurde übersichtlicher formatiert.</li>
+                            <li>Bäume können jetzt mit einer Axt gefällt werden und liefern Holz.</li>
+                            <li>Gefällte Bäume bleiben verschwunden und wachsen nach 24 Stunden wieder nach.</li>
+                            <li>Die Baumverteilung wurde überarbeitet: weniger Einzelbäume und mehr zusammenhängende Waldgebiete.</li>
+                            <li>Gruppen- und Gildeneinladungen können jetzt abgelehnt werden.</li>
+                            <li>Gruppen und Gilden können jetzt verlassen werden.</li>
+                            <li>Die eigene Basis wird jetzt auf der Karte als „MEINE BASIS“ angezeigt.</li>
                         </ul>
                     </details>
 
@@ -379,7 +385,7 @@
     }
 
     if (requestedServer && gameEmbed) {
-        gameEmbed.src = "game/survival-v100.html?build=alpha-0-1-9-v100-20260810&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v101.html?build=alpha-0-1-9-v101-20260810&server=" + encodeURIComponent(requestedServer);
     }
 
     if (fullscreenButton) {
