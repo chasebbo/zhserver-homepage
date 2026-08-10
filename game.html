@@ -7,7 +7,7 @@
     <meta name="description" content="Spiele das ZH Game der ZHServer Community.">
     <title>Zombiehoelle Survival | ZHServer Community</title>
 
-    <link rel="stylesheet" href="assets/css/style.css?v=survival-release-v92">
+    <link rel="stylesheet" href="assets/css/style.css?v=survival-release-v105">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -150,7 +150,7 @@
                 </div>
             </section>
 
-            <iframe id="spiel-starten" class="game-embed" src="game/survival-v104.html?build=alpha-0-1-9-v104-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" src="game/survival-v105.html?build=alpha-0-1-9-v105-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
@@ -183,6 +183,7 @@
                             <li>Gruppen und Gilden können jetzt verlassen werden.</li>
                             <li>Die eigene Basis wird jetzt auf der Karte als „MEINE BASIS“ angezeigt.</li>
                             <li>Ein Fehler im letzten Update wurde behoben.</li>
+                            <li>Der Hilfe- und Steuerungsbereich wurde überarbeitet und ist jetzt auf verschiedenen Bildschirmgrößen besser lesbar.</li>
                         </ul>
                     </details>
 
@@ -379,7 +380,7 @@
     }
 
     if (requestedServer && gameEmbed) {
-        gameEmbed.src = "game/survival-v104.html?build=alpha-0-1-9-v104-20260810&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v105.html?build=alpha-0-1-9-v105-20260810&server=" + encodeURIComponent(requestedServer);
     }
 
     if (fullscreenButton) {
