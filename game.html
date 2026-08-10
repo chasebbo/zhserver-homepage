@@ -157,7 +157,7 @@
                 </div>
             </section>
 
-            <iframe id="spiel-starten" class="game-embed" src="game/survival-v99.html?build=alpha-0-1-9-v99-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" src="game/survival-v100.html?build=alpha-0-1-9-v100-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
@@ -179,6 +179,10 @@
                             <li>Der Loot-Reset-Countdown wird jetzt direkt nach dem Betreten der Welt korrekt angezeigt und aktualisiert sich ohne zus&auml;tzliche Loot-Aktion.</li>
                             <li>Neu registrierte Spieler können ZHServer 1 jetzt zuverlässig betreten.</li>
                             <li>Fehlerhafte oder ältere Spielstände führen beim Laden des Inventars nicht mehr zu einem Verbindungsabbruch.</li>
+                            <li>Andere Spieler werden jetzt mit ihrem richtigen Charaktermodell angezeigt.</li>
+                            <li>Der Prestige-Rang anderer Spieler wird jetzt korrekt angezeigt.</li>
+                            <li>Die Gruppen-Taste G wird jetzt im Steuerungsbereich angezeigt.</li>
+                            <li>Der Info- und Steuerungsbereich wurde übersichtlicher formatiert.</li>
                         </ul>
                     </details>
 
@@ -375,7 +379,7 @@
     }
 
     if (requestedServer && gameEmbed) {
-        gameEmbed.src = "game/survival-v99.html?build=alpha-0-1-9-v99-20260810&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v100.html?build=alpha-0-1-9-v100-20260810&server=" + encodeURIComponent(requestedServer);
     }
 
     if (fullscreenButton) {
