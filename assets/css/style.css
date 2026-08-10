@@ -3095,3 +3095,61 @@ grid-template-columns:1fr;
     .gratitude-card h2{max-width:16ch;}
     .gratitude-note{font-size:.63rem;letter-spacing:.12em;}
 }
+/* Centered Zombiehoelle game hero */
+.survival-game-hero{
+    width:min(700px,100%);
+    margin:0 auto;
+    padding-top:12px;
+    text-align:center;
+}
+.survival-game-hero .game-status-grid{
+    width:100%;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
+    margin:20px auto 16px;
+}
+.survival-game-hero .game-status-card{
+    min-height:78px;
+    text-align:center;
+}
+.survival-game-hero .game-status-card strong{
+    justify-content:center;
+}
+.survival-game-hero .game-hero-actions{
+    display:grid;
+    grid-template-columns:repeat(2,176px);
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    width:min(364px,100%);
+    margin:0 auto 10px;
+}
+.survival-game-hero .fullscreen-message{
+    grid-column:1 / -1;
+}
+.survival-game-hero .game-play-cta,
+.survival-game-hero .game-fullscreen-button{
+    flex:0 1 176px;
+    min-width:176px;
+    min-height:44px;
+}
+.survival-game-hero .game-mobile-hint{
+    margin:12px auto 0;
+}
+.survival-game-hero #game-fullscreen{
+    flex:0 1 176px;
+    width:176px;
+    min-width:176px;
+}
+@media(max-width:700px){
+    .survival-game-hero{width:min(100%,420px);}
+    .survival-game-hero .game-status-grid{grid-template-columns:1fr;gap:8px;margin:16px auto 14px;}
+    .survival-game-hero .game-status-card{min-height:68px;}
+    .survival-game-hero .game-hero-actions{
+        grid-template-columns:1fr;
+        width:100%;
+    }
+    .survival-game-hero .game-play-cta,
+    .survival-game-hero .game-fullscreen-button,
+    .survival-game-hero #game-fullscreen{width:100%;min-width:0;}
+}
