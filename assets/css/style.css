@@ -3038,3 +3038,60 @@ grid-template-columns:1fr;
         width:100%;
     }
 }
+/* Compact thank-you interlude */
+.gratitude-section{
+    padding:clamp(64px,7vw,92px) 0;
+    overflow:hidden;
+}
+.gratitude-section .container{
+    max-width:920px;
+}
+.gratitude-card{
+    position:relative;
+    padding:clamp(30px,5vw,54px) clamp(24px,5vw,64px);
+    border-top:1px solid rgba(223,188,97,.52);
+    border-bottom:1px solid rgba(223,188,97,.3);
+    background:linear-gradient(105deg,rgba(212,175,55,.075),rgba(20,28,25,.18) 54%,rgba(212,175,55,.025));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+}
+.gratitude-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    width:3px;
+    background:linear-gradient(180deg,transparent,#dfbc61 20%,#dfbc61 80%,transparent);
+}
+.gratitude-card h2{
+    max-width:22ch;
+    margin:0;
+    color:#f1e5bf;
+    font-size:clamp(2rem,4.2vw,3.45rem);
+    line-height:1.08;
+}
+.gratitude-rule{
+    width:min(130px,34%);
+    height:1px;
+    margin:24px 0 22px;
+    background:linear-gradient(90deg,#dfbc61,rgba(223,188,97,0));
+}
+.gratitude-copy{
+    max-width:58ch;
+    margin:0;
+    color:#cbd2d0;
+    line-height:1.78;
+}
+.gratitude-note{
+    margin:26px 0 0;
+    color:#d9b762;
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.16em;
+}
+@media(max-width:520px){
+    .gratitude-section{padding:54px 0;}
+    .gratitude-card{padding:28px 22px;}
+    .gratitude-card h2{max-width:16ch;}
+    .gratitude-note{font-size:.63rem;letter-spacing:.12em;}
+}
