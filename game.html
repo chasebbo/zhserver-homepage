@@ -157,7 +157,7 @@
                 </div>
             </section>
 
-            <iframe id="spiel-starten" class="game-embed" src="game/survival-v95.html?build=alpha-0-1-8-v95-20260809" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" src="game/survival-v96.html?build=alpha-0-1-8-v96-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
@@ -191,6 +191,9 @@
                             <li>Die Anmeldung und Registrierung auf Handy und Tablet wurden verbessert.</li>
                             <li>Fahrzeuganzeige und Fahrzustand wurden überarbeitet.</li>
                             <li>Der mobile Feuerbutton liegt nicht mehr über der Minikarte und reagiert zuverlässiger auf Berührung.</li>
+                            <li>Deine letzte Position wird jetzt zuverlässiger gespeichert und beim nächsten Login wiederhergestellt.</li>
+                            <li>Vor dem Login siehst du jetzt die vorbereitete Serverauswahl für zukünftige zusätzliche Spielserver.</li>
+                            <li>Die mobile Steuerung wurde verbessert: Schießen, Nahkampf und Inventar-Tabs reagieren jetzt zuverlässiger auf Berührung.</li>
                         </ul>
                     </details>
 
@@ -358,7 +361,7 @@
     }
 
     if (requestedServer && gameEmbed) {
-        gameEmbed.src = "game/survival-v95.html?build=alpha-0-1-8-v95-20260809&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v96.html?build=alpha-0-1-8-v96-20260810&server=" + encodeURIComponent(requestedServer);
     }
 
     if (fullscreenButton) {
