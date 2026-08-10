@@ -157,7 +157,7 @@
                 </div>
             </section>
 
-            <iframe id="spiel-starten" class="game-embed" src="game/survival-v96.html?build=alpha-0-1-8-v96-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" src="game/survival-v97.html?build=alpha-0-1-8-v97-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
@@ -194,6 +194,8 @@
                             <li>Deine letzte Position wird jetzt zuverlässiger gespeichert und beim nächsten Login wiederhergestellt.</li>
                             <li>Vor dem Login siehst du jetzt die vorbereitete Serverauswahl für zukünftige zusätzliche Spielserver.</li>
                             <li>Die mobile Steuerung wurde verbessert: Schießen, Nahkampf und Inventar-Tabs reagieren jetzt zuverlässiger auf Berührung.</li>
+                            <li>Der Loot-Reset-Timer startet nach einem Reset wieder korrekt neu.</li>
+                            <li>Missionskisten können jetzt wie normales Loot aufgehoben werden.</li>
                         </ul>
                     </details>
 
@@ -361,7 +363,7 @@
     }
 
     if (requestedServer && gameEmbed) {
-        gameEmbed.src = "game/survival-v96.html?build=alpha-0-1-8-v96-20260810&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v97.html?build=alpha-0-1-8-v97-20260810&server=" + encodeURIComponent(requestedServer);
     }
 
     if (fullscreenButton) {
