@@ -157,25 +157,35 @@
                 </div>
             </section>
 
-            <iframe id="spiel-starten" class="game-embed" src="game/survival-v97.html?build=alpha-0-1-8-v97-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" src="game/survival-v98.html?build=alpha-0-1-9-v98-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
                 <div class="changelog-summary">
                     <div>
                         <span class="changelog-kicker">ENTWICKLUNGSSTAND</span>
-                        <h2 id="changelog-title">&Auml;NDERUNGEN &ndash; Alpha 0.1.8</h2>
+                        <h2 id="changelog-title">&Auml;NDERUNGEN &ndash; Alpha 0.1.9</h2>
                         
                     </div>
                 </div>
 
                 <div class="version-log-list" aria-label="Vollst&auml;ndige Versionsprotokolle">
-                    <details class="changelog-details" open aria-label="Aktueller Changelog Alpha 0.1.8">
+                    <details class="changelog-details" open aria-label="Aktueller Changelog Alpha 0.1.9">
                         <summary>
-                            <span class="changelog-version-title">Alpha 0.1.8 <span class="changelog-current-badge">AKTUELL</span></span>
+                            <span class="changelog-version-title">Alpha 0.1.9 <span class="changelog-current-badge">AKTUELL</span></span>
                             <span class="changelog-hint">Ge&ouml;ffnet</span>
                         </summary>
                         <ul id="latest-change-list" class="changelog-list">
+                            <li>Der Loot-Reset-Countdown wird jetzt direkt nach dem Betreten der Welt korrekt angezeigt und aktualisiert sich ohne zus&auml;tzliche Loot-Aktion.</li>
+                        </ul>
+                    </details>
+
+                    <details class="changelog-details" aria-label="Changelog Alpha 0.1.8">
+                        <summary>
+                            <span class="changelog-version-title">Alpha 0.1.8</span>
+                            <span class="changelog-hint">Aufklappen</span>
+                        </summary>
+                        <ul class="changelog-list">
                             <li>Die Spielseite zeigt jetzt getrennt aktuelle Spieler und registrierte Spielaccounts an.</li>
                             <li>Als online gelten nur Spieler, die sich erfolgreich mit dem Spielserver verbunden haben.</li>
                             <li>Der Vollbild-Button startet das Spiel wieder im Vollbild und kann es auch verlassen.</li>
@@ -363,7 +373,7 @@
     }
 
     if (requestedServer && gameEmbed) {
-        gameEmbed.src = "game/survival-v97.html?build=alpha-0-1-8-v97-20260810&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v98.html?build=alpha-0-1-9-v98-20260810&server=" + encodeURIComponent(requestedServer);
     }
 
     if (fullscreenButton) {
