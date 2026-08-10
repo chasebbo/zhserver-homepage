@@ -2899,6 +2899,10 @@ grid-template-columns:1fr;
         transition:none;
     }
 }
+/* Ältere Changelog-Versionen bleiben im gleichen Accordion-Stil, nur dezent gruppiert. */
+.survival-changelog .changelog-older-list{display:grid;gap:9px;margin:0 13px 13px 27px;padding:9px 0 0 13px;border-left:1px solid rgba(151,172,151,.18);}
+.survival-changelog .changelog-older-list .changelog-details{margin:0;}
+@media(max-width:700px){.survival-changelog .changelog-older-list{margin:0 8px 10px 18px;padding-left:9px;}}
 /* Einheitliches, spielerfreundliches Versions-Accordion */
 .survival-changelog .version-log-list{display:grid;gap:9px;}
 .survival-changelog .changelog-details{margin:0;}
@@ -2985,3 +2989,52 @@ grid-template-columns:1fr;
 .game-roadmap-grid li::marker{color:#cbaa60;}
 @media(max-width:980px){.game-status-grid{grid-template-columns:repeat(3,minmax(0,1fr));}.game-feature-columns{grid-template-columns:repeat(2,minmax(0,1fr));}.game-feature-columns > div:nth-child(2){border-right:0;padding-right:0;}.game-feature-columns > div:nth-child(-n+2){padding-bottom:12px;border-bottom:1px solid rgba(151,172,151,.15);}.game-roadmap-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media(max-width:700px){.game-status-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.game-status-card:last-child{grid-column:1 / -1;}.game-feature-columns{grid-template-columns:1fr;gap:12px;}.game-feature-columns > div,.game-feature-columns > div:nth-child(2){padding:0 0 12px;border-right:0;border-bottom:1px solid rgba(151,172,151,.15);}.game-feature-columns > div:last-child{padding-bottom:0;border-bottom:0;}.game-roadmap-grid{grid-template-columns:1fr;}.game-roadmap-grid article{min-height:0;}.game-roadmap-heading{align-items:flex-start;flex-direction:column;gap:4px;}}
+/* ================= GAME COMMUNITY / FEEDBACK ================= */
+
+.game-community-help{
+    margin:60px 0;
+    padding:42px;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(212,175,55,.22);
+    border-radius:20px;
+}
+
+.game-community-help-inner{
+    max-width:820px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.game-community-help h2{
+    margin:12px 0 20px;
+    font-family:"Cinzel",serif;
+}
+
+.game-community-help p{
+    color:var(--muted);
+    line-height:1.8;
+    margin:0 auto 12px;
+}
+
+.game-community-help-actions{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:28px;
+}
+
+@media(max-width:700px){
+    .game-community-help{
+        padding:30px 20px;
+        margin:40px 0;
+    }
+
+    .game-community-help-actions{
+        flex-direction:column;
+    }
+
+    .game-community-help-actions .btn{
+        width:100%;
+    }
+}
