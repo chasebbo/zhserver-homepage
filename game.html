@@ -47,21 +47,14 @@
                 <p class="game-hero-tagline">ZOMBIEH&Ouml;LLE IS ALIVE &ndash; IN 2D.</p>
                 <p class="game-intro">Ein 2D-Online-Survival-Spiel in aktiver Entwicklung.</p>
                 <div class="game-status-grid" aria-live="polite" aria-label="Aktueller Spielstatus">
-                    <article class="game-status-card">
-                        <span>SPIELWELT</span>
-                        <strong><i id="live-status-dot" class="live-status-dot" aria-hidden="true"></i><span id="live-status-label">WIRD GEPR&Uuml;FT</span></strong>
-                    </article>
-                    <article class="game-status-card">
-                        <span>SPIELER ONLINE</span>
-                        <strong id="live-player-count">--</strong>
-                    </article>
+
                     <article class="game-status-card">
                         <span>REGISTRIERTE SPIELER</span>
                         <strong id="registered-player-count">--</strong>
                     </article>
                     <article class="game-status-card">
                         <span>VERSION</span>
-                        <strong>ALPHA 0.1.8</strong>
+                        <strong>ALPHA 0.1.9</strong>
                     </article>
                     <article class="game-status-card">
                         <span>ENTWICKLUNG</span>
@@ -157,7 +150,7 @@
                 </div>
             </section>
 
-            <iframe id="spiel-starten" class="game-embed" src="game/survival-v103.html?build=alpha-0-1-9-v103-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" src="game/survival-v104.html?build=alpha-0-1-9-v104-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
@@ -386,7 +379,7 @@
     }
 
     if (requestedServer && gameEmbed) {
-        gameEmbed.src = "game/survival-v103.html?build=alpha-0-1-9-v103-20260810&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v104.html?build=alpha-0-1-9-v104-20260810&server=" + encodeURIComponent(requestedServer);
     }
 
     if (fullscreenButton) {
@@ -426,28 +419,6 @@
         return element.innerHTML;
     }
 
-    async function loadLiveStatus() {
-        const label = document.getElementById("live-status-label");
-        const count = document.getElementById("live-player-count");
-        const dot = document.getElementById("live-status-dot");
-        try {
-            const response = await fetch(`${supabaseUrl}/rest/v1/rpc/get_online_player_count`, {
-                method: "POST",
-                headers: { "apikey": supabaseAnonKey, "Content-Type": "application/json" },
-                body: "{}"
-            });
-            if (!response.ok) throw new Error("Live-Status nicht verfuegbar");
-            const data = await response.json();
-            const online = Number(data || 0);
-            label.textContent = "ONLINE";
-            count.textContent = `${online}`;
-            dot.classList.remove("is-offline");
-        } catch (error) {
-            label.textContent = "OFFLINE";
-            count.textContent = "--";
-            dot.classList.add("is-offline");
-        }
-    }
     async function loadRegisteredPlayerCount() {
         if (!registeredPlayerCount) return;
         try {
@@ -500,8 +471,6 @@
             if (registeredPlayerCount) registeredPlayerCount.textContent = "--";
         }
     }
-    loadLiveStatus();
-    window.setInterval(loadLiveStatus, 5 * 1000);
     loadRegisteredPlayerCount();
     window.setInterval(loadRegisteredPlayerCount, 24 * 60 * 60 * 1000);
     loadLeaderboard();
