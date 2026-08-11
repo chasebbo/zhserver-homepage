@@ -3211,3 +3211,147 @@ grid-template-columns:1fr;
     .survival-game-hero .game-fullscreen-button,
     .survival-game-hero #game-fullscreen{width:100%;min-width:0;}
 }
+
+/* ================= GAME FUTURE VISIONS ================= */
+.game-visions{
+    width:min(980px,100%);
+    margin:20px auto 34px;
+    padding:clamp(20px,3.5vw,34px);
+    border:1px solid rgba(211,181,106,.26);
+    border-radius:14px;
+    background:
+        radial-gradient(circle at 100% 0, rgba(211,181,106,.09), transparent 32rem),
+        rgba(18,28,25,.54);
+    box-shadow:0 16px 34px rgba(0,0,0,.15);
+    text-align:left;
+}
+.game-visions-heading{
+    max-width:800px;
+    padding-bottom:19px;
+    border-bottom:1px solid rgba(151,172,151,.16);
+}
+.game-visions-heading h2{
+    margin:8px 0 10px;
+    color:#edf2eb;
+    font-family:Cinzel,serif;
+    font-size:clamp(1.35rem,3vw,2rem);
+    letter-spacing:.045em;
+}
+.game-visions-heading p{
+    max-width:74ch;
+    margin:0;
+    color:#c4d0c5;
+    font-size:.93rem;
+    line-height:1.65;
+}
+.game-vision-list{display:grid;gap:12px;margin-top:17px;}
+.game-vision-card{
+    overflow:hidden;
+    border:1px solid rgba(151,172,151,.23);
+    border-radius:10px;
+    background:rgba(8,15,13,.25);
+    transition:border-color .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.game-vision-card:hover{border-color:rgba(219,190,107,.42);}
+.game-vision-card[open]{
+    border-color:rgba(219,190,107,.52);
+    background:linear-gradient(110deg,rgba(94,79,43,.16),rgba(34,58,43,.14));
+    box-shadow:0 10px 24px rgba(0,0,0,.13);
+}
+.game-vision-card summary{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    min-height:104px;
+    padding:19px 21px;
+    cursor:pointer;
+    list-style:none;
+    touch-action:manipulation;
+}
+.game-vision-card summary::-webkit-details-marker{display:none;}
+.game-vision-card summary::before{
+    flex:0 0 auto;
+    content:"›";
+    color:#dcbf72;
+    font-size:1.7rem;
+    line-height:1;
+    transition:transform .18s ease;
+}
+.game-vision-card[open] summary::before{transform:rotate(90deg);}
+.game-vision-summary{display:grid;gap:8px;min-width:0;}
+.game-vision-title{
+    color:#eee3be;
+    font-family:Cinzel,serif;
+    font-size:clamp(.93rem,2vw,1.14rem);
+    font-weight:700;
+    letter-spacing:.055em;
+}
+.game-vision-subtitle{color:#bfcac1;font-size:.88rem;line-height:1.52;}
+.game-vision-hint{
+    flex:0 0 auto;
+    margin-left:auto;
+    color:#b8cbb9;
+    font-size:.68rem;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+}
+.game-vision-card[open] .game-vision-hint{font-size:0;}
+.game-vision-card[open] .game-vision-hint::after{content:"Ge\00f6 ffnet";font-size:.68rem;}
+.game-vision-body{
+    display:grid;
+    gap:18px;
+    padding:4px 22px 24px 57px;
+    border-top:1px solid rgba(151,172,151,.16);
+}
+.game-vision-body section{display:grid;gap:8px;}
+.game-vision-body h3{
+    margin:0;
+    color:#e7cd7c;
+    font-family:Cinzel,serif;
+    font-size:.76rem;
+    letter-spacing:.09em;
+}
+.game-vision-body p{
+    max-width:78ch;
+    margin:0;
+    color:#c7d1c8;
+    font-size:.9rem;
+    line-height:1.67;
+}
+.game-vision-body ul{
+    display:grid;
+    gap:6px;
+    margin:0;
+    padding-left:19px;
+    color:#c7d1c8;
+    font-size:.88rem;
+    line-height:1.5;
+}
+.game-vision-body li::marker{color:#d4b96c;}
+.game-vision-status{
+    margin:2px 0 0;
+    padding-top:15px;
+    border-top:1px solid rgba(151,172,151,.16);
+    color:#d9b762 !important;
+    font-size:.67rem !important;
+    font-weight:700;
+    letter-spacing:.11em;
+    line-height:1.5 !important;
+}
+@media(max-width:700px){
+    .game-visions{margin:18px auto 28px;padding:16px;border-radius:11px;}
+    .game-visions-heading h2{font-size:1.28rem;}
+    .game-visions-heading p{font-size:.87rem;}
+    .game-vision-card summary{align-items:flex-start;gap:11px;min-height:0;padding:17px 14px;}
+    .game-vision-card summary::before{margin-top:1px;font-size:1.45rem;}
+    .game-vision-title{font-size:.84rem;line-height:1.45;}
+    .game-vision-subtitle{font-size:.82rem;}
+    .game-vision-hint{display:none;}
+    .game-vision-body{gap:16px;padding:17px 15px 20px;}
+    .game-vision-body p{font-size:.86rem;}
+    .game-vision-body ul{font-size:.84rem;}
+}
+@media(prefers-reduced-motion:reduce){
+    .game-vision-card,.game-vision-card summary::before{transition:none;}
+}
