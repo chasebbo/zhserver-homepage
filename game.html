@@ -150,7 +150,7 @@
                 </div>
             </section>
 
-            <iframe id="spiel-starten" class="game-embed" src="game/survival-v105.html?build=alpha-0-1-9-v105-20260810" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" src="game/survival-v106.html?build=alpha-0-1-9-v106-20260811" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
@@ -184,6 +184,7 @@
                             <li>Die eigene Basis wird jetzt auf der Karte als „MEINE BASIS“ angezeigt.</li>
                             <li>Ein Fehler im letzten Update wurde behoben.</li>
                             <li>Der Hilfe- und Steuerungsbereich wurde überarbeitet und ist jetzt auf verschiedenen Bildschirmgrößen besser lesbar.</li>
+                            <li>Die Spielwelt läuft jetzt flüssiger, besonders in Bereichen mit vielen Objekten.</li>
                         </ul>
                     </details>
 
@@ -380,7 +381,7 @@
     }
 
     if (requestedServer && gameEmbed) {
-        gameEmbed.src = "game/survival-v105.html?build=alpha-0-1-9-v105-20260810&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v106.html?build=alpha-0-1-9-v106-20260811&server=" + encodeURIComponent(requestedServer);
     }
 
     if (fullscreenButton) {
