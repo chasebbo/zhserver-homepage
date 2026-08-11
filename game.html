@@ -150,7 +150,7 @@
                 </div>
             </section>
 
-            <iframe id="spiel-starten" class="game-embed" src="game/survival-v106.html?build=alpha-0-1-9-v106-20260811" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" src="game/survival-v106.html?build=alpha-0-1-9-v106-20260811-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
@@ -185,6 +185,10 @@
                             <li>Ein Fehler im letzten Update wurde behoben.</li>
                             <li>Der Hilfe- und Steuerungsbereich wurde überarbeitet und ist jetzt auf verschiedenen Bildschirmgrößen besser lesbar.</li>
                             <li>Die Spielwelt läuft jetzt flüssiger, besonders in Bereichen mit vielen Objekten.</li>
+                            <li>Nach dem Tod werden die mitgef&uuml;hrten Gegenst&auml;nde jetzt serverseitig in einer Todesloottasche abgelegt.</li>
+                            <li>Todesloottaschen k&ouml;nnen von Desktop- und Mobilspielern aufgenommen werden und verschwinden nach 15 Minuten.</li>
+                            <li>Nach dem Tod erh&auml;lt der Spieler ein definiertes Startinventar und kann seinen Respawn ausw&auml;hlen.</li>
+                            <li>Die Speicherung von Inventar und Todesloot wurde abgesichert, sodass aufgenommene Gegenst&auml;nde auch nach einem erneuten Login erhalten bleiben.</li>
                         </ul>
                     </details>
 
@@ -381,7 +385,7 @@
     }
 
     if (requestedServer && gameEmbed) {
-        gameEmbed.src = "game/survival-v106.html?build=alpha-0-1-9-v106-20260811&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v106.html?build=alpha-0-1-9-v106-20260811-r1&server=" + encodeURIComponent(requestedServer);
     }
 
     if (fullscreenButton) {
