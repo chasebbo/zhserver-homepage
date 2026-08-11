@@ -150,7 +150,7 @@
                 </div>
             </section>
 
-            <iframe id="spiel-starten" class="game-embed" src="game/survival-v107.html?build=alpha-0-2-0-v107-20260811-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" src="game/survival-v108.html?build=alpha-0-2-0-v108-20260811-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
@@ -174,6 +174,11 @@
                         <li>Die Synchronisierung von Spielst&auml;nden wurde verbessert und &auml;ltere Spielst&auml;nde k&ouml;nnen neuere nicht mehr versehentlich &uuml;berschreiben.</li> 
                         <li>Unver&auml;nderte Inventardaten verursachen keine unn&ouml;tigen zus&auml;tzlichen Speichervorg&auml;nge mehr.</li> 
                         <li>Die Anzahl der registrierten Spieler wird jetzt zuverl&auml;ssiger angezeigt.</li> 
+                        <li>Die Spielwelt l&auml;uft deutlich fl&uuml;ssiger, da nur noch relevante Bereiche und Objekte verarbeitet werden.</li>
+                        <li>Gro&szlig;e bereits erkundete Kartenbereiche bremsen die Minimap nicht mehr aus.</li>
+                        <li>Stra&szlig;en, Geb&auml;ude und andere feste Weltobjekte werden wesentlich effizienter dargestellt.</li>
+                        <li>Respawns wurden zuverl&auml;ssiger gemacht und k&ouml;nnen nicht mehr dauerhaft bei &bdquo;Respawn wird best&auml;tigt&hellip;&ldquo; h&auml;ngen bleiben.</li>
+                        <li>Spieler, Zombies und Beute in weit entfernten Bereichen belasten den eigenen Spielclient deutlich weniger.</li>
                     </ul>
                     </details>
 
@@ -399,7 +404,7 @@
     }
 
     if (requestedServer && gameEmbed) {
-        gameEmbed.src = "game/survival-v107.html?build=alpha-0-2-0-v107-20260811-r1&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v108.html?build=alpha-0-2-0-v108-20260811-r1&server=" + encodeURIComponent(requestedServer);
     }
 
     if (fullscreenButton) {
