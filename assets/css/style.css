@@ -2766,6 +2766,64 @@ grid-template-columns:1fr;
     color:#aeb8c4;
 }
 
+.guestbook-pagination{
+    max-width:780px;
+    margin:22px 0 0;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+}
+
+.guestbook-page-button{
+    min-width:38px;
+    min-height:38px;
+    padding:8px 12px;
+    border:1px solid rgba(212,175,55,.28);
+    border-radius:8px;
+    background:rgba(7,12,17,.58);
+    color:#e9e0ca;
+    font:inherit;
+    font-size:.86rem;
+    cursor:pointer;
+    transition:background .18s ease,border-color .18s ease,color .18s ease;
+}
+
+.guestbook-page-button:hover:not(:disabled),
+.guestbook-page-button:focus-visible{
+    border-color:rgba(222,184,91,.82);
+    background:rgba(212,175,55,.16);
+    color:#fff4ca;
+}
+
+.guestbook-page-button.is-current{
+    border-color:#d4af37;
+    background:#c9a227;
+    color:#14110a;
+    font-weight:700;
+}
+
+.guestbook-page-button:disabled{
+    opacity:.42;
+    cursor:default;
+}
+
+@media (max-width: 560px){
+    .guestbook-pagination{
+        gap:6px;
+    }
+
+    .guestbook-page-button{
+        min-height:36px;
+        padding:7px 10px;
+    }
+
+    .guestbook-page-previous,
+    .guestbook-page-next{
+        flex:1 1 calc(50% - 3px);
+    }
+}
+
 .forum-section{
     padding-top:clamp(72px,8vw,104px);
     padding-bottom:clamp(82px,9vw,124px);

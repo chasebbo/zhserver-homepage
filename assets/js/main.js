@@ -82,72 +82,78 @@ if (guestbookForm) {
 // ================= GÄSTEBUCH ANZEIGEN =================
 
 const guestbookEntries = document.querySelector("#guestbook-entries");
-
+const guestbookPagination = document.querySelector("#guestbook-pagination");
+const GUESTBOOK_PAGE_SIZE = 5;
 
 if (guestbookEntries) {
+    let guestbookPage = 1;
 
+    function renderGuestbookPagination(totalPages) {
+        if (!guestbookPagination) return;
+        guestbookPagination.replaceChildren();
+        guestbookPagination.hidden = totalPages <= 1;
+        if (totalPages <= 1) return;
 
-    async function loadGuestbookEntries() {
+        const createPageButton = (label, page, disabled, className = "") => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = `guestbook-page-button ${className}`.trim();
+            button.textContent = label;
+            button.disabled = disabled;
+            button.setAttribute("aria-label", label);
+            if (!disabled) button.addEventListener("click", () => loadGuestbookEntries(page));
+            return button;
+        };
 
+        guestbookPagination.append(createPageButton("← Zurück", guestbookPage - 1, guestbookPage === 1, "guestbook-page-previous"));
+        for (let page = 1; page <= totalPages; page += 1) {
+            const button = createPageButton(String(page), page, page === guestbookPage, "guestbook-page-number");
+            button.classList.toggle("is-current", page === guestbookPage);
+            button.setAttribute("aria-current", page === guestbookPage ? "page" : "false");
+            guestbookPagination.append(button);
+        }
+        guestbookPagination.append(createPageButton("Weiter →", guestbookPage + 1, guestbookPage === totalPages, "guestbook-page-next"));
+    }
 
+    async function loadGuestbookEntries(requestedPage = 1) {
+        const offset = Math.max(0, (requestedPage - 1) * GUESTBOOK_PAGE_SIZE);
         const response = await fetch(
-            `${SUPABASE_URL}/rest/v1/guestbook?approved=eq.true&order=created_at.desc`,
+            `${SUPABASE_URL}/rest/v1/guestbook?approved=eq.true&select=name,message,created_at&order=created_at.desc&limit=${GUESTBOOK_PAGE_SIZE}&offset=${offset}`,
             {
                 headers: {
                     "apikey": SUPABASE_KEY,
-                    "Authorization": `Bearer ${SUPABASE_KEY}`
+                    "Authorization": `Bearer ${SUPABASE_KEY}`,
+                    "Prefer": "count=exact"
                 }
             }
         );
 
-
+        if (!response.ok) throw new Error("Gästebuch konnte nicht geladen werden.");
         const entries = await response.json();
-
+        const countMatch = (response.headers.get("content-range") || "").match(/\/(\d+)$/);
+        const totalEntries = countMatch ? Number(countMatch[1]) : entries.length;
+        const totalPages = Math.max(1, Math.ceil(totalEntries / GUESTBOOK_PAGE_SIZE));
+        guestbookPage = Math.min(Math.max(1, requestedPage), totalPages);
 
         guestbookEntries.innerHTML = "";
-
-
         entries.forEach((entry, index) => {
-
-
+            const entryNumber = offset + index + 1;
             guestbookEntries.innerHTML += `
-
                 <div class="guestbook-card">
-
-                    <span>
-                        ZH-G${String(index + 1).padStart(3, "0")}
-                    </span>
-
-
-                    <h3>
-                        ${entry.name}
-                    </h3>
-
-
-                    <p>
-                        ${entry.message}
-                    </p>
-
-
-                    <small>
-                        Freigeschaltet am 
-                        ${new Date(entry.created_at).toLocaleDateString("de-DE")}
-                    </small>
-
-
+                    <span>ZH-G${String(entryNumber).padStart(3, "0")}</span>
+                    <h3>${entry.name}</h3>
+                    <p>${entry.message}</p>
+                    <small>Freigeschaltet am ${new Date(entry.created_at).toLocaleDateString("de-DE")}</small>
                 </div>
-
             `;
-
-
         });
-
-
+        renderGuestbookPagination(totalPages);
     }
 
-
-    loadGuestbookEntries();
-
+    loadGuestbookEntries().catch(() => {
+        guestbookEntries.innerHTML = '<p class="guestbook-info">Das Gästebuch wird gerade vorbereitet.</p>';
+        if (guestbookPagination) guestbookPagination.hidden = true;
+    });
 }
 
 // ================= MOBILE MENU =================
