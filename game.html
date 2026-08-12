@@ -601,6 +601,22 @@
         gameEmbed.src = gameSrc;
     }
 
+    if (typeof IntersectionObserver !== "undefined" && gameEmbed) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    loadGame();
+                    observer.disconnect();
+                }
+            });
+        }, {
+            rootMargin: "400px 0px 400px 0px"
+        });
+        observer.observe(gameEmbed);
+    } else {
+        loadGame();
+    }
+
     const gamePlayCta = document.querySelector(".game-play-cta");
     if (gamePlayCta) {
         gamePlayCta.addEventListener("click", (e) => {
