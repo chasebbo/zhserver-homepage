@@ -7,7 +7,7 @@
     <meta name="description" content="Spiele das ZH Game der ZHServer Community.">
     <title>Zombiehoelle Survival | ZHServer Community</title>
 
-    <link rel="stylesheet" href="assets/css/style.css?v=20260812-ui2">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260812-ui3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,7 +133,7 @@
                 <i class="fa-solid fa-chevron-down game-scroll-arrow" aria-hidden="true"></i>
             </div>
 
-            <iframe id="spiel-starten" class="game-embed" src="game/survival-v109.html?build=alpha-0-2-0-v109-20260812-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v109.html?build=alpha-0-2-0-v109-20260812-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section id="changelog" class="survival-changelog" aria-labelledby="changelog-title">
@@ -164,6 +164,10 @@
                         <li>Spieler, Zombies und Beute in weit entfernten Bereichen belasten den eigenen Spielclient deutlich weniger.</li>
                         <li>Die Loot-Reset-Anzeige aktualisiert sich nach einem Reset jetzt zuverl&auml;ssig und zeigt anschlie&szlig;end wieder den n&auml;chsten Countdown an.</li>
                         <li>Prestige-, Missions- und andere Bonuspunkte werden jetzt zuverl&auml;ssig dem tats&auml;chlichen Punktestand gutgeschrieben.</li>
+                        <li>Basen k&ouml;nnen vollst&auml;ndig eingepackt werden; Baumaterialien und Lagerinhalte werden bis zu 24 Stunden in einer pers&ouml;nlichen Basiskiste gesichert.</li>
+                        <li>Lagerkisten wurden vollst&auml;ndig &uuml;berarbeitet und speichern Inhalte jetzt zuverl&auml;ssig &uuml;ber Sitzungen hinweg.</li>
+                        <li>Inventar und Ausr&uuml;stung wurden &uuml;berarbeitet; 35 Grundpl&auml;tze k&ouml;nnen durch verschiedene Rucks&auml;cke erweitert werden.</li>
+                        <li>Andere Spieler werden jetzt mit vollst&auml;ndigem Namen und aktueller Charakterdarstellung angezeigt.</li>
                     </ul>
                     </details>
 
@@ -565,19 +569,13 @@
 
 </footer>
 
-<script src="assets/js/visitor-counter.js?v=20260812-ui2"></script>
+<script src="assets/js/visitor-counter.js?v=20260812-ui3"></script>
 <script>
     if (!window.location.hash) {
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
         window.scrollTo(0, 0);
-        window.addEventListener('load', () => window.scrollTo(0, 0));
-        window.addEventListener('pageshow', (event) => {
-            if (event.persisted) {
-                window.scrollTo(0, 0);
-            }
-        });
     }
 
     const gameEmbed = document.getElementById("spiel-starten");
@@ -594,8 +592,33 @@
         fullscreenButton.textContent = document.fullscreenElement ? "VOLLBILD VERLASSEN" : "VOLLBILD";
     }
 
-    if (requestedServer && gameEmbed) {
-        gameEmbed.src = "game/survival-v109.html?build=alpha-0-2-0-v109-20260812-r1&server=" + encodeURIComponent(requestedServer);
+    function loadGame() {
+        if (!gameEmbed || gameEmbed.hasAttribute("src")) return;
+        let gameSrc = gameEmbed.getAttribute("data-src") || "";
+        if (requestedServer) {
+            gameSrc += (gameSrc.includes("?") ? "&" : "?") + "server=" + encodeURIComponent(requestedServer);
+        }
+        gameEmbed.src = gameSrc;
+    }
+
+    const gamePlayCta = document.querySelector(".game-play-cta");
+    if (gamePlayCta) {
+        gamePlayCta.addEventListener("click", (e) => {
+            e.preventDefault();
+            loadGame();
+            if (gameEmbed) {
+                gameEmbed.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        });
+    }
+
+    if (window.location.hash === "#spiel-starten") {
+        loadGame();
+        window.addEventListener("load", () => {
+            if (gameEmbed) {
+                gameEmbed.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        });
     }
 
     if (fullscreenButton) {
@@ -603,6 +626,9 @@
             if (!gameEmbed) {
                 showFullscreenMessage("Das Spiel konnte nicht gefunden werden.");
                 return;
+            }
+            if (!gameEmbed.src) {
+                loadGame();
             }
             try {
                 if (document.fullscreenElement) {
