@@ -161,7 +161,7 @@ if (guestbookEntries) {
 const menuToggle = document.querySelector("#menu-toggle");
 const navMenu = document.querySelector(".nav-menu");
 
-if (menuToggle) {
+if (menuToggle && navMenu) {
 
     menuToggle.addEventListener("click", () => {
 
@@ -178,9 +178,9 @@ document.querySelectorAll(".nav-menu a").forEach(link => {
 
     link.addEventListener("click", () => {
 
-        navMenu.classList.remove("active");
+        if (navMenu) navMenu.classList.remove("active");
 
-        menuToggle.textContent = "☰";
+        if (menuToggle) menuToggle.textContent = "☰";
 
     });
 
@@ -202,64 +202,33 @@ if (headerEl) {
 
 const backToTop = document.querySelector("#backToTop");
 
-window.addEventListener("scroll", () => {
+if (backToTop) {
+    window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 500) {
+        if (window.scrollY > 500) {
 
-        backToTop.classList.add("show");
+            backToTop.classList.add("show");
 
-    } else {
+        } else {
 
-        backToTop.classList.remove("show");
+            backToTop.classList.remove("show");
 
-    }
-
-});
-
-backToTop.addEventListener("click", () => {
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
+        }
 
     });
 
-});
-// ================= BESUCHERZ&Auml;HLER =================
-const totalVisitors = document.querySelector("#total-visitors");
-const VISITOR_KEY = "zhserver_last_visit";
+    backToTop.addEventListener("click", () => {
 
-async function callVisitorStats(functionName) {
-    const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${functionName}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "apikey": SUPABASE_KEY
-        },
-        body: "{}"
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
     });
-    if (!response.ok) return null;
-    const data = await response.json();
-    return Array.isArray(data) && data.length ? data[0] : null;
 }
-
-function renderVisitorStats(stats) {
-    if (!stats || !totalVisitors) return;
-    totalVisitors.textContent = Number(stats.total_visitors || 0).toLocaleString("de-DE");
-}
-
-async function registerVisitor() {
-    const lastVisit = Number(localStorage.getItem(VISITOR_KEY) || 0);
-    const isNewDailyVisit = !lastVisit || Date.now() - lastVisit >= 24 * 60 * 60 * 1000;
-    const stats = await callVisitorStats(isNewDailyVisit ? "register_visitor" : "get_visitor_stats");
-    if (!stats) return;
-    if (isNewDailyVisit) localStorage.setItem(VISITOR_KEY, String(Date.now()));
-    renderVisitorStats(stats);
-}
-
-if (totalVisitors) registerVisitor();
 // ==============================
 // Neueste Community Screenshots
 // ==============================

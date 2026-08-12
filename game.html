@@ -7,7 +7,7 @@
     <meta name="description" content="Spiele das ZH Game der ZHServer Community.">
     <title>Zombiehoelle Survival | ZHServer Community</title>
 
-    <link rel="stylesheet" href="assets/css/style.css?v=20260812-ui1">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260812-ui2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -525,22 +525,61 @@
 </main>
 
 <footer class="site-footer">
+
     <div class="container footer">
-        <div>
-            <h3>ZHServer Community</h3>
-            <p>Seit 2013</p>
-        </div>
 
         <div>
-            <a href="pages/impressum.html">Impressum</a> |
-            <a href="pages/datenschutz.html">Datenschutz</a>
-            <br><br>
-            &copy; 2013–2026 ZHServer Community
+
+            <h3>
+                ZHServer Community
+            </h3>
+
+            <p>
+                Seit 2013
+            </p>
+
+            <p class="footer-visitor"><span id="total-visitors">0</span> Besucher insgesamt</p>
+
         </div>
+
+
+        <div>
+
+            <a href="pages/impressum.html">
+                Impressum
+            </a>
+
+            |
+
+            <a href="pages/datenschutz.html">
+                Datenschutz
+            </a>
+
+            <br><br>
+
+            © 2013–2026 ZHServer Community
+
+        </div>
+
     </div>
+
 </footer>
 
+<script src="assets/js/visitor-counter.js?v=20260812-ui2"></script>
 <script>
+    if (!window.location.hash) {
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+        window.addEventListener('load', () => window.scrollTo(0, 0));
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                window.scrollTo(0, 0);
+            }
+        });
+    }
+
     const gameEmbed = document.getElementById("spiel-starten");
     const fullscreenButton = document.getElementById("game-fullscreen");
     const fullscreenMessage = document.getElementById("fullscreen-message");
