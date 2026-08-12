@@ -185,6 +185,19 @@ document.querySelectorAll(".nav-menu a").forEach(link => {
     });
 
 });
+
+// ================= HEADER SCROLL =================
+const headerEl = document.querySelector(".header");
+if (headerEl) {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            headerEl.classList.add("scrolled");
+        } else {
+            headerEl.classList.remove("scrolled");
+        }
+    });
+}
+
 // ================= BACK TO TOP =================
 
 const backToTop = document.querySelector("#backToTop");

@@ -42,29 +42,57 @@
 <main class="game-page">
     <section class="section game-section">
         <div class="container center">            <header class="survival-game-hero">
-                <span class="game-eyebrow">ZHSERVER &middot; ONLINE ALPHA</span>
                 <h1 class="game-page-title">Zombieh&ouml;lle Survival</h1>
                 <p class="game-hero-tagline">ZOMBIEH&Ouml;LLE IS ALIVE &ndash; IN 2D.</p>
-                <p class="game-intro">Ein 2D-Online-Survival-Spiel in aktiver Entwicklung.</p>
                 <div class="game-status-grid" aria-live="polite" aria-label="Aktueller Spielstatus">
 
-                    <article class="game-status-card">
+                    <article class="game-status-card game-reg-card">
                         <span>REGISTRIERTE SPIELER</span>
-                        <strong id="registered-player-count">--</strong>
+                        <strong id="registered-player-count" style="display: none;">--</strong>
+                        <div class="compact-recent-header">ZULETZT REGISTRIERT</div>
+                        <div id="recent-player-list" class="recent-player-list">
+                            <span class="recent-loading">Lade neue Spieler &hellip;</span>
+                        </div>
                     </article>
-                    <article class="game-status-card">
+
+                    <article class="game-status-card game-changelog-card">
                         <span>VERSION</span>
                         <strong>ALPHA 0.2.0</strong>
+                        <div class="compact-changelog-header">LETZTE &Auml;NDERUNGEN</div>
+                        <div id="compact-changelog-list" class="compact-changelog-list">
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Performance verbessert</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Entfernte Spieler optimiert</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Synchronisierung verbessert</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Inventar-Speicherung optimiert</span></div>
+                        </div>
                     </article>
-                    <article class="game-status-card">
+
+                    <article class="game-status-card game-dev-card">
                         <span>ENTWICKLUNG</span>
-                        <strong>AKTIV</strong>
+                        <strong class="status-active-strong"><span class="status-dot-orange" aria-hidden="true"></span>AKTIV</strong>
+                        <div class="compact-dev-next">
+                            <span class="compact-dev-kicker">N&Auml;CHSTER GROSSER SCHRITT</span>
+                            <span class="compact-dev-title">Performance-Patch Fahrzeuge</span>
+                            <span class="compact-dev-sub">Updates fortlaufend</span>
+                        </div>
+                    </article>
+
+                    <article class="game-status-card game-top5-card">
+                        <span>TOP 5 SPIELER</span>
+                        <div id="top5-player-list" class="top5-player-list">
+                            <span class="top5-loading">Lade Top 5 &hellip;</span>
+                        </div>
                     </article>
                 </div>
                 <div class="game-hero-actions">
                     <a class="btn game-play-cta" href="#spiel-starten">JETZT SPIELEN</a>
                     <button id="game-fullscreen" type="button" class="btn game-fullscreen-button">VOLLBILD</button>
                     <span id="fullscreen-message" class="fullscreen-message" role="status" aria-live="polite"></span>
+                </div>
+                <div class="game-hero-subnav">
+                    <a class="btn-subnav" href="#community-feedback"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i> BUGS / IDEEN</a>
+                    <a class="btn-subnav" href="#changelog"><i class="fa-solid fa-list-ul" aria-hidden="true"></i> CHANGELOG</a>
+                    <a class="btn-subnav" href="#zukunftsvisionen"><i class="fa-solid fa-compass" aria-hidden="true"></i> ZUKUNFTSVISIONEN</a>
                 </div>
                 <p class="game-mobile-hint">Am besten im Querformat spielen. Links laufen, rechts feuern; E durchsucht, INV &ouml;ffnet das Inventar.</p>
             </header>
@@ -100,188 +128,15 @@
                         <article><h3>GAMEPLAY</h3><ul><li>Mehr Zombies, Loot und Gegenst&auml;nde</li><li>Weitere &Uuml;berlebensmechaniken</li><li>Mehr Missionen, Events und Fundorte</li></ul></article>
                     </div>
                 </section>
-            </section>
-            <section class="game-visions" aria-labelledby="visions-title">
-                <div class="game-visions-heading">
-                    <span class="game-overview-kicker">LANGFRISTIGE IDEE</span>
-                    <h2 id="visions-title">ZUKUNFTSVISIONEN</h2>
-                    <p>ZHServer soll langfristig weit &uuml;ber die klassische Survival-Welt hinauswachsen. Einige der gr&ouml;&szlig;eren Ideen sind bewusst f&uuml;r eine sp&auml;tere Entwicklungsphase gedacht und k&ouml;nnen das Spiel irgendwann um v&ouml;llig eigenst&auml;ndige Welten, Ressourcen und Spielweisen erweitern.</p>
-                </div>
-
-                <div class="game-vision-list">
-                    <details class="game-vision-card" aria-label="Zukunftsvision Weltraum">
-                        <summary>
-                            <span class="game-vision-summary">
-                                <span class="game-vision-title">WELTRAUM</span>
-                                <span class="game-vision-subtitle">Eine eigenst&auml;ndige Portalwelt mit Planeten, Raumfahrt, neuen Ressourcen und au&szlig;erirdischen Gegnern.</span>
-                            </span>
-                            <span class="game-vision-hint">Aufklappen</span>
-                        </summary>
-                        <div class="game-vision-body">
-                            <section>
-                                <h3>GRUNDIDEE</h3>
-                                <p>Die Portale sollen sp&auml;ter Zugang zu kleinen, eigenen Dimensionen erm&ouml;glichen. Eine dieser Welten k&ouml;nnte in den Weltraum f&uuml;hren.</p>
-                                <p>Dort gelten teilweise v&ouml;llig andere Voraussetzungen als in der normalen Zombieh&ouml;lle-Survival-Welt: neue Baumaterialien, neue Ressourcen, Raumschiffe, Raumbasen und eigene Gegner.</p>
-                            </section>
-                            <section>
-                                <h3>DAS PORTAL</h3>
-                                <p>Das Portal besteht aus einem gro&szlig;en Ring mit sichtbarer Portalfl&auml;che in der Mitte. Im inaktiven Zustand ist die Portalfl&auml;che wei&szlig;; nach der Benutzung f&auml;rbt sie sich lila.</p>
-                                <p>Nur Spieler k&ouml;nnen das Portal durchqueren. Nach einer Benutzung gibt es einen kurzen Cooldown von ungef&auml;hr zwei Sekunden. Auf der anderen Seite befindet sich ein entsprechendes R&uuml;ckreiseportal auf einem mond&auml;hnlichen Planeten.</p>
-                                <p>Sp&auml;ter w&auml;re au&szlig;erdem denkbar, dass ganze Gruppen gemeinsam teleportiert werden k&ouml;nnen, wenn der Gruppenf&uuml;hrer das Portal benutzt.</p>
-                            </section>
-                            <section>
-                                <h3>VORAUSSETZUNG: RAUMANZUG</h3>
-                                <p>Um die Weltraumwelt aus der normalen Survival-Welt heraus betreten zu k&ouml;nnen, m&uuml;sste zun&auml;chst ein Raumanzug gefunden werden. Er w&auml;re dadurch selbst ein seltener und wichtiger Ausr&uuml;stungsgegenstand und Teil der Vorbereitung auf diese Welt.</p>
-                                <p>Das Prinzip &auml;hnelt der geplanten seltenen Armbrust f&uuml;r die Ritterwelt.</p>
-                            </section>
-                            <section>
-                                <h3>DER WELTRAUM</h3>
-                                <p>Der Weltraum soll eine gr&ouml;&szlig;ere eigenst&auml;ndige Welt mit mehreren begehbaren Planeten werden. Die einzelnen Planeten besitzen unterschiedliche Ressourcen, beispielsweise:</p>
-                                <ul>
-                                    <li>Stahl</li>
-                                    <li>Aluminium</li>
-                                    <li>weitere weltraumspezifische Materialien</li>
-                                </ul>
-                                <p>Diese Ressourcen k&ouml;nnten unter anderem f&uuml;r den Bau von Raumschiffen und sp&auml;ter m&ouml;glicherweise auch Raumbasen verwendet werden.</p>
-                            </section>
-                            <section>
-                                <h3>ALIENS &amp; WELTRAUMPIRATEN</h3>
-                                <p>Auf mindestens einem Planeten k&ouml;nnten feindliche Aliens leben. Zus&auml;tzlich w&auml;re ein besonderer Alienanf&uuml;hrer denkbar.</p>
-                                <p>M&ouml;glicher besonderer Loot:</p>
-                                <ul>
-                                    <li>Goldenes Schild f&uuml;r ein Raumschiff</li>
-                                    <li>besondere Laserwaffe</li>
-                                    <li>eine Flagge f&uuml;r die eigene Basis als sichtbarer Beweis f&uuml;r den Sieg &uuml;ber den Alienanf&uuml;hrer</li>
-                                    <li>weitere seltene Gegenst&auml;nde</li>
-                                </ul>
-                                <p>Eine weitere Gefahr k&ouml;nnten Weltraumpiraten sein: Zwei kleinere Piratenschiffe patrouillieren durch den Weltraum, suchen nach Eindringlingen und greifen mit Lasern an. So entst&uuml;nden nicht nur K&auml;mpfe auf Planeten, sondern auch Gefahren zwischen den einzelnen Welten.</p>
-                            </section>
-                            <section>
-                                <h3>EIGENST&Auml;NDIGES SPIELGEF&Uuml;HL</h3>
-                                <p>Die Weltraumwelt soll eigenen Loot, eigene Ressourcen, eigene Gegner und eigene Bauobjekte erhalten. Langfristig w&auml;re sogar denkbar, dass Spieler, die haupts&auml;chlich auf Raumfahrt und Weltraum-Survival Lust haben, direkt in dieser Welt beginnen k&ouml;nnen.</p>
-                                <p>Der nachtr&auml;gliche &Uuml;bergang aus der normalen Zombieh&ouml;lle-Survival-Welt bliebe jedoch an den Raumanzug gebunden.</p>
-                            </section>
-                            <p class="game-vision-status">LANGFRISTIGE IDEE &ndash; NICHT F&Uuml;R DIE AKTUELLE ENTWICKLUNGSPHASE</p>
-                        </div>
-                    </details>
-
-                    <details class="game-vision-card" aria-label="Zukunftsvision Ritterwelt, K&ouml;nig und Drache">
-                        <summary>
-                            <span class="game-vision-summary">
-                                <span class="game-vision-title">PORTALWELTEN &ndash; RITTERWELT, K&Ouml;NIG &amp; DRACHE</span>
-                                <span class="game-vision-subtitle">Eine mittelalterliche Welt ohne Zombies mit Burgbelagerung, K&ouml;nig, Drachen und einzigartigem Loot.</span>
-                            </span>
-                            <span class="game-vision-hint">Aufklappen</span>
-                        </summary>
-                        <div class="game-vision-body">
-                            <section>
-                                <h3>GRUNDIDEE</h3>
-                                <p>Die Portale sollen sp&auml;ter Zugang zu kleinen, eigenst&auml;ndigen Dimensionen erm&ouml;glichen. Eine davon k&ouml;nnte eine mittelalterliche Ritterwelt sein.</p>
-                            </section>
-                            <section>
-                                <h3>DAS PORTAL</h3>
-                                <p>Das Portal besteht aus einem gro&szlig;en Ring mit sichtbarer Portalfl&auml;che in der Mitte. Im inaktiven Zustand ist die Portalfl&auml;che wei&szlig;; nach der Benutzung f&auml;rbt sie sich lila.</p>
-                                <p>Nur Spieler k&ouml;nnen hindurchgehen. Nach der Benutzung gibt es einen kurzen Cooldown von ungef&auml;hr zwei Sekunden. In der Ritterwelt befindet sich dasselbe Portal f&uuml;r die R&uuml;ckreise.</p>
-                                <p>Sp&auml;ter k&ouml;nnten Gruppen gemeinsam teleportiert werden, wenn der Gruppenf&uuml;hrer das Portal benutzt.</p>
-                            </section>
-                            <section>
-                                <h3>DIE RITTERWELT</h3>
-                                <p>Die Ritterwelt ist eine kleinere eigenst&auml;ndige Welt ohne Zombies. Im Zentrum befindet sich eine gro&szlig;e ummauerte Burg.</p>
-                                <p>Dort herrscht ein K&ouml;nig, der als besonderer Bossgegner dienen k&ouml;nnte. Auf den Mauern befinden sich Bogensch&uuml;tzen, die alle sich n&auml;hernden Spieler angreifen.</p>
-                            </section>
-                            <section>
-                                <h3>ANGRIFF AUF DIE BURG</h3>
-                                <p>Das Haupttor der Burg ist geschlossen. Spieler m&uuml;ssten deshalb einen anderen Weg hinein finden.</p>
-                                <p>Eine M&ouml;glichkeit w&auml;re beispielsweise, zun&auml;chst eine Holzleiter herzustellen und damit &uuml;ber die Burgmauer einzudringen. Dadurch wird bereits der Weg zum K&ouml;nig Teil der Herausforderung.</p>
-                            </section>
-                            <section>
-                                <h3>DER K&Ouml;NIG</h3>
-                                <p>Der K&ouml;nig w&auml;re ein besonderer Boss mit einzigartigem Loot. M&ouml;gliche Belohnungen:</p>
-                                <ul>
-                                    <li>Goldenes Schwert</li>
-                                    <li>Goldenes Schild</li>
-                                    <li>Goldener Helm</li>
-                                    <li>Krone</li>
-                                </ul>
-                                <p>Diese Gegenst&auml;nde sollen nicht einfach normale Ausr&uuml;stung mit anderer Farbe sein, sondern besondere Erinnerungen und Belohnungen aus dieser Portalwelt darstellen.</p>
-                            </section>
-                            <section>
-                                <h3>DER DRACHE &amp; DIE SELTENE ARMBRUST</h3>
-                                <p>In einer H&ouml;hle k&ouml;nnte ein gr&uuml;ner feuerspeiender Drache als W&auml;chter des K&ouml;nigs leben. Sobald ein Spieler die Ritterwelt betritt, wird er aktiv. Mit einer Wahrscheinlichkeit von ungef&auml;hr 25&nbsp;% verl&auml;sst er seine H&ouml;hle und sucht nach Spielern, um den Angriff auf den K&ouml;nig zu verhindern.</p>
-                                <p>Der Drache soll mit normalen Waffen zwar verletzt werden k&ouml;nnen, jedoch nur sehr wenig Schaden erleiden. Eine seltene Armbrust w&auml;re die effektivste Waffe gegen ihn.</p>
-                                <p>Diese Armbrust m&uuml;sste vorher gefunden werden und w&uuml;rde dadurch selbst Teil der Vorbereitung auf die Ritterwelt. Spieler m&uuml;ssten sich also m&ouml;glicherweise bereits in der normalen Survival-Welt auf die Reise vorbereiten.</p>
-                            </section>
-                            <section>
-                                <h3>WEITERE M&Ouml;GLICHKEITEN</h3>
-                                <p>Die Ritterwelt k&ouml;nnte sp&auml;ter noch weitere eigene Gegenst&auml;nde und Mechaniken erhalten, beispielsweise:</p>
-                                <ul>
-                                    <li>Schwert und Schild</li>
-                                    <li>Holzleitern</li>
-                                    <li>mittelalterlichen Loot</li>
-                                    <li>weitere R&uuml;stungen und Waffen</li>
-                                    <li>zus&auml;tzliche Gegner</li>
-                                    <li>weitere Geheimnisse innerhalb der Burg oder Welt</li>
-                                </ul>
-                                <p>Das Portal-System er&ouml;ffnet langfristig au&szlig;erdem die M&ouml;glichkeit f&uuml;r weitere Welten mit komplett anderen Themen.</p>
-                            </section>
-                            <p class="game-vision-status">LANGFRISTIGE IDEE &ndash; NICHT F&Uuml;R DIE AKTUELLE ENTWICKLUNGSPHASE</p>
-                        </div>
-                    </details>
-                </div>
-            </section>
-            <section class="game-community-help" aria-labelledby="community-help-title">
-                <div class="game-community-help-inner">
-
-                    <span class="game-overview-kicker">COMMUNITY &amp; FEEDBACK</span>
-
-                    <h2 id="community-help-title">HILF BEI DER ENTWICKLUNG</h2>
-
-                    <p>
-                        Zombieh&ouml;lle Survival befindet sich noch in einer fr&uuml;hen Alpha.
-                        Wenn dir beim Spielen Fehler auffallen oder du Ideen und Verbesserungsvorschl&auml;ge hast,
-                        kannst du dich gerne einbringen.
-                    </p>
-
-                    <p>
-                        Bugs, Ideen und Feedback sammeln wir aktuell im ZHServer-Discord.
-                    </p>
-
-                    <div class="game-community-help-actions">
-                        <a
-                            class="btn btn-outline"
-                            href="https://discord.gg/MAujawnuK"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            BUG MELDEN
-                        </a>
-
-                        <a
-                            class="btn btn-outline"
-                            href="https://discord.gg/MAujawnuK"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            IDEE EINREICHEN
-                        </a>
-
-                        <a
-                            class="btn btn-gold"
-                            href="https://discord.gg/MAujawnuK"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            ZUM DISCORD
-                        </a>
-                    </div>
-
-                </div>
-            </section>
+            <div class="game-play-divider">
+                <span class="game-overview-kicker">SPIELBEREICH</span>
+                <i class="fa-solid fa-chevron-down game-scroll-arrow" aria-hidden="true"></i>
+            </div>
 
             <iframe id="spiel-starten" class="game-embed" src="game/survival-v109.html?build=alpha-0-2-0-v109-20260812-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
-            <section class="survival-changelog" aria-labelledby="changelog-title">
+            <section id="changelog" class="survival-changelog" aria-labelledby="changelog-title">
                 <div class="changelog-summary">
                     <div>
                         <span class="changelog-kicker">ENTWICKLUNGSSTAND</span>
@@ -485,16 +340,183 @@
                         <summary><span class="changelog-version-title">Alpha 0.1.1</span><span class="changelog-hint">Aufklappen</span></summary>
                         <ul class="changelog-list"><li>Erster spielbarer Prototyp mit Chernarus-inspirierter Draufsicht und lokaler Spielwelt.</li></ul>
                     </details>
-                </div>            </section>            <section class="survival-leaderboard" aria-labelledby="leaderboard-title">
-                <div class="leaderboard-heading">
-                    <div>
-                        <span class="section-title">REGISTRIERTE SPIELER</span>
-                        <h2 id="leaderboard-title"><i class="fa-solid fa-trophy" aria-hidden="true"></i> SPIELER &amp; PUNKTE</h2>
-                    </div>
-                    <span id="leaderboard-updated" class="leaderboard-updated">Lade Rangliste …</span>
+                </div>            </section>
+
+            <section id="zukunftsvisionen" class="game-visions" aria-labelledby="visions-title">
+                <div class="game-visions-heading">
+                    <span class="game-overview-kicker">LANGFRISTIGE IDEE</span>
+                    <h2 id="visions-title">ZUKUNFTSVISIONEN</h2>
+                    <p>ZHServer soll langfristig weit &uuml;ber die klassische Survival-Welt hinauswachsen. Einige der gr&ouml;&szlig;eren Ideen sind bewusst f&uuml;r eine sp&auml;tere Entwicklungsphase gedacht und k&ouml;nnen das Spiel irgendwann um v&ouml;llig eigenst&auml;ndige Welten, Ressourcen und Spielweisen erweitern.</p>
                 </div>
-                <div id="leaderboard-list" class="leaderboard-list" aria-live="polite">
-                    <p class="leaderboard-loading">Die besten Überlebenden werden geladen …</p>
+
+                <div class="game-vision-list">
+                    <details class="game-vision-card" aria-label="Zukunftsvision Weltraum">
+                        <summary>
+                            <span class="game-vision-summary">
+                                <span class="game-vision-title">WELTRAUM</span>
+                                <span class="game-vision-subtitle">Eine eigenst&auml;ndige Portalwelt mit Planeten, Raumfahrt, neuen Ressourcen und au&szlig;erirdischen Gegnern.</span>
+                            </span>
+                            <span class="game-vision-hint">Aufklappen</span>
+                        </summary>
+                        <div class="game-vision-body">
+                            <section>
+                                <h3>GRUNDIDEE</h3>
+                                <p>Die Portale sollen sp&auml;ter Zugang zu kleinen, eigenen Dimensionen erm&ouml;glichen. Eine dieser Welten k&ouml;nnte in den Weltraum f&uuml;hren.</p>
+                                <p>Dort gelten teilweise v&ouml;llig andere Voraussetzungen als in der normalen Zombieh&ouml;lle-Survival-Welt: neue Baumaterialien, neue Ressourcen, Raumschiffe, Raumbasen und eigene Gegner.</p>
+                            </section>
+                            <section>
+                                <h3>DAS PORTAL</h3>
+                                <p>Das Portal besteht aus einem gro&szlig;en Ring mit sichtbarer Portalfl&auml;che in der Mitte. Im inaktiven Zustand ist die Portalfl&auml;che wei&szlig;; nach der Benutzung f&auml;rbt sie sich lila.</p>
+                                <p>Nur Spieler k&ouml;nnen das Portal durchqueren. Nach einer Benutzung gibt es einen kurzen Cooldown von ungef&auml;hr zwei Sekunden. Auf der anderen Seite befindet sich ein entsprechendes R&uuml;ckreiseportal auf einem mond&auml;hnlichen Planeten.</p>
+                                <p>Sp&auml;ter w&auml;re au&szlig;erdem denkbar, dass ganze Gruppen gemeinsam teleportiert werden k&ouml;nnen, wenn der Gruppenf&uuml;hrer das Portal benutzt.</p>
+                            </section>
+                            <section>
+                                <h3>VORAUSSETZUNG: RAUMANZUG</h3>
+                                <p>Um die Weltraumwelt aus der normalen Survival-Welt heraus betreten zu k&ouml;nnen, m&uuml;sste zun&auml;chst ein Raumanzug gefunden werden. Er w&auml;re dadurch selbst ein seltener und wichtiger Ausr&uuml;stungsgegenstand und Teil der Vorbereitung auf diese Welt.</p>
+                                <p>Das Prinzip &auml;hnelt der geplanten seltenen Armbrust f&uuml;r die Ritterwelt.</p>
+                            </section>
+                            <section>
+                                <h3>DER WELTRAUM</h3>
+                                <p>Der Weltraum soll eine gr&ouml;&szlig;ere eigenst&auml;ndige Welt mit mehreren begehbaren Planeten werden. Die einzelnen Planeten besitzen unterschiedliche Ressourcen, beispielsweise:</p>
+                                <ul>
+                                    <li>Stahl</li>
+                                    <li>Aluminium</li>
+                                    <li>weitere weltraumspezifische Materialien</li>
+                                </ul>
+                                <p>Diese Ressourcen k&ouml;nnten unter anderem f&uuml;r den Bau von Raumschiffen und sp&auml;ter m&ouml;glicherweise auch Raumbasen verwendet werden.</p>
+                            </section>
+                            <section>
+                                <h3>ALIENS &amp; WELTRAUMPIRATEN</h3>
+                                <p>Auf mindestens einem Planeten k&ouml;nnten feindliche Aliens leben. Zus&auml;tzlich w&auml;re ein besonderer Alienanf&uuml;hrer denkbar.</p>
+                                <p>M&ouml;glicher besonderer Loot:</p>
+                                <ul>
+                                    <li>Goldenes Schild f&uuml;r ein Raumschiff</li>
+                                    <li>besondere Laserwaffe</li>
+                                    <li>eine Flagge f&uuml;r die eigene Basis als sichtbarer Beweis f&uuml;r den Sieg &uuml;ber den Alienanf&uuml;hrer</li>
+                                    <li>weitere seltene Gegenst&auml;nde</li>
+                                </ul>
+                                <p>Eine weitere Gefahr k&ouml;nnten Weltraumpiraten sein: Zwei kleinere Piratenschiffe patrouillieren durch den Weltraum, suchen nach Eindringlingen und greifen mit Lasern an. So entst&uuml;nden nicht nur K&auml;mpfe auf Planeten, sondern auch Gefahren zwischen den einzelnen Welten.</p>
+                            </section>
+                            <section>
+                                <h3>EIGENST&Auml;NDIGES SPIELGEF&Uuml;HL</h3>
+                                <p>Die Weltraumwelt soll eigenen Loot, eigene Ressourcen, eigene Gegner und eigene Bauobjekte erhalten. Langfristig w&auml;re sogar denkbar, dass Spieler, die haupts&auml;chlich auf Raumfahrt und Weltraum-Survival Lust haben, direkt in dieser Welt beginnen k&ouml;nnen.</p>
+                                <p>Der nachtr&auml;gliche &Uuml;bergang aus der normalen Zombieh&ouml;lle-Survival-Welt bliebe jedoch an den Raumanzug gebunden.</p>
+                            </section>
+                            <p class="game-vision-status">LANGFRISTIGE IDEE &ndash; NICHT F&Uuml;R DIE AKTUELLE ENTWICKLUNGSPHASE</p>
+                        </div>
+                    </details>
+
+                    <details class="game-vision-card" aria-label="Zukunftsvision Ritterwelt, K&ouml;nig und Drache">
+                        <summary>
+                            <span class="game-vision-summary">
+                                <span class="game-vision-title">PORTALWELTEN &ndash; RITTERWELT, K&Ouml;NIG &amp; DRACHE</span>
+                                <span class="game-vision-subtitle">Eine mittelalterliche Welt ohne Zombies mit Burgbelagerung, K&ouml;nig, Drachen und einzigartigem Loot.</span>
+                            </span>
+                            <span class="game-vision-hint">Aufklappen</span>
+                        </summary>
+                        <div class="game-vision-body">
+                            <section>
+                                <h3>GRUNDIDEE</h3>
+                                <p>Die Portale sollen sp&auml;ter Zugang zu kleinen, eigenst&auml;ndigen Dimensionen erm&ouml;glichen. Eine davon k&ouml;nnte eine mittelalterliche Ritterwelt sein.</p>
+                            </section>
+                            <section>
+                                <h3>DAS PORTAL</h3>
+                                <p>Das Portal besteht aus einem gro&szlig;en Ring mit sichtbarer Portalfl&auml;che in der Mitte. Im inaktiven Zustand ist die Portalfl&auml;che wei&szlig;; nach der Benutzung f&auml;rbt sie sich lila.</p>
+                                <p>Nur Spieler k&ouml;nnen hindurchgehen. Nach der Benutzung gibt es einen kurzen Cooldown von ungef&auml;hr zwei Sekunden. In der Ritterwelt befindet sich dasselbe Portal f&uuml;r die R&uuml;ckreise.</p>
+                                <p>Sp&auml;ter k&ouml;nnten Gruppen gemeinsam teleportiert werden, wenn der Gruppenf&uuml;hrer das Portal benutzt.</p>
+                            </section>
+                            <section>
+                                <h3>DIE RITTERWELT</h3>
+                                <p>Die Ritterwelt ist eine kleinere eigenst&auml;ndige Welt ohne Zombies. Im Zentrum befindet sich eine gro&szlig;e ummauerte Burg.</p>
+                                <p>Dort herrscht ein K&ouml;nig, der als besonderer Bossgegner dienen k&ouml;nnte. Auf den Mauern befinden sich Bogensch&uuml;tzen, die alle sich n&auml;hernden Spieler angreifen.</p>
+                            </section>
+                            <section>
+                                <h3>ANGRIFF AUF DIE BURG</h3>
+                                <p>Das Haupttor der Burg ist geschlossen. Spieler m&uuml;ssten deshalb einen anderen Weg hinein finden.</p>
+                                <p>Eine M&ouml;glichkeit w&auml;re beispielsweise, zun&auml;chst eine Holzleiter herzustellen und damit &uuml;ber die Burgmauer einzudringen. Dadurch wird bereits der Weg zum K&ouml;nig Teil der Herausforderung.</p>
+                            </section>
+                            <section>
+                                <h3>DER K&Ouml;NIG</h3>
+                                <p>Der K&ouml;nig w&auml;re ein besonderer Boss mit einzigartigem Loot. M&ouml;gliche Belohnungen:</p>
+                                <ul>
+                                    <li>Goldenes Schwert</li>
+                                    <li>Goldenes Schild</li>
+                                    <li>Goldener Helm</li>
+                                    <li>Krone</li>
+                                </ul>
+                                <p>Diese Gegenst&auml;nde sollen nicht einfach normale Ausr&uuml;stung mit anderer Farbe sein, sondern besondere Erinnerungen und Belohnungen aus dieser Portalwelt darstellen.</p>
+                            </section>
+                            <section>
+                                <h3>DER DRACHE &amp; DIE SELTENE ARMBRUST</h3>
+                                <p>In einer H&ouml;hle k&ouml;nnte ein gr&uuml;ner feuerspeiender Drache als W&auml;chter des K&ouml;nigs leben. Sobald ein Spieler die Ritterwelt betritt, wird er aktiv. Mit einer Wahrscheinlichkeit von ungef&auml;hr 25&nbsp;% verl&auml;sst er seine H&ouml;hle und sucht nach Spielern, um den Angriff auf den K&ouml;nig zu verhindern.</p>
+                                <p>Der Drache soll mit normalen Waffen zwar verletzt werden k&ouml;nnen, jedoch nur sehr wenig Schaden erleiden. Eine seltene Armbrust w&auml;re die effektivste Waffe gegen ihn.</p>
+                                <p>Diese Armbrust m&uuml;sste vorher gefunden werden und w&uuml;rde dadurch selbst Teil der Vorbereitung auf die Ritterwelt. Spieler m&uuml;ssten sich also m&ouml;glicherweise bereits in der normalen Survival-Welt auf die Reise vorbereiten.</p>
+                            </section>
+                            <section>
+                                <h3>WEITERE M&Ouml;GLICHKEITEN</h3>
+                                <p>Die Ritterwelt k&ouml;nnte sp&auml;ter noch weitere eigene Gegenst&auml;nde und Mechaniken erhalten, beispielsweise:</p>
+                                <ul>
+                                    <li>Schwert und Schild</li>
+                                    <li>Holzleitern</li>
+                                    <li>mittelalterlichen Loot</li>
+                                    <li>weitere R&uuml;stungen und Waffen</li>
+                                    <li>zus&auml;tzliche Gegner</li>
+                                    <li>weitere Geheimnisse innerhalb der Burg oder Welt</li>
+                                </ul>
+                                <p>Das Portal-System er&ouml;ffnet langfristig au&szlig;erdem die M&ouml;glichkeit f&uuml;r weitere Welten mit komplett anderen Themen.</p>
+                            </section>
+                            <p class="game-vision-status">LANGFRISTIGE IDEE &ndash; NICHT F&Uuml;R DIE AKTUELLE ENTWICKLUNGSPHASE</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <section id="community-feedback" class="game-community-help" aria-labelledby="community-help-title">
+                <div class="game-community-help-inner">
+
+                    <span class="game-overview-kicker">COMMUNITY &amp; FEEDBACK</span>
+
+                    <h2 id="community-help-title">HILF BEI DER ENTWICKLUNG</h2>
+
+                    <p>
+                        Zombieh&ouml;lle Survival befindet sich noch in einer fr&uuml;hen Alpha.
+                        Wenn dir beim Spielen Fehler auffallen oder du Ideen und Verbesserungsvorschl&auml;ge hast,
+                        kannst du dich gerne einbringen.
+                    </p>
+
+                    <p>
+                        Bugs, Ideen und Feedback sammeln wir aktuell im ZHServer-Discord.
+                    </p>
+
+                    <div class="game-community-help-actions">
+                        <a
+                            class="btn btn-outline"
+                            href="https://discord.gg/MAujawnuK"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            BUG MELDEN
+                        </a>
+
+                        <a
+                            class="btn btn-outline"
+                            href="https://discord.gg/MAujawnuK"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            IDEE EINREICHEN
+                        </a>
+
+                        <a
+                            class="btn btn-gold"
+                            href="https://discord.gg/MAujawnuK"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            ZUM DISCORD
+                        </a>
+                    </div>
+
                 </div>
             </section>
 
@@ -592,7 +614,20 @@
         }
     }
 
+    function populateCompactChangelog() {
+        const targetContainer = document.getElementById("compact-changelog-list");
+        if (!targetContainer || targetContainer.children.length > 0) return;
+        const sourceList = document.getElementById("latest-change-list");
+        if (!sourceList) return;
+        const items = Array.from(sourceList.querySelectorAll("li")).slice(0, 4);
+        targetContainer.innerHTML = items.map(li => {
+            const text = escapeHtml(li.textContent.trim());
+            return `<div class="compact-change-item" title="${text}"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">${text}</span></div>`;
+        }).join("");
+    }
+
     async function loadLeaderboard() {
+        const top5List = document.getElementById("top5-player-list");
         try {
             const response = await fetch(`${supabaseUrl}/rest/v1/rpc/get_leaderboard`, {
                 method: "POST",
@@ -601,33 +636,75 @@
             });
             if (!response.ok) throw new Error("Rangliste nicht verfuegbar");
             const players = await response.json();
-            if (!Array.isArray(players) || players.length === 0) {
-                leaderboardList.innerHTML = '<p class="leaderboard-loading">Noch keine registrierten Spieler.</p>';
-            } else {
-                const createRows = (entries) => entries.map((player, index) => {
-                    const place = Number(player.rank || index + 1);
-                    const medal = place === 1 ? "gold" : place === 2 ? "silver" : place === 3 ? "bronze" : "normal";
-                    return `<article class="leaderboard-row ${medal}"><span class="leaderboard-place">${place}</span><span class="leaderboard-player"><i class="fa-solid fa-user" aria-hidden="true"></i>${escapeHtml(player.nickname)}</span><strong>${Number(player.points || 0).toLocaleString("de-DE")} <small>Punkte</small></strong></article>`;
-                }).join("");
-                const visiblePlayers = players.slice(0, 15);
-                const furtherPlayers = players.slice(15);
-                const morePlayers = furtherPlayers.length
-                    ? `<details class="leaderboard-more"><summary>Weitere ${furtherPlayers.length} Spieler anzeigen</summary><div class="leaderboard-list leaderboard-list-more">${createRows(furtherPlayers)}</div></details>`
-                    : "";
-                leaderboardList.innerHTML = createRows(visiblePlayers) + morePlayers;
+            if (top5List) {
+                if (!Array.isArray(players) || players.length === 0) {
+                    top5List.innerHTML = '<span class="top5-loading">Keine Spieler</span>';
+                } else {
+                    const top5 = players.slice(0, 5);
+                    top5List.innerHTML = top5.map((player, index) => {
+                        const place = Number(player.rank || index + 1);
+                        const medal = place === 1 ? "top5-gold" : place === 2 ? "top5-silver" : place === 3 ? "top5-bronze" : "";
+                        return `<div class="top5-row ${medal}"><span class="top5-rank">#${place}</span><span class="top5-name">${escapeHtml(player.nickname)}</span><span class="top5-points">${Number(player.points || 0).toLocaleString("de-DE")} Pkt.</span></div>`;
+                    }).join("");
+                }
+            }
+            if (leaderboardList) {
+                if (!Array.isArray(players) || players.length === 0) {
+                    leaderboardList.innerHTML = '<p class="leaderboard-loading">Noch keine registrierten Spieler.</p>';
+                } else {
+                    const createRows = (entries) => entries.map((player, index) => {
+                        const place = Number(player.rank || index + 1);
+                        const medal = place === 1 ? "gold" : place === 2 ? "silver" : place === 3 ? "bronze" : "normal";
+                        return `<article class="leaderboard-row ${medal}"><span class="leaderboard-place">${place}</span><span class="leaderboard-player"><i class="fa-solid fa-user" aria-hidden="true"></i>${escapeHtml(player.nickname)}</span><strong>${Number(player.points || 0).toLocaleString("de-DE")} <small>Punkte</small></strong></article>`;
+                    }).join("");
+                    const visiblePlayers = players.slice(0, 15);
+                    const furtherPlayers = players.slice(15);
+                    const morePlayers = furtherPlayers.length
+                        ? `<details class="leaderboard-more"><summary>Weitere ${furtherPlayers.length} Spieler anzeigen</summary><div class="leaderboard-list leaderboard-list-more">${createRows(furtherPlayers)}</div></details>`
+                        : "";
+                    leaderboardList.innerHTML = createRows(visiblePlayers) + morePlayers;
+                }
             }
             if (registeredPlayerCount && registeredPlayerCount.textContent === "--" && players.length < 100) {
                 registeredPlayerCount.textContent = String(players.length);
             }
-            leaderboardUpdated.textContent = "Aktualisierung: alle 24 Stunden";
+            if (leaderboardUpdated) leaderboardUpdated.textContent = "Aktualisierung: alle 24 Stunden";
         } catch (error) {
-            leaderboardList.innerHTML = '<p class="leaderboard-loading">Die Rangliste wird gerade vorbereitet.</p>';
-            leaderboardUpdated.textContent = "Aktualisierung folgt";
+            if (top5List) top5List.innerHTML = '<span class="top5-loading">Rangliste folgt</span>';
+            if (leaderboardList) leaderboardList.innerHTML = '<p class="leaderboard-loading">Die Rangliste wird gerade vorbereitet.</p>';
+            if (leaderboardUpdated) leaderboardUpdated.textContent = "Aktualisierung folgt";
             if (registeredPlayerCount) registeredPlayerCount.textContent = "--";
         }
     }
+    async function loadRecentPlayers() {
+        const recentList = document.getElementById("recent-player-list");
+        if (!recentList) return;
+        try {
+            const response = await fetch(`${supabaseUrl}/rest/v1/rpc/get_recent_players`, {
+                method: "POST",
+                headers: { "apikey": supabaseAnonKey, "Content-Type": "application/json" },
+                body: "{}"
+            });
+            if (!response.ok) throw new Error("Recent players unavailable");
+            const data = await response.json();
+            if (!Array.isArray(data) || data.length === 0) {
+                recentList.innerHTML = '<span class="recent-loading">Noch keine Spieler</span>';
+            } else {
+                recentList.innerHTML = data.slice(0, 5).map(item => {
+                    const name = typeof item === "string" ? item : (item.nickname || item.name || "");
+                    return `<div class="recent-row"><span class="recent-dot" aria-hidden="true">&bull;</span><span class="recent-name">${escapeHtml(name)}</span></div>`;
+                }).join("");
+            }
+        } catch (error) {
+            recentList.innerHTML = '<span class="recent-loading">--</span>';
+        }
+    }
+
+    populateCompactChangelog();
     loadRegisteredPlayerCount();
     window.setInterval(loadRegisteredPlayerCount, 24 * 60 * 60 * 1000);
+    loadRecentPlayers();
+    window.setInterval(loadRecentPlayers, 5 * 60 * 1000);
     loadLeaderboard();
     window.setInterval(loadLeaderboard, 24 * 60 * 60 * 1000);
 

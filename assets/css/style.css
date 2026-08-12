@@ -28,72 +28,82 @@ body{
     position:fixed;
     inset:0 0 auto 0;
     z-index:1000;
-    padding:22px 0;
+    padding:20px 0;
+    transition:padding .3s ease;
 }
-
+.header.scrolled{
+    padding:10px 0;
+}
 .navbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:16px 28px;
-    background:rgba(10,14,20,.45);
+    padding:12px 24px;
+    background:rgba(10,14,20,.65);
     border:1px solid var(--border);
-    backdrop-filter:blur(18px);
-    border-radius:18px;
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-radius:14px;
+    box-shadow:0 8px 30px rgba(0,0,0,.3);
+    transition:padding .3s ease, background .3s ease;
 }
-
+.header.scrolled .navbar{
+    background:rgba(10,14,20,.85);
+    padding:10px 24px;
+}
 .logo{
     font-family:"Cinzel",serif;
     color:#fff;
     text-decoration:none;
-    letter-spacing:2px;
-    font-size:22px;
+    letter-spacing:1px;
+    font-size:18px;
+    font-weight:700;
+    transition:color .25s ease;
 }
-
+.logo:hover{
+    color:var(--gold);
+}
 .nav-menu{
     display:flex;
     align-items:center;
-    gap:34px;
+    gap:28px;
     list-style:none;
 }
-
 .nav-menu a{
-    color:#d7dde4;
+    color:#cbd2d8;
+    font-size:.9rem;
+    font-weight:500;
     text-decoration:none;
-    transition:.25s;
+    transition:.25s ease;
     position:relative;
     white-space:nowrap;
 }
-
 .nav-menu a::after{
     content:"";
     position:absolute;
-    left:0;
-    bottom:-7px;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:-5px;
     width:0;
     height:2px;
     background:var(--gold);
-    transition:.25s;
+    transition:.25s ease;
 }
-
 .nav-menu a:hover{color:#fff}
 .nav-menu a:hover::after{width:100%}
-
 .nav-menu a.nav-game-link{
     color:#f2a64a;
-    animation:game-nav-pulse 2.4s ease-in-out infinite;
+    font-weight:700;
+    animation:game-nav-pulse 3s ease-in-out infinite;
 }
-
 .nav-menu a.nav-game-link::after{
     width:100%;
     background:#f2a64a;
     opacity:.35;
 }
-
 .nav-menu a.nav-game-link:hover{
     color:#ffd08a;
 }
-
 .nav-menu a[aria-current="page"]{
     color:#fff;
 }
@@ -130,19 +140,43 @@ body{
     position:relative;
     min-height:100vh;
     height:auto;
-    padding:142px 0 56px;
+    padding:160px 0 70px;
     background:
         linear-gradient(rgba(8,10,14,.25),rgba(8,10,14,.65),#0f141b),
         url("../images/hero.png") center right/cover no-repeat;
+    display:flex;
+    align-items:center;
 }
 
 .hero-container{
     position:relative;
     z-index:2;
+    width:100%;
 }
 
 .hero-content{
-    max-width:620px;
+    width:100%;
+    margin:0 auto;
+}
+
+@media(min-width:992px){
+    .hero-content{
+        display:grid;
+        grid-template-columns:1.1fr 1fr;
+        gap:60px;
+        align-items:center;
+        max-width:1200px;
+    }
+    .hero-welcome{
+        padding-right:20px;
+    }
+    .survival-hero-cta{
+        margin-top:0;
+    }
+    .scroll-indicator{
+        grid-column:1 / -1;
+        margin-top:50px;
+    }
 }
 
 .hero-est{
@@ -155,16 +189,17 @@ body{
 
 .hero h1{
     font-family:"Cinzel",serif;
-    font-size:clamp(3rem,7vw,5.6rem);
-    line-height:1;
-    margin-bottom:30px;
+    font-size:clamp(2.4rem,5.5vw,4.4rem);
+    line-height:1.1;
+    margin-bottom:24px;
+    color:#f0f3ed;
 }
 
 .hero p{
     color:var(--muted);
-    line-height:1.9;
-    font-size:1.15rem;
-    margin-bottom:42px;
+    line-height:1.75;
+    font-size:1.1rem;
+    margin-bottom:34px;
 }
 
 .hero-buttons{
@@ -199,6 +234,17 @@ body{
 }
 .btn-outline:hover{
     background:rgba(212,175,55,.12);
+}
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.05);
+    color:#d7dde4;
+}
+.btn-secondary:hover{
+    border-color:rgba(255,255,255,.2);
+    background:rgba(255,255,255,.1);
+    color:#fff;
+    transform:translateY(-2px);
 }
 
 .scroll-indicator{
@@ -2524,24 +2570,28 @@ grid-template-columns:1fr;
 @media(max-width:700px){.changelog-current-heading{padding:12px 13px;font-size:.72rem;}.changelog-current .changelog-list{padding-top:12px;}}
 /* Primary Zombiehoelle Survival entry point */
 .survival-hero-cta{
-    margin-top:28px;
+    margin-top:34px;
     max-width:590px;
-    padding:24px 26px 20px;
-    border:1px solid rgba(212,175,55,.52);
+    padding:28px 30px 24px;
+    border:1px solid rgba(212,175,55,.62);
     border-radius:14px;
-    background:linear-gradient(135deg,rgba(20,18,15,.88),rgba(28,23,17,.74));
-    box-shadow:0 18px 38px rgba(0,0,0,.26), inset 0 1px 0 rgba(255,229,172,.08);
+    background:linear-gradient(135deg,rgba(16,15,12,.94),rgba(24,20,15,.86));
+    box-shadow:0 22px 48px rgba(0,0,0,.5), 0 0 30px rgba(212,175,55,.14), inset 0 1px 0 rgba(255,229,172,.08);
+    transition:transform .3s ease, border-color .3s ease;
+}
+.survival-hero-cta:hover{
+    border-color:rgba(212,175,55,.8);
 }
 .survival-cta-header{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .survival-cta-kicker{color:#f2c36b;font-size:.75rem;font-weight:700;letter-spacing:.18em}
 .survival-cta-badge{padding:6px 9px;border:1px solid rgba(132,196,141,.55);border-radius:999px;color:#bce5c0;background:rgba(43,91,57,.32);font-size:.68rem;font-weight:700;letter-spacing:.09em}
-.survival-hero-cta h2{margin:15px 0 9px;font-family:"Cinzel",serif;color:#f8f0df;font-size:clamp(1.35rem,2.5vw,1.9rem)}
+.survival-hero-cta h2{margin:15px 0 9px;font-family:"Cinzel",serif;color:#f8f0df;font-size:clamp(1.35rem,2.5vw,1.9rem);line-height:1.2;}
 .survival-hero-cta p{margin:0 0 17px;color:#d0c9bd;font-size:1rem;line-height:1.6}
-.survival-play-button{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:15px 20px;border-radius:8px;background:linear-gradient(135deg,#d6a74e,#f0cf83);color:#17130e;font-weight:800;letter-spacing:.08em;text-decoration:none;box-shadow:0 8px 18px rgba(0,0,0,.24);transition:transform .2s ease,box-shadow .2s ease}
-.survival-play-button:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.34)}
+.survival-play-button{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px 20px;border-radius:8px;background:linear-gradient(135deg,#d6a74e,#f0cf83);color:#17130e;font-weight:800;font-size:1.05rem;letter-spacing:.08em;text-decoration:none;box-shadow:0 8px 18px rgba(0,0,0,.24);transition:transform .2s ease,box-shadow .2s ease}
+.survival-play-button:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(212,175,55,.24)}
 .survival-cta-features{display:flex;flex-wrap:wrap;gap:8px 14px;margin:17px 0 0;padding:0;list-style:none;color:#b7c7b4;font-size:.77rem;text-transform:uppercase;letter-spacing:.06em}
 .survival-cta-features li::before{content:"•";margin-right:6px;color:#d6ad5f}
-@media (max-width:700px){.survival-hero-cta{padding:20px;margin-top:22px}.survival-cta-header{align-items:flex-start;flex-direction:column;gap:8px}.survival-cta-features{gap:8px 12px}.survival-play-button{padding:16px}}
+@media (max-width:700px){.survival-hero-cta{padding:22px;margin-top:24px}.survival-cta-header{align-items:flex-start;flex-direction:column;gap:8px}.survival-cta-features{gap:8px 12px}.survival-play-button{padding:16px}}
 /* Homepage content polish: keeps the existing ZHServer survival identity. */
 .section{
     position:relative;
@@ -3155,23 +3205,247 @@ grid-template-columns:1fr;
 }
 /* Centered Zombiehoelle game hero */
 .survival-game-hero{
-    width:min(700px,100%);
+    width:min(980px,100%);
     margin:0 auto;
     padding-top:12px;
     text-align:center;
 }
+.survival-game-hero .game-page-title{
+    margin:0;
+    color:#f0f3ed;
+    font-family:Cinzel,serif;
+    font-size:clamp(2.1rem,4.5vw,3.15rem);
+    letter-spacing:.02em;
+    line-height:1.1;
+}
+.survival-game-hero .game-hero-tagline{
+    margin:5px 0 22px;
+    color:#efd47e;
+    font-family:Cinzel,serif;
+    font-size:clamp(.8rem,1.6vw,1rem);
+    letter-spacing:.12em;
+    font-weight:700;
+}
 .survival-game-hero .game-status-grid{
     width:100%;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:12px;
-    margin:20px auto 16px;
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:11px;
+    margin:20px auto 18px;
+    align-items:stretch;
 }
 .survival-game-hero .game-status-card{
-    min-height:78px;
-    text-align:center;
+    display:flex;
+    flex-direction:column;
+    min-height:144px;
+    padding:12px 14px;
+    border:1px solid rgba(151,172,151,.22);
+    border-radius:10px;
+    background:rgba(20,31,28,.62);
+    text-align:left;
+}
+.survival-game-hero .game-status-card span{
+    display:block;
+    color:#93ab98;
+    font-size:.64rem;
+    font-weight:700;
+    letter-spacing:.11em;
 }
 .survival-game-hero .game-status-card strong{
-    justify-content:center;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    margin-top:4px;
+    color:#e5ede4;
+    font-family:Inter,sans-serif;
+    font-size:1.15rem;
+    font-weight:700;
+    letter-spacing:.02em;
+}
+.game-reg-card strong{
+    margin-top:4px;
+    font-size:1.15rem;
+    color:#e5ede4;
+}
+.compact-recent-header{
+    margin-top:5px;
+    margin-bottom:4px;
+    color:#e2c778;
+    font-size:.61rem;
+    font-weight:700;
+    letter-spacing:.11em;
+}
+.recent-player-list{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+}
+.recent-row{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    padding:2px 5px;
+    border-radius:4px;
+    background:rgba(255,255,255,.025);
+    font-size:.71rem;
+    line-height:1.25;
+}
+.recent-dot{
+    color:#7fcf91;
+    font-size:.7rem;
+    line-height:1;
+    flex-shrink:0;
+}
+.recent-name{
+    color:#e5ede4;
+    font-weight:600;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    flex:1;
+}
+.recent-loading{
+    font-size:.71rem;
+    color:#93ab98;
+    font-style:italic;
+}
+
+/* Version card compact changelog */
+.compact-changelog-header{
+    margin-top:8px;
+    margin-bottom:4px;
+    color:#e2c778;
+    font-size:.61rem;
+    font-weight:700;
+    letter-spacing:.11em;
+}
+.compact-changelog-list{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    margin-top:5px;
+}
+.compact-change-item{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-size:.69rem;
+    color:#bdcebf;
+    line-height:1.2;
+}
+.compact-change-dot{
+    color:#7fcf91;
+    font-weight:700;
+    font-size:.68rem;
+    flex-shrink:0;
+}
+.compact-change-text{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    flex:1;
+}
+
+/* Dev card next step */
+.status-active-strong{
+    color:#e5ede4;
+}
+.status-dot-orange{
+    display:inline-block;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#f0a04b;
+    box-shadow:0 0 0 3px rgba(240,160,75,.2);
+    flex-shrink:0;
+}
+.compact-dev-next{
+    margin-top:8px;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+}
+.compact-dev-kicker{
+    color:#e2c778 !important;
+    font-size:.61rem !important;
+    font-weight:700;
+    letter-spacing:.11em;
+}
+.compact-dev-title{
+    color:#e5ede4;
+    font-size:.73rem;
+    font-weight:600;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.compact-dev-sub{
+    color:#7e9483;
+    font-size:.65rem;
+}
+
+/* Top 5 card */
+.survival-game-hero .game-top5-card{
+    padding:12px 14px;
+}
+.top5-player-list{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    margin-top:6px;
+}
+.top5-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:6px;
+    padding:2px 5px;
+    border-radius:4px;
+    background:rgba(255,255,255,.025);
+    font-size:.71rem;
+    line-height:1.25;
+}
+.top5-rank{
+    flex:0 0 18px;
+    color:#8fa394;
+    font-size:.66rem;
+    font-weight:700;
+}
+.top5-name{
+    flex:1;
+    color:#e5ede4;
+    font-weight:600;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.top5-points{
+    flex:0 0 auto;
+    color:#9eb2a2;
+    font-size:.66rem;
+    white-space:nowrap;
+}
+.top5-row.top5-gold{
+    background:rgba(226,199,120,.09);
+    border-left:2px solid #e2c778;
+}
+.top5-row.top5-gold .top5-rank{color:#f2db94;}
+.top5-row.top5-gold .top5-name{color:#fff5d5;}
+.top5-row.top5-gold .top5-points{color:#e5cd85;}
+.top5-row.top5-silver{
+    background:rgba(200,215,210,.05);
+    border-left:2px solid rgba(200,215,210,.6);
+}
+.top5-row.top5-silver .top5-rank{color:#d0e0d8;}
+.top5-row.top5-bronze{
+    background:rgba(205,155,105,.05);
+    border-left:2px solid rgba(205,155,105,.5);
+}
+.top5-row.top5-bronze .top5-rank{color:#dfb288;}
+.top5-loading{
+    font-size:.71rem;
+    color:#93ab98;
+    font-style:italic;
 }
 .survival-game-hero .game-hero-actions{
     display:grid;
@@ -3199,17 +3473,74 @@ grid-template-columns:1fr;
     width:176px;
     min-width:176px;
 }
-@media(max-width:700px){
-    .survival-game-hero{width:min(100%,420px);}
+.game-hero-subnav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin:14px auto 4px;
+    width:max-content;
+}
+.btn-subnav{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:6px 12px;
+    border:1px solid rgba(151,172,151,.2);
+    border-radius:6px;
+    background:rgba(20,31,28,.4);
+    color:#93ab98;
+    text-decoration:none;
+    font-size:.68rem;
+    font-weight:700;
+    letter-spacing:.05em;
+    transition:all .2s ease-in-out;
+}
+.btn-subnav i{
+    font-size:.7rem;
+    color:#e2c778;
+}
+.btn-subnav:hover{
+    border-color:rgba(226,199,120,.5);
+    background:rgba(226,199,120,.08);
+    color:#f0f3ed;
+}
+#community-feedback,
+#changelog,
+#zukunftsvisionen {
+    scroll-margin-top: 90px;
+}
+@media(max-width:1199px){
+    .survival-game-hero .game-status-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:11px;
+    }
+}
+@media(max-width:767px){
+    .survival-game-hero{width:100%;}
     .survival-game-hero .game-status-grid{grid-template-columns:1fr;gap:8px;margin:16px auto 14px;}
-    .survival-game-hero .game-status-card{min-height:68px;}
+    .survival-game-hero .game-status-card{min-height:0;}
     .survival-game-hero .game-hero-actions{
         grid-template-columns:1fr;
         width:100%;
+        max-width:320px;
+        margin:0 auto 10px;
     }
     .survival-game-hero .game-play-cta,
     .survival-game-hero .game-fullscreen-button,
     .survival-game-hero #game-fullscreen{width:100%;min-width:0;}
+    .game-hero-subnav{
+        flex-direction:column;
+        width:100%;
+        max-width:320px;
+        gap:8px;
+        margin:12px auto 4px;
+    }
+    .btn-subnav{
+        width:100%;
+        justify-content:center;
+        padding:8px 12px;
+    }
 }
 
 /* ================= GAME FUTURE VISIONS ================= */
@@ -3353,5 +3684,368 @@ grid-template-columns:1fr;
     .game-vision-body ul{font-size:.84rem;}
 }
 @media(prefers-reduced-motion:reduce){
-    .game-vision-card,.game-vision-card summary::before{transition:none;}
+    .game-vision-card,.game-vision-card summary::before,.game-scroll-arrow{transition:none;animation:none;}
+}
+
+/* ================= GAME PLAY DIVIDER & SECTION SPACING ================= */
+.game-play-divider{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    width:min(980px,100%);
+    margin:32px auto 16px;
+    padding:16px 20px;
+    border:1px dashed rgba(226,199,120,.28);
+    border-radius:10px;
+    background:rgba(18,28,25,.38);
+    text-align:center;
+}
+.game-play-divider .game-overview-kicker{
+    font-size:.74rem;
+    letter-spacing:.18em;
+    color:#e2c778;
+}
+.game-scroll-arrow{
+    color:#d4b96c;
+    font-size:1.1rem;
+    animation:gameArrowBounce 1.8s infinite ease-in-out;
+}
+@keyframes gameArrowBounce{
+    0%,100%{transform:translateY(0);opacity:.7;}
+    50%{transform:translateY(5px);opacity:1;}
+}
+.game-page .game-project-overview{
+    margin:28px auto 24px;
+}
+.game-page .game-embed{
+    margin:12px auto 40px;
+}
+.game-page .survival-changelog{
+    margin:40px auto;
+}
+.game-page .survival-leaderboard{
+    margin:40px auto;
+}
+.game-page .game-visions{
+    margin:40px auto;
+}
+.game-page .game-community-help{
+    margin:40px auto 28px;
+}
+
+/* ==========================================================================
+   2026 MODERNIZATION PASS OVERRIDES (DEUTLICH SICHTBAR)
+   ========================================================================== */
+
+/* Standardized spacing & alternating section colors */
+.section {
+    position: relative;
+    padding: clamp(64px, 8vw, 108px) 0;
+}
+.section:nth-of-type(even) {
+    background: linear-gradient(180deg, #0a0d13 0%, #121720 100%) !important;
+}
+.section:nth-of-type(odd) {
+    background: linear-gradient(180deg, #121720 0%, #0a0d13 100%) !important;
+}
+.section.dark {
+    background: linear-gradient(180deg, #07090d 0%, #0d121a 100%) !important;
+}
+
+/* Card design pass: standardized borders, dark gradient surfaces & glowing hover states */
+.card,
+.history-card,
+.timeline-content,
+.gallery-card,
+.guestbook-box,
+.guestbook-card,
+.forum-card,
+.support-box,
+.shop-box {
+    border: 1px solid rgba(212,175,55,.18) !important;
+    border-radius: 14px !important;
+    background: linear-gradient(145deg, rgba(22,29,38,.92), rgba(13,18,24,.92)) !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04) !important;
+    transition: transform .3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color .3s ease, box-shadow .3s ease !important;
+}
+
+/* Glowing hover cards */
+.card:hover,
+.history-card:hover,
+.timeline-content:hover,
+.gallery-card:hover,
+.guestbook-card:hover,
+.forum-card:hover,
+.support-box:hover,
+.shop-box:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(226,199,120,.7) !important;
+    box-shadow: 0 24px 50px rgba(0,0,0,.55), 0 0 25px rgba(212,175,55,.12) !important;
+}
+
+/* Split two-column Hero layout on Desktop */
+@media(min-width:992px){
+    .hero-content{
+        display:grid;
+        grid-template-columns:1.05fr .95fr;
+        gap:60px;
+        align-items:center;
+        max-width:1200px !important;
+    }
+    .hero-welcome{
+        padding-right:20px;
+        text-align:left;
+    }
+    .hero-welcome h1 {
+        margin-top: 10px;
+    }
+    .survival-hero-cta{
+        margin-top:0 !important;
+    }
+    .scroll-indicator{
+        grid-column:1 / -1;
+        margin-top:60px;
+    }
+}
+
+/* History Card content adjustments */
+.history-card {
+    padding: 36px 30px !important;
+}
+.history-info div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid rgba(212,175,55,.16) !important;
+}
+.history-info div:last-child {
+    border-bottom: none !important;
+}
+.history-info span {
+    font-size: .8rem !important;
+    color: #93ab98 !important;
+    text-transform: uppercase;
+    letter-spacing: .08em !important;
+    opacity: 1 !important;
+    margin-bottom: 0 !important;
+}
+.history-info strong {
+    font-size: .95rem !important;
+    color: #e5ede4 !important;
+    text-align: right;
+}
+
+/* Event layouts as elegant Chapters */
+.event-header {
+    margin-bottom: 45px !important;
+}
+.event-image {
+    border-radius: 12px !important;
+    border: 1px solid rgba(212,175,55,.3) !important;
+    box-shadow: 0 20px 48px rgba(0,0,0,.5) !important;
+    transition: transform .3s ease, border-color .3s ease !important;
+}
+.event-image:hover {
+    transform: scale(1.015) !important;
+    border-color: rgba(226,199,120,.6) !important;
+}
+
+/* Modern Alternating Timeline on Desktop */
+@media(min-width:801px){
+    .timeline-entry:nth-child(even) .timeline-year {
+        grid-column: 3;
+        text-align: left;
+        padding-left: 20px;
+        padding-right: 0;
+    }
+    .timeline-entry:nth-child(even) .timeline-content {
+        grid-column: 1;
+        grid-row: 1;
+    }
+}
+.timeline-dot {
+    background: #0f141b !important;
+    border: 3px solid var(--gold) !important;
+    box-shadow: 0 0 15px rgba(212,175,55,.6) !important;
+    transition: background .25s ease, transform .25s ease !important;
+}
+.timeline-entry:hover .timeline-dot {
+    background: var(--gold) !important;
+    transform: scale(1.2);
+}
+
+/* Wayback Machine & Link Cards */
+.archive-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.archive-card p {
+    flex: 1;
+    margin-bottom: 24px;
+}
+.archive-icon {
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin-bottom: 18px;
+    transition: transform .3s ease;
+}
+.archive-card:hover .archive-icon {
+    transform: scale(1.1);
+}
+
+/* Guestbook Form modernization */
+.guestbook-box input,
+.guestbook-box textarea {
+    display: block;
+    width: 100%;
+    padding: 14px 18px !important;
+    border: 1px solid rgba(212,175,55,.24) !important;
+    border-radius: 10px !important;
+    background: rgba(10,14,20,.65) !important;
+    color: #fff !important;
+    font-family: inherit;
+    font-size: .92rem !important;
+    transition: all .25s ease-in-out !important;
+}
+.guestbook-box input:focus,
+.guestbook-box textarea:focus {
+    outline: none !important;
+    border-color: rgba(226,199,120,.8) !important;
+    background: rgba(10,14,20,.85) !important;
+    box-shadow: 0 0 0 4px rgba(212,175,55,.16), 0 8px 24px rgba(0,0,0,.45) !important;
+}
+.guestbook-card {
+    padding: 24px 28px !important;
+}
+.guestbook-card span {
+    color: #e2c778 !important;
+    font-size: .68rem !important;
+    font-weight: 700 !important;
+    letter-spacing: .08em !important;
+    opacity: 1 !important;
+}
+
+/* Cohesive Bottom CTAs (Shop, support, community) */
+.shop-box {
+    margin-top: 50px !important;
+    padding: 36px 30px !important;
+}
+.support-box {
+    margin: 20px auto 0 !important;
+    padding: 26px 30px !important;
+}
+.forum-card {
+    padding: 30px !important;
+}
+.support-icon,
+.forum-icon i {
+    color: var(--gold) !important;
+    font-size: 2.4rem !important;
+}
+
+/* Footer layout */
+.site-footer {
+    border-top: 1px solid rgba(212,175,55,.32) !important;
+    background: linear-gradient(180deg, #07090d, #0d121a) !important;
+}
+
+/* Emotional gratitude card layout */
+.gratitude-card {
+    position: relative;
+    padding: clamp(36px, 6vw, 60px) clamp(24px, 6vw, 72px) !important;
+    border: 1px solid rgba(212, 175, 55, .32) !important;
+    border-radius: 18px !important;
+    background: radial-gradient(circle at center, rgba(32, 27, 18, .9) 0%, rgba(15, 20, 27, .95) 100%) !important;
+    text-align: center;
+    box-shadow: 0 30px 65px rgba(0, 0, 0, .55), 0 0 35px rgba(212, 175, 55, .08) !important;
+}
+
+/* ==========================================================================
+   2026 GALLERY PAGE SPECIFIC OVERRIDES (.gallery-page)
+   ========================================================================== */
+
+.gallery-page .gallery-hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 120px 0 45px !important;
+}
+.gallery-page .gallery-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem) !important;
+    margin-bottom: 8px !important;
+    line-height: 1.1;
+}
+.gallery-page .gallery-hero p {
+    font-size: 1.05rem !important;
+    margin-bottom: 0 !important;
+}
+.gallery-page .section {
+    padding: clamp(34px, 5.5vw, 64px) 0 !important;
+}
+.gallery-page #upload {
+    padding-top: 45px !important;
+}
+.gallery-page #uploadForm {
+    max-width: 600px !important;
+    margin: 28px auto 0 !important;
+    padding: 28px 24px !important;
+}
+.gallery-page #uploadForm input[type="text"],
+.gallery-page #uploadForm textarea {
+    margin-bottom: 16px !important;
+}
+.gallery-page #uploadForm input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 12px 14px !important;
+    border: 1px dashed rgba(212,175,55,.32) !important;
+    border-radius: 8px !important;
+    background: rgba(10,14,20,.45) !important;
+    color: #b8c2cc !important;
+    cursor: pointer;
+    font-size: .85rem !important;
+    margin-bottom: 20px !important;
+    transition: all .25s ease-in-out !important;
+}
+.gallery-page #uploadForm input[type="file"]:hover {
+    border-color: rgba(226,199,120,.8) !important;
+    background: rgba(10,14,20,.7) !important;
+}
+.gallery-page #uploadForm button[type="submit"] {
+    width: 100% !important;
+    padding: 14px 20px !important;
+}
+.gallery-page .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: 20px !important;
+}
+.gallery-page .gallery-card {
+    border-radius: 12px !important;
+    border: 1px solid rgba(212,175,55,.18) !important;
+    background: linear-gradient(145deg, rgba(22,29,38,.92), rgba(13,18,24,.92)) !important;
+    box-shadow: 0 12px 28px rgba(0,0,0,.35) !important;
+    overflow: hidden !important;
+}
+.gallery-page .gallery-card img {
+    transition: transform .3s ease !important;
+}
+.gallery-page .gallery-card:hover img {
+    transform: scale(1.03) !important;
+}
+.gallery-page .site-footer {
+    margin-top: 20px;
+}
+@media(max-width:767px){
+    .gallery-page .gallery-hero {
+        padding: 96px 0 34px !important;
+    }
+    .gallery-page #uploadForm {
+        padding: 22px 18px !important;
+        margin-top: 20px !important;
+    }
 }
