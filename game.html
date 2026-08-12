@@ -278,7 +278,7 @@
                 </div>
             </section>
 
-            <iframe id="spiel-starten" class="game-embed" src="game/survival-v108.html?build=alpha-0-2-0-v108-20260811-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" src="game/survival-v109.html?build=alpha-0-2-0-v109-20260812-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section class="survival-changelog" aria-labelledby="changelog-title">
@@ -308,6 +308,7 @@
                         <li>Respawns wurden zuverl&auml;ssiger gemacht und k&ouml;nnen nicht mehr dauerhaft bei &bdquo;Respawn wird best&auml;tigt&hellip;&ldquo; h&auml;ngen bleiben.</li>
                         <li>Spieler, Zombies und Beute in weit entfernten Bereichen belasten den eigenen Spielclient deutlich weniger.</li>
                         <li>Die Loot-Reset-Anzeige aktualisiert sich nach einem Reset jetzt zuverl&auml;ssig und zeigt anschlie&szlig;end wieder den n&auml;chsten Countdown an.</li>
+                        <li>Prestige-, Missions- und andere Bonuspunkte werden jetzt zuverl&auml;ssig dem tats&auml;chlichen Punktestand gutgeschrieben.</li>
                     </ul>
                     </details>
 
@@ -533,7 +534,7 @@
     }
 
     if (requestedServer && gameEmbed) {
-        gameEmbed.src = "game/survival-v108.html?build=alpha-0-2-0-v108-20260811-r1&server=" + encodeURIComponent(requestedServer);
+        gameEmbed.src = "game/survival-v109.html?build=alpha-0-2-0-v109-20260812-r1&server=" + encodeURIComponent(requestedServer);
     }
 
     if (fullscreenButton) {
