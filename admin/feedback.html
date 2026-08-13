@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bugs &amp; Ideen | ZHServer Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css?v=20260813-feedback">
+    <link rel="stylesheet" href="admin.css?v=20260813-feedback">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <section class="section dark">
+        <div class="container">
+            <div class="dashboard-header">
+                <div><span class="section-title">COMMUNITY</span><h2>BUGS &amp; IDEEN</h2></div>
+                <a href="dashboard.html" class="btn">&larr; Dashboard</a>
+            </div>
+            <p class="admin-feedback-intro">Status&auml;nderungen und L&ouml;schen sind ausschlie&szlig;lich f&uuml;r den bestehenden ZHServer-Adminaccount freigeschaltet.</p>
+            <div class="admin-feedback-grid">
+                <section aria-labelledby="admin-bugs-title">
+                    <h3 id="admin-bugs-title">BUGS</h3>
+                    <div id="admin-bugs-list" class="admin-feedback-list"></div>
+                </section>
+                <section aria-labelledby="admin-ideas-title">
+                    <h3 id="admin-ideas-title">IDEEN</h3>
+                    <div id="admin-ideas-list" class="admin-feedback-list"></div>
+                </section>
+            </div>
+        </div>
+    </section>
+    <script src="admin.js"></script>
+    <script src="feedback.js"></script>
+</body>
+</html>

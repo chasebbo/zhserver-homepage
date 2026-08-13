@@ -161,6 +161,12 @@ if (guestbookEntries) {
 const menuToggle = document.querySelector("#menu-toggle");
 const navMenu = document.querySelector(".nav-menu");
 
+if (window.location.protocol !== "file:") {
+    document.querySelectorAll("[data-bugs-route]").forEach(link => {
+        link.setAttribute("href", "/bugs");
+    });
+}
+
 if (menuToggle && navMenu) {
 
     menuToggle.addEventListener("click", () => {

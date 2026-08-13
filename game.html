@@ -32,6 +32,7 @@
                 <li><a href="gallery.html">Galerie</a></li>
                 <li><a href="gallery.html#upload">Bilder hochladen</a></li>
                 <li><a href="game.html" class="nav-game-link" aria-current="page">SPIELEN</a></li>
+                <li><a href="bugs/index.html" data-bugs-route>BUGS / IDEEN</a></li>
                 <li><a href="index.html#guestbook">Gästebuch</a></li>
                 <li><a href="index.html#forum">Community</a></li>
             </ul>
@@ -57,13 +58,14 @@
 
                     <article class="game-status-card game-changelog-card">
                         <span>VERSION</span>
-                        <strong>ALPHA 0.2.0</strong>
+                        <strong>ALPHA 0.2.1</strong>
                         <div class="compact-changelog-header">LETZTE &Auml;NDERUNGEN</div>
                         <div id="compact-changelog-list" class="compact-changelog-list">
-                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Performance verbessert</span></div>
-                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Entfernte Spieler optimiert</span></div>
-                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Synchronisierung verbessert</span></div>
-                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Inventar-Speicherung optimiert</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Benutzeroberfl&auml;che und HUD modernisiert</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Inventar und Schnellleiste verbessert</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Spielwelt sichtbar aufgewertet</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Bugs und Ideen direkt im Spiel melden</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Steuerungshilfe um Inventar-Hinweis erweitert</span></div>
                         </div>
                     </article>
 
@@ -90,7 +92,7 @@
                     <span id="fullscreen-message" class="fullscreen-message" role="status" aria-live="polite"></span>
                 </div>
                 <div class="game-hero-subnav">
-                    <a class="btn-subnav" href="#community-feedback"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i> BUGS / IDEEN</a>
+                    <a class="btn-subnav" href="bugs/index.html" data-bugs-route><i class="fa-regular fa-lightbulb" aria-hidden="true"></i> BUGS / IDEEN</a>
                     <a class="btn-subnav" href="#changelog"><i class="fa-solid fa-list-ul" aria-hidden="true"></i> CHANGELOG</a>
                     <a class="btn-subnav" href="#zukunftsvisionen"><i class="fa-solid fa-compass" aria-hidden="true"></i> ZUKUNFTSVISIONEN</a>
                 </div>
@@ -126,32 +128,57 @@
                         <article><h3>FAHRZEUGE</h3><ul><li>Weitere Fahrzeugtypen</li><li>Ausbau des Fahrzeugsystems</li><li>Sp&auml;ter auch Flugger&auml;te</li></ul></article>
                         <article><h3>GRAFIK</h3><ul><li>Laufende Grafikupdates</li><li>Detailliertere Geb&auml;ude und Weltobjekte</li><li>Schrittweise Richtung isometrische Ansicht</li></ul></article>
                         <article><h3>GAMEPLAY</h3><ul><li>Mehr Zombies, Loot und Gegenst&auml;nde</li><li>Weitere &Uuml;berlebensmechaniken</li><li>Mehr Missionen, Events und Fundorte</li></ul></article>
+                        <article id="roadmap-graphics-ui-card" class="game-roadmap-vision-card" hidden>
+                            <h3>GRAFIK &amp; UI &ndash; ZIELRICHTUNG</h3>
+                            <button id="roadmap-graphics-ui-preview" class="game-roadmap-vision-preview" type="button" aria-haspopup="dialog" aria-label="Konzeptgrafik Grafik und UI gro&szlig; anzeigen">
+                                <img id="roadmap-graphics-ui-image" data-src="assets/images/roadmap-grafik-ui-zielrichtung.png" alt="Konzeptgrafik: aktuelle und geplante Grafik und Benutzeroberfl&auml;che von Zombieh&ouml;lle Survival">
+                                <span class="game-roadmap-vision-zoom"><i class="fa-solid fa-expand" aria-hidden="true"></i> VERGR&Ouml;SSERN</span>
+                            </button>
+                        </article>
                     </div>
                 </section>
+                <div id="roadmap-graphics-ui-lightbox" class="game-roadmap-vision-lightbox" role="dialog" aria-modal="true" aria-label="Konzeptgrafik Grafik und UI" hidden>
+                    <button id="roadmap-graphics-ui-lightbox-close" class="game-roadmap-vision-lightbox-close" type="button" aria-label="Konzeptgrafik schlie&szlig;en">&times;</button>
+                    <img id="roadmap-graphics-ui-lightbox-image" alt="">
+                </div>
             <div class="game-play-divider">
                 <span class="game-overview-kicker">SPIELBEREICH</span>
                 <i class="fa-solid fa-chevron-down game-scroll-arrow" aria-hidden="true"></i>
             </div>
 
-            <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v110.html?build=alpha-0-2-0-v110-20260812-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v111.html?build=alpha-0-2-1-v111-20260813-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section id="changelog" class="survival-changelog" aria-labelledby="changelog-title">
                 <div class="changelog-summary">
                     <div>
                         <span class="changelog-kicker">ENTWICKLUNGSSTAND</span>
-                        <h2 id="changelog-title">&Auml;NDERUNGEN &ndash; Alpha 0.2.0</h2>
+                        <h2 id="changelog-title">&Auml;NDERUNGEN &ndash; Alpha 0.2.1</h2>
                         
                     </div>
                 </div>
 
                 <div class="version-log-list" aria-label="Vollst&auml;ndige Versionsprotokolle">
-                    <details class="changelog-details" open aria-label="Aktueller Changelog Alpha 0.2.0">
+                    <details class="changelog-details" open aria-label="Aktueller Changelog Alpha 0.2.1">
                         <summary>
-                            <span class="changelog-version-title">Alpha 0.2.0 <span class="changelog-current-badge">AKTUELL</span></span>
+                            <span class="changelog-version-title">Alpha 0.2.1 <span class="changelog-current-badge">AKTUELL</span></span>
                             <span class="changelog-hint">Ge&ouml;ffnet</span>
                         </summary>
                       <ul id="latest-change-list" class="changelog-list"> 
+                        <li>Die Benutzeroberfl&auml;che und das HUD wurden modernisiert und sind jetzt &uuml;bersichtlicher gestaltet.</li>
+                        <li>Inventar und Schnellleiste greifen jetzt besser ineinander.</li>
+                        <li>Boden, Vegetation, Geb&auml;ude und die Atmosph&auml;re der Spielwelt wurden sichtbar aufgewertet.</li>
+                        <li>Die Steuerungshilfe zeigt jetzt auch <strong>I: Inventar</strong> an.</li>
+                        <li>Mit <strong>BUG / IDEE MELDEN</strong> k&ouml;nnen Bugs und Ideen jetzt direkt aus dem Spiel eingereicht werden.</li>
+                    </ul>
+                    </details>
+
+                    <details class="changelog-details" aria-label="Changelog Alpha 0.2.0">
+                        <summary>
+                            <span class="changelog-version-title">Alpha 0.2.0</span>
+                            <span class="changelog-hint">Aufklappen</span>
+                        </summary>
+                      <ul class="changelog-list">
                         <li>Die Performance im Online-Modus wurde weiter verbessert.</li> 
                         <li>Entfernte Spieler und Zombies werden nicht mehr unn&ouml;tig mitverarbeitet, wodurch das Online-Spiel entlastet wird.</li> 
                         <li>Die Synchronisierung von Spielst&auml;nden wurde verbessert und &auml;ltere Spielst&auml;nde k&ouml;nnen neuere nicht mehr versehentlich &uuml;berschreiben.</li> 
@@ -489,24 +516,22 @@
                     </p>
 
                     <p>
-                        Bugs, Ideen und Feedback sammeln wir aktuell im ZHServer-Discord.
+                        Bugs, Ideen und Feedback kannst du direkt auf der ZHServer-Homepage einreichen.
                     </p>
 
                     <div class="game-community-help-actions">
                         <a
                             class="btn btn-outline"
-                            href="https://discord.gg/MAujawnuK"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="bugs/index.html"
+                            data-bugs-route
                         >
                             BUG MELDEN
                         </a>
 
                         <a
                             class="btn btn-outline"
-                            href="https://discord.gg/MAujawnuK"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="bugs/index.html"
+                            data-bugs-route
                         >
                             IDEE EINREICHEN
                         </a>
@@ -665,6 +690,52 @@
         if (document.fullscreenElement) showFullscreenMessage("");
     });
     updateFullscreenButton();
+
+    const roadmapGraphicsCard = document.getElementById("roadmap-graphics-ui-card");
+    const roadmapGraphicsPreview = document.getElementById("roadmap-graphics-ui-preview");
+    const roadmapGraphicsImage = document.getElementById("roadmap-graphics-ui-image");
+    const roadmapGraphicsLightbox = document.getElementById("roadmap-graphics-ui-lightbox");
+    const roadmapGraphicsLightboxImage = document.getElementById("roadmap-graphics-ui-lightbox-image");
+    const roadmapGraphicsLightboxClose = document.getElementById("roadmap-graphics-ui-lightbox-close");
+
+    const closeRoadmapGraphicsLightbox = () => {
+        if (!roadmapGraphicsLightbox) return;
+        roadmapGraphicsLightbox.hidden = true;
+        if (roadmapGraphicsPreview) roadmapGraphicsPreview.focus();
+    };
+
+    if (roadmapGraphicsCard && roadmapGraphicsImage) {
+        const source = roadmapGraphicsImage.dataset.src || "";
+        const conceptProbe = new Image();
+        conceptProbe.onload = () => {
+            roadmapGraphicsImage.src = source;
+            roadmapGraphicsCard.hidden = false;
+        };
+        conceptProbe.onerror = () => {
+            // Deliberately keep the card absent until the real concept artwork is added.
+            roadmapGraphicsCard.hidden = true;
+        };
+        if (source) conceptProbe.src = source;
+    }
+
+    if (roadmapGraphicsPreview && roadmapGraphicsLightbox && roadmapGraphicsImage && roadmapGraphicsLightboxImage) {
+        roadmapGraphicsPreview.addEventListener("click", () => {
+            roadmapGraphicsLightboxImage.src = roadmapGraphicsImage.currentSrc || roadmapGraphicsImage.src;
+            roadmapGraphicsLightboxImage.alt = roadmapGraphicsImage.alt;
+            roadmapGraphicsLightbox.hidden = false;
+            if (roadmapGraphicsLightboxClose) roadmapGraphicsLightboxClose.focus();
+        });
+    }
+    if (roadmapGraphicsLightboxClose) roadmapGraphicsLightboxClose.addEventListener("click", closeRoadmapGraphicsLightbox);
+    if (roadmapGraphicsLightbox) {
+        roadmapGraphicsLightbox.addEventListener("click", (event) => {
+            if (event.target === roadmapGraphicsLightbox) closeRoadmapGraphicsLightbox();
+        });
+    }
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && roadmapGraphicsLightbox && !roadmapGraphicsLightbox.hidden) closeRoadmapGraphicsLightbox();
+    });
+
     const leaderboardList = document.getElementById("leaderboard-list");
     const leaderboardUpdated = document.getElementById("leaderboard-updated");
     const registeredPlayerCount = document.getElementById("registered-player-count");
@@ -839,6 +910,12 @@
     });
     const menuToggle = document.getElementById("menu-toggle");
     const navMenu = document.getElementById("nav-menu");
+
+    if (window.location.protocol !== "file:") {
+        document.querySelectorAll("[data-bugs-route]").forEach((link) => {
+            link.setAttribute("href", "/bugs");
+        });
+    }
 
     menuToggle.addEventListener("click", () => {
         navMenu.classList.toggle("active");

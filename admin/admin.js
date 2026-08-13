@@ -6,13 +6,14 @@ const sb = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
+window.adminSupabase = sb;
 
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const loginBtn = document.getElementById("loginBtn");
 const loginMessage = document.getElementById("loginMessage");
 
-loginBtn.addEventListener("click", async () => {
+if (loginBtn) loginBtn.addEventListener("click", async () => {
 
     loginMessage.textContent = "Anmeldung läuft...";
 

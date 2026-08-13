@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bugs &amp; Ideen | ZHServer</title>
+    <meta name="description" content="Melde Bugs und reiche Ideen für Zombiehölle Survival direkt bei ZHServer ein.">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20260813-feedback">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="feedback-page">
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="../index.html" class="logo">ZHServer.de / Zombieh&ouml;lle.de</a>
+                <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Navigation öffnen">&#9776;</button>
+                <ul class="nav-menu">
+                    <li><a href="../index.html#hero">Start</a></li>
+                    <li><a href="../index.html#history">Geschichte</a></li>
+                    <li><a href="../gallery.html">Galerie</a></li>
+                    <li><a href="../game.html" class="nav-game-link">SPIELEN</a></li>
+                    <li><a href="index.html" aria-current="page">BUGS / IDEEN</a></li>
+                    <li><a href="../index.html#guestbook">G&auml;stebuch</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="feedback-hero">
+            <div class="container">
+                <span class="hero-est">COMMUNITY &amp; ENTWICKLUNG</span>
+                <h1>BUGS &amp; IDEEN</h1>
+                <p>Hilf mit, Zombieh&ouml;lle Survival besser zu machen. Neue Meldungen und Ideen sind sofort f&uuml;r alle sichtbar.</p>
+            </div>
+        </section>
+
+        <section class="section feedback-section" aria-label="Bugs und Ideen einreichen">
+            <div class="container">
+                <div class="feedback-grid">
+                    <section class="feedback-column feedback-column-bugs" aria-labelledby="bug-form-title">
+                        <div class="feedback-column-heading">
+                            <span class="section-title">FEHLER MELDEN</span>
+                            <h2 id="bug-form-title">BUG MELDEN</h2>
+                            <p>Beschreibe kurz und konkret, was passiert ist. Ein Screenshot hilft bei der Einordnung.</p>
+                        </div>
+
+                        <form id="bug-form" class="feedback-form" novalidate>
+                            <label for="bug-player-name">Spielername</label>
+                            <input id="bug-player-name" name="player_name" type="text" minlength="2" maxlength="40" autocomplete="nickname" required>
+
+                            <label for="bug-category">Kategorie</label>
+                            <select id="bug-category" name="category" required>
+                                <option value="">Kategorie wählen</option>
+                                <option>GAMEPLAY</option><option>FAHRZEUGE</option><option>BASEN</option><option>INVENTAR</option><option>UI</option><option>GRAFIK</option><option>ZOMBIES</option><option>LOOT</option><option>PERFORMANCE</option><option>SONSTIGES</option>
+                            </select>
+
+                            <label for="bug-title">Kurze Überschrift</label>
+                            <input id="bug-title" name="title" type="text" minlength="3" maxlength="120" required>
+
+                            <label for="bug-description">Fehlerbeschreibung</label>
+                            <textarea id="bug-description" name="description" minlength="10" maxlength="2000" rows="7" required></textarea>
+
+                            <label for="bug-screenshot">Screenshot <span>optional · PNG, JPG oder WebP · max. 5 MB</span></label>
+                            <input id="bug-screenshot" name="screenshot" type="file" accept="image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp">
+
+                            <button class="btn btn-gold feedback-submit" type="submit">BUG MELDEN</button>
+                            <p id="bug-form-status" class="feedback-form-status" role="status" aria-live="polite"></p>
+                        </form>
+
+                        <div class="feedback-list-heading">
+                            <span class="section-title">ÖFFENTLICH</span>
+                            <h3>GEMELDETE BUGS</h3>
+                        </div>
+                        <div id="bugs-list" class="feedback-list" aria-live="polite"></div>
+                    </section>
+
+                    <section class="feedback-column feedback-column-ideas" aria-labelledby="idea-form-title">
+                        <div class="feedback-column-heading">
+                            <span class="section-title">WEITERDENKEN</span>
+                            <h2 id="idea-form-title">IDEE EINREICHEN</h2>
+                            <p>Welche Ergänzung, Verbesserung oder Weltidee wünschst du dir für Zombieh&ouml;lle Survival?</p>
+                        </div>
+
+                        <form id="idea-form" class="feedback-form" novalidate>
+                            <label for="idea-player-name">Spielername</label>
+                            <input id="idea-player-name" name="player_name" type="text" minlength="2" maxlength="40" autocomplete="nickname" required>
+
+                            <label for="idea-category">Kategorie</label>
+                            <select id="idea-category" name="category" required>
+                                <option value="">Kategorie wählen</option>
+                                <option>GAMEPLAY</option><option>WELT</option><option>FAHRZEUGE</option><option>BASEN</option><option>ITEMS</option><option>UI</option><option>GRAFIK</option><option>COMMUNITY</option><option>SONSTIGES</option>
+                            </select>
+
+                            <label for="idea-title">Kurze Überschrift</label>
+                            <input id="idea-title" name="title" type="text" minlength="3" maxlength="120" required>
+
+                            <label for="idea-description">Beschreibung</label>
+                            <textarea id="idea-description" name="description" minlength="10" maxlength="2000" rows="7" required></textarea>
+
+                            <button class="btn btn-gold feedback-submit" type="submit">IDEE EINREICHEN</button>
+                            <p id="idea-form-status" class="feedback-form-status" role="status" aria-live="polite"></p>
+                        </form>
+
+                        <div class="feedback-list-heading">
+                            <span class="section-title">ÖFFENTLICH</span>
+                            <h3>EINGEREICHTE IDEEN</h3>
+                        </div>
+                        <div id="ideas-list" class="feedback-list" aria-live="polite"></div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="feedback-lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Bug-Screenshot vergrößert">
+        <button id="feedback-lightbox-close" type="button" aria-label="Bild schließen">&times;</button>
+        <img id="feedback-lightbox-image" alt="Bug-Screenshot vergrößert">
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer">
+            <div><h3>ZHServer Community</h3><p>Seit 2013</p></div>
+            <div><a href="../pages/impressum.html">Impressum</a> | <a href="../pages/datenschutz.html">Datenschutz</a><br><br>&copy; 2013&ndash;2026 ZHServer Community</div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js?v=20260813-feedback"></script>
+    <script src="../assets/js/bugs.js?v=20260813-feedback"></script>
+</body>
+</html>
