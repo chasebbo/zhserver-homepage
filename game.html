@@ -688,6 +688,25 @@
         });
     }
 
+    const isDesktop = window.innerWidth > 900;
+    if (isDesktop) {
+        if (typeof IntersectionObserver !== "undefined" && gameEmbed) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        activateGame();
+                        observer.disconnect();
+                    }
+                });
+            }, {
+                rootMargin: "300px 0px 300px 0px"
+            });
+            observer.observe(gameEmbed);
+        } else {
+            activateGame();
+        }
+    }
+
     if (fullscreenButton) {
         fullscreenButton.addEventListener("click", async () => {
             if (!gameEmbed) {
