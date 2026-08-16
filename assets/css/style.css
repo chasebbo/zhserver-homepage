@@ -3405,6 +3405,7 @@ grid-template-columns:1fr;
     overflow:hidden;
     text-overflow:ellipsis;
     flex:1;
+    min-width:0;
 }
 .recent-loading{
     font-size:.71rem;
@@ -3446,6 +3447,7 @@ grid-template-columns:1fr;
     overflow:hidden;
     text-overflow:ellipsis;
     flex:1;
+    min-width:0;
 }
 
 /* Dev card next step */
@@ -3520,6 +3522,7 @@ grid-template-columns:1fr;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
+    min-width:0;
 }
 .top5-points{
     flex:0 0 auto;
@@ -3620,7 +3623,7 @@ grid-template-columns:1fr;
 }
 @media(max-width:767px){
     .survival-game-hero{width:100%;}
-    .survival-game-hero .game-status-grid{grid-template-columns:1fr;gap:8px;margin:16px auto 14px;}
+    .survival-game-hero .game-status-grid{grid-template-columns:minmax(0,1fr);gap:8px;margin:16px auto 14px;}
     .survival-game-hero .game-status-card{min-height:0;}
     .survival-game-hero .game-hero-actions{
         grid-template-columns:1fr;
