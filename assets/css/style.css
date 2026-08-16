@@ -1723,6 +1723,12 @@ grid-template-columns:1fr;
     padding:14px 35px;
 
 }
+
+.game-mobile-overlay,
+.game-mobile-exit-btn {
+    display: none;
+}
+
 /* ================= MOBILE MENU ================= */
 
 .menu-toggle{
@@ -2243,10 +2249,6 @@ grid-template-columns:1fr;
     box-shadow:0 20px 45px rgba(0,0,0,.35);
 }
 
-.game-mobile-overlay,
-.game-mobile-exit-btn {
-    display: none;
-}
 
 .game-multiplayer-note{
     width:min(900px, 100%);
@@ -2636,7 +2638,7 @@ grid-template-columns:1fr;
     .game-intro{padding:0 8px;font-size:.94rem;}
     .game-section #game-fullscreen{display:inline-flex;}
     .game-embed{
-        width:calc(100vw - 20px);
+        width:100%;
         min-height:clamp(410px,72svh,600px);
         margin:12px auto 0;
         border-radius:10px;
