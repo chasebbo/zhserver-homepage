@@ -146,7 +146,14 @@
                 <i class="fa-solid fa-chevron-down game-scroll-arrow" aria-hidden="true"></i>
             </div>
 
-            <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v113.html?build=alpha-0-2-1-v113-20260815-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+            <div class="game-embed-wrapper" id="game-wrapper">
+                <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v113.html?build=alpha-0-2-1-v113-20260815-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+                <div class="game-mobile-overlay" id="game-mobile-overlay">
+                    <span class="game-overview-kicker">MOBILE STEUERUNG</span>
+                    <button class="btn btn-gold btn-activate-game" id="btn-activate-game" type="button">SPIEL AKTIVIEREN</button>
+                </div>
+                <button class="btn game-mobile-exit-btn" id="btn-deactivate-game" type="button" style="display: none;">SCROLL-MODUS</button>
+            </div>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section id="changelog" class="survival-changelog" aria-labelledby="changelog-title">
@@ -622,6 +629,10 @@
         fullscreenButton.textContent = document.fullscreenElement ? "VOLLBILD VERLASSEN" : "VOLLBILD";
     }
 
+    const gameWrapper = document.getElementById("game-wrapper");
+    const btnActivateGame = document.getElementById("btn-activate-game");
+    const btnDeactivateGame = document.getElementById("btn-deactivate-game");
+
     function loadGame() {
         if (!gameEmbed || gameEmbed.hasAttribute("src")) return;
         let gameSrc = gameEmbed.getAttribute("data-src") || "";
@@ -631,27 +642,37 @@
         gameEmbed.src = gameSrc;
     }
 
-    if (typeof IntersectionObserver !== "undefined" && gameEmbed) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    loadGame();
-                    observer.disconnect();
-                }
-            });
-        }, {
-            rootMargin: "400px 0px 400px 0px"
-        });
-        observer.observe(gameEmbed);
-    } else {
+    function activateGame() {
         loadGame();
+        if (gameWrapper) {
+            gameWrapper.classList.add("is-game-active");
+        }
+        if (btnDeactivateGame) {
+            btnDeactivateGame.style.display = "block";
+        }
+    }
+
+    function deactivateGame() {
+        if (gameWrapper) {
+            gameWrapper.classList.remove("is-game-active");
+        }
+        if (btnDeactivateGame) {
+            btnDeactivateGame.style.display = "none";
+        }
+    }
+
+    if (btnActivateGame) {
+        btnActivateGame.addEventListener("click", activateGame);
+    }
+    if (btnDeactivateGame) {
+        btnDeactivateGame.addEventListener("click", deactivateGame);
     }
 
     const gamePlayCta = document.querySelector(".game-play-cta");
     if (gamePlayCta) {
         gamePlayCta.addEventListener("click", (e) => {
             e.preventDefault();
-            loadGame();
+            activateGame();
             if (gameEmbed) {
                 gameEmbed.scrollIntoView({ behavior: "smooth", block: "start" });
             }
@@ -659,7 +680,7 @@
     }
 
     if (window.location.hash === "#spiel-starten") {
-        loadGame();
+        activateGame();
         window.addEventListener("load", () => {
             if (gameEmbed) {
                 gameEmbed.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -674,7 +695,7 @@
                 return;
             }
             if (!gameEmbed.src) {
-                loadGame();
+                activateGame();
             }
             try {
                 if (document.fullscreenElement) {
