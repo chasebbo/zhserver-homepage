@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bausystem Wiki | Zombiehölle (ZHServer)</title>
+
+    <meta name="description"
+        content="Der offizielle Bausystem- und Crafting-Guide für das Zombiehölle Survival 2D-Spiel. Rezepte, Werkzeuge und Materialien auf einen Blick.">
+
+    <link rel="stylesheet" href="assets/css/style.css?v=20260819-wiki5">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Info-Box styling */
+        .wiki-notice {
+            background: rgba(231, 196, 90, 0.08);
+            border: 1px solid rgba(231, 196, 90, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 0 auto 40px;
+            max-width: 900px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .wiki-notice i {
+            color: var(--gold);
+            font-size: 24px;
+        }
+        .wiki-notice p {
+            margin: 0;
+            color: #bdcebf;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+    </style>
+
+</head>
+
+<body class="gallery-page">
+
+<header class="header">
+
+    <div class="container">
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                ZHServer.de / Zombiehölle.de
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle">
+                ☰
+            </button>
+
+            <ul class="nav-menu" id="nav-menu">
+
+                <li><a href="index.html#hero">Start</a></li>
+                <li><a href="index.html#history">Geschichte</a></li>
+                <li><a href="index.html#timeline">Timeline</a></li>
+                <li><a href="gallery.html">Galerie</a></li>
+                <li><a href="wiki.html" aria-current="page">Wiki</a></li>
+                <li><a href="game.html" class="nav-game-link">SPIELEN</a></li>
+                <li><a href="bugs/index.html" data-bugs-route>BUGS / IDEEN</a></li>
+                <li><a href="index.html#guestbook">Gästebuch</a></li>
+                <li><a href="index.html#forum">Community</a></li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="hero gallery-hero wiki-hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-container">
+
+        <div class="hero-content">
+
+            <span class="hero-est">
+
+                SPIEL-GUIDE
+
+            </span>
+
+            <h1>
+
+                Bausystem &amp; Rezepte
+
+            </h1>
+
+            <p>
+
+                Die komplette Übersicht über alle herstellbaren Bauteile, Fallen und Versorgungsstrukturen im Spiel.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="container">
+
+        <!-- Wiki Status Hinweis -->
+        <div class="wiki-notice">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <p>
+                <strong>Hinweis zum Entwicklungsstand:</strong> Dieses Wiki befindet sich (genau wie das Spiel selbst) in einer frühen Alpha-Phase. Die Liste der Baupläne und Rezepte wird stetig erweitert, verfeinert und an neue Gameplay-Updates angepasst.
+            </p>
+        </div>
+
+        <span class="section-title">
+
+            BAUMENÜ ÜBERSICHT
+
+        </span>
+
+        <h2>
+
+            Rezepte &amp; Materialkosten
+
+        </h2>
+
+        <div class="wiki-filter-buttons">
+            <button class="btn btn-gold filter-btn" data-category="all">Alle Rezepte</button>
+            <button class="btn btn-outline filter-btn" data-category="holz">Holz</button>
+            <button class="btn btn-outline filter-btn" data-category="stein">Stein</button>
+            <button class="btn btn-outline filter-btn" data-category="metall">Metall</button>
+            <button class="btn btn-outline filter-btn" data-category="fallen">Fallen</button>
+            <button class="btn btn-outline filter-btn" data-category="versorgung">Versorgung</button>
+            <button class="btn btn-outline filter-btn" data-category="herstellung">Herstellung / Crafting</button>
+        </div>
+
+        <div class="wiki-grid" id="wikiGrid">
+
+            <!-- ================= HOLZ BAUTEILE ================= -->
+
+            <!-- Holzboden -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Holzboden</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Bauteil der Materialstufe 1 für deine Basis.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>2x</span></li>
+                        <li>🔩 Nägel <span>1x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Holzwand -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Holzwand</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Holzwand zur Absicherung deiner Basis.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>3x</span></li>
+                        <li>🔩 Nägel <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Holztür -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Holztür</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Tür der Materialstufe 1 für den Zugang.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>3x</span></li>
+                        <li>🔩 Nägel <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Lagerkiste -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Lagerkiste</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Holzkiste zur Aufbewahrung von Gegenständen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>5x</span></li>
+                        <li>🔩 Nägel <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Werkbank -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Werkbank</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Ermöglicht das Craften komplexer Bauteile.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>6x</span></li>
+                        <li>🔩 Nägel <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Lagerfeuer -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Lagerfeuer</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Wärmespender und Kochstelle in der Wildnis.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>4x</span></li>
+                        <li>🔩 Nägel <span>4x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Holzfundament -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Holzfundament</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Das Fundament für den Bau deiner hölzernen Basis.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>5x</span></li>
+                        <li>🔩 Nägel <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Fensterwand -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Fensterwand</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Wand mit Ausschnitt für Fensteröffnungen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>3x</span></li>
+                        <li>🔩 Nägel <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Leiter -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Leiter</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Ermöglicht den vertikalen Aufstieg auf höhere Ebenen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>4x</span></li>
+                        <li>🔩 Nägel <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Holzzaun -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Holzzaun</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Ein kleinerer Zaun als Barriere oder Deko.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>4x</span></li>
+                        <li>🔩 Nägel <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Holzdach -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Holzdach</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Schützt deine Räume vor Witterung von oben.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>5x</span></li>
+                        <li>🔩 Nägel <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Holzpfeiler -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Holzpfeiler</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Dient als Stütze für obere Ebenen und Dächer.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>3x</span></li>
+                        <li>🔩 Nägel <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Wachturm -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Wachturm</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Bietet eine erhöhte Position für weite Sicht und Verteidigung.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>14x</span></li>
+                        <li>🔩 Nägel <span>8x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Bett -->
+            <article class="recipe-card" data-category="holz">
+                <div class="recipe-header">
+                    <h3>🪵 Bett</h3>
+                    <span class="recipe-category">Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Ein hölzernes Bett für deine Unterkunft.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>6x</span></li>
+                        <li>🔩 Nägel <span>4x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+
+            <!-- ================= STEIN BAUTEILE ================= -->
+
+            <!-- Steinboden -->
+            <article class="recipe-card" data-category="stein">
+                <div class="recipe-header">
+                    <h3>🪨 Steinboden</h3>
+                    <span class="recipe-category">Stein</span>
+                </div>
+                <p class="recipe-description">
+                    Stabiler Boden der Materialstufe 2.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪨 Stein <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Steinwand -->
+            <article class="recipe-card" data-category="stein">
+                <div class="recipe-header">
+                    <h3>🪨 Steinwand</h3>
+                    <span class="recipe-category">Stein</span>
+                </div>
+                <p class="recipe-description">
+                    Wand aus massivem Gestein für besseren Schutz.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪨 Stein <span>5x</span></li>
+                        <li>🥣 Mörtel <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Steinfundament -->
+            <article class="recipe-card" data-category="stein">
+                <div class="recipe-header">
+                    <h3>🪨 Steinfundament</h3>
+                    <span class="recipe-category">Stein</span>
+                </div>
+                <p class="recipe-description">
+                    Das Fundament für Steingebäude.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪨 Stein <span>7x</span></li>
+                        <li>🥣 Mörtel <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Steinfensterwand -->
+            <article class="recipe-card" data-category="stein">
+                <div class="recipe-header">
+                    <h3>🪨 Steinfensterwand</h3>
+                    <span class="recipe-category">Stein</span>
+                </div>
+                <p class="recipe-description">
+                    Massive Steinwand mit einer Fensteröffnung.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪨 Stein <span>6x</span></li>
+                        <li>🥣 Mörtel <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Steinpfeiler -->
+            <article class="recipe-card" data-category="stein">
+                <div class="recipe-header">
+                    <h3>🪨 Steinpfeiler</h3>
+                    <span class="recipe-category">Stein</span>
+                </div>
+                <p class="recipe-description">
+                    Tragende Säule aus Stein.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪨 Stein <span>6x</span></li>
+                        <li>🥣 Mörtel <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Steindach -->
+            <article class="recipe-card" data-category="stein">
+                <div class="recipe-header">
+                    <h3>🪨 Steindach</h3>
+                    <span class="recipe-category">Stein</span>
+                </div>
+                <p class="recipe-description">
+                    Robustes Steindach für optimalen Schutz von oben.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪨 Stein <span>7x</span></li>
+                        <li>🥣 Mörtel <span>4x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Steinzaun -->
+            <article class="recipe-card" data-category="stein">
+                <div class="recipe-header">
+                    <h3>🪨 Steinzaun</h3>
+                    <span class="recipe-category">Stein</span>
+                </div>
+                <p class="recipe-description">
+                    Eine haltbare Begrenzung aus Stein.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪨 Stein <span>5x</span></li>
+                        <li>🥣 Mörtel <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+
+            <!-- ================= METALL BAUTEILE ================= -->
+
+            <!-- Stahltür -->
+            <article class="recipe-card" data-category="metall">
+                <div class="recipe-header">
+                    <h3>⚙️ Stahltür</h3>
+                    <span class="recipe-category">Metall</span>
+                </div>
+                <p class="recipe-description">
+                    Sehr sichere Tür der Materialstufe 3 für deine Basis.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>4x</span></li>
+                        <li>🔒 Schloss <span>1x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Metalltor -->
+            <article class="recipe-card" data-category="metall">
+                <div class="recipe-header">
+                    <h3>⚙️ Metalltor</h3>
+                    <span class="recipe-category">Metall</span>
+                </div>
+                <p class="recipe-description">
+                    Ein schweres Metalltor für Basiseinfahrten.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>8x</span></li>
+                        <li>🔒 Schloss <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Metallkiste -->
+            <article class="recipe-card" data-category="metall">
+                <div class="recipe-header">
+                    <h3>⚙️ Metallkiste</h3>
+                    <span class="recipe-category">Metall</span>
+                </div>
+                <p class="recipe-description">
+                    Sicherer Metallbehälter für die Lagerung deiner Schätze.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>8x</span></li>
+                        <li>🔒 Schloss <span>1x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Metallboden -->
+            <article class="recipe-card" data-category="metall">
+                <div class="recipe-header">
+                    <h3>⚙️ Metallboden</h3>
+                    <span class="recipe-category">Metall</span>
+                </div>
+                <p class="recipe-description">
+                    Stahlbodenplatten der Materialstufe 3.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>5x</span></li>
+                        <li>🔩 Schrauben <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Metallwand -->
+            <article class="recipe-card" data-category="metall">
+                <div class="recipe-header">
+                    <h3>⚙️ Metallwand</h3>
+                    <span class="recipe-category">Metall</span>
+                </div>
+                <p class="recipe-description">
+                    Massive Wand aus Wellblech und Stahlträgern.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>7x</span></li>
+                        <li>🔩 Schrauben <span>4x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Metallzaun -->
+            <article class="recipe-card" data-category="metall">
+                <div class="recipe-header">
+                    <h3>⚙️ Metallzaun</h3>
+                    <span class="recipe-category">Metall</span>
+                </div>
+                <p class="recipe-description">
+                    Industrielle Absperrung aus Metall.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>6x</span></li>
+                        <li>🔩 Schrauben <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Verstärktes Tor -->
+            <article class="recipe-card" data-category="metall">
+                <div class="recipe-header">
+                    <h3>⚙️ Verstärktes Tor</h3>
+                    <span class="recipe-category">Metall</span>
+                </div>
+                <p class="recipe-description">
+                    Zusätzlich gepanzertes Tor für maximale Absicherung.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>12x</span></li>
+                        <li>🔒 Schloss <span>4x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Garagentor -->
+            <article class="recipe-card" data-category="metall">
+                <div class="recipe-header">
+                    <h3>⚙️ Garagentor</h3>
+                    <span class="recipe-category">Metall</span>
+                </div>
+                <p class="recipe-description">
+                    Ein Rolltor für Fahrzeughallen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>16x</span></li>
+                        <li>⚙️ Zahnrad <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Waffenschrank -->
+            <article class="recipe-card" data-category="metall">
+                <div class="recipe-header">
+                    <h3>⚙️ Waffenschrank</h3>
+                    <span class="recipe-category">Metall</span>
+                </div>
+                <p class="recipe-description">
+                    Spezieller Behälter zur Aufbewahrung von Waffen und Munition.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>10x</span></li>
+                        <li>🔒 Schloss <span>1x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Tresor -->
+            <article class="recipe-card" data-category="metall">
+                <div class="recipe-header">
+                    <h3>⚙️ Tresor</h3>
+                    <span class="recipe-category">Metall</span>
+                </div>
+                <p class="recipe-description">
+                    Nahezu unzerstörbarer Safe für deine wertvollsten Items.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>14x</span></li>
+                        <li>🔒 Schloss <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+
+            <!-- ================= FALLEN BAUTEILE ================= -->
+
+            <!-- Stachelfalle -->
+            <article class="recipe-card" data-category="fallen">
+                <div class="recipe-header">
+                    <h3>🪤 Stachelfalle</h3>
+                    <span class="recipe-category">Fallen</span>
+                </div>
+                <p class="recipe-description">
+                    Verteidigt das Gelände und hält Gefahren auf Abstand.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>3x</span></li>
+                        <li>⚙️ Metall <span>2x</span></li>
+                        <li>🔩 Nägel <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Drahtfalle -->
+            <article class="recipe-card" data-category="fallen">
+                <div class="recipe-header">
+                    <h3>🪤 Drahtfalle</h3>
+                    <span class="recipe-category">Fallen</span>
+                </div>
+                <p class="recipe-description">
+                    Verursacht Schaden oder verlangsamt Eindringlinge.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>4x</span></li>
+                        <li>🔌 Draht <span>1x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+
+            <!-- ================= VERSORGUNG BAUTEILE ================= -->
+
+            <!-- Wassertank -->
+            <article class="recipe-card" data-category="versorgung">
+                <div class="recipe-header">
+                    <h3>✚ Wassertank</h3>
+                    <span class="recipe-category">Versorgung</span>
+                </div>
+                <p class="recipe-description">
+                    Großer Speicher für Trinkwasser.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>5x</span></li>
+                        <li>🔌 Draht <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Regentonne -->
+            <article class="recipe-card" data-category="versorgung">
+                <div class="recipe-header">
+                    <h3>✚ Regentonne</h3>
+                    <span class="recipe-category">Versorgung</span>
+                </div>
+                <p class="recipe-description">
+                    Sammelt passiv Regenwasser zur Versorgung.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>4x</span></li>
+                        <li>🔌 Draht <span>1x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Kühlschrank -->
+            <article class="recipe-card" data-category="versorgung">
+                <div class="recipe-header">
+                    <h3>✚ Kühlschrank</h3>
+                    <span class="recipe-category">Versorgung</span>
+                </div>
+                <p class="recipe-description">
+                    Hält verderbliche Lebensmittel frisch.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>8x</span></li>
+                        <li>⚡ Elektronik <span>4x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Wasserfilter -->
+            <article class="recipe-card" data-category="versorgung">
+                <div class="recipe-header">
+                    <h3>✚ Wasserfilter</h3>
+                    <span class="recipe-category">Versorgung</span>
+                </div>
+                <p class="recipe-description">
+                    Reinigt verschmutztes Wasser zu sicherem Trinkwasser.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>3x</span></li>
+                        <li>🔌 Draht <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Krankenbett -->
+            <article class="recipe-card" data-category="versorgung">
+                <div class="recipe-header">
+                    <h3>✚ Krankenbett</h3>
+                    <span class="recipe-category">Versorgung</span>
+                </div>
+                <p class="recipe-description">
+                    Versorgt und heilt verletzte Überlebende.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>6x</span></li>
+                        <li>🧵 Stoff <span>6x</span></li>
+                        <li>⚡ Elektronik <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Gewächshaus -->
+            <article class="recipe-card" data-category="versorgung">
+                <div class="recipe-header">
+                    <h3>✚ Gewächshaus</h3>
+                    <span class="recipe-category">Versorgung</span>
+                </div>
+                <p class="recipe-description">
+                    Ermöglicht den geschützten Anbau von Nutzpflanzen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>12x</span></li>
+                        <li>🧵 Stoff <span>4x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Wasserpumpe -->
+            <article class="recipe-card" data-category="versorgung">
+                <div class="recipe-header">
+                    <h3>✚ Wasserpumpe</h3>
+                    <span class="recipe-category">Versorgung</span>
+                </div>
+                <p class="recipe-description">
+                    Fördert Frischwasser aus dem Boden.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metall <span>7x</span></li>
+                        <li>🔌 Draht <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Basisflagge -->
+            <article class="recipe-card" data-category="versorgung">
+                <div class="recipe-header">
+                    <h3>✚ Basisflagge</h3>
+                    <span class="recipe-category">Versorgung</span>
+                </div>
+                <p class="recipe-description">
+                    Beansprucht ein Gebiet für deine Basis und schützt es.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🏴 Flagge <span>1x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+
+            <!-- ================= CRAFTING / HERSTELLUNG ================= -->
+
+            <!-- Verband -->
+            <article class="recipe-card" data-category="herstellung">
+                <div class="recipe-header">
+                    <h3>✚ Verband</h3>
+                    <span class="recipe-category">Herstellung</span>
+                </div>
+                <p class="recipe-description">
+                    Ein medizinischer Wundverband. Stoppt akute Blutungen und heilt über Zeit einen Teil der Gesundheit.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🧵 Stoff <span>3x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">⚙️ Werkbank benötigt</span>
+                </div>
+            </article>
+
+            <!-- Medikit -->
+            <article class="recipe-card" data-category="herstellung">
+                <div class="recipe-header">
+                    <h3>✚ Medikit</h3>
+                    <span class="recipe-category">Herstellung</span>
+                </div>
+                <p class="recipe-description">
+                    Erweiterte Notfallausrüstung zur sofortigen Regeneration großer Mengen an Lebenspunkten.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🧵 Stoff <span>6x</span></li>
+                        <li>🧪 Desinfektionsmittel <span>1x</span></li>
+                        <li>🍺 Alkohol <span>1x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">⚙️ Werkbank benötigt</span>
+                </div>
+            </article>
+
+            <!-- Metallplatten -->
+            <article class="recipe-card" data-category="herstellung">
+                <div class="recipe-header">
+                    <h3>⚙️ Metallplatte</h3>
+                    <span class="recipe-category">Herstellung</span>
+                </div>
+                <p class="recipe-description">
+                    Zusammengeschweißte Stahlplatten zur Weiterverarbeitung für Stufe 3 Bauteile (z. B. Tresore, Metallwände).
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>⚙️ Metallteile <span>5x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">⚙️ Werkbank benötigt</span>
+                </div>
+            </article>
+
+            <!-- Elektronik-Bauteil -->
+            <article class="recipe-card" data-category="herstellung">
+                <div class="recipe-header">
+                    <h3>⚙️ Elektronik-Bauteil</h3>
+                    <span class="recipe-category">Herstellung</span>
+                </div>
+                <p class="recipe-description">
+                    Elektronische Schaltkreise für den Bau von Generatoren, Kühlschränken und Basisbeleuchtung.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🔌 Draht <span>4x</span></li>
+                        <li>⚙️ Metallteile <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">⚙️ Werkbank benötigt</span>
+                </div>
+            </article>
+
+            <!-- Seil -->
+            <article class="recipe-card" data-category="herstellung">
+                <div class="recipe-header">
+                    <h3>🪵 Seil</h3>
+                    <span class="recipe-category">Herstellung</span>
+                </div>
+                <p class="recipe-description">
+                    Ein robustes Seil aus gedrehten Stofffasern. Wichtig für Fallen und komplexere Mechanismen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>🧵 Stoff <span>4x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">⚙️ Werkbank benötigt</span>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="site-footer">
+
+    <div class="container footer">
+
+        <div>
+
+            <h3>
+                Zombiehölle - ZHServer.de
+            </h3>
+
+            <p>
+                Seit 2013
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+            <a href="pages/impressum.html">Impressum</a>
+            <a href="pages/datenschutz.html">Datenschutz</a>
+        </div>
+
+    </div>
+
+</footer>
+
+<script>
+    // Navigation Menu Toggle for Mobile
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Filter Logic
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const recipeCards = document.querySelectorAll('.recipe-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active classes
+            filterButtons.forEach(btn => {
+                btn.classList.remove('btn-gold');
+                btn.classList.add('btn-outline');
+            });
+
+            // Set active class
+            button.classList.add('btn-gold');
+            button.classList.remove('btn-outline');
+
+            const category = button.getAttribute('data-category');
+
+            recipeCards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+
+</html>
