@@ -48,7 +48,11 @@
 
 <main class="game-page">
     <section class="section game-section">
-        <div class="container center">            <header class="survival-game-hero">
+        <div class="container center">
+            <header class="survival-game-hero">
+                <div class="game-solo-badge-wrap">
+                    <span class="game-solo-badge"><i class="fa-solid fa-code" aria-hidden="true"></i> SOLO-INDIE-PROJEKT &bull; FR&Uuml;HE ALPHA</span>
+                </div>
                 <h1 class="game-page-title">Zombieh&ouml;lle Survival</h1>
                 <p class="game-hero-tagline">ZOMBIEH&Ouml;LLE IS ALIVE &ndash; IN 2D.</p>
                 <div class="game-status-grid" aria-live="polite" aria-label="Aktueller Spielstatus">
@@ -120,11 +124,48 @@
                 <p class="game-mobile-hint">Am besten im Querformat spielen. Links laufen, rechts feuern; E durchsucht, INV &ouml;ffnet das Inventar.</p>
             </header>
 
+            <!-- ================= SPIELBEREICH & STEUERUNG ================= -->
+            <div class="game-controls-bar" aria-label="Tastenbelegung und Steuerung">
+                <div class="game-controls-title"><i class="fa-solid fa-gamepad" aria-hidden="true"></i> STEUERUNG:</div>
+                <div class="game-controls-keys">
+                    <span class="key-badge"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Laufen</span>
+                    <span class="key-badge"><kbd><i class="fa-solid fa-mouse"></i></kbd> Zielen &amp; Schlagen</span>
+                    <span class="key-badge"><kbd>E</kbd> Durchsuchen</span>
+                    <span class="key-badge"><kbd>I</kbd> Inventar</span>
+                    <span class="key-badge"><kbd>B</kbd> Baumen&uuml;</span>
+                    <span class="key-badge"><kbd>M</kbd> Karte</span>
+                    <span class="key-badge"><kbd>G</kbd> Gruppe</span>
+                </div>
+                <a href="wiki.html" class="game-controls-wiki-link"><i class="fa-solid fa-book" aria-hidden="true"></i> Bausystem-Wiki</a>
+            </div>
+
+            <div class="game-embed-wrapper" id="game-wrapper">
+                <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v115.html?build=alpha-0-2-1-v115-20260817-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+                <div class="game-mobile-overlay" id="game-mobile-overlay">
+                    <span class="game-overview-kicker">MOBILE STEUERUNG</span>
+                    <button class="btn btn-gold btn-activate-game" id="btn-activate-game" type="button">SPIEL AKTIVIEREN</button>
+                </div>
+                <button class="btn game-mobile-exit-btn" id="btn-deactivate-game" type="button" style="display: none;">SCROLL-MODUS</button>
+            </div>
+
+            <div class="game-post-actions">
+                <div class="game-post-actions-hint">
+                    <i class="fa-regular fa-comment-dots" aria-hidden="true"></i> Fehler entdeckt oder eine Idee? Dein Feedback flie&szlig;t direkt in die Alpha ein!
+                </div>
+                <div class="game-post-actions-btns">
+                    <a class="btn-subnav" href="bugs/index.html" data-bugs-route><i class="fa-solid fa-bug" aria-hidden="true"></i> BUG MELDEN</a>
+                    <a class="btn-subnav" href="bugs/index.html" data-bugs-route><i class="fa-regular fa-lightbulb" aria-hidden="true"></i> IDEE EINREICHEN</a>
+                    <a class="btn-subnav" href="https://discord.gg/MAujawnuK" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord" aria-hidden="true"></i> DISCORD</a>
+                    <a class="btn-subnav" href="wiki.html"><i class="fa-solid fa-book" aria-hidden="true"></i> REZEPTE &amp; BAUEN</a>
+                </div>
+            </div>
+
             <section class="game-project-overview" aria-label="&Uuml;ber Zombieh&ouml;lle Survival">
                 <div class="game-project-intro">
-                    <span class="game-overview-kicker">WORUM GEHT ES?</span>
-                    <p>Zombieh&ouml;lle Survival ist ein 2D-Online-Survival-Spiel in aktiver Entwicklung. Du erkundest die Welt, k&auml;mpfst gegen Zombies, sammelst Loot und baust gemeinsam mit anderen Spielern deine Basis.</p>
-                    <p>Die Spielwelt wird laufend erweitert. Langfristiges Ziel ist eine umfangreiche isometrische Survival-Welt mit mehreren Gebieten, Portalen, Fahrzeugen und deutlich erweitertem Basenbau.</p>
+                    <span class="game-overview-kicker">SOLO-DEVELOPMENT &bull; DIE GESCHICHTE DAHINTER</span>
+                    <h2>VOM DAYZ-SERVER ZUM EIGENEN 2D-SURVIVAL-SPIEL</h2>
+                    <p>Zombieh&ouml;lle war von 2013 bis 2016 eine eigene Servercommunity rund um DayZ und Arma. Heute baue ich diese Welt als unabh&auml;ngiges 2D-Multiplayer-Survival-Spiel komplett alleine weiter aus &ndash; spielbar direkt im Browser.</p>
+                    <p>Du erkundest verlassene St&auml;dte, k&auml;mpfst gegen Zombies, sammelst Loot, f&auml;hrst Fahrzeuge und baust gemeinsam deine Basis auf. Die Welt wird stetig erweitert &ndash; jedes Feedback und jeder gefundene Bug helfen direkt bei den kommenden Patches.</p>
                 </div>
                 <div class="game-feature-grid">
                     <article class="game-feature-card game-feature-playable">
@@ -162,19 +203,7 @@
                     <button id="roadmap-graphics-ui-lightbox-close" class="game-roadmap-vision-lightbox-close" type="button" aria-label="Konzeptgrafik schlie&szlig;en">&times;</button>
                     <img id="roadmap-graphics-ui-lightbox-image" alt="">
                 </div>
-            <div class="game-play-divider">
-                <span class="game-overview-kicker">SPIELBEREICH</span>
-                <i class="fa-solid fa-chevron-down game-scroll-arrow" aria-hidden="true"></i>
-            </div>
-
-            <div class="game-embed-wrapper" id="game-wrapper">
-                <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v115.html?build=alpha-0-2-1-v115-20260817-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
-                <div class="game-mobile-overlay" id="game-mobile-overlay">
-                    <span class="game-overview-kicker">MOBILE STEUERUNG</span>
-                    <button class="btn btn-gold btn-activate-game" id="btn-activate-game" type="button">SPIEL AKTIVIEREN</button>
-                </div>
-                <button class="btn game-mobile-exit-btn" id="btn-deactivate-game" type="button" style="display: none;">SCROLL-MODUS</button>
-            </div>
+            </section>
 
             <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
             <section id="changelog" class="survival-changelog" aria-labelledby="changelog-title">
