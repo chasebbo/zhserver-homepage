@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Bausystem Wiki | Zombiehölle (ZHServer)</title>
+    <title>Wiki &amp; Guide: Waffen, R&uuml;stung &amp; Bausystem | Zombieh&ouml;lle (ZHServer)</title>
 
     <meta name="description"
-        content="Der offizielle Bausystem- und Crafting-Guide für das Zombiehölle Survival 2D-Spiel. Rezepte, Werkzeuge und Materialien auf einen Blick.">
+        content="Der offizielle Spiel-Guide f&uuml;r Zombieh&ouml;lle Survival: Alle Waffen, R&uuml;stungen, Schutzkleidung, Bauteile und Rezepte auf einen Blick.">
 
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
 
-    <link rel="stylesheet" href="assets/css/style.css?v=20260819-wiki5">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260904-wiki1">
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -107,15 +107,11 @@
             </span>
 
             <h1>
-
-                Bausystem &amp; Rezepte
-
+                Bausystem, Waffen &amp; R&uuml;stung
             </h1>
 
             <p>
-
-                Die komplette Übersicht über alle herstellbaren Bauteile, Fallen und Versorgungsstrukturen im Spiel.
-
+                Die komplette &Uuml;bersicht &uuml;ber alle Waffen, R&uuml;stungen, Bauteile, Fallen und Rezepte im Spiel.
             </p>
 
         </div>
@@ -132,33 +128,432 @@
         <div class="wiki-notice">
             <i class="fa-solid fa-triangle-exclamation"></i>
             <p>
-                <strong>Hinweis zum Entwicklungsstand:</strong> Dieses Wiki befindet sich (genau wie das Spiel selbst) in einer frühen Alpha-Phase. Die Liste der Baupläne und Rezepte wird stetig erweitert, verfeinert und an neue Gameplay-Updates angepasst.
+                <strong>Hinweis zum Entwicklungsstand:</strong> Dieses Wiki befindet sich (genau wie das Spiel selbst) in einer fr&uuml;hen Alpha-Phase. Die Liste der Waffen, R&uuml;stungen, Baupl&auml;ne und Rezepte wird stetig erweitert, verfeinert und an neue Gameplay-Updates angepasst.
             </p>
         </div>
 
         <span class="section-title">
-
-            BAUMENÜ ÜBERSICHT
-
+            WIKI &amp; AUSR&Uuml;STUNG
         </span>
 
         <h2>
-
-            Rezepte &amp; Materialkosten
-
+            Waffen, R&uuml;stung &amp; Baupl&auml;ne
         </h2>
 
         <div class="wiki-filter-buttons">
-            <button class="btn btn-gold filter-btn" data-category="all">Alle Rezepte</button>
+            <button class="btn btn-gold filter-btn" data-category="all">Alle Eintr&auml;ge</button>
+            <button class="btn btn-outline filter-btn" data-category="waffen"><i class="fa-solid fa-gun"></i> Waffen</button>
+            <button class="btn btn-outline filter-btn" data-category="ruestung"><i class="fa-solid fa-shield-halved"></i> R&uuml;stung</button>
+            <button class="btn btn-outline filter-btn" data-category="herstellung">Herstellung / Crafting</button>
             <button class="btn btn-outline filter-btn" data-category="holz">Holz</button>
             <button class="btn btn-outline filter-btn" data-category="stein">Stein</button>
             <button class="btn btn-outline filter-btn" data-category="metall">Metall</button>
             <button class="btn btn-outline filter-btn" data-category="fallen">Fallen</button>
             <button class="btn btn-outline filter-btn" data-category="versorgung">Versorgung</button>
-            <button class="btn btn-outline filter-btn" data-category="herstellung">Herstellung / Crafting</button>
         </div>
 
         <div class="wiki-grid" id="wikiGrid">
+
+            <!-- ================= WAFFEN ================= -->
+
+            <!-- Holzfälleraxt -->
+            <article class="recipe-card" data-category="waffen">
+                <div class="recipe-header">
+                    <h3>🪓 Holzf&auml;lleraxt</h3>
+                    <span class="recipe-category">Waffen</span>
+                </div>
+                <p class="recipe-description">
+                    Klassische Axt zum F&auml;llen von B&auml;umen und f&uuml;r verheerende Hiebe gegen Zombies. Wird am Charakter sichtbar getragen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>⚔️ Schaden <span>Hoch (Nahkampf)</span></li>
+                        <li>🪵 Nutzen <span>Holzf&auml;llen &amp; Kampf</span></li>
+                        <li>⚡ Ausdauer <span>Mittel</span></li>
+                        <li>📍 Slot <span>Prim&auml;r / Werkzeug</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Nahkampfwaffe</span>
+                    <span class="tool-badge">Werkzeug</span>
+                    <span class="tool-badge">Loot &amp; Start</span>
+                </div>
+            </article>
+
+            <!-- Spitzhacke -->
+            <article class="recipe-card" data-category="waffen">
+                <div class="recipe-header">
+                    <h3>⛏️ Spitzhacke</h3>
+                    <span class="recipe-category">Waffen</span>
+                </div>
+                <p class="recipe-description">
+                    Schweres Bergbauwerkzeug zum Abbau von Erzadern (Kupfer, Eisen, Gold) und brutale Hiebwaffe gegen Zombies.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>⚔️ Schaden <span>Sehr hoch (Langsam)</span></li>
+                        <li>🪨 Nutzen <span>Erz- &amp; Steinabbau</span></li>
+                        <li>⚡ Ausdauer <span>Hoch</span></li>
+                        <li>📍 Slot <span>Prim&auml;r / Werkzeug</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Nahkampfwaffe</span>
+                    <span class="tool-badge">Erzabbau</span>
+                    <span class="tool-badge">Werkbank / Loot</span>
+                </div>
+            </article>
+
+            <!-- Überlebensmesser -->
+            <article class="recipe-card" data-category="waffen">
+                <div class="recipe-header">
+                    <h3>🔪 &Uuml;berlebensmesser</h3>
+                    <span class="recipe-category">Waffen</span>
+                </div>
+                <p class="recipe-description">
+                    Kompakte Klinge f&uuml;r den schnellen, lautlosen Nahkampf. Verbraucht minimale Ausdauer und alarmiert keine Horden in der Umgebung.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>⚔️ Schaden <span>Mittel (Schnell)</span></li>
+                        <li>🤫 Lautst&auml;rke <span>Lautlos</span></li>
+                        <li>🩸 Blutungschance <span>Hoch</span></li>
+                        <li>📍 Slot <span>Sekund&auml;r / Nahkampf</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Nahkampfwaffe</span>
+                    <span class="tool-badge">Lautlos</span>
+                    <span class="tool-badge">Zivil-Loot</span>
+                </div>
+            </article>
+
+            <!-- Jagdbogen -->
+            <article class="recipe-card" data-category="waffen">
+                <div class="recipe-header">
+                    <h3>🏹 Jagdbogen</h3>
+                    <span class="recipe-category">Waffen</span>
+                </div>
+                <p class="recipe-description">
+                    Lautlose Distanzwaffe f&uuml;r J&auml;ger und vorsichtige &Uuml;berlebende. Verschossene Pfeile k&ouml;nnen teilweise wieder eingesammelt werden.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>🪵 Holz <span>5x</span></li>
+                        <li>🧵 Seil <span>2x</span></li>
+                        <li>🏹 Munition <span>Holzpfeile</span></li>
+                        <li>🤫 Lautst&auml;rke <span>Lautlos</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Fernkampfwaffe</span>
+                    <span class="tool-badge">Herstellbar</span>
+                    <span class="tool-badge">⚙️ Werkbank ben&ouml;tigt</span>
+                </div>
+            </article>
+
+            <!-- 9mm Pistole -->
+            <article class="recipe-card" data-category="waffen">
+                <div class="recipe-header">
+                    <h3>🔫 9mm Pistole</h3>
+                    <span class="recipe-category">Waffen</span>
+                </div>
+                <p class="recipe-description">
+                    Zuverl&auml;ssige halbautomatische Seitenwaffe f&uuml;r mittlere Entfernungen. Ideal f&uuml;r schnelle Selbstverteidigung in St&auml;dten.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>💥 Schaden <span>Mittel</span></li>
+                        <li>🎯 Reichweite <span>Mittel</span></li>
+                        <li>🔀 Munition <span>9x19mm Patronen</span></li>
+                        <li>⚡ Magazingr&ouml;&szlig;e <span>15 Schuss</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Sekund&auml;rwaffe</span>
+                    <span class="tool-badge">Halbautomatisch</span>
+                    <span class="tool-badge">Polizei / H&auml;user</span>
+                </div>
+            </article>
+
+            <!-- Schrotflinte -->
+            <article class="recipe-card" data-category="waffen">
+                <div class="recipe-header">
+                    <h3>💥 Schrotflinte (Pump-Action)</h3>
+                    <span class="recipe-category">Waffen</span>
+                </div>
+                <p class="recipe-description">
+                    Verheerende Durchschlagskraft auf kurze Distanz mit weitem Streuwinkel. R&auml;umt Geb&auml;ude und enge G&auml;nge effektiv frei.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>💥 Schaden <span>Extrem hoch (Nah)</span></li>
+                        <li>🎯 Reichweite <span>Kurz (Streuung)</span></li>
+                        <li>🔀 Munition <span>12-Gauge Schrot</span></li>
+                        <li>⚡ Magazingr&ouml;&szlig;e <span>6 Schuss</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Prim&auml;rwaffe</span>
+                    <span class="tool-badge">Hohe Stoppwirkung</span>
+                    <span class="tool-badge">Farmen &amp; H&auml;user</span>
+                </div>
+            </article>
+
+            <!-- Jagdgewehr -->
+            <article class="recipe-card" data-category="waffen">
+                <div class="recipe-header">
+                    <h3>🎯 Jagdgewehr (Bolt-Action)</h3>
+                    <span class="recipe-category">Waffen</span>
+                </div>
+                <p class="recipe-description">
+                    Pr&auml;zises Repetiergewehr f&uuml;r hohe Reichweiten. Bietet h&ouml;chste Mannstoppwirkung und t&ouml;dliche Treffer aus sicherer Entfernung.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>💥 Schaden <span>Sehr hoch</span></li>
+                        <li>🎯 Reichweite <span>Sehr weit</span></li>
+                        <li>🔀 Munition <span>7.62mm Gewehr</span></li>
+                        <li>⚡ Feuerrate <span>Einzelschuss (Repetierer)</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Prim&auml;rwaffe</span>
+                    <span class="tool-badge">Scharfsch&uuml;tze</span>
+                    <span class="tool-badge">Hochsitze &amp; Jagdh&uuml;tten</span>
+                </div>
+            </article>
+
+            <!-- Sturmgewehr -->
+            <article class="recipe-card" data-category="waffen">
+                <div class="recipe-header">
+                    <h3>⚡ Sturmgewehr (Milit&auml;r)</h3>
+                    <span class="recipe-category">Waffen</span>
+                </div>
+                <p class="recipe-description">
+                    Vollautomatischer Milit&auml;rkarabiner f&uuml;r maximale Feuerkraft in Gefahrenzonen, Banditenlagern und bei Konvoi-Events.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>💥 Schaden <span>Hoch</span></li>
+                        <li>🎯 Reichweite <span>Hoch</span></li>
+                        <li>🔀 Munition <span>5.56mm / 7.62mm</span></li>
+                        <li>⚡ Feuermodus <span>Einzelfeuer &amp; Dauerfeuer</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Prim&auml;rwaffe</span>
+                    <span class="tool-badge">Vollautomatisch</span>
+                    <span class="tool-badge">Milit&auml;r-Tier / Events</span>
+                </div>
+            </article>
+
+            <!-- ================= RÜSTUNG & AUSRÜSTUNG ================= -->
+
+            <!-- Improvisierte Lederweste -->
+            <article class="recipe-card" data-category="ruestung">
+                <div class="recipe-header">
+                    <h3>🦺 Improvisierte Lederweste</h3>
+                    <span class="recipe-category">R&uuml;stung</span>
+                </div>
+                <p class="recipe-description">
+                    Zusammengen&auml;hte Weste aus Leder und Stoffschichten. Sch&uuml;tzt den Oberk&ouml;rper vor Kratzern und leichten Zombiebissen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>🧵 Stoff <span>6x</span></li>
+                        <li>🪵 Seil <span>2x</span></li>
+                        <li>🛡️ R&uuml;stungsschutz <span>+15% (Nahkampf)</span></li>
+                        <li>🎒 Zusatz-Slots <span>+2 Slots</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Slot: Weste (sichtbar)</span>
+                    <span class="tool-badge">Tier 1 Schutz</span>
+                    <span class="tool-badge">⚙️ Werkbank ben&ouml;tigt</span>
+                </div>
+            </article>
+
+            <!-- Taktische Weste -->
+            <article class="recipe-card" data-category="ruestung">
+                <div class="recipe-header">
+                    <h3>🦺 Taktische Weste</h3>
+                    <span class="recipe-category">R&uuml;stung</span>
+                </div>
+                <p class="recipe-description">
+                    Verst&auml;rkte Sicherheitsweste mit praktischen Magazintaschen. Bietet verl&auml;sslichen Schutz und erweitert die Schnellslots.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>🛡️ R&uuml;stungsschutz <span>+30% (Allround)</span></li>
+                        <li>🎒 Schnellslots <span>+4 Slots</span></li>
+                        <li>🩸 Blutungsschutz <span>+35%</span></li>
+                        <li>📍 Slot <span>Weste (sichtbar)</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Slot: Weste (sichtbar)</span>
+                    <span class="tool-badge">Tier 2 Schutz</span>
+                    <span class="tool-badge">Polizeistation &amp; Wachen</span>
+                </div>
+            </article>
+
+            <!-- Militärische Schutzweste -->
+            <article class="recipe-card" data-category="ruestung">
+                <div class="recipe-header">
+                    <h3>🛡️ Milit&auml;rische Schutzweste</h3>
+                    <span class="recipe-category">R&uuml;stung</span>
+                </div>
+                <p class="recipe-description">
+                    Schwerer ballistischer Plattenpanzer. Sch&uuml;tzt zuverl&auml;ssig vor Schusswaffentreffern und schweren Angriffen von Horden.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>🛡️ R&uuml;stungsschutz <span>+50% (Kugelsicher)</span></li>
+                        <li>🩸 Blutungsschutz <span>+60%</span></li>
+                        <li>🎒 Zusatz-Slots <span>+6 Slots</span></li>
+                        <li>📍 Slot <span>Weste (sichtbar)</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Slot: Weste (sichtbar)</span>
+                    <span class="tool-badge">Tier 3 Schutz</span>
+                    <span class="tool-badge">Milit&auml;rbasis &amp; Konvois</span>
+                </div>
+            </article>
+
+            <!-- Bauhelm / Motorradhelm -->
+            <article class="recipe-card" data-category="ruestung">
+                <div class="recipe-header">
+                    <h3>⛑️ Schutzhelm / Bauhelm</h3>
+                    <span class="recipe-category">R&uuml;stung</span>
+                </div>
+                <p class="recipe-description">
+                    Robuster Hartschalenhelm gegen stumpfe Schl&auml;ge, Steinw&uuml;rfe und St&uuml;rze. Verhindert kritische Bet&auml;ubungen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>🛡️ Kopfschutz <span>+20%</span></li>
+                        <li>💫 Schock-Resistenz <span>Verhindert K.O.</span></li>
+                        <li>⚖️ Gewicht <span>Leicht</span></li>
+                        <li>📍 Slot <span>Helm (sichtbar)</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Slot: Helm (sichtbar)</span>
+                    <span class="tool-badge">Tier 1 Kopfschutz</span>
+                    <span class="tool-badge">Industrie &amp; Garagen</span>
+                </div>
+            </article>
+
+            <!-- Gefechtshelm -->
+            <article class="recipe-card" data-category="ruestung">
+                <div class="recipe-header">
+                    <h3>🪖 Gefechtshelm (Milit&auml;r)</h3>
+                    <span class="recipe-category">R&uuml;stung</span>
+                </div>
+                <p class="recipe-description">
+                    Kevlar-Milit&auml;rhelm der Armee. F&auml;ngt Projektile ab und reduziert den erlittenen Kopfschaden drastisch auf ein Minimum.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>🛡️ Kopfschutz <span>+50% (Ballistisch)</span></li>
+                        <li>💥 Kritischer Schutz <span>Maximal</span></li>
+                        <li>📍 Slot <span>Helm (sichtbar)</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Slot: Helm (sichtbar)</span>
+                    <span class="tool-badge">Tier 3 Kopfschutz</span>
+                    <span class="tool-badge">Milit&auml;r-Loot</span>
+                </div>
+            </article>
+
+            <!-- Taktische Cargohose -->
+            <article class="recipe-card" data-category="ruestung">
+                <div class="recipe-header">
+                    <h3>👖 Taktische Cargohose</h3>
+                    <span class="recipe-category">R&uuml;stung</span>
+                </div>
+                <p class="recipe-description">
+                    Strapazierf&auml;hige &Uuml;berlebenden-Hose mit verst&auml;rkten Knieschonern und vielen Beintaschen zur Kapazit&auml;tserweiterung.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>🛡️ Beinschutz <span>+15%</span></li>
+                        <li>🎒 Inventar-Slots <span>+4 Slots</span></li>
+                        <li>🏃 Mobilit&auml;t <span>100% (Kein Malus)</span></li>
+                        <li>📍 Slot <span>Hose (sichtbar)</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Slot: Hose (sichtbar)</span>
+                    <span class="tool-badge">Ausr&uuml;stung</span>
+                    <span class="tool-badge">Zivil &amp; H&auml;user</span>
+                </div>
+            </article>
+
+            <!-- Einsatzstiefel -->
+            <article class="recipe-card" data-category="ruestung">
+                <div class="recipe-header">
+                    <h3>🥾 Robuste Einsatzstiefel</h3>
+                    <span class="recipe-category">R&uuml;stung</span>
+                </div>
+                <p class="recipe-description">
+                    Trittfeste Schn&uuml;rstiefel mit verst&auml;rkter Sohle. Sch&uuml;tzen vor Bodenschaden und senken den Ausdauerverbrauch beim Laufen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>🦶 Schutz <span>Sch&uuml;tzt vor Fallen &amp; Glas</span></li>
+                        <li>⚡ Ausdauer-Bonus <span>-10% Sprint-Verbrauch</span></li>
+                        <li>📍 Slot <span>Schuhe / Stiefel</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Slot: Stiefel</span>
+                    <span class="tool-badge">Ausdauer-Vorteil</span>
+                    <span class="tool-badge">Zivil &amp; Outdoor</span>
+                </div>
+            </article>
+
+            <!-- Militär-Rucksack -->
+            <article class="recipe-card" data-category="ruestung">
+                <div class="recipe-header">
+                    <h3>🎒 Gro&szlig;er Milit&auml;r-Rucksack</h3>
+                    <span class="recipe-category">R&uuml;stung</span>
+                </div>
+                <p class="recipe-description">
+                    Gro&szlig;volumiger Marschrucksack mit Molle-Befestigungen. Das unverzichtbare Ausr&uuml;stungsteil f&uuml;r ausgedehnte Beutez&uuml;ge.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Eigenschaften &amp; Werte</div>
+                    <ul class="recipe-materials">
+                        <li>🎒 Inventar-Slots <span>+16 Slots</span></li>
+                        <li>⚖️ Tragekomfort <span>Reduziert Lastmalus</span></li>
+                        <li>📍 Slot <span>Rucksack (sichtbar)</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Slot: Rucksack (sichtbar)</span>
+                    <span class="tool-badge">Maximaler Stauraum</span>
+                    <span class="tool-badge">Milit&auml;r-Loot (Selten)</span>
+                </div>
+            </article>
 
             <!-- ================= HOLZ BAUTEILE ================= -->
 

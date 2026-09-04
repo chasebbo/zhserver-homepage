@@ -4367,7 +4367,7 @@ grid-template-columns:1fr;
     flex-wrap: wrap;
     gap: 10px;
     margin: 30px auto 40px;
-    max-width: 800px;
+    max-width: 980px;
 }
 .wiki-grid {
     display: grid;
