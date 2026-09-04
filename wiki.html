@@ -158,6 +158,10 @@
             <div class="wiki-sub-tabs" id="wikiSubTabs">
                 <button class="wiki-sub-btn active" data-sub="all">Alle Kategorien</button>
             </div>
+
+            <div class="wiki-status-bar" id="wikiStatusBar">
+                Aktiver Bereich: <strong>Alle Kategorien</strong>
+            </div>
         </div>
 
         <div class="wiki-grid" id="wikiGrid">
@@ -1993,6 +1997,7 @@
     const subTabsContainer = document.getElementById('wikiSubTabs');
     const searchInput = document.getElementById('wikiSearchInput');
     const resultCount = document.getElementById('wikiResultCount');
+    const statusBar = document.getElementById('wikiStatusBar');
     const noResultsMsg = document.getElementById('wikiNoResults');
     const cards = document.querySelectorAll('.recipe-card');
 
@@ -2044,6 +2049,21 @@
 
         if (resultCount) {
             resultCount.textContent = visibleCount === 1 ? '1 Eintrag' : visibleCount + ' Einträge';
+        }
+
+        if (statusBar) {
+            const activeMainBtn = document.querySelector(`.wiki-tab-btn[data-main="${activeMain}"]`);
+            const mainLabel = activeMainBtn ? activeMainBtn.textContent : 'Alle';
+            const activeSubObj = (subCategories[activeMain] || []).find(s => s.id === activeSub);
+            const subLabel = activeSubObj ? activeSubObj.label : 'Alle';
+
+            if (activeMain === 'all') {
+                statusBar.innerHTML = `Aktiver Bereich: <strong>Alle Kategorien</strong>`;
+            } else if (activeSub === 'all') {
+                statusBar.innerHTML = `Aktiver Bereich: <strong>${mainLabel}</strong> &rsaquo; <span>${subLabel}</span>`;
+            } else {
+                statusBar.innerHTML = `Aktiver Bereich: <strong>${mainLabel}</strong> &rsaquo; <strong>${subLabel}</strong>`;
+            }
         }
 
         if (noResultsMsg) {

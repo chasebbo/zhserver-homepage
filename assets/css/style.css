@@ -104,8 +104,16 @@ body{
 .nav-menu a.nav-game-link:hover{
     color:#ffd08a;
 }
-.nav-menu a[aria-current="page"]{
-    color:#fff;
+.nav-menu a[aria-current="page"],
+.nav-menu a.active{
+    color:var(--gold);
+    font-weight:700;
+}
+.nav-menu a[aria-current="page"]::after,
+.nav-menu a.active::after{
+    width:100%;
+    background:var(--gold);
+    box-shadow:0 0 10px rgba(212,175,55,.7);
 }
 
 .btn.game-cta{
@@ -4439,6 +4447,8 @@ grid-template-columns:1fr;
     color: #0b1017;
     border-color: #d4af37;
     font-weight: 700;
+    box-shadow: 0 3px 12px rgba(212, 175, 55, 0.45);
+    transform: translateY(-1px);
 }
 
 .wiki-sub-tabs {
@@ -4469,10 +4479,34 @@ grid-template-columns:1fr;
 }
 
 .wiki-sub-btn.active {
-    background: rgba(212, 175, 55, 0.18);
+    background: #d4af37;
+    color: #0b1017;
     border-color: #d4af37;
-    color: #e2c778;
-    font-weight: 600;
+    font-weight: 700;
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+    transform: translateY(-1px);
+}
+
+.wiki-status-bar {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #8da491;
+    background: rgba(14, 22, 19, 0.45);
+    border: 1px solid rgba(151, 172, 151, 0.15);
+    border-radius: 6px;
+    padding: 6px 16px;
+    margin: 4px auto 0;
+    width: fit-content;
+    letter-spacing: 0.03em;
+}
+
+.wiki-status-bar strong {
+    color: #d4af37;
+    font-weight: 700;
+}
+
+.wiki-status-bar span {
+    color: #f0f4f1;
 }
 
 .wiki-no-results {
