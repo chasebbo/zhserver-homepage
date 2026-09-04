@@ -140,25 +140,33 @@
             Waffen, R&uuml;stung &amp; Baupl&auml;ne
         </h2>
 
-        <div class="wiki-filter-buttons">
-            <button class="btn btn-gold filter-btn" data-category="all">Alle Eintr&auml;ge</button>
-            <button class="btn btn-outline filter-btn" data-category="waffen"><i class="fa-solid fa-gun"></i> Waffen</button>
-            <button class="btn btn-outline filter-btn" data-category="ruestung"><i class="fa-solid fa-shield-halved"></i> R&uuml;stung</button>
-            <button class="btn btn-outline filter-btn" data-category="lager-werkstatt"><i class="fa-solid fa-boxes-stacked"></i> Lager &amp; Werkstatt</button>
-            <button class="btn btn-outline filter-btn" data-category="herstellung">Herstellung / Crafting</button>
-            <button class="btn btn-outline filter-btn" data-category="holz">Holz</button>
-            <button class="btn btn-outline filter-btn" data-category="stein">Stein</button>
-            <button class="btn btn-outline filter-btn" data-category="metall">Metall</button>
-            <button class="btn btn-outline filter-btn" data-category="fallen">Fallen</button>
-            <button class="btn btn-outline filter-btn" data-category="versorgung">Versorgung</button>
+        <div class="wiki-filter-wrapper">
+            <div class="wiki-search-container">
+                <input type="text" id="wikiSearchInput" class="wiki-search-input" placeholder="Item, Rezept oder Material suchen..." autocomplete="off">
+                <span id="wikiResultCount" class="wiki-result-count">64 Einträge</span>
+            </div>
+
+            <div class="wiki-main-tabs" id="wikiMainTabs">
+                <button class="wiki-tab-btn active" data-main="all">Alle</button>
+                <button class="wiki-tab-btn" data-main="ausruestung">Ausrüstung &amp; Kampf</button>
+                <button class="wiki-tab-btn" data-main="basenbau">Basenbau</button>
+                <button class="wiki-tab-btn" data-main="lager-werkstatt">Lager &amp; Werkstatt</button>
+                <button class="wiki-tab-btn" data-main="versorgung">Versorgung &amp; Überleben</button>
+                <button class="wiki-tab-btn" data-main="abwehr">Fallen &amp; Abwehr</button>
+            </div>
+
+            <div class="wiki-sub-tabs" id="wikiSubTabs">
+                <button class="wiki-sub-btn active" data-sub="all">Alle Kategorien</button>
+            </div>
         </div>
 
         <div class="wiki-grid" id="wikiGrid">
+            <div id="wikiNoResults" class="wiki-no-results" style="display:none;">Keine passenden Einträge gefunden.</div>
 
             <!-- ================= WAFFEN ================= -->
 
             <!-- Holzfälleraxt -->
-            <article class="recipe-card" data-category="waffen">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="waffen">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -166,7 +174,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Holzf&auml;lleraxt</h3>
-                    <span class="recipe-category">Waffen</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; Waffen</span>
                 </div>
                 <p class="recipe-description">
                     Klassische Axt zum F&auml;llen von B&auml;umen und f&uuml;r verheerende Hiebe gegen Zombies. Wird am Charakter sichtbar getragen.
@@ -188,7 +196,7 @@
             </article>
 
             <!-- Spitzhacke -->
-            <article class="recipe-card" data-category="waffen">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="waffen">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -196,7 +204,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Spitzhacke</h3>
-                    <span class="recipe-category">Waffen</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; Waffen</span>
                 </div>
                 <p class="recipe-description">
                     Schweres Bergbauwerkzeug zum Abbau von Erzadern (Kupfer, Eisen, Gold) und brutale Hiebwaffe gegen Zombies.
@@ -218,7 +226,7 @@
             </article>
 
             <!-- Überlebensmesser -->
-            <article class="recipe-card" data-category="waffen">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="waffen">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -226,7 +234,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>&Uuml;berlebensmesser</h3>
-                    <span class="recipe-category">Waffen</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; Waffen</span>
                 </div>
                 <p class="recipe-description">
                     Kompakte Klinge f&uuml;r den schnellen, lautlosen Nahkampf. Verbraucht minimale Ausdauer und alarmiert keine Horden in der Umgebung.
@@ -248,7 +256,7 @@
             </article>
 
             <!-- Jagdbogen -->
-            <article class="recipe-card" data-category="waffen">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="waffen">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -256,7 +264,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Jagdbogen</h3>
-                    <span class="recipe-category">Waffen</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; Waffen</span>
                 </div>
                 <p class="recipe-description">
                     Lautlose Distanzwaffe f&uuml;r J&auml;ger und vorsichtige &Uuml;berlebende. Verschossene Pfeile k&ouml;nnen teilweise wieder eingesammelt werden.
@@ -278,7 +286,7 @@
             </article>
 
             <!-- 9mm Pistole -->
-            <article class="recipe-card" data-category="waffen">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="waffen">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -286,7 +294,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>9mm Pistole</h3>
-                    <span class="recipe-category">Waffen</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; Waffen</span>
                 </div>
                 <p class="recipe-description">
                     Zuverl&auml;ssige halbautomatische Seitenwaffe f&uuml;r mittlere Entfernungen. Ideal f&uuml;r schnelle Selbstverteidigung in St&auml;dten.
@@ -308,7 +316,7 @@
             </article>
 
             <!-- Schrotflinte -->
-            <article class="recipe-card" data-category="waffen">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="waffen">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -316,7 +324,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Schrotflinte (Pump-Action)</h3>
-                    <span class="recipe-category">Waffen</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; Waffen</span>
                 </div>
                 <p class="recipe-description">
                     Verheerende Durchschlagskraft auf kurze Distanz mit weitem Streuwinkel. R&auml;umt Geb&auml;ude und enge G&auml;nge effektiv frei.
@@ -338,7 +346,7 @@
             </article>
 
             <!-- Jagdgewehr -->
-            <article class="recipe-card" data-category="waffen">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="waffen">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -346,7 +354,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Jagdgewehr (Bolt-Action)</h3>
-                    <span class="recipe-category">Waffen</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; Waffen</span>
                 </div>
                 <p class="recipe-description">
                     Pr&auml;zises Repetiergewehr f&uuml;r hohe Reichweiten. Bietet h&ouml;chste Mannstoppwirkung und t&ouml;dliche Treffer aus sicherer Entfernung.
@@ -368,7 +376,7 @@
             </article>
 
             <!-- Sturmgewehr -->
-            <article class="recipe-card" data-category="waffen">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="waffen">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -376,7 +384,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Sturmgewehr (Milit&auml;r)</h3>
-                    <span class="recipe-category">Waffen</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; Waffen</span>
                 </div>
                 <p class="recipe-description">
                     Vollautomatischer Milit&auml;rkarabiner f&uuml;r maximale Feuerkraft in Gefahrenzonen, Banditenlagern und bei Konvoi-Events.
@@ -400,7 +408,7 @@
             <!-- ================= RÜSTUNG & AUSRÜSTUNG ================= -->
 
             <!-- Improvisierte Lederweste -->
-            <article class="recipe-card" data-category="ruestung">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="ruestung">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -408,7 +416,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Improvisierte Lederweste</h3>
-                    <span class="recipe-category">R&uuml;stung</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; R&uuml;stung</span>
                 </div>
                 <p class="recipe-description">
                     Zusammengen&auml;hte Weste aus Leder und Stoffschichten. Sch&uuml;tzt den Oberk&ouml;rper vor Kratzern und leichten Zombiebissen.
@@ -430,7 +438,7 @@
             </article>
 
             <!-- Taktische Weste -->
-            <article class="recipe-card" data-category="ruestung">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="ruestung">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -438,7 +446,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Taktische Weste</h3>
-                    <span class="recipe-category">R&uuml;stung</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; R&uuml;stung</span>
                 </div>
                 <p class="recipe-description">
                     Verst&auml;rkte Sicherheitsweste mit praktischen Magazintaschen. Bietet verl&auml;sslichen Schutz und erweitert die Schnellslots.
@@ -460,7 +468,7 @@
             </article>
 
             <!-- Militärische Schutzweste -->
-            <article class="recipe-card" data-category="ruestung">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="ruestung">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -468,7 +476,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Milit&auml;rische Schutzweste</h3>
-                    <span class="recipe-category">R&uuml;stung</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; R&uuml;stung</span>
                 </div>
                 <p class="recipe-description">
                     Schwerer ballistischer Plattenpanzer. Sch&uuml;tzt zuverl&auml;ssig vor Schusswaffentreffern und schweren Angriffen von Horden.
@@ -490,7 +498,7 @@
             </article>
 
             <!-- Bauhelm / Motorradhelm -->
-            <article class="recipe-card" data-category="ruestung">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="ruestung">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -498,7 +506,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Schutzhelm / Bauhelm</h3>
-                    <span class="recipe-category">R&uuml;stung</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; R&uuml;stung</span>
                 </div>
                 <p class="recipe-description">
                     Robuster Hartschalenhelm gegen stumpfe Schl&auml;ge, Steinw&uuml;rfe und St&uuml;rze. Verhindert kritische Bet&auml;ubungen.
@@ -520,7 +528,7 @@
             </article>
 
             <!-- Gefechtshelm -->
-            <article class="recipe-card" data-category="ruestung">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="ruestung">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -528,7 +536,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Gefechtshelm (Milit&auml;r)</h3>
-                    <span class="recipe-category">R&uuml;stung</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; R&uuml;stung</span>
                 </div>
                 <p class="recipe-description">
                     Kevlar-Milit&auml;rhelm der Armee. F&auml;ngt Projektile ab und reduziert den erlittenen Kopfschaden drastisch auf ein Minimum.
@@ -549,7 +557,7 @@
             </article>
 
             <!-- Taktische Cargohose -->
-            <article class="recipe-card" data-category="ruestung">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="ruestung">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -557,7 +565,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Taktische Cargohose</h3>
-                    <span class="recipe-category">R&uuml;stung</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; R&uuml;stung</span>
                 </div>
                 <p class="recipe-description">
                     Strapazierf&auml;hige &Uuml;berlebenden-Hose mit verst&auml;rkten Knieschonern und vielen Beintaschen zur Kapazit&auml;tserweiterung.
@@ -579,7 +587,7 @@
             </article>
 
             <!-- Einsatzstiefel -->
-            <article class="recipe-card" data-category="ruestung">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="ruestung">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -587,7 +595,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Robuste Einsatzstiefel</h3>
-                    <span class="recipe-category">R&uuml;stung</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; R&uuml;stung</span>
                 </div>
                 <p class="recipe-description">
                     Trittfeste Schn&uuml;rstiefel mit verst&auml;rkter Sohle. Sch&uuml;tzen vor Bodenschaden und senken den Ausdauerverbrauch beim Laufen.
@@ -608,7 +616,7 @@
             </article>
 
             <!-- Militär-Rucksack -->
-            <article class="recipe-card" data-category="ruestung">
+            <article class="recipe-card" data-main-cat="ausruestung" data-sub-cat="ruestung">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -616,7 +624,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Gro&szlig;er Milit&auml;r-Rucksack</h3>
-                    <span class="recipe-category">R&uuml;stung</span>
+                    <span class="recipe-category">Ausr&uuml;stung &bull; R&uuml;stung</span>
                 </div>
                 <p class="recipe-description">
                     Gro&szlig;volumiger Marschrucksack mit Molle-Befestigungen. Das unverzichtbare Ausr&uuml;stungsteil f&uuml;r ausgedehnte Beutez&uuml;ge.
@@ -639,14 +647,14 @@
             <!-- ================= LAGER & WERKSTATT ================= -->
 
             <!-- Werkbank -->
-            <article class="recipe-card" data-category="lager-werkstatt">
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="stationen">
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
                     <span>Bild bald verf&uuml;gbar</span>
                 </div>
                 <div class="recipe-header">
                     <h3>Werkbank</h3>
-                    <span class="recipe-category">Lager &amp; Werkstatt</span>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Station</span>
                 </div>
                 <p class="recipe-description">
                     Die zentrale Handwerksstation f&uuml;r deine Basis. Schaltet komplexe Baupl&auml;ne, Waffen, Fallen und fortgeschrittene Rezepte frei.
@@ -666,14 +674,14 @@
             </article>
 
             <!-- Schmelzofen -->
-            <article class="recipe-card" data-category="lager-werkstatt">
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="stationen">
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
                     <span>Bild bald verf&uuml;gbar</span>
                 </div>
                 <div class="recipe-header">
                     <h3>Schmelzofen</h3>
-                    <span class="recipe-category">Lager &amp; Werkstatt</span>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Station</span>
                 </div>
                 <p class="recipe-description">
                     Verh&uuml;ttet gefundene Roh-Erzadern (Kupfer, Eisen, Gold) zu reinen Metallbarren f&uuml;r High-Tier-Waffen und Ausr&uuml;stung.
@@ -694,14 +702,14 @@
             </article>
 
             <!-- Reparaturtisch -->
-            <article class="recipe-card" data-category="lager-werkstatt">
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="stationen">
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
                     <span>Bild bald verf&uuml;gbar</span>
                 </div>
                 <div class="recipe-header">
                     <h3>Reparaturtisch &amp; Amboss</h3>
-                    <span class="recipe-category">Lager &amp; Werkstatt</span>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Station</span>
                 </div>
                 <p class="recipe-description">
                     Spezialstation zur Wiederherstellung der Haltbarkeit von Waffen, Werkzeugen und R&uuml;stungen sowie zum Zerlegen von Altmetall.
@@ -722,14 +730,14 @@
             </article>
 
             <!-- Lagerfeuer -->
-            <article class="recipe-card" data-category="lager-werkstatt">
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="stationen">
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
                     <span>Bild bald verf&uuml;gbar</span>
                 </div>
                 <div class="recipe-header">
                     <h3>Lagerfeuer &amp; Kochstelle</h3>
-                    <span class="recipe-category">Lager &amp; Werkstatt</span>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Station</span>
                 </div>
                 <p class="recipe-description">
                     W&auml;rmespender in kalten N&auml;chten und Kochstelle zur Zubereitung von Fleisch, Rationen und sauberem Trinkwasser.
@@ -749,14 +757,14 @@
             </article>
 
             <!-- Bett -->
-            <article class="recipe-card" data-category="lager-werkstatt">
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="stationen">
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
                     <span>Bild bald verf&uuml;gbar</span>
                 </div>
                 <div class="recipe-header">
                     <h3>Bett (Spawnpunkt)</h3>
-                    <span class="recipe-category">Lager &amp; Werkstatt</span>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Station</span>
                 </div>
                 <p class="recipe-description">
                     Pers&ouml;nlicher Spawnpunkt f&uuml;r dich und deine Gruppe. Erm&ouml;glicht nach dem Tod den sicheren Respawn in deiner Basis.
@@ -776,14 +784,14 @@
             </article>
 
             <!-- Lagerkiste -->
-            <article class="recipe-card" data-category="lager-werkstatt">
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="lagerung">
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
                     <span>Bild bald verf&uuml;gbar</span>
                 </div>
                 <div class="recipe-header">
                     <h3>Lagerkiste (Holz)</h3>
-                    <span class="recipe-category">Lager &amp; Werkstatt</span>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Lagerung</span>
                 </div>
                 <p class="recipe-description">
                     Einfache Holzkiste zur geordneten Aufbewahrung von Ressourcen, Nahrung und Beute in deiner Basis.
@@ -803,14 +811,14 @@
             </article>
 
             <!-- Metallkiste -->
-            <article class="recipe-card" data-category="lager-werkstatt">
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="lagerung">
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
                     <span>Bild bald verf&uuml;gbar</span>
                 </div>
                 <div class="recipe-header">
                     <h3>Metallkiste</h3>
-                    <span class="recipe-category">Lager &amp; Werkstatt</span>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Lagerung</span>
                 </div>
                 <p class="recipe-description">
                     Verst&auml;rkte Metalltruhe mit mehr Stauraum und h&ouml;herer Haltbarkeit gegen Pl&uuml;nderer und Zerst&ouml;rung.
@@ -830,14 +838,14 @@
             </article>
 
             <!-- Waffenschrank -->
-            <article class="recipe-card" data-category="lager-werkstatt">
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="lagerung">
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
                     <span>Bild bald verf&uuml;gbar</span>
                 </div>
                 <div class="recipe-header">
                     <h3>Waffenschrank</h3>
-                    <span class="recipe-category">Lager &amp; Werkstatt</span>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Lagerung</span>
                 </div>
                 <p class="recipe-description">
                     Spezieller Sicherheitsbeh&auml;lter zur sicheren Aufbewahrung von Schusswaffen, Munitionskisten und Magazinen.
@@ -857,14 +865,14 @@
             </article>
 
             <!-- Tresor -->
-            <article class="recipe-card" data-category="lager-werkstatt">
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="lagerung">
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
                     <span>Bild bald verf&uuml;gbar</span>
                 </div>
                 <div class="recipe-header">
                     <h3>Tresor (Schwerer Safe)</h3>
-                    <span class="recipe-category">Lager &amp; Werkstatt</span>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Lagerung</span>
                 </div>
                 <p class="recipe-description">
                     Nahezu unzerst&ouml;rbarer Safe f&uuml;r deine wertvollsten Items, Gold, Schl&uuml;ssel und High-Tier-Beute.
@@ -886,7 +894,7 @@
             <!-- ================= HOLZ BAUTEILE ================= -->
 
             <!-- Holzboden -->
-            <article class="recipe-card" data-category="holz">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="holz">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -894,7 +902,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Holzboden</h3>
-                    <span class="recipe-category">Holz</span>
+                    <span class="recipe-category">Basenbau &bull; Holz</span>
                 </div>
                 <p class="recipe-description">
                     Bauteil der Materialstufe 1 für deine Basis.
@@ -912,7 +920,7 @@
             </article>
 
             <!-- Holzwand -->
-            <article class="recipe-card" data-category="holz">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="holz">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -920,7 +928,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Holzwand</h3>
-                    <span class="recipe-category">Holz</span>
+                    <span class="recipe-category">Basenbau &bull; Holz</span>
                 </div>
                 <p class="recipe-description">
                     Holzwand zur Absicherung deiner Basis.
@@ -938,7 +946,7 @@
             </article>
 
             <!-- Holztür -->
-            <article class="recipe-card" data-category="holz">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="holz">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -946,7 +954,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Holztür</h3>
-                    <span class="recipe-category">Holz</span>
+                    <span class="recipe-category">Basenbau &bull; Holz</span>
                 </div>
                 <p class="recipe-description">
                     Tür der Materialstufe 1 für den Zugang.
@@ -964,7 +972,7 @@
             </article>
 
             <!-- Holzfundament -->
-            <article class="recipe-card" data-category="holz">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="holz">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -972,7 +980,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Holzfundament</h3>
-                    <span class="recipe-category">Holz</span>
+                    <span class="recipe-category">Basenbau &bull; Holz</span>
                 </div>
                 <p class="recipe-description">
                     Das Fundament für den Bau deiner hölzernen Basis.
@@ -990,7 +998,7 @@
             </article>
 
             <!-- Fensterwand -->
-            <article class="recipe-card" data-category="holz">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="holz">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -998,7 +1006,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Fensterwand</h3>
-                    <span class="recipe-category">Holz</span>
+                    <span class="recipe-category">Basenbau &bull; Holz</span>
                 </div>
                 <p class="recipe-description">
                     Wand mit Ausschnitt für Fensteröffnungen.
@@ -1016,7 +1024,7 @@
             </article>
 
             <!-- Leiter -->
-            <article class="recipe-card" data-category="holz">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="holz">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1024,7 +1032,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Leiter</h3>
-                    <span class="recipe-category">Holz</span>
+                    <span class="recipe-category">Basenbau &bull; Holz</span>
                 </div>
                 <p class="recipe-description">
                     Ermöglicht den vertikalen Aufstieg auf höhere Ebenen.
@@ -1042,7 +1050,7 @@
             </article>
 
             <!-- Holzzaun -->
-            <article class="recipe-card" data-category="holz">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="holz">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1050,7 +1058,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Holzzaun</h3>
-                    <span class="recipe-category">Holz</span>
+                    <span class="recipe-category">Basenbau &bull; Holz</span>
                 </div>
                 <p class="recipe-description">
                     Ein kleinerer Zaun als Barriere oder Deko.
@@ -1068,7 +1076,7 @@
             </article>
 
             <!-- Holzdach -->
-            <article class="recipe-card" data-category="holz">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="holz">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1076,7 +1084,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Holzdach</h3>
-                    <span class="recipe-category">Holz</span>
+                    <span class="recipe-category">Basenbau &bull; Holz</span>
                 </div>
                 <p class="recipe-description">
                     Schützt deine Räume vor Witterung von oben.
@@ -1094,7 +1102,7 @@
             </article>
 
             <!-- Holzpfeiler -->
-            <article class="recipe-card" data-category="holz">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="holz">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1102,7 +1110,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Holzpfeiler</h3>
-                    <span class="recipe-category">Holz</span>
+                    <span class="recipe-category">Basenbau &bull; Holz</span>
                 </div>
                 <p class="recipe-description">
                     Dient als Stütze für obere Ebenen und Dächer.
@@ -1120,7 +1128,7 @@
             </article>
 
             <!-- Wachturm -->
-            <article class="recipe-card" data-category="holz">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="holz">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1128,7 +1136,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Wachturm</h3>
-                    <span class="recipe-category">Holz</span>
+                    <span class="recipe-category">Basenbau &bull; Holz</span>
                 </div>
                 <p class="recipe-description">
                     Bietet eine erhöhte Position für weite Sicht und Verteidigung.
@@ -1148,7 +1156,7 @@
             <!-- ================= STEIN BAUTEILE ================= -->
 
             <!-- Steinboden -->
-            <article class="recipe-card" data-category="stein">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="stein">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1156,7 +1164,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Steinboden</h3>
-                    <span class="recipe-category">Stein</span>
+                    <span class="recipe-category">Basenbau &bull; Stein</span>
                 </div>
                 <p class="recipe-description">
                     Stabiler Boden der Materialstufe 2.
@@ -1173,7 +1181,7 @@
             </article>
 
             <!-- Steinwand -->
-            <article class="recipe-card" data-category="stein">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="stein">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1181,7 +1189,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Steinwand</h3>
-                    <span class="recipe-category">Stein</span>
+                    <span class="recipe-category">Basenbau &bull; Stein</span>
                 </div>
                 <p class="recipe-description">
                     Wand aus massivem Gestein für besseren Schutz.
@@ -1199,7 +1207,7 @@
             </article>
 
             <!-- Steinfundament -->
-            <article class="recipe-card" data-category="stein">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="stein">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1207,7 +1215,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Steinfundament</h3>
-                    <span class="recipe-category">Stein</span>
+                    <span class="recipe-category">Basenbau &bull; Stein</span>
                 </div>
                 <p class="recipe-description">
                     Das Fundament für Steingebäude.
@@ -1225,7 +1233,7 @@
             </article>
 
             <!-- Steinfensterwand -->
-            <article class="recipe-card" data-category="stein">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="stein">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1233,7 +1241,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Steinfensterwand</h3>
-                    <span class="recipe-category">Stein</span>
+                    <span class="recipe-category">Basenbau &bull; Stein</span>
                 </div>
                 <p class="recipe-description">
                     Massive Steinwand mit einer Fensteröffnung.
@@ -1251,7 +1259,7 @@
             </article>
 
             <!-- Steinpfeiler -->
-            <article class="recipe-card" data-category="stein">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="stein">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1259,7 +1267,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Steinpfeiler</h3>
-                    <span class="recipe-category">Stein</span>
+                    <span class="recipe-category">Basenbau &bull; Stein</span>
                 </div>
                 <p class="recipe-description">
                     Tragende Säule aus Stein.
@@ -1277,7 +1285,7 @@
             </article>
 
             <!-- Steindach -->
-            <article class="recipe-card" data-category="stein">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="stein">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1285,7 +1293,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Steindach</h3>
-                    <span class="recipe-category">Stein</span>
+                    <span class="recipe-category">Basenbau &bull; Stein</span>
                 </div>
                 <p class="recipe-description">
                     Robustes Steindach für optimalen Schutz von oben.
@@ -1303,7 +1311,7 @@
             </article>
 
             <!-- Steinzaun -->
-            <article class="recipe-card" data-category="stein">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="stein">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1311,7 +1319,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Steinzaun</h3>
-                    <span class="recipe-category">Stein</span>
+                    <span class="recipe-category">Basenbau &bull; Stein</span>
                 </div>
                 <p class="recipe-description">
                     Eine haltbare Begrenzung aus Stein.
@@ -1332,7 +1340,7 @@
             <!-- ================= METALL BAUTEILE ================= -->
 
             <!-- Stahltür -->
-            <article class="recipe-card" data-category="metall">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="metall">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1340,7 +1348,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Stahltür</h3>
-                    <span class="recipe-category">Metall</span>
+                    <span class="recipe-category">Basenbau &bull; Metall</span>
                 </div>
                 <p class="recipe-description">
                     Sehr sichere Tür der Materialstufe 3 für deine Basis.
@@ -1358,7 +1366,7 @@
             </article>
 
             <!-- Metalltor -->
-            <article class="recipe-card" data-category="metall">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="metall">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1366,7 +1374,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Metalltor</h3>
-                    <span class="recipe-category">Metall</span>
+                    <span class="recipe-category">Basenbau &bull; Metall</span>
                 </div>
                 <p class="recipe-description">
                     Ein schweres Metalltor für Basiseinfahrten.
@@ -1385,7 +1393,7 @@
 
 
             <!-- Metallboden -->
-            <article class="recipe-card" data-category="metall">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="metall">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1393,7 +1401,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Metallboden</h3>
-                    <span class="recipe-category">Metall</span>
+                    <span class="recipe-category">Basenbau &bull; Metall</span>
                 </div>
                 <p class="recipe-description">
                     Stahlbodenplatten der Materialstufe 3.
@@ -1411,7 +1419,7 @@
             </article>
 
             <!-- Metallwand -->
-            <article class="recipe-card" data-category="metall">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="metall">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1419,7 +1427,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Metallwand</h3>
-                    <span class="recipe-category">Metall</span>
+                    <span class="recipe-category">Basenbau &bull; Metall</span>
                 </div>
                 <p class="recipe-description">
                     Massive Wand aus Wellblech und Stahlträgern.
@@ -1437,7 +1445,7 @@
             </article>
 
             <!-- Metallzaun -->
-            <article class="recipe-card" data-category="metall">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="metall">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1445,7 +1453,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Metallzaun</h3>
-                    <span class="recipe-category">Metall</span>
+                    <span class="recipe-category">Basenbau &bull; Metall</span>
                 </div>
                 <p class="recipe-description">
                     Industrielle Absperrung aus Metall.
@@ -1463,7 +1471,7 @@
             </article>
 
             <!-- Verstärktes Tor -->
-            <article class="recipe-card" data-category="metall">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="metall">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1471,7 +1479,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Verstärktes Tor</h3>
-                    <span class="recipe-category">Metall</span>
+                    <span class="recipe-category">Basenbau &bull; Metall</span>
                 </div>
                 <p class="recipe-description">
                     Zusätzlich gepanzertes Tor für maximale Absicherung.
@@ -1489,7 +1497,7 @@
             </article>
 
             <!-- Garagentor -->
-            <article class="recipe-card" data-category="metall">
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="metall">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1497,7 +1505,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Garagentor</h3>
-                    <span class="recipe-category">Metall</span>
+                    <span class="recipe-category">Basenbau &bull; Metall</span>
                 </div>
                 <p class="recipe-description">
                     Ein Rolltor für Fahrzeughallen.
@@ -1519,7 +1527,7 @@
             <!-- ================= FALLEN BAUTEILE ================= -->
 
             <!-- Stachelfalle -->
-            <article class="recipe-card" data-category="fallen">
+            <article class="recipe-card" data-main-cat="abwehr" data-sub-cat="fallen">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1527,7 +1535,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Stachelfalle</h3>
-                    <span class="recipe-category">Fallen</span>
+                    <span class="recipe-category">Fallen &amp; Abwehr &bull; Fallen</span>
                 </div>
                 <p class="recipe-description">
                     Verteidigt das Gelände und hält Gefahren auf Abstand.
@@ -1546,7 +1554,7 @@
             </article>
 
             <!-- Drahtfalle -->
-            <article class="recipe-card" data-category="fallen">
+            <article class="recipe-card" data-main-cat="abwehr" data-sub-cat="fallen">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1554,7 +1562,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Drahtfalle</h3>
-                    <span class="recipe-category">Fallen</span>
+                    <span class="recipe-category">Fallen &amp; Abwehr &bull; Fallen</span>
                 </div>
                 <p class="recipe-description">
                     Verursacht Schaden oder verlangsamt Eindringlinge.
@@ -1575,7 +1583,7 @@
             <!-- ================= VERSORGUNG BAUTEILE ================= -->
 
             <!-- Wassertank -->
-            <article class="recipe-card" data-category="versorgung">
+            <article class="recipe-card" data-main-cat="versorgung" data-sub-cat="nahrung-wasser">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1583,7 +1591,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Wassertank</h3>
-                    <span class="recipe-category">Versorgung</span>
+                    <span class="recipe-category">Versorgung &bull; Nahrung &amp; Wasser</span>
                 </div>
                 <p class="recipe-description">
                     Großer Speicher für Trinkwasser.
@@ -1601,7 +1609,7 @@
             </article>
 
             <!-- Regentonne -->
-            <article class="recipe-card" data-category="versorgung">
+            <article class="recipe-card" data-main-cat="versorgung" data-sub-cat="nahrung-wasser">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1609,7 +1617,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Regentonne</h3>
-                    <span class="recipe-category">Versorgung</span>
+                    <span class="recipe-category">Versorgung &bull; Nahrung &amp; Wasser</span>
                 </div>
                 <p class="recipe-description">
                     Sammelt passiv Regenwasser zur Versorgung.
@@ -1627,7 +1635,7 @@
             </article>
 
             <!-- Kühlschrank -->
-            <article class="recipe-card" data-category="versorgung">
+            <article class="recipe-card" data-main-cat="versorgung" data-sub-cat="nahrung-wasser">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1635,7 +1643,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Kühlschrank</h3>
-                    <span class="recipe-category">Versorgung</span>
+                    <span class="recipe-category">Versorgung &bull; Nahrung &amp; Wasser</span>
                 </div>
                 <p class="recipe-description">
                     Hält verderbliche Lebensmittel frisch.
@@ -1653,7 +1661,7 @@
             </article>
 
             <!-- Wasserfilter -->
-            <article class="recipe-card" data-category="versorgung">
+            <article class="recipe-card" data-main-cat="versorgung" data-sub-cat="nahrung-wasser">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1661,7 +1669,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Wasserfilter</h3>
-                    <span class="recipe-category">Versorgung</span>
+                    <span class="recipe-category">Versorgung &bull; Nahrung &amp; Wasser</span>
                 </div>
                 <p class="recipe-description">
                     Reinigt verschmutztes Wasser zu sicherem Trinkwasser.
@@ -1679,7 +1687,7 @@
             </article>
 
             <!-- Krankenbett -->
-            <article class="recipe-card" data-category="versorgung">
+            <article class="recipe-card" data-main-cat="versorgung" data-sub-cat="medizin">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1687,7 +1695,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Krankenbett</h3>
-                    <span class="recipe-category">Versorgung</span>
+                    <span class="recipe-category">Versorgung &bull; Medizin</span>
                 </div>
                 <p class="recipe-description">
                     Versorgt und heilt verletzte Überlebende.
@@ -1706,7 +1714,7 @@
             </article>
 
             <!-- Gewächshaus -->
-            <article class="recipe-card" data-category="versorgung">
+            <article class="recipe-card" data-main-cat="versorgung" data-sub-cat="anbau">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1714,7 +1722,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Gewächshaus</h3>
-                    <span class="recipe-category">Versorgung</span>
+                    <span class="recipe-category">Versorgung &bull; Anbau</span>
                 </div>
                 <p class="recipe-description">
                     Ermöglicht den geschützten Anbau von Nutzpflanzen.
@@ -1732,7 +1740,7 @@
             </article>
 
             <!-- Wasserpumpe -->
-            <article class="recipe-card" data-category="versorgung">
+            <article class="recipe-card" data-main-cat="versorgung" data-sub-cat="nahrung-wasser">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1740,7 +1748,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Wasserpumpe</h3>
-                    <span class="recipe-category">Versorgung</span>
+                    <span class="recipe-category">Versorgung &bull; Nahrung &amp; Wasser</span>
                 </div>
                 <p class="recipe-description">
                     Fördert Frischwasser aus dem Boden.
@@ -1758,7 +1766,7 @@
             </article>
 
             <!-- Basisflagge -->
-            <article class="recipe-card" data-category="versorgung">
+            <article class="recipe-card" data-main-cat="abwehr" data-sub-cat="territorium">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1766,7 +1774,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Basisflagge</h3>
-                    <span class="recipe-category">Versorgung</span>
+                    <span class="recipe-category">Fallen &amp; Abwehr &bull; Territorium</span>
                 </div>
                 <p class="recipe-description">
                     Beansprucht ein Gebiet für deine Basis und schützt es.
@@ -1786,7 +1794,7 @@
             <!-- ================= CRAFTING / HERSTELLUNG ================= -->
 
             <!-- Verband -->
-            <article class="recipe-card" data-category="herstellung">
+            <article class="recipe-card" data-main-cat="versorgung" data-sub-cat="medizin">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1794,7 +1802,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Verband</h3>
-                    <span class="recipe-category">Herstellung</span>
+                    <span class="recipe-category">Versorgung &bull; Medizin</span>
                 </div>
                 <p class="recipe-description">
                     Ein medizinischer Wundverband. Stoppt akute Blutungen und heilt über Zeit einen Teil der Gesundheit.
@@ -1811,7 +1819,7 @@
             </article>
 
             <!-- Medikit -->
-            <article class="recipe-card" data-category="herstellung">
+            <article class="recipe-card" data-main-cat="versorgung" data-sub-cat="medizin">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1819,7 +1827,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Medikit</h3>
-                    <span class="recipe-category">Herstellung</span>
+                    <span class="recipe-category">Versorgung &bull; Medizin</span>
                 </div>
                 <p class="recipe-description">
                     Erweiterte Notfallausrüstung zur sofortigen Regeneration großer Mengen an Lebenspunkten.
@@ -1838,7 +1846,7 @@
             </article>
 
             <!-- Metallplatten -->
-            <article class="recipe-card" data-category="herstellung">
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="komponenten">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1846,7 +1854,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Metallplatte</h3>
-                    <span class="recipe-category">Herstellung</span>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Komponenten</span>
                 </div>
                 <p class="recipe-description">
                     Zusammengeschweißte Stahlplatten zur Weiterverarbeitung für Stufe 3 Bauteile (z. B. Tresore, Metallwände).
@@ -1863,7 +1871,7 @@
             </article>
 
             <!-- Elektronik-Bauteil -->
-            <article class="recipe-card" data-category="herstellung">
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="komponenten">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1871,7 +1879,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Elektronik-Bauteil</h3>
-                    <span class="recipe-category">Herstellung</span>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Komponenten</span>
                 </div>
                 <p class="recipe-description">
                     Elektronische Schaltkreise für den Bau von Generatoren, Kühlschränken und Basisbeleuchtung.
@@ -1889,7 +1897,7 @@
             </article>
 
             <!-- Seil -->
-            <article class="recipe-card" data-category="herstellung">
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="komponenten">
                 
                 <div class="recipe-image-slot">
                     <i class="fa-regular fa-image" aria-hidden="true"></i>
@@ -1897,7 +1905,7 @@
                 </div>
                 <div class="recipe-header">
                     <h3>Seil</h3>
-                    <span class="recipe-category">Herstellung</span>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Komponenten</span>
                 </div>
                 <p class="recipe-description">
                     Ein robustes Seil aus gedrehten Stofffasern. Wichtig für Fallen und komplexere Mechanismen.
@@ -1955,33 +1963,130 @@
         });
     }
 
-    // Filter Logic
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const recipeCards = document.querySelectorAll('.recipe-card');
+    // Subcategory definitions (Clean pure text, no icons)
+    const subCategories = {
+        'all': [
+            { id: 'all', label: 'Alle Kategorien' }
+        ],
+        'ausruestung': [
+            { id: 'all', label: 'Alle Ausrüstung' },
+            { id: 'waffen', label: 'Waffen' },
+            { id: 'ruestung', label: 'Rüstung & Kleidung' }
+        ],
+        'basenbau': [
+            { id: 'all', label: 'Alle Bauteile' },
+            { id: 'holz', label: 'Holz' },
+            { id: 'stein', label: 'Stein' },
+            { id: 'metall', label: 'Metall' }
+        ],
+        'lager-werkstatt': [
+            { id: 'all', label: 'Alle Werkstatt-Objekte' },
+            { id: 'stationen', label: 'Stationen' },
+            { id: 'lagerung', label: 'Lagerung & Safes' },
+            { id: 'komponenten', label: 'Materialien & Komponenten' }
+        ],
+        'versorgung': [
+            { id: 'all', label: 'Alle Versorgung' },
+            { id: 'nahrung-wasser', label: 'Nahrung & Wasser' },
+            { id: 'medizin', label: 'Medizin & Heilung' },
+            { id: 'anbau', label: 'Anbau & Natur' }
+        ],
+        'abwehr': [
+            { id: 'all', label: 'Alle Abwehr' },
+            { id: 'fallen', label: 'Fallen' },
+            { id: 'territorium', label: 'Territorium' }
+        ]
+    };
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active classes
-            filterButtons.forEach(btn => {
-                btn.classList.remove('btn-gold');
-                btn.classList.add('btn-outline');
+    let activeMain = 'all';
+    let activeSub = 'all';
+
+    const mainButtons = document.querySelectorAll('.wiki-tab-btn');
+    const subTabsContainer = document.getElementById('wikiSubTabs');
+    const searchInput = document.getElementById('wikiSearchInput');
+    const resultCount = document.getElementById('wikiResultCount');
+    const noResultsMsg = document.getElementById('wikiNoResults');
+    const cards = document.querySelectorAll('.recipe-card');
+
+    function renderSubTabs(mainCat) {
+        const subs = subCategories[mainCat] || subCategories['all'];
+        subTabsContainer.innerHTML = '';
+
+        subs.forEach((sub, idx) => {
+            const btn = document.createElement('button');
+            btn.className = 'wiki-sub-btn' + (sub.id === activeSub ? ' active' : '');
+            btn.setAttribute('data-sub', sub.id);
+            btn.textContent = sub.label;
+
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.wiki-sub-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeSub = sub.id;
+                filterCards();
             });
 
-            // Set active class
-            button.classList.add('btn-gold');
-            button.classList.remove('btn-outline');
+            subTabsContainer.appendChild(btn);
+        });
+    }
 
-            const category = button.getAttribute('data-category');
+    function filterCards() {
+        const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+        let visibleCount = 0;
 
-            recipeCards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+        cards.forEach(card => {
+            const cardMain = card.getAttribute('data-main-cat');
+            const cardSub = card.getAttribute('data-sub-cat');
+
+            const matchMain = (activeMain === 'all' || cardMain === activeMain);
+            const matchSub = (activeSub === 'all' || cardSub === activeSub);
+            
+            let matchSearch = true;
+            if (query) {
+                const text = card.textContent.toLowerCase();
+                matchSearch = text.includes(query);
+            }
+
+            if (matchMain && matchSub && matchSearch) {
+                card.style.display = 'flex';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        if (resultCount) {
+            resultCount.textContent = visibleCount === 1 ? '1 Eintrag' : visibleCount + ' Einträge';
+        }
+
+        if (noResultsMsg) {
+            noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+    }
+
+    // Main Tab Clicks
+    mainButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            mainButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            activeMain = btn.getAttribute('data-main');
+            activeSub = 'all';
+
+            renderSubTabs(activeMain);
+            filterCards();
         });
     });
+
+    // Search Input
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            filterCards();
+        });
+    }
+
+    // Initial render
+    renderSubTabs('all');
+    filterCards();
 </script>
 
 </body>
