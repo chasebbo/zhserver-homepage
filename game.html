@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
 
-    <link rel="stylesheet" href="assets/css/style.css?v=20260812-ui3">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260904-fix1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -145,7 +145,7 @@
                     <span class="game-overview-kicker">MOBILE STEUERUNG</span>
                     <button class="btn btn-gold btn-activate-game" id="btn-activate-game" type="button">SPIEL AKTIVIEREN</button>
                 </div>
-                <button class="btn game-mobile-exit-btn" id="btn-deactivate-game" type="button" style="display: none;">SCROLL-MODUS</button>
+                <button class="game-mobile-exit-btn" id="btn-deactivate-game" type="button">SCROLL-MODUS</button>
             </div>
 
             <div class="game-post-actions">
@@ -706,12 +706,16 @@
         gameEmbed.src = gameSrc;
     }
 
+    function isMobileViewport() {
+        return window.innerWidth <= 900;
+    }
+
     function activateGame() {
         loadGame();
         if (gameWrapper) {
             gameWrapper.classList.add("is-game-active");
         }
-        if (btnDeactivateGame) {
+        if (btnDeactivateGame && isMobileViewport()) {
             btnDeactivateGame.style.display = "block";
         }
     }
