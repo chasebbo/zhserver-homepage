@@ -71,11 +71,11 @@
                         <strong>ALPHA 0.2.1</strong>
                         <div class="compact-changelog-header">LETZTE &Auml;NDERUNGEN</div>
                         <div id="compact-changelog-list" class="compact-changelog-list">
-                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Servicebereiche mit Polizei, Krankenhaus, Werkstatt und Tankstelle wurden verbessert</span></div>
-                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Fahrzeuge und Parkbereiche sind sichtbarer und zuverl&auml;ssiger nutzbar</span></div>
-                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Zombies sind in der Welt abwechslungsreicher verteilt</span></div>
-                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Neue Lootcontainer passen besser zur Survival-Welt</span></div>
-                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Die Axt ist sichtbar und schl&auml;gt Zombies und B&auml;ume jetzt passend zur Animation</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Startstadt jetzt auch als Gast w&auml;hlen</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Mit STRG hocken und mit SHIFT sprinten</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Fahrzeuge beschleunigen, rollen und lenken jetzt nat&uuml;rlicher</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Zombies, Todesanimationen und Sounds &uuml;berarbeitet</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Wasser, Br&uuml;cken, Stra&szlig;en und alte Grafikfehler weiter bereinigt</span></div>
                         </div>
                     </article>
 
@@ -85,10 +85,10 @@
                         <div class="compact-dev-next">
                             <span class="compact-dev-kicker">N&Auml;CHSTER GROSSER SCHRITT</span>
                             <div class="compact-dev-list">
-                                <div>- Grafik</div>
-                                <div>- Spielerfigur</div>
+                                <div>- Grafik-Feinschliff</div>
+                                <div>- Spieleranimationen &amp; Bewegung</div>
                                 <div>- Bausystem</div>
-                                <div>- Fahrzeuge</div>
+                                <div>- Multiplayer-Feinschliff</div>
                             </div>
                             <div class="game-progress-wrapper">
                                 <div class="game-progress-labels">
@@ -140,7 +140,7 @@
             </div>
 
             <div class="game-embed-wrapper" id="game-wrapper">
-                <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v115.html?build=alpha-0-2-1-v115-20260817-r1" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+                <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v116.html?build=alpha-0-2-1-v116-20260906" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
                 <div class="game-mobile-overlay" id="game-mobile-overlay">
                     <span class="game-overview-kicker">MOBILE STEUERUNG</span>
                     <button class="btn btn-gold btn-activate-game" id="btn-activate-game" type="button">SPIEL AKTIVIEREN</button>
@@ -217,12 +217,36 @@
                 </div>
 
                 <div class="version-log-list" aria-label="Vollst&auml;ndige Versionsprotokolle">
-                    <details class="changelog-details" open aria-label="Aktueller Changelog Alpha 0.2.1">
+                    <details class="changelog-details" open aria-label="Zwischenstand vom 6. September 2026">
                         <summary>
-                            <span class="changelog-version-title">Alpha 0.2.1 <span class="changelog-current-badge">AKTUELL</span></span>
+                            <span class="changelog-version-title">Zwischenstand &ndash; 06.09.2026</span>
                             <span class="changelog-hint">Ge&ouml;ffnet</span>
                         </summary>
-                      <ul id="latest-change-list" class="changelog-list">
+                        <ul id="latest-change-list" class="changelog-list">
+                            <li>Startstadt jetzt auch als Gast w&auml;hlen.</li>
+                            <li>Mit STRG hocken und mit SHIFT sprinten.</li>
+                            <li>Fahrzeuge beschleunigen, rollen und lenken jetzt nat&uuml;rlicher.</li>
+                            <li>Zombies, Todesanimationen und Sounds &uuml;berarbeitet.</li>
+                            <li>Wasser, Br&uuml;cken, Stra&szlig;en und alte Grafikfehler weiter bereinigt.</li>
+                            <li>Die Begr&uuml;&szlig;ung passt jetzt zur tats&auml;chlichen Startstadt.</li>
+                            <li>Gespeicherte Spielerpositionen bleiben beim Anmelden erhalten.</li>
+                            <li>Aufgeben und neu starten funktioniert jetzt auch als Gast. Der Account bleibt dabei bestehen.</li>
+                            <li>Fahrzeuge laufen im Onlinespiel gleichm&auml;&szlig;iger und bleiben seltener h&auml;ngen.</li>
+                            <li>Der Motorsound reagiert jetzt auf Gas und Geschwindigkeit.</li>
+                            <li>Alte kaputte Hausreste und beige Stra&szlig;enst&uuml;cke entfernt.</li>
+                            <li>Baumf&auml;llen mit der Axt gibt wieder ein Holz.</li>
+                            <li>Schrittger&auml;usche nochmal angepasst.</li>
+                            <li>Die Adminbase sieht jetzt anders aus und hat mehr Details.</li>
+                            <li>Die Spielerfigur ist etwas kleiner. Charakter und Waffen nochmal &uuml;berarbeitet.</li>
+                            <li>Axt-Haltung und Schlagbewegung nochmal angepasst.</li>
+                        </ul>
+                    </details>
+                    <details class="changelog-details" aria-label="Changelog Alpha 0.2.1">
+                        <summary>
+                            <span class="changelog-version-title">Alpha 0.2.1 <span class="changelog-current-badge">AKTUELL</span></span>
+                            <span class="changelog-hint">Aufklappen</span>
+                        </summary>
+                      <ul class="changelog-list">
                         <li>Rucks&auml;cke sind wieder deutlich seltener zu finden.</li>
                         <li>Inventar und Schnellleiste nutzen jetzt dieselben Itemgrafiken.</li>
                         <li>Drehbare Bauteile zeigen ihre Ausrichtung jetzt richtig an.</li>
@@ -885,7 +909,7 @@
         if (!targetContainer || targetContainer.children.length > 0) return;
         const sourceList = document.getElementById("latest-change-list");
         if (!sourceList) return;
-        const items = Array.from(sourceList.querySelectorAll("li")).slice(0, 4);
+        const items = Array.from(sourceList.querySelectorAll("li")).slice(0, 5);
         targetContainer.innerHTML = items.map(li => {
             const text = escapeHtml(li.textContent.trim());
             return `<div class="compact-change-item" title="${text}"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">${text}</span></div>`;
