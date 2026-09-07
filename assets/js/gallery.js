@@ -90,8 +90,6 @@ async function loadGallery() {
 
                     <p class="gallery-pending-sub"><em>[Inhalt in Sicherheitsprüfung]</em></p>
 
-                    <a href="admin/gallery.html" class="gallery-admin-shortcut" title="Als Admin im Backend öffnen">🛠️ Admin-Prüfung</a>
-
                 </div>
 
             `;

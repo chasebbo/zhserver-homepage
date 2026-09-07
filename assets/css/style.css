@@ -4951,30 +4951,6 @@ grid-template-columns:1fr;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.guestbook-admin-shortcut,
-.gallery-admin-shortcut {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: #f7a93b;
-    background: rgba(224, 139, 38, 0.12);
-    border: 1px solid rgba(224, 139, 38, 0.4);
-    padding: 4px 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.guestbook-admin-shortcut:hover,
-.gallery-admin-shortcut:hover {
-    background: rgba(224, 139, 38, 0.25);
-    border-color: #f7a93b;
-    color: #fff;
-    transform: translateY(-1px);
-}
-
 /* Gallery Pending Card */
 .gallery-card--pending {
     border: 1px dashed rgba(224, 139, 38, 0.45);
