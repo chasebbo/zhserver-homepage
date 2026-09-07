@@ -125,12 +125,14 @@ if (guestbookEntries) {
 
     async function loadGuestbookEntries(requestedPage = 1) {
         const offset = Math.max(0, (requestedPage - 1) * GUESTBOOK_PAGE_SIZE);
+        const { data: { session } = {} } = await supabaseClient.auth.getSession().catch(() => ({}));
+        const authToken = session?.access_token || SUPABASE_KEY;
         const response = await fetch(
             `${SUPABASE_URL}/rest/v1/guestbook?select=id,name,message,approved,created_at&order=created_at.desc&limit=${GUESTBOOK_PAGE_SIZE}&offset=${offset}`,
             {
                 headers: {
                     "apikey": SUPABASE_KEY,
-                    "Authorization": `Bearer ${SUPABASE_KEY}`,
+                    "Authorization": `Bearer ${authToken}`,
                     "Prefer": "count=exact"
                 }
             }
