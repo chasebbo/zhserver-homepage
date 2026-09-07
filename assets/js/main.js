@@ -5,7 +5,15 @@ const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
-// ================= GÄSTEBUCH SPEICHERN =================
+function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
 // ================= GÄSTEBUCH SPEICHERN =================
 
@@ -118,7 +126,7 @@ if (guestbookEntries) {
     async function loadGuestbookEntries(requestedPage = 1) {
         const offset = Math.max(0, (requestedPage - 1) * GUESTBOOK_PAGE_SIZE);
         const response = await fetch(
-            `${SUPABASE_URL}/rest/v1/guestbook?approved=eq.true&select=name,message,created_at&order=created_at.desc&limit=${GUESTBOOK_PAGE_SIZE}&offset=${offset}`,
+            `${SUPABASE_URL}/rest/v1/guestbook?select=id,name,message,approved,created_at&order=created_at.desc&limit=${GUESTBOOK_PAGE_SIZE}&offset=${offset}`,
             {
                 headers: {
                     "apikey": SUPABASE_KEY,
@@ -138,14 +146,47 @@ if (guestbookEntries) {
         guestbookEntries.innerHTML = "";
         entries.forEach((entry, index) => {
             const entryNumber = offset + index + 1;
-            guestbookEntries.innerHTML += `
-                <div class="guestbook-card">
-                    <span>ZH-G${String(entryNumber).padStart(3, "0")}</span>
-                    <h3>${entry.name}</h3>
-                    <p>${entry.message}</p>
-                    <small>Freigeschaltet am ${new Date(entry.created_at).toLocaleDateString("de-DE")}</small>
-                </div>
-            `;
+            const isApproved = Boolean(entry.approved);
+            const dateStr = new Date(entry.created_at).toLocaleDateString("de-DE");
+
+            if (isApproved) {
+                guestbookEntries.innerHTML += `
+                    <div class="guestbook-card">
+                        <div class="guestbook-card-header">
+                            <span>ZH-G${String(entryNumber).padStart(3, "0")}</span>
+                        </div>
+                        <h3>${escapeHtml(entry.name)}</h3>
+                        <p>${escapeHtml(entry.message)}</p>
+                        <small>Freigeschaltet am ${dateStr}</small>
+                    </div>
+                `;
+            } else {
+                guestbookEntries.innerHTML += `
+                    <div class="guestbook-card guestbook-card--pending">
+                        <div class="guestbook-card-header">
+                            <span>ZH-G${String(entryNumber).padStart(3, "0")}</span>
+                            <span class="guestbook-pending-badge">⏳ QUARANTÄNE-PRÜFUNG</span>
+                        </div>
+                        <h3>${escapeHtml(entry.name)}</h3>
+                        <div class="guestbook-pending-notice">
+                            <div class="guestbook-pending-title">
+                                <span>⚠️</span>
+                                <strong>FUNKSPRUCH IN SICHERHEITSPRÜFUNG</strong>
+                            </div>
+                            <p class="guestbook-pending-text">
+                                Dieser Eintrag wurde empfangen und durchläuft aktuell die Sicherheitsprüfung durch das Server-Team. Der Text wird nach Freigabe sichtbar.
+                            </p>
+                            <div class="guestbook-pending-redacted" aria-hidden="true">
+                                <span>████████████████████████████████████████</span>
+                            </div>
+                        </div>
+                        <div class="guestbook-card-footer">
+                            <small>Empfangen am ${dateStr} &bull; <em>Freigabe ausstehend</em></small>
+                            <a href="admin/guestbook.html" class="guestbook-admin-shortcut" title="Als Admin im Backend öffnen">🛠️ Admin-Prüfung</a>
+                        </div>
+                    </div>
+                `;
+            }
         });
         renderGuestbookPagination(totalPages);
     }
@@ -252,7 +293,6 @@ async function loadLatestGallery() {
     const { data, error } = await supabaseClient
         .from("gallery")
         .select("*")
-        .eq("approved", true)
         .order("created_at", { ascending: false })
         .limit(6);
 
@@ -266,30 +306,61 @@ async function loadLatestGallery() {
     latestGallery.innerHTML = "";
 
     data.forEach(entry => {
+        const isApproved = Boolean(entry.approved);
 
-        latestGallery.innerHTML += `
+        if (isApproved) {
+            latestGallery.innerHTML += `
 
-            <article class="gallery-card">
+                <article class="gallery-card">
 
-                <div class="gallery-image">
+                    <div class="gallery-image">
 
-                    <img
-                        src="${entry.image_url}"
-                        alt="${entry.description ?? ""}">
+                        <img
+                            src="${entry.image_url}"
+                            alt="${escapeHtml(entry.description ?? "")}">
 
-                </div>
+                    </div>
 
-                <div class="gallery-info">
+                    <div class="gallery-info">
 
-                    <span>${entry.uploader}</span>
+                        <span>${escapeHtml(entry.uploader)}</span>
 
-                    <p>${entry.description ?? ""}</p>
+                        <p>${escapeHtml(entry.description ?? "")}</p>
 
-                </div>
+                    </div>
 
-            </article>
+                </article>
 
-        `;
+            `;
+        } else {
+            latestGallery.innerHTML += `
+
+                <article class="gallery-card gallery-card--pending">
+
+                    <div class="gallery-image gallery-image--pending">
+
+                        <div class="gallery-pending-placeholder">
+                            <div class="gallery-pending-icon">📷 ⏳</div>
+                            <span class="gallery-pending-badge">IN QUARANTÄNE</span>
+                            <small class="gallery-pending-hint">Screenshot wartet auf Freigabe</small>
+                        </div>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <span>${escapeHtml(entry.uploader)}</span>
+
+                        <p class="gallery-pending-sub"><em>[Inhalt in Sicherheitsprüfung]</em></p>
+
+                        <a href="admin/gallery.html" class="gallery-admin-shortcut" title="Als Admin im Backend öffnen">🛠️ Admin-Prüfung</a>
+
+                    </div>
+
+                </article>
+
+            `;
+        }
 
     });
 

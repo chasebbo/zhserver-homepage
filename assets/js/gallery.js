@@ -6,6 +6,16 @@ const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const closeLightbox = document.getElementById("closeLightbox");
 
+function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
 async function loadGallery() {
 
     galleryGrid.innerHTML = "";
@@ -13,7 +23,6 @@ async function loadGallery() {
     const { data, error } = await supabaseClient
         .from("gallery")
         .select("*")
-        .eq("approved", true)
         .order("created_at", { ascending: false });
 
     if (error) {
@@ -26,34 +35,67 @@ async function loadGallery() {
     data.forEach(entry => {
 
         const card = document.createElement("article");
-        card.className = "gallery-card";
+        const isApproved = Boolean(entry.approved);
 
-        card.innerHTML = `
+        if (isApproved) {
+            card.className = "gallery-card";
 
-            <div class="gallery-image">
+            card.innerHTML = `
 
-                <img
-                    src="${entry.image_url}"
-                    alt="${entry.description ?? ""}">
+                <div class="gallery-image">
 
-            </div>
+                    <img
+                        src="${entry.image_url}"
+                        alt="${escapeHtml(entry.description ?? "")}">
 
-            <div class="gallery-info">
+                </div>
 
-                <span>${entry.uploader}</span>
+                <div class="gallery-info">
 
-                <p>${entry.description ?? ""}</p>
+                    <span>${escapeHtml(entry.uploader)}</span>
 
-            </div>
+                    <p>${escapeHtml(entry.description ?? "")}</p>
 
-        `;
+                </div>
 
-        card.querySelector("img").addEventListener("click", () => {
+            `;
 
-            lightbox.style.display = "flex";
-            lightboxImage.src = entry.image_url;
+            const img = card.querySelector("img");
+            if (img) {
+                img.addEventListener("click", () => {
 
-        });
+                    lightbox.style.display = "flex";
+                    lightboxImage.src = entry.image_url;
+
+                });
+            }
+        } else {
+            card.className = "gallery-card gallery-card--pending";
+
+            card.innerHTML = `
+
+                <div class="gallery-image gallery-image--pending">
+
+                    <div class="gallery-pending-placeholder">
+                        <div class="gallery-pending-icon">📷 ⏳</div>
+                        <span class="gallery-pending-badge">IN QUARANTÄNE</span>
+                        <small class="gallery-pending-hint">Screenshot wartet auf Freigabe</small>
+                    </div>
+
+                </div>
+
+                <div class="gallery-info">
+
+                    <span>${escapeHtml(entry.uploader)}</span>
+
+                    <p class="gallery-pending-sub"><em>[Inhalt in Sicherheitsprüfung]</em></p>
+
+                    <a href="admin/gallery.html" class="gallery-admin-shortcut" title="Als Admin im Backend öffnen">🛠️ Admin-Prüfung</a>
+
+                </div>
+
+            `;
+        }
 
         galleryGrid.appendChild(card);
 
