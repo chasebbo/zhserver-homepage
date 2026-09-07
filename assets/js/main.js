@@ -146,17 +146,13 @@ if (guestbookEntries) {
         guestbookPage = Math.min(Math.max(1, requestedPage), totalPages);
 
         guestbookEntries.innerHTML = "";
-        entries.forEach((entry, index) => {
-            const entryNumber = offset + index + 1;
+        entries.forEach(entry => {
             const isApproved = Boolean(entry.approved);
             const dateStr = new Date(entry.created_at).toLocaleDateString("de-DE");
 
             if (isApproved) {
                 guestbookEntries.innerHTML += `
                     <div class="guestbook-card">
-                        <div class="guestbook-card-header">
-                            <span>ZH-G${String(entryNumber).padStart(3, "0")}</span>
-                        </div>
                         <h3>${escapeHtml(entry.name)}</h3>
                         <p>${escapeHtml(entry.message)}</p>
                         <small>Freigeschaltet am ${dateStr}</small>
@@ -166,7 +162,6 @@ if (guestbookEntries) {
                 guestbookEntries.innerHTML += `
                     <div class="guestbook-card guestbook-card--pending">
                         <div class="guestbook-card-header">
-                            <span>ZH-G${String(entryNumber).padStart(3, "0")}</span>
                             <span class="guestbook-pending-badge">⏳ QUARANTÄNE-PRÜFUNG</span>
                         </div>
                         <h3>${escapeHtml(entry.name)}</h3>

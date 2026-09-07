@@ -4858,9 +4858,9 @@ grid-template-columns:1fr;
 .guestbook-card-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 10px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .guestbook-pending-badge {
