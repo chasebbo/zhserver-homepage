@@ -437,7 +437,7 @@ if (votingOptionsContainer) {
                 <div class="voting-bar-wrap">
                     <div class="voting-bar-fill" style="width: ${percent}%;"></div>
                 </div>
-                ${!hasVoted ? `<button type="button" class="voting-btn" data-vote-id="${opt.id}">Mein Favorit</button>` : ''}
+                ${!hasVoted ? `<button type="button" class="voting-btn" data-vote-id="${opt.id}">Zuerst einbauen</button>` : ''}
             `;
 
             if (!hasVoted) {
