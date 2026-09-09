@@ -361,7 +361,7 @@ async function loadLatestGallery() {
 }
 
 // ==========================================
-// 1. COMMUNITY FEATURE-VOTING (ALPHA 0.2.3)
+// 1. COMMUNITY FEATURE-VOTING (ECHTE STIMMEN VIA SUPABASE)
 // ==========================================
 const votingOptionsContainer = document.getElementById("votingOptions");
 const totalVotesCountEl = document.getElementById("totalVotesCount");
@@ -369,24 +369,24 @@ const votingNoticeEl = document.getElementById("votingNotice");
 
 if (votingOptionsContainer) {
     const DEFAULT_OPTIONS = [
-        { id: "weapons", title: "Schrotflinte & Jagdgewehr", desc: "Mehr Fernkampfwaffen & Munitionstypen", baseVotes: 54 },
-        { id: "weather", title: "Dynamisches Wetter & Nebel", desc: "Regenstürme, Gewitter & reduzierte Sicht", baseVotes: 38 },
-        { id: "hordes", title: "Zombie-Horden bei Nacht", desc: "Größere Ansammlungen & Bedrohung nach Sonnenuntergang", baseVotes: 61 },
-        { id: "vehicles", title: "Fahrzeug-Tuning & Kofferraum", desc: "Lagerkisten auf der Ladefläche & Panzerung", baseVotes: 47 }
+        { id: "weapons", title: "Schrotflinte & Jagdgewehr", desc: "Mehr Fernkampfwaffen & Munitionstypen" },
+        { id: "weather", title: "Dynamisches Wetter & Nebel", desc: "Regenstürme, Gewitter & reduzierte Sicht" },
+        { id: "hordes", title: "Zombie-Horden bei Nacht", desc: "Größere Ansammlungen & Bedrohung nach Sonnenuntergang" },
+        { id: "vehicles", title: "Fahrzeug-Tuning & Kofferraum", desc: "Lagerkisten auf der Ladefläche & Panzerung" }
     ];
 
-    const STORAGE_KEY_VOTES = "zh_community_votes_v1";
-    const STORAGE_KEY_USER_VOTE = "zh_user_voted_option_v1";
+    const STORAGE_KEY_USER_VOTE = "zh_user_voted_feature_v2";
+    const votesData = {
+        weapons: 0,
+        weather: 0,
+        hordes: 0,
+        vehicles: 0
+    };
 
-    function getVotesData() {
-        try {
-            const raw = localStorage.getItem(STORAGE_KEY_VOTES);
-            if (raw) return JSON.parse(raw);
-        } catch (e) {}
-        const initial = {};
-        DEFAULT_OPTIONS.forEach(opt => { initial[opt.id] = opt.baseVotes; });
-        return initial;
-    }
+    // Alte simulierte Test-Daten bereinigen
+    try {
+        localStorage.removeItem("zh_community_votes_v1");
+    } catch (e) {}
 
     function getUserVote() {
         try {
@@ -397,26 +397,27 @@ if (votingOptionsContainer) {
     }
 
     function renderVoting() {
-        const votes = getVotesData();
         const userVote = getUserVote();
         const hasVoted = Boolean(userVote);
 
         let totalVotes = 0;
         DEFAULT_OPTIONS.forEach(opt => {
-            totalVotes += (votes[opt.id] || 0);
+            totalVotes += (votesData[opt.id] || 0);
         });
 
-        if (totalVotesCountEl) totalVotesCountEl.textContent = totalVotes.toLocaleString("de-DE");
+        if (totalVotesCountEl) {
+            totalVotesCountEl.textContent = totalVotes.toLocaleString("de-DE");
+        }
         if (votingNoticeEl) {
             votingNoticeEl.innerHTML = hasVoted
-                ? '<span class="vote-confirmed-msg"><i class="fa-solid fa-circle-check"></i> Danke für dein Feedback!</span>'
-                : 'Unverbindliches Stimmungsbild &bull; 1 Stimme pro Spieler';
+                ? '<span class="vote-confirmed-msg"><i class="fa-solid fa-circle-check"></i> Deine Stimme wurde gezählt! Danke.</span>'
+                : '100% echte Community-Stimmen &bull; 1 Stimme pro Spieler';
         }
 
         votingOptionsContainer.innerHTML = "";
 
         DEFAULT_OPTIONS.forEach(opt => {
-            const optVotes = votes[opt.id] || 0;
+            const optVotes = votesData[opt.id] || 0;
             const percent = totalVotes > 0 ? Math.round((optVotes / totalVotes) * 100) : 0;
             const isSelected = userVote === opt.id;
 
@@ -430,8 +431,8 @@ if (votingOptionsContainer) {
                         <span class="voting-item-desc">${opt.desc}</span>
                     </div>
                     <div class="voting-item-stats">
-                        ${isSelected ? '<span class="voted-tag">DEIN FAVORIT</span>' : ''}
-                        <span class="voting-percent">${percent}%</span>
+                        ${isSelected ? '<span class="voted-tag">DEINE WAHL</span>' : ''}
+                        <span class="voting-percent">${totalVotes > 0 ? percent + '%' : (hasVoted ? '0%' : '')}</span>
                     </div>
                 </div>
                 <div class="voting-bar-wrap">
@@ -451,18 +452,63 @@ if (votingOptionsContainer) {
         });
     }
 
-    function handleVote(optionId) {
-        if (getUserVote()) return;
-        const votes = getVotesData();
-        votes[optionId] = (votes[optionId] || 0) + 1;
+    async function loadRealVotes() {
+        if (!supabaseClient) {
+            renderVoting();
+            return;
+        }
+
         try {
-            localStorage.setItem(STORAGE_KEY_VOTES, JSON.stringify(votes));
-            localStorage.setItem(STORAGE_KEY_USER_VOTE, optionId);
-        } catch (e) {}
+            const { data, error } = await supabaseClient
+                .from("community_votes")
+                .select("id, votes");
+
+            if (!error && Array.isArray(data) && data.length > 0) {
+                data.forEach(item => {
+                    if (item.id in votesData) {
+                        votesData[item.id] = Number(item.votes) || 0;
+                    }
+                });
+            }
+        } catch (e) {
+            console.warn("Community-Votes konnten nicht geladen werden:", e);
+        }
+
         renderVoting();
     }
 
-    renderVoting();
+    async function handleVote(optionId) {
+        if (getUserVote()) return;
+
+        // Sofort lokal markieren, damit kein Doppel-Klick möglich ist
+        try {
+            localStorage.setItem(STORAGE_KEY_USER_VOTE, optionId);
+        } catch (e) {}
+
+        // Sofort sichtbare Reaktion (optimistic update)
+        votesData[optionId] = (votesData[optionId] || 0) + 1;
+        renderVoting();
+
+        // An Supabase übertragen
+        if (supabaseClient) {
+            try {
+                const { error } = await supabaseClient
+                    .rpc("vote_for_feature", { feature_id: optionId });
+
+                if (error) {
+                    console.warn("Supabase RPC vote_for_feature Fehler:", error);
+                } else {
+                    // Frische Live-Zahlen abrufen
+                    await loadRealVotes();
+                }
+            } catch (err) {
+                console.warn("Netzwerkfehler bei Stimmabgabe:", err);
+            }
+        }
+    }
+
+    // Initiale Stimmen abrufen und anzeigen
+    loadRealVotes();
 }
 
 // ==========================================
