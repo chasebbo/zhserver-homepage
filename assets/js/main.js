@@ -512,73 +512,7 @@ if (votingOptionsContainer) {
 }
 
 // ==========================================
-// 2. DAMALS (2013) VS HEUTE (2026) SLIDER
-// ==========================================
-const comparisonSlider = document.getElementById("comparisonSlider");
-const comparisonAfter = document.getElementById("comparisonAfter");
-const comparisonHandle = document.getElementById("comparisonHandle");
-
-if (comparisonSlider && comparisonAfter && comparisonHandle) {
-    let isDragging = false;
-
-    function setSliderPosition(clientX) {
-        const rect = comparisonSlider.getBoundingClientRect();
-        let posX = clientX - rect.left;
-        posX = Math.max(0, Math.min(posX, rect.width));
-        const percent = (posX / rect.width) * 100;
-
-        comparisonAfter.style.width = `${percent}%`;
-        comparisonHandle.style.left = `${percent}%`;
-        comparisonHandle.setAttribute("aria-valuenow", Math.round(percent));
-    }
-
-    // Initial position at 50%
-    comparisonAfter.style.width = "50%";
-    comparisonHandle.style.left = "50%";
-
-    // Pointer events
-    comparisonSlider.addEventListener("pointerdown", (e) => {
-        isDragging = true;
-        comparisonSlider.setPointerCapture(e.pointerId);
-        setSliderPosition(e.clientX);
-    });
-
-    comparisonSlider.addEventListener("pointermove", (e) => {
-        if (!isDragging) return;
-        setSliderPosition(e.clientX);
-    });
-
-    const stopDragging = (e) => {
-        if (isDragging) {
-            isDragging = false;
-            try { comparisonSlider.releasePointerCapture(e.pointerId); } catch (err) {}
-        }
-    };
-
-    comparisonSlider.addEventListener("pointerup", stopDragging);
-    comparisonSlider.addEventListener("pointercancel", stopDragging);
-
-    // Keyboard support
-    comparisonHandle.addEventListener("keydown", (e) => {
-        const currentPercent = parseFloat(comparisonHandle.style.left) || 50;
-        if (e.key === "ArrowLeft") {
-            const next = Math.max(0, currentPercent - 5);
-            comparisonAfter.style.width = `${next}%`;
-            comparisonHandle.style.left = `${next}%`;
-            comparisonHandle.setAttribute("aria-valuenow", Math.round(next));
-            e.preventDefault();
-        } else if (e.key === "ArrowRight") {
-            const next = Math.min(100, currentPercent + 5);
-            comparisonAfter.style.width = `${next}%`;
-            comparisonHandle.style.left = `${next}%`;
-            comparisonHandle.setAttribute("aria-valuenow", Math.round(next));
-            e.preventDefault();
-        }
-    });
-}
-
-// ==========================================
-// 3. SURVIVAL FUNKGERÄT (WEB AUDIO AMBIENT)
+// 2. SURVIVAL FUNKGERÄT (WEB AUDIO AMBIENT)
 // ==========================================
 const survivalRadio = document.getElementById("survivalRadio");
 const radioToggleBtn = document.getElementById("radioToggleBtn");
