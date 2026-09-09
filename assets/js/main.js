@@ -409,8 +409,8 @@ if (votingOptionsContainer) {
         if (totalVotesCountEl) totalVotesCountEl.textContent = totalVotes.toLocaleString("de-DE");
         if (votingNoticeEl) {
             votingNoticeEl.innerHTML = hasVoted
-                ? '<span class="vote-confirmed-msg"><i class="fa-solid fa-circle-check"></i> Deine Stimme wurde gezählt!</span>'
-                : '1 Stimme pro Spieler &bull; Echtzeit';
+                ? '<span class="vote-confirmed-msg"><i class="fa-solid fa-circle-check"></i> Danke für dein Feedback!</span>'
+                : 'Unverbindliches Stimmungsbild &bull; 1 Stimme pro Spieler';
         }
 
         votingOptionsContainer.innerHTML = "";
@@ -430,14 +430,14 @@ if (votingOptionsContainer) {
                         <span class="voting-item-desc">${opt.desc}</span>
                     </div>
                     <div class="voting-item-stats">
-                        ${isSelected ? '<span class="voted-tag">DEINE WAHL</span>' : ''}
+                        ${isSelected ? '<span class="voted-tag">DEIN FAVORIT</span>' : ''}
                         <span class="voting-percent">${percent}%</span>
                     </div>
                 </div>
                 <div class="voting-bar-wrap">
                     <div class="voting-bar-fill" style="width: ${percent}%;"></div>
                 </div>
-                ${!hasVoted ? `<button type="button" class="voting-btn" data-vote-id="${opt.id}">Dafür abstimmen</button>` : ''}
+                ${!hasVoted ? `<button type="button" class="voting-btn" data-vote-id="${opt.id}">Mein Favorit</button>` : ''}
             `;
 
             if (!hasVoted) {
