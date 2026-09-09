@@ -144,7 +144,84 @@
 
 </section>
 
+<!-- ================= COMMUNITY PULSE: DEV-TICKER & VOTING ================= -->
 
+<section id="community-pulse" class="section community-pulse-section">
+
+    <div class="container">
+
+        <div class="pulse-grid">
+
+            <!-- Kachel 1: Live Dev-Radar / Was gibt's Neues -->
+            <div class="pulse-card pulse-dev-radar">
+
+                <div class="pulse-badge-header">
+                    <span class="pulse-live-indicator"><span class="pulse-dot"></span> DEV-TICKER</span>
+                    <span class="pulse-version-pill">ALPHA 0.2.2</span>
+                </div>
+
+                <h3>Entwicklungs-Status</h3>
+
+                <p class="pulse-lead">
+                    Die Entwicklung am 2D-Multiplayer l&auml;uft aktiv weiter. Aktuell sind <strong>16 von 20 Meilensteinen</strong> zur Beta dokumentiert.
+                </p>
+
+                <div class="pulse-progress-box">
+                    <div class="pulse-progress-labels">
+                        <span>Alpha 0.2.2</span>
+                        <strong class="pulse-gold">16% zur Beta</strong>
+                    </div>
+                    <div class="pulse-progress-bar" role="progressbar" aria-valuenow="16" aria-valuemin="0" aria-valuemax="100" aria-label="Entwicklungsfortschritt">
+                        <div class="pulse-progress-fill" style="width: 16%;"></div>
+                    </div>
+                </div>
+
+                <div class="pulse-recent-patch">
+                    <span class="pulse-kicker"><i class="fa-solid fa-bolt" aria-hidden="true"></i> NEU IM AKTUELLEN UPDATE:</span>
+                    <ul class="pulse-patch-list">
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> <strong>Fahrzeug-Physik:</strong> Autos beschleunigen, rollen und lenken nat&uuml;rlicher</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> <strong>Bewegung:</strong> Mit <kbd>STRG</kbd> ducken, mit <kbd>SHIFT</kbd> sprinten</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> <strong>Gameplay:</strong> Startstadt als Gast w&auml;hlen &amp; Audio-Polishing</li>
+                    </ul>
+                </div>
+
+                <div class="pulse-actions">
+                    <a href="game.html#spiel-starten" class="btn btn-gold"><i class="fa-solid fa-gamepad" aria-hidden="true"></i> Jetzt Alpha spielen</a>
+                    <a href="game.html#changelog" class="btn btn-outline"><i class="fa-solid fa-list-ul" aria-hidden="true"></i> Alle 16 &Auml;nderungen</a>
+                </div>
+
+            </div>
+
+            <!-- Kachel 2: Community-Voting (Mitbestimmung) -->
+            <div class="pulse-card pulse-voting-card" id="community-voting">
+
+                <div class="pulse-badge-header">
+                    <span class="pulse-vote-badge"><i class="fa-solid fa-square-poll-vertical" aria-hidden="true"></i> COMMUNITY-VOTE</span>
+                    <span class="pulse-timer-pill">F&Uuml;R ALPHA 0.2.3</span>
+                </div>
+
+                <h3>Roadmap-Mitbestimmung</h3>
+
+                <p class="pulse-lead">
+                    Welches Feature w&uuml;nschst du dir als N&auml;chstes im Spiel? Stimme ab und beeinflusse die n&auml;chste Version!
+                </p>
+
+                <div class="voting-options" id="votingOptions">
+                    <!-- Dynamisch von main.js gerendert -->
+                </div>
+
+                <div class="voting-footer">
+                    <span class="voting-count" id="votingTotalVotes"><i class="fa-solid fa-users" aria-hidden="true"></i> <span id="totalVotesCount">...</span> Stimmen abgegeben</span>
+                    <span class="voting-notice" id="votingNotice">1 Stimme pro Spieler &bull; Echtzeit</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 <!-- ================= GESCHICHTE ================= -->
 
@@ -227,6 +304,34 @@
 
                 </div>
 
+            </div>
+
+        </div>
+
+        <!-- ================= DAMALS VS HEUTE INTERAKTIVER VERGLEICH ================= -->
+        <div class="history-comparison-box">
+
+            <div class="comparison-intro">
+                <span class="section-title">ZEITREISE</span>
+                <h3>Damals (2013) vs. Heute (2026)</h3>
+                <p>Ziehe den mittleren Schieberegler hin und her, um den Wandel von den DayZ-Wurzeln auf Chernarus (2013) zum heutigen 2D-Multiplayer-Survival (2026) direkt zu vergleichen.</p>
+            </div>
+
+            <div class="comparison-slider" id="comparisonSlider">
+                <div class="comparison-img-box comparison-before">
+                    <img src="assets/images/Chernarus.webp" alt="DayZ Chernarus 2013" loading="lazy">
+                    <span class="comparison-label label-before">2013: ARMA 2 DayZ Chernarus</span>
+                </div>
+                <div class="comparison-img-box comparison-after" id="comparisonAfter">
+                    <img src="assets/images/hero.png" alt="Zombiehölle Survival 2026" loading="lazy">
+                    <span class="comparison-label label-after">2026: Zombieh&ouml;lle Survival 2D</span>
+                </div>
+                <div class="comparison-handle" id="comparisonHandle" role="slider" aria-label="Bildvergleich Schieberegler" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" tabindex="0">
+                    <div class="handle-line"></div>
+                    <div class="handle-button">
+                        <i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -1620,6 +1725,37 @@
     </div>
 
 </footer>
+
+<!-- ================= SURVIVAL FUNKGERÄT (AMBIENT SOUND) ================= -->
+<aside class="survival-radio-widget" id="survivalRadio" aria-label="Survival Funkgerät">
+    <button class="radio-toggle-btn" id="radioToggleBtn" type="button" aria-label="Survival-Funkgerät öffnen" title="Survival-Funkgerät einblenden">
+        <i class="fa-solid fa-walkie-talkie" aria-hidden="true"></i>
+        <span class="radio-btn-label">FUNKGER&Auml;T</span>
+        <span class="radio-wave-bars" aria-hidden="true">
+            <span></span><span></span><span></span>
+        </span>
+    </button>
+    <div class="radio-drawer" id="radioDrawer" hidden>
+        <div class="radio-drawer-header">
+            <span class="radio-freq"><i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i> ZH-NOTFUNK 94.2 MHz</span>
+            <button class="radio-close-btn" id="radioCloseBtn" type="button" aria-label="Schließen">&times;</button>
+        </div>
+        <div class="radio-status-text" id="radioStatusText">Status: Standby (Aus)</div>
+        <div class="radio-controls">
+            <button class="radio-action-btn" id="radioPlayBtn" type="button">
+                <i class="fa-solid fa-play" aria-hidden="true"></i> STARTEN
+            </button>
+            <div class="radio-volume-wrap" title="Lautstärke anpassen">
+                <i class="fa-solid fa-volume-low" aria-hidden="true"></i>
+                <input type="range" id="radioVolume" min="0" max="100" value="35" aria-label="Lautstärke">
+                <i class="fa-solid fa-volume-high" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="radio-info">
+            <small>Synthetische Endzeit-Kulisse (Funkrauschen, ferner Wind &amp; Knistern). L&auml;uft 100% lokal im Browser.</small>
+        </div>
+    </div>
+</aside>
 
 <button id="backToTop" class="back-to-top">
     ↑

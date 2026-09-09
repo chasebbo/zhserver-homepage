@@ -5005,3 +5005,725 @@ grid-template-columns:1fr;
     margin: 4px 0 10px;
 }
 
+/* ==========================================================================
+   COMMUNITY PULSE: DEV-TICKER & VOTING
+   ========================================================================== */
+
+.community-pulse-section {
+    padding: 40px 0 60px;
+    background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.04) 0%, rgba(10, 14, 20, 0.95) 100%);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+.pulse-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 30px;
+}
+
+.pulse-card {
+    background: rgba(18, 24, 33, 0.75);
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 16px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.pulse-card:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+}
+
+.pulse-badge-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.pulse-live-indicator,
+.pulse-vote-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #ffd447;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #39e75f;
+    box-shadow: 0 0 8px #39e75f;
+    animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.pulse-version-pill,
+.pulse-timer-pill {
+    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #9cb0c2;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+}
+
+.pulse-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.45rem;
+    color: #fff;
+    margin: 0 0 8px;
+}
+
+.pulse-lead {
+    font-size: 0.92rem;
+    color: #aeb8c4;
+    line-height: 1.5;
+    margin: 0 0 20px;
+}
+
+.pulse-gold {
+    color: #d4af37;
+}
+
+.pulse-progress-box {
+    background: rgba(7, 12, 17, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+}
+
+.pulse-progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.pulse-progress-bar {
+    height: 9px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.pulse-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #c9a227, #f7d050);
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(247, 208, 80, 0.4);
+    transition: width 1s ease;
+}
+
+.pulse-recent-patch {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.pulse-kicker {
+    display: inline-block;
+    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-size: 0.76rem;
+    color: #e0a32e;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.pulse-patch-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pulse-patch-list li {
+    font-size: 0.86rem;
+    color: #c9d2db;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.4;
+}
+
+.pulse-patch-list li i {
+    color: #39e75f;
+    font-size: 0.78rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.pulse-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   VOTING SYSTEM
+   ========================================================================== */
+
+.voting-options {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.voting-item {
+    background: rgba(7, 12, 17, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 14px 16px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.voting-item:hover:not(.has-voted) {
+    border-color: rgba(212, 175, 55, 0.4);
+    background: rgba(14, 20, 28, 0.75);
+}
+
+.voting-item.is-voted {
+    border-color: #d4af37;
+    background: rgba(212, 175, 55, 0.08);
+}
+
+.voting-item-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.voting-item-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.voting-item-title {
+    font-size: 0.95rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.voting-item-desc {
+    font-size: 0.8rem;
+    color: #8fa0b2;
+}
+
+.voting-item-stats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.voted-tag {
+    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #14110a;
+    background: #d4af37;
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+}
+
+.voting-percent {
+    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #d4af37;
+    min-width: 38px;
+    text-align: right;
+}
+
+.voting-bar-wrap {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.voting-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #c9a227, #f7d050);
+    border-radius: 4px;
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.voting-btn {
+    width: 100%;
+    padding: 7px 12px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #e5dcc4;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.15s ease;
+}
+
+.voting-btn:hover {
+    background: rgba(212, 175, 55, 0.25);
+    border-color: #d4af37;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.voting-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: #8fa0b2;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vote-confirmed-msg {
+    color: #39e75f;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ==========================================================================
+   DAMALS VS HEUTE VERGLEICH (COMPARISON SLIDER)
+   ========================================================================== */
+
+.history-comparison-box {
+    margin-top: 50px;
+    padding: 35px;
+    background: rgba(18, 24, 33, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 16px;
+}
+
+.comparison-intro {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 26px;
+}
+
+.comparison-intro h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.55rem;
+    color: #fff;
+    margin: 6px 0 10px;
+}
+
+.comparison-intro p {
+    font-size: 0.92rem;
+    color: #aeb8c4;
+    line-height: 1.5;
+}
+
+.comparison-slider {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+    user-select: none;
+    border: 2px solid rgba(212, 175, 55, 0.35);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    cursor: col-resize;
+    touch-action: pan-y;
+}
+
+.comparison-img-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.comparison-img-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.comparison-before {
+    z-index: 1;
+}
+
+.comparison-after {
+    z-index: 2;
+    width: 50%;
+    border-right: 2px solid #d4af37;
+}
+
+.comparison-label {
+    position: absolute;
+    bottom: 16px;
+    padding: 6px 14px;
+    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-radius: 6px;
+    backdrop-filter: blur(8px);
+    z-index: 4;
+}
+
+.label-before {
+    right: 16px;
+    background: rgba(10, 14, 20, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #c9d5e3;
+}
+
+.label-after {
+    left: 16px;
+    background: rgba(20, 16, 10, 0.88);
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    color: #ffd447;
+}
+
+.comparison-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 44px;
+    margin-left: -22px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.handle-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+.handle-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #181d24;
+    border: 2px solid #d4af37;
+    color: #ffd447;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.7), 0 0 10px rgba(212, 175, 55, 0.4);
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.comparison-slider:active .handle-button {
+    transform: scale(1.1);
+    background: #d4af37;
+    color: #14110a;
+}
+
+@media (max-width: 768px) {
+    .comparison-slider {
+        height: 260px;
+    }
+    .history-comparison-box {
+        padding: 20px 16px;
+    }
+}
+
+/* ==========================================================================
+   GALLERY LIKE BUTTON & TOP SCREENSHOT BADGE
+   ========================================================================== */
+
+.gallery-info-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.gallery-like-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    color: #9cb0c2;
+    font-family: inherit;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.gallery-like-btn:hover {
+    background: rgba(220, 53, 69, 0.15);
+    border-color: rgba(220, 53, 69, 0.4);
+    color: #ff6b7e;
+    transform: scale(1.05);
+}
+
+.gallery-like-btn.is-liked {
+    background: rgba(220, 53, 69, 0.22);
+    border-color: #dc3545;
+    color: #ff5267;
+}
+
+.gallery-like-btn.is-liked i {
+    color: #ff4757;
+    animation: heartBeat 0.35s ease;
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+.gallery-top-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(20, 16, 10, 0.88);
+    border: 1px solid #d4af37;
+    color: #ffd447;
+    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.06em;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 10px rgba(212, 175, 55, 0.3);
+    z-index: 3;
+}
+
+/* ==========================================================================
+   SURVIVAL FUNKGERÄT (AMBIENT SOUND WIDGET)
+   ========================================================================== */
+
+.survival-radio-widget {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 999;
+}
+
+.radio-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 18px;
+    background: rgba(14, 18, 24, 0.92);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 30px;
+    color: #ffd447;
+    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 12px rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(8px);
+    transition: all 0.25s ease;
+}
+
+.radio-toggle-btn:hover {
+    background: rgba(24, 30, 40, 0.96);
+    border-color: #d4af37;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7), 0 0 18px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+}
+
+.radio-wave-bars {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 12px;
+}
+
+.radio-wave-bars span {
+    width: 2px;
+    height: 4px;
+    background: #ffd447;
+    border-radius: 1px;
+    transition: height 0.2s ease;
+}
+
+.survival-radio-widget.is-playing .radio-wave-bars span:nth-child(1) {
+    animation: waveAnim 0.8s infinite ease-in-out;
+}
+.survival-radio-widget.is-playing .radio-wave-bars span:nth-child(2) {
+    animation: waveAnim 0.6s infinite ease-in-out 0.2s;
+}
+.survival-radio-widget.is-playing .radio-wave-bars span:nth-child(3) {
+    animation: waveAnim 0.9s infinite ease-in-out 0.4s;
+}
+
+@keyframes waveAnim {
+    0%, 100% { height: 4px; }
+    50% { height: 12px; }
+}
+
+.radio-drawer {
+    position: absolute;
+    bottom: 54px;
+    left: 0;
+    width: 290px;
+    background: rgba(14, 18, 24, 0.96);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-drawer[hidden] {
+    display: none !important;
+}
+
+.radio-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.radio-freq {
+    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #ffd447;
+    letter-spacing: 0.05em;
+}
+
+.radio-close-btn {
+    background: none;
+    border: none;
+    color: #9cb0c2;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+}
+
+.radio-close-btn:hover {
+    color: #fff;
+}
+
+.radio-status-text {
+    font-size: 0.82rem;
+    color: #9cb0c2;
+    font-style: italic;
+}
+
+.radio-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.radio-action-btn {
+    flex: 1;
+    padding: 8px 12px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 6px;
+    color: #ffd447;
+    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.radio-action-btn:hover {
+    background: rgba(212, 175, 55, 0.3);
+    border-color: #ffd447;
+    color: #fff;
+}
+
+.radio-volume-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #7b8e9f;
+    font-size: 0.76rem;
+}
+
+.radio-volume-wrap input[type="range"] {
+    width: 70px;
+    accent-color: #d4af37;
+    cursor: pointer;
+}
+
+.radio-info small {
+    font-size: 0.72rem;
+    color: #6d7f90;
+    line-height: 1.35;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .survival-radio-widget {
+        bottom: 16px;
+        left: 16px;
+    }
+    .radio-drawer {
+        width: 270px;
+    }
+}
+

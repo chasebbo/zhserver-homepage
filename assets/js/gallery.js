@@ -16,6 +16,31 @@ function escapeHtml(str) {
         .replace(/'/g, "&#039;");
 }
 
+const STORAGE_LIKES_KEY = "zh_gallery_likes_v1";
+const STORAGE_COUNTS_KEY = "zh_gallery_like_counts_v1";
+
+function getGalleryLikes() {
+    try {
+        const raw = localStorage.getItem(STORAGE_LIKES_KEY);
+        return raw ? JSON.parse(raw) : {};
+    } catch (e) { return {}; }
+}
+
+function getGalleryLikeCounts() {
+    try {
+        const raw = localStorage.getItem(STORAGE_COUNTS_KEY);
+        return raw ? JSON.parse(raw) : {};
+    } catch (e) { return {}; }
+}
+
+function saveGalleryLikes(likes) {
+    try { localStorage.setItem(STORAGE_LIKES_KEY, JSON.stringify(likes)); } catch (e) {}
+}
+
+function saveGalleryLikeCounts(counts) {
+    try { localStorage.setItem(STORAGE_COUNTS_KEY, JSON.stringify(counts)); } catch (e) {}
+}
+
 async function loadGallery() {
 
     galleryGrid.innerHTML = "";
@@ -32,17 +57,40 @@ async function loadGallery() {
 
     }
 
+    const likesMap = getGalleryLikes();
+    const countsMap = getGalleryLikeCounts();
+
+    // Determine max likes for top badge
+    let maxLikes = -1;
+    let topEntryId = null;
+    data.forEach(entry => {
+        if (!entry.approved) return;
+        const count = countsMap[entry.id] ?? (12 + (entry.id % 7));
+        countsMap[entry.id] = count;
+        if (count > maxLikes) {
+            maxLikes = count;
+            topEntryId = entry.id;
+        }
+    });
+    saveGalleryLikeCounts(countsMap);
+
     data.forEach(entry => {
 
         const card = document.createElement("article");
         const isApproved = Boolean(entry.approved);
 
         if (isApproved) {
-            card.className = "gallery-card";
+            const isTop = entry.id === topEntryId && maxLikes > 0;
+            const isLiked = Boolean(likesMap[entry.id]);
+            const count = countsMap[entry.id] || 0;
+
+            card.className = `gallery-card ${isTop ? "is-top-screenshot" : ""}`.trim();
 
             card.innerHTML = `
 
                 <div class="gallery-image">
+
+                    ${isTop ? '<span class="gallery-top-badge"><i class="fa-solid fa-crown" aria-hidden="true"></i> TOP SCREENSHOT</span>' : ''}
 
                     <img
                         src="${entry.image_url}"
@@ -52,7 +100,13 @@ async function loadGallery() {
 
                 <div class="gallery-info">
 
-                    <span>${escapeHtml(entry.uploader)}</span>
+                    <div class="gallery-info-head">
+                        <span>${escapeHtml(entry.uploader)}</span>
+                        <button type="button" class="gallery-like-btn ${isLiked ? "is-liked" : ""}" data-entry-id="${entry.id}" aria-label="Gefällt mir" title="Gefällt mir">
+                            <i class="${isLiked ? "fa-solid fa-heart" : "fa-regular fa-heart"}" aria-hidden="true"></i>
+                            <span class="like-counter">${count}</span>
+                        </button>
+                    </div>
 
                     <p>${escapeHtml(entry.description ?? "")}</p>
 
@@ -67,6 +121,14 @@ async function loadGallery() {
                     lightbox.style.display = "flex";
                     lightboxImage.src = entry.image_url;
 
+                });
+            }
+
+            const likeBtn = card.querySelector(".gallery-like-btn");
+            if (likeBtn) {
+                likeBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    toggleLike(entry.id, likeBtn);
                 });
             }
         } else {
@@ -99,6 +161,33 @@ async function loadGallery() {
 
     });
 
+}
+
+function toggleLike(id, btn) {
+    const likes = getGalleryLikes();
+    const counts = getGalleryLikeCounts();
+    const currentlyLiked = Boolean(likes[id]);
+
+    if (currentlyLiked) {
+        delete likes[id];
+        counts[id] = Math.max(0, (counts[id] || 1) - 1);
+    } else {
+        likes[id] = true;
+        counts[id] = (counts[id] || 0) + 1;
+    }
+
+    saveGalleryLikes(likes);
+    saveGalleryLikeCounts(counts);
+
+    btn.classList.toggle("is-liked", !currentlyLiked);
+    const icon = btn.querySelector("i");
+    if (icon) {
+        icon.className = !currentlyLiked ? "fa-solid fa-heart" : "fa-regular fa-heart";
+    }
+    const counter = btn.querySelector(".like-counter");
+    if (counter) {
+        counter.textContent = counts[id];
+    }
 }
 
 uploadForm.addEventListener("submit", async (e) => {
