@@ -81,24 +81,24 @@
 
                     <article class="game-status-card game-dev-card">
                         <span>ENTWICKLUNG</span>
-                        <strong class="status-active-strong"><span class="status-dot-orange" aria-hidden="true"></span>AKTIV</strong>
+                        <strong class="status-active-strong"><span class="status-dot-orange" aria-hidden="true"></span>IN &Uuml;BERARBEITUNG</strong>
                         <div class="compact-dev-next">
-                            <span class="compact-dev-kicker">N&Auml;CHSTER GROSSER SCHRITT</span>
+                            <span class="compact-dev-kicker">N&Auml;CHSTER TESTLAUF: 24. OKTOBER</span>
                             <div class="compact-dev-list">
-                                <div>- Grafik-Feinschliff</div>
-                                <div>- Spieleranimationen &amp; Bewegung</div>
-                                <div>- Bausystem</div>
-                                <div>- Multiplayer-Feinschliff</div>
+                                <div>- Abarbeitung gemeldeter Bugs</div>
+                                <div>- Gameplay- &amp; Physik-Feinschliff</div>
+                                <div>- Bausystem &amp; Animationen</div>
+                                <div>- Stabilit&auml;t &amp; Performance</div>
                             </div>
                             <div class="game-progress-wrapper">
                                 <div class="game-progress-labels">
                                     <span>Alpha 0.2.2 &bull; 16/20</span>
-                                    <span>Alpha 0.2.3</span>
+                                    <span>Playtest 24.10.</span>
                                 </div>
-                                <div class="game-progress-bar" aria-label="Fortschritt in Alpha 0.2.2: 16 von 20 Punkten (80%)">
+                                <div class="game-progress-bar" aria-label="Fortschritt: 16 von 20 Punkten (80%)">
                                     <div class="game-progress-fill" style="width: 80%;"></div>
                                 </div>
-                                <span class="game-progress-sub">16 von 20 Punkten (Noch 4 bis 0.2.3)</span>
+                                <span class="game-progress-sub">16 von 20 Punkten abgearbeitet</span>
                             </div>
                         </div>
                     </article>
@@ -111,8 +111,8 @@
                     </article>
                 </div>
                 <div class="game-hero-actions">
-                    <a class="btn game-play-cta" href="#spiel-starten">JETZT SPIELEN</a>
-                    <button id="game-fullscreen" type="button" class="btn game-fullscreen-button">VOLLBILD</button>
+                    <a class="btn game-play-cta btn-pause" href="#spiel-starten"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> TESTLAUF AB 24. OKTOBER</a>
+                    <a class="btn game-fullscreen-button" href="bugs/index.html" data-bugs-route><i class="fa-regular fa-lightbulb" aria-hidden="true"></i> IDEE EINREICHEN</a>
                     <span id="fullscreen-message" class="fullscreen-message" role="status" aria-live="polite"></span>
                 </div>
                 <div class="game-hero-subnav">
@@ -139,13 +139,38 @@
                 <a href="wiki.html" class="game-controls-wiki-link"><i class="fa-solid fa-book" aria-hidden="true"></i> Bausystem-Wiki</a>
             </div>
 
-            <div class="game-embed-wrapper" id="game-wrapper">
-                <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v116.html?build=alpha-0-2-2-v116-20260906" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
-                <div class="game-mobile-overlay" id="game-mobile-overlay">
-                    <span class="game-overview-kicker">MOBILE STEUERUNG</span>
-                    <button class="btn btn-gold btn-activate-game" id="btn-activate-game" type="button">SPIEL AKTIVIEREN</button>
+            <!-- ================= WARTUNG & NAECHSTER TESTLAUF ================= -->
+            <div id="spiel-starten" class="game-maintenance-box">
+                <span class="maintenance-badge">
+                    <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+                    AKTUELL IN &Uuml;BERARBEITUNG
+                </span>
+                <h2>N&auml;chster Testlauf &ouml;ffnet am 24. Oktober 2026</h2>
+                <div class="maintenance-text">
+                    <p>
+                        Ich nehme mir aktuell gezielt die Zeit, um das bisherige Feedback, die Fehlerberichte
+                        und die wichtigsten Kernmechaniken gr&uuml;ndlich zu &uuml;berarbeiten.
+                    </p>
+                    <p>
+                        Mein Ziel f&uuml;r den <strong>24. Oktober</strong> ist ein wirklich stabiler,
+                        rund spielbarer Alpha-Build &ndash; inklusive optimierter Bewegung, sauberer Fahrzeug-Physik,
+                        dem neuen Bausystem und stabilerem Multiplayer.
+                    </p>
+                    <p>
+                        Bis dahin kannst du jederzeit deine Ideen und Vorschl&auml;ge einreichen oder dir den bisherigen Fortschritt im Changelog ansehen.
+                    </p>
                 </div>
-                <button class="game-mobile-exit-btn" id="btn-deactivate-game" type="button">SCROLL-MODUS</button>
+                <div class="maintenance-actions">
+                    <a href="bugs/index.html" data-bugs-route class="btn btn-gold">
+                        <i class="fa-regular fa-lightbulb" aria-hidden="true"></i> Idee oder Feedback einreichen
+                    </a>
+                    <a href="#changelog" class="btn btn-outline">
+                        <i class="fa-solid fa-list-ul" aria-hidden="true"></i> Bisherigen Changelog ansehen
+                    </a>
+                    <a href="https://discord.gg/MAujawnuK" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        <i class="fa-brands fa-discord" aria-hidden="true"></i> Discord beitreten
+                    </a>
+                </div>
             </div>
 
             <div class="game-post-actions">
@@ -164,7 +189,7 @@
                 <div class="game-project-intro">
                     <span class="game-overview-kicker">SOLO-DEVELOPMENT &bull; DIE GESCHICHTE DAHINTER</span>
                     <h2>VOM DAYZ-SERVER ZUM EIGENEN 2D-SURVIVAL-SPIEL</h2>
-                    <p>Zombieh&ouml;lle war von 2013 bis 2016 eine eigene Servercommunity rund um DayZ und Arma. Heute baue ich diese Welt als unabh&auml;ngiges 2D-Multiplayer-Survival-Spiel komplett alleine weiter aus &ndash; aktuell kostenlos direkt im Browser spielbar, mit dem langfristigen Ziel eines eigenst&auml;ndigen Releases auf Steam.</p>
+                    <p>Zombieh&ouml;lle war von 2013 bis 2016 eine eigene Servercommunity rund um DayZ und Arma. Heute baue ich diese Welt als unabh&auml;ngiges 2D-Multiplayer-Survival-Spiel komplett alleine weiter aus &ndash; mit dem n&auml;chsten gro&szlig;en Testlauf am 24. Oktober und dem langfristigen Ziel eines eigenst&auml;ndigen Releases auf Steam.</p>
                     <p>Du erkundest verlassene St&auml;dte, k&auml;mpfst gegen Zombies, sammelst Loot, f&auml;hrst Fahrzeuge und baust gemeinsam deine Basis auf. Die Welt wird stetig erweitert &ndash; jedes Feedback und jeder gefundene Bug helfen direkt bei den kommenden Patches.</p>
                 </div>
                 <div class="game-feature-grid">
@@ -606,18 +631,18 @@
             <section id="community-feedback" class="game-community-help" aria-labelledby="community-help-title">
                 <div class="game-community-help-inner">
 
-                    <span class="game-overview-kicker">COMMUNITY &amp; FEEDBACK</span>
+                    <span class="game-overview-kicker">FEEDBACK &amp; VORSCHL&Auml;GE</span>
 
-                    <h2 id="community-help-title">HILF BEI DER ENTWICKLUNG</h2>
+                    <h2 id="community-help-title">FEEDBACK ZUR ENTWICKLUNG</h2>
 
                     <p>
-                        Zombieh&ouml;lle Survival befindet sich noch in einer fr&uuml;hen Alpha.
-                        Wenn dir beim Spielen Fehler auffallen oder du Ideen und Verbesserungsvorschl&auml;ge hast,
-                        kannst du dich gerne einbringen.
+                        Zombieh&ouml;lle Survival befindet sich in einer aktiven Alpha und ich entwickle das Spiel komplett alleine.
+                        Wenn dir beim Testen Fehler auffallen oder du Ideen und Verbesserungsvorschl&auml;ge hast, trage sie gerne ein &ndash;
+                        ich schaue mir jeden Eintrag an und lasse sinnvolle Vorschl&auml;ge direkt in die n&auml;chsten Schritte einflie&szlig;en.
                     </p>
 
                     <p>
-                        Bugs, Ideen und Feedback kannst du direkt auf der ZHServer-Homepage einreichen.
+                        Bugs, Ideen und W&uuml;nsche kannst du direkt hier auf der Homepage einreichen.
                     </p>
 
                     <div class="game-community-help-actions">
@@ -723,7 +748,7 @@
     const btnDeactivateGame = document.getElementById("btn-deactivate-game");
 
     function loadGame() {
-        if (!gameEmbed || gameEmbed.hasAttribute("src")) return;
+        if (!gameEmbed || gameEmbed.tagName !== "IFRAME" || gameEmbed.hasAttribute("src") || !gameEmbed.getAttribute("data-src")) return;
         let gameSrc = gameEmbed.getAttribute("data-src") || "";
         if (requestedServer) {
             gameSrc += (gameSrc.includes("?") ? "&" : "?") + "server=" + encodeURIComponent(requestedServer);

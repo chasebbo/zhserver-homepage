@@ -5574,3 +5574,95 @@ grid-template-columns:1fr;
     }
 }
 
+/* ==========================================================================
+   GAME MAINTENANCE & PLAYTEST ANNOUNCEMENT (SOLO-DEV)
+   ========================================================================== */
+
+.game-maintenance-box {
+    margin: 30px auto 40px;
+    max-width: 900px;
+    background: rgba(18, 24, 33, 0.88);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 16px;
+    padding: 44px 32px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.maintenance-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #ffd447;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+}
+
+.game-maintenance-box h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.85rem;
+    color: #fff;
+    margin: 0 0 16px;
+    letter-spacing: 0.02em;
+}
+
+.maintenance-text {
+    max-width: 740px;
+    margin: 0 auto 26px;
+}
+
+.maintenance-text p {
+    font-size: 1.02rem;
+    color: #c9d5e3;
+    line-height: 1.65;
+    margin-bottom: 14px;
+}
+
+.maintenance-text p strong {
+    color: #ffd447;
+}
+
+.maintenance-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.btn-pause {
+    background: #d4af37 !important;
+    color: #14110a !important;
+    border-color: #ffd447 !important;
+    font-weight: 700 !important;
+}
+
+.btn-pause:hover {
+    background: #e6c34f !important;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .game-maintenance-box {
+        padding: 26px 16px;
+    }
+    .game-maintenance-box h2 {
+        font-size: 1.45rem;
+    }
+    .maintenance-actions {
+        flex-direction: column;
+    }
+    .maintenance-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
