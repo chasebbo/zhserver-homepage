@@ -197,9 +197,9 @@ const BASE_FEEDBACK = {
             type: "bug",
             player_name: "ShadowHunter",
             category: "FAHRZEUGE",
-            title: "Auto bleibt an Kieselsteinen hängen",
-            description: "der pickup bleibt an den kleinsten steinchen aufm feldweg hängen und kommt nicht mehr weiter.. reifen drehen nur durch -_-",
-            status: "OFFEN",
+            title: "Auto bleibt an unsichtbaren Stellen hängen",
+            description: "man fährt ganz normal auf freier straße oder wiese und plötzlich bleibt das auto komplett hängen an stellen wo sichtlich absolut gar nichts ist.. unsichtbare hitboxes? :/",
+            status: "IN BEARBEITUNG",
             screenshot_path: null,
             created_at: "2026-08-28T15:50:12.000Z"
         },
@@ -241,8 +241,8 @@ const BASE_FEEDBACK = {
             type: "bug",
             player_name: "xX_Sniper_Xx",
             category: "UI",
-            title: "HP Leiste flackert bei Gift",
-            description: "vom spucker getroffen und die rote leiste flackert wie verrückt zwischen 70 und 90 hp rum xD augenkrebs gefahr",
+            title: "Tages-Anzeige steht auf über 1 Million Tage?",
+            description: "im HUD oben steht bei überlebter tag einfach 'Tag 1048576' xD bin erst seit 10 minuten aufm server, glaube die tagesanzeige hat nen fetten bug haha",
             status: "IN BEARBEITUNG",
             screenshot_path: null,
             created_at: "2026-09-02T19:35:18.000Z"
@@ -251,9 +251,9 @@ const BASE_FEEDBACK = {
             id: 15,
             type: "bug",
             player_name: "ZockerOpa",
-            category: "ZOMBIES",
-            title: "Zombies schieben sich durch Türen",
-            description: "wenn mehrere zombies gleichzeitig gegen ne geschlossene holztür drücken glitchen die einfach durchs holz durch.. hab mich voll erschrocken ey",
+            category: "GRAFIK",
+            title: "Spieler sieht beim Schießen anders aus als beim Laufen",
+            description: "wenn meine spielfigur läuft sieht sie ganz normal aus, aber in der sekunde wo man schießt wechselt der sprite plötzlich und sieht komplett anders aus.. als wärs ein anderes outfit/modell :D",
             status: "OFFEN",
             screenshot_path: null,
             created_at: "2026-09-03T21:10:04.000Z"
@@ -262,9 +262,9 @@ const BASE_FEEDBACK = {
             id: 16,
             type: "bug",
             player_name: "Marvin2002",
-            category: "PERFORMANCE",
-            title: "FPS Drops bei Nebel",
-            description: "sobald im wald der nebel aufzieht droppen die fps von geschmeidigen 60 auf 20-25 runter.. laptop glüht haha",
+            category: "GRAFIK",
+            title: "Rucksäcke & Rüstungsteile alte Pixelgrafik / nicht sichtbar angezogen",
+            description: "die rucksäcke haben im inventar noch voll die veraltete pixelgrafik und man kann die an der figur auch gar nicht sehen/anziehen.. ist bei den anderen rüstungsteilen genau das gleiche :(",
             status: "OFFEN",
             screenshot_path: null,
             created_at: "2026-09-04T16:25:39.000Z"
@@ -295,9 +295,9 @@ const BASE_FEEDBACK = {
             id: 19,
             type: "bug",
             player_name: "Viper_99",
-            category: "GRAFIK",
-            title: "Baumschatten zucken um Punkt 12",
-            description: "immer wenn die sonne genau oben steht springen die schatten der tanne 2-3 pixel hin und her, sieht bisschen glitchy aus",
+            category: "UI",
+            title: "Ingame-Uhrzeit geht bis 29 Uhr statt 24 Uhr",
+            description: "die uhrzeit oben rechts zählt nach 23:59 einfach weiter bis 29:xx uhr statt auf 00:00 umzuspringen haha.. erst danach fängt ein neuer tag an xDD",
             status: "OFFEN",
             screenshot_path: null,
             created_at: "2026-09-06T18:05:11.000Z"
@@ -339,9 +339,9 @@ const BASE_FEEDBACK = {
             id: 23,
             type: "bug",
             player_name: "Tobi_88",
-            category: "LOOT",
-            title: "Dietrich weg wenn man abbricht",
-            description: "hab lockpicking aus versehen mit esc abgebrochen und der dietrich war einfach weg obwohl er nicht abgebrochen ist",
+            category: "WELT",
+            title: "Man buggt in manchen Gebäuden komplett fest",
+            description: "bin in der stadt in eins der zweistöckigen gebäude gelaufen und plötzlich zwischen treppengeländer und wand festgeglitcht.. kam null mehr raus und musste reconnecten :/",
             status: "OFFEN",
             screenshot_path: null,
             created_at: "2026-09-09T10:20:05.000Z"
@@ -521,8 +521,13 @@ async function loadFeedback(type) {
             .order("created_at", { ascending: false });
 
         if (!error && Array.isArray(data)) {
-            // Prepend any new live user submissions from visitors (id > 41)
-            const liveEntries = data.filter((entry) => entry.id > 41 && entry.player_name !== "Tester");
+            // Prepend any new live user submissions from visitors (id > 41), ignoring test entries
+            const liveEntries = data.filter((entry) =>
+                entry.id > 41 &&
+                entry.player_name !== "Tester" &&
+                !entry.player_name?.toLowerCase().includes("tester") &&
+                !entry.title?.toLowerCase().includes("test")
+            );
             items.unshift(...liveEntries);
         }
     } catch (e) {
