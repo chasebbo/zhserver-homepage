@@ -631,3 +631,59 @@ if (survivalRadio && radioToggleBtn && radioDrawer && radioPlayBtn) {
         });
     }
 }
+
+// ================= PIXEL COUNTDOWN PROGRESS BAR =================
+function initPixelProgressBar() {
+    const bars = document.querySelectorAll(".pixel-countdown-bar");
+    if (!bars.length) return;
+
+    bars.forEach((container) => {
+        const track = container.querySelector(".pixel-bar-track");
+        const percentEl = container.querySelector(".pixel-bar-percent");
+        const daysLeftEl = container.querySelector(".pixel-bar-days-left");
+        const targetStr = container.dataset.target || "2026-10-24T18:00:00+02:00";
+        const startStr = container.dataset.start || "2026-08-24T00:00:00+02:00";
+        const targetTime = new Date(targetStr).getTime();
+        const startTime = new Date(startStr).getTime();
+        const totalBlocks = 24;
+
+        function update() {
+            const now = Date.now();
+            const total = targetTime - startTime;
+            const elapsed = Math.max(0, now - startTime);
+            const diff = Math.max(0, targetTime - now);
+            let progress = Math.min(1, Math.max(0, elapsed / total));
+            if (now >= targetTime) progress = 1;
+
+            const percent = Math.floor(progress * 100);
+            if (percentEl) percentEl.textContent = percent + "%";
+
+            if (daysLeftEl) {
+                const daysLeft = Math.ceil(diff / (1000 * 60 * 60 * 24));
+                daysLeftEl.textContent = diff <= 0 ? "JETZT LIVE" : `NOCH ${daysLeft} TAGE`;
+            }
+
+            const filledBlocks = Math.min(totalBlocks, Math.floor(progress * totalBlocks));
+
+            if (track) {
+                track.replaceChildren();
+                for (let i = 0; i < totalBlocks; i++) {
+                    const block = document.createElement("div");
+                    block.className = "pixel-box-segment";
+                    if (i < filledBlocks) {
+                        block.classList.add("is-filled");
+                        if (i === filledBlocks - 1 && progress < 1) {
+                            block.classList.add("is-pulse");
+                        }
+                    }
+                    track.appendChild(block);
+                }
+            }
+        }
+
+        update();
+        setInterval(update, 1000);
+    });
+}
+initPixelProgressBar();
+
