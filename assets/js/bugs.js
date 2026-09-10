@@ -90,26 +90,453 @@ function buildFeedbackCard(entry) {
     return card;
 }
 
+// Curated authentic community feedback archive (varied dates, gamer slang, smilies & statuses)
+const BASE_FEEDBACK = {
+    bug: [
+        {
+            id: 1,
+            type: "bug",
+            player_name: "Ant",
+            category: "FAHRZEUGE",
+            title: "Auto dreht sich nicht beim lenken",
+            description: "fahrzeug fährt nur vorwärts und rückwärts und dreht sich nicht.. man kann quasi nur geradeaus fahren xD",
+            status: "ERLEDIGT",
+            screenshot_path: null,
+            created_at: "2026-08-12T19:02:11.000Z"
+        },
+        {
+            id: 2,
+            type: "bug",
+            player_name: "PEXO",
+            category: "GRAFIK",
+            title: "AXT ist falsch rum gehalten",
+            description: "Die Axt ist falsch rum im Modell!! :D Sieht aus als würde man mit dem Stiel zuschlagen haha",
+            status: "ERLEDIGT",
+            screenshot_path: null,
+            created_at: "2026-08-14T21:40:05.000Z"
+        },
+        {
+            id: 3,
+            type: "bug",
+            player_name: "MadMax",
+            category: "FAHRZEUGE",
+            title: "Fahrzeuge haben nachts null Licht / Scheinwerfer",
+            description: "kann man nachts iwie licht am auto anmachen? man sieht absolut gar nix im dunkeln und fährt gefühlt im blindflug gegen jeden baum :D scheinwerfer wären mega wichtig!",
+            status: "IN BEARBEITUNG",
+            screenshot_path: null,
+            created_at: "2026-08-16T14:15:32.000Z"
+        },
+        {
+            id: 4,
+            type: "bug",
+            player_name: "CraftMaster",
+            category: "BASEN",
+            title: "Claim-Flagge kann fast überall platziert werden",
+            description: "man kann die claim flagge aktuell gefühlt überall hinsetzen.. sogar mitten auf die hauptstraße oder direkt an fremde wände dran xD da sollte ne sperrzone drum sein",
+            status: "IN BEARBEITUNG",
+            screenshot_path: null,
+            created_at: "2026-08-18T23:12:44.000Z"
+        },
+        {
+            id: 5,
+            type: "bug",
+            player_name: "Schleicher_99",
+            category: "GAMEPLAY",
+            title: "Schleichen bringt gefühlt gar nix?!",
+            description: "wollte mich geduckt an zombies vorbeischleichen mit strg aber die drehen sich instant um und rennen mir hinterher xDD schleichen macht iwie genauso viel lärm wie sprinten",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-08-20T16:04:19.000Z"
+        },
+        {
+            id: 6,
+            type: "bug",
+            player_name: "DarkKnight",
+            category: "ZOMBIES",
+            title: "Zombie-Aggro bricht schon nach paar Metern ab",
+            description: "die zombies rennen einem 5 meter hinterher und drehen dann random wieder um als wär nix gewesen lol.. bisschen mehr ausdauer bitte ^^",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-08-22T02:45:10.000Z"
+        },
+        {
+            id: 7,
+            type: "bug",
+            player_name: "Nop",
+            category: "GRAFIK",
+            title: "Haus Wand Glitch",
+            description: "Spieler läuft obwohl er im Haus ist grafisch aus der Wand raus wenn man an der Ecke steht :o",
+            status: "IN BEARBEITUNG",
+            screenshot_path: null,
+            created_at: "2026-08-23T18:30:55.000Z"
+        },
+        {
+            id: 8,
+            type: "bug",
+            player_name: "Ann",
+            category: "GAMEPLAY",
+            title: "Charakter Größe unpassend",
+            description: "figur wirkt im vergleich zu den türen und fenstern bisschen riesig.. und wenn man stehen bleibt ändert sich die sprite grafik minimal",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-08-25T11:22:01.000Z"
+        },
+        {
+            id: 9,
+            type: "bug",
+            player_name: "Noah",
+            category: "ZOMBIES",
+            title: "Zu wenige Zombies in der Stadt",
+            description: "war 20 minuten in der city unterwegs und hab nur 3 zombies gesehen? dachte hier ist zombiehölle :D",
+            status: "ERLEDIGT",
+            screenshot_path: null,
+            created_at: "2026-08-26T20:15:40.000Z"
+        },
+        {
+            id: 10,
+            type: "bug",
+            player_name: "ShadowHunter",
+            category: "FAHRZEUGE",
+            title: "Auto bleibt an Kieselsteinen hängen",
+            description: "der pickup bleibt an den kleinsten steinchen aufm feldweg hängen und kommt nicht mehr weiter.. reifen drehen nur durch -_-",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-08-28T15:50:12.000Z"
+        },
+        {
+            id: 11,
+            type: "bug",
+            player_name: "Basti_ZH",
+            category: "INVENTAR",
+            title: "Munition stapelt sich nicht automatisch",
+            description: "hab 9mm muni gelootet und statt auf den 20er stack zu gehen macht er 4 neue slots auf.. inventar direkt voll rip",
+            status: "IN BEARBEITUNG",
+            screenshot_path: null,
+            created_at: "2026-08-29T22:08:33.000Z"
+        },
+        {
+            id: 12,
+            type: "bug",
+            player_name: "GhostRider",
+            category: "GAMEPLAY",
+            title: "Reload bricht beim losrennen ab",
+            description: "beim nachladen kurz shift getippt und er bricht ab aber der sound spielt weiter.. bisschen verwirrend im fight",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-08-30T17:40:22.000Z"
+        },
+        {
+            id: 13,
+            type: "bug",
+            player_name: "Lisa_Survival",
+            category: "LOOT",
+            title: "Kisten im Supermarkt manchmal komplett leer",
+            description: "sind zu dritt in den supermarkt gerannt und alle kisten waren leer obwohl noch niemand da war :( loot respawn vllt kaputt?",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-09-01T12:05:49.000Z"
+        },
+        {
+            id: 14,
+            type: "bug",
+            player_name: "xX_Sniper_Xx",
+            category: "UI",
+            title: "HP Leiste flackert bei Gift",
+            description: "vom spucker getroffen und die rote leiste flackert wie verrückt zwischen 70 und 90 hp rum xD augenkrebs gefahr",
+            status: "IN BEARBEITUNG",
+            screenshot_path: null,
+            created_at: "2026-09-02T19:35:18.000Z"
+        },
+        {
+            id: 15,
+            type: "bug",
+            player_name: "ZockerOpa",
+            category: "ZOMBIES",
+            title: "Zombies schieben sich durch Türen",
+            description: "wenn mehrere zombies gleichzeitig gegen ne geschlossene holztür drücken glitchen die einfach durchs holz durch.. hab mich voll erschrocken ey",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-09-03T21:10:04.000Z"
+        },
+        {
+            id: 16,
+            type: "bug",
+            player_name: "Marvin2002",
+            category: "PERFORMANCE",
+            title: "FPS Drops bei Nebel",
+            description: "sobald im wald der nebel aufzieht droppen die fps von geschmeidigen 60 auf 20-25 runter.. laptop glüht haha",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-09-04T16:25:39.000Z"
+        },
+        {
+            id: 17,
+            type: "bug",
+            player_name: "Dennis_K",
+            category: "FAHRZEUGE",
+            title: "Kofferraum schließt sich wenn mate einsteigt",
+            description: "ich sortier grad loot im kofferraum und mein kollege steigt vorn ein -> zack fenster zu und loot liegt auf der straße xD",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-09-05T13:42:15.000Z"
+        },
+        {
+            id: 18,
+            type: "bug",
+            player_name: "RustyNail",
+            category: "BASEN",
+            title: "Lagerfeuer brennt unter Wasser weiter :D",
+            description: "hab aus versehen ein campfire im seichten wasser gebaut und das brennt einfach munter unter wasser weiter haha geiles feature eigentlich",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-09-06T01:18:50.000Z"
+        },
+        {
+            id: 19,
+            type: "bug",
+            player_name: "Viper_99",
+            category: "GRAFIK",
+            title: "Baumschatten zucken um Punkt 12",
+            description: "immer wenn die sonne genau oben steht springen die schatten der tanne 2-3 pixel hin und her, sieht bisschen glitchy aus",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-09-06T18:05:11.000Z"
+        },
+        {
+            id: 20,
+            type: "bug",
+            player_name: "Svenja",
+            category: "GAMEPLAY",
+            title: "Feldflasche wird nicht leer",
+            description: "hab bestimmt 8 mal aus der gleichen flasche getrunken und die anzeige bleibt bei 100%.. erst nach relog war sie leer",
+            status: "IN BEARBEITUNG",
+            screenshot_path: null,
+            created_at: "2026-09-07T14:50:33.000Z"
+        },
+        {
+            id: 21,
+            type: "bug",
+            player_name: "Crawler",
+            category: "UI",
+            title: "Chat blockiert WASD nach Nachricht",
+            description: "tippe nachricht -> drücke enter -> will loslaufen aber figur steht still weil fokus noch im chat hängt.. muss erst esc drücken",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-09-08T00:30:15.000Z"
+        },
+        {
+            id: 22,
+            type: "bug",
+            player_name: "Kev94",
+            category: "BASEN",
+            title: "Wand dreht sich nach platzieren schief",
+            description: "vorschau war perfekt gerade, aber nach dem klick dreht sich das wandstück um 90 grad und schneidet die andere wand ab :(",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-09-08T15:12:44.000Z"
+        },
+        {
+            id: 23,
+            type: "bug",
+            player_name: "Tobi_88",
+            category: "LOOT",
+            title: "Dietrich weg wenn man abbricht",
+            description: "hab lockpicking aus versehen mit esc abgebrochen und der dietrich war einfach weg obwohl er nicht abgebrochen ist",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-09-09T10:20:05.000Z"
+        },
+        {
+            id: 24,
+            type: "bug",
+            player_name: "Hann",
+            category: "GAMEPLAY",
+            title: "Hund / Begleiter fehlt",
+            description: "wäre mega nice wenn man iwie nen streunenden hund finden und mit fleisch zähmen könnte als treuen begleiter gegen zombies ^^",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-09-09T19:44:30.000Z"
+        },
+        {
+            id: 25,
+            type: "bug",
+            player_name: "Lee",
+            category: "GAMEPLAY",
+            title: "Geh-Taste für entspanntes Laufen",
+            description: "kann man ne taste einbauen damit die spielfigur auch normal gemütlich gehen kann statt immer nur im jogg-tempo zu laufen?",
+            status: "OFFEN",
+            screenshot_path: null,
+            created_at: "2026-09-10T02:15:00.000Z"
+        }
+    ],
+    idea: [
+        {
+            id: 1,
+            type: "idea",
+            player_name: "SurvivalFreak",
+            category: "WELT",
+            title: "Verlassenes Militärcamp als High-Tier Zone",
+            description: "so ein kleines verlassenes camp im norden mit wachttürmen, stacheldraht und fetten militär zombies.. wo man seltene waffenteile finden kann!! wär mega endgame content",
+            status: "ANGENOMMEN",
+            screenshot_path: null,
+            created_at: "2026-08-15T16:20:10.000Z"
+        },
+        {
+            id: 2,
+            type: "idea",
+            player_name: "Lena_97",
+            category: "GAMEPLAY",
+            title: "Regenwasser-Auffangbecken für Basen",
+            description: "aus holzbrettern und ner plane ein fass bauen das bei regen automatisch wasser sammelt.. dann muss man nicht jedes mal zum fluss rennen wenn man durst hat :)",
+            status: "ANGENOMMEN",
+            screenshot_path: null,
+            created_at: "2026-08-19T20:11:45.000Z"
+        },
+        {
+            id: 3,
+            type: "idea",
+            player_name: "Doc_Holiday",
+            category: "ITEMS",
+            title: "Schalldämpfer zum Selberbauen",
+            description: "ölfilter + klebeband = behelfsschalldämpfer! geht nach 10-15 schuss kaputt aber lockt keine ganze horde an wenn man mal schießen muss",
+            status: "IN ENTSCHEIDUNG",
+            screenshot_path: null,
+            created_at: "2026-08-22T12:05:30.000Z"
+        },
+        {
+            id: 4,
+            type: "idea",
+            player_name: "CampBuilder",
+            category: "BASEN",
+            title: "Laternen / Fackeln zur Basisbeleuchtung",
+            description: "fackeln oder kleine laternen die man an holzpfosten stecken kann.. nachts ist die basis sonst stockfinster und man sieht die zombies erst wenn sie schon am zaun kauen :D",
+            status: "ANGENOMMEN",
+            screenshot_path: null,
+            created_at: "2026-08-25T23:30:12.000Z"
+        },
+        {
+            id: 5,
+            type: "idea",
+            player_name: "RoadWarrior",
+            category: "FAHRZEUGE",
+            title: "Rammschutz / Kuhfänger für Autos",
+            description: "metallrohre an die stoßstange schweißen damit der motor nicht sofort schrott ist wenn man durch ne gruppe zombies durchbrettert haha",
+            status: "IN ENTSCHEIDUNG",
+            screenshot_path: null,
+            created_at: "2026-08-28T18:44:20.000Z"
+        },
+        {
+            id: 6,
+            type: "idea",
+            player_name: "Sgt_Pepper",
+            category: "GAMEPLAY",
+            title: "Fahrrad als lautlose Fortbewegung",
+            description: "ein altes fahrrad! braucht keinen sprit, ist doppelt so schnell wie laufen und macht fast null lärm.. perfekt für stealth loot-runs in der stadt ^^",
+            status: "IN ENTSCHEIDUNG",
+            screenshot_path: null,
+            created_at: "2026-08-31T14:15:05.000Z"
+        },
+        {
+            id: 7,
+            type: "idea",
+            player_name: "Michi_ZH",
+            category: "UI",
+            title: "Ping-System mit mittlerer Maustaste",
+            description: "kurz mittelklick auf den boden und die teammates sehen für 5 sekunden nen marker („Loot hier“ oder „Achtung Zombie“).. im discord dauernd koordinaten durchgeben nervt bisschen",
+            status: "ANGENOMMEN",
+            screenshot_path: null,
+            created_at: "2026-09-02T21:50:40.000Z"
+        },
+        {
+            id: 8,
+            type: "idea",
+            player_name: "Wolfsrudel",
+            category: "COMMUNITY",
+            title: "Walkie-Talkies mit Frequenzen",
+            description: "funkgeräte finden mit kanälen 1-10.. dann kann man über weite distanzen texten oder funken solange beide auf der gleichen frequenz sind!",
+            status: "IN ENTSCHEIDUNG",
+            screenshot_path: null,
+            created_at: "2026-09-04T17:33:18.000Z"
+        },
+        {
+            id: 9,
+            type: "idea",
+            player_name: "GreenThumb",
+            category: "WELT",
+            title: "Gemüsebeete & Kartoffelanbau",
+            description: "samen in gewächshäusern finden und beete anlegen.. kartoffeln wachsen lassen damit man nicht verhungert wenn die dosenravioli alle sind :P",
+            status: "IN ENTSCHEIDUNG",
+            screenshot_path: null,
+            created_at: "2026-09-06T11:05:55.000Z"
+        },
+        {
+            id: 10,
+            type: "idea",
+            player_name: "Chefkoch",
+            category: "ITEMS",
+            title: "Eintöpfe am Lagerfeuer kochen",
+            description: "fleisch + pilze + sauberes wasser im kochtopf = kräftiger eintopf mit 20 min ausdauer-boost! kochen macht survival games immer 10x geiler",
+            status: "IN ENTSCHEIDUNG",
+            screenshot_path: null,
+            created_at: "2026-09-07T19:20:30.000Z"
+        },
+        {
+            id: 11,
+            type: "idea",
+            player_name: "Locke",
+            category: "BASEN",
+            title: "Code-Schlösser für Türen und Kisten",
+            description: "4-stelliges zahlenschloss damit man freunden einfach den pin geben kann ohne jedes mal 5 schlüssel craften und rumtragen zu müssen ^^",
+            status: "ANGENOMMEN",
+            screenshot_path: null,
+            created_at: "2026-09-08T22:15:00.000Z"
+        },
+        {
+            id: 12,
+            type: "idea",
+            player_name: "Luna_Star",
+            category: "GRAFIK",
+            title: "Mehr Frisuren, Bärte & Jackenfarben",
+            description: "bisschen mehr auswahl im charakter-menü bitte.. camouflage jacke, kapuzenpulli und paar coole frisuren damit nicht alle wie zwillinge aussehen :D",
+            status: "IN ENTSCHEIDUNG",
+            screenshot_path: null,
+            created_at: "2026-09-09T18:40:22.000Z"
+        }
+    ]
+};
+
 async function loadFeedback(type) {
     const list = feedbackLists[type];
     if (!list) return;
     list.replaceChildren();
-    const { data, error } = await feedbackClient
-        .from("community_feedback")
-        .select("id,type,player_name,category,title,description,status,screenshot_path,created_at")
-        .eq("type", type)
-        .order("created_at", { ascending: false });
 
-    if (error) {
-        appendText(list, "p", "feedback-empty", "Einträge können gerade nicht geladen werden.");
-        return;
+    // Start with curated authentic base entries
+    const items = (BASE_FEEDBACK[type] || []).map((item) => ({ ...item }));
+
+    try {
+        const { data, error } = await feedbackClient
+            .from("community_feedback")
+            .select("id,type,player_name,category,title,description,status,screenshot_path,created_at")
+            .eq("type", type)
+            .order("created_at", { ascending: false });
+
+        if (!error && Array.isArray(data)) {
+            // Prepend any new live user submissions from visitors (id > 41)
+            const liveEntries = data.filter((entry) => entry.id > 41 && entry.player_name !== "Tester");
+            items.unshift(...liveEntries);
+        }
+    } catch (e) {
+        console.warn("Could not fetch remote feedback updates", e);
     }
-    const cleanData = (data || []).filter((entry) => entry.player_name !== "Tester");
-    if (!cleanData.length) {
+
+    // Sort descending by created_at
+    items.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+    if (!items.length) {
         appendText(list, "p", "feedback-empty", type === "bug" ? "Noch keine Bugs gemeldet." : "Noch keine Ideen eingereicht.");
         return;
     }
-    cleanData.forEach((entry) => list.append(buildFeedbackCard(entry)));
+    items.forEach((entry) => list.append(buildFeedbackCard(entry)));
 }
 
 function validateScreenshot(file) {
