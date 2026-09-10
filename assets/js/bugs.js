@@ -104,11 +104,12 @@ async function loadFeedback(type) {
         appendText(list, "p", "feedback-empty", "Einträge können gerade nicht geladen werden.");
         return;
     }
-    if (!data.length) {
+    const cleanData = (data || []).filter((entry) => entry.player_name !== "Tester");
+    if (!cleanData.length) {
         appendText(list, "p", "feedback-empty", type === "bug" ? "Noch keine Bugs gemeldet." : "Noch keine Ideen eingereicht.");
         return;
     }
-    data.forEach((entry) => list.append(buildFeedbackCard(entry)));
+    cleanData.forEach((entry) => list.append(buildFeedbackCard(entry)));
 }
 
 function validateScreenshot(file) {
