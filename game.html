@@ -111,8 +111,9 @@
                     </article>
                 </div>
                 <div class="game-hero-actions">
-                    <a class="btn game-play-cta btn-pause" href="#spiel-starten"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> TESTLAUF AB 24. OKTOBER</a>
-                    <a class="btn game-fullscreen-button" href="bugs/index.html" data-bugs-route><i class="fa-regular fa-lightbulb" aria-hidden="true"></i> IDEE EINREICHEN</a>
+                    <a class="btn game-play-cta btn-pause" href="#spiel-starten">TESTLAUF AB 24. OKTOBER</a>
+                    <a class="btn game-fullscreen-button" id="game-hero-btn-idea" href="bugs/index.html" data-bugs-route>IDEE EINREICHEN</a>
+                    <button id="game-fullscreen" type="button" class="btn game-fullscreen-button" style="display: none;">VOLLBILD</button>
                     <span id="fullscreen-message" class="fullscreen-message" role="status" aria-live="polite"></span>
                 </div>
                 <div class="game-hero-subnav">
@@ -141,18 +142,17 @@
 
             <!-- ================= WARTUNG & NAECHSTER TESTLAUF ================= -->
             <div id="spiel-starten" class="game-maintenance-box">
-                <span class="maintenance-badge">
-                    <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+                <span class="maintenance-badge" id="maintenance-badge-trigger" title="Entwickler-Test" style="cursor: pointer; user-select: none;">
                     AKTUELL IN &Uuml;BERARBEITUNG
                 </span>
-                <h2>N&auml;chster Testlauf &ouml;ffnet am 24. Oktober 2026</h2>
+                <h2>N&auml;chster 2-monatiger Testlauf ab 24. Oktober 2026</h2>
                 <div class="maintenance-text">
                     <p>
                         Ich nehme mir aktuell gezielt die Zeit, um das bisherige Feedback, die Fehlerberichte
                         und die wichtigsten Kernmechaniken gr&uuml;ndlich zu &uuml;berarbeiten.
                     </p>
                     <p>
-                        Mein Ziel f&uuml;r den <strong>24. Oktober</strong> ist ein wirklich stabiler,
+                        Mein Ziel f&uuml;r den Start am <strong>24. Oktober</strong> ist ein wirklich stabiler,
                         rund spielbarer Alpha-Build &ndash; inklusive optimierter Bewegung, sauberer Fahrzeug-Physik,
                         dem neuen Bausystem und stabilerem Multiplayer.
                     </p>
@@ -162,15 +162,26 @@
                 </div>
                 <div class="maintenance-actions">
                     <a href="bugs/index.html" data-bugs-route class="btn btn-gold">
-                        <i class="fa-regular fa-lightbulb" aria-hidden="true"></i> Idee oder Feedback einreichen
+                        Idee oder Feedback einreichen
                     </a>
                     <a href="#changelog" class="btn btn-outline">
-                        <i class="fa-solid fa-list-ul" aria-hidden="true"></i> Bisherigen Changelog ansehen
-                    </a>
-                    <a href="https://discord.gg/MAujawnuK" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                        <i class="fa-brands fa-discord" aria-hidden="true"></i> Discord beitreten
+                        Bisherigen Changelog ansehen
                     </a>
                 </div>
+            </div>
+
+            <!-- ================= VERSTECKTER ENTWICKLER-TESTBEREICH ================= -->
+            <div class="game-embed-wrapper" id="game-wrapper" style="display: none;">
+                <div class="game-dev-mode-bar" id="game-dev-mode-bar" style="display: flex; justify-content: space-between; align-items: center; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.35); padding: 8px 14px; border-radius: 8px; margin-bottom: 12px; font-family: 'Share Tech Mono', monospace; font-size: 0.82rem; color: #ffd447;">
+                    <span>ENTWICKLER-TESTMODUS AKTIV &bull; Spiel geladen</span>
+                    <button type="button" id="btn-exit-dev" class="btn-subnav" style="padding: 4px 10px; font-size: 0.76rem; cursor: pointer; color: #fff; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">Testmodus beenden</button>
+                </div>
+                <iframe id="game-iframe" class="game-embed" data-src="game/survival-v116.html?build=alpha-0-2-2-v116-20260906" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+                <div class="game-mobile-overlay" id="game-mobile-overlay">
+                    <span class="game-overview-kicker">MOBILE STEUERUNG</span>
+                    <button class="btn btn-gold btn-activate-game" id="btn-activate-game" type="button">SPIEL AKTIVIEREN</button>
+                </div>
+                <button class="game-mobile-exit-btn" id="btn-deactivate-game" type="button">SCROLL-MODUS</button>
             </div>
 
             <div class="game-post-actions">
@@ -729,10 +740,29 @@
         window.scrollTo(0, 0);
     }
 
-    const gameEmbed = document.getElementById("spiel-starten");
+    const maintenanceBox = document.getElementById("spiel-starten");
+    const gameWrapper = document.getElementById("game-wrapper");
+    const gameEmbed = document.getElementById("game-iframe");
     const fullscreenButton = document.getElementById("game-fullscreen");
     const fullscreenMessage = document.getElementById("fullscreen-message");
-    const requestedServer = new URLSearchParams(window.location.search).get("server");
+    const heroBtnIdea = document.getElementById("game-hero-btn-idea");
+    const heroPlayCta = document.querySelector(".game-play-cta");
+    const btnExitDev = document.getElementById("btn-exit-dev");
+    const badgeTrigger = document.getElementById("maintenance-badge-trigger");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const requestedServer = urlParams.get("server");
+    const devParam = urlParams.get("dev");
+    const hasDevQuery = urlParams.has("dev") || urlParams.has("test") || urlParams.has("play");
+    const buildParam = urlParams.get("build");
+
+    if (devParam === "0" || devParam === "false") {
+        sessionStorage.removeItem("zh_dev_mode");
+    } else if (hasDevQuery) {
+        sessionStorage.setItem("zh_dev_mode", "1");
+    }
+
+    const isDevModeActive = sessionStorage.getItem("zh_dev_mode") === "1" || window.location.hash === "#dev";
 
     function showFullscreenMessage(message) {
         if (fullscreenMessage) fullscreenMessage.textContent = message;
@@ -743,12 +773,11 @@
         fullscreenButton.textContent = document.fullscreenElement ? "VOLLBILD VERLASSEN" : "VOLLBILD";
     }
 
-    const gameWrapper = document.getElementById("game-wrapper");
     const btnActivateGame = document.getElementById("btn-activate-game");
     const btnDeactivateGame = document.getElementById("btn-deactivate-game");
 
     function loadGame() {
-        if (!gameEmbed || gameEmbed.tagName !== "IFRAME" || gameEmbed.hasAttribute("src") || !gameEmbed.getAttribute("data-src")) return;
+        if (!gameEmbed || gameEmbed.tagName !== "IFRAME" || gameEmbed.hasAttribute("src")) return;
         let gameSrc = gameEmbed.getAttribute("data-src") || "";
         if (requestedServer) {
             gameSrc += (gameSrc.includes("?") ? "&" : "?") + "server=" + encodeURIComponent(requestedServer);
@@ -786,43 +815,75 @@
         btnDeactivateGame.addEventListener("click", deactivateGame);
     }
 
-    const gamePlayCta = document.querySelector(".game-play-cta");
-    if (gamePlayCta) {
-        gamePlayCta.addEventListener("click", (e) => {
-            e.preventDefault();
-            activateGame();
-            if (gameEmbed) {
-                gameEmbed.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-        });
-    }
-
-    if (window.location.hash === "#spiel-starten") {
-        activateGame();
-        window.addEventListener("load", () => {
-            if (gameEmbed) {
-                gameEmbed.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-        });
-    }
-
-    const isDesktop = window.innerWidth > 900;
-    if (isDesktop) {
-        if (typeof IntersectionObserver !== "undefined" && gameEmbed) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        activateGame();
-                        observer.disconnect();
-                    }
-                });
-            }, {
-                rootMargin: "300px 0px 300px 0px"
-            });
-            observer.observe(gameEmbed);
-        } else {
-            activateGame();
+    function enableDevMode(scrollAfter) {
+        sessionStorage.setItem("zh_dev_mode", "1");
+        if (maintenanceBox) maintenanceBox.style.display = "none";
+        if (gameWrapper) gameWrapper.style.display = "block";
+        if (fullscreenButton) fullscreenButton.style.display = "inline-flex";
+        if (heroBtnIdea) heroBtnIdea.style.display = "none";
+        if (heroPlayCta) {
+            heroPlayCta.textContent = "SPIEL STARTEN (DEV)";
+            heroPlayCta.classList.remove("btn-pause");
         }
+
+        if (buildParam && gameEmbed) {
+            const targetSrc = buildParam.startsWith("game/") ? buildParam : ("game/" + buildParam);
+            gameEmbed.setAttribute("data-src", targetSrc);
+        }
+
+        activateGame();
+        if (scrollAfter && gameWrapper) {
+            gameWrapper.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    function disableDevMode() {
+        sessionStorage.removeItem("zh_dev_mode");
+        const newUrl = new URL(window.location.href);
+        newUrl.searchParams.delete("dev");
+        newUrl.searchParams.delete("test");
+        newUrl.searchParams.delete("play");
+        newUrl.searchParams.delete("build");
+        if (newUrl.hash === "#dev") newUrl.hash = "";
+        window.location.href = newUrl.toString();
+    }
+
+    if (btnExitDev) {
+        btnExitDev.addEventListener("click", disableDevMode);
+    }
+
+    if (badgeTrigger) {
+        let clickCount = 0;
+        let clickTimer = null;
+        badgeTrigger.addEventListener("click", () => {
+            clickCount++;
+            clearTimeout(clickTimer);
+            clickTimer = setTimeout(() => { clickCount = 0; }, 800);
+            if (clickCount >= 3) {
+                clickCount = 0;
+                enableDevMode(true);
+            }
+        });
+    }
+
+    if (heroPlayCta) {
+        heroPlayCta.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (sessionStorage.getItem("zh_dev_mode") === "1" || window.location.hash === "#dev") {
+                activateGame();
+                if (gameWrapper) {
+                    gameWrapper.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            } else {
+                if (maintenanceBox) {
+                    maintenanceBox.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            }
+        });
+    }
+
+    if (isDevModeActive) {
+        enableDevMode(false);
     }
 
     if (fullscreenButton) {
