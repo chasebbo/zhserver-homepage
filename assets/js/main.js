@@ -411,7 +411,7 @@ if (votingOptionsContainer) {
         if (votingNoticeEl) {
             votingNoticeEl.innerHTML = hasVoted
                 ? '<span class="vote-confirmed-msg"><i class="fa-solid fa-circle-check"></i> Deine Stimme wurde gezählt! Danke.</span>'
-                : '100% echte Community-Stimmen &bull; 1 Stimme pro Spieler';
+                : '1 Stimme pro Spieler &bull; Echtzeit';
         }
 
         votingOptionsContainer.innerHTML = "";
