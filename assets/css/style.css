@@ -183,7 +183,7 @@ body{
     }
     .scroll-indicator{
         grid-column:1 / -1;
-        margin-top:50px;
+        margin-top:20px;
     }
 }
 
@@ -5960,6 +5960,22 @@ grid-template-columns:1fr;
     left: 0;
     right: 0;
     border-bottom: 2px dashed rgba(212, 175, 55, 0.35);
+}
+
+.hero-pixel-chase {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto 10px;
+    padding: 0 10px;
+    position: relative;
+    z-index: 5;
+}
+
+@media (max-width: 991px) {
+    .hero-pixel-chase {
+        margin: 22px auto 8px;
+    }
 }
 
 
