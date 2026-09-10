@@ -135,7 +135,8 @@
             <!-- Retro Pixel Chase Animation (Easter Egg) -->
             <div class="hero-pixel-chase" aria-hidden="true">
                 <div class="pixel-chase-track">
-                    <div class="pixel-chase-runner">
+                    <!-- Phase 1: Zombie chases Human (Left -> Right) -->
+                    <div class="pixel-chase-runner-l2r">
                         <!-- Zombie chasing behind -->
                         <div class="pixel-entity pixel-zombie-wrap">
                             <span class="pixel-bubble zombie-bubble">GRRR!</span>
@@ -195,6 +196,82 @@
                             </svg>
                         </div>
                     </div>
+
+                    <!-- Phase 2: Human with Axe chases Zombie (Right -> Left) -->
+                    <div class="pixel-chase-runner-r2l">
+                        <!-- Zombie panicking ahead -->
+                        <div class="pixel-entity pixel-zombie-wrap">
+                            <span class="pixel-bubble panic-zombie-bubble">HILFE!</span>
+                            <div class="pixel-sprite-flip">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="36" height="36" class="pixel-sprite" shape-rendering="crispEdges">
+                                    <rect x="3" y="0" width="3" height="1" fill="#1e293b"/>
+                                    <rect x="2" y="1" width="6" height="1" fill="#1e293b"/>
+                                    <rect x="2" y="2" width="6" height="1" fill="#22c55e"/>
+                                    <rect x="3" y="3" width="3" height="1" fill="#22c55e"/>
+                                    <rect x="6" y="3" width="1" height="1" fill="#ef4444"/>
+                                    <rect x="7" y="3" width="1" height="1" fill="#22c55e"/>
+                                    <rect x="3" y="4" width="5" height="1" fill="#22c55e"/>
+                                    <rect x="3" y="5" width="3" height="1" fill="#22c55e"/>
+                                    <rect x="6" y="5" width="2" height="1" fill="#052e16"/>
+                                    <rect x="2" y="6" width="6" height="1" fill="#854d0e"/>
+                                    <rect x="8" y="6" width="2" height="1" fill="#22c55e"/>
+                                    <rect x="2" y="7" width="6" height="1" fill="#854d0e"/>
+                                    <rect x="8" y="7" width="4" height="1" fill="#22c55e"/>
+                                    <rect x="2" y="8" width="6" height="1" fill="#854d0e"/>
+                                    <rect x="2" y="9" width="6" height="1" fill="#854d0e"/>
+                                    <rect x="3" y="10" width="4" height="1" fill="#475569"/>
+                                    <rect x="3" y="11" width="2" height="1" fill="#475569"/>
+                                    <rect x="6" y="11" width="2" height="1" fill="#475569"/>
+                                    <rect x="2" y="12" width="2" height="1" fill="#475569"/>
+                                    <rect x="7" y="12" width="2" height="1" fill="#475569"/>
+                                    <rect x="2" y="13" width="2" height="1" fill="#475569"/>
+                                    <rect x="7" y="13" width="2" height="1" fill="#475569"/>
+                                    <rect x="1" y="14" width="2" height="1" fill="#000000"/>
+                                    <rect x="8" y="14" width="2" height="1" fill="#000000"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Human with axe chasing behind -->
+                        <div class="pixel-entity pixel-human-axe-wrap">
+                            <span class="pixel-bubble rage-bubble">KOMM HER!</span>
+                            <div class="pixel-sprite-flip">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 16" width="45" height="36" class="pixel-sprite" shape-rendering="crispEdges">
+                                    <rect x="7" y="0" width="4" height="1" fill="#f59e0b"/>
+                                    <rect x="6" y="1" width="6" height="1" fill="#f59e0b"/>
+                                    <rect x="6" y="2" width="6" height="1" fill="#f59e0b"/>
+                                    <rect x="6" y="3" width="4" height="1" fill="#fed7aa"/>
+                                    <rect x="10" y="3" width="1" height="1" fill="#000000"/>
+                                    <rect x="6" y="4" width="5" height="1" fill="#fed7aa"/>
+                                    <rect x="7" y="5" width="4" height="1" fill="#fed7aa"/>
+                                    <rect x="6" y="6" width="6" height="1" fill="#2563eb"/>
+                                    <rect x="5" y="7" width="8" height="1" fill="#2563eb"/>
+                                    <rect x="6" y="8" width="6" height="1" fill="#2563eb"/>
+                                    <rect x="6" y="9" width="5" height="1" fill="#2563eb"/>
+                                    <rect x="11" y="6" width="2" height="2" fill="#2563eb"/>
+                                    <rect x="13" y="5" width="2" height="2" fill="#fed7aa"/>
+                                    <rect x="13" y="7" width="1" height="4" fill="#92400e"/>
+                                    <rect x="13" y="3" width="1" height="2" fill="#92400e"/>
+                                    <rect x="13" y="2" width="1" height="1" fill="#78350f"/>
+                                    <rect x="14" y="1" width="3" height="4" fill="#cbd5e1"/>
+                                    <rect x="17" y="1" width="1" height="4" fill="#94a3b8"/>
+                                    <rect x="15" y="0" width="2" height="1" fill="#64748b"/>
+                                    <rect x="15" y="5" width="2" height="1" fill="#64748b"/>
+                                    <rect x="17" y="2" width="1" height="2" fill="#ef4444"/>
+                                    <rect x="4" y="8" width="2" height="2" fill="#2563eb"/>
+                                    <rect x="6" y="10" width="5" height="1" fill="#1e293b"/>
+                                    <rect x="5" y="11" width="3" height="1" fill="#1e293b"/>
+                                    <rect x="9" y="11" width="2" height="1" fill="#1e293b"/>
+                                    <rect x="4" y="12" width="3" height="1" fill="#1e293b"/>
+                                    <rect x="10" y="12" width="2" height="1" fill="#1e293b"/>
+                                    <rect x="4" y="13" width="3" height="1" fill="#1e293b"/>
+                                    <rect x="10" y="13" width="2" height="1" fill="#1e293b"/>
+                                    <rect x="3" y="14" width="3" height="1" fill="#000000"/>
+                                    <rect x="11" y="14" width="2" height="1" fill="#000000"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="pixel-ground-track"></div>
                 </div>
             </div>

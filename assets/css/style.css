@@ -5878,23 +5878,84 @@ grid-template-columns:1fr;
     overflow: hidden;
 }
 
-.pixel-chase-runner {
+.pixel-chase-runner,
+.pixel-chase-runner-l2r {
     position: absolute;
     bottom: 4px;
-    left: -140px;
+    left: -160px;
     display: flex;
     align-items: flex-end;
     gap: 32px;
-    animation: pixelChaseRun 8.5s linear infinite;
-    will-change: left;
+    animation: pixelChaseL2R 16s linear infinite;
+    will-change: left, opacity;
 }
 
-@keyframes pixelChaseRun {
+.pixel-chase-runner-r2l {
+    position: absolute;
+    bottom: 4px;
+    right: -160px;
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+    animation: pixelChaseR2L 16s linear infinite;
+    will-change: right, opacity;
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes pixelChaseL2R {
     0% {
-        left: -140px;
+        left: -160px;
+        opacity: 1;
+        visibility: visible;
+    }
+    46% {
+        left: 100%;
+        opacity: 1;
+        visibility: visible;
+    }
+    46.01% {
+        left: -160px;
+        opacity: 0;
+        visibility: hidden;
     }
     100% {
-        left: 100%;
+        left: -160px;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes pixelChaseR2L {
+    0% {
+        right: -160px;
+        opacity: 0;
+        visibility: hidden;
+    }
+    49.99% {
+        right: -160px;
+        opacity: 0;
+        visibility: hidden;
+    }
+    50% {
+        right: -160px;
+        opacity: 1;
+        visibility: visible;
+    }
+    96% {
+        right: 100%;
+        opacity: 1;
+        visibility: visible;
+    }
+    96.01% {
+        right: -160px;
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        right: -160px;
+        opacity: 0;
+        visibility: hidden;
     }
 }
 
@@ -5905,6 +5966,11 @@ grid-template-columns:1fr;
     image-rendering: pixelated;
 }
 
+.pixel-sprite-flip {
+    display: inline-flex;
+    transform: scaleX(-1);
+}
+
 .pixel-zombie-wrap .pixel-sprite {
     animation: pixelZombieStumble 0.32s steps(2) infinite alternate;
 }
@@ -5913,9 +5979,18 @@ grid-template-columns:1fr;
     animation: pixelHumanPanic 0.18s steps(2) infinite alternate;
 }
 
+.pixel-human-axe-wrap .pixel-sprite {
+    animation: pixelHumanRage 0.18s steps(2) infinite alternate;
+}
+
 @keyframes pixelHumanPanic {
     0% { transform: translateY(0) rotate(-4deg); }
     100% { transform: translateY(-5px) rotate(4deg); }
+}
+
+@keyframes pixelHumanRage {
+    0% { transform: translateY(0) rotate(-2deg); }
+    100% { transform: translateY(-4px) rotate(5deg); }
 }
 
 @keyframes pixelZombieStumble {
@@ -5934,6 +6009,7 @@ grid-template-columns:1fr;
     line-height: 1.2;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     user-select: none;
+    white-space: nowrap;
 }
 
 .human-bubble {
@@ -5947,6 +6023,20 @@ grid-template-columns:1fr;
     background: #22c55e;
     color: #052e16;
     border: 1px solid #052e16;
+}
+
+.panic-zombie-bubble {
+    background: #22c55e;
+    color: #052e16;
+    border: 1px solid #052e16;
+    animation: bubbleShake 0.3s infinite alternate;
+}
+
+.rage-bubble {
+    background: #ef4444;
+    color: #fff;
+    border: 1px solid #7f1d1d;
+    animation: bubbleShake 0.22s infinite alternate;
 }
 
 @keyframes bubbleShake {
