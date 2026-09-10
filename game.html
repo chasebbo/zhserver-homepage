@@ -141,26 +141,87 @@
             </div>
 
             <!-- ================= WARTUNG & NAECHSTER TESTLAUF ================= -->
-            <div id="spiel-wartung" class="game-maintenance-box">
-                <span class="maintenance-badge">
-                    AKTUELL IN &Uuml;BERARBEITUNG
-                </span>
-                <h2>N&auml;chster 2-monatiger Testlauf ab 24. Oktober 2026</h2>
-                <div class="maintenance-text">
+            <!-- ================= WARTUNG & NAECHSTER TESTLAUF ================= -->
+            <div id="spiel-wartung" class="game-maintenance-box tactical-terminal">
+                <div class="terminal-scanline" aria-hidden="true"></div>
+
+                <!-- Terminal Header Bar -->
+                <div class="terminal-topbar">
+                    <div class="terminal-status-pill">
+                        <span class="terminal-blink-dot" aria-hidden="true"></span>
+                        <span>STATUS: CODE-OVERHAUL // ALPHA 0.2.3</span>
+                    </div>
+                    <span class="terminal-version-tag">SOLO INDIE-DEV // ZOMBIEHOELLE</span>
+                </div>
+
+                <!-- Main Title & Kicker -->
+                <div class="terminal-title-wrap">
+                    <span class="terminal-kicker">TESTPHASE IN VORBEREITUNG</span>
+                    <h2 class="terminal-heading">2-Monatiger Playtest startet in</h2>
+                </div>
+
+                <!-- Live Countdown HUD -->
+                <div class="terminal-countdown" id="terminal-countdown" aria-label="Countdown bis zum Testlauf am 24. Oktober">
+                    <div class="countdown-unit">
+                        <div class="countdown-val" id="countdown-days">--</div>
+                        <div class="countdown-lbl">TAGE</div>
+                    </div>
+                    <div class="countdown-divider">:</div>
+                    <div class="countdown-unit">
+                        <div class="countdown-val" id="countdown-hours">--</div>
+                        <div class="countdown-lbl">STUNDEN</div>
+                    </div>
+                    <div class="countdown-divider">:</div>
+                    <div class="countdown-unit">
+                        <div class="countdown-val" id="countdown-minutes">--</div>
+                        <div class="countdown-lbl">MINUTEN</div>
+                    </div>
+                    <div class="countdown-divider">:</div>
+                    <div class="countdown-unit">
+                        <div class="countdown-val" id="countdown-seconds">--</div>
+                        <div class="countdown-lbl">SEKUNDEN</div>
+                    </div>
+                </div>
+
+                <div class="terminal-target-date">
+                    <span>STARTTERMIN:</span> <strong>SAMSTAG, 24. OKTOBER 2026 &bull; 18:00 UHR</strong>
+                </div>
+
+                <!-- 4 Mission / Overhaul Focus Cards -->
+                <div class="terminal-missions-grid">
+                    <div class="terminal-mission-card">
+                        <div class="mission-card-num">01 / PHYSIK</div>
+                        <h4>Fahrzeug-Steuerung</h4>
+                        <p>Nat&uuml;rlicheres Beschleunigen, Ausrollen, Handbremse und Fahrphysik auf unebenem Terrain.</p>
+                    </div>
+                    <div class="terminal-mission-card">
+                        <div class="mission-card-num">02 / BAUSYSTEM</div>
+                        <h4>Platzierung &amp; Zonen</h4>
+                        <p>Kollisionsbereinigung, sauberes Einrasten von W&auml;nden und T&uuml;ren ohne Objekt-Glitches.</p>
+                    </div>
+                    <div class="terminal-mission-card">
+                        <div class="mission-card-num">03 / STEUERUNG</div>
+                        <h4>Animationen &amp; Treffer</h4>
+                        <p>Fl&uuml;ssiges Ducken, Sprinten, neues Waffen- und Trefferfeedback bei Zombies und Spielern.</p>
+                    </div>
+                    <div class="terminal-mission-card">
+                        <div class="mission-card-num">04 / NETCODE</div>
+                        <h4>Multiplayer-Stabilit&auml;t</h4>
+                        <p>Sync-Optimierung und Stresstest f&uuml;r den geplanten 60-Tage-Dauerbetrieb ohne Serverneustarts.</p>
+                    </div>
+                </div>
+
+                <!-- Solo-Dev Transparenz Notiz -->
+                <div class="terminal-dev-note">
                     <p>
-                        Ich nehme mir aktuell gezielt die Zeit, um das bisherige Feedback, die Fehlerberichte
-                        und die wichtigsten Kernmechaniken gr&uuml;ndlich zu &uuml;berarbeiten.
-                    </p>
-                    <p>
-                        Mein Ziel f&uuml;r den Start am <strong>24. Oktober</strong> ist ein wirklich stabiler,
-                        rund spielbarer Alpha-Build &ndash; inklusive optimierter Bewegung, sauberer Fahrzeug-Physik,
-                        dem neuen Bausystem und stabilerem Multiplayer.
-                    </p>
-                    <p>
-                        Bis dahin kannst du jederzeit deine Ideen und Vorschl&auml;ge einreichen oder dir den bisherigen Fortschritt im Changelog ansehen.
+                        Ich entwickle dieses Spiel komplett alleine. Statt halbgare Zwischenversionen online zu lassen,
+                        nutze ich diese Pause, um das bisherige Feedback gr&uuml;ndlich abzuarbeiten &ndash; damit der
+                        2-monatige Testlauf ab dem ersten Tag stabil und rund spielbar ist.
                     </p>
                 </div>
-                <div class="maintenance-actions">
+
+                <!-- Actions -->
+                <div class="terminal-actions">
                     <a href="bugs/index.html" data-bugs-route class="btn btn-gold">
                         Idee oder Feedback einreichen
                     </a>
@@ -823,6 +884,43 @@
             heroPlayCta.textContent = "TESTLAUF AB 24. OKTOBER";
             heroPlayCta.classList.add("btn-pause");
         }
+        initTerminalCountdown();
+    }
+
+    function initTerminalCountdown() {
+        const targetDate = new Date("2026-10-24T18:00:00+02:00").getTime();
+        const daysEl = document.getElementById("countdown-days");
+        const hoursEl = document.getElementById("countdown-hours");
+        const minEl = document.getElementById("countdown-minutes");
+        const secEl = document.getElementById("countdown-seconds");
+
+        if (!daysEl || !hoursEl || !minEl || !secEl) return;
+
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                daysEl.textContent = "00";
+                hoursEl.textContent = "00";
+                minEl.textContent = "00";
+                secEl.textContent = "00";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            daysEl.textContent = String(days).padStart(2, "0");
+            hoursEl.textContent = String(hours).padStart(2, "0");
+            minEl.textContent = String(minutes).padStart(2, "0");
+            secEl.textContent = String(seconds).padStart(2, "0");
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
     }
 
     if (heroPlayCta) {
