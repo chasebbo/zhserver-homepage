@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0; url=game.html?play">
+    <title>Zombieh&ouml;lle Survival - Playtest</title>
+    <script>
+        const search = window.location.search ? ("&" + window.location.search.substring(1).replace(/^play&?/, '')) : "";
+        window.location.replace("game.html?play" + search + window.location.hash);
+    </script>
+</head>
+<body style="background:#0e131b; color:#c9d5e3; font-family:sans-serif; text-align:center; padding:40px 20px;">
+    <p>Leite zum Spiel weiter...</p>
+    <p><a href="game.html?play" style="color:#ffd447;">Hier klicken, falls die Weiterleitung nicht automatisch startet.</a></p>
+</body>
+</html>

@@ -141,8 +141,8 @@
             </div>
 
             <!-- ================= WARTUNG & NAECHSTER TESTLAUF ================= -->
-            <div id="spiel-starten" class="game-maintenance-box">
-                <span class="maintenance-badge" id="maintenance-badge-trigger" title="Entwickler-Test" style="cursor: pointer; user-select: none;">
+            <div id="spiel-wartung" class="game-maintenance-box">
+                <span class="maintenance-badge">
                     AKTUELL IN &Uuml;BERARBEITUNG
                 </span>
                 <h2>N&auml;chster 2-monatiger Testlauf ab 24. Oktober 2026</h2>
@@ -170,13 +170,9 @@
                 </div>
             </div>
 
-            <!-- ================= VERSTECKTER ENTWICKLER-TESTBEREICH ================= -->
+            <!-- ================= SPIELBEREICH ================= -->
             <div class="game-embed-wrapper" id="game-wrapper" style="display: none;">
-                <div class="game-dev-mode-bar" id="game-dev-mode-bar" style="display: flex; justify-content: space-between; align-items: center; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.35); padding: 8px 14px; border-radius: 8px; margin-bottom: 12px; font-family: 'Share Tech Mono', monospace; font-size: 0.82rem; color: #ffd447;">
-                    <span>ENTWICKLER-TESTMODUS AKTIV &bull; Spiel geladen</span>
-                    <button type="button" id="btn-exit-dev" class="btn-subnav" style="padding: 4px 10px; font-size: 0.76rem; cursor: pointer; color: #fff; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">Testmodus beenden</button>
-                </div>
-                <iframe id="game-iframe" class="game-embed" data-src="game/survival-v116.html?build=alpha-0-2-2-v116-20260906" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+                <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v116.html?build=alpha-0-2-2-v116-20260906" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
                 <div class="game-mobile-overlay" id="game-mobile-overlay">
                     <span class="game-overview-kicker">MOBILE STEUERUNG</span>
                     <button class="btn btn-gold btn-activate-game" id="btn-activate-game" type="button">SPIEL AKTIVIEREN</button>
@@ -740,29 +736,22 @@
         window.scrollTo(0, 0);
     }
 
-    const maintenanceBox = document.getElementById("spiel-starten");
+    // Wenn die Ueberarbeitung vorbei ist, hier einfach auf false setzen:
+    const MAINTENANCE_ACTIVE = true;
+
+    const maintenanceBox = document.getElementById("spiel-wartung");
     const gameWrapper = document.getElementById("game-wrapper");
-    const gameEmbed = document.getElementById("game-iframe");
+    const gameEmbed = document.getElementById("spiel-starten");
     const fullscreenButton = document.getElementById("game-fullscreen");
     const fullscreenMessage = document.getElementById("fullscreen-message");
     const heroBtnIdea = document.getElementById("game-hero-btn-idea");
     const heroPlayCta = document.querySelector(".game-play-cta");
-    const btnExitDev = document.getElementById("btn-exit-dev");
-    const badgeTrigger = document.getElementById("maintenance-badge-trigger");
 
     const urlParams = new URLSearchParams(window.location.search);
     const requestedServer = urlParams.get("server");
-    const devParam = urlParams.get("dev");
-    const hasDevQuery = urlParams.has("dev") || urlParams.has("test") || urlParams.has("play");
-    const buildParam = urlParams.get("build");
+    const isDirectPlay = urlParams.has("play") || urlParams.has("test") || urlParams.has("dev") || window.location.hash === "#play";
 
-    if (devParam === "0" || devParam === "false") {
-        sessionStorage.removeItem("zh_dev_mode");
-    } else if (hasDevQuery) {
-        sessionStorage.setItem("zh_dev_mode", "1");
-    }
-
-    const isDevModeActive = sessionStorage.getItem("zh_dev_mode") === "1" || window.location.hash === "#dev";
+    const shouldShowGame = !MAINTENANCE_ACTIVE || isDirectPlay;
 
     function showFullscreenMessage(message) {
         if (fullscreenMessage) fullscreenMessage.textContent = message;
@@ -815,64 +804,34 @@
         btnDeactivateGame.addEventListener("click", deactivateGame);
     }
 
-    function enableDevMode(scrollAfter) {
-        sessionStorage.setItem("zh_dev_mode", "1");
+    if (shouldShowGame) {
         if (maintenanceBox) maintenanceBox.style.display = "none";
         if (gameWrapper) gameWrapper.style.display = "block";
         if (fullscreenButton) fullscreenButton.style.display = "inline-flex";
         if (heroBtnIdea) heroBtnIdea.style.display = "none";
         if (heroPlayCta) {
-            heroPlayCta.textContent = "SPIEL STARTEN (DEV)";
+            heroPlayCta.textContent = "JETZT SPIELEN";
             heroPlayCta.classList.remove("btn-pause");
         }
-
-        if (buildParam && gameEmbed) {
-            const targetSrc = buildParam.startsWith("game/") ? buildParam : ("game/" + buildParam);
-            gameEmbed.setAttribute("data-src", targetSrc);
-        }
-
         activateGame();
-        if (scrollAfter && gameWrapper) {
-            gameWrapper.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+        if (maintenanceBox) maintenanceBox.style.display = "block";
+        if (gameWrapper) gameWrapper.style.display = "none";
+        if (fullscreenButton) fullscreenButton.style.display = "none";
+        if (heroBtnIdea) heroBtnIdea.style.display = "inline-flex";
+        if (heroPlayCta) {
+            heroPlayCta.textContent = "TESTLAUF AB 24. OKTOBER";
+            heroPlayCta.classList.add("btn-pause");
         }
-    }
-
-    function disableDevMode() {
-        sessionStorage.removeItem("zh_dev_mode");
-        const newUrl = new URL(window.location.href);
-        newUrl.searchParams.delete("dev");
-        newUrl.searchParams.delete("test");
-        newUrl.searchParams.delete("play");
-        newUrl.searchParams.delete("build");
-        if (newUrl.hash === "#dev") newUrl.hash = "";
-        window.location.href = newUrl.toString();
-    }
-
-    if (btnExitDev) {
-        btnExitDev.addEventListener("click", disableDevMode);
-    }
-
-    if (badgeTrigger) {
-        let clickCount = 0;
-        let clickTimer = null;
-        badgeTrigger.addEventListener("click", () => {
-            clickCount++;
-            clearTimeout(clickTimer);
-            clickTimer = setTimeout(() => { clickCount = 0; }, 800);
-            if (clickCount >= 3) {
-                clickCount = 0;
-                enableDevMode(true);
-            }
-        });
     }
 
     if (heroPlayCta) {
         heroPlayCta.addEventListener("click", (e) => {
             e.preventDefault();
-            if (sessionStorage.getItem("zh_dev_mode") === "1" || window.location.hash === "#dev") {
+            if (shouldShowGame) {
                 activateGame();
-                if (gameWrapper) {
-                    gameWrapper.scrollIntoView({ behavior: "smooth", block: "start" });
+                if (gameEmbed) {
+                    gameEmbed.scrollIntoView({ behavior: "smooth", block: "start" });
                 }
             } else {
                 if (maintenanceBox) {
@@ -882,8 +841,23 @@
         });
     }
 
-    if (isDevModeActive) {
-        enableDevMode(false);
+    const isDesktop = window.innerWidth > 900;
+    if (isDesktop && shouldShowGame) {
+        if (typeof IntersectionObserver !== "undefined" && gameEmbed) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        activateGame();
+                        observer.disconnect();
+                    }
+                });
+            }, {
+                rootMargin: "300px 0px 300px 0px"
+            });
+            observer.observe(gameEmbed);
+        } else {
+            activateGame();
+        }
     }
 
     if (fullscreenButton) {
