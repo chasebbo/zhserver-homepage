@@ -5323,6 +5323,310 @@ grid-template-columns:1fr;
 }
 
 /* ==========================================================================
+   GRAFIK-VISION VERGLEICH (RETRO PIXEL VS MODERN HD)
+   ========================================================================== */
+
+.graphic-vision-box {
+    margin-top: 50px;
+    padding: 35px;
+    background: rgba(18, 24, 33, 0.75);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.vision-intro {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 26px;
+}
+
+.vision-intro h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.65rem;
+    color: #fff;
+    margin: 8px 0 12px;
+}
+
+.vision-intro p {
+    font-size: 0.95rem;
+    color: #aeb8c4;
+    line-height: 1.6;
+}
+
+.vision-slider {
+    position: relative;
+    width: 100%;
+    height: 460px;
+    border-radius: 12px;
+    overflow: hidden;
+    user-select: none;
+    border: 2px solid rgba(212, 175, 55, 0.35);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    cursor: col-resize;
+    touch-action: pan-y;
+}
+
+.vision-img-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.vision-img-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.vision-before {
+    z-index: 1;
+}
+
+.vision-after {
+    z-index: 2;
+    width: 50%;
+    border-right: 2px solid #d4af37;
+}
+
+.vision-label {
+    position: absolute;
+    bottom: 16px;
+    padding: 8px 16px;
+    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-radius: 6px;
+    backdrop-filter: blur(8px);
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.label-retro {
+    left: 16px;
+    background: rgba(14, 20, 28, 0.9);
+    border: 1px solid rgba(75, 180, 255, 0.4);
+    color: #70c4ff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.label-hd {
+    right: 16px;
+    background: rgba(22, 18, 12, 0.9);
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    color: #ffd447;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.vision-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 44px;
+    margin-left: -22px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.vision-handle-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #d4af37;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.85);
+}
+
+.vision-handle-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #181d24;
+    border: 2px solid #d4af37;
+    color: #ffd447;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.8), 0 0 12px rgba(212, 175, 55, 0.4);
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.vision-slider:active .vision-handle-btn {
+    transform: scale(1.1);
+    background: #d4af37;
+    color: #14110a;
+}
+
+.vision-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 28px;
+}
+
+.vision-card {
+    background: rgba(14, 18, 25, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.vision-card-retro {
+    border-left: 3px solid #58b2ff;
+}
+
+.vision-card-hd {
+    border-left: 3px solid #d4af37;
+}
+
+.vision-card h4 {
+    font-size: 1.05rem;
+    margin: 0 0 12px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vision-card-retro h4 {
+    color: #8ed0ff;
+}
+
+.vision-card-hd h4 {
+    color: #ffd447;
+}
+
+.vision-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vision-card li {
+    font-size: 0.88rem;
+    color: #c9d5e3;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vision-card li i {
+    font-size: 0.8rem;
+    color: #39e75f;
+}
+
+.vision-vote-area {
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.vision-vote-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    color: #e5edf5;
+    letter-spacing: 0.03em;
+}
+
+.vision-vote-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+}
+
+.vision-vote-btn {
+    padding: 10px 22px;
+    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #c9d5e3;
+    background: rgba(22, 28, 38, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vision-vote-btn:hover {
+    border-color: #d4af37;
+    color: #ffd447;
+    background: rgba(30, 38, 50, 0.95);
+    transform: translateY(-1px);
+}
+
+.vision-vote-btn.is-active {
+    background: #d4af37;
+    color: #14110a;
+    border-color: #ffd447;
+    box-shadow: 0 0 14px rgba(212, 175, 55, 0.4);
+}
+
+.vision-vote-feedback {
+    min-height: 20px;
+    font-size: 0.86rem;
+    color: #39e75f;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .vision-slider {
+        height: 260px;
+    }
+    .graphic-vision-box {
+        padding: 22px 14px;
+    }
+    .vision-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .vision-label {
+        font-size: 0.72rem;
+        padding: 5px 10px;
+        bottom: 10px;
+    }
+    .label-retro {
+        left: 10px;
+    }
+    .label-hd {
+        right: 10px;
+    }
+    .vision-vote-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+    .vision-vote-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ==========================================================================
    GALLERY LIKE BUTTON & TOP SCREENSHOT BADGE
    ========================================================================== */
 

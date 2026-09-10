@@ -512,7 +512,110 @@ if (votingOptionsContainer) {
 }
 
 // ==========================================
-// 2. SURVIVAL FUNKGERÄT (WEB AUDIO AMBIENT)
+// 2. GRAFIK-VISION SLIDER (RETRO VS MODERN HD)
+// ==========================================
+const visionSlider = document.getElementById("visionSlider");
+const visionAfter = document.getElementById("visionAfter");
+const visionHandle = document.getElementById("visionHandle");
+const visionVoteArea = document.getElementById("visionVoteArea");
+
+if (visionSlider && visionAfter && visionHandle) {
+    let isDragging = false;
+
+    function setVisionPosition(clientX) {
+        const rect = visionSlider.getBoundingClientRect();
+        let posX = clientX - rect.left;
+        posX = Math.max(0, Math.min(posX, rect.width));
+        const percent = (posX / rect.width) * 100;
+
+        visionAfter.style.width = `${percent}%`;
+        visionHandle.style.left = `${percent}%`;
+        visionHandle.setAttribute("aria-valuenow", Math.round(percent));
+    }
+
+    // Default start at 50%
+    visionAfter.style.width = "50%";
+    visionHandle.style.left = "50%";
+
+    // Pointer events (smooth mouse + touch)
+    visionSlider.addEventListener("pointerdown", (e) => {
+        isDragging = true;
+        visionSlider.setPointerCapture(e.pointerId);
+        setVisionPosition(e.clientX);
+    });
+
+    visionSlider.addEventListener("pointermove", (e) => {
+        if (!isDragging) return;
+        setVisionPosition(e.clientX);
+    });
+
+    const stopDragging = (e) => {
+        if (isDragging) {
+            isDragging = false;
+            try { visionSlider.releasePointerCapture(e.pointerId); } catch (err) {}
+        }
+    };
+
+    visionSlider.addEventListener("pointerup", stopDragging);
+    visionSlider.addEventListener("pointercancel", stopDragging);
+
+    // Keyboard support (Left / Right arrow keys)
+    visionHandle.addEventListener("keydown", (e) => {
+        const currentPercent = parseFloat(visionHandle.style.left) || 50;
+        if (e.key === "ArrowLeft") {
+            const next = Math.max(0, currentPercent - 5);
+            visionAfter.style.width = `${next}%`;
+            visionHandle.style.left = `${next}%`;
+            visionHandle.setAttribute("aria-valuenow", Math.round(next));
+            e.preventDefault();
+        } else if (e.key === "ArrowRight") {
+            const next = Math.min(100, currentPercent + 5);
+            visionAfter.style.width = `${next}%`;
+            visionHandle.style.left = `${next}%`;
+            visionHandle.setAttribute("aria-valuenow", Math.round(next));
+            e.preventDefault();
+        }
+    });
+
+    // Feedback voting buttons (Retro vs HD)
+    if (visionVoteArea) {
+        const voteBtns = visionVoteArea.querySelectorAll(".vision-vote-btn");
+        const feedbackEl = document.getElementById("visionVoteFeedback");
+        const STORAGE_PREF_KEY = "zh_vision_style_pref";
+
+        function updateVoteButtons(selectedVal) {
+            voteBtns.forEach(btn => {
+                const val = btn.getAttribute("data-vision-pref");
+                if (val === selectedVal) {
+                    btn.classList.add("is-active");
+                } else {
+                    btn.classList.remove("is-active");
+                }
+            });
+            if (feedbackEl && selectedVal) {
+                feedbackEl.innerHTML = `<i class="fa-solid fa-circle-check"></i> Deine Pr&auml;ferenz f&uuml;r <strong>${selectedVal === 'retro' ? 'Retro-Pixel' : 'Modern-HD'}</strong> wurde notiert!`;
+            }
+        }
+
+        try {
+            const saved = localStorage.getItem(STORAGE_PREF_KEY);
+            if (saved) updateVoteButtons(saved);
+        } catch (e) {}
+
+        voteBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const choice = btn.getAttribute("data-vision-pref");
+                try {
+                    localStorage.setItem(STORAGE_PREF_KEY, choice);
+                } catch (e) {}
+                updateVoteButtons(choice);
+            });
+        });
+    }
+}
+
+// ==========================================
+// 3. SURVIVAL FUNKGERÄT (WEB AUDIO AMBIENT)
 // ==========================================
 const survivalRadio = document.getElementById("survivalRadio");
 const radioToggleBtn = document.getElementById("radioToggleBtn");
