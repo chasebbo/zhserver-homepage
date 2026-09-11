@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
 
-    <link rel="stylesheet" href="assets/css/style.css?v=20260904-fix1">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260910-nav">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -197,8 +197,7 @@
                                 <span>PLAYTEST-START-FORTSCHRITT</span>
                             </div>
                             <div class="pixel-bar-stats">
-                                <span class="pixel-bar-days-left">NOCH 44 TAGE</span>
-                                <span class="pixel-bar-percent">28%</span>
+                                <span class="pixel-bar-percent">29%</span>
                                 <span class="pixel-bar-target">ZIEL: 24. OKTOBER 2026</span>
                             </div>
                         </div>
@@ -1076,7 +1075,6 @@
         bars.forEach((container) => {
             const track = container.querySelector(".pixel-bar-track");
             const percentEl = container.querySelector(".pixel-bar-percent");
-            const daysLeftEl = container.querySelector(".pixel-bar-days-left");
             const targetStr = container.dataset.target || "2026-10-24T18:00:00+02:00";
             const startStr = container.dataset.start || "2026-08-24T00:00:00+02:00";
             const targetTime = new Date(targetStr).getTime();
@@ -1093,11 +1091,6 @@
 
                 const percent = Math.floor(progress * 100);
                 if (percentEl) percentEl.textContent = percent + "%";
-
-                if (daysLeftEl) {
-                    const daysLeft = Math.ceil(diff / (1000 * 60 * 60 * 24));
-                    daysLeftEl.textContent = diff <= 0 ? "JETZT LIVE" : `NOCH ${daysLeft} TAGE`;
-                }
 
                 const filledBlocks = Math.min(totalBlocks, Math.floor(progress * totalBlocks));
 

@@ -229,6 +229,140 @@ document.querySelectorAll(".nav-menu a").forEach(link => {
 
 });
 
+// ================= ACTIVE NAVIGATION & SCROLLSPY =================
+function initActiveNav() {
+    const navLinks = document.querySelectorAll(".nav-menu a");
+    if (!navLinks.length) return;
+
+    const currentPath = window.location.pathname.toLowerCase();
+    const isSubpage = currentPath.includes("gallery") || currentPath.includes("wiki") || currentPath.includes("game") || currentPath.includes("play") || currentPath.includes("/bugs");
+
+    function setActiveLink(targetLink) {
+        if (!targetLink) return;
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+            link.removeAttribute("aria-current");
+        });
+        targetLink.classList.add("active");
+        targetLink.setAttribute("aria-current", "page");
+    }
+
+    if (isSubpage) {
+        navLinks.forEach(link => {
+            const href = (link.getAttribute("href") || "").toLowerCase();
+            if (currentPath.includes("/bugs") && (href.includes("bugs") || link.hasAttribute("data-bugs-route"))) {
+                setActiveLink(link);
+            } else if (currentPath.includes("gallery") && href.includes("gallery")) {
+                setActiveLink(link);
+            } else if (currentPath.includes("wiki") && href.includes("wiki")) {
+                setActiveLink(link);
+            } else if ((currentPath.includes("game") || currentPath.includes("play")) && (href.includes("game") || href.includes("play"))) {
+                setActiveLink(link);
+            }
+        });
+        return;
+    }
+
+    // Homepage section tracking
+    const sections = [
+        { id: "hero", link: document.querySelector('.nav-menu a[href="#hero"], .nav-menu a[href="index.html#hero"], .nav-menu a[href="#"]') },
+        { id: "history", link: document.querySelector('.nav-menu a[href="#history"], .nav-menu a[href="index.html#history"]') },
+        { id: "timeline", link: document.querySelector('.nav-menu a[href="#timeline"], .nav-menu a[href="index.html#timeline"]') },
+        { id: "guestbook", link: document.querySelector('.nav-menu a[href="#guestbook"], .nav-menu a[href="index.html#guestbook"]') },
+        { id: "forum", link: document.querySelector('.nav-menu a[href="#forum"], .nav-menu a[href="index.html#forum"]') }
+    ].filter(item => item.link && document.getElementById(item.id));
+
+    if (!sections.length) return;
+
+    let isScrollingFromClick = false;
+    let scrollClickTimeout = null;
+
+    function updateScrollSpy() {
+        if (isScrollingFromClick) return;
+
+        const scrollY = window.scrollY || window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+
+        // Top of page -> Start
+        if (scrollY < 120) {
+            setActiveLink(sections[0].link);
+            return;
+        }
+
+        // Reached bottom of page -> Community
+        if (scrollY + windowHeight >= docHeight - 60) {
+            setActiveLink(sections[sections.length - 1].link);
+            return;
+        }
+
+        // Check sections from top to bottom
+        const offset = 140;
+        let activeSec = sections[0];
+        for (let i = 0; i < sections.length; i++) {
+            const el = document.getElementById(sections[i].id);
+            if (el) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top <= offset) {
+                    activeSec = sections[i];
+                }
+            }
+        }
+        if (activeSec && activeSec.link) {
+            setActiveLink(activeSec.link);
+        }
+    }
+
+    // Handle clicks on in-page links
+    sections.forEach(item => {
+        item.link.addEventListener("click", () => {
+            setActiveLink(item.link);
+            isScrollingFromClick = true;
+            clearTimeout(scrollClickTimeout);
+            scrollClickTimeout = setTimeout(() => {
+                isScrollingFromClick = false;
+                updateScrollSpy();
+            }, 800);
+        });
+    });
+
+    // Check initial hash or position
+    const currentHash = window.location.hash;
+    if (currentHash) {
+        const hashMatch = sections.find(item => '#' + item.id === currentHash);
+        if (hashMatch) {
+            setActiveLink(hashMatch.link);
+        } else {
+            updateScrollSpy();
+        }
+    } else {
+        updateScrollSpy();
+    }
+
+    // Smooth scroll event
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateScrollSpy();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+
+    window.addEventListener("hashchange", () => {
+        const hashMatch = sections.find(item => '#' + item.id === window.location.hash);
+        if (hashMatch) setActiveLink(hashMatch.link);
+    });
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initActiveNav);
+} else {
+    initActiveNav();
+}
+
 // ================= HEADER SCROLL =================
 const headerEl = document.querySelector(".header");
 if (headerEl) {
@@ -640,7 +774,6 @@ function initPixelProgressBar() {
     bars.forEach((container) => {
         const track = container.querySelector(".pixel-bar-track");
         const percentEl = container.querySelector(".pixel-bar-percent");
-        const daysLeftEl = container.querySelector(".pixel-bar-days-left");
         const targetStr = container.dataset.target || "2026-10-24T18:00:00+02:00";
         const startStr = container.dataset.start || "2026-08-24T00:00:00+02:00";
         const targetTime = new Date(targetStr).getTime();
@@ -657,11 +790,6 @@ function initPixelProgressBar() {
 
             const percent = Math.floor(progress * 100);
             if (percentEl) percentEl.textContent = percent + "%";
-
-            if (daysLeftEl) {
-                const daysLeft = Math.ceil(diff / (1000 * 60 * 60 * 24));
-                daysLeftEl.textContent = diff <= 0 ? "JETZT LIVE" : `NOCH ${daysLeft} TAGE`;
-            }
 
             const filledBlocks = Math.min(totalBlocks, Math.floor(progress * totalBlocks));
 
