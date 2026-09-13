@@ -132,7 +132,231 @@
             </p>
         </div>
 
-        <span class="section-title">
+        <!-- Quick Switcher Navigation -->
+        <div class="wiki-quick-nav">
+            <a href="#baumenue" class="wiki-quick-btn active">
+                <i class="fa-solid fa-hammer"></i> Baumen&uuml; &amp; Bausystem-Guide (Taste B)
+            </a>
+            <a href="#rezepte" class="wiki-quick-btn">
+                <i class="fa-solid fa-cubes-stacked"></i> Baupl&auml;ne &amp; Rezepte-Katalog
+            </a>
+        </div>
+
+        <!-- ================= BAUMENÜ & BAUSYSTEM MASTER GUIDE ================= -->
+        <div id="baumenue" class="baumenue-master-section">
+            <div class="baumenue-header">
+                <span class="baumenue-kicker"><i class="fa-solid fa-drafting-compass"></i> SYSTEM-SPEZIFIKATION &bull; SOLO-DEV GUIDE</span>
+                <h3>Das Baumen&uuml;: Steuerung, Tiers &amp; Systemvergleich</h3>
+                <p>
+                    F&uuml;r <strong>Zombieh&ouml;lle Survival (2D)</strong> vereinen wir die st&auml;rksten Mechaniken der drei einflussreichsten Survival-Klassiker: 
+                    Die <em>modulare Baufreiheit und Codelock-Sicherheit</em> aus <strong>DayZ Epoch</strong>, 
+                    den <em>realistischen Schichtenaufbau mit Werkzeugen</em> aus <strong>DayZ Standalone</strong> und 
+                    die <em>packende Barrikadierung bestehender Weltgeb&auml;ude</em> aus <strong>Project Zomboid</strong>.
+                    Dieses Konzept dient sowohl Spielern als Leitfaden als auch Entwicklern als logische System-Architektur f&uuml;r den Code-Overhaul.
+                </p>
+            </div>
+
+            <!-- COMPARISON TABLE -->
+            <div class="baumenue-subheading">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <span>1. Der gro&szlig;e Bausystem-Vergleich: Epoch vs. DayZ vs. Zomboid vs. ZH 2D</span>
+            </div>
+
+            <div class="comparison-wrap">
+                <table class="building-compare-table">
+                    <thead>
+                        <tr>
+                            <th>Mechanik / Kriterium</th>
+                            <th><span class="feature-pill pill-epoch">DayZ Epoch</span> (ARMA 2/3)</th>
+                            <th><span class="feature-pill pill-dayz">DayZ</span> (Standalone)</th>
+                            <th><span class="feature-pill pill-zomboid">Project Zomboid</span></th>
+                            <th class="col-highlight"><span class="feature-pill pill-zh2d">Zombieh&ouml;lle 2D</span> (Synthese)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-feature">Bauphilosophie &amp; Basen-Typ</td>
+                            <td>Freie modulare Basen auf offenem Gel&auml;nde (W&auml;nde, B&ouml;den, Garagentore).</td>
+                            <td>Compounds, Umz&auml;unungen und Wacht&uuml;rme; Integration in Scheunen/Hallen.</td>
+                            <td>Verbarrikadieren vorgefertigter H&auml;user &amp; freier Holzbau per Tischlerei.</td>
+                            <td class="col-zh2d"><strong>Hybrid-System:</strong> Schnelles Barrikadieren bestehender H&auml;user im Early-Game, danach freier Modularbau auf 2D-Tilegrid im Mid/Late-Game.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-feature">Baumen&uuml; &amp; Steuerung</td>
+                            <td>Inventar-Scrollrad / Rechtsklick auf Bauteil im Inventar.</td>
+                            <td>Physisches Halten &amp; Platzieren von Baus&auml;tzen (Fence Kit, Watchtower Kit).</td>
+                            <td>Kontextmen&uuml; per Rechtsklick mit Werkzeug + Radialauswahl.</td>
+                            <td class="col-zh2d"><strong>Direktes HUD-Men&uuml; [Taste B]:</strong> Raster-Auswahl, Ghost-Hologramm mit Farbfeedback, Drehung per <strong>[Taste R]</strong> und intelligentes Snap-Gitter.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-feature">Materialstufen (Tiers)</td>
+                            <td>Holz &bull; Cinderblock / Beton &bull; Wellblech / Verst&auml;rkt.</td>
+                            <td>Holzrahmen &bull; Bretter &bull; Metallblech (Planks + Nails + Sheets).</td>
+                            <td>Tischlerei Level 1–10 (Rohholz &rarr; Glatte Bretter &rarr; Metallschwei&szlig;en).</td>
+                            <td class="col-zh2d"><strong>4 logische Tiers:</strong><br>1. Notbarrikade (Zomboid)<br>2. Holzmodul (DayZ)<br>3. Stein/Beton (Epoch)<br>4. Panzerbunker (Late-Game).</td>
+                        </tr>
+                        <tr>
+                            <td class="col-feature">Zugang &amp; Codelocks</td>
+                            <td>Codelocks mit 4-stelligem PIN; Plot Pole sichert Baurechte.</td>
+                            <td>3- oder 4-stellige Zahlenschl&ouml;sser; Z&auml;une mit Draht sichern.</td>
+                            <td>Haust&uuml;rschl&uuml;ssel, Vorh&auml;ngeschl&ouml;sser, Innen-Querriegel.</td>
+                            <td class="col-zh2d"><strong>Codelocks &amp; Plot Pole:</strong> 4-stellige PIN-Tastatur f&uuml;r T&uuml;ren/Safes, Clan-Autorisierung &amp; &Uuml;berlebenden-Flagge gegen fremdes Bauen.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-feature">Zerst&ouml;rung &amp; Raids</td>
+                            <td>Sehr widerstandsf&auml;hig; Zerst&ouml;rung prim&auml;r durch Server-Decay / Admins.</td>
+                            <td>Schwere Zerst&ouml;rung durch Brecheisen, Vorschlaghammer oder Granaten.</td>
+                            <td>Zombies h&auml;mmern Barrikaden ein; Spieler rei&szlig;en mit Vorschlaghammer ein.</td>
+                            <td class="col-zh2d"><strong>Dual-Bedrohung:</strong> Horden belagern und besch&auml;digen Holzw&auml;nde bei L&auml;rm; Spieler-Raids erfordern seltenes C4 oder massiven Werkzeugeinsatz.</td>
+                        </tr>
+                        <tr>
+                            <td class="col-feature">Infrastruktur &amp; Autarkie</td>
+                            <td>Generatoren, Safes, Lockboxen, H&auml;ndler-Integration.</td>
+                            <td>Kabeltrommeln, Baustrahler, Notstromgeneratoren.</td>
+                            <td>Notstromaggregat (Benzin), Regentonnen mit Wasserfilter, Landwirtschaft.</td>
+                            <td class="col-zh2d"><strong>Autarke Festung:</strong> Regenf&auml;sser, Benzin-Generatoren f&uuml;r Licht &amp; E-Z&auml;une, Werkb&auml;nke zur Freischaltung h&ouml;herer Rezepte.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- WORKFLOW STEPS -->
+            <div class="baumenue-subheading">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>2. Steuerung &amp; In-Game Workflow (Taste B)</span>
+            </div>
+
+            <div class="workflow-grid">
+                <div class="workflow-card">
+                    <span class="workflow-step-num">SCHRITT 01</span>
+                    <h4>[B] Baumen&uuml; &ouml;ffnen</h4>
+                    <p>
+                        Ein Druck auf die Taste <strong>B</strong> &ouml;ffnet das taktische Bau-Overlay. Kategorien sind strukturiert nach Barrikaden, W&auml;nden, T&uuml;ren, Lagerung, Abwehr und Strom.
+                    </p>
+                </div>
+
+                <div class="workflow-card">
+                    <span class="workflow-step-num">SCHRITT 02</span>
+                    <h4>Hologramm &amp; Drehung [R]</h4>
+                    <p>
+                        Ein semi-transparentes Ghost-Objekt zeigt die exakte Platzierung. Mit der Taste <strong>R</strong> wird das Objekt um 90 Grad gedreht.
+                    </p>
+                    <div class="ghost-indicator-row">
+                        <span class="ghost-indicator ghost-green"><i class="fa-solid fa-check"></i> Gr&uuml;n: Baubar</span>
+                        <span class="ghost-indicator ghost-yellow"><i class="fa-solid fa-magnet"></i> Gelb: Snap</span>
+                        <span class="ghost-indicator ghost-red"><i class="fa-solid fa-ban"></i> Rot: Blockiert</span>
+                    </div>
+                </div>
+
+                <div class="workflow-card">
+                    <span class="workflow-step-num">SCHRITT 03</span>
+                    <h4>Snap-Magnetismus</h4>
+                    <p>
+                        Bauteile wie W&auml;nde, Z&auml;une und B&ouml;den docken im Nahbereich automatisch an benachbarte Kanten an. Verhindert L&uuml;cken, durch die Zombies durchglitchen k&ouml;nnten.
+                    </p>
+                </div>
+
+                <div class="workflow-card">
+                    <span class="workflow-step-num">SCHRITT 04</span>
+                    <h4>Montage mit Werkzeug</h4>
+                    <p>
+                        Das Platzieren setzt den Bausatz (Kit). Die Fertigstellung erfolgt mit Hammer, Axt oder Schaufel unter schrittweisem Verbrauch der Materialien im Rucksack.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 4 TIERS PROGRESSION -->
+            <div class="baumenue-subheading">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>3. Die 4 Ausbaustufen: Von der Notunterkunft zum Festungsbunker</span>
+            </div>
+
+            <div class="tiers-grid">
+                <div class="tier-card tier-1">
+                    <span class="tier-badge">TIER 1 &bull; IMPROVISIERT (ZOMBOID)</span>
+                    <h4>Notbarrikadierung</h4>
+                    <p class="tier-desc">Sofortiger Schutz in den ersten N&auml;chten. Sichere verlassene H&auml;user ab, bevor du eigene Basen errichten kannst.</p>
+                    <ul class="tier-features">
+                        <li><i class="fa-solid fa-shield-halved"></i> Fenster mit 1–3 Holzbrettern zunageln</li>
+                        <li><i class="fa-solid fa-eye-slash"></i> Bettlaken als Sichtschutz gegen Zombies</li>
+                        <li><i class="fa-solid fa-bars"></i> T&uuml;ren von innen mit Querriegel sichern</li>
+                        <li><i class="fa-solid fa-person-falling"></i> Fluchtseil aus Bettlaken f&uuml;r den Notausstieg</li>
+                    </ul>
+                    <div class="tier-footer">Werkzeuge: <strong>Hammer, N&auml;gel, S&auml;ge</strong></div>
+                </div>
+
+                <div class="tier-card tier-2">
+                    <span class="tier-badge">TIER 2 &bull; HOLZBAU (DAYZ / EPOCH T1)</span>
+                    <h4>Modulare Holzbasis</h4>
+                    <p class="tier-desc">Die erste vollst&auml;ndig eigene Basis im Wald oder auf freiem Feld auf festem Fundament.</p>
+                    <ul class="tier-features">
+                        <li><i class="fa-solid fa-cubes"></i> Holzfundamente &amp; Steckw&auml;nde</li>
+                        <li><i class="fa-solid fa-door-closed"></i> Holzt&uuml;ren mit Vorh&auml;ngeschloss</li>
+                        <li><i class="fa-solid fa-box-archive"></i> Robuste Holzkisten f&uuml;r Loot-Lagerung</li>
+                        <li><i class="fa-solid fa-tower-observation"></i> Kleiner Wachturm f&uuml;r Rundumsicht</li>
+                    </ul>
+                    <div class="tier-footer">Werkzeuge: <strong>Axt, Hammer, Schaufel</strong></div>
+                </div>
+
+                <div class="tier-card tier-3">
+                    <span class="tier-badge">TIER 3 &bull; STEIN &amp; BETON (EPOCH T2)</span>
+                    <h4>Cinderblock-Festung</h4>
+                    <p class="tier-desc">Massive Stein- und Betonw&auml;nde widerstehen selbst gro&szlig;en Zombie-Horden und Schusswechseln.</p>
+                    <ul class="tier-features">
+                        <li><i class="fa-solid fa-monument"></i> Massiver Stein- &amp; Cinderblock-Wandbau</li>
+                        <li><i class="fa-solid fa-key"></i> <strong>Codelocks mit 4-stelligem PIN</strong></li>
+                        <li><i class="fa-solid fa-vault"></i> Feuersicherer Waffenschrank &amp; Tresor</li>
+                        <li><i class="fa-solid fa-flag"></i> &Uuml;berlebenden-Flagge (Plot Pole / 30m)</li>
+                    </ul>
+                    <div class="tier-footer">Werkzeuge: <strong>Spitzhacke, Maurerkelle, M&ouml;rtel</strong></div>
+                </div>
+
+                <div class="tier-card tier-4">
+                    <span class="tier-badge">TIER 4 &bull; AUTARKIE &amp; BUNKER (HIGH-END)</span>
+                    <h4>Stahlbunker &amp; Strom</h4>
+                    <p class="tier-desc">Vollst&auml;ndig gepanzerte Zuflucht mit unabh&auml;ngiger Strom- und Wasserversorgung.</p>
+                    <ul class="tier-features">
+                        <li><i class="fa-solid fa-shield"></i> Stahlpanzerw&auml;nde &amp; Doppeltore f&uuml;r Autos</li>
+                        <li><i class="fa-solid fa-bolt"></i> Notstromaggregat (Benzin) &amp; Flutlicht</li>
+                        <li><i class="fa-solid fa-faucet-drip"></i> Regenwasser-Sammeltonne mit Kohlefilter</li>
+                        <li><i class="fa-solid fa-skull-crossbones"></i> Stacheldrahtkronen &amp; Elektro-Verteidigung</li>
+                    </ul>
+                    <div class="tier-footer">Werkzeuge: <strong>Schwei&szlig;ger&auml;t, Elektronik-Kit</strong></div>
+                </div>
+            </div>
+
+            <!-- TWO-COLUMN DEEP DIVE: TERRITORY & LOOT INTEGRATION -->
+            <div class="baumenue-two-cols">
+                <div class="baumenue-info-box">
+                    <h4><i class="fa-solid fa-flag"></i> Territorium, Codelocks &amp; Raid-Balance</h4>
+                    <p>
+                        Aus <strong>DayZ Epoch</strong> &uuml;bernehmen wir das bew&auml;hrte <strong>Plot-Pole-Prinzip</strong>: Sobald eine <em>&Uuml;berlebenden-Flagge</em> platziert wird, geh&ouml;rt der Umkreis von 30 Metern deiner Gruppe. Fremde Spieler k&ouml;nnen dort keine Objekte bauen oder W&auml;nde abbauen.
+                    </p>
+                    <ul>
+                        <li><strong>PIN-Codelocks:</strong> T&uuml;ren und Lagertruhen werden mit einem 4-stelligen Code gesichert. Gruppenmitglieder geben den Code einmalig ein und k&ouml;nnen die T&uuml;r danach nahtlos passieren.</li>
+                        <li><strong>Zombie-Angriff:</strong> Zombies, die durch Sch&uuml;sse oder Scheinwerfer aufgeschreckt werden, schlagen gegen Holzw&auml;nde und Barrikaden. Stehen mehrere Zombies davor, sinkt die Haltbarkeit rapide.</li>
+                        <li><strong>Spieler-Raids:</strong> Um Offline-Griefing zu verhindern, erfordern Raids seltene Sprengladungen (C4) oder enormen Werkzeugaufwand mit Vorschlagh&auml;mmern &ndash; reines Einloggen und Kisten leerr&auml;umen ist unm&ouml;glich.</li>
+                    </ul>
+                </div>
+
+                <div class="baumenue-info-box">
+                    <h4><i class="fa-solid fa-boxes-stacked"></i> Verzahnung mit dem Lootsystem (Code-Blueprint)</h4>
+                    <p>
+                        Damit das Bausystem sp&auml;ter von ChatGPT reibungslos im Spielcode verkn&uuml;pft werden kann, ist die Beschaffung logisch an die Spielwelt gekoppelt:
+                    </p>
+                    <ul>
+                        <li><strong>Natur-Rohstoffe:</strong> Holzst&auml;mme (Axt an B&auml;umen) &bull; Bruchstein (Spitzhacke an Felsen).</li>
+                        <li><strong>Zivil-Loot (Wohngebiete):</strong> N&auml;gel, Bettlaken, Klebeband, Seile, S&auml;gen, Vorh&auml;ngeschl&ouml;sser, Vorratskisten.</li>
+                        <li><strong>Industrie- &amp; Baustellenloot:</strong> Wellblech, Zements&auml;cke, M&ouml;rtel, Scharniere, H&auml;mmer, Schaufeln, Stacheldraht.</li>
+                        <li><strong>Milit&auml;r &amp; Technik (Selten):</strong> Elektronische Codelocks, Notstromaggregate, Schwei&szlig;ger&auml;te, Stahlplatten, C4-Sprengstoff.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= REZEPTE & BAUPLÄNE KATALOG ================= -->
+        <div id="rezepte">
+            <span class="section-title">
             WIKI &amp; AUSR&Uuml;STUNG
         </span>
 
@@ -143,7 +367,7 @@
         <div class="wiki-filter-wrapper">
             <div class="wiki-search-container">
                 <input type="text" id="wikiSearchInput" class="wiki-search-input" placeholder="Item, Rezept oder Material suchen..." autocomplete="off">
-                <span id="wikiResultCount" class="wiki-result-count">64 Einträge</span>
+                <span id="wikiResultCount" class="wiki-result-count">74 Einträge</span>
             </div>
 
             <div class="wiki-main-tabs" id="wikiMainTabs">
@@ -822,6 +1046,92 @@
                 </div>
             </article>
 
+            <!-- Notstromaggregat -->
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="stationen">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-bolt" style="font-size: 2.4rem; color: #ffd447;" aria-hidden="true"></i>
+                    <span>Technik &bull; Strom</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Notstromaggregat (Benzin)</h3>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Station</span>
+                </div>
+                <p class="recipe-description">
+                    Benzinbetriebener Generator f&uuml;r elektrische Autarkie (DayZ- &amp; Zomboid-Prinzip). Versorgt Flutlichtmasten, Werkb&auml;nke der Stufe 3 und K&uuml;hlschr&auml;nke mit Strom.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>Motorblock <span>1x</span></li>
+                        <li>Elektronikbauteile <span>2x</span></li>
+                        <li>Metall <span>8x</span></li>
+                        <li>Draht <span>4x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Station</span>
+                    <span class="tool-badge">Stromerzeugung</span>
+                    <span class="tool-badge">Werkbank Stufe 2</span>
+                </div>
+            </article>
+
+            <!-- Regenwasser-Sammeltonne -->
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="stationen">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-faucet-drip" style="font-size: 2.4rem; color: #60a5fa;" aria-hidden="true"></i>
+                    <span>Wasser &bull; Autarkie</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Regenwasser-Sammeltonne</h3>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Station</span>
+                </div>
+                <p class="recipe-description">
+                    F&auml;ngt Niederschlagswasser auf und speichert es (Zomboid-Style). Mit Aktivkohleeinsatz wird das Wasser automatisch zu trinkbarem Frischwasser gefiltert.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>Holz <span>6x</span></li>
+                        <li>Plane <span>1x</span></li>
+                        <li>N&auml;gel <span>4x</span></li>
+                        <li>Kohlefilter <span>1x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Station</span>
+                    <span class="tool-badge">Trinkwasser</span>
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Flutlichtmast -->
+            <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="stationen">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-lightbulb" style="font-size: 2.4rem; color: #facc15;" aria-hidden="true"></i>
+                    <span>Beleuchtung</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Flutlichtmast</h3>
+                    <span class="recipe-category">Lager &amp; Werkstatt &bull; Station</span>
+                </div>
+                <p class="recipe-description">
+                    Leistungsstarker Halogenscheinwerfer auf Stahlgestell. Beleuchtet das Gel&auml;nde gro&szlig;fl&auml;chig, verhindert n&auml;chtliche Zombie-Spawns im Basenumfeld und unterst&uuml;tzt Wachen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>Metall <span>6x</span></li>
+                        <li>Gl&uuml;hbirne <span>2x</span></li>
+                        <li>Draht <span>4x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Station</span>
+                    <span class="tool-badge">Licht &amp; Abwehr</span>
+                    <span class="tool-badge">Ben&ouml;tigt Strom</span>
+                </div>
+            </article>
+
             <!-- Lagerkiste -->
             <article class="recipe-card" data-main-cat="lager-werkstatt" data-sub-cat="lagerung">
                 <div class="recipe-image-slot">
@@ -1174,6 +1484,61 @@
                     </ul>
                 </div>
                 <div class="recipe-tools">
+                    <span class="tool-badge">Basiswerkzeuge</span>
+                </div>
+            </article>
+
+            <!-- Fenster-Holzbarrikade -->
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="holz">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-shield-halved" style="font-size: 2.4rem; color: #d97706;" aria-hidden="true"></i>
+                    <span>Barrikadierung</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Fenster-Holzbarrikade</h3>
+                    <span class="recipe-category">Basenbau &bull; Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Verbarrikadierung nach Project-Zomboid-Vorbild. Vernagelt Fenster mit 1–3 Holzbrettern, um Zombie-Durchbr&uuml;che zu verhindern und Sichtlinien zu unterbrechen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>Holzbretter <span>3x</span></li>
+                        <li>N&auml;gel <span>4x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Barrikade</span>
+                    <span class="tool-badge">Hammer</span>
+                    <span class="tool-badge">Zomboid-Stil</span>
+                </div>
+            </article>
+
+            <!-- Tür-Querriegel -->
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="holz">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-bars" style="font-size: 2.4rem; color: #d97706;" aria-hidden="true"></i>
+                    <span>T&uuml;rsicherung</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>T&uuml;r-Querriegel</h3>
+                    <span class="recipe-category">Basenbau &bull; Holz</span>
+                </div>
+                <p class="recipe-description">
+                    Massiver Holzbalken auf Eisenf&uuml;hrungen. Verriegelt normale Holzt&uuml;ren von innen gegen feindliche Eindringlinge und anhaltenden Zombiedruck.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>Holz <span>2x</span></li>
+                        <li>Metallteile <span>2x</span></li>
+                        <li>N&auml;gel <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Barrikade</span>
+                    <span class="tool-badge">Innensicherung</span>
                     <span class="tool-badge">Basiswerkzeuge</span>
                 </div>
             </article>
@@ -1540,6 +1905,90 @@
                 </div>
             </article>
 
+            <!-- Fenster-Metallblech -->
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="metall">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-square-full" style="font-size: 2.4rem; color: #94a3b8;" aria-hidden="true"></i>
+                    <span>Stahlpanzerung</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Fenster-Metallblech</h3>
+                    <span class="recipe-category">Basenbau &bull; Metall</span>
+                </div>
+                <p class="recipe-description">
+                    Aufgenietete Stahlplatte f&uuml;r Fenster. Vollst&auml;ndiger Sicht- und Durchbruchschutz &ndash; h&auml;lt Schrot- und Gewehrkugeln sowie Zombie-Attacken stand.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>Metallblech <span>2x</span></li>
+                        <li>Schrauben <span>4x</span></li>
+                        <li>Metallteile <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Panzerung</span>
+                    <span class="tool-badge">Schwei&szlig;ger&auml;t</span>
+                    <span class="tool-badge">Kugelsicher</span>
+                </div>
+            </article>
+
+            <!-- Codelock-Holztür -->
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="metall">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-key" style="font-size: 2.4rem; color: #ffd447;" aria-hidden="true"></i>
+                    <span>Codelock-Sicherung</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Codelock-Holzt&uuml;r</h3>
+                    <span class="recipe-category">Basenbau &bull; Metall</span>
+                </div>
+                <p class="recipe-description">
+                    Holzt&uuml;r mit digitalem 4-Stellen-Tastenfeld (DayZ-Epoch-Vorbild). Autorisierte Gruppenmitglieder &ouml;ffnen die T&uuml;r schr&auml;nkenlos ohne l&auml;stigen Schl&uuml;ssel.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>Holzt&uuml;r <span>1x</span></li>
+                        <li>Elektronikbauteile <span>1x</span></li>
+                        <li>Metallteile <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Codelock (PIN)</span>
+                    <span class="tool-badge">Squad-Zugang</span>
+                    <span class="tool-badge">Epoch-Stil</span>
+                </div>
+            </article>
+
+            <!-- Codelock-Stahltür -->
+            <article class="recipe-card" data-main-cat="basenbau" data-sub-cat="metall">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-vault" style="font-size: 2.4rem; color: #10b981;" aria-hidden="true"></i>
+                    <span>Bunkert&uuml;r</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Codelock-Stahlt&uuml;r</h3>
+                    <span class="recipe-category">Basenbau &bull; Metall</span>
+                </div>
+                <p class="recipe-description">
+                    Gepanzerte Tresor- und Bunkert&uuml;r mit verst&auml;rkter Verriegelung. H&ouml;chste Sicherheit gegen Schusswaffen, C4-Sprengladungen und Zombie-Horden.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Kosten</div>
+                    <ul class="recipe-materials">
+                        <li>Stahltr&auml;ger <span>2x</span></li>
+                        <li>Metallblech <span>4x</span></li>
+                        <li>Elektronikbauteile <span>2x</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Maximaler Schutz</span>
+                    <span class="tool-badge">PIN-Code</span>
+                    <span class="tool-badge">Werkbank Stufe 3</span>
+                </div>
+            </article>
+
 
 
             <!-- ================= FALLEN BAUTEILE ================= -->
@@ -1778,23 +2227,28 @@
             <article class="recipe-card" data-main-cat="abwehr" data-sub-cat="territorium">
                 
                 <div class="recipe-image-slot">
-                    <img src="assets/images/wiki/basisflagge.jpg" alt="Basisflagge" loading="lazy">
+                    <img src="assets/images/wiki/basisflagge.jpg" alt="Überlebenden-Flagge" loading="lazy">
                 </div>
                 <div class="recipe-header">
-                    <h3>Basisflagge</h3>
+                    <h3>&Uuml;berlebenden-Flagge (Plot Pole)</h3>
                     <span class="recipe-category">Fallen &amp; Abwehr &bull; Territorium</span>
                 </div>
                 <p class="recipe-description">
-                    Beansprucht ein Gebiet für deine Basis und schützt es.
+                    Das Fundament jeder dauerhaften Basis (inspiriert vom DayZ Epoch Plot Pole). Erzeugt eine 30-Meter-Schutzzone, in der fremde Spieler weder bauen noch abbauen k&ouml;nnen. Regelt zudem die Basenwartung (Decay).
                 </p>
                 <div>
                     <div class="recipe-section-title">Kosten</div>
                     <ul class="recipe-materials">
-                        <li>Flagge <span>1x</span></li>
+                        <li>Holzstamm <span>2x</span></li>
+                        <li>Stoff <span>4x</span></li>
+                        <li>Seil <span>2x</span></li>
+                        <li>N&auml;gel <span>4x</span></li>
                     </ul>
                 </div>
                 <div class="recipe-tools">
-                    <span class="tool-badge">Basiswerkzeuge</span>
+                    <span class="tool-badge">Plot Pole</span>
+                    <span class="tool-badge">30m Baurecht</span>
+                    <span class="tool-badge">Epoch-Prinzip</span>
                 </div>
             </article>
 
@@ -1925,6 +2379,7 @@
             </article>
 
         </div>
+        </div> <!-- /#rezepte -->
 
     </div>
 
@@ -2102,6 +2557,15 @@
             filterCards();
         });
     }
+
+    // Quick Nav Switcher
+    const quickNavBtns = document.querySelectorAll('.wiki-quick-btn');
+    quickNavBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            quickNavBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
 
     // Initial render
     renderSubTabs('all');
