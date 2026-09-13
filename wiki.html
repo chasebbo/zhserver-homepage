@@ -364,7 +364,7 @@
         <div class="wiki-filter-wrapper">
             <div class="wiki-search-container">
                 <input type="text" id="wikiSearchInput" class="wiki-search-input" placeholder="Item, Rezept oder Material suchen..." autocomplete="off">
-                <span id="wikiResultCount" class="wiki-result-count">95 Einträge</span>
+                <span id="wikiResultCount" class="wiki-result-count">112 Einträge</span>
             </div>
 
             <div class="wiki-main-tabs" id="wikiMainTabs">
@@ -2972,6 +2972,522 @@
                 </div>
             </article>
 
+            <!-- ============================================================ -->
+            <!-- CRAFTING & SYSTEME                                           -->
+            <!-- ============================================================ -->
+
+            <!-- === BAUPLÄNE & FREISCHALTUNG === -->
+
+            <!-- Bauplan: Allgemeines System -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="blueprints">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-scroll" style="font-size: 2.3rem; color: #f59e0b;" aria-hidden="true"></i>
+                    <span>Baupl&auml;ne &bull; System</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Bauplan-System &amp; Freischaltung</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Baupl&auml;ne</span>
+                </div>
+                <p class="recipe-description">
+                    Viele Rezepte sind von Anfang an gesperrt und m&uuml;ssen durch das Finden von Baupl&auml;nen (Loot-Items) dauerhaft freigeschaltet werden. Baupl&auml;ne sind accountgebunden und gelten f&uuml;r den gesamten Charakter. Ohne passenden Bauplan kann ein Gegenstand weder gebaut noch repariert werden.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Seltenheitsstufen</div>
+                    <ul class="recipe-materials">
+                        <li><span style="color:#94a3b8;">&#9632;</span> Gew&ouml;hnlich <span>Automatisch bekannt (Grundrezepte)</span></li>
+                        <li><span style="color:#22c55e;">&#9632;</span> Ungew&ouml;hnlich <span>Wohnh&auml;user, Schuppen, Autos</span></li>
+                        <li><span style="color:#3b82f6;">&#9632;</span> Selten <span>Industriegebiete, Kasernen, Polizeiwachen</span></li>
+                        <li><span style="color:#a855f7;">&#9632;</span> Episch <span>Bunker, Hochsicherheitsbereich, Air-Drops</span></li>
+                        <li><span style="color:#f59e0b;">&#9632;</span> Legendär <span>Nur in versiegelten Milit&auml;rcaches</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Codex-Referenz: blueprint_system</span>
+                    <span class="tool-badge">Item-Typ: blueprint</span>
+                    <span class="tool-badge">Accountgebunden</span>
+                </div>
+            </article>
+
+            <!-- Bauplan: Waffenmodifikation -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="blueprints">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-scroll" style="font-size: 2.3rem; color: #3b82f6;" aria-hidden="true"></i>
+                    <span>Selten &bull; Waffen</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Bauplan: Waffen-Mod (Selten)</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Baupl&auml;ne</span>
+                </div>
+                <p class="recipe-description">
+                    Spezifischer Bauplan f&uuml;r eine einzelne Waffenmodifikation (z.B. Schalld&auml;mpfer oder Zielfernrohr). Nach dem Lesen wird der Bauplan verbraucht und die Modifikation dauerhaft freigeschalten. Dropchance: ~2% in Kasernen, ~5% in Air-Drops.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Implementierungsdetails</div>
+                    <ul class="recipe-materials">
+                        <li>Item-Typ <span>blueprint_weapon_mod</span></li>
+                        <li>Verbrauch <span>Einmalig beim Lesen</span></li>
+                        <li>Speicherung <span>character.unlockedBlueprints[] Array</span></li>
+                        <li>Check <span>before_craft: blueprint_unlocked === true</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Selten (Blau)</span>
+                    <span class="tool-badge">Kasernen / Air-Drop</span>
+                    <span class="tool-badge">Einmalig nutzbar</span>
+                </div>
+            </article>
+
+            <!-- Bauplan: Hochwertige Station -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="blueprints">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-scroll" style="font-size: 2.3rem; color: #a855f7;" aria-hidden="true"></i>
+                    <span>Episch &bull; Stationen</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Bauplan: Hochrangige Station (Episch)</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Baupl&auml;ne</span>
+                </div>
+                <p class="recipe-description">
+                    Schaltet hochrangige Basisstationen frei: Munitionspresse, Gew&auml;chshaus Stufe 3, Chemielabor oder Waffenupgrade-Tisch. Extrem selten &mdash; nur in versiegelten Hochsicherheitsbereichen oder milit&auml;rischen Air-Drops zu finden. Dropchance: ~0.5%.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Implementierungsdetails</div>
+                    <ul class="recipe-materials">
+                        <li>Item-Typ <span>blueprint_station_tier3</span></li>
+                        <li>Verbrauch <span>Einmalig beim Lesen</span></li>
+                        <li>Voraussetzung <span>Werkbank Stufe 2 vorhanden</span></li>
+                        <li>Speicherung <span>character.unlockedBlueprints[] Array</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Episch (Lila)</span>
+                    <span class="tool-badge">Bunker / Hochsicherheit</span>
+                    <span class="tool-badge">Drop: ~0.5%</span>
+                </div>
+            </article>
+
+            <!-- === ROHMATERIALIEN === -->
+
+            <!-- Holz -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="rohstoffe">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-tree" style="font-size: 2.3rem; color: #84cc16;" aria-hidden="true"></i>
+                    <span>Rohstoff &bull; Basis</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Holz (Rohstoff)</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Rohmaterialien</span>
+                </div>
+                <p class="recipe-description">
+                    Grundlegender Baustoff f&uuml;r fast alle Holzkonstruktionen, Werkzeuge und Lagerfeuer. Durch F&auml;llen von B&auml;umen (Axt erforderlich) oder Durchsuchen von Schuppen gewonnen. Stapelt sich bis 20 Einheiten pro Slot.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Fundorte &amp; Gewinnung</div>
+                    <ul class="recipe-materials">
+                        <li>Gewinnung <span>Axt + Baum = 5&ndash;12 Holz</span></li>
+                        <li>Loot-Orte <span>Schuppen, W&auml;lder, Holzlager</span></li>
+                        <li>Stack-Gr&ouml;&szlig;e <span>20 pro Slot</span></li>
+                        <li>Codex-ID <span>resource_wood</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">H&auml;ufig</span>
+                    <span class="tool-badge">Basis-Ressource</span>
+                    <span class="tool-badge">Axt erforderlich</span>
+                </div>
+            </article>
+
+            <!-- Metall / Metallschrott -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="rohstoffe">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-circle-half-stroke" style="font-size: 2.3rem; color: #64748b;" aria-hidden="true"></i>
+                    <span>Rohstoff &bull; Metall</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Metallschrott &amp; Metallplatten</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Rohmaterialien</span>
+                </div>
+                <p class="recipe-description">
+                    Metallschrott aus zerst&ouml;rten Fahrzeugen oder Industrieruinen. Wird im Schmelzofen zu Metallplatten (Reinmetall) verarbeitet. Metallplatten sind f&uuml;r alle Metall-Baustufen, Waffen und hochwertige Ausst&uuml;stung ben&ouml;tigt.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Fundorte &amp; Gewinnung</div>
+                    <ul class="recipe-materials">
+                        <li>Schrott-Quellen <span>Autowracks, Fabrikhallen, Bauschutt</span></li>
+                        <li>Schmelzen <span>5x Schrott = 2x Metallplatte (Schmelzofen)</span></li>
+                        <li>Stack-Gr&ouml;&szlig;e <span>Schrott: 30 | Platte: 10</span></li>
+                        <li>Codex-ID <span>resource_scrap / resource_metalplate</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Mittel</span>
+                    <span class="tool-badge">Autowracks</span>
+                    <span class="tool-badge">Schmelzofen ben&ouml;tigt</span>
+                </div>
+            </article>
+
+            <!-- Stoff & Leder -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="rohstoffe">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-shirt" style="font-size: 2.3rem; color: #c084fc;" aria-hidden="true"></i>
+                    <span>Rohstoff &bull; Textil</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Stoff &amp; Leder</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Rohmaterialien</span>
+                </div>
+                <p class="recipe-description">
+                    Stoff aus zerschnittener Kleidung, Leder aus gegerbt. Wichtig f&uuml;r Verb&auml;nde, improvisierte R&uuml;stungen, Rucks&auml;cke und Seile. Leder bietet bessere Schutzwerte als Rohstoff.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Fundorte &amp; Gewinnung</div>
+                    <ul class="recipe-materials">
+                        <li>Stoff-Quellen <span>Kleidung zerreißen, Haushalte</span></li>
+                        <li>Leder-Quellen <span>Tiere h&auml;uten (Messer + Tier)</span></li>
+                        <li>Stack-Gr&ouml;&szlig;e <span>20 pro Slot</span></li>
+                        <li>Codex-ID <span>resource_cloth / resource_leather</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">H&auml;ufig</span>
+                    <span class="tool-badge">H&auml;user &amp; Kleidung</span>
+                    <span class="tool-badge">Messer f&uuml;r Leder</span>
+                </div>
+            </article>
+
+            <!-- Elektronik -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="rohstoffe">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-microchip" style="font-size: 2.3rem; color: #22d3ee;" aria-hidden="true"></i>
+                    <span>Rohstoff &bull; High-Tech</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Elektronik-Bauteile &amp; Kabel</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Rohmaterialien</span>
+                </div>
+                <p class="recipe-description">
+                    Platinen, Kondensatoren, Kupferkabel und Mikrochips aus zerlegten Ger&auml;ten. Ben&ouml;tigt f&uuml;r Stromversorgung, Codelock-Schl&ouml;sser, Nachtsichtger&auml;te, Sensorfallen und elektronische Upgrades.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Fundorte &amp; Gewinnung</div>
+                    <ul class="recipe-materials">
+                        <li>Quellen <span>Elektronikm&auml;rkte, Krankenhäuser, Radios zerlegen</span></li>
+                        <li>Seltenheit <span>Mittel-Selten</span></li>
+                        <li>Stack-Gr&ouml;&szlig;e <span>10 pro Slot</span></li>
+                        <li>Codex-ID <span>resource_electronics / resource_cable</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Mittel-Selten</span>
+                    <span class="tool-badge">Elektronikhandel</span>
+                    <span class="tool-badge">Schraubenzieher zum Zerlegen</span>
+                </div>
+            </article>
+
+            <!-- Chemikalien -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="rohstoffe">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-flask" style="font-size: 2.3rem; color: #4ade80;" aria-hidden="true"></i>
+                    <span>Rohstoff &bull; Chemie</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Chemikalien &amp; Treibstoff</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Rohmaterialien</span>
+                </div>
+                <p class="recipe-description">
+                    Benzin, Alkohole, Desinfektionsmittel, Schwarzpulver und S&auml;uren. Teils aus der Umgebung lootbar, teils nur durch Crafting herstellbar. Unverzichtbar f&uuml;r Sprengstoffe, Molotov, Medizin und Generatoren.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Fundorte &amp; Gewinnung</div>
+                    <ul class="recipe-materials">
+                        <li>Benzin <span>Fahrzeuge, Tankstellen (Kanister)</span></li>
+                        <li>Alkohol <span>Superm&auml;rkte, Bars, Apotheken</span></li>
+                        <li>Schwarzpulver <span>Crafting: Holzkohle + Salpeter</span></li>
+                        <li>Codex-IDs <span>resource_fuel / resource_alcohol / resource_gunpowder</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Selten</span>
+                    <span class="tool-badge">Tankstellen</span>
+                    <span class="tool-badge">Feuergefährlich</span>
+                </div>
+            </article>
+
+            <!-- === WAFFENMODIFIKATIONEN === -->
+
+            <!-- Zielfernrohr 4x -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="waffenmods">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-crosshairs" style="font-size: 2.3rem; color: #ef4444;" aria-hidden="true"></i>
+                    <span>Optik &bull; Vergr&ouml;&szlig;erung</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Zielfernrohr 4x (Mod)</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Waffenmodifikationen</span>
+                </div>
+                <p class="recipe-description">
+                    4-fach vergr&ouml;&szlig;erndes Zielfernrohr f&uuml;r Gewehre und Schrotflinten. Verbessert Treffergenauigkeit auf mittlere Distanz erheblich. Kompatibel mit: Jagdgewehr, Sturmgewehr, SMG, DMR.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Mod-Details</div>
+                    <ul class="recipe-materials">
+                        <li>Mod-Slot <span>Optik (Picatinny-Schiene)</span></li>
+                        <li>Kompatibel <span>Langwaffen (rifle, smg, dmr)</span></li>
+                        <li>Effekt <span>Reichweite +40%, Streuung -30%</span></li>
+                        <li>Codex-ID <span>weapon_mod_scope_4x</span></li>
+                        <li>Bauplan <span>Selten (Blau) &mdash; Kaserne / Polizei</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Optik-Slot</span>
+                    <span class="tool-badge">Werkbank Stufe 2</span>
+                    <span class="tool-badge">Bauplan ben&ouml;tigt</span>
+                </div>
+            </article>
+
+            <!-- Zielfernrohr 8x -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="waffenmods">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-crosshairs" style="font-size: 2.3rem; color: #a855f7;" aria-hidden="true"></i>
+                    <span>Optik &bull; Pr&auml;zision</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Pr&auml;zisionsoptik 8x (Mod)</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Waffenmodifikationen</span>
+                </div>
+                <p class="recipe-description">
+                    Hochpr&auml;zises milit&auml;risches Scharfsch&uuml;tzen-Zielfernrohr. Erm&ouml;glicht pr&auml;zises Schie&szlig;en auf maximale Distanz. Exklusiv f&uuml;r Scharfsch&uuml;tzengewehre und DMR. Epischer Bauplan erforderlich.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Mod-Details</div>
+                    <ul class="recipe-materials">
+                        <li>Mod-Slot <span>Optik (Picatinny-Schiene)</span></li>
+                        <li>Kompatibel <span>sniper, dmr (nur Langwaffen)</span></li>
+                        <li>Effekt <span>Reichweite +80%, Streuung -60%</span></li>
+                        <li>Codex-ID <span>weapon_mod_scope_8x</span></li>
+                        <li>Bauplan <span>Episch (Lila) &mdash; Bunker / Air-Drop</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Optik-Slot</span>
+                    <span class="tool-badge">Werkbank Stufe 3</span>
+                    <span class="tool-badge">Epischer Bauplan</span>
+                </div>
+            </article>
+
+            <!-- Schalldämpfer -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="waffenmods">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-volume-xmark" style="font-size: 2.3rem; color: #64748b;" aria-hidden="true"></i>
+                    <span>Lautst&auml;rke &bull; Stealth</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Schalld&auml;mpfer (Mod)</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Waffenmodifikationen</span>
+                </div>
+                <p class="recipe-description">
+                    Gewindeter Schalld&auml;mpfer aus Stahl und Glasfaser. Reduziert Schussger&auml;usch um 80% und verhindert, dass Zombie-Horden alarmiert werden. Bauplan selten, Haltbarkeit begrenzt (50 Sch&uuml;sse).
+                </p>
+                <div>
+                    <div class="recipe-section-title">Mod-Details</div>
+                    <ul class="recipe-materials">
+                        <li>Mod-Slot <span>Lauf (Muzzle)</span></li>
+                        <li>Kompatibel <span>pistol, smg, rifle (Gewinde n&ouml;tig)</span></li>
+                        <li>Effekt <span>Lautst&auml;rke -80%, Zombie-Alarm -90%</span></li>
+                        <li>Haltbarkeit <span>50 Sch&uuml;sse, dann zerst&ouml;rt</span></li>
+                        <li>Codex-ID <span>weapon_mod_suppressor</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Lauf-Slot</span>
+                    <span class="tool-badge">Stealth-Build</span>
+                    <span class="tool-badge">50 Schuss Haltbarkeit</span>
+                </div>
+            </article>
+
+            <!-- Laserpointer -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="waffenmods">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-dot-circle" style="font-size: 2.3rem; color: #f43f5e;" aria-hidden="true"></i>
+                    <span>Zielger&auml;t &bull; Nahkampf</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Taktischer Laserpointer (Mod)</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Waffenmodifikationen</span>
+                </div>
+                <p class="recipe-description">
+                    Roter Infrarot-Laserpointer am Unterl&auml;ufs-Schienensystem. Verbessert Hipping-Genauigkeit erheblich und gibt bei Nacht einen taktischen Vorteil. Kompatibel mit fast allen Schusswaffen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Mod-Details</div>
+                    <ul class="recipe-materials">
+                        <li>Mod-Slot <span>Unterl&auml;uf (Rail-Mount)</span></li>
+                        <li>Kompatibel <span>pistol, shotgun, rifle, smg</span></li>
+                        <li>Effekt <span>Hip-Fire Streuung -25%, Nachttreffer +15%</span></li>
+                        <li>Codex-ID <span>weapon_mod_laser</span></li>
+                        <li>Bauplan <span>Selten (Blau)</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Rail-Slot</span>
+                    <span class="tool-badge">Hip-Fire Boost</span>
+                    <span class="tool-badge">Batterie-Betrieb</span>
+                </div>
+            </article>
+
+            <!-- Erweitertes Magazin -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="waffenmods">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-database" style="font-size: 2.3rem; color: #fbbf24;" aria-hidden="true"></i>
+                    <span>Magazin &bull; Kapazit&auml;t</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Erweitertes Magazin (Mod)</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Waffenmodifikationen</span>
+                </div>
+                <p class="recipe-description">
+                    High-Capacity Magazin aus geh&auml;rtetem Stahl. Verdoppelt die Munitionskapazit&auml;t der Waffe, erh&ouml;ht aber Gewicht und Nachladezeit leicht. Muss zum Nachladen komplett gewechselt werden.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Mod-Details</div>
+                    <ul class="recipe-materials">
+                        <li>Mod-Slot <span>Magazin</span></li>
+                        <li>Kompatibel <span>pistol (9mm+), smg, rifle (5.56mm)</span></li>
+                        <li>Effekt <span>Magazin x2 (z.B. 30 statt 15 Schuss)</span></li>
+                        <li>Nachteil <span>Nachladezeit +0.5s, Gewicht +0.3kg</span></li>
+                        <li>Codex-ID <span>weapon_mod_extmag</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Magazin-Slot</span>
+                    <span class="tool-badge">Kapazit&auml;t x2</span>
+                    <span class="tool-badge">Werkbank Stufe 2</span>
+                </div>
+            </article>
+
+            <!-- Klappschaft / Schulterstütze -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="waffenmods">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-ruler-horizontal" style="font-size: 2.3rem; color: #78716c;" aria-hidden="true"></i>
+                    <span>Schaft &bull; Stabilit&auml;t</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Taktischer Klappschaft (Mod)</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Waffenmodifikationen</span>
+                </div>
+                <p class="recipe-description">
+                    Verstellbarer Metallschaft mit R&uuml;ckstoßd&auml;mpfer. Reduziert Waffenr&uuml;ckstoß erheblich und verbessert die Stabilit&auml;t beim automatischen Dauerfeuer. Ideal f&uuml;r Sturmgewehre und SMGs im Nahkampfbereich.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Mod-Details</div>
+                    <ul class="recipe-materials">
+                        <li>Mod-Slot <span>Schaft (Stock)</span></li>
+                        <li>Kompatibel <span>rifle, smg (nicht Pistolen)</span></li>
+                        <li>Effekt <span>R&uuml;ckstoß -35%, ADS-Stabi +20%</span></li>
+                        <li>Codex-ID <span>weapon_mod_stock</span></li>
+                        <li>Bauplan <span>Ungew&ouml;hnlich (Gr&uuml;n)</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Schaft-Slot</span>
+                    <span class="tool-badge">R&uuml;ckstoß -35%</span>
+                    <span class="tool-badge">Vollautomatik-Build</span>
+                </div>
+            </article>
+
+            <!-- === REPARATUR & UPGRADE === -->
+
+            <!-- Waffen-Reparatur System -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="reparatur">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-screwdriver-wrench" style="font-size: 2.3rem; color: #f97316;" aria-hidden="true"></i>
+                    <span>Reparatur &bull; System</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Waffenreparatur-System</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Reparatur &amp; Upgrade</span>
+                </div>
+                <p class="recipe-description">
+                    Alle Waffen haben eine Haltbarkeit (0&ndash;100%). Unter 30% verschlechtert sich Genauigkeit und Schaden. Unter 10% k&ouml;nnen Waffen klemmen (Steckerfehl-Zufallsereignis). Reparatur erfolgt an Werkbank oder Reparaturtisch mit Rohstoffen.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Reparatur-Kosten (je Waffentyp)</div>
+                    <ul class="recipe-materials">
+                        <li>Nahkampfwaffe <span>2x Metallteile + 1x Schrauben</span></li>
+                        <li>Pistole / Schrotflinte <span>3x Metallplatte + 1x Öl</span></li>
+                        <li>Gewehr / SMG <span>4x Metallplatte + 1x Waffenöl + 1x Feder</span></li>
+                        <li>Scharfsch&uuml;tze <span>6x Metallplatte + 2x Waffenöl + Bauplan</span></li>
+                        <li>Codex-ID <span>action_repair_weapon(weapon_id, materials[])</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Werkbank Stufe 1+</span>
+                    <span class="tool-badge">Haltbarkeit 0&ndash;100%</span>
+                    <span class="tool-badge">Klemmrisiko &lt;10%</span>
+                </div>
+            </article>
+
+            <!-- Upgrade: Waffenstufe -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="reparatur">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-arrow-trend-up" style="font-size: 2.3rem; color: #22c55e;" aria-hidden="true"></i>
+                    <span>Upgrade &bull; Progression</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Waffen-Upgrade (Qualit&auml;tsstufen)</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Reparatur &amp; Upgrade</span>
+                </div>
+                <p class="recipe-description">
+                    Waffen k&ouml;nnen in 3 Qualit&auml;tsstufen vorliegen: Standard (wei&szlig;), Verbessert (gr&uuml;n), Milit&auml;rgrad (blau). Jede Stufe schaltet mehr Mod-Slots frei und erh&ouml;ht Basiswerte. Upgrade erfolgt am Reparaturtisch mit seltenen Materialien und epischem Bauplan.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Qualit&auml;tsstufen</div>
+                    <ul class="recipe-materials">
+                        <li><span style="color:#e2e8f0;">&#11044;</span> Standard <span>1 Mod-Slot, Basiswerte</span></li>
+                        <li><span style="color:#22c55e;">&#11044;</span> Verbessert <span>2 Mod-Slots, +15% Schaden &amp; Haltbarkeit</span></li>
+                        <li><span style="color:#3b82f6;">&#11044;</span> Milit&auml;rgrad <span>3 Mod-Slots, +30% alle Werte, seltener Loot</span></li>
+                        <li>Upgrade <span>Reparaturtisch + Metallplatte (x6) + Bauplan</span></li>
+                        <li>Codex-ID <span>weapon.quality: 1|2|3, weapon.modSlots: int</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Reparaturtisch</span>
+                    <span class="tool-badge">3 Qualit&auml;tsstufen</span>
+                    <span class="tool-badge">Bauplan ab Stufe 2</span>
+                </div>
+            </article>
+
+            <!-- Mod-Slots & Kompatibilitäts-Übersicht -->
+            <article class="recipe-card" data-main-cat="crafting" data-sub-cat="reparatur">
+                <div class="recipe-image-slot">
+                    <i class="fa-solid fa-table-list" style="font-size: 2.3rem; color: #38bdf8;" aria-hidden="true"></i>
+                    <span>Referenz &bull; Codex</span>
+                </div>
+                <div class="recipe-header">
+                    <h3>Mod-Slot Kompatibilit&auml;ts-Referenz</h3>
+                    <span class="recipe-category">Crafting &amp; Systeme &bull; Reparatur &amp; Upgrade</span>
+                </div>
+                <p class="recipe-description">
+                    &Uuml;bersicht aller Waffenklassen und ihrer verf&uuml;gbaren Mod-Slots. Jede Waffenklasse hat festgelegte Slots. Mods k&ouml;nnen nur eingebaut werden, wenn der passende Slot verf&uuml;gbar und freigeschaltet ist.
+                </p>
+                <div>
+                    <div class="recipe-section-title">Waffentypen &amp; verf&uuml;gbare Slots</div>
+                    <ul class="recipe-materials">
+                        <li>pistol <span>Optik (Red-Dot), Lauf, Rail</span></li>
+                        <li>shotgun <span>Optik, Lauf, Magazin</span></li>
+                        <li>smg <span>Optik (4x), Lauf, Rail, Magazin, Schaft</span></li>
+                        <li>rifle <span>Optik (4x/8x), Lauf, Rail, Magazin, Schaft</span></li>
+                        <li>sniper <span>Optik (8x), Lauf, Bipod, Schaft</span></li>
+                        <li>melee <span>Griff-Tape (Schaden+5%), Gewicht-Mod</span></li>
+                    </ul>
+                </div>
+                <div class="recipe-tools">
+                    <span class="tool-badge">Codex-Referenz: weapon_slots</span>
+                    <span class="tool-badge">weapon.class + mod.compatibleWith[]</span>
+                    <span class="tool-badge">Systemreferenz</span>
+                </div>
+            </article>
+
         </div>
         </div> <!-- /#rezepte -->
 
@@ -3047,6 +3563,13 @@
             { id: 'all', label: 'Alle Abwehr' },
             { id: 'fallen', label: 'Fallen' },
             { id: 'territorium', label: 'Territorium' }
+        ],
+        'crafting': [
+            { id: 'all', label: 'Alle Systeme' },
+            { id: 'blueprints', label: 'Baupl&auml;ne &amp; Freischaltung' },
+            { id: 'rohstoffe', label: 'Rohmaterialien' },
+            { id: 'waffenmods', label: 'Waffenmodifikationen' },
+            { id: 'reparatur', label: 'Reparatur &amp; Upgrade' }
         ]
     };
 
