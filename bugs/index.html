@@ -16,6 +16,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        .feedback-notice {
+            background: rgba(231, 196, 90, 0.07);
+            border: 1px solid rgba(231, 196, 90, 0.28);
+            border-left: 4px solid var(--gold, #e7c45a);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin: 0 auto 36px;
+            max-width: 100%;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .feedback-notice i {
+            color: var(--gold, #e7c45a);
+            font-size: 22px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        .feedback-notice-content {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .feedback-notice-content strong {
+            color: #e5ede4;
+            font-size: 0.98rem;
+            letter-spacing: 0.02em;
+        }
+        .feedback-notice-content p {
+            margin: 0;
+            color: #bdcebf;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+        @media (max-width: 600px) {
+            .feedback-notice {
+                padding: 14px 16px;
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+            .feedback-notice i {
+                font-size: 18px;
+            }
+            .feedback-notice-content p {
+                font-size: 0.88rem;
+            }
+        }
+    </style>
 </head>
 <body class="feedback-page">
     <header class="header">
@@ -49,6 +98,14 @@
 
         <section class="section feedback-section" aria-label="Bugs und Ideen einreichen">
             <div class="container">
+                <aside class="feedback-notice" aria-label="Hinweis zum Entwicklungsstand">
+                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                    <div class="feedback-notice-content">
+                        <strong>Hinweis zum aktuellen Entwicklungsstand</strong>
+                        <p>Zombieh&ouml;lle wird aktuell umfassend &uuml;berarbeitet &ndash; &auml;ltere Meldungen wurden deshalb zur&uuml;ckgesetzt. Neue Bugs und Ideen k&ouml;nnen weiterhin jederzeit eingereicht werden. Angenommene Bugs und Vorschl&auml;ge werden aus der &ouml;ffentlichen Liste entfernt, sobald sie in die Entwicklung &uuml;bernommen bzw. abgearbeitet werden.</p>
+                    </div>
+                </aside>
+
                 <div class="feedback-grid">
                     <section class="feedback-column feedback-column-bugs" aria-labelledby="bug-form-title">
                         <div class="feedback-column-heading">
@@ -148,6 +205,6 @@
 
     <script src="../assets/js/visitor-counter.js?v=20260910-online"></script>
     <script src="../assets/js/main.js?v=20260910-nav"></script>
-    <script src="../assets/js/bugs.js?v=20260813-feedback"></script>
+    <script src="../assets/js/bugs.js?v=20260930-feedback"></script>
 </body>
 </html>
