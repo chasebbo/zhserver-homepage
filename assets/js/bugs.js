@@ -24,9 +24,10 @@ function normaliseDescription(value) {
 
 function messageForError(error) {
     const message = String(error?.message || "");
-    if (message.includes("gerade bereits gesendet")) return "Dieser Eintrag wurde gerade bereits gesendet.";
-    if (message.includes("Bitte prüfe") || message.includes("Ungültig")) return message;
-    return "Die Meldung konnte gerade nicht gespeichert werden. Bitte versuche es erneut.";
+    if (error?.i18nKey) return error.i18nKey;
+    if (message.includes("gerade bereits gesendet")) return "feedback.error.duplicate";
+    if (message.includes("Bitte prüfe") || message.includes("Ungültig")) return "feedback.invalid";
+    return "feedback.error.save";
 }
 
 function statusClass(status) {
@@ -60,7 +61,8 @@ function buildFeedbackCard(entry) {
 
     const meta = document.createElement("div");
     meta.className = "feedback-card-meta";
-    appendText(meta, "span", "feedback-id", feedbackId(entry));
+    const id = appendText(meta, "span", "feedback-id", feedbackId(entry));
+    if (entry.type === "idea") ZHLanguage.bind(id, "feedback.id.idea", { id: String(entry.id).padStart(4, "0") });
     appendText(meta, "span", "feedback-category", entry.category);
     appendText(meta, "span", `feedback-status status-${statusClass(entry.status)}`, entry.status);
     card.append(meta);
@@ -72,10 +74,10 @@ function buildFeedbackCard(entry) {
         const screenshotButton = document.createElement("button");
         screenshotButton.type = "button";
         screenshotButton.className = "feedback-screenshot-thumb";
-        screenshotButton.setAttribute("aria-label", `Screenshot zu ${entry.title} vergrößern`);
+        ZHLanguage.bind(screenshotButton, "feedback.screenshot.open", { title: entry.title }, "aria-label");
         const image = document.createElement("img");
         image.src = screenshotUrl(entry.screenshot_path);
-        image.alt = `Screenshot zu ${entry.title}`;
+        ZHLanguage.bind(image, "feedback.screenshot.alt", { title: entry.title }, "alt");
         image.loading = "lazy";
         screenshotButton.append(image);
         screenshotButton.addEventListener("click", () => openLightbox(image.src, image.alt));
@@ -84,8 +86,9 @@ function buildFeedbackCard(entry) {
 
     const footer = document.createElement("footer");
     footer.className = "feedback-card-footer";
-    appendText(footer, "span", "", `von ${entry.player_name}`);
-    appendText(footer, "time", "", new Date(entry.created_at).toLocaleString("de-DE"));
+    ZHLanguage.bind(appendText(footer, "span", "", ""), "feedback.author", { name: entry.player_name });
+    const date = appendText(footer, "time", "", new Date(entry.created_at).toLocaleString(ZHLanguage.locale));
+    date.dataset.i18nDatetime = entry.created_at;
     card.append(footer);
     return card;
 }
@@ -141,10 +144,14 @@ function validateScreenshot(file) {
     const extension = file.name.split(".").pop()?.toLowerCase();
     const mappedExtension = allowedScreenshots.get(file.type);
     if (!mappedExtension || !["png", "jpg", "jpeg", "webp"].includes(extension)) {
-        throw new Error("Bitte nur PNG-, JPG- oder WebP-Screenshots auswählen.");
+        const error = new Error("Bitte nur PNG-, JPG- oder WebP-Screenshots auswählen.");
+        error.i18nKey = "feedback.screenshot.type";
+        throw error;
     }
     if (file.size > MAX_SCREENSHOT_BYTES) {
-        throw new Error("Der Screenshot darf maximal 5 MB groß sein.");
+        const error = new Error("Der Screenshot darf maximal 5 MB groß sein.");
+        error.i18nKey = "feedback.screenshot.size";
+        throw error;
     }
     return mappedExtension;
 }
@@ -176,13 +183,13 @@ function bindFeedbackForm(type) {
         const title = normaliseSingleLine(form.elements.title.value);
         const description = normaliseDescription(form.elements.description.value);
         if (playerName.length < 2 || !category || title.length < 3 || description.length < 10) {
-            status.textContent = "Bitte fülle alle Pflichtfelder vollständig aus.";
+            ZHLanguage.bind(status, "feedback.required");
             status.className = "feedback-form-status is-error";
             return;
         }
 
         submitButton.disabled = true;
-        status.textContent = "Wird gespeichert …";
+        ZHLanguage.bind(status, "feedback.saving");
         status.className = "feedback-form-status";
         try {
             const screenshotField = form.elements.screenshot;
@@ -198,12 +205,12 @@ function bindFeedbackForm(type) {
             if (error) throw error;
             submissionTimes[type] = Date.now();
             form.reset();
-            status.textContent = type === "bug" ? "Bug wurde veröffentlicht." : "Idee wurde veröffentlicht.";
+            ZHLanguage.bind(status, type === "bug" ? "feedback.published.bug" : "feedback.published.idea");
             status.className = "feedback-form-status is-success";
             await loadFeedback(type);
         } catch (error) {
             console.error("Feedback submission failed", error);
-            status.textContent = messageForError(error);
+            ZHLanguage.bind(status, messageForError(error), { detail: String(error?.message || "") });
             status.className = "feedback-form-status is-error";
         } finally {
             submitButton.disabled = false;

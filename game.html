@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-homepage-i18n>
 
 <head>
     <meta charset="UTF-8">
@@ -14,20 +14,28 @@
     <link rel="manifest" href="site.webmanifest">
 
     <link rel="stylesheet" href="assets/css/style.css?v=20260910-nav">
+    <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en">
+    <link rel="stylesheet" href="assets/css/game-page.css?v=20260930-product">
+    <script src="assets/js/translations.js?v=20261001-milestone"></script>
+    <script src="assets/js/i18n.js?v=20260930-then-now"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="game-product-page">
 
 <header class="header">
     <div class="container">
         <nav class="navbar">
             <a href="index.html" class="logo">ZHServer.de / Zombiehölle.de</a>
 
-            <button class="menu-toggle" id="menu-toggle" aria-label="Menü öffnen">
+            <div class="language-switcher" role="group" aria-label="Sprache wählen">
+                <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
+                <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
+            </div>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Menü öffnen">
                 &#9776;
             </button>
 
@@ -37,7 +45,7 @@
                 <li><a href="index.html#timeline">Timeline</a></li>
                 <li><a href="gallery.html">Galerie</a></li>
                 <li><a href="wiki.html">Wiki</a></li>
-                <li><a href="game.html" class="nav-game-link" aria-current="page">SPIELEN</a></li>
+                <li><a href="game.html" class="nav-game-link" aria-current="page">SPIEL</a></li>
                 <li><a href="bugs/index.html" data-bugs-route>BUGS / IDEEN</a></li>
                 <li><a href="index.html#guestbook">Gästebuch</a></li>
                 <li><a href="index.html#forum">Community</a></li>
@@ -46,330 +54,109 @@
     </div>
 </header>
 
-<main class="game-page">
-    <section class="section game-section">
-        <div class="container center">
-            <header class="survival-game-hero">
-                <div class="game-solo-badge-wrap">
-                    <span class="game-solo-badge"><i class="fa-solid fa-code" aria-hidden="true"></i> SOLO-INDIE-PROJEKT &bull; FR&Uuml;HE ALPHA</span>
-                </div>
-                <h1 class="game-page-title">Zombieh&ouml;lle Survival</h1>
-                <p class="game-hero-tagline">ZOMBIEH&Ouml;LLE &ndash; IN 2D.</p>
-                <div class="game-status-grid" aria-live="polite" aria-label="Aktueller Spielstatus">
-
-                    <article class="game-status-card game-reg-card">
-                        <span>REGISTRIERTE SPIELER</span>
-                        <strong id="registered-player-count" style="display: none;">--</strong>
-                        <div class="compact-recent-header">ZULETZT REGISTRIERT</div>
-                        <div id="recent-player-list" class="recent-player-list">
-                            <span class="recent-loading">Lade neue Spieler &hellip;</span>
+<main class="game-page game-section">
+    <section id="game-intro" class="game-product-hero" aria-labelledby="game-title">
+    <div class="game-hero-copy">
+        <span class="game-kicker">EIGENSTÄNDIGES MULTIPLAYER-SURVIVAL</span>
+        <h1 id="game-title" class="game-page-title">ZOMBIEHÖLLE SURVIVAL</h1>
+        <p class="game-hero-description">Ein eigenständiges 2D-Multiplayer-Survival-Spiel, entstanden aus der früheren Zombiehölle-Community rund um Arma 2 DayZ.</p>
+        <div class="game-public-status"><span class="game-state"><span class="game-state-dot" aria-hidden="true"></span>AKTUELL IN ENTWICKLUNG</span><strong>NÄCHSTER TESTLAUF AB 24.10.</strong></div>
+        <p class="game-public-notice"><i class="fa-solid fa-lock" aria-hidden="true"></i> Das Spiel ist derzeit nicht öffentlich erreichbar.</p>
+        <div class="game-product-actions"><a class="btn btn-gold" href="#game-overview">Das Spiel entdecken <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a><a class="btn btn-outline" href="#spiel-wartung">Zum nächsten Testlauf</a></div>
+        <span class="game-hero-alpha"><span>ALPHA 0.2.3</span> · <span>Lokaler Umbau in Arbeit</span></span>
+    </div>
+    <figure class="game-hero-art"><img src="assets/images/roadmap-grafik-ui-zielrichtung.png" alt="" aria-hidden="true" width="1672" height="941"><figcaption>Konzept / visuelle Zielrichtung</figcaption></figure>
+</section>
+<nav class="game-section-nav" aria-label="Bereiche der Spielseite">
+    <a href="#game-overview">Überblick</a><a href="#game-features">Features</a><a href="#game-visuals">Bilder</a><a href="#development">Entwicklung</a><a href="#game-roadmap">Roadmap</a><a href="#community-voting">Abstimmung</a><a href="#changelog">Changelog</a>
+</nav>
+    <section id="game-overview" class="game-chapter" aria-labelledby="game-overview-title">
+        <span class="game-kicker"><span aria-hidden="true">01 /</span> <span>DAS SPIEL</span></span>
+        <div class="game-overview-heading"><h2 id="game-overview-title">Überleben. Erkunden. Gemeinsam bauen.</h2><p>Verlassene Städte, knappe Vorräte und Zombies: Zombiehölle Survival verbindet Erkundung und Überleben mit einer Online-Welt, in der du deinen eigenen Platz aufbauen kannst.</p></div>
+        <details class="game-origin-details"><summary>Die Verbindung zur früheren Community</summary><div class="game-origin-story">
+                    <span class="game-overview-kicker">SOLO-DEVELOPMENT &bull; DIE GESCHICHTE DAHINTER</span>
+                    <h3>VOM DAYZ-SERVER ZUM EIGENEN 2D-SURVIVAL-SPIEL</h3>
+                    <p>Zombieh&ouml;lle war von 2013 bis 2016 eine eigene Servercommunity rund um DayZ und Arma. Heute baue ich diese Welt als unabh&auml;ngiges 2D-Multiplayer-Survival-Spiel komplett alleine weiter aus &ndash; mit dem n&auml;chsten gro&szlig;en Testlauf am 24. Oktober und dem langfristigen Ziel eines eigenst&auml;ndigen Releases auf Steam.</p>
+                    <p>Du erkundest verlassene St&auml;dte, k&auml;mpfst gegen Zombies, sammelst Loot, f&auml;hrst Fahrzeuge und baust gemeinsam deine Basis auf. Die Welt wird stetig erweitert &ndash; jedes Feedback und jeder gefundene Bug helfen direkt bei den kommenden Patches.</p>
+                </div><a class="game-text-link" href="index.html#history">Geschichte entdecken <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></details>
+    </section>
+    <section id="game-features" class="game-chapter" aria-labelledby="game-features-title">
+        <span class="game-kicker"><span aria-hidden="true">02 /</span> <span>SPIELWELT &amp; MÖGLICHKEITEN</span></span>
+        <h2 id="game-features-title">Was dich in der Alpha erwartet.</h2>
+        <ul class="survival-features"><li><span class="survival-feature-number" aria-hidden="true">01</span><div><h3>Online Multiplayer</h3><p>Gemeinsam überleben, Gruppen bilden und über den Chat in Verbindung bleiben.</p></div></li>
+<li><span class="survival-feature-number" aria-hidden="true">02</span><div><h3>Basenbau</h3><p>Eigene Basen mit geschützten Bauzonen und Basisstufen aufbauen. Das modulare Bausystem wird gerade erweitert.</p></div></li>
+<li><span class="survival-feature-number" aria-hidden="true">03</span><div><h3>Loot &amp; Ausrüstung</h3><p>Orte durchsuchen, Vorräte sammeln und das Inventar für den nächsten Ausflug vorbereiten.</p></div></li>
+<li><span class="survival-feature-number" aria-hidden="true">04</span><div><h3>Fahrzeuge</h3><p>Erste Fahrzeuge finden und reparieren, um weitere Teile der Welt zu erkunden.</p></div></li>
+<li><span class="survival-feature-number" aria-hidden="true">05</span><div><h3>Zombies &amp; Überleben</h3><p>Verlassene Orte erkunden, gegen Zombies kämpfen und mit den gefundenen Ressourcen auskommen.</p></div></li>
+<li><span class="survival-feature-number" aria-hidden="true">06</span><div><h3>Persistente Welt</h3><p>Charakter und Fortschritt bleiben gespeichert. Die Online-Welt verbindet Erkundung und gemeinsames Bauen.</p></div></li>
+<li><span class="survival-feature-number" aria-hidden="true">07</span><div><h3>Community-Entwicklung</h3><p>Feedback, Fehlermeldungen und Abstimmungen helfen, die nächsten Schritte sinnvoll zu setzen.</p></div></li></ul>
+        <details class="game-foundation-details"><summary>Grundlagen der bisherigen Alpha ansehen</summary><article class="game-feature-card game-feature-playable">
+                        <span class="game-overview-kicker">GRUNDLAGEN DER BISHERIGEN ALPHA</span>
+                        <div class="game-feature-columns">
+                            <div><strong>WELT &amp; &Uuml;BERLEBEN</strong><ul><li>Online-Spielwelt mit gespeichertem Charakter</li><li>Zombies, Kampf, Loot und Inventar</li><li>Erkunden verschiedener Orte</li></ul></div>
+                            <div><strong>BASEN</strong><ul><li>Basenbau und gesch&uuml;tzte Bauzonen</li><li>Basisstufen und gemeinsames Bauen</li></ul></div>
+                            <div><strong>MULTIPLAYER</strong><ul><li>Gemeinsam spielen, Chat und Gruppen</li><li>Gespeicherter Fortschritt</li></ul></div>
+                            <div><strong>FAHRZEUGE</strong><ul><li>Erste Fahrzeuge und Reparaturen</li><li>Erkundung mit Fahrzeugen</li></ul></div>
                         </div>
-                    </article>
-
-                    <article class="game-status-card game-changelog-card">
-                        <span>VERSION</span>
-                        <strong>ALPHA 0.2.3</strong>
-                        <div class="compact-changelog-header">LETZTE &Auml;NDERUNGEN</div>
-                        <div id="compact-changelog-list" class="compact-changelog-list">
-                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Bausystem stark erweitert: Neue Mauern und passende Ecken</span></div>
-                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Neue Fensterw&auml;nde f&uuml;r abwechslungsreichere Geb&auml;ude</span></div>
-                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Werkbank und Lagerkisten &uuml;berarbeitet und eingef&uuml;gt</span></div>
-                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Neue Adminbasis / Safezone als sicherer Ort in Vorbereitung</span></div>
-                        </div>
-                    </article>
-
-                    <article class="game-status-card game-dev-card">
-                        <span>ENTWICKLUNG</span>
-                        <strong class="status-active-strong"><span class="status-dot-orange" aria-hidden="true"></span>IN &Uuml;BERARBEITUNG</strong>
-                        <div class="compact-dev-next">
-                            <span class="compact-dev-kicker">N&Auml;CHSTER TESTLAUF: 24. OKTOBER</span>
-                            <div class="compact-dev-list">
-                                <div>- Bausystem stark erweitern</div>
-                                <div>- Neue Mauern, Ecken &amp; Fensterw&auml;nde</div>
-                                <div>- Werkbank, Kisten &amp; Safezone</div>
-                                <div>- Sch&ouml;nere Grafiken f&uuml;r St&auml;dte &amp; Welt</div>
-                            </div>
-                            <div class="game-progress-wrapper">
-                                <div class="game-progress-labels">
-                                    <span>Alpha 0.2.3 &bull; 4/20</span>
-                                    <span>Playtest 24.10.</span>
-                                </div>
-                                <div class="game-progress-bar" aria-label="Fortschritt: 4 von 20 Punkten (20%)">
-                                    <div class="game-progress-fill" style="width: 20%;"></div>
-                                </div>
-                                <span class="game-progress-sub">4 von 20 Punkten f&uuml;r Alpha 0.2.3</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="game-status-card game-top5-card">
-                        <span>TOP 5 SPIELER</span>
-                        <div id="top5-player-list" class="top5-player-list">
-                            <span class="top5-loading">Lade Top 5 &hellip;</span>
-                        </div>
-                    </article>
+                    </article></details>
+    </section>
+    <section id="game-visuals" class="game-chapter" aria-labelledby="game-visuals-title">
+        <span class="game-kicker"><span aria-hidden="true">03 /</span> <span>EIN BLICK IN DIE WELT</span></span>
+        <h2 id="game-visuals-title">Spielstand &amp; visuelle Zielrichtung.</h2>
+        <div class="game-visual-layout"><aside class="game-current-state"><span class="game-state-label">AKTUELLER SPIELSTAND</span><h3>Die Alpha wird weiterentwickelt.</h3><p>Die bisherige Web-Alpha bildet die Grundlage. Neue Weltgrafiken, modulare Bauteile und die Safezone entstehen im lokalen Entwicklungsstand; dieser Umbau ist noch nicht als neuer Webbuild veröffentlicht.</p><p>Ein aktueller Gameplay-Screenshot ist hier noch nicht hinterlegt. Das Konzeptbild daneben zeigt die geplante Richtung, nicht den derzeitigen Spielstand.</p><a class="game-text-link" href="#development">Entwicklung ansehen <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a></aside><article id="roadmap-graphics-ui-card" class="game-roadmap-vision-card" hidden>
+                            <h3>Konzept / visuelle Zielrichtung</h3>
+                            <button id="roadmap-graphics-ui-preview" class="game-roadmap-vision-preview" type="button" aria-haspopup="dialog" aria-label="Konzeptgrafik Grafik und UI gro&szlig; anzeigen">
+                                <img id="roadmap-graphics-ui-image" data-src="assets/images/roadmap-grafik-ui-zielrichtung.png" alt="Konzeptgrafik zur geplanten Grafik und Benutzeroberfläche von Zombiehölle Survival">
+                                <span class="game-roadmap-vision-zoom"><i class="fa-solid fa-expand" aria-hidden="true"></i> VERGR&Ouml;SSERN</span>
+                            </button>
+                        <p class="game-concept-caption">Diese Konzeptgrafik zeigt die visuelle Zielrichtung. Sie ist kein Screenshot des aktuellen Spielstands.</p></article></div>
+        <div id="roadmap-graphics-ui-lightbox" class="game-roadmap-vision-lightbox" role="dialog" aria-modal="true" aria-label="Konzeptgrafik Grafik und UI" hidden>
+                    <button id="roadmap-graphics-ui-lightbox-close" class="game-roadmap-vision-lightbox-close" type="button" aria-label="Konzeptgrafik schlie&szlig;en">&times;</button>
+                    <img id="roadmap-graphics-ui-lightbox-image" alt="">
                 </div>
-                <div class="game-hero-actions">
-                    <a class="btn game-play-cta btn-pause" href="#spiel-starten">TESTLAUF AB 24. OKTOBER</a>
-                    <a class="btn game-fullscreen-button" id="game-hero-btn-idea" href="bugs/index.html" data-bugs-route>IDEE EINREICHEN</a>
-                    <button id="game-fullscreen" type="button" class="btn game-fullscreen-button" style="display: none;">VOLLBILD</button>
-                    <span id="fullscreen-message" class="fullscreen-message" role="status" aria-live="polite"></span>
-                </div>
-                <div class="game-hero-subnav">
-                    <a class="btn-subnav" href="bugs/index.html" data-bugs-route><i class="fa-regular fa-lightbulb" aria-hidden="true"></i> BUGS / IDEEN</a>
-                    <a class="btn-subnav" href="#changelog"><i class="fa-solid fa-list-ul" aria-hidden="true"></i> CHANGELOG</a>
-                    <a class="btn-subnav" href="#zukunftsvisionen"><i class="fa-solid fa-compass" aria-hidden="true"></i> ZUKUNFTSVISIONEN</a>
-                    <a class="btn-subnav" href="wiki.html"><i class="fa-solid fa-book" aria-hidden="true"></i> WIKI</a>
-                </div>
-                <p class="game-mobile-hint">Am besten im Querformat spielen. Links laufen, rechts feuern; E durchsucht, INV &ouml;ffnet das Inventar.</p>
-            </header>
+    </section>
+    <section id="development" class="game-chapter" aria-labelledby="development-title">
+        <span class="game-kicker"><span aria-hidden="true">04 /</span> <span>AKTUELLER ENTWICKLUNGSSTAND</span></span>
+        <h2 id="development-title">Was gerade entsteht.</h2>
+        <p class="game-chapter-lead">Weltgrafik, modulare Gebäude und Basenbau stehen im Mittelpunkt. Die Arbeiten werden für den nächsten öffentlichen Testlauf am 24. Oktober vorbereitet.</p>
+        <div class="game-development-grid"><div class="pulse-card pulse-dev-radar">
 
-            <!-- ================= SPIELBEREICH & STEUERUNG ================= -->
-            <div class="game-controls-bar" aria-label="Tastenbelegung und Steuerung">
-                <div class="game-controls-title"><i class="fa-solid fa-gamepad" aria-hidden="true"></i> STEUERUNG:</div>
-                <div class="game-controls-keys">
-                    <span class="key-badge"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Laufen</span>
-                    <span class="key-badge"><kbd><i class="fa-solid fa-mouse"></i></kbd> Zielen &amp; Schlagen</span>
-                    <span class="key-badge"><kbd>E</kbd> Durchsuchen</span>
-                    <span class="key-badge"><kbd>I</kbd> Inventar</span>
-                    <span class="key-badge"><kbd>B</kbd> Baumen&uuml;</span>
-                    <span class="key-badge"><kbd>M</kbd> Karte</span>
-                    <span class="key-badge"><kbd>G</kbd> Gruppe</span>
+                <div class="pulse-badge-header">
+                    <span class="pulse-live-indicator"><span class="pulse-dot"></span> DEV-TICKER</span>
+                    <span class="pulse-version-pill">ALPHA 0.2.3</span>
                 </div>
-                <a href="wiki.html#baumenue" class="game-controls-wiki-link"><i class="fa-solid fa-book" aria-hidden="true"></i> Bausystem-Wiki</a>
-            </div>
 
-            <!-- ================= WARTUNG & NAECHSTER TESTLAUF ================= -->
-            <!-- ================= WARTUNG & NAECHSTER TESTLAUF ================= -->
-            <div id="spiel-wartung" class="game-maintenance-box tactical-terminal">
-                <div class="terminal-scanline" aria-hidden="true"></div>
+                <h3>Entwicklungs-Status</h3>
 
-                <!-- Terminal Header Bar -->
-                <div class="terminal-topbar">
-                    <div class="terminal-status-pill">
-                        <span class="terminal-blink-dot" aria-hidden="true"></span>
-                        <span>STATUS: CODE-OVERHAUL // ALPHA 0.2.3</span>
+                <p class="pulse-lead">
+                    Ich &uuml;berarbeite das Spiel aktuell anhand der bisher gesammelten Punkte und Bugs. N&auml;chster 2-monatiger Testlauf: <strong>24. Oktober</strong>.
+                </p>
+
+                <div class="pulse-progress-box">
+                    <div class="pulse-progress-labels">
+                        <span>Alpha 0.2.3 &bull; 14/20 Punkte</span>
+                        <strong class="pulse-gold">Noch 6 Punkte bis 0.2.4</strong>
                     </div>
-                    <span class="terminal-version-tag">SOLO INDIE-DEV // ZOMBIEHOELLE</span>
-                </div>
-
-                <!-- Main Title & Kicker -->
-                <div class="terminal-title-wrap">
-                    <span class="terminal-kicker">ZWEITE TESTPHASE IN VORBEREITUNG</span>
-                    <h2 class="terminal-heading">Zweiter Playtest startet in</h2>
-                </div>
-
-                <!-- Live Countdown HUD -->
-                <div class="terminal-countdown" id="terminal-countdown" aria-label="Countdown bis zum Testlauf am 24. Oktober">
-                    <div class="countdown-unit">
-                        <div class="countdown-val" id="countdown-days">--</div>
-                        <div class="countdown-lbl">TAGE</div>
-                    </div>
-                    <div class="countdown-divider">:</div>
-                    <div class="countdown-unit">
-                        <div class="countdown-val" id="countdown-hours">--</div>
-                        <div class="countdown-lbl">STUNDEN</div>
-                    </div>
-                    <div class="countdown-divider">:</div>
-                    <div class="countdown-unit">
-                        <div class="countdown-val" id="countdown-minutes">--</div>
-                        <div class="countdown-lbl">MINUTEN</div>
-                    </div>
-                    <div class="countdown-divider">:</div>
-                    <div class="countdown-unit">
-                        <div class="countdown-val" id="countdown-seconds">--</div>
-                        <div class="countdown-lbl">SEKUNDEN</div>
+                    <div class="pulse-progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Fortschritt in Alpha 0.2.3: 14 von 20 Punkten">
+                        <div class="pulse-progress-fill" style="width: 70%;"></div>
                     </div>
                 </div>
 
-                <div class="terminal-target-date">
-                    <span>STARTTERMIN:</span> <strong>SAMSTAG, 24. OKTOBER 2026 &bull; 18:00 UHR</strong>
+                <div class="pulse-recent-patch">
+                    <span class="pulse-kicker"><i class="fa-solid fa-bolt" aria-hidden="true"></i> IM AKTUELLEN STAND:</span>
+                    <ul class="pulse-patch-list">
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> <strong>Bausystem stark erweitert:</strong> Neue Mauern, passende Ecken, Fensterw&auml;nde &amp; Werkbank</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> <strong>Sch&ouml;nere Spielwelt:</strong> St&auml;dte und Geb&auml;ude bekommen schrittweise neue Grafiken</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> <strong>Sichere Zone:</strong> Die neue Adminbasis / Safezone wird als Treffpunkt vorbereitet</li>
+                    </ul>
                 </div>
 
-                <!-- Retro Pixel Chase Animation & Countdown Progress -->
-                <div class="terminal-pixel-chase">
-                    <!-- Retro Pixel Countdown Progress Bar -->
-                    <div class="pixel-countdown-bar" data-target="2026-10-24T18:00:00+02:00" data-start="2026-08-24T00:00:00+02:00" aria-label="Fortschritt bis zum 24. Oktober">
-                        <div class="pixel-bar-header">
-                            <div class="pixel-bar-title">
-                                <span class="pixel-led-dot"></span>
-                                <span>PLAYTEST-START-FORTSCHRITT</span>
-                            </div>
-                            <div class="pixel-bar-stats">
-                                <span class="pixel-bar-percent">29%</span>
-                                <span class="pixel-bar-target">ZIEL: 24. OKTOBER 2026</span>
-                            </div>
-                        </div>
-                        <div class="pixel-bar-track" aria-hidden="true">
-                            <div class="pixel-box-segment is-filled"></div>
-                            <div class="pixel-box-segment is-filled"></div>
-                            <div class="pixel-box-segment is-filled"></div>
-                            <div class="pixel-box-segment is-filled"></div>
-                            <div class="pixel-box-segment is-filled"></div>
-                            <div class="pixel-box-segment is-filled"></div>
-                            <div class="pixel-box-segment is-filled is-pulse"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                            <div class="pixel-box-segment"></div>
-                        </div>
-                    </div>
-
-                    <div class="pixel-chase-track" aria-hidden="true">
-                        <!-- Phase 1: Zombie chases Human (Left -> Right) -->
-                        <div class="pixel-chase-runner-l2r">
-                            <!-- Zombie chasing behind -->
-                            <div class="pixel-entity pixel-zombie-wrap">
-                                <span class="pixel-bubble zombie-bubble">GRRR!</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="36" height="36" class="pixel-sprite" shape-rendering="crispEdges">
-                                    <rect x="3" y="0" width="3" height="1" fill="#1e293b"/>
-                                    <rect x="2" y="1" width="6" height="1" fill="#1e293b"/>
-                                    <rect x="2" y="2" width="6" height="1" fill="#22c55e"/>
-                                    <rect x="3" y="3" width="3" height="1" fill="#22c55e"/>
-                                    <rect x="6" y="3" width="1" height="1" fill="#ef4444"/>
-                                    <rect x="7" y="3" width="1" height="1" fill="#22c55e"/>
-                                    <rect x="3" y="4" width="5" height="1" fill="#22c55e"/>
-                                    <rect x="3" y="5" width="3" height="1" fill="#22c55e"/>
-                                    <rect x="6" y="5" width="2" height="1" fill="#052e16"/>
-                                    <rect x="2" y="6" width="6" height="1" fill="#854d0e"/>
-                                    <rect x="8" y="6" width="2" height="1" fill="#22c55e"/>
-                                    <rect x="2" y="7" width="6" height="1" fill="#854d0e"/>
-                                    <rect x="8" y="7" width="4" height="1" fill="#22c55e"/>
-                                    <rect x="2" y="8" width="6" height="1" fill="#854d0e"/>
-                                    <rect x="2" y="9" width="6" height="1" fill="#854d0e"/>
-                                    <rect x="3" y="10" width="4" height="1" fill="#475569"/>
-                                    <rect x="3" y="11" width="2" height="1" fill="#475569"/>
-                                    <rect x="6" y="11" width="2" height="1" fill="#475569"/>
-                                    <rect x="2" y="12" width="2" height="1" fill="#475569"/>
-                                    <rect x="7" y="12" width="2" height="1" fill="#475569"/>
-                                    <rect x="2" y="13" width="2" height="1" fill="#475569"/>
-                                    <rect x="7" y="13" width="2" height="1" fill="#475569"/>
-                                    <rect x="1" y="14" width="2" height="1" fill="#000000"/>
-                                    <rect x="8" y="14" width="2" height="1" fill="#000000"/>
-                                </svg>
-                            </div>
-                            <!-- Human running frantically ahead -->
-                            <div class="pixel-entity pixel-human-wrap">
-                                <span class="pixel-bubble human-bubble">AAAH!</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="36" height="36" class="pixel-sprite" shape-rendering="crispEdges">
-                                    <rect x="4" y="0" width="4" height="1" fill="#f59e0b"/>
-                                    <rect x="3" y="1" width="6" height="1" fill="#f59e0b"/>
-                                    <rect x="3" y="2" width="6" height="1" fill="#f59e0b"/>
-                                    <rect x="4" y="3" width="3" height="1" fill="#fed7aa"/>
-                                    <rect x="7" y="3" width="1" height="1" fill="#000000"/>
-                                    <rect x="4" y="4" width="4" height="1" fill="#fed7aa"/>
-                                    <rect x="4" y="5" width="4" height="1" fill="#fed7aa"/>
-                                    <rect x="3" y="6" width="6" height="1" fill="#2563eb"/>
-                                    <rect x="2" y="7" width="8" height="1" fill="#2563eb"/>
-                                    <rect x="1" y="8" width="2" height="1" fill="#2563eb"/>
-                                    <rect x="4" y="8" width="4" height="1" fill="#2563eb"/>
-                                    <rect x="10" y="8" width="1" height="1" fill="#2563eb"/>
-                                    <rect x="4" y="9" width="4" height="1" fill="#2563eb"/>
-                                    <rect x="4" y="10" width="4" height="1" fill="#1e293b"/>
-                                    <rect x="3" y="11" width="2" height="1" fill="#1e293b"/>
-                                    <rect x="7" y="11" width="2" height="1" fill="#1e293b"/>
-                                    <rect x="2" y="12" width="2" height="1" fill="#1e293b"/>
-                                    <rect x="8" y="12" width="2" height="1" fill="#1e293b"/>
-                                    <rect x="2" y="13" width="2" height="1" fill="#1e293b"/>
-                                    <rect x="8" y="13" width="2" height="1" fill="#1e293b"/>
-                                    <rect x="1" y="14" width="2" height="1" fill="#000000"/>
-                                    <rect x="9" y="14" width="2" height="1" fill="#000000"/>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <!-- Phase 2: Human with Axe chases Zombie (Right -> Left) -->
-                        <div class="pixel-chase-runner-r2l">
-                            <!-- Zombie panicking ahead -->
-                            <div class="pixel-entity pixel-zombie-wrap">
-                                <div class="pixel-sprite-flip">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="36" height="36" class="pixel-sprite" shape-rendering="crispEdges">
-                                        <rect x="3" y="0" width="3" height="1" fill="#1e293b"/>
-                                        <rect x="2" y="1" width="6" height="1" fill="#1e293b"/>
-                                        <rect x="2" y="2" width="6" height="1" fill="#22c55e"/>
-                                        <rect x="3" y="3" width="3" height="1" fill="#22c55e"/>
-                                        <rect x="6" y="3" width="1" height="1" fill="#ef4444"/>
-                                        <rect x="7" y="3" width="1" height="1" fill="#22c55e"/>
-                                        <rect x="3" y="4" width="5" height="1" fill="#22c55e"/>
-                                        <rect x="3" y="5" width="3" height="1" fill="#22c55e"/>
-                                        <rect x="6" y="5" width="2" height="1" fill="#052e16"/>
-                                        <rect x="2" y="6" width="6" height="1" fill="#854d0e"/>
-                                        <rect x="8" y="6" width="2" height="1" fill="#22c55e"/>
-                                        <rect x="2" y="7" width="6" height="1" fill="#854d0e"/>
-                                        <rect x="8" y="7" width="4" height="1" fill="#22c55e"/>
-                                        <rect x="2" y="8" width="6" height="1" fill="#854d0e"/>
-                                        <rect x="2" y="9" width="6" height="1" fill="#854d0e"/>
-                                        <rect x="3" y="10" width="4" height="1" fill="#475569"/>
-                                        <rect x="3" y="11" width="2" height="1" fill="#475569"/>
-                                        <rect x="6" y="11" width="2" height="1" fill="#475569"/>
-                                        <rect x="2" y="12" width="2" height="1" fill="#475569"/>
-                                        <rect x="7" y="12" width="2" height="1" fill="#475569"/>
-                                        <rect x="2" y="13" width="2" height="1" fill="#475569"/>
-                                        <rect x="7" y="13" width="2" height="1" fill="#475569"/>
-                                        <rect x="1" y="14" width="2" height="1" fill="#000000"/>
-                                        <rect x="8" y="14" width="2" height="1" fill="#000000"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <!-- Human with axe chasing behind -->
-                            <div class="pixel-entity pixel-human-axe-wrap">
-                                <div class="pixel-sprite-flip">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 16" width="45" height="36" class="pixel-sprite" shape-rendering="crispEdges">
-                                        <rect x="7" y="0" width="4" height="1" fill="#f59e0b"/>
-                                        <rect x="6" y="1" width="6" height="1" fill="#f59e0b"/>
-                                        <rect x="6" y="2" width="6" height="1" fill="#f59e0b"/>
-                                        <rect x="6" y="3" width="4" height="1" fill="#fed7aa"/>
-                                        <rect x="10" y="3" width="1" height="1" fill="#000000"/>
-                                        <rect x="6" y="4" width="5" height="1" fill="#fed7aa"/>
-                                        <rect x="7" y="5" width="4" height="1" fill="#fed7aa"/>
-                                        <rect x="6" y="6" width="6" height="1" fill="#2563eb"/>
-                                        <rect x="5" y="7" width="8" height="1" fill="#2563eb"/>
-                                        <rect x="6" y="8" width="6" height="1" fill="#2563eb"/>
-                                        <rect x="6" y="9" width="5" height="1" fill="#2563eb"/>
-                                        <rect x="11" y="6" width="2" height="2" fill="#2563eb"/>
-                                        <rect x="13" y="5" width="2" height="2" fill="#fed7aa"/>
-                                        <rect x="13" y="7" width="1" height="4" fill="#92400e"/>
-                                        <rect x="13" y="3" width="1" height="2" fill="#92400e"/>
-                                        <rect x="13" y="2" width="1" height="1" fill="#78350f"/>
-                                        <rect x="14" y="1" width="3" height="4" fill="#cbd5e1"/>
-                                        <rect x="17" y="1" width="1" height="4" fill="#94a3b8"/>
-                                        <rect x="15" y="0" width="2" height="1" fill="#64748b"/>
-                                        <rect x="15" y="5" width="2" height="1" fill="#64748b"/>
-                                        <rect x="17" y="2" width="1" height="2" fill="#ef4444"/>
-                                        <rect x="4" y="8" width="2" height="2" fill="#2563eb"/>
-                                        <rect x="6" y="10" width="5" height="1" fill="#1e293b"/>
-                                        <rect x="5" y="11" width="3" height="1" fill="#1e293b"/>
-                                        <rect x="9" y="11" width="2" height="1" fill="#1e293b"/>
-                                        <rect x="4" y="12" width="3" height="1" fill="#1e293b"/>
-                                        <rect x="10" y="12" width="2" height="1" fill="#1e293b"/>
-                                        <rect x="4" y="13" width="3" height="1" fill="#1e293b"/>
-                                        <rect x="10" y="13" width="2" height="1" fill="#1e293b"/>
-                                        <rect x="3" y="14" width="3" height="1" fill="#000000"/>
-                                        <rect x="11" y="14" width="2" height="1" fill="#000000"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="pixel-ground-track"></div>
-                    </div>
+                <div class="pulse-actions">
+                    <a href="#spiel-wartung" class="btn btn-gold">N&auml;chster Test: 24. Oktober</a>
+                    <a href="#changelog" class="btn btn-outline"><i class="fa-solid fa-list-ul" aria-hidden="true"></i> Changelog ansehen</a>
                 </div>
 
-                <!-- 4 Mission / Overhaul Focus Cards -->
-                <div class="terminal-missions-grid">
+            </div><div class="game-development-focus"><div class="terminal-missions-grid">
                     <div class="terminal-mission-card">
                         <div class="mission-card-num">01 / GRAFIK</div>
                         <h4>Grafik &amp; Spielwelt</h4>
@@ -390,71 +177,28 @@
                         <h4>Tests f&uuml;r den 24. Oktober</h4>
                         <p>Das gesamte Bausystem und das gemeinsame Spielen werden gr&uuml;ndlich getestet, damit zum n&auml;chsten Testlauf am 24.10. alles rund l&auml;uft.</p>
                     </div>
-                </div>
-
-                <!-- Solo-Dev Transparenz Notiz -->
-                <div class="terminal-dev-note">
+                </div><div class="terminal-dev-note">
                     <p>
                         Ich entwickle dieses Spiel komplett alleine. Die Pause wird genutzt, um das bisherige Feedback gr&uuml;ndlich abzuarbeiten und das Spiel sichtbar zu verbessern :) &ndash; damit der 2-monatige Testlauf ab dem ersten Tag stabil und rund f&uuml;r alle spielbar ist. &lt;3 bis dann
                     </p>
-                </div>
-
-                <!-- Actions -->
-                <div class="terminal-actions">
-                    <a href="bugs/index.html" data-bugs-route class="btn btn-gold">
-                        Idee oder Feedback einreichen
-                    </a>
-                    <a href="#changelog" class="btn btn-outline">
-                        Bisherigen Changelog ansehen
-                    </a>
-                </div>
-            </div>
-
-            <!-- ================= SPIELBEREICH ================= -->
-            <div class="game-embed-wrapper" id="game-wrapper" style="display: none;">
-                <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v116.html?build=alpha-0-2-2-v116-20260906" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
-                <div class="game-mobile-overlay" id="game-mobile-overlay">
-                    <span class="game-overview-kicker">MOBILE STEUERUNG</span>
-                    <button class="btn btn-gold btn-activate-game" id="btn-activate-game" type="button">SPIEL AKTIVIEREN</button>
-                </div>
-                <button class="game-mobile-exit-btn" id="btn-deactivate-game" type="button">SCROLL-MODUS</button>
-            </div>
-
-            <div class="game-post-actions">
-                <div class="game-post-actions-hint">
-                    <i class="fa-regular fa-comment-dots" aria-hidden="true"></i> Fehler entdeckt oder eine Idee? Dein Feedback flie&szlig;t direkt in die Alpha ein!
-                </div>
-                <div class="game-post-actions-btns">
-                    <a class="btn-subnav" href="bugs/index.html" data-bugs-route><i class="fa-solid fa-bug" aria-hidden="true"></i> BUG MELDEN</a>
-                    <a class="btn-subnav" href="bugs/index.html" data-bugs-route><i class="fa-regular fa-lightbulb" aria-hidden="true"></i> IDEE EINREICHEN</a>
-                    <a class="btn-subnav" href="https://discord.gg/f2qCHdk9Gf" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord" aria-hidden="true"></i> DISCORD</a>
-                    <a class="btn-subnav" href="wiki.html"><i class="fa-solid fa-book" aria-hidden="true"></i> REZEPTE &amp; BAUEN</a>
-                </div>
-            </div>
-
-            <section class="game-project-overview" aria-label="&Uuml;ber Zombieh&ouml;lle Survival">
-                <div class="game-project-intro">
-                    <span class="game-overview-kicker">SOLO-DEVELOPMENT &bull; DIE GESCHICHTE DAHINTER</span>
-                    <h2>VOM DAYZ-SERVER ZUM EIGENEN 2D-SURVIVAL-SPIEL</h2>
-                    <p>Zombieh&ouml;lle war von 2013 bis 2016 eine eigene Servercommunity rund um DayZ und Arma. Heute baue ich diese Welt als unabh&auml;ngiges 2D-Multiplayer-Survival-Spiel komplett alleine weiter aus &ndash; mit dem n&auml;chsten gro&szlig;en Testlauf am 24. Oktober und dem langfristigen Ziel eines eigenst&auml;ndigen Releases auf Steam.</p>
-                    <p>Du erkundest verlassene St&auml;dte, k&auml;mpfst gegen Zombies, sammelst Loot, f&auml;hrst Fahrzeuge und baust gemeinsam deine Basis auf. Die Welt wird stetig erweitert &ndash; jedes Feedback und jeder gefundene Bug helfen direkt bei den kommenden Patches.</p>
-                </div>
-                <div class="game-feature-grid">
-                    <article class="game-feature-card game-feature-playable">
-                        <span class="game-overview-kicker">BEREITS SPIELBAR</span>
-                        <div class="game-feature-columns">
-                            <div><strong>WELT &amp; &Uuml;BERLEBEN</strong><ul><li>Online-Spielwelt mit gespeichertem Charakter</li><li>Zombies, Kampf, Loot und Inventar</li><li>Erkunden verschiedener Orte</li></ul></div>
-                            <div><strong>BASEN</strong><ul><li>Basenbau und gesch&uuml;tzte Bauzonen</li><li>Basisstufen und gemeinsames Bauen</li></ul></div>
-                            <div><strong>MULTIPLAYER</strong><ul><li>Gemeinsam spielen, Chat und Gruppen</li><li>Gespeicherter Fortschritt</li></ul></div>
-                            <div><strong>FAHRZEUGE</strong><ul><li>Erste Fahrzeuge und Reparaturen</li><li>Erkundung mit Fahrzeugen</li></ul></div>
+                </div><details class="game-version-peek"><summary>Letzte Änderungen in Alpha 0.2.3</summary><article class="game-status-card game-changelog-card">
+                        <span>VERSION</span>
+                        <strong>ALPHA 0.2.3</strong>
+                        <div class="compact-changelog-header">LETZTE &Auml;NDERUNGEN</div>
+                        <div id="compact-changelog-list" class="compact-changelog-list">
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Fünf HESCO-Bauteile sind im Abwehr-Baumenü verfügbar: Wand, Kurzsegment, Ecke, Verstärkung und Abschluss.</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Lagerhalle, Garage, Büro und Polizeigebäude der Adminbasis sind modular überarbeitet; Fenster, Dächer und Eingänge passen zur vorhandenen Gebäudeaufteilung.</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Der Hof der Adminbasis hat neue Schotter- und Asphaltflächen, Entwässerung sowie Fahrbahn-, Park- und Landeplatzmarkierungen.</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Die vier Händlerstände haben passende Überdachungen und Theken und stehen jetzt im freien Hof statt über den Bürogebäuden.</span></div>
+                            <div class="compact-change-item"><span class="compact-change-dot" aria-hidden="true">&#10003;</span><span class="compact-change-text">Am südlichen Zugang der Adminbasis ersetzen HESCO-Wände und Ecken die bisherigen Maueransichten; die breite Zufahrt bleibt offen.</span></div>
                         </div>
-                    </article>
-                    <article class="game-development-note">
-                        <span class="game-overview-kicker">IN ENTWICKLUNG</span>
-                        <p>Welt, Grafik, Loot, Bedienung und Online-Spielerlebnis werden laufend weiter verbessert.</p>
-                    </article>
-                </div>
-                <section class="game-roadmap" aria-labelledby="roadmap-title">
+                    </article></details></div></div>
+    </section>
+    <section id="game-roadmap" class="game-chapter" aria-labelledby="game-roadmap-section-title">
+        <span class="game-kicker"><span aria-hidden="true">05 /</span> <span>DIE NÄCHSTEN SCHRITTE</span></span>
+        <h2 id="game-roadmap-section-title">Wohin die Reise geht.</h2>
+        <p class="game-chapter-lead">Diese Bereiche sind geplant und werden schrittweise weiterentwickelt. Die Zukunftsvisionen darunter reichen bewusst weiter; sie sind keine bereits verfügbaren Spielinhalte.</p>
+        <section class="game-roadmap" aria-labelledby="roadmap-title">
                     <div class="game-roadmap-heading"><span class="game-overview-kicker">ROADMAP</span><h2 id="roadmap-title">GEPLANT</h2></div>
                     <div class="game-roadmap-grid">
                         <article><h3>WELT &amp; PORTALE</h3><ul><li>Mehrere Portale und verbundene Gebiete</li><li>Zus&auml;tzliche St&auml;dte, D&ouml;rfer und besondere Orte</li><li>Gr&ouml;&szlig;ere, abwechslungsreichere Spielwelt</li></ul></article>
@@ -462,24 +206,226 @@
                         <article><h3>FAHRZEUGE</h3><ul><li>Weitere Fahrzeugtypen</li><li>Ausbau des Fahrzeugsystems</li><li>Sp&auml;ter auch Flugger&auml;te</li></ul></article>
                         <article><h3>GRAFIK</h3><ul><li>Laufende Grafikupdates</li><li>Detailliertere Geb&auml;ude und Weltobjekte</li><li>Schrittweise Richtung isometrische Ansicht</li></ul></article>
                         <article><h3>GAMEPLAY</h3><ul><li>Mehr Zombies, Loot und Gegenst&auml;nde</li><li>Weitere &Uuml;berlebensmechaniken</li><li>Mehr Missionen, Events und Fundorte</li></ul></article>
-                        <article><h3>PLATTFORMEN &amp; RELEASE</h3><ul><li>Aktuell: Web-Alpha direkt im Browser</li><li>Eigenst&auml;ndiger Desktop-Client (Windows)</li><li>Geplanter Release auf Steam</li></ul></article>
-                        <article id="roadmap-graphics-ui-card" class="game-roadmap-vision-card" hidden>
-                            <h3>GRAFIK &amp; UI &ndash; ZIELRICHTUNG</h3>
-                            <button id="roadmap-graphics-ui-preview" class="game-roadmap-vision-preview" type="button" aria-haspopup="dialog" aria-label="Konzeptgrafik Grafik und UI gro&szlig; anzeigen">
-                                <img id="roadmap-graphics-ui-image" data-src="assets/images/roadmap-grafik-ui-zielrichtung.png" alt="Konzeptgrafik: aktuelle und geplante Grafik und Benutzeroberfl&auml;che von Zombieh&ouml;lle Survival">
-                                <span class="game-roadmap-vision-zoom"><i class="fa-solid fa-expand" aria-hidden="true"></i> VERGR&Ouml;SSERN</span>
-                            </button>
-                        </article>
+                        <article><h3>PLATTFORMEN &amp; RELEASE</h3><ul><li>Web-Alpha im Browser (derzeit in Testpause)</li><li>Eigenst&auml;ndiger Desktop-Client (Windows)</li><li>Geplanter Release auf Steam</li></ul></article>
+
                     </div>
                 </section>
-                <div id="roadmap-graphics-ui-lightbox" class="game-roadmap-vision-lightbox" role="dialog" aria-modal="true" aria-label="Konzeptgrafik Grafik und UI" hidden>
-                    <button id="roadmap-graphics-ui-lightbox-close" class="game-roadmap-vision-lightbox-close" type="button" aria-label="Konzeptgrafik schlie&szlig;en">&times;</button>
-                    <img id="roadmap-graphics-ui-lightbox-image" alt="">
+        <section id="zukunftsvisionen" class="game-visions" aria-labelledby="visions-title">
+                <div class="game-visions-heading">
+                    <span class="game-overview-kicker">LANGFRISTIGE IDEE</span>
+                    <h2 id="visions-title">ZUKUNFTSVISIONEN</h2>
+                    <p>ZHServer soll langfristig weit &uuml;ber die klassische Survival-Welt hinauswachsen. Einige der gr&ouml;&szlig;eren Ideen sind bewusst f&uuml;r eine sp&auml;tere Entwicklungsphase gedacht und k&ouml;nnen das Spiel irgendwann um v&ouml;llig eigenst&auml;ndige Welten, Ressourcen und Spielweisen erweitern.</p>
+                </div>
+
+                <div class="game-vision-list">
+                    <details class="game-vision-card" aria-label="Zukunftsvision Weltraum">
+                        <summary>
+                            <span class="game-vision-summary">
+                                <span class="game-vision-title">WELTRAUM</span>
+                                <span class="game-vision-subtitle">Eine eigenst&auml;ndige Portalwelt mit Planeten, Raumfahrt, neuen Ressourcen und au&szlig;erirdischen Gegnern.</span>
+                            </span>
+                            <span class="game-vision-hint">Aufklappen</span>
+                        </summary>
+                        <div class="game-vision-body">
+                            <section>
+                                <h3>GRUNDIDEE</h3>
+                                <p>Die Portale sollen sp&auml;ter Zugang zu kleinen, eigenen Dimensionen erm&ouml;glichen. Eine dieser Welten k&ouml;nnte in den Weltraum f&uuml;hren.</p>
+                                <p>Dort gelten teilweise v&ouml;llig andere Voraussetzungen als in der normalen Zombieh&ouml;lle-Survival-Welt: neue Baumaterialien, neue Ressourcen, Raumschiffe, Raumbasen und eigene Gegner.</p>
+                            </section>
+                            <section>
+                                <h3>DAS PORTAL</h3>
+                                <p>Das Portal besteht aus einem gro&szlig;en Ring mit sichtbarer Portalfl&auml;che in der Mitte. Im inaktiven Zustand ist die Portalfl&auml;che wei&szlig;; nach der Benutzung f&auml;rbt sie sich lila.</p>
+                                <p>Nur Spieler k&ouml;nnen das Portal durchqueren. Nach einer Benutzung gibt es einen kurzen Cooldown von ungef&auml;hr zwei Sekunden. Auf der anderen Seite befindet sich ein entsprechendes R&uuml;ckreiseportal auf einem mond&auml;hnlichen Planeten.</p>
+                                <p>Sp&auml;ter w&auml;re au&szlig;erdem denkbar, dass ganze Gruppen gemeinsam teleportiert werden k&ouml;nnen, wenn der Gruppenf&uuml;hrer das Portal benutzt.</p>
+                            </section>
+                            <section>
+                                <h3>VORAUSSETZUNG: RAUMANZUG</h3>
+                                <p>Um die Weltraumwelt aus der normalen Survival-Welt heraus betreten zu k&ouml;nnen, m&uuml;sste zun&auml;chst ein Raumanzug gefunden werden. Er w&auml;re dadurch selbst ein seltener und wichtiger Ausr&uuml;stungsgegenstand und Teil der Vorbereitung auf diese Welt.</p>
+                                <p>Das Prinzip &auml;hnelt der geplanten seltenen Armbrust f&uuml;r die Ritterwelt.</p>
+                            </section>
+                            <section>
+                                <h3>DER WELTRAUM</h3>
+                                <p>Der Weltraum soll eine gr&ouml;&szlig;ere eigenst&auml;ndige Welt mit mehreren begehbaren Planeten werden. Die einzelnen Planeten besitzen unterschiedliche Ressourcen, beispielsweise:</p>
+                                <ul>
+                                    <li>Stahl</li>
+                                    <li>Aluminium</li>
+                                    <li>weitere weltraumspezifische Materialien</li>
+                                </ul>
+                                <p>Diese Ressourcen k&ouml;nnten unter anderem f&uuml;r den Bau von Raumschiffen und sp&auml;ter m&ouml;glicherweise auch Raumbasen verwendet werden.</p>
+                            </section>
+                            <section>
+                                <h3>ALIENS &amp; WELTRAUMPIRATEN</h3>
+                                <p>Auf mindestens einem Planeten k&ouml;nnten feindliche Aliens leben. Zus&auml;tzlich w&auml;re ein besonderer Alienanf&uuml;hrer denkbar.</p>
+                                <p>M&ouml;glicher besonderer Loot:</p>
+                                <ul>
+                                    <li>Goldenes Schild f&uuml;r ein Raumschiff</li>
+                                    <li>besondere Laserwaffe</li>
+                                    <li>eine Flagge f&uuml;r die eigene Basis als sichtbarer Beweis f&uuml;r den Sieg &uuml;ber den Alienanf&uuml;hrer</li>
+                                    <li>weitere seltene Gegenst&auml;nde</li>
+                                </ul>
+                                <p>Eine weitere Gefahr k&ouml;nnten Weltraumpiraten sein: Zwei kleinere Piratenschiffe patrouillieren durch den Weltraum, suchen nach Eindringlingen und greifen mit Lasern an. So entst&uuml;nden nicht nur K&auml;mpfe auf Planeten, sondern auch Gefahren zwischen den einzelnen Welten.</p>
+                            </section>
+                            <section>
+                                <h3>EIGENST&Auml;NDIGES SPIELGEF&Uuml;HL</h3>
+                                <p>Die Weltraumwelt soll eigenen Loot, eigene Ressourcen, eigene Gegner und eigene Bauobjekte erhalten. Langfristig w&auml;re sogar denkbar, dass Spieler, die haupts&auml;chlich auf Raumfahrt und Weltraum-Survival Lust haben, direkt in dieser Welt beginnen k&ouml;nnen.</p>
+                                <p>Der nachtr&auml;gliche &Uuml;bergang aus der normalen Zombieh&ouml;lle-Survival-Welt bliebe jedoch an den Raumanzug gebunden.</p>
+                            </section>
+                            <p class="game-vision-status">LANGFRISTIGE IDEE &ndash; NICHT F&Uuml;R DIE AKTUELLE ENTWICKLUNGSPHASE</p>
+                        </div>
+                    </details>
+
+                    <details class="game-vision-card" aria-label="Zukunftsvision Ritterwelt, K&ouml;nig und Drache">
+                        <summary>
+                            <span class="game-vision-summary">
+                                <span class="game-vision-title">PORTALWELTEN &ndash; RITTERWELT, K&Ouml;NIG &amp; DRACHE</span>
+                                <span class="game-vision-subtitle">Eine mittelalterliche Welt ohne Zombies mit Burgbelagerung, K&ouml;nig, Drachen und einzigartigem Loot.</span>
+                            </span>
+                            <span class="game-vision-hint">Aufklappen</span>
+                        </summary>
+                        <div class="game-vision-body">
+                            <section>
+                                <h3>GRUNDIDEE</h3>
+                                <p>Die Portale sollen sp&auml;ter Zugang zu kleinen, eigenst&auml;ndigen Dimensionen erm&ouml;glichen. Eine davon k&ouml;nnte eine mittelalterliche Ritterwelt sein.</p>
+                            </section>
+                            <section>
+                                <h3>DAS PORTAL</h3>
+                                <p>Das Portal besteht aus einem gro&szlig;en Ring mit sichtbarer Portalfl&auml;che in der Mitte. Im inaktiven Zustand ist die Portalfl&auml;che wei&szlig;; nach der Benutzung f&auml;rbt sie sich lila.</p>
+                                <p>Nur Spieler k&ouml;nnen hindurchgehen. Nach der Benutzung gibt es einen kurzen Cooldown von ungef&auml;hr zwei Sekunden. In der Ritterwelt befindet sich dasselbe Portal f&uuml;r die R&uuml;ckreise.</p>
+                                <p>Sp&auml;ter k&ouml;nnten Gruppen gemeinsam teleportiert werden, wenn der Gruppenf&uuml;hrer das Portal benutzt.</p>
+                            </section>
+                            <section>
+                                <h3>DIE RITTERWELT</h3>
+                                <p>Die Ritterwelt ist eine kleinere eigenst&auml;ndige Welt ohne Zombies. Im Zentrum befindet sich eine gro&szlig;e ummauerte Burg.</p>
+                                <p>Dort herrscht ein K&ouml;nig, der als besonderer Bossgegner dienen k&ouml;nnte. Auf den Mauern befinden sich Bogensch&uuml;tzen, die alle sich n&auml;hernden Spieler angreifen.</p>
+                            </section>
+                            <section>
+                                <h3>ANGRIFF AUF DIE BURG</h3>
+                                <p>Das Haupttor der Burg ist geschlossen. Spieler m&uuml;ssten deshalb einen anderen Weg hinein finden.</p>
+                                <p>Eine M&ouml;glichkeit w&auml;re beispielsweise, zun&auml;chst eine Holzleiter herzustellen und damit &uuml;ber die Burgmauer einzudringen. Dadurch wird bereits der Weg zum K&ouml;nig Teil der Herausforderung.</p>
+                            </section>
+                            <section>
+                                <h3>DER K&Ouml;NIG</h3>
+                                <p>Der K&ouml;nig w&auml;re ein besonderer Boss mit einzigartigem Loot. M&ouml;gliche Belohnungen:</p>
+                                <ul>
+                                    <li>Goldenes Schwert</li>
+                                    <li>Goldenes Schild</li>
+                                    <li>Goldener Helm</li>
+                                    <li>Krone</li>
+                                </ul>
+                                <p>Diese Gegenst&auml;nde sollen nicht einfach normale Ausr&uuml;stung mit anderer Farbe sein, sondern besondere Erinnerungen und Belohnungen aus dieser Portalwelt darstellen.</p>
+                            </section>
+                            <section>
+                                <h3>DER DRACHE &amp; DIE SELTENE ARMBRUST</h3>
+                                <p>In einer H&ouml;hle k&ouml;nnte ein gr&uuml;ner feuerspeiender Drache als W&auml;chter des K&ouml;nigs leben. Sobald ein Spieler die Ritterwelt betritt, wird er aktiv. Mit einer Wahrscheinlichkeit von ungef&auml;hr 25&nbsp;% verl&auml;sst er seine H&ouml;hle und sucht nach Spielern, um den Angriff auf den K&ouml;nig zu verhindern.</p>
+                                <p>Der Drache soll mit normalen Waffen zwar verletzt werden k&ouml;nnen, jedoch nur sehr wenig Schaden erleiden. Eine seltene Armbrust w&auml;re die effektivste Waffe gegen ihn.</p>
+                                <p>Diese Armbrust m&uuml;sste vorher gefunden werden und w&uuml;rde dadurch selbst Teil der Vorbereitung auf die Ritterwelt. Spieler m&uuml;ssten sich also m&ouml;glicherweise bereits in der normalen Survival-Welt auf die Reise vorbereiten.</p>
+                            </section>
+                            <section>
+                                <h3>WEITERE M&Ouml;GLICHKEITEN</h3>
+                                <p>Die Ritterwelt k&ouml;nnte sp&auml;ter noch weitere eigene Gegenst&auml;nde und Mechaniken erhalten, beispielsweise:</p>
+                                <ul>
+                                    <li>Schwert und Schild</li>
+                                    <li>Holzleitern</li>
+                                    <li>mittelalterlichen Loot</li>
+                                    <li>weitere R&uuml;stungen und Waffen</li>
+                                    <li>zus&auml;tzliche Gegner</li>
+                                    <li>weitere Geheimnisse innerhalb der Burg oder Welt</li>
+                                </ul>
+                                <p>Das Portal-System er&ouml;ffnet langfristig au&szlig;erdem die M&ouml;glichkeit f&uuml;r weitere Welten mit komplett anderen Themen.</p>
+                            </section>
+                            <p class="game-vision-status">LANGFRISTIGE IDEE &ndash; NICHT F&Uuml;R DIE AKTUELLE ENTWICKLUNGSPHASE</p>
+                        </div>
+                    </details>
                 </div>
             </section>
+    </section>
+    <section id="game-community" class="game-chapter" aria-labelledby="game-community-title">
+        <span class="game-kicker"><span aria-hidden="true">06 /</span> <span>GEMEINSAM WEITERENTWICKELN</span></span>
+        <h2 id="game-community-title">Das Spiel wächst mit der Community.</h2>
+        <div class="pulse-card pulse-voting-card" id="community-voting">
 
-            <!-- Versionsregel: Nach jeweils 20 dokumentierten Aenderungen entsteht eine neue Alpha-Version. -->
-            <section id="changelog" class="survival-changelog" aria-labelledby="changelog-title">
+                <div class="pulse-badge-header">
+                    <span class="pulse-vote-badge"><i class="fa-solid fa-square-poll-vertical" aria-hidden="true"></i> ABSTIMMUNG</span>
+                    <span class="pulse-timer-pill">FEEDBACK</span>
+                </div>
+
+                <h3>Was soll zuerst eingebaut werden?</h3>
+
+                <p class="pulse-lead">
+                    Die Features sind alle geplant und kommen nach und nach ins Spiel. Stimme ab, was davon als Erstes umgesetzt werden soll!
+                </p>
+
+                <div class="voting-options" id="votingOptions">
+                    <!-- Dynamisch von main.js gerendert -->
+                </div>
+
+                <div class="voting-footer">
+                    <span class="voting-count" id="votingTotalVotes"><i class="fa-solid fa-users" aria-hidden="true"></i> <span id="totalVotesCount">...</span> Stimmen abgegeben</span>
+                    <span class="voting-notice" id="votingNotice">1 Stimme pro Spieler &bull; Echtzeit</span>
+                </div>
+
+            </div>
+        <section id="community-feedback" class="game-community-help" aria-labelledby="community-help-title">
+                <div class="game-community-help-inner">
+
+                    <span class="game-overview-kicker">FEEDBACK &amp; VORSCHL&Auml;GE</span>
+
+                    <h2 id="community-help-title">FEEDBACK ZUR ENTWICKLUNG</h2>
+
+                    <p>
+                        Zombieh&ouml;lle Survival befindet sich in einer aktiven Alpha und ich entwickle das Spiel komplett alleine.
+                        Wenn dir beim Testen Fehler auffallen oder du Ideen und Verbesserungsvorschl&auml;ge hast, trage sie gerne ein &ndash;
+                        ich schaue mir jeden Eintrag an und lasse sinnvolle Vorschl&auml;ge direkt in die n&auml;chsten Schritte einflie&szlig;en.
+                    </p>
+
+                    <p>
+                        Bugs, Ideen und W&uuml;nsche kannst du direkt hier auf der Homepage einreichen.
+                    </p>
+
+                    <div class="game-community-help-actions">
+                        <a
+                            class="btn btn-outline"
+                            href="bugs/index.html"
+                            data-bugs-route
+                        >
+                            BUG MELDEN
+                        </a>
+
+                        <a
+                            class="btn btn-outline"
+                            href="bugs/index.html"
+                            data-bugs-route
+                        >
+                            IDEE EINREICHEN
+                        </a>
+
+                        <a
+                            class="btn btn-gold"
+                            href="https://discord.gg/f2qCHdk9Gf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            ZUM DISCORD
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+        <details class="game-community-records"><summary>Community aus der bisherigen Alpha</summary><div class="game-status-grid" aria-live="polite"><article class="game-status-card game-reg-card">
+                        <span>REGISTRIERTE SPIELER</span>
+                        <strong id="registered-player-count" style="display: none;">--</strong>
+                        <div class="compact-recent-header">ZULETZT REGISTRIERT</div>
+                        <div id="recent-player-list" class="recent-player-list">
+                            <span class="recent-loading">Lade neue Spieler &hellip;</span>
+                        </div>
+                    </article><article class="game-status-card game-top5-card">
+                        <span>TOP 5 SPIELER</span>
+                        <div id="top5-player-list" class="top5-player-list">
+                            <span class="top5-loading">Lade Top 5 &hellip;</span>
+                        </div>
+                    </article></div></details>
+    </section>
+    <div class="game-chapter game-changelog-chapter"><span class="game-kicker"><span aria-hidden="true">07 /</span> <span>CHANGELOG</span></span><section id="changelog" class="survival-changelog" aria-labelledby="changelog-title">
                 <div class="changelog-summary">
                     <div>
                         <span class="changelog-kicker">ENTWICKLUNGSSTAND</span>
@@ -493,7 +439,7 @@
                 <div class="version-log-list" aria-label="Vollst&auml;ndige Versionsprotokolle">
                     <details class="changelog-details" open aria-label="Aktueller Changelog Alpha 0.2.3">
                         <summary>
-                            <span class="changelog-version-title">Alpha 0.2.3 &ndash; 4/20 <span class="changelog-current-badge">AKTUELL</span></span>
+                            <span class="changelog-version-title">Alpha 0.2.3 &ndash; 14/20 <span class="changelog-current-badge">AKTUELL</span></span>
                             <span class="changelog-hint">Ge&ouml;ffnet</span>
                         </summary>
                         <ul id="latest-change-list" class="changelog-list">
@@ -501,6 +447,16 @@
                             <li>Geb&auml;ude und eigene Basen k&ouml;nnen k&uuml;nftig abwechslungsreicher mit neuen Fensterw&auml;nden gebaut werden.</li>
                             <li>Werkbank und Lagerkisten wurden &uuml;berarbeitet und als neue Bauobjekte eingef&uuml;gt.</li>
                             <li>Die neue Adminbasis / Safezone wird als sicherer Treffpunkt vorbereitet.</li>
+                            <li>Die Außenmauer der Adminbasis besteht jetzt aus zusammenpassenden Betonsegmenten und Eckverbindungen.</li>
+                            <li>Lagerhalle, Garage, Büro und Polizeigebäude der Adminbasis sind modular überarbeitet; Fenster, Dächer und Eingänge passen zur vorhandenen Gebäudeaufteilung.</li>
+                            <li>Der Hof der Adminbasis hat neue Schotter- und Asphaltflächen, Entwässerung sowie Fahrbahn-, Park- und Landeplatzmarkierungen.</li>
+                            <li>Die vier Händlerstände haben passende Überdachungen und Theken und stehen jetzt im freien Hof statt über den Bürogebäuden.</li>
+                            <li>Fundamente, Böden, Dächer, Pfeiler, Zäune und Tore für eigene Basen haben neue, zusammenpassende Grafiken.</li>
+                            <li>Versorgungsbauten wie Generator, Solaranlage, Windrad, Wasserpumpe, Filter und Munitionspresse haben eigene, überarbeitete Darstellungen.</li>
+                            <li>Betten, Krankenbett und Gewächshaus sind im Baumenü und in der Spielwelt mit den neuen Grafiken eingebunden.</li>
+                            <li>Fünf HESCO-Bauteile sind im Abwehr-Baumenü verfügbar: Wand, Kurzsegment, Ecke, Verstärkung und Abschluss.</li>
+                            <li>HESCO-Bauten lassen sich im 90°-Raster platzieren. Bauprüfung und Kollision berücksichtigen die tatsächliche Form; die Innenecke bleibt frei begehbar und nutzbar.</li>
+                            <li>Am südlichen Zugang der Adminbasis ersetzen HESCO-Wände und Ecken die bisherigen Maueransichten; die breite Zufahrt bleibt offen.</li>
                         </ul>
                     </details>
                     <details class="changelog-details" aria-label="Changelog Alpha 0.2.2">
@@ -762,185 +718,59 @@
                         <summary><span class="changelog-version-title">Alpha 0.1.1</span><span class="changelog-hint">Aufklappen</span></summary>
                         <ul class="changelog-list"><li>Erster spielbarer Prototyp mit Chernarus-inspirierter Draufsicht und lokaler Spielwelt.</li></ul>
                     </details>
-                </div>            </section>
-
-            <section id="zukunftsvisionen" class="game-visions" aria-labelledby="visions-title">
-                <div class="game-visions-heading">
-                    <span class="game-overview-kicker">LANGFRISTIGE IDEE</span>
-                    <h2 id="visions-title">ZUKUNFTSVISIONEN</h2>
-                    <p>ZHServer soll langfristig weit &uuml;ber die klassische Survival-Welt hinauswachsen. Einige der gr&ouml;&szlig;eren Ideen sind bewusst f&uuml;r eine sp&auml;tere Entwicklungsphase gedacht und k&ouml;nnen das Spiel irgendwann um v&ouml;llig eigenst&auml;ndige Welten, Ressourcen und Spielweisen erweitern.</p>
+                </div>            </section></div>
+    <section class="game-chapter game-test-chapter" aria-labelledby="game-test-title">
+        <div id="spiel-wartung" class="game-maintenance-box game-test-notice">
+            <span class="game-kicker"><span aria-hidden="true">08 /</span> <span>DER NÄCHSTE ÖFFENTLICHE TEST</span></span>
+            <h2 id="game-test-title">Nächster Testlauf ab 24.10.</h2>
+            <p>Das Spiel ist derzeit nicht öffentlich erreichbar.</p>
+            <div class="terminal-target-date">
+                    <span>STARTTERMIN:</span> <strong>SAMSTAG, 24. OKTOBER 2026 &bull; 18:00 UHR</strong>
                 </div>
-
-                <div class="game-vision-list">
-                    <details class="game-vision-card" aria-label="Zukunftsvision Weltraum">
-                        <summary>
-                            <span class="game-vision-summary">
-                                <span class="game-vision-title">WELTRAUM</span>
-                                <span class="game-vision-subtitle">Eine eigenst&auml;ndige Portalwelt mit Planeten, Raumfahrt, neuen Ressourcen und au&szlig;erirdischen Gegnern.</span>
-                            </span>
-                            <span class="game-vision-hint">Aufklappen</span>
-                        </summary>
-                        <div class="game-vision-body">
-                            <section>
-                                <h3>GRUNDIDEE</h3>
-                                <p>Die Portale sollen sp&auml;ter Zugang zu kleinen, eigenen Dimensionen erm&ouml;glichen. Eine dieser Welten k&ouml;nnte in den Weltraum f&uuml;hren.</p>
-                                <p>Dort gelten teilweise v&ouml;llig andere Voraussetzungen als in der normalen Zombieh&ouml;lle-Survival-Welt: neue Baumaterialien, neue Ressourcen, Raumschiffe, Raumbasen und eigene Gegner.</p>
-                            </section>
-                            <section>
-                                <h3>DAS PORTAL</h3>
-                                <p>Das Portal besteht aus einem gro&szlig;en Ring mit sichtbarer Portalfl&auml;che in der Mitte. Im inaktiven Zustand ist die Portalfl&auml;che wei&szlig;; nach der Benutzung f&auml;rbt sie sich lila.</p>
-                                <p>Nur Spieler k&ouml;nnen das Portal durchqueren. Nach einer Benutzung gibt es einen kurzen Cooldown von ungef&auml;hr zwei Sekunden. Auf der anderen Seite befindet sich ein entsprechendes R&uuml;ckreiseportal auf einem mond&auml;hnlichen Planeten.</p>
-                                <p>Sp&auml;ter w&auml;re au&szlig;erdem denkbar, dass ganze Gruppen gemeinsam teleportiert werden k&ouml;nnen, wenn der Gruppenf&uuml;hrer das Portal benutzt.</p>
-                            </section>
-                            <section>
-                                <h3>VORAUSSETZUNG: RAUMANZUG</h3>
-                                <p>Um die Weltraumwelt aus der normalen Survival-Welt heraus betreten zu k&ouml;nnen, m&uuml;sste zun&auml;chst ein Raumanzug gefunden werden. Er w&auml;re dadurch selbst ein seltener und wichtiger Ausr&uuml;stungsgegenstand und Teil der Vorbereitung auf diese Welt.</p>
-                                <p>Das Prinzip &auml;hnelt der geplanten seltenen Armbrust f&uuml;r die Ritterwelt.</p>
-                            </section>
-                            <section>
-                                <h3>DER WELTRAUM</h3>
-                                <p>Der Weltraum soll eine gr&ouml;&szlig;ere eigenst&auml;ndige Welt mit mehreren begehbaren Planeten werden. Die einzelnen Planeten besitzen unterschiedliche Ressourcen, beispielsweise:</p>
-                                <ul>
-                                    <li>Stahl</li>
-                                    <li>Aluminium</li>
-                                    <li>weitere weltraumspezifische Materialien</li>
-                                </ul>
-                                <p>Diese Ressourcen k&ouml;nnten unter anderem f&uuml;r den Bau von Raumschiffen und sp&auml;ter m&ouml;glicherweise auch Raumbasen verwendet werden.</p>
-                            </section>
-                            <section>
-                                <h3>ALIENS &amp; WELTRAUMPIRATEN</h3>
-                                <p>Auf mindestens einem Planeten k&ouml;nnten feindliche Aliens leben. Zus&auml;tzlich w&auml;re ein besonderer Alienanf&uuml;hrer denkbar.</p>
-                                <p>M&ouml;glicher besonderer Loot:</p>
-                                <ul>
-                                    <li>Goldenes Schild f&uuml;r ein Raumschiff</li>
-                                    <li>besondere Laserwaffe</li>
-                                    <li>eine Flagge f&uuml;r die eigene Basis als sichtbarer Beweis f&uuml;r den Sieg &uuml;ber den Alienanf&uuml;hrer</li>
-                                    <li>weitere seltene Gegenst&auml;nde</li>
-                                </ul>
-                                <p>Eine weitere Gefahr k&ouml;nnten Weltraumpiraten sein: Zwei kleinere Piratenschiffe patrouillieren durch den Weltraum, suchen nach Eindringlingen und greifen mit Lasern an. So entst&uuml;nden nicht nur K&auml;mpfe auf Planeten, sondern auch Gefahren zwischen den einzelnen Welten.</p>
-                            </section>
-                            <section>
-                                <h3>EIGENST&Auml;NDIGES SPIELGEF&Uuml;HL</h3>
-                                <p>Die Weltraumwelt soll eigenen Loot, eigene Ressourcen, eigene Gegner und eigene Bauobjekte erhalten. Langfristig w&auml;re sogar denkbar, dass Spieler, die haupts&auml;chlich auf Raumfahrt und Weltraum-Survival Lust haben, direkt in dieser Welt beginnen k&ouml;nnen.</p>
-                                <p>Der nachtr&auml;gliche &Uuml;bergang aus der normalen Zombieh&ouml;lle-Survival-Welt bliebe jedoch an den Raumanzug gebunden.</p>
-                            </section>
-                            <p class="game-vision-status">LANGFRISTIGE IDEE &ndash; NICHT F&Uuml;R DIE AKTUELLE ENTWICKLUNGSPHASE</p>
-                        </div>
-                    </details>
-
-                    <details class="game-vision-card" aria-label="Zukunftsvision Ritterwelt, K&ouml;nig und Drache">
-                        <summary>
-                            <span class="game-vision-summary">
-                                <span class="game-vision-title">PORTALWELTEN &ndash; RITTERWELT, K&Ouml;NIG &amp; DRACHE</span>
-                                <span class="game-vision-subtitle">Eine mittelalterliche Welt ohne Zombies mit Burgbelagerung, K&ouml;nig, Drachen und einzigartigem Loot.</span>
-                            </span>
-                            <span class="game-vision-hint">Aufklappen</span>
-                        </summary>
-                        <div class="game-vision-body">
-                            <section>
-                                <h3>GRUNDIDEE</h3>
-                                <p>Die Portale sollen sp&auml;ter Zugang zu kleinen, eigenst&auml;ndigen Dimensionen erm&ouml;glichen. Eine davon k&ouml;nnte eine mittelalterliche Ritterwelt sein.</p>
-                            </section>
-                            <section>
-                                <h3>DAS PORTAL</h3>
-                                <p>Das Portal besteht aus einem gro&szlig;en Ring mit sichtbarer Portalfl&auml;che in der Mitte. Im inaktiven Zustand ist die Portalfl&auml;che wei&szlig;; nach der Benutzung f&auml;rbt sie sich lila.</p>
-                                <p>Nur Spieler k&ouml;nnen hindurchgehen. Nach der Benutzung gibt es einen kurzen Cooldown von ungef&auml;hr zwei Sekunden. In der Ritterwelt befindet sich dasselbe Portal f&uuml;r die R&uuml;ckreise.</p>
-                                <p>Sp&auml;ter k&ouml;nnten Gruppen gemeinsam teleportiert werden, wenn der Gruppenf&uuml;hrer das Portal benutzt.</p>
-                            </section>
-                            <section>
-                                <h3>DIE RITTERWELT</h3>
-                                <p>Die Ritterwelt ist eine kleinere eigenst&auml;ndige Welt ohne Zombies. Im Zentrum befindet sich eine gro&szlig;e ummauerte Burg.</p>
-                                <p>Dort herrscht ein K&ouml;nig, der als besonderer Bossgegner dienen k&ouml;nnte. Auf den Mauern befinden sich Bogensch&uuml;tzen, die alle sich n&auml;hernden Spieler angreifen.</p>
-                            </section>
-                            <section>
-                                <h3>ANGRIFF AUF DIE BURG</h3>
-                                <p>Das Haupttor der Burg ist geschlossen. Spieler m&uuml;ssten deshalb einen anderen Weg hinein finden.</p>
-                                <p>Eine M&ouml;glichkeit w&auml;re beispielsweise, zun&auml;chst eine Holzleiter herzustellen und damit &uuml;ber die Burgmauer einzudringen. Dadurch wird bereits der Weg zum K&ouml;nig Teil der Herausforderung.</p>
-                            </section>
-                            <section>
-                                <h3>DER K&Ouml;NIG</h3>
-                                <p>Der K&ouml;nig w&auml;re ein besonderer Boss mit einzigartigem Loot. M&ouml;gliche Belohnungen:</p>
-                                <ul>
-                                    <li>Goldenes Schwert</li>
-                                    <li>Goldenes Schild</li>
-                                    <li>Goldener Helm</li>
-                                    <li>Krone</li>
-                                </ul>
-                                <p>Diese Gegenst&auml;nde sollen nicht einfach normale Ausr&uuml;stung mit anderer Farbe sein, sondern besondere Erinnerungen und Belohnungen aus dieser Portalwelt darstellen.</p>
-                            </section>
-                            <section>
-                                <h3>DER DRACHE &amp; DIE SELTENE ARMBRUST</h3>
-                                <p>In einer H&ouml;hle k&ouml;nnte ein gr&uuml;ner feuerspeiender Drache als W&auml;chter des K&ouml;nigs leben. Sobald ein Spieler die Ritterwelt betritt, wird er aktiv. Mit einer Wahrscheinlichkeit von ungef&auml;hr 25&nbsp;% verl&auml;sst er seine H&ouml;hle und sucht nach Spielern, um den Angriff auf den K&ouml;nig zu verhindern.</p>
-                                <p>Der Drache soll mit normalen Waffen zwar verletzt werden k&ouml;nnen, jedoch nur sehr wenig Schaden erleiden. Eine seltene Armbrust w&auml;re die effektivste Waffe gegen ihn.</p>
-                                <p>Diese Armbrust m&uuml;sste vorher gefunden werden und w&uuml;rde dadurch selbst Teil der Vorbereitung auf die Ritterwelt. Spieler m&uuml;ssten sich also m&ouml;glicherweise bereits in der normalen Survival-Welt auf die Reise vorbereiten.</p>
-                            </section>
-                            <section>
-                                <h3>WEITERE M&Ouml;GLICHKEITEN</h3>
-                                <p>Die Ritterwelt k&ouml;nnte sp&auml;ter noch weitere eigene Gegenst&auml;nde und Mechaniken erhalten, beispielsweise:</p>
-                                <ul>
-                                    <li>Schwert und Schild</li>
-                                    <li>Holzleitern</li>
-                                    <li>mittelalterlichen Loot</li>
-                                    <li>weitere R&uuml;stungen und Waffen</li>
-                                    <li>zus&auml;tzliche Gegner</li>
-                                    <li>weitere Geheimnisse innerhalb der Burg oder Welt</li>
-                                </ul>
-                                <p>Das Portal-System er&ouml;ffnet langfristig au&szlig;erdem die M&ouml;glichkeit f&uuml;r weitere Welten mit komplett anderen Themen.</p>
-                            </section>
-                            <p class="game-vision-status">LANGFRISTIGE IDEE &ndash; NICHT F&Uuml;R DIE AKTUELLE ENTWICKLUNGSPHASE</p>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <section id="community-feedback" class="game-community-help" aria-labelledby="community-help-title">
-                <div class="game-community-help-inner">
-
-                    <span class="game-overview-kicker">FEEDBACK &amp; VORSCHL&Auml;GE</span>
-
-                    <h2 id="community-help-title">FEEDBACK ZUR ENTWICKLUNG</h2>
-
-                    <p>
-                        Zombieh&ouml;lle Survival befindet sich in einer aktiven Alpha und ich entwickle das Spiel komplett alleine.
-                        Wenn dir beim Testen Fehler auffallen oder du Ideen und Verbesserungsvorschl&auml;ge hast, trage sie gerne ein &ndash;
-                        ich schaue mir jeden Eintrag an und lasse sinnvolle Vorschl&auml;ge direkt in die n&auml;chsten Schritte einflie&szlig;en.
-                    </p>
-
-                    <p>
-                        Bugs, Ideen und W&uuml;nsche kannst du direkt hier auf der Homepage einreichen.
-                    </p>
-
-                    <div class="game-community-help-actions">
-                        <a
-                            class="btn btn-outline"
-                            href="bugs/index.html"
-                            data-bugs-route
-                        >
-                            BUG MELDEN
-                        </a>
-
-                        <a
-                            class="btn btn-outline"
-                            href="bugs/index.html"
-                            data-bugs-route
-                        >
-                            IDEE EINREICHEN
-                        </a>
-
-                        <a
-                            class="btn btn-gold"
-                            href="https://discord.gg/f2qCHdk9Gf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            ZUM DISCORD
-                        </a>
+            <div class="terminal-countdown" id="terminal-countdown" aria-label="Countdown bis zum Testlauf am 24. Oktober">
+                    <div class="countdown-unit">
+                        <div class="countdown-val" id="countdown-days">--</div>
+                        <div class="countdown-lbl">TAGE</div>
                     </div>
-
+                    <div class="countdown-divider">:</div>
+                    <div class="countdown-unit">
+                        <div class="countdown-val" id="countdown-hours">--</div>
+                        <div class="countdown-lbl">STUNDEN</div>
+                    </div>
+                    <div class="countdown-divider">:</div>
+                    <div class="countdown-unit">
+                        <div class="countdown-val" id="countdown-minutes">--</div>
+                        <div class="countdown-lbl">MINUTEN</div>
+                    </div>
+                    <div class="countdown-divider">:</div>
+                    <div class="countdown-unit">
+                        <div class="countdown-val" id="countdown-seconds">--</div>
+                        <div class="countdown-lbl">SEKUNDEN</div>
+                    </div>
                 </div>
-            </section>
-
+            <p class="game-test-description">Bis dahin wird die Alpha anhand des bisherigen Feedbacks weiter überarbeitet. Hier bleibt der Termin im Blick; Ideen und Fehlermeldungen kannst du schon jetzt einreichen.</p>
+            <div class="game-product-actions"><a class="btn btn-outline" href="bugs/index.html" data-bugs-route>Feedback &amp; Ideen einreichen</a><a class="game-text-link" href="#changelog">Entwicklung im Changelog verfolgen <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a></div>
         </div>
+        <div class="game-embed-wrapper" id="game-wrapper" style="display: none;"><div class="game-technical-controls"><div class="game-controls-bar" aria-label="Tastenbelegung und Steuerung">
+                <div class="game-controls-title"><i class="fa-solid fa-gamepad" aria-hidden="true"></i> STEUERUNG:</div>
+                <div class="game-controls-keys">
+                    <span class="key-badge"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Laufen</span>
+                    <span class="key-badge"><kbd><i class="fa-solid fa-mouse"></i></kbd> Zielen &amp; Schlagen</span>
+                    <span class="key-badge"><kbd>E</kbd> Durchsuchen</span>
+                    <span class="key-badge"><kbd>I</kbd> Inventar</span>
+                    <span class="key-badge"><kbd>B</kbd> Baumen&uuml;</span>
+                    <span class="key-badge"><kbd>M</kbd> Karte</span>
+                    <span class="key-badge"><kbd>G</kbd> Gruppe</span>
+                </div>
+                <a href="wiki.html#baumenue" class="game-controls-wiki-link"><i class="fa-solid fa-book" aria-hidden="true"></i> Bausystem-Wiki</a>
+            </div><div class="game-product-actions"><a class="btn game-play-cta" href="#spiel-starten">TESTLAUF AB 24. OKTOBER</a><button id="game-fullscreen" type="button" class="btn game-fullscreen-button" style="display: none;">VOLLBILD</button><span id="fullscreen-message" class="fullscreen-message" role="status" aria-live="polite"></span></div><p class="game-mobile-hint">Am besten im Querformat spielen. Links laufen, rechts feuern; E durchsucht, INV &ouml;ffnet das Inventar.</p></div>
+                <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v116.html?build=alpha-0-2-2-v116-20260906" title="Zombieh&ouml;lle Survival" allow="autoplay; fullscreen"></iframe>
+                <div class="game-mobile-overlay" id="game-mobile-overlay">
+                    <span class="game-overview-kicker">MOBILE STEUERUNG</span>
+                    <button class="btn btn-gold btn-activate-game" id="btn-activate-game" type="button">SPIEL AKTIVIEREN</button>
+                </div>
+                <button class="game-mobile-exit-btn" id="btn-deactivate-game" type="button">SCROLL-MODUS</button>
+            </div>
     </section>
 </main>
 
@@ -985,7 +815,9 @@
 
 </footer>
 
-<script src="assets/js/visitor-counter.js?v=20260812-ui3"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/community-voting.js?v=20260930-shared-vote"></script>
+<script src="assets/js/visitor-counter.js?v=20261001-milestone"></script>
 <script>
     if (!window.location.hash) {
         if ('scrollRestoration' in history) {
@@ -1283,6 +1115,8 @@
     const supabaseUrl = "https://yawadxzeyyrozmlrokun.supabase.co";
     const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlhd2FkeHpleXlyb3ptbHJva3VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMzQ4MTIsImV4cCI6MjEwMDkxMDgxMn0.B53O3gHURnfxUkVGKaZJ5ssx27Bj9FNMU70Yn85tfxE";
 
+    window.ZHCommunityVoting.init(window.supabase.createClient(supabaseUrl, supabaseAnonKey));
+
     function escapeHtml(value) {
         const element = document.createElement("span");
         element.textContent = String(value);
@@ -1300,7 +1134,8 @@
             if (!response.ok) throw new Error("Registered player count unavailable");
             const total = Number(await response.json());
             if (!Number.isFinite(total) || total < 0) throw new Error("Invalid registered player count");
-            registeredPlayerCount.textContent = total.toLocaleString("de-DE");
+            registeredPlayerCount.dataset.i18nNumber = String(total);
+            registeredPlayerCount.textContent = total.toLocaleString(window.ZHLanguage?.locale || "de-DE");
         } catch (error) {
             // The existing public ranking endpoint below supplies an exact fallback
             // while fewer than 100 registered accounts exist.
@@ -1337,7 +1172,7 @@
                     top5List.innerHTML = top5.map((player, index) => {
                         const place = Number(player.rank || index + 1);
                         const medal = place === 1 ? "top5-gold" : place === 2 ? "top5-silver" : place === 3 ? "top5-bronze" : "";
-                        return `<div class="top5-row ${medal}"><span class="top5-rank">#${place}</span><span class="top5-name">${escapeHtml(player.nickname)}</span><span class="top5-points">${Number(player.points || 0).toLocaleString("de-DE")} Pkt.</span></div>`;
+                        return `<div class="top5-row ${medal}"><span class="top5-rank">#${place}</span><span class="top5-name">${escapeHtml(player.nickname)}</span><span class="top5-points" data-i18n-score="${Number(player.points || 0)}">${Number(player.points || 0).toLocaleString(window.ZHLanguage?.locale || "de-DE")} Pkt.</span></div>`;
                     }).join("");
                 }
             }
@@ -1348,17 +1183,18 @@
                     const createRows = (entries) => entries.map((player, index) => {
                         const place = Number(player.rank || index + 1);
                         const medal = place === 1 ? "gold" : place === 2 ? "silver" : place === 3 ? "bronze" : "normal";
-                        return `<article class="leaderboard-row ${medal}"><span class="leaderboard-place">${place}</span><span class="leaderboard-player"><i class="fa-solid fa-user" aria-hidden="true"></i>${escapeHtml(player.nickname)}</span><strong>${Number(player.points || 0).toLocaleString("de-DE")} <small>Punkte</small></strong></article>`;
+                        return `<article class="leaderboard-row ${medal}"><span class="leaderboard-place">${place}</span><span class="leaderboard-player"><i class="fa-solid fa-user" aria-hidden="true"></i>${escapeHtml(player.nickname)}</span><strong><span data-i18n-number="${Number(player.points || 0)}">${Number(player.points || 0).toLocaleString(window.ZHLanguage?.locale || "de-DE")}</span> <small>Punkte</small></strong></article>`;
                     }).join("");
                     const visiblePlayers = players.slice(0, 15);
                     const furtherPlayers = players.slice(15);
                     const morePlayers = furtherPlayers.length
-                        ? `<details class="leaderboard-more"><summary>Weitere ${furtherPlayers.length} Spieler anzeigen</summary><div class="leaderboard-list leaderboard-list-more">${createRows(furtherPlayers)}</div></details>`
+                        ? `<details class="leaderboard-more"><summary data-i18n-more-players="${furtherPlayers.length}">Weitere ${furtherPlayers.length} Spieler anzeigen</summary><div class="leaderboard-list leaderboard-list-more">${createRows(furtherPlayers)}</div></details>`
                         : "";
                     leaderboardList.innerHTML = createRows(visiblePlayers) + morePlayers;
                 }
             }
             if (registeredPlayerCount && registeredPlayerCount.textContent === "--" && players.length < 100) {
+                registeredPlayerCount.dataset.i18nNumber = String(players.length);
                 registeredPlayerCount.textContent = String(players.length);
             }
             if (leaderboardUpdated) leaderboardUpdated.textContent = "Aktualisierung: alle 24 Stunden";
@@ -1366,7 +1202,10 @@
             if (top5List) top5List.innerHTML = '<span class="top5-loading">Rangliste folgt</span>';
             if (leaderboardList) leaderboardList.innerHTML = '<p class="leaderboard-loading">Die Rangliste wird gerade vorbereitet.</p>';
             if (leaderboardUpdated) leaderboardUpdated.textContent = "Aktualisierung folgt";
-            if (registeredPlayerCount) registeredPlayerCount.textContent = "--";
+            if (registeredPlayerCount) {
+                delete registeredPlayerCount.dataset.i18nNumber;
+                registeredPlayerCount.textContent = "--";
+            }
         }
     }
     async function loadRecentPlayers() {
@@ -1410,7 +1249,7 @@
         const olderVersions = document.createElement("details");
         olderVersions.className = "changelog-details changelog-older-versions";
         olderVersions.open = false;
-        olderVersions.innerHTML = `<summary><span class="changelog-version-title">ÄLTERE VERSIONEN</span><span class="changelog-hint">${olderChangelogEntries.length} Versionen</span></summary><div class="changelog-older-list"></div>`;
+        olderVersions.innerHTML = `<summary><span class="changelog-version-title">ÄLTERE VERSIONEN</span><span class="changelog-hint" data-i18n-versions="${olderChangelogEntries.length}">${olderChangelogEntries.length} Versionen</span></summary><div class="changelog-older-list"></div>`;
         const olderList = olderVersions.querySelector(".changelog-older-list");
         olderChangelogEntries.forEach((entry) => {
             entry.open = false;

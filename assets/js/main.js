@@ -1,7 +1,9 @@
+const homepageText = (source) => window.ZHLanguage?.text(source) ?? source;
 const SUPABASE_URL = "https://yawadxzeyyrozmlrokun.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlhd2FkeHpleXlyb3ptbHJva3VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMzQ4MTIsImV4cCI6MjEwMDkxMDgxMn0.B53O3gHURnfxUkVGKaZJ5ssx27Bj9FNMU70Yn85tfxE";
 
-const supabaseClient = window.supabase.createClient(
+// The static forum preview uses the shared header without a backend connection.
+const supabaseClient = document.body.classList.contains("forum-page") ? null : window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
@@ -34,7 +36,7 @@ if (guestbookForm) {
 
         if (!name || !message) {
 
-            alert("Bitte Name und Nachricht ausfüllen.");
+            alert(homepageText("Bitte Name und Nachricht ausfüllen."));
 
             return;
 
@@ -65,7 +67,7 @@ if (guestbookForm) {
         if (response.ok) {
 
             alert(
-                "Vielen Dank! Dein Eintrag wurde gespeichert und wird nach Prüfung freigeschaltet."
+                homepageText("Vielen Dank! Dein Eintrag wurde gespeichert und wird nach Prüfung freigeschaltet.")
             );
 
             guestbookForm.reset();
@@ -76,7 +78,7 @@ if (guestbookForm) {
             console.log(await response.text());
 
             alert(
-                "Fehler beim Speichern des Eintrags."
+                homepageText("Fehler beim Speichern des Eintrags.")
             );
 
         }
@@ -148,14 +150,14 @@ if (guestbookEntries) {
         guestbookEntries.innerHTML = "";
         entries.forEach(entry => {
             const isApproved = Boolean(entry.approved);
-            const dateStr = new Date(entry.created_at).toLocaleDateString("de-DE");
+            const dateStr = new Date(entry.created_at).toLocaleDateString(window.ZHLanguage?.locale || "de-DE");
 
             if (isApproved) {
                 guestbookEntries.innerHTML += `
                     <div class="guestbook-card">
                         <h3>${escapeHtml(entry.name)}</h3>
                         <p>${escapeHtml(entry.message)}</p>
-                        <small>Freigeschaltet am ${dateStr}</small>
+                        <small>Freigeschaltet am <time data-i18n-date="${escapeHtml(entry.created_at)}">${dateStr}</time></small>
                     </div>
                 `;
             } else {
@@ -178,7 +180,7 @@ if (guestbookEntries) {
                             </div>
                         </div>
                         <div class="guestbook-card-footer">
-                            <small>Empfangen am ${dateStr} &bull; <em>Freigabe durch Administration ausstehend</em></small>
+                            <small>Empfangen am <time data-i18n-date="${escapeHtml(entry.created_at)}">${dateStr}</time> &bull; <em>Freigabe durch Administration ausstehend</em></small>
                         </div>
                     </div>
                 `;
@@ -235,7 +237,8 @@ function initActiveNav() {
     if (!navLinks.length) return;
 
     const currentPath = window.location.pathname.toLowerCase();
-    const isSubpage = currentPath.includes("gallery") || currentPath.includes("wiki") || currentPath.includes("game") || currentPath.includes("play") || currentPath.includes("/bugs");
+    const isForumPage = /\/forum(?:\/(?:index\.html)?)?$/.test(currentPath);
+    const isSubpage = isForumPage || currentPath.includes("gallery") || currentPath.includes("wiki") || currentPath.includes("game") || currentPath.includes("play") || currentPath.includes("/bugs");
 
     function setActiveLink(targetLink) {
         if (!targetLink) return;
@@ -250,7 +253,9 @@ function initActiveNav() {
     if (isSubpage) {
         navLinks.forEach(link => {
             const href = (link.getAttribute("href") || "").toLowerCase();
-            if (currentPath.includes("/bugs") && (href.includes("bugs") || link.hasAttribute("data-bugs-route"))) {
+            if (isForumPage && link.hasAttribute("data-forum-route")) {
+                setActiveLink(link);
+            } else if (currentPath.includes("/bugs") && (href.includes("bugs") || link.hasAttribute("data-bugs-route"))) {
                 setActiveLink(link);
             } else if (currentPath.includes("gallery") && href.includes("gallery")) {
                 setActiveLink(link);
@@ -497,153 +502,7 @@ async function loadLatestGallery() {
 // ==========================================
 // 1. COMMUNITY FEATURE-VOTING (ECHTE STIMMEN VIA SUPABASE)
 // ==========================================
-const votingOptionsContainer = document.getElementById("votingOptions");
-const totalVotesCountEl = document.getElementById("totalVotesCount");
-const votingNoticeEl = document.getElementById("votingNotice");
-
-if (votingOptionsContainer) {
-    const DEFAULT_OPTIONS = [
-        { id: "weapons", title: "Schrotflinte & Jagdgewehr", desc: "Mehr Fernkampfwaffen & Munitionstypen" },
-        { id: "weather", title: "Dynamisches Wetter & Nebel", desc: "Regenstürme, Gewitter & reduzierte Sicht" },
-        { id: "hordes", title: "Zombie-Horden bei Nacht", desc: "Größere Ansammlungen & Bedrohung nach Sonnenuntergang" },
-        { id: "vehicles", title: "Fahrzeug-Tuning & Kofferraum", desc: "Lagerkisten auf der Ladefläche & Panzerung" }
-    ];
-
-    const STORAGE_KEY_USER_VOTE = "zh_user_voted_feature_v2";
-    const votesData = {
-        weapons: 0,
-        weather: 0,
-        hordes: 0,
-        vehicles: 0
-    };
-
-    // Alte simulierte Test-Daten bereinigen
-    try {
-        localStorage.removeItem("zh_community_votes_v1");
-    } catch (e) {}
-
-    function getUserVote() {
-        try {
-            return localStorage.getItem(STORAGE_KEY_USER_VOTE);
-        } catch (e) {
-            return null;
-        }
-    }
-
-    function renderVoting() {
-        const userVote = getUserVote();
-        const hasVoted = Boolean(userVote);
-
-        let totalVotes = 0;
-        DEFAULT_OPTIONS.forEach(opt => {
-            totalVotes += (votesData[opt.id] || 0);
-        });
-
-        if (totalVotesCountEl) {
-            totalVotesCountEl.textContent = totalVotes.toLocaleString("de-DE");
-        }
-        if (votingNoticeEl) {
-            votingNoticeEl.innerHTML = hasVoted
-                ? '<span class="vote-confirmed-msg"><i class="fa-solid fa-circle-check"></i> Deine Stimme wurde gezählt! Danke.</span>'
-                : '1 Stimme pro Spieler &bull; Echtzeit';
-        }
-
-        votingOptionsContainer.innerHTML = "";
-
-        DEFAULT_OPTIONS.forEach(opt => {
-            const optVotes = votesData[opt.id] || 0;
-            const percent = totalVotes > 0 ? Math.round((optVotes / totalVotes) * 100) : 0;
-            const isSelected = userVote === opt.id;
-
-            const item = document.createElement("div");
-            item.className = `voting-item ${isSelected ? "is-voted" : ""} ${hasVoted ? "has-voted" : ""}`.trim();
-
-            item.innerHTML = `
-                <div class="voting-item-head">
-                    <div class="voting-item-meta">
-                        <strong class="voting-item-title">${opt.title}</strong>
-                        <span class="voting-item-desc">${opt.desc}</span>
-                    </div>
-                    <div class="voting-item-stats">
-                        ${isSelected ? '<span class="voted-tag">DEINE WAHL</span>' : ''}
-                        <span class="voting-percent">${totalVotes > 0 ? percent + '%' : (hasVoted ? '0%' : '')}</span>
-                    </div>
-                </div>
-                <div class="voting-bar-wrap">
-                    <div class="voting-bar-fill" style="width: ${percent}%;"></div>
-                </div>
-                ${!hasVoted ? `<button type="button" class="voting-btn" data-vote-id="${opt.id}">Zuerst einbauen</button>` : ''}
-            `;
-
-            if (!hasVoted) {
-                const btn = item.querySelector(".voting-btn");
-                if (btn) {
-                    btn.addEventListener("click", () => handleVote(opt.id));
-                }
-            }
-
-            votingOptionsContainer.appendChild(item);
-        });
-    }
-
-    async function loadRealVotes() {
-        if (!supabaseClient) {
-            renderVoting();
-            return;
-        }
-
-        try {
-            const { data, error } = await supabaseClient
-                .from("community_votes")
-                .select("id, votes");
-
-            if (!error && Array.isArray(data) && data.length > 0) {
-                data.forEach(item => {
-                    if (item.id in votesData) {
-                        votesData[item.id] = Number(item.votes) || 0;
-                    }
-                });
-            }
-        } catch (e) {
-            console.warn("Community-Votes konnten nicht geladen werden:", e);
-        }
-
-        renderVoting();
-    }
-
-    async function handleVote(optionId) {
-        if (getUserVote()) return;
-
-        // Sofort lokal markieren, damit kein Doppel-Klick möglich ist
-        try {
-            localStorage.setItem(STORAGE_KEY_USER_VOTE, optionId);
-        } catch (e) {}
-
-        // Sofort sichtbare Reaktion (optimistic update)
-        votesData[optionId] = (votesData[optionId] || 0) + 1;
-        renderVoting();
-
-        // An Supabase übertragen
-        if (supabaseClient) {
-            try {
-                const { error } = await supabaseClient
-                    .rpc("vote_for_feature", { feature_id: optionId });
-
-                if (error) {
-                    console.warn("Supabase RPC vote_for_feature Fehler:", error);
-                } else {
-                    // Frische Live-Zahlen abrufen
-                    await loadRealVotes();
-                }
-            } catch (err) {
-                console.warn("Netzwerkfehler bei Stimmabgabe:", err);
-            }
-        }
-    }
-
-    // Initiale Stimmen abrufen und anzeigen
-    loadRealVotes();
-}
+window.ZHCommunityVoting?.init(supabaseClient);
 
 // ==========================================
 // 2. SURVIVAL FUNKGERÄT (WEB AUDIO AMBIENT)

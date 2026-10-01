@@ -1,0 +1,573 @@
+/* Homepage only: preserve the shared navigation, other pages and Merch artwork.
+   Some declarations override the existing design pass's !important rules. */
+body.home-page {
+    --home-gold: #d9bd7c;
+    --home-copy: #c5cecf;
+    --home-panel-border: rgba(205, 183, 127, .18);
+    --home-panel-shadow: 0 12px 32px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .035);
+}
+
+/* Chapters share a palette; light and a fine edge mark each new section. */
+body.home-page > .section {
+    --section-top: #141a1e;
+    --section-bottom: #0e1418;
+    --section-light: 195, 164, 103;
+    --section-light-x: 18%;
+    padding: clamp(64px, 6.7vw, 96px) 0;
+    border-top: 0;
+    background:
+        radial-gradient(ellipse at var(--section-light-x) 0%, rgba(var(--section-light), .075), transparent 58%),
+        linear-gradient(180deg, var(--section-top), var(--section-bottom)) !important;
+    box-shadow: none;
+    scroll-margin-top: 132px;
+}
+
+body.home-page > .section:nth-of-type(even) {
+    --section-top: #10161b;
+    --section-bottom: #12191d;
+    --section-light-x: 82%;
+}
+
+body.home-page > :is(#community-pulse, #exile-maps) {
+    --section-top: #111a18;
+    --section-bottom: #101719;
+    --section-light: 133, 160, 119;
+}
+
+body.home-page > :is(#halloffame, #timeline, #guestbook) {
+    --section-top: #0d1216;
+    --section-bottom: #11171b;
+    --section-light-x: 50%;
+}
+
+body.home-page > .section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(1000px, 92%);
+    height: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, transparent, rgba(var(--section-light), .23) 25%, rgba(var(--section-light), .23) 75%, transparent);
+    pointer-events: none;
+}
+
+/* Keep Cinzel and Inter, with a quieter scale and readable line lengths. */
+.home-page .section h2 {
+    font-size: clamp(1.8rem, 3.2vw, 2.65rem);
+    line-height: 1.22;
+    letter-spacing: -.012em;
+    color: #f1f0e9;
+    text-wrap: balance;
+}
+
+.home-page .section-title,
+.home-page .archive-number {
+    color: var(--home-gold);
+    letter-spacing: .2em;
+    font-size: .75rem;
+}
+
+.home-page .section > .container > .section-title {
+    margin-bottom: 14px;
+}
+
+.home-page .section > .container > h2 {
+    max-width: 26ch;
+    margin-bottom: 22px;
+}
+
+.home-page .section > .container > p {
+    max-width: 66ch;
+    color: var(--home-copy);
+    line-height: 1.8;
+}
+
+/* A common surface, radius and gentle hover for existing content panels.
+   The shop box has its own stylesheet and is deliberately excluded. */
+.home-page :is(.card, .history-card, .pulse-card, .timeline-content, .gallery-card, .map-card, .guestbook-box, .guestbook-card, .support-box, .forum-card) {
+    border: 1px solid var(--home-panel-border) !important;
+    border-radius: 14px !important;
+    background: linear-gradient(145deg, rgba(25, 32, 35, .86), rgba(15, 21, 25, .94)) !important;
+    box-shadow: var(--home-panel-shadow) !important;
+    backdrop-filter: none;
+    transform: none !important;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease !important;
+}
+
+.home-page :is(.card, .history-card, .pulse-card, .guestbook-box, .guestbook-card, .forum-card) {
+    padding: clamp(22px, 2.3vw, 32px) !important;
+}
+
+.home-page :is(.card, .history-card, .pulse-card) h3 {
+    font-size: clamp(1.25rem, 1.6vw, 1.45rem);
+    line-height: 1.35;
+    margin-bottom: 14px;
+    color: #f0eee6;
+}
+
+.home-page :is(.cards, .map-grid, .gallery-grid) {
+    gap: 24px;
+}
+
+@media (hover: hover) {
+    .home-page :is(.card, .history-card, .pulse-card, .timeline-content, .gallery-card, .map-card, .guestbook-card, .support-box, .forum-card):hover {
+        transform: translateY(-2px) !important;
+        border-color: rgba(217, 189, 124, .36) !important;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .045) !important;
+    }
+}
+
+/* The existing hero image and two-column introduction remain in place. */
+.home-page .hero {
+    min-height: min(900px, 100svh);
+    padding: 156px 0 56px;
+}
+
+.home-page .hero-container {
+    width: min(1200px, 92%);
+}
+
+.home-page .hero h1 {
+    font-size: clamp(2.25rem, 4.7vw, 4rem);
+    line-height: 1.12;
+    text-wrap: balance;
+}
+
+.home-page .hero-welcome > p {
+    max-width: 48ch;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.home-page .hero-est {
+    color: var(--home-gold);
+    margin-bottom: 18px;
+}
+
+.home-page .survival-hero-cta {
+    border-color: rgba(217, 189, 124, .4);
+    background: linear-gradient(135deg, rgba(24, 23, 19, .94), rgba(16, 21, 23, .93));
+    box-shadow: 0 18px 42px rgba(0, 0, 0, .32), inset 0 1px 0 rgba(255, 235, 196, .055);
+}
+
+.home-page .survival-hero-cta h2 {
+    line-height: 1.3;
+    text-wrap: balance;
+}
+
+.home-page .hero-pixel-chase {
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+.home-page .scroll-indicator {
+    margin-top: 24px;
+    color: #b9c3c4;
+    font-size: .85rem;
+}
+
+.home-page .pixel-countdown-bar {
+    background: rgba(11, 19, 16, .85);
+    border-color: rgba(142, 170, 122, .32);
+    box-shadow: none;
+}
+
+.home-page .pixel-bar-title,
+.home-page .pixel-bar-percent {
+    color: #b5c8a4;
+}
+
+.home-page .pixel-bar-percent {
+    background: rgba(142, 170, 122, .1);
+    border-color: rgba(142, 170, 122, .3);
+}
+
+.home-page .pixel-led-dot {
+    background: #9ab782;
+    box-shadow: none !important;
+}
+
+.home-page .pixel-box-segment {
+    border-color: rgba(142, 170, 122, .22);
+}
+
+.home-page .pixel-box-segment.is-filled {
+    background: #7b986b !important;
+    border-color: #a1b98b;
+    box-shadow: none !important;
+}
+
+.home-page .pixel-chase-track {
+    border-color: rgba(217, 189, 124, .2);
+    box-shadow: none;
+}
+
+/* Development and voting cards use their natural content height. */
+body.home-page > #community-pulse {
+    padding-top: clamp(48px, 5vw, 72px);
+    padding-bottom: clamp(56px, 6vw, 86px);
+    border-bottom: 0;
+}
+
+.home-page .pulse-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    align-items: start;
+    gap: 24px;
+}
+
+.home-page .pulse-lead {
+    line-height: 1.7;
+}
+
+.home-page .pulse-recent-patch {
+    flex-grow: 0;
+    background: rgba(8, 14, 17, .25);
+}
+
+.home-page .pulse-patch-list {
+    gap: 12px;
+}
+
+.home-page .pulse-patch-list li {
+    display: block;
+    position: relative;
+    padding-left: 22px;
+    line-height: 1.65;
+}
+
+.home-page .pulse-patch-list li i {
+    position: absolute;
+    top: .2em;
+    left: 0;
+    color: #a3bb91;
+}
+
+.home-page .pulse-dot {
+    background: #a3bb91;
+    box-shadow: 0 0 0 3px rgba(163, 187, 145, .1);
+}
+
+.home-page .pulse-progress-labels {
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    line-height: 1.5;
+}
+
+.home-page .pulse-progress-fill {
+    box-shadow: none;
+}
+
+.home-page .pulse-actions .btn {
+    gap: 8px;
+    min-height: 48px;
+    padding: 13px 18px;
+    font-size: .9rem;
+}
+
+/* Archive chapters retain their photographs and original arrangement. */
+.home-page .history-grid {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(32px, 5vw, 68px);
+}
+
+.home-page .history-left p {
+    color: var(--home-copy);
+    line-height: 1.85;
+}
+
+.home-page .history-left p + p {
+    margin-top: 18px;
+}
+
+.home-page .history-info {
+    gap: 10px;
+}
+
+.home-page .history-scroll {
+    margin-top: 36px;
+    color: #aab6b9;
+    font-size: .85rem;
+}
+
+.home-page .event-header {
+    margin-bottom: clamp(28px, 3vw, 40px) !important;
+}
+
+.home-page .event-header h2 {
+    max-width: 28ch;
+    margin: 16px auto 12px;
+}
+
+.home-page .event-header .archive-number {
+    margin: 0 16px 0 0;
+}
+
+.home-page .event-header p {
+    color: #aebbbd;
+    font-size: .9rem;
+    line-height: 1.7;
+}
+
+.home-page .event-gallery {
+    gap: 24px;
+    margin-bottom: 38px;
+}
+
+.home-page .event-image,
+.home-page .adminbase-image {
+    border-color: var(--home-panel-border) !important;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .3) !important;
+}
+
+.home-page .adminbase-image {
+    border-radius: 12px;
+    aspect-ratio: 16 / 10;
+}
+
+.home-page .adminbase-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-page .event-image:hover {
+    transform: none !important;
+    border-color: rgba(217, 189, 124, .3) !important;
+}
+
+.home-page :is(.event-image, .gallery-card):hover img {
+    transform: scale(1.02);
+}
+
+.home-page .event-text {
+    max-width: 70ch;
+}
+
+.home-page .event-text h3 {
+    font-size: clamp(1.4rem, 2.3vw, 1.8rem);
+    line-height: 1.35;
+    margin-bottom: 20px;
+    text-wrap: balance;
+}
+
+.home-page .event-text p {
+    font-size: clamp(1rem, 1.2vw, 1.075rem);
+    line-height: 1.85;
+    color: var(--home-copy);
+}
+
+.home-page .event-text p:last-child {
+    margin-bottom: 0;
+}
+
+.home-page .gratitude-card {
+    border-color: rgba(217, 189, 124, .22) !important;
+    background: radial-gradient(ellipse at 50% 0%, rgba(55, 45, 26, .4), rgba(16, 22, 26, .92)) !important;
+    box-shadow: 0 18px 38px rgba(0, 0, 0, .25) !important;
+}
+
+.home-page .gratitude-card h2,
+.home-page .gratitude-copy {
+    margin-inline: auto;
+}
+
+.home-page .map-content h3 {
+    font-size: 1.55rem;
+    margin-bottom: 14px;
+}
+
+.home-page .timeline-new {
+    margin-top: 40px;
+}
+
+.home-page .timeline-dot {
+    border-color: #c9ae70 !important;
+    box-shadow: 0 0 0 4px rgba(201, 174, 112, .09) !important;
+}
+
+.home-page .timeline-entry:hover .timeline-dot {
+    transform: none;
+}
+
+/* Compact closing sections and a quiet footer; Merch stays untouched. */
+body.home-page > .support-section {
+    padding-block: clamp(40px, 4.5vw, 64px);
+}
+
+.home-page .support-box {
+    margin-top: 0 !important;
+}
+
+.home-page .support-box h2 {
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    line-height: 1.35;
+    margin-bottom: 10px;
+}
+
+.home-page .support-box p,
+.home-page .forum-copy p {
+    color: var(--home-copy);
+    line-height: 1.8;
+}
+
+.home-page .forum-copy h2 {
+    font-size: clamp(1.55rem, 2.4vw, 2rem);
+    margin-bottom: 14px;
+}
+
+.home-page .site-footer {
+    border-top-color: rgba(217, 189, 124, .12) !important;
+    background: radial-gradient(ellipse at 20% 0%, rgba(195, 164, 103, .045), transparent 65%), #0c1116 !important;
+}
+
+.home-page .site-footer::before {
+    opacity: .25;
+}
+
+@media (min-width: 992px) {
+    .home-page .hero-content {
+        gap: 40px 48px;
+    }
+}
+
+@media (min-width: 801px) {
+    .home-page .timeline-dot {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .home-page .timeline-year {
+        grid-row: 1;
+    }
+
+    .home-page .timeline-entry:nth-child(odd) .timeline-content {
+        grid-column: 3;
+        grid-row: 1;
+    }
+}
+
+@media (max-width: 900px) {
+    .home-page .hero {
+        min-height: auto;
+        padding: 0 0 48px;
+    }
+
+    .home-page .hero-container {
+        padding-top: 40px;
+    }
+
+    .home-page .hero-welcome {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    body.home-page > .section {
+        padding-block: 60px;
+        scroll-margin-top: 24px;
+    }
+
+    .home-page .pulse-grid,
+    .home-page .history-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .home-page .history-card {
+        width: 100%;
+    }
+
+    body.home-page > .support-section {
+        padding-block: 40px;
+    }
+}
+
+@media (max-width: 800px) {
+    .home-page .timeline-new::before {
+        left: 17px;
+    }
+}
+
+@media (max-width: 520px) {
+    body.home-page > .section {
+        padding-block: 52px;
+    }
+
+    .home-page .hero h1 {
+        font-size: clamp(2rem, 8.8vw, 2.3rem);
+    }
+
+    .home-page .hero-welcome > p {
+        font-size: 1rem;
+    }
+
+    .home-page .section h2 {
+        font-size: clamp(1.65rem, 7vw, 1.85rem);
+        line-height: 1.25;
+    }
+
+    .home-page .support-box h2 {
+        font-size: 1.2rem;
+    }
+
+    .home-page .event-gallery {
+        gap: 18px;
+        margin-bottom: 28px;
+    }
+
+    .home-page .event-gallery .event-image img {
+        height: auto;
+    }
+
+    .home-page .event-header .archive-number {
+        margin-right: 12px;
+    }
+
+    .home-page .history-scroll {
+        margin-top: 28px;
+    }
+
+    .home-page .pulse-actions .btn {
+        flex: 1 1 100%;
+    }
+
+    .home-page .site-footer .footer {
+        padding-block: 36px;
+    }
+
+    /* Keep the existing radio accessible without covering mobile CTA labels. */
+    .home-page .survival-radio-widget {
+        left: 12px;
+        bottom: 12px;
+    }
+
+    .home-page .radio-toggle-btn {
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+        justify-content: center;
+        color: var(--home-gold);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, .3);
+    }
+
+    .home-page .radio-btn-label,
+    .home-page .radio-wave-bars {
+        display: none;
+    }
+
+    .home-page .back-to-top {
+        right: 12px;
+        bottom: 12px;
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-page :is(.card, .history-card, .pulse-card, .timeline-content, .gallery-card, .map-card, .guestbook-box, .guestbook-card, .support-box, .forum-card) {
+        transition: none !important;
+    }
+}

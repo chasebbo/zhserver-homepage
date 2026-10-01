@@ -1,0 +1,29 @@
+/* Wiki additions are scoped; the current shared homepage shell stays authoritative. */
+.wiki-page .nav-menu a[aria-current="page"] { color: var(--gold); }
+.wiki-page .wiki-language-note { max-width: 900px; margin: 0 auto 24px; color: #bdcebf; font-size: .88rem; }
+.wiki-page .wiki-extra-filters { display: flex; flex-wrap: wrap; gap: 14px; margin: 16px 0; }
+.wiki-page .wiki-extra-filters label { display: grid; gap: 6px; min-width: 0; flex: 1 1 200px; color: #bdcebf; font-size: .82rem; }
+.wiki-page .wiki-extra-filters label[hidden] { display: none; }
+.wiki-page .wiki-extra-filters select { width: 100%; min-width: 0; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background: #101820; color: #e8eee9; font: inherit; }
+.wiki-page .wiki-extra-filters select:focus-visible, .wiki-page .wiki-tab-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.wiki-page .wiki-card-role { color: #a8bbae; font-size: .76rem; margin: 10px 0 0; }
+.wiki-page .wiki-status-pill.is-partial { background: rgba(227,179,66,.12); color: #f0cd78; border-color: rgba(227,179,66,.35); }
+.wiki-page .wiki-current-note { border-left: 3px solid var(--gold); background: rgba(231,196,90,.06); padding: 14px 16px; line-height: 1.65; color: #dae4dc; margin: 16px 0; }
+.wiki-page .wiki-related { margin-top: 24px; }
+.wiki-page .wiki-related .wiki-composed { margin-top: 12px; }
+.wiki-page .wiki-legacy-values { margin: 18px 0 4px; }
+.wiki-page .wiki-legacy-values summary { cursor: pointer; color: #bdcebf; font-size: .85rem; }
+.wiki-page .wiki-legacy-values p { font-size: .85rem; line-height: 1.6; color: #a8bbae; }
+.wiki-page .wiki-card, .wiki-page .wiki-detail-copy, .wiki-page .wiki-detail-grid > *, .wiki-page .footer > * { min-width: 0; }
+.wiki-page .wiki-kv strong, .wiki-page .wiki-composed, .wiki-page .wiki-reference-brief { overflow-wrap: anywhere; }
+.wiki-page .footer > div:first-child { flex: 1 1 650px; }
+.wiki-page .footer > div:last-child { flex: 0 1 260px; }
+.wiki-page .wiki-system-reference { scroll-margin-top: 130px; }
+@media (max-width: 700px) {
+  .wiki-page .footer > div { width: 100%; flex-basis: auto; }
+  .wiki-page .wiki-extra-filters { gap: 12px; }
+  .wiki-page .wiki-extra-filters label { flex-basis: 100%; }
+  .wiki-page .wiki-notice { align-items: flex-start; padding: 16px; }
+  .wiki-page .wiki-card-meta { flex-wrap: wrap; }
+  .wiki-page .wiki-related .wiki-ref-link { max-width: 100%; }
+}

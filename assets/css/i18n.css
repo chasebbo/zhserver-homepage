@@ -1,0 +1,61 @@
+/* Shared by the bilingual homepage pages. Shared Wiki CSS stays intact. */
+.language-switcher {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: rgba(10, 14, 20, .6);
+}
+
+/* The gallery file picker uses localised controls instead of browser-language labels. */
+.gallery-page .gallery-file-picker { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.gallery-page #uploadForm input[type="file"].gallery-file-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+.gallery-page #galleryFileName { flex: 1; min-width: 0; overflow-wrap: anywhere; color: var(--muted); }
+.gallery-page #closeLightbox { border: 0; background: transparent; cursor: pointer; }
+.gallery-page .gallery-image img[role="button"] { cursor: pointer; }
+.gallery-page .gallery-image img[role="button"]:focus-visible { outline: 3px solid var(--gold); outline-offset: -4px; }
+.language-switcher button {
+    min-width: 40px;
+    min-height: 38px;
+    padding: 6px 9px;
+    border: 0;
+    border-radius: 5px;
+    background: transparent;
+    color: var(--muted);
+    font: 600 .8rem/1 "Inter", sans-serif;
+    cursor: pointer;
+}
+.language-switcher button:hover { color: #fff; }
+.language-switcher button[aria-pressed="true"] { background: var(--gold); color: #0f141b; }
+.language-switcher button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+html[data-homepage-i18n] .navbar { gap: 16px; flex-wrap: wrap; }
+html[data-homepage-i18n] .navbar > .logo { flex: 1 1 auto; }
+html[data-homepage-i18n] .navbar > .language-switcher { order: 2; }
+html[data-homepage-i18n] .navbar > .menu-toggle { order: 3; }
+html[data-homepage-i18n] .navbar > .nav-menu { flex-wrap: wrap; gap: 18px; }
+@media (min-width: 901px) {
+    html[data-homepage-i18n] .navbar > .nav-menu { order: 4; justify-content: center; width: 100%; }
+}
+@media (max-width: 900px) {
+    html[data-homepage-i18n] .navbar > .nav-menu { top: calc(100% + 8px); }
+    html[data-homepage-i18n] .navbar > .logo { min-width: 0; font-size: clamp(.78rem, 2.4vw, 1.125rem); }
+    .language-switcher button { min-height: 44px; }
+}
+@media (max-width: 480px) {
+    html[data-homepage-i18n] .navbar { gap: 8px; padding: 10px 12px; }
+    html[data-homepage-i18n] .header.scrolled .navbar { padding: 10px 12px; }
+    html[data-homepage-i18n] .navbar > .logo { flex-basis: 100%; text-align: center; }
+    html[data-homepage-i18n] .navbar > .language-switcher { margin-right: auto; }
+}

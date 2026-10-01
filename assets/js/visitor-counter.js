@@ -7,8 +7,122 @@
     const SIMULATED_BASE_KEY = "zhserver_simulated_base";
     const LAST_BASE_UPDATE_KEY = "zhserver_simulated_ts";
 
-    // ================= 1. ALL-TIME TOTAL VISITORS (FOOTER) =================
-    async function callVisitorStats(functionName) {
+    // ================= 1. VISITOR STATISTICS (FOOTER) =================
+    const counterScriptUrl = document.currentScript?.src;
+    const statFields = ["today", "yesterday", "week", "month", "total"];
+    let visitorWidget = null;
+    let legacyStats = null;
+    let periodStats = null;
+    let statsLoading = false;
+    let lastStatsDate = null;
+
+    function readVisitorStorage(key) {
+        for (const store of ["localStorage", "sessionStorage"]) {
+            try {
+                const value = window[store].getItem(key);
+                if (value) return value;
+            } catch (_) { /* Use session storage when persistent storage is blocked. */ }
+        }
+        return null;
+    }
+
+    function writeVisitorStorage(key, value) {
+        for (const store of ["localStorage", "sessionStorage"]) {
+            try {
+                window[store].setItem(key, value);
+                return true;
+            } catch (_) { /* Without either store, read statistics without registering. */ }
+        }
+        return false;
+    }
+
+    function getStatsDeviceId() {
+        const stored = readVisitorStorage(DEVICE_ID_KEY);
+        if (stored) return stored;
+        const id = "zh_" + (window.crypto?.randomUUID?.() || Math.random().toString(36).slice(2) + "_" + Date.now().toString(36));
+        return writeVisitorStorage(DEVICE_ID_KEY, id) ? id : null;
+    }
+
+    function berlinDate() {
+        const parts = new Intl.DateTimeFormat("en-GB", {
+            timeZone: "Europe/Berlin", year: "numeric", month: "2-digit", day: "2-digit"
+        }).formatToParts(new Date());
+        const part = (type) => parts.find((item) => item.type === type).value;
+        return `${part("year")}-${part("month")}-${part("day")}`;
+    }
+
+    function visitorLanguage() {
+        return window.ZHLanguage?.language || (readVisitorStorage("zh_language") === "en" ? "en" : "de");
+    }
+
+    function visitorText(key, params = {}) {
+        const copy = window.ZHTranslations.messages[key][visitorLanguage()];
+        return copy.replace(/\{(\w+)\}/g, (match, name) => String(params[name] ?? match));
+    }
+
+    async function loadVisitorTranslations() {
+        if (window.ZHTranslations?.messages["visitor.stats.title"]) return true;
+        if (!counterScriptUrl) return false;
+        return new Promise((resolve) => {
+            const script = document.createElement("script");
+            script.src = new URL("translations.js?v=20261001-milestone", counterScriptUrl).href;
+            script.onload = () => resolve(Boolean(window.ZHTranslations?.messages["visitor.stats.title"]));
+            script.onerror = () => resolve(false);
+            document.head.append(script);
+        });
+    }
+
+    function createVisitorWidget() {
+        const original = totalVisitors?.closest(".site-footer .footer-visitor");
+        if (!original) return;
+        const stylesheet = document.createElement("link");
+        stylesheet.rel = "stylesheet";
+        stylesheet.href = new URL("../css/visitor-stats.css?v=20260930-visitor-periods", counterScriptUrl).href;
+        document.head.append(stylesheet);
+        visitorWidget = document.createElement("section");
+        visitorWidget.className = "visitor-stats";
+        visitorWidget.setAttribute("data-i18n-ignore", "");
+        visitorWidget.setAttribute("aria-labelledby", "visitor-stats-title");
+        visitorWidget.innerHTML = `<h4 id="visitor-stats-title" class="visitor-stats-title"></h4>
+            <dl class="visitor-stats-grid">${statFields.map((field) => `<div class="visitor-stat visitor-stat-${field}">
+                <dt data-visitor-label="${field}"></dt><dd data-visitor-value="${field}">—</dd>
+            </div>`).join("")}</dl>`;
+        const totalValue = visitorWidget.querySelector('[data-visitor-value="total"]');
+        totalValue.removeAttribute("data-visitor-value");
+        totalValue.replaceChildren(totalVisitors);
+        totalVisitors.setAttribute("data-visitor-value", "total");
+        original.replaceWith(visitorWidget);
+    }
+
+    function visitorCount(value) {
+        if (value === null || value === undefined || value === "" || typeof value === "boolean") return null;
+        const count = Number(value);
+        return Number.isSafeInteger(count) && count >= 0 ? count : null;
+    }
+
+    function renderVisitorStats() {
+        if (!visitorWidget) return;
+        const language = visitorLanguage();
+        const locale = language === "en" ? "en-GB" : "de-DE";
+        visitorWidget.lang = language;
+        visitorWidget.setAttribute("aria-busy", String(statsLoading));
+        visitorWidget.querySelector(".visitor-stats-title").textContent = visitorText("visitor.stats.title");
+        const values = {
+            total: visitorCount(periodStats?.total_visitors ?? legacyStats?.total_visitors),
+            today: visitorCount(periodStats?.today_visitors ?? (legacyStats?.today_date === berlinDate() ? legacyStats.today_visitors : null))
+        };
+        for (const field of ["yesterday", "week", "month"]) {
+            values[field] = periodStats?.[`${field}_complete`] === true ? visitorCount(periodStats[`${field}_visitors`]) : null;
+        }
+        for (const field of statFields) {
+            visitorWidget.querySelector(`[data-visitor-label="${field}"]`).textContent = visitorText(`visitor.stats.${field}`);
+            visitorWidget.querySelector(`[data-visitor-value="${field}"]`).textContent = values[field] === null ? "—" : values[field].toLocaleString(locale);
+        }
+    }
+
+    async function callVisitorStats(functionName, params = {}) {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 8000);
         try {
             const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${functionName}`, {
                 method: "POST",
@@ -16,32 +130,64 @@
                     "Content-Type": "application/json",
                     "apikey": SUPABASE_KEY
                 },
-                body: "{}"
+                body: JSON.stringify(params),
+                signal: controller.signal
             });
             if (!response.ok) return null;
             const data = await response.json();
-            return Array.isArray(data) && data.length ? data[0] : null;
+            return Array.isArray(data) ? data[0] || null : data;
         } catch (e) {
             return null;
+        } finally {
+            clearTimeout(timeout);
         }
     }
 
-    function renderVisitorStats(stats) {
-        if (!stats || !totalVisitors) return;
-        totalVisitors.textContent = Number(stats.total_visitors || 0).toLocaleString("de-DE");
+    async function refreshVisitorStats() {
+        if (!visitorWidget || statsLoading) return;
+        statsLoading = true;
+        renderVisitorStats();
+        const deviceId = getStatsDeviceId();
+        const fetchStats = async () => {
+            const savedVisit = Number(readVisitorStorage(VISITOR_KEY) || 0);
+            const lastVisit = Number.isFinite(savedVisit) && savedVisit <= Date.now() ? savedVisit : 0;
+            // Preserve the inherited total counter's once-per-24-hours behaviour.
+            const newVisit = deviceId && (!lastVisit || Date.now() - lastVisit >= 24 * 60 * 60 * 1000);
+            legacyStats = await callVisitorStats(newVisit ? "register_visitor" : "get_visitor_stats");
+            if (newVisit && visitorCount(legacyStats?.total_visitors) !== null) writeVisitorStorage(VISITOR_KEY, String(Date.now()));
+            // The server deduplicates calendar days and distinct visitors per week/month.
+            periodStats = await callVisitorStats(deviceId ? "register_visitor_period" : "get_visitor_period_stats", deviceId ? { p_device_id: deviceId } : {});
+        };
+        try {
+            if (deviceId && navigator.locks?.request) await navigator.locks.request("zhserver_visitor_stats", fetchStats);
+            else await fetchStats();
+        } finally {
+            lastStatsDate = berlinDate();
+            statsLoading = false;
+            renderVisitorStats();
+        }
     }
 
-    async function registerVisitor() {
-        if (!totalVisitors) return;
-        const lastVisit = Number(localStorage.getItem(VISITOR_KEY) || 0);
-        const isNewDailyVisit = !lastVisit || Date.now() - lastVisit >= 24 * 60 * 60 * 1000;
-        const stats = await callVisitorStats(isNewDailyVisit ? "register_visitor" : "get_visitor_stats");
-        if (!stats) return;
-        if (isNewDailyVisit) localStorage.setItem(VISITOR_KEY, String(Date.now()));
-        renderVisitorStats(stats);
+    async function initVisitorStats() {
+        if (!totalVisitors || !await loadVisitorTranslations()) return;
+        createVisitorWidget();
+        document.addEventListener("zh:languagechange", renderVisitorStats);
+        window.addEventListener("storage", (event) => {
+            if (event.key === "zh_language") renderVisitorStats();
+        });
+        // Refresh on a new Berlin calendar day, including tabs kept open overnight.
+        const refreshOnNewDay = () => {
+            if (!document.hidden && lastStatsDate !== berlinDate()) refreshVisitorStats();
+        };
+        document.addEventListener("visibilitychange", refreshOnNewDay);
+        setInterval(refreshOnNewDay, 60000);
+        await refreshVisitorStats();
     }
 
-    registerVisitor().catch(console.error);
+    initVisitorStats().catch(() => {
+        statsLoading = false;
+        renderVisitorStats();
+    });
 
     // ================= 2. LIVE ONLINE VISITORS (HERO BADGE) =================
     // Get or create persistent device ID for deduplicating multi-tab visits

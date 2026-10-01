@@ -1,0 +1,242 @@
+/* Homepage additions. The existing Premium pass and Merch remain in place. */
+body.home-page > .era-section {
+    padding-block: clamp(44px, 5vw, 72px);
+}
+
+.home-page .era-heading {
+    margin-bottom: 32px;
+}
+
+.home-page .era-heading h2 {
+    margin: 12px 0 18px;
+}
+
+.home-page .era-heading p {
+    max-width: 68ch;
+    color: var(--home-copy);
+    line-height: 1.8;
+}
+
+.home-page .era-split {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.home-page .era-panel {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-width: 0;
+    border: 1px solid rgba(217, 189, 124, .3);
+    border-radius: 14px;
+    background: #12191b;
+    box-shadow: 0 20px 42px rgba(0, 0, 0, .28);
+}
+
+.home-page .era-present {
+    border-color: rgba(161, 185, 139, .3);
+}
+
+.home-page .era-image {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    filter: saturate(.7);
+    opacity: .65;
+}
+
+.home-page .era-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(8, 14, 16, .16), rgba(8, 14, 16, .76) 42%, #0c1418 96%);
+    pointer-events: none;
+}
+
+.home-page .era-story {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 490px;
+    height: 100%;
+    gap: 64px;
+    padding: clamp(24px, 3vw, 36px);
+}
+
+.home-page .era-period,
+.home-page .era-image-note {
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: #e5d7b7;
+}
+
+.home-page .era-present-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-page .era-image-note {
+    padding: 5px 8px;
+    border: 1px solid rgba(217, 189, 124, .3);
+    border-radius: 4px;
+    background: rgba(8, 14, 16, .82);
+    letter-spacing: .03em;
+}
+
+.home-page .era-copy h3 {
+    max-width: 20ch;
+    margin: 0 0 18px;
+    color: #f2efe5;
+    font: 700 clamp(1.75rem, 2.7vw, 2.35rem)/1.2 Cinzel, serif;
+    text-wrap: balance;
+}
+
+.home-page .era-copy p {
+    max-width: 46ch;
+    margin-bottom: 24px;
+    color: #cbd5d1;
+    line-height: 1.75;
+}
+
+.home-page .era-copy .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 48px;
+    min-width: 0;
+    padding: 13px 20px;
+}
+
+.home-page .era-test-date {
+    display: block;
+    margin: -6px 0 20px;
+    color: #bdcfab;
+    font-size: .8rem;
+    line-height: 1.5;
+}
+
+.home-page .era-connection {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(217, 189, 124, .3);
+    border-radius: 50%;
+    background: #11191c;
+    color: var(--home-gold);
+    font-size: 1.2rem;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+body.home-page > #community-pulse.survival-preview-section {
+    padding-block: clamp(48px, 5vw, 68px);
+}
+
+.home-page .survival-preview {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+}
+
+.home-page .survival-preview h2 {
+    margin: 12px 0 18px;
+}
+
+.home-page .survival-preview-copy p {
+    max-width: 60ch;
+    color: var(--home-copy);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.home-page .survival-preview-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--home-gold);
+    text-decoration: none;
+    font-weight: 600;
+    min-height: 44px;
+}
+
+.home-page .survival-preview-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.home-page .survival-preview-status {
+    padding-left: 28px;
+    border-left: 1px solid rgba(161, 185, 139, .25);
+}
+
+.home-page .survival-preview .pulse-badge-header {
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.home-page .survival-preview .pulse-progress-labels {
+    margin-bottom: 12px;
+    font-size: .8rem;
+}
+
+.home-page .survival-preview-date {
+    margin-top: 16px;
+    color: #b6c8aa;
+    font-size: .9rem;
+}
+
+@media (max-width: 800px) {
+    .home-page .era-split,
+    .home-page .survival-preview {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .home-page .era-connection {
+        display: none;
+    }
+
+    .home-page .era-story {
+        min-height: 400px;
+        gap: 48px;
+    }
+
+    .home-page .survival-preview-status {
+        padding: 24px 0 0;
+        border-left: 0;
+        border-top: 1px solid rgba(161, 185, 139, .25);
+    }
+}
+
+@media (max-width: 520px) {
+    .home-page .era-story {
+        padding: 24px;
+        gap: 36px;
+    }
+
+    .home-page .era-copy h3 {
+        font-size: 1.8rem;
+    }
+
+    .home-page .era-copy .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

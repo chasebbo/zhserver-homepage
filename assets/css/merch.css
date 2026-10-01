@@ -1,0 +1,109 @@
+/* Decorative merchandise is confined to the existing shop block. */
+.shop-box {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.shop-box .shop-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    -webkit-mask-image: linear-gradient(90deg, #000 15%, rgba(0, 0, 0, .55) 30%, transparent 43%, transparent 57%, rgba(0, 0, 0, .55) 70%, #000 85%);
+    mask-image: linear-gradient(90deg, #000 15%, rgba(0, 0, 0, .55) 30%, transparent 43%, transparent 57%, rgba(0, 0, 0, .55) 70%, #000 85%);
+}
+
+.shop-box .shop-product {
+    position: absolute;
+    display: block;
+    height: auto;
+    max-width: none;
+    opacity: .13;
+    filter: grayscale(.65) brightness(.9);
+    pointer-events: none;
+}
+
+.shop-box .shop-product-shirt {
+    width: clamp(260px, 24vw, 345px);
+    top: -72px;
+    left: -46px;
+    transform: rotate(-13deg);
+    opacity: .15;
+}
+
+.shop-box .shop-product-hoodie {
+    width: clamp(270px, 25vw, 365px);
+    top: -108px;
+    right: -42px;
+    transform: rotate(11deg);
+    opacity: .14;
+}
+
+.shop-box .shop-product-womens-shirt {
+    width: clamp(180px, 16vw, 235px);
+    bottom: -100px;
+    right: 17%;
+    transform: rotate(-17deg);
+    opacity: .11;
+}
+
+.shop-box .shop-product-bag {
+    width: clamp(195px, 18vw, 260px);
+    bottom: -55px;
+    left: 13%;
+    transform: rotate(15deg);
+}
+
+.shop-box .shop-product-mug {
+    width: clamp(145px, 13vw, 185px);
+    bottom: -35px;
+    left: 29%;
+    transform: rotate(-12deg);
+    opacity: .14;
+}
+
+.shop-box .shop-product-cushion {
+    width: clamp(175px, 15vw, 215px);
+    top: -82px;
+    right: 26%;
+    transform: rotate(19deg);
+    opacity: .1;
+}
+
+.shop-box .shop-text,
+.shop-box .shop-link-container {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 900px) {
+    .shop-box .shop-backdrop {
+        -webkit-mask-image: linear-gradient(90deg, #000, rgba(0, 0, 0, .3) 38%, rgba(0, 0, 0, .3) 62%, #000);
+        mask-image: linear-gradient(90deg, #000, rgba(0, 0, 0, .3) 38%, rgba(0, 0, 0, .3) 62%, #000);
+    }
+
+    .shop-box .shop-product-hoodie,
+    .shop-box .shop-product-womens-shirt,
+    .shop-box .shop-product-bag,
+    .shop-box .shop-product-cushion {
+        display: none;
+    }
+
+    .shop-box .shop-product-shirt {
+        width: 300px;
+        top: -40px;
+        left: -150px;
+        opacity: .1;
+    }
+
+    .shop-box .shop-product-mug {
+        width: 220px;
+        left: auto;
+        right: -86px;
+        bottom: -50px;
+        transform: rotate(12deg);
+        opacity: .09;
+    }
+}

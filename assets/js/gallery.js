@@ -1,10 +1,45 @@
 const galleryGrid = document.getElementById("galleryGrid");
 const uploadForm = document.getElementById("uploadForm");
 const uploadStatus = document.getElementById("uploadStatus");
+const galleryImageField = document.getElementById("image");
+const galleryChooseFile = document.getElementById("galleryChooseFile");
+const galleryFileName = document.getElementById("galleryFileName");
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const closeLightbox = document.getElementById("closeLightbox");
+let galleryImageTrigger = null;
+
+function updateGalleryFileName() {
+    const file = galleryImageField.files[0];
+    ZHLanguage.bind(galleryFileName, file ? "gallery.file.selected" : "gallery.file.empty", { name: file?.name || "" });
+}
+
+galleryChooseFile.addEventListener("click", () => galleryImageField.click());
+galleryImageField.addEventListener("change", updateGalleryFileName);
+updateGalleryFileName();
+
+function openGalleryImage(source, description, trigger) {
+    galleryImageTrigger = trigger;
+    lightboxImage.src = source;
+    ZHLanguage.bind(lightboxImage, description ? "gallery.image.userAlt" : "gallery.image.defaultAlt", { description: description || "" }, "alt");
+    lightbox.style.display = "flex";
+    lightbox.setAttribute("aria-hidden", "false");
+    closeLightbox.focus();
+}
+
+function closeGalleryImage() {
+    lightbox.style.display = "none";
+    lightbox.setAttribute("aria-hidden", "true");
+    if (galleryImageTrigger?.isConnected) galleryImageTrigger.focus();
+}
+
+function updateGalleryLikeLabel(button, liked) {
+    const key = liked ? "gallery.like.remove" : "gallery.like.add";
+    ZHLanguage.bind(button, key, {}, "aria-label");
+    ZHLanguage.bind(button, key, {}, "title");
+    button.setAttribute("aria-pressed", String(liked));
+}
 
 function escapeHtml(str) {
     if (!str) return "";
@@ -45,16 +80,29 @@ async function loadGallery() {
 
     galleryGrid.innerHTML = "";
 
-    const { data, error } = await supabaseClient
-        .from("gallery")
-        .select("*")
-        .order("created_at", { ascending: false });
-
-    if (error) {
-
+    let data;
+    try {
+        const result = await supabaseClient
+            .from("gallery")
+            .select("*")
+            .order("created_at", { ascending: false });
+        if (result.error) throw result.error;
+        if (!Array.isArray(result.data)) throw new Error("Invalid gallery response");
+        data = result.data;
+    } catch (error) {
         console.error(error);
+        const notice = document.createElement("p");
+        notice.setAttribute("role", "status");
+        galleryGrid.appendChild(notice);
+        ZHLanguage.bind(notice, "gallery.load.failed");
         return;
+    }
 
+    if (!data.length) {
+        const notice = document.createElement("p");
+        galleryGrid.appendChild(notice);
+        ZHLanguage.bind(notice, "gallery.empty");
+        return;
     }
 
     const likesMap = getGalleryLikes();
@@ -93,22 +141,22 @@ async function loadGallery() {
                     ${isTop ? '<span class="gallery-top-badge"><i class="fa-solid fa-crown" aria-hidden="true"></i> TOP SCREENSHOT</span>' : ''}
 
                     <img
-                        src="${entry.image_url}"
-                        alt="${escapeHtml(entry.description ?? "")}">
+                        src="${escapeHtml(entry.image_url)}"
+                        alt="${escapeHtml(entry.description ?? "")}" data-i18n-ignore>
 
                 </div>
 
                 <div class="gallery-info">
 
                     <div class="gallery-info-head">
-                        <span>${escapeHtml(entry.uploader)}</span>
+                        <span data-i18n-ignore>${escapeHtml(entry.uploader)}</span>
                         <button type="button" class="gallery-like-btn ${isLiked ? "is-liked" : ""}" data-entry-id="${entry.id}" aria-label="Gefällt mir" title="Gefällt mir">
                             <i class="${isLiked ? "fa-solid fa-heart" : "fa-regular fa-heart"}" aria-hidden="true"></i>
                             <span class="like-counter">${count}</span>
                         </button>
                     </div>
 
-                    <p>${escapeHtml(entry.description ?? "")}</p>
+                    <p data-i18n-ignore>${escapeHtml(entry.description ?? "")}</p>
 
                 </div>
 
@@ -116,16 +164,21 @@ async function loadGallery() {
 
             const img = card.querySelector("img");
             if (img) {
-                img.addEventListener("click", () => {
-
-                    lightbox.style.display = "flex";
-                    lightboxImage.src = entry.image_url;
-
+                img.tabIndex = 0;
+                img.setAttribute("role", "button");
+                ZHLanguage.bind(img, entry.description ? "gallery.image.open" : "gallery.image.openUnnamed", { description: entry.description || "" }, "aria-label");
+                ZHLanguage.bind(img, entry.description ? "gallery.image.userAlt" : "gallery.image.defaultAlt", { description: entry.description || "" }, "alt");
+                img.addEventListener("click", () => openGalleryImage(entry.image_url, entry.description, img));
+                img.addEventListener("keydown", (event) => {
+                    if (event.key !== "Enter" && event.key !== " ") return;
+                    event.preventDefault();
+                    openGalleryImage(entry.image_url, entry.description, img);
                 });
             }
 
             const likeBtn = card.querySelector(".gallery-like-btn");
             if (likeBtn) {
+                updateGalleryLikeLabel(likeBtn, isLiked);
                 likeBtn.addEventListener("click", (e) => {
                     e.stopPropagation();
                     toggleLike(entry.id, likeBtn);
@@ -148,7 +201,7 @@ async function loadGallery() {
 
                 <div class="gallery-info">
 
-                    <span>${escapeHtml(entry.uploader)}</span>
+                    <span data-i18n-ignore>${escapeHtml(entry.uploader)}</span>
 
                     <p class="gallery-pending-sub"><em>[Inhalt in Sicherheitsprüfung]</em></p>
 
@@ -180,6 +233,7 @@ function toggleLike(id, btn) {
     saveGalleryLikeCounts(counts);
 
     btn.classList.toggle("is-liked", !currentlyLiked);
+    updateGalleryLikeLabel(btn, !currentlyLiked);
     const icon = btn.querySelector("i");
     if (icon) {
         icon.className = !currentlyLiked ? "fa-solid fa-heart" : "fa-regular fa-heart";
@@ -194,72 +248,55 @@ uploadForm.addEventListener("submit", async (e) => {
 
     e.preventDefault();
 
-    uploadStatus.textContent = "Upload läuft...";
-
-    const file = document.getElementById("image").files[0];
-
+    const file = galleryImageField.files[0];
     const uploader = document.getElementById("uploader").value;
-
     const description = document.getElementById("description").value;
-
-    const fileName = `${Date.now()}-${file.name}`;
-
-    const { error: uploadError } = await supabaseClient
-        .storage
-        .from("gallery")
-        .upload(fileName, file);
-
-    if (uploadError) {
-
-        uploadStatus.textContent = uploadError.message;
+    const submitButton = uploadForm.querySelector('button[type="submit"]');
+    if (submitButton.disabled) return;
+    if (!uploader.trim()) {
+        ZHLanguage.bind(uploadStatus, "gallery.upload.nameRequired");
+        document.getElementById("uploader").focus();
         return;
-
+    }
+    if (!file) {
+        ZHLanguage.bind(uploadStatus, "gallery.upload.fileRequired");
+        galleryChooseFile.focus();
+        return;
     }
 
-    const { data: urlData } = supabaseClient
-        .storage
-        .from("gallery")
-        .getPublicUrl(fileName);
-
-    const { error: insertError } = await supabaseClient
-        .from("gallery")
-        .insert({
-
+    submitButton.disabled = true;
+    ZHLanguage.bind(uploadStatus, "gallery.uploading");
+    let stage = "upload";
+    try {
+        const fileName = `${Date.now()}-${file.name}`;
+        const { error: uploadError } = await supabaseClient.storage.from("gallery").upload(fileName, file);
+        if (uploadError) throw uploadError;
+        const { data: urlData } = supabaseClient.storage.from("gallery").getPublicUrl(fileName);
+        stage = "save";
+        const { error: insertError } = await supabaseClient.from("gallery").insert({
             image_url: urlData.publicUrl,
             uploader,
             description,
             approved: false
-
         });
-
-    if (insertError) {
-
-        uploadStatus.textContent = insertError.message;
-        return;
-
+        if (insertError) throw insertError;
+        ZHLanguage.bind(uploadStatus, "gallery.upload.success");
+        uploadForm.reset();
+        updateGalleryFileName();
+    } catch (error) {
+        console.error(error);
+        ZHLanguage.bind(uploadStatus, stage === "upload" ? "gallery.upload.failed" : "gallery.save.failed");
+    } finally {
+        submitButton.disabled = false;
     }
-
-    uploadStatus.textContent =
-        "Vielen Dank! Dein Screenshot wurde erfolgreich hochgeladen und wartet auf Freigabe.";
-
-    uploadForm.reset();
-
 });
 
-closeLightbox.addEventListener("click", () => {
-
-    lightbox.style.display = "none";
-
-});
-
+closeLightbox.addEventListener("click", closeGalleryImage);
 lightbox.addEventListener("click", (e) => {
-
-    if (e.target === lightbox) {
-
-        lightbox.style.display = "none";
-
-    }
-
+    if (e.target === lightbox) closeGalleryImage();
+});
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.getAttribute("aria-hidden") === "false") closeGalleryImage();
 });
 
 loadGallery();
