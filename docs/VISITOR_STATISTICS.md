@@ -25,7 +25,14 @@ Tageswert von `0` wird übernommen. Gestern bleibt `—`; fehlt ein gültiger he
 Wert, bleiben auch Woche und Monat `—`. Es werden keine früheren Tage rekonstruiert.
 Ein kurzer zentral übersetzter Tooltip und die zugängliche Beschriftung kennzeichnen
 die Mindestwerte; es gibt keinen zusätzlichen Text unter den Karten. Verfügbare echte
-Periodenwerte behalten Vorrang, einschließlich der bestehenden Vollständigkeitsprüfung.
+Periodenwerte behalten Vorrang, auch ein gültiger Zahlenwert `0`. Jede Kennzahl wird
+einzeln geprüft: Bei HTTP-/Verbindungsfehlern, ungültigen Antworten oder fehlenden bzw.
+ungültigen Feldern übernehmen Woche und Monat den heutigen Mindestwert; Gestern bleibt
+ohne verlässlichen Wert `—`. Leere Zeichenfolgen, Arrays und Objekte gelten nicht als
+Besucherzahlen. Explizit als unvollständig gekennzeichnete Zeiträume verwenden ebenfalls
+den Fallback. Fehlen die optionalen Vollständigkeitsangaben, bleiben gültige Zahlenwerte
+verwendbar. Ungültige Tages-/Gesamtfelder der Periodenantwort verdrängen keine gültigen
+Werte der bisherigen Quelle. Die bestehenden Perioden-RPCs bleiben erhalten.
 Der zusätzliche Hinweis unter den Werten wurde am 01.10.2026 vollständig entfernt;
 die fünf Kennzahlen und ihre Datenabfragen bleiben erhalten. Die reine
 Leseprüfung vom 01.10.2026 bestätigt weiterhin HTTP 200 für `get_visitor_stats()`

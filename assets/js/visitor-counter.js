@@ -95,9 +95,16 @@
     }
 
     function visitorCount(value) {
-        if (value === null || value === undefined || value === "" || typeof value === "boolean") return null;
+        if (typeof value !== "number" && typeof value !== "string") return null;
+        if (typeof value === "string" && !/^\d+$/.test(value.trim())) return null;
         const count = Number(value);
         return Number.isSafeInteger(count) && count >= 0 ? count : null;
+    }
+
+    function visitorPeriodCount(field) {
+        const complete = periodStats?.[`${field}_complete`];
+        if (complete !== undefined && complete !== true) return null;
+        return visitorCount(periodStats?.[`${field}_visitors`]);
     }
 
     function renderVisitorStats() {
@@ -108,24 +115,25 @@
         visitorWidget.setAttribute("aria-busy", String(statsLoading));
         visitorWidget.querySelector(".visitor-stats-title").textContent = visitorText("visitor.stats.title");
         const values = {
-            total: visitorCount(periodStats?.total_visitors ?? legacyStats?.total_visitors),
-            today: visitorCount(periodStats?.today_visitors ?? (legacyStats?.today_date === berlinDate() ? legacyStats.today_visitors : null))
+            total: visitorCount(periodStats?.total_visitors) ?? visitorCount(legacyStats?.total_visitors),
+            today: visitorCount(periodStats?.today_visitors) ??
+                (legacyStats?.today_date === berlinDate() ? visitorCount(legacyStats.today_visitors) : null)
         };
-        for (const field of ["yesterday", "week", "month"]) {
-            values[field] = periodStats?.[`${field}_complete`] === true ? visitorCount(periodStats[`${field}_visitors`]) : null;
-        }
         // Today's count is a lower bound for the current week and month. It does
-        // not reconstruct previous days; complete period data still takes priority.
-        const fallbackPeriods = !periodStats && values.today !== null;
-        if (fallbackPeriods) {
-            values.week = values.today;
-            values.month = values.today;
+        // not reconstruct previous days. Check each field; a real zero wins.
+        const fallbackPeriods = new Set();
+        for (const field of ["yesterday", "week", "month"]) {
+            values[field] = visitorPeriodCount(field);
+            if (field !== "yesterday" && values[field] === null && values.today !== null) {
+                values[field] = values.today;
+                fallbackPeriods.add(field);
+            }
         }
         for (const field of statFields) {
             visitorWidget.querySelector(`[data-visitor-label="${field}"]`).textContent = visitorText(`visitor.stats.${field}`);
             const value = visitorWidget.querySelector(`[data-visitor-value="${field}"]`);
             value.textContent = values[field] === null ? "—" : values[field].toLocaleString(locale);
-            const isFallback = fallbackPeriods && (field === "week" || field === "month");
+            const isFallback = fallbackPeriods.has(field);
             value.toggleAttribute("data-visitor-fallback", isFallback);
             if (isFallback) {
                 const minimum = visitorText("visitor.stats.minimum", { count: value.textContent });
@@ -153,7 +161,8 @@
             });
             if (!response.ok) return null;
             const data = await response.json();
-            return Array.isArray(data) ? data[0] || null : data;
+            const row = Array.isArray(data) ? data[0] : data;
+            return row !== null && typeof row === "object" && !Array.isArray(row) ? row : null;
         } catch (e) {
             return null;
         } finally {
