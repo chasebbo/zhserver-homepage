@@ -19,9 +19,15 @@ aus der vorhandenen Quelle übernommen, sofern deren Datum zum aktuellen Tag pas
 Die lokale Oberfläche zeigt ausschließlich Heute, Gestern, Diese Woche, Dieser Monat
 und Insgesamt in DE/EN. Sie wird aus einer gemeinsamen Komponente für alle bestehenden
 Besucher-Footer erzeugt. Es gibt keine Anzeige oder Speicherung von Pageviews in der
-neuen Zeitraum-Erfassung. Bis zur Aktivierung bleiben die drei fehlenden Zeiträume
-bei `—`. Der zusätzliche Hinweis unter den Werten wurde am 01.10.2026 vollständig
-entfernt; die fünf Kennzahlen und ihre Datenabfragen bleiben erhalten. Die reine
+neuen Zeitraum-Erfassung. Solange der Perioden-Endpunkt nicht verfügbar ist, übernehmen
+Woche und Monat den echten heutigen Wert als logischen Mindestwert. Auch ein echter
+Tageswert von `0` wird übernommen. Gestern bleibt `—`; fehlt ein gültiger heutiger
+Wert, bleiben auch Woche und Monat `—`. Es werden keine früheren Tage rekonstruiert.
+Ein kurzer zentral übersetzter Tooltip und die zugängliche Beschriftung kennzeichnen
+die Mindestwerte; es gibt keinen zusätzlichen Text unter den Karten. Verfügbare echte
+Periodenwerte behalten Vorrang, einschließlich der bestehenden Vollständigkeitsprüfung.
+Der zusätzliche Hinweis unter den Werten wurde am 01.10.2026 vollständig entfernt;
+die fünf Kennzahlen und ihre Datenabfragen bleiben erhalten. Die reine
 Leseprüfung vom 01.10.2026 bestätigt weiterhin HTTP 200 für `get_visitor_stats()`
 und HTTP 404 für `get_visitor_period_stats()`. Keine Backendänderung ausgeführt.
 

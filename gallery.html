@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" href="assets/css/style.css?v=20260910-nav">
     <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en-gallery">
+    <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
     <script src="assets/js/translations.js?v=20261001-milestone"></script>
     <script src="assets/js/i18n.js?v=20260930-de-en-gallery"></script>
 
@@ -38,25 +39,25 @@
 
 <body class="gallery-page">
 
-<header class="header">
-
+<header class="header zh-site-header">
     <div class="container">
-
         <nav class="navbar">
-
-            <a href="index.html" class="logo">
-                ZHServer.de / Zombiehölle.de
-            </a>
-
-            <div class="language-switcher" role="group" aria-label="Sprache wählen">
-                <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
-                <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
-            </div>
-            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Navigation öffnen">
+            <div class="header-brand-row">
+                <a href="index.html" class="header-emblem">
+                    <img src="assets/images/android-chrome-512x512.png" width="512" height="512" alt="Zombiehölle / ZHServer" decoding="async">
+                </a>
+                <a href="index.html" class="logo">ZHServer.de / Zombiehölle.de</a>
+                <div class="header-controls">
+                    <div class="language-switcher" role="group" aria-label="Sprache wählen">
+                        <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
+                        <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
+                    </div>
+                    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Navigation öffnen" aria-controls="nav-menu" aria-expanded="false">
                 ☰
             </button>
-
-            <ul class="nav-menu">
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
 
                 <li><a href="index.html#hero">Start</a></li>
                 <li><a href="index.html#history">Geschichte</a></li>
@@ -69,11 +70,8 @@
                 <li><a href="index.html#forum">Community</a></li>
 
             </ul>
-
         </nav>
-
     </div>
-
 </header>
 
 <section class="hero gallery-hero">

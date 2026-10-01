@@ -1,147 +1,193 @@
-/* Homepage additions. The existing Premium pass and Merch remain in place. */
+/* The familiar backdrop unites the welcome and both chapters in one homepage hero. */
 body.home-page > .era-section {
-    padding-block: clamp(44px, 5vw, 72px);
+    isolation: isolate;
+    overflow: clip;
+    padding: 190px 0 48px;
+    background:
+        linear-gradient(180deg, rgba(8, 12, 16, .12), rgba(8, 12, 16, .28) 65%, #0e1418),
+        linear-gradient(90deg, rgba(8, 12, 16, .64), rgba(8, 12, 16, .28) 68%, rgba(8, 12, 16, .18)),
+        url("../images/hero.png") center top / cover no-repeat !important;
+}
+
+/* A tapered beam pivots at the right-hand motif; the feathered core keeps its shape. */
+body.home-page > .era-section::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: clamp(510px, calc(360px + 12vw), 600px);
+    pointer-events: none;
+    opacity: .34;
+    background:
+        radial-gradient(circle 14px at 97% 84%, rgba(255, 237, 191, .6), transparent 80%),
+        conic-gradient(from 280deg at 97% 84%,
+        transparent 0deg,
+        rgba(244, 218, 164, .08) 1deg,
+        rgba(249, 226, 180, .42) 2.5deg,
+        rgba(255, 236, 197, .88) 4deg,
+        rgba(255, 240, 205, .94) 5deg,
+        rgba(255, 236, 197, .88) 6deg,
+        rgba(249, 226, 180, .42) 7.5deg,
+        rgba(244, 218, 164, .08) 9deg,
+        transparent 10deg);
+    mask-image:
+        linear-gradient(180deg, transparent, #000 12%, #000 78%, transparent),
+        radial-gradient(circle farthest-corner at 97% 84%, #000 50%, rgba(0, 0, 0, .8) 80%, transparent);
+    mask-composite: intersect;
+    filter: blur(5px);
+    transform-origin: 97% 84%;
+    transform: rotate(-4deg);
+    animation: zh-home-searchlight-sweep 38s ease-in-out -19s infinite alternate;
+}
+
+@keyframes zh-home-searchlight-sweep {
+    from { transform: rotate(-4deg); }
+    to { transform: rotate(4deg); }
+}
+
+@media (max-width: 1100px) {
+    body.home-page > .era-section::before {
+        height: 240px;
+        opacity: .22;
+    }
+}
+
+@media (max-width: 600px), (prefers-reduced-motion: reduce) {
+    body.home-page > .era-section::before {
+        display: none;
+        animation: none;
+    }
+}
+
+.home-page #then-now {
+    scroll-margin-top: 188px;
 }
 
 .home-page .era-heading {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
+    text-align: center;
 }
 
-.home-page .era-heading h2 {
-    margin: 12px 0 18px;
+.home-page .era-heading h1 {
+    margin: 10px 0 12px;
+    color: #f1f0e9;
+    font: 700 clamp(2.1rem, 4.2vw, 3.5rem)/1.18 Cinzel, serif;
+    letter-spacing: -.012em;
+    text-wrap: balance;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, .35);
 }
 
 .home-page .era-heading p {
-    max-width: 68ch;
-    color: var(--home-copy);
-    line-height: 1.8;
+    max-width: 72ch;
+    margin: 0 auto;
+    color: #d5dad6;
+    font-size: .95rem;
+    line-height: 1.7;
 }
 
 .home-page .era-split {
     position: relative;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    gap: 24px;
 }
 
 .home-page .era-panel {
     position: relative;
     isolation: isolate;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     min-width: 0;
-    border: 1px solid rgba(217, 189, 124, .3);
+    border: 1px solid rgba(217, 189, 124, .25);
     border-radius: 14px;
-    background: #12191b;
-    box-shadow: 0 20px 42px rgba(0, 0, 0, .28);
+    background: rgba(11, 17, 20, .3);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .23);
 }
 
 .home-page .era-present {
-    border-color: rgba(161, 185, 139, .3);
+    border-color: rgba(161, 185, 139, .25);
+}
+
+.home-page .era-visual {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(217, 189, 124, .12);
+    background: rgba(8, 14, 18, .18);
 }
 
 .home-page .era-image {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
+    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    max-height: 300px;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    object-position: center;
     pointer-events: none;
-    filter: saturate(.7);
-    opacity: .65;
+    opacity: .88;
+    filter: saturate(.82) brightness(.9);
 }
 
-.home-page .era-panel::before {
+.home-page .era-visual::after {
     content: "";
     position: absolute;
     inset: 0;
-    z-index: -1;
-    background: linear-gradient(180deg, rgba(8, 14, 16, .16), rgba(8, 14, 16, .76) 42%, #0c1418 96%);
+    background: linear-gradient(180deg, rgba(8, 14, 16, .08), transparent 48%, rgba(8, 14, 16, .2));
     pointer-events: none;
 }
 
 .home-page .era-story {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 490px;
-    height: 100%;
-    gap: 64px;
-    padding: clamp(24px, 3vw, 36px);
+    flex: 1;
+    min-height: 0;
+    padding: 24px 28px;
+    background: linear-gradient(145deg, rgba(14, 20, 23, .52), rgba(10, 17, 21, .64));
 }
 
-.home-page .era-period,
-.home-page .era-image-note {
-    font-size: .7rem;
-    font-weight: 700;
-    letter-spacing: .12em;
-    color: #e5d7b7;
-}
-
-.home-page .era-present-meta {
+.home-page .era-copy {
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
 }
 
-.home-page .era-image-note {
-    padding: 5px 8px;
-    border: 1px solid rgba(217, 189, 124, .3);
-    border-radius: 4px;
-    background: rgba(8, 14, 16, .82);
-    letter-spacing: .03em;
-}
-
-.home-page .era-copy h3 {
-    max-width: 20ch;
-    margin: 0 0 18px;
+.home-page .era-copy h2 {
+    max-width: none;
+    margin: 0 0 12px;
     color: #f2efe5;
-    font: 700 clamp(1.75rem, 2.7vw, 2.35rem)/1.2 Cinzel, serif;
+    font: 700 clamp(1.35rem, 2vw, 1.7rem)/1.25 Cinzel, serif;
     text-wrap: balance;
 }
 
 .home-page .era-copy p {
-    max-width: 46ch;
-    margin-bottom: 24px;
+    margin: 0 0 16px;
     color: #cbd5d1;
-    line-height: 1.75;
+    font-size: .9rem;
+    line-height: 1.7;
 }
 
 .home-page .era-copy .btn {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    min-height: 48px;
+    min-height: 44px;
     min-width: 0;
-    padding: 13px 20px;
+    margin-top: auto;
+    padding: 11px 17px;
+    font-size: .84rem;
 }
 
 .home-page .era-test-date {
     display: block;
-    margin: -6px 0 20px;
+    margin: 0 0 16px;
     color: #bdcfab;
-    font-size: .8rem;
+    font-size: .75rem;
     line-height: 1.5;
-}
-
-.home-page .era-connection {
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 50%;
-    display: grid;
-    place-items: center;
-    width: 42px;
-    height: 42px;
-    border: 1px solid rgba(217, 189, 124, .3);
-    border-radius: 50%;
-    background: #11191c;
-    color: var(--home-gold);
-    font-size: 1.2rem;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
 }
 
 body.home-page > #community-pulse.survival-preview-section {
@@ -203,19 +249,29 @@ body.home-page > #community-pulse.survival-preview-section {
     font-size: .9rem;
 }
 
+@media (max-width: 900px) {
+    body.home-page > .era-section {
+        padding-top: 24px;
+        background-position: center, center, 90% top !important;
+        background-size: auto, auto, auto 760px !important;
+        background-color: #0e1418 !important;
+    }
+
+    /* Start returns to the logo and language controls as well as the chapter hero. */
+    body.home-page > .era-section,
+    .home-page #then-now {
+        scroll-margin-top: 150px;
+    }
+}
+
 @media (max-width: 800px) {
     .home-page .era-split,
     .home-page .survival-preview {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .home-page .era-connection {
-        display: none;
-    }
-
-    .home-page .era-story {
-        min-height: 400px;
-        gap: 48px;
+    .home-page .era-image {
+        max-height: 280px;
     }
 
     .home-page .survival-preview-status {
@@ -227,12 +283,15 @@ body.home-page > #community-pulse.survival-preview-section {
 
 @media (max-width: 520px) {
     .home-page .era-story {
-        padding: 24px;
-        gap: 36px;
+        padding: 22px;
     }
 
-    .home-page .era-copy h3 {
-        font-size: 1.8rem;
+    .home-page .era-image {
+        max-height: none;
+    }
+
+    .home-page .era-copy h2 {
+        font-size: 1.45rem;
     }
 
     .home-page .era-copy .btn {

@@ -20,8 +20,9 @@
     <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en">
     <link rel="stylesheet" href="assets/css/merch.css?v=20260930-products">
     <link rel="stylesheet" href="assets/css/homepage-premium.css?v=20260930-premium">
-    <link rel="stylesheet" href="assets/css/homepage-bridge.css?v=20260930-then-now">
-    <script src="assets/js/translations.js?v=20261001-milestone"></script>
+    <link rel="stylesheet" href="assets/css/homepage-bridge.css?v=20261001-atmosphere-hero">
+    <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
+    <script src="assets/js/translations.js?v=20261001-vision1"></script>
     <script src="assets/js/i18n.js?v=20260930-then-now"></script>
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -35,334 +36,73 @@
 
 <body class="home-page">
 
-<header class="header">
-
+<header class="header zh-site-header">
     <div class="container">
-
         <nav class="navbar">
-
-            <a href="#" class="logo">
-                ZHServer.de / Zombiehölle.de
-            </a>
-
-            <div class="language-switcher" role="group" aria-label="Sprache wählen">
-                <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
-                <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
-            </div>
-            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Navigation öffnen">
+            <div class="header-brand-row">
+                <a href="#" class="header-emblem">
+                    <img src="assets/images/android-chrome-512x512.png" width="512" height="512" alt="Zombiehölle / ZHServer" decoding="async">
+                </a>
+                <a href="#" class="logo">ZHServer.de / Zombiehölle.de</a>
+                <div class="header-controls">
+                    <div class="language-switcher" role="group" aria-label="Sprache wählen">
+                        <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
+                        <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
+                    </div>
+                    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Navigation öffnen" aria-controls="nav-menu" aria-expanded="false">
     ☰
 </button>
-
-            <ul class="nav-menu">
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
 
                 <li><a href="#hero">Start</a></li>
-<li><a href="#history">Geschichte</a></li>
-<li><a href="#timeline">Timeline</a></li>
-<li><a href="gallery.html">Galerie</a></li>
-<li><a href="wiki.html">Wiki</a></li>
+                <li><a href="#history">Geschichte</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="gallery.html">Galerie</a></li>
+                <li><a href="wiki.html">Wiki</a></li>
                 <li><a href="game.html" class="nav-game-link">SPIEL</a></li>
                 <li><a href="bugs/index.html" data-bugs-route>BUGS / IDEEN</a></li>
-<li><a href="#guestbook">Gästebuch</a></li>
-<li><a href="#forum">Community</a></li>
+                <li><a href="#guestbook">Gästebuch</a></li>
+                <li><a href="#forum">Community</a></li>
 
             </ul>
-
         </nav>
-
     </div>
-
 </header>
 
 
 
 <!-- ================= HERO ================= -->
 
-<section id="hero" class="hero">
-
-    <div class="hero-overlay"></div>
-
-    <div class="container hero-container">
-
-        <div class="hero-content">
-
-            <div class="hero-welcome">
-                <span class="hero-est">
-
-                    EST. 2013
-
-                </span>
-
-                <h1>
-                    WILLKOMMEN ZURÜCK.
-                </h1>
-
-                <p>
-                    Erinnerungen aus über 10 Jahren Zombiehölle und der Einstieg in das neue 2D-Survival-Projekt.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#history" class="btn btn-outline">
-
-    Community entdecken
-
-</a>
-
-<a href="gallery.html#upload" class="btn btn-outline">
-
-    Bilder hochladen
-
-</a>
-
-<a href="#guestbook" class="btn btn-outline">
-
-    Gästebuch
-
-</a>
-                </div>
-            </div>
-
-            <div class="hero-survival">
-                <aside class="survival-hero-cta" aria-label="Zombiehoelle Survival spielen">
-                    <div class="survival-cta-header">
-                        <span class="survival-cta-kicker">ZOMBIEH&Ouml;LLE SURVIVAL</span>
-                        <span class="survival-cta-badge">MULTIPLAYER</span>
-                    </div>
-                    <h2>Wieder spielbar am 24.10.</h2>
-                    <p>Ein Multiplayer-&Uuml;berlebensspiel in 2D. Es wird fortlaufend an dem Projekt gearbeitet. Die aktuelle Version kann ab dem 24.10. wieder getestet werden &ndash; ein Steam-Release ist f&uuml;r sp&auml;tere Phasen geplant.</p>
-                    <a href="game.html" class="survival-play-button">TESTLAUF AB 24.10. <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                    <ul class="survival-cta-features" aria-label="Spielfunktionen">
-                        <li>Multiplayer</li>
-                        <li>Basenbau</li>
-                        <li>Alpha-Testphase</li>
-                        <li>Steam-Release geplant</li>
-                    </ul>
-                </aside>
-            </div>
-
-            <!-- Retro Pixel Chase Animation & Countdown Progress -->
-            <div class="hero-pixel-chase">
-                <!-- Retro Pixel Countdown Progress Bar -->
-                <div class="pixel-countdown-bar" data-target="2026-10-24T18:00:00+02:00" data-start="2026-08-24T00:00:00+02:00" aria-label="Fortschritt bis zum 24. Oktober">
-                    <div class="pixel-bar-header">
-                        <div class="pixel-bar-title">
-                            <span class="pixel-led-dot"></span>
-                            <span>PLAYTEST-START-FORTSCHRITT</span>
-                        </div>
-                        <div class="pixel-bar-stats">
-                            <span class="pixel-bar-percent">29%</span>
-                            <span class="pixel-bar-target">ZIEL: 24. OKTOBER 2026</span>
-                        </div>
-                    </div>
-                    <div class="pixel-bar-track" aria-hidden="true">
-                        <div class="pixel-box-segment is-filled"></div>
-                        <div class="pixel-box-segment is-filled"></div>
-                        <div class="pixel-box-segment is-filled"></div>
-                        <div class="pixel-box-segment is-filled"></div>
-                        <div class="pixel-box-segment is-filled"></div>
-                        <div class="pixel-box-segment is-filled"></div>
-                        <div class="pixel-box-segment is-filled is-pulse"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                        <div class="pixel-box-segment"></div>
-                    </div>
-                </div>
-
-                <div class="pixel-chase-track" aria-hidden="true">
-                    <!-- Phase 1: Zombie chases Human (Left -> Right) -->
-                    <div class="pixel-chase-runner-l2r">
-                        <!-- Zombie chasing behind -->
-                        <div class="pixel-entity pixel-zombie-wrap">
-                            <span class="pixel-bubble zombie-bubble">GRRR!</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="36" height="36" class="pixel-sprite" shape-rendering="crispEdges">
-                                <rect x="3" y="0" width="3" height="1" fill="#1e293b"/>
-                                <rect x="2" y="1" width="6" height="1" fill="#1e293b"/>
-                                <rect x="2" y="2" width="6" height="1" fill="#22c55e"/>
-                                <rect x="3" y="3" width="3" height="1" fill="#22c55e"/>
-                                <rect x="6" y="3" width="1" height="1" fill="#ef4444"/>
-                                <rect x="7" y="3" width="1" height="1" fill="#22c55e"/>
-                                <rect x="3" y="4" width="5" height="1" fill="#22c55e"/>
-                                <rect x="3" y="5" width="3" height="1" fill="#22c55e"/>
-                                <rect x="6" y="5" width="2" height="1" fill="#052e16"/>
-                                <rect x="2" y="6" width="6" height="1" fill="#854d0e"/>
-                                <rect x="8" y="6" width="2" height="1" fill="#22c55e"/>
-                                <rect x="2" y="7" width="6" height="1" fill="#854d0e"/>
-                                <rect x="8" y="7" width="4" height="1" fill="#22c55e"/>
-                                <rect x="2" y="8" width="6" height="1" fill="#854d0e"/>
-                                <rect x="2" y="9" width="6" height="1" fill="#854d0e"/>
-                                <rect x="3" y="10" width="4" height="1" fill="#475569"/>
-                                <rect x="3" y="11" width="2" height="1" fill="#475569"/>
-                                <rect x="6" y="11" width="2" height="1" fill="#475569"/>
-                                <rect x="2" y="12" width="2" height="1" fill="#475569"/>
-                                <rect x="7" y="12" width="2" height="1" fill="#475569"/>
-                                <rect x="2" y="13" width="2" height="1" fill="#475569"/>
-                                <rect x="7" y="13" width="2" height="1" fill="#475569"/>
-                                <rect x="1" y="14" width="2" height="1" fill="#000000"/>
-                                <rect x="8" y="14" width="2" height="1" fill="#000000"/>
-                            </svg>
-                        </div>
-                        <!-- Human running frantically ahead -->
-                        <div class="pixel-entity pixel-human-wrap">
-                            <span class="pixel-bubble human-bubble">AAAH!</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="36" height="36" class="pixel-sprite" shape-rendering="crispEdges">
-                                <rect x="4" y="0" width="4" height="1" fill="#f59e0b"/>
-                                <rect x="3" y="1" width="6" height="1" fill="#f59e0b"/>
-                                <rect x="3" y="2" width="6" height="1" fill="#f59e0b"/>
-                                <rect x="4" y="3" width="3" height="1" fill="#fed7aa"/>
-                                <rect x="7" y="3" width="1" height="1" fill="#000000"/>
-                                <rect x="4" y="4" width="4" height="1" fill="#fed7aa"/>
-                                <rect x="4" y="5" width="4" height="1" fill="#fed7aa"/>
-                                <rect x="3" y="6" width="6" height="1" fill="#2563eb"/>
-                                <rect x="2" y="7" width="8" height="1" fill="#2563eb"/>
-                                <rect x="1" y="8" width="2" height="1" fill="#2563eb"/>
-                                <rect x="4" y="8" width="4" height="1" fill="#2563eb"/>
-                                <rect x="10" y="8" width="1" height="1" fill="#2563eb"/>
-                                <rect x="4" y="9" width="4" height="1" fill="#2563eb"/>
-                                <rect x="4" y="10" width="4" height="1" fill="#1e293b"/>
-                                <rect x="3" y="11" width="2" height="1" fill="#1e293b"/>
-                                <rect x="7" y="11" width="2" height="1" fill="#1e293b"/>
-                                <rect x="2" y="12" width="2" height="1" fill="#1e293b"/>
-                                <rect x="8" y="12" width="2" height="1" fill="#1e293b"/>
-                                <rect x="2" y="13" width="2" height="1" fill="#1e293b"/>
-                                <rect x="8" y="13" width="2" height="1" fill="#1e293b"/>
-                                <rect x="1" y="14" width="2" height="1" fill="#000000"/>
-                                <rect x="9" y="14" width="2" height="1" fill="#000000"/>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- Phase 2: Human with Axe chases Zombie (Right -> Left) -->
-                    <div class="pixel-chase-runner-r2l">
-                        <!-- Zombie panicking ahead -->
-                        <div class="pixel-entity pixel-zombie-wrap">
-                            <div class="pixel-sprite-flip">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="36" height="36" class="pixel-sprite" shape-rendering="crispEdges">
-                                    <rect x="3" y="0" width="3" height="1" fill="#1e293b"/>
-                                    <rect x="2" y="1" width="6" height="1" fill="#1e293b"/>
-                                    <rect x="2" y="2" width="6" height="1" fill="#22c55e"/>
-                                    <rect x="3" y="3" width="3" height="1" fill="#22c55e"/>
-                                    <rect x="6" y="3" width="1" height="1" fill="#ef4444"/>
-                                    <rect x="7" y="3" width="1" height="1" fill="#22c55e"/>
-                                    <rect x="3" y="4" width="5" height="1" fill="#22c55e"/>
-                                    <rect x="3" y="5" width="3" height="1" fill="#22c55e"/>
-                                    <rect x="6" y="5" width="2" height="1" fill="#052e16"/>
-                                    <rect x="2" y="6" width="6" height="1" fill="#854d0e"/>
-                                    <rect x="8" y="6" width="2" height="1" fill="#22c55e"/>
-                                    <rect x="2" y="7" width="6" height="1" fill="#854d0e"/>
-                                    <rect x="8" y="7" width="4" height="1" fill="#22c55e"/>
-                                    <rect x="2" y="8" width="6" height="1" fill="#854d0e"/>
-                                    <rect x="2" y="9" width="6" height="1" fill="#854d0e"/>
-                                    <rect x="3" y="10" width="4" height="1" fill="#475569"/>
-                                    <rect x="3" y="11" width="2" height="1" fill="#475569"/>
-                                    <rect x="6" y="11" width="2" height="1" fill="#475569"/>
-                                    <rect x="2" y="12" width="2" height="1" fill="#475569"/>
-                                    <rect x="7" y="12" width="2" height="1" fill="#475569"/>
-                                    <rect x="2" y="13" width="2" height="1" fill="#475569"/>
-                                    <rect x="7" y="13" width="2" height="1" fill="#475569"/>
-                                    <rect x="1" y="14" width="2" height="1" fill="#000000"/>
-                                    <rect x="8" y="14" width="2" height="1" fill="#000000"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <!-- Human with axe chasing behind -->
-                        <div class="pixel-entity pixel-human-axe-wrap">
-                            <div class="pixel-sprite-flip">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 16" width="45" height="36" class="pixel-sprite" shape-rendering="crispEdges">
-                                    <rect x="7" y="0" width="4" height="1" fill="#f59e0b"/>
-                                    <rect x="6" y="1" width="6" height="1" fill="#f59e0b"/>
-                                    <rect x="6" y="2" width="6" height="1" fill="#f59e0b"/>
-                                    <rect x="6" y="3" width="4" height="1" fill="#fed7aa"/>
-                                    <rect x="10" y="3" width="1" height="1" fill="#000000"/>
-                                    <rect x="6" y="4" width="5" height="1" fill="#fed7aa"/>
-                                    <rect x="7" y="5" width="4" height="1" fill="#fed7aa"/>
-                                    <rect x="6" y="6" width="6" height="1" fill="#2563eb"/>
-                                    <rect x="5" y="7" width="8" height="1" fill="#2563eb"/>
-                                    <rect x="6" y="8" width="6" height="1" fill="#2563eb"/>
-                                    <rect x="6" y="9" width="5" height="1" fill="#2563eb"/>
-                                    <rect x="11" y="6" width="2" height="2" fill="#2563eb"/>
-                                    <rect x="13" y="5" width="2" height="2" fill="#fed7aa"/>
-                                    <rect x="13" y="7" width="1" height="4" fill="#92400e"/>
-                                    <rect x="13" y="3" width="1" height="2" fill="#92400e"/>
-                                    <rect x="13" y="2" width="1" height="1" fill="#78350f"/>
-                                    <rect x="14" y="1" width="3" height="4" fill="#cbd5e1"/>
-                                    <rect x="17" y="1" width="1" height="4" fill="#94a3b8"/>
-                                    <rect x="15" y="0" width="2" height="1" fill="#64748b"/>
-                                    <rect x="15" y="5" width="2" height="1" fill="#64748b"/>
-                                    <rect x="17" y="2" width="1" height="2" fill="#ef4444"/>
-                                    <rect x="4" y="8" width="2" height="2" fill="#2563eb"/>
-                                    <rect x="6" y="10" width="5" height="1" fill="#1e293b"/>
-                                    <rect x="5" y="11" width="3" height="1" fill="#1e293b"/>
-                                    <rect x="9" y="11" width="2" height="1" fill="#1e293b"/>
-                                    <rect x="4" y="12" width="3" height="1" fill="#1e293b"/>
-                                    <rect x="10" y="12" width="2" height="1" fill="#1e293b"/>
-                                    <rect x="4" y="13" width="3" height="1" fill="#1e293b"/>
-                                    <rect x="10" y="13" width="2" height="1" fill="#1e293b"/>
-                                    <rect x="3" y="14" width="3" height="1" fill="#000000"/>
-                                    <rect x="11" y="14" width="2" height="1" fill="#000000"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pixel-ground-track"></div>
-                </div>
-            </div>
-
-            <div class="scroll-indicator" aria-hidden="true">
-                <span>Geschichte entdecken</span>
-                <div class="mouse"><div class="wheel"></div></div>
-            </div>
-
-        </div>
-
-    </div>
-
-
-</section>
-
-<!-- ================= ZOMBIEHÖLLE DAMALS / HEUTE ================= -->
-
-<section id="then-now" class="section era-section" aria-labelledby="era-title">
-    <div class="container">
+<section id="hero" class="section era-section" aria-labelledby="era-title">
+    <div id="then-now" class="container">
         <div class="era-heading">
-            <span class="section-title">DAMALS &amp; HEUTE</span>
-            <h2 id="era-title">Eine Geschichte. Zwei Kapitel.</h2>
-            <p>Aus der früheren Arma-2-DayZ-Community entsteht heute ein eigenes Survival-Spiel. Beides gehört zu Zombiehölle.</p>
+            <span class="section-title">EST. 2013</span>
+            <h1 id="era-title">WILLKOMMEN ZURÜCK.</h1>
+            <p>Erinnerungen aus über 10 Jahren Zombiehölle und der Einstieg in das neue 2D-Survival-Projekt.</p>
         </div>
         <div class="era-split">
             <article class="era-panel era-past" aria-labelledby="era-past-title">
-                <img class="era-image" src="assets/images/adminbase.png" alt="" aria-hidden="true" loading="lazy" width="1920" height="1080">
+                <div class="era-visual">
+                    <img class="era-image" src="assets/images/zombiehoelle-archive-hero.webp" alt="" aria-hidden="true" width="1029" height="747" decoding="async">
+                </div>
                 <div class="era-story">
-                    <span class="era-period">2013–2016 · ARMA 2 DAYZ</span>
                     <div class="era-copy">
-                        <h3 id="era-past-title">Zombiehölle damals</h3>
-                        <p>Ein Arma 2 DayZ Server, eine Community und viele gemeinsame Geschichten. Entdecke die Timeline, alte Bilder und Erinnerungen aus dem Archiv.</p>
+                        <h2 id="era-past-title">Zombiehölle damals</h2>
+                        <p>Ein Arma 2 DayZ Server und eine Community mit gemeinsamen Geschichten. Entdecke die Timeline, alte Bilder und Erinnerungen im Archiv.</p>
                         <a class="btn btn-outline" href="#history">Geschichte entdecken <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </article>
-            <span class="era-connection" aria-hidden="true">↔</span>
             <article class="era-panel era-present" aria-labelledby="era-present-title">
-                <img class="era-image" src="assets/images/roadmap-grafik-ui-zielrichtung.png" alt="" aria-hidden="true" loading="lazy" width="1672" height="941">
+                <div class="era-visual">
+                    <img class="era-image" src="assets/images/zombiehoelle-survival-vision1.webp" srcset="assets/images/zombiehoelle-survival-vision1-960.webp 960w, assets/images/zombiehoelle-survival-vision1.webp 1672w" sizes="(max-width: 800px) 92vw, (max-width: 1304px) 45vw, 588px" alt="" aria-hidden="true" width="1672" height="941" fetchpriority="high" decoding="async">
+                </div>
                 <div class="era-story">
-                    <div class="era-present-meta"><span class="era-period">2D · MULTIPLAYER · SURVIVAL</span><span class="era-image-note">Konzeptgrafik</span></div>
                     <div class="era-copy">
-                        <h3 id="era-present-title">Zombiehölle Survival heute</h3>
-                        <p>Ein eigenes 2D-Multiplayer-Survival-Spiel im Aufbau. Neue Weltgrafiken, modulare Gebäude und gemeinsamer Basenbau prägen den aktuellen Umbau.</p>
+                        <h2 id="era-present-title">Zombiehölle Survival heute</h2>
+                        <p>Ein eigenständiges 2D-Multiplayer-Survival-Spiel in Entwicklung. Eine neue Welt, modulare Gebäude und gemeinsamer Basenbau bilden das nächste Kapitel.</p>
                         <span class="era-test-date">Nächster öffentlicher Testlauf: 24. Oktober</span>
                         <a class="btn btn-gold" href="game.html">Zum Spiel <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </div>

@@ -114,9 +114,27 @@
         for (const field of ["yesterday", "week", "month"]) {
             values[field] = periodStats?.[`${field}_complete`] === true ? visitorCount(periodStats[`${field}_visitors`]) : null;
         }
+        // Today's count is a lower bound for the current week and month. It does
+        // not reconstruct previous days; complete period data still takes priority.
+        const fallbackPeriods = !periodStats && values.today !== null;
+        if (fallbackPeriods) {
+            values.week = values.today;
+            values.month = values.today;
+        }
         for (const field of statFields) {
             visitorWidget.querySelector(`[data-visitor-label="${field}"]`).textContent = visitorText(`visitor.stats.${field}`);
-            visitorWidget.querySelector(`[data-visitor-value="${field}"]`).textContent = values[field] === null ? "—" : values[field].toLocaleString(locale);
+            const value = visitorWidget.querySelector(`[data-visitor-value="${field}"]`);
+            value.textContent = values[field] === null ? "—" : values[field].toLocaleString(locale);
+            const isFallback = fallbackPeriods && (field === "week" || field === "month");
+            value.toggleAttribute("data-visitor-fallback", isFallback);
+            if (isFallback) {
+                const minimum = visitorText("visitor.stats.minimum", { count: value.textContent });
+                value.title = minimum;
+                value.setAttribute("aria-label", `${visitorText(`visitor.stats.${field}`)}: ${minimum}`);
+            } else {
+                value.removeAttribute("title");
+                value.removeAttribute("aria-label");
+            }
         }
     }
 

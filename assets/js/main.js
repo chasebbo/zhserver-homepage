@@ -302,7 +302,8 @@ function initActiveNav() {
         }
 
         // Check sections from top to bottom
-        const offset = 140;
+        const headerBottom = document.querySelector(".header")?.getBoundingClientRect().bottom || 0;
+        const offset = Math.max(140, headerBottom + 32);
         let activeSec = sections[0];
         for (let i = 0; i < sections.length; i++) {
             const el = document.getElementById(sections[i].id);

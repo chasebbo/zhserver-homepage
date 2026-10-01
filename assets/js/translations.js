@@ -50,12 +50,24 @@ window.ZHTranslations = {
         "en": "Concept / visual direction"
     },
     "game-concept-alt": {
-        "de": "Konzeptgrafik zur geplanten Grafik und Benutzeroberfläche von Zombiehölle Survival",
-        "en": "Concept art showing the planned look and user interface for Zombie Hell Survival"
+        "de": "Konzeptgrafik einer befestigten Zombiehölle-Adminbasis mit beleuchtetem Hof, Checkpoint und Helipads",
+        "en": "Concept art of a fortified Zombie Hell admin base with a floodlit courtyard, checkpoint and helipads"
     },
     "game-concept-caption": {
-        "de": "Diese Konzeptgrafik zeigt die visuelle Zielrichtung. Sie ist kein Screenshot des aktuellen Spielstands.",
-        "en": "This concept art shows the intended visual direction. It is not a screenshot of the current game."
+        "de": "Konzeptgrafik – kein aktueller Gameplay-Screenshot. Maßstab und Details können vom späteren Spiel abweichen.",
+        "en": "Concept art, not a current gameplay screenshot. Scale and details may differ from the final game."
+    },
+    "game-concept-scale": {
+        "de": "Maßstab und Details können vom späteren Spiel abweichen.",
+        "en": "Scale and details may differ from the final game."
+    },
+    "game-concept-zoom-label": {
+        "de": "Konzeptgrafik der Adminbasis groß anzeigen",
+        "en": "View the admin base concept art"
+    },
+    "game-concept-dialog-label": {
+        "de": "Konzeptgrafik der Adminbasis",
+        "en": "Admin base concept art"
     },
     "bridge-kicker": {
         "de": "DAMALS & HEUTE",
@@ -74,24 +86,28 @@ window.ZHTranslations = {
         "en": "Zombie Hell then"
     },
     "bridge-past-copy": {
-        "de": "Ein Arma 2 DayZ Server, eine Community und viele gemeinsame Geschichten. Entdecke die Timeline, alte Bilder und Erinnerungen aus dem Archiv.",
-        "en": "An Arma 2 DayZ server, a community and years of shared stories. Explore the timeline, old pictures and memories in the archive."
+        "de": "Ein Arma 2 DayZ Server und eine Community mit gemeinsamen Geschichten. Entdecke die Timeline, alte Bilder und Erinnerungen im Archiv.",
+        "en": "An Arma 2 DayZ server and a community with years of shared stories. Discover the timeline, old pictures and memories in the archive."
     },
     "bridge-past-cta": {
         "de": "Geschichte entdecken",
         "en": "Discover the history"
     },
     "bridge-concept-label": {
-        "de": "Konzeptgrafik",
-        "en": "Concept art"
+        "de": "Konzept / visuelle Zielrichtung",
+        "en": "Concept / visual direction"
+    },
+    "bridge-concept-note": {
+        "de": "Survival-Konzeptgrafik – Maßstab und Details können vom späteren Spiel abweichen.",
+        "en": "Survival concept art — scale and details may differ from the final game."
     },
     "bridge-present-title": {
         "de": "Zombiehölle Survival heute",
         "en": "Zombie Hell Survival today"
     },
     "bridge-present-copy": {
-        "de": "Ein eigenes 2D-Multiplayer-Survival-Spiel im Aufbau. Neue Weltgrafiken, modulare Gebäude und gemeinsamer Basenbau prägen den aktuellen Umbau.",
-        "en": "An independent 2D multiplayer survival game in development. New world artwork, modular buildings and cooperative base building are at the heart of the current rework."
+        "de": "Ein eigenständiges 2D-Multiplayer-Survival-Spiel in Entwicklung. Eine neue Welt, modulare Gebäude und gemeinsamer Basenbau bilden das nächste Kapitel.",
+        "en": "An independent 2D multiplayer survival game in development. A new world, modular buildings and cooperative base building shape the next chapter."
     },
     "bridge-test-date": {
         "de": "Nächster öffentlicher Testlauf: 24. Oktober",
@@ -3291,6 +3307,10 @@ window.ZHTranslations = {
     "visitor.stats.total": {
       "de": "Insgesamt",
       "en": "Total"
+    },
+    "visitor.stats.minimum": {
+      "de": "Mindestens {count} Besucher – bisher ist nur der heutige Wert verfügbar.",
+      "en": "At least {count} visitors — only today's count is available."
     }
   }
 };

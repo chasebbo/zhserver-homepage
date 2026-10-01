@@ -15,8 +15,9 @@
 
     <link rel="stylesheet" href="assets/css/style.css?v=20260910-nav">
     <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en">
-    <link rel="stylesheet" href="assets/css/game-page.css?v=20260930-product">
-    <script src="assets/js/translations.js?v=20261001-milestone"></script>
+    <link rel="stylesheet" href="assets/css/game-page.css?v=20261001-vision1">
+    <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
+    <script src="assets/js/translations.js?v=20261001-vision1"></script>
     <script src="assets/js/i18n.js?v=20260930-then-now"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,19 +27,24 @@
 
 <body class="game-product-page">
 
-<header class="header">
+<header class="header zh-site-header">
     <div class="container">
         <nav class="navbar">
-            <a href="index.html" class="logo">ZHServer.de / Zombiehölle.de</a>
-
-            <div class="language-switcher" role="group" aria-label="Sprache wählen">
-                <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
-                <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
-            </div>
-            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Menü öffnen">
+            <div class="header-brand-row">
+                <a href="index.html" class="header-emblem">
+                    <img src="assets/images/android-chrome-512x512.png" width="512" height="512" alt="Zombiehölle / ZHServer" decoding="async">
+                </a>
+                <a href="index.html" class="logo">ZHServer.de / Zombiehölle.de</a>
+                <div class="header-controls">
+                    <div class="language-switcher" role="group" aria-label="Sprache wählen">
+                        <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
+                        <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
+                    </div>
+                    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Menü öffnen" aria-controls="nav-menu" aria-expanded="false">
                 &#9776;
             </button>
-
+                </div>
+            </div>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html#hero">Start</a></li>
                 <li><a href="index.html#history">Geschichte</a></li>
@@ -65,7 +71,10 @@
         <div class="game-product-actions"><a class="btn btn-gold" href="#game-overview">Das Spiel entdecken <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a><a class="btn btn-outline" href="#spiel-wartung">Zum nächsten Testlauf</a></div>
         <span class="game-hero-alpha"><span>ALPHA 0.2.3</span> · <span>Lokaler Umbau in Arbeit</span></span>
     </div>
-    <figure class="game-hero-art"><img src="assets/images/roadmap-grafik-ui-zielrichtung.png" alt="" aria-hidden="true" width="1672" height="941"><figcaption>Konzept / visuelle Zielrichtung</figcaption></figure>
+    <figure class="game-hero-art">
+        <img src="assets/images/zombiehoelle-survival-vision1.webp" srcset="assets/images/zombiehoelle-survival-vision1-960.webp 960w, assets/images/zombiehoelle-survival-vision1.webp 1672w" sizes="(max-width: 900px) 92vw, (max-width: 1304px) 51vw, 650px" alt="Konzeptgrafik einer befestigten Zombiehölle-Adminbasis mit beleuchtetem Hof, Checkpoint und Helipads" width="1672" height="941" fetchpriority="high" decoding="async">
+        <figcaption><span>Konzept / visuelle Zielrichtung</span><span class="game-hero-scale-note">Maßstab und Details können vom späteren Spiel abweichen.</span></figcaption>
+    </figure>
 </section>
 <nav class="game-section-nav" aria-label="Bereiche der Spielseite">
     <a href="#game-overview">Überblick</a><a href="#game-features">Features</a><a href="#game-visuals">Bilder</a><a href="#development">Entwicklung</a><a href="#game-roadmap">Roadmap</a><a href="#community-voting">Abstimmung</a><a href="#changelog">Changelog</a>
@@ -105,12 +114,12 @@
         <h2 id="game-visuals-title">Spielstand &amp; visuelle Zielrichtung.</h2>
         <div class="game-visual-layout"><aside class="game-current-state"><span class="game-state-label">AKTUELLER SPIELSTAND</span><h3>Die Alpha wird weiterentwickelt.</h3><p>Die bisherige Web-Alpha bildet die Grundlage. Neue Weltgrafiken, modulare Bauteile und die Safezone entstehen im lokalen Entwicklungsstand; dieser Umbau ist noch nicht als neuer Webbuild veröffentlicht.</p><p>Ein aktueller Gameplay-Screenshot ist hier noch nicht hinterlegt. Das Konzeptbild daneben zeigt die geplante Richtung, nicht den derzeitigen Spielstand.</p><a class="game-text-link" href="#development">Entwicklung ansehen <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a></aside><article id="roadmap-graphics-ui-card" class="game-roadmap-vision-card" hidden>
                             <h3>Konzept / visuelle Zielrichtung</h3>
-                            <button id="roadmap-graphics-ui-preview" class="game-roadmap-vision-preview" type="button" aria-haspopup="dialog" aria-label="Konzeptgrafik Grafik und UI gro&szlig; anzeigen">
-                                <img id="roadmap-graphics-ui-image" data-src="assets/images/roadmap-grafik-ui-zielrichtung.png" alt="Konzeptgrafik zur geplanten Grafik und Benutzeroberfläche von Zombiehölle Survival">
+                            <button id="roadmap-graphics-ui-preview" class="game-roadmap-vision-preview" type="button" aria-haspopup="dialog" aria-label="Konzeptgrafik der Adminbasis groß anzeigen">
+                                <img id="roadmap-graphics-ui-image" data-src="assets/images/zombiehoelle-survival-vision1.webp" alt="Konzeptgrafik einer befestigten Zombiehölle-Adminbasis mit beleuchtetem Hof, Checkpoint und Helipads">
                                 <span class="game-roadmap-vision-zoom"><i class="fa-solid fa-expand" aria-hidden="true"></i> VERGR&Ouml;SSERN</span>
                             </button>
-                        <p class="game-concept-caption">Diese Konzeptgrafik zeigt die visuelle Zielrichtung. Sie ist kein Screenshot des aktuellen Spielstands.</p></article></div>
-        <div id="roadmap-graphics-ui-lightbox" class="game-roadmap-vision-lightbox" role="dialog" aria-modal="true" aria-label="Konzeptgrafik Grafik und UI" hidden>
+                        <p class="game-concept-caption">Konzeptgrafik – kein aktueller Gameplay-Screenshot. Maßstab und Details können vom späteren Spiel abweichen.</p></article></div>
+        <div id="roadmap-graphics-ui-lightbox" class="game-roadmap-vision-lightbox" role="dialog" aria-modal="true" aria-label="Konzeptgrafik der Adminbasis" hidden>
                     <button id="roadmap-graphics-ui-lightbox-close" class="game-roadmap-vision-lightbox-close" type="button" aria-label="Konzeptgrafik schlie&szlig;en">&times;</button>
                     <img id="roadmap-graphics-ui-lightbox-image" alt="">
                 </div>
