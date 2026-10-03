@@ -3311,6 +3311,10 @@ window.ZHTranslations = {
     "visitor.stats.minimum": {
       "de": "Mindestens {count} Besucher – bisher ist nur der heutige Wert verfügbar.",
       "en": "At least {count} visitors — only today's count is available."
+    },
+    "visitor.stats.partial": {
+      "de": "Mindestens {count} Besucher – Erfassung seit {date} (Berlin); der Zeitraum ist noch nicht vollständig.",
+      "en": "At least {count} visitors — tracking started on {date} (Berlin); this period is not yet fully covered."
     }
   }
 };

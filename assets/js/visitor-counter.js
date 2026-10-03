@@ -43,10 +43,10 @@
         return writeVisitorStorage(DEVICE_ID_KEY, id) ? id : null;
     }
 
-    function berlinDate() {
+    function berlinDate(date = new Date()) {
         const parts = new Intl.DateTimeFormat("en-GB", {
             timeZone: "Europe/Berlin", year: "numeric", month: "2-digit", day: "2-digit"
-        }).formatToParts(new Date());
+        }).formatToParts(date);
         const part = (type) => parts.find((item) => item.type === type).value;
         return `${part("year")}-${part("month")}-${part("day")}`;
     }
@@ -61,12 +61,14 @@
     }
 
     async function loadVisitorTranslations() {
-        if (window.ZHTranslations?.messages["visitor.stats.title"]) return true;
+        const translationsReady = () => Boolean(window.ZHTranslations?.messages["visitor.stats.title"] &&
+            window.ZHTranslations?.messages["visitor.stats.partial"]);
+        if (translationsReady()) return true;
         if (!counterScriptUrl) return false;
         return new Promise((resolve) => {
             const script = document.createElement("script");
-            script.src = new URL("translations.js?v=20261001-milestone", counterScriptUrl).href;
-            script.onload = () => resolve(Boolean(window.ZHTranslations?.messages["visitor.stats.title"]));
+            script.src = new URL("translations.js?v=20261003-visitor-persistence", counterScriptUrl).href;
+            script.onload = () => resolve(translationsReady());
             script.onerror = () => resolve(false);
             document.head.append(script);
         });
@@ -103,8 +105,27 @@
 
     function visitorPeriodCount(field) {
         const complete = periodStats?.[`${field}_complete`];
-        if (complete !== undefined && complete !== true) return null;
+        // Partial periods contain real recorded DAILY sums, not today's error fallback.
+        // A false flag is usable only with the actual start of that recorded history.
+        if (complete !== undefined && complete !== true &&
+            (complete !== false || !visitorTrackingStart())) return null;
         return visitorCount(periodStats?.[`${field}_visitors`]);
+    }
+
+    function visitorTrackingStart() {
+        const value = periodStats?.tracking_started_at;
+        if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}T/.test(value)) return null;
+        const date = new Date(value);
+        return Number.isFinite(date.getTime()) && date.getTime() <= Date.now() ? date : null;
+    }
+
+    function visitorPartialPeriod(field, started) {
+        if (!started || field === "total") return false;
+        if (field !== "today") return periodStats?.[`${field}_complete`] === false;
+        const startTime = new Intl.DateTimeFormat("en-GB", {
+            timeZone: "Europe/Berlin", hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23"
+        }).format(started);
+        return berlinDate(started) === berlinDate() && (startTime !== "00:00:00" || started.getMilliseconds() !== 0);
     }
 
     function renderVisitorStats() {
@@ -122,6 +143,7 @@
         // Today's count is a lower bound for the current week and month. It does
         // not reconstruct previous days. Check each field; a real zero wins.
         const fallbackPeriods = new Set();
+        const started = visitorTrackingStart();
         for (const field of ["yesterday", "week", "month"]) {
             values[field] = visitorPeriodCount(field);
             if (field !== "yesterday" && values[field] === null && values.today !== null) {
@@ -134,11 +156,20 @@
             const value = visitorWidget.querySelector(`[data-visitor-value="${field}"]`);
             value.textContent = values[field] === null ? "—" : values[field].toLocaleString(locale);
             const isFallback = fallbackPeriods.has(field);
+            const isPartial = !isFallback && values[field] !== null && visitorPartialPeriod(field, started);
             value.toggleAttribute("data-visitor-fallback", isFallback);
+            value.toggleAttribute("data-visitor-partial", isPartial);
             if (isFallback) {
                 const minimum = visitorText("visitor.stats.minimum", { count: value.textContent });
                 value.title = minimum;
                 value.setAttribute("aria-label", `${visitorText(`visitor.stats.${field}`)}: ${minimum}`);
+            } else if (isPartial) {
+                const coverage = visitorText("visitor.stats.partial", {
+                    count: value.textContent,
+                    date: started.toLocaleString(locale, { timeZone: "Europe/Berlin", dateStyle: "short", timeStyle: "short" })
+                });
+                value.title = coverage;
+                value.setAttribute("aria-label", `${visitorText(`visitor.stats.${field}`)}: ${coverage}`);
             } else {
                 value.removeAttribute("title");
                 value.removeAttribute("aria-label");
@@ -182,7 +213,7 @@
             const newVisit = deviceId && (!lastVisit || Date.now() - lastVisit >= 24 * 60 * 60 * 1000);
             legacyStats = await callVisitorStats(newVisit ? "register_visitor" : "get_visitor_stats");
             if (newVisit && visitorCount(legacyStats?.total_visitors) !== null) writeVisitorStorage(VISITOR_KEY, String(Date.now()));
-            // The server deduplicates calendar days and distinct visitors per week/month.
+            // The server deduplicates each calendar day and sums its recorded daily counts.
             periodStats = await callVisitorStats(deviceId ? "register_visitor_period" : "get_visitor_period_stats", deviceId ? { p_device_id: deviceId } : {});
         };
         try {
