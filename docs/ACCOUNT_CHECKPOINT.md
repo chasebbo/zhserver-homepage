@@ -210,3 +210,85 @@ Diese Aktivierungsphase ändert nur `legal.js` und drei Dokumentationsdateien.
 Übrige 723 von 727 Dateien bytegleich, keine neuen/gelöschten Dateien;
 HEAD/Staging unverändert. Wiki/`game/`/Spielprojekt nicht bearbeitet.
 `git diff --check` sauber. Kein Commit/Push/Webexport. Hier STOPP.
+
+## Aktueller Auftrag: Identitätsaudit ohne cHa-Übernahme – 08.10.2026
+
+Maßgeblich: `ACCOUNT_IDENTITY_MIGRATION_AUDIT.md`. Der neue Auftrag sperrt jede
+weitere produktive Account-/Namensmigration. Legacy `cHa` und zentrale Admin-UUID
+bleiben unverändert. Zentral weiterhin kein Profil; weder Name noch Spieldaten
+automatisch zugeteilt. Bereits installierte Own-Name-RPC `20261008142028` bleibt;
+kein Rollback, keine neue Migration, kein U01-/F01-/Dedicated-Rollout.
+
+Lokale Profil-/Loginphase fertig: eigene private E-Mail über verifiziertes
+`getUser()`, Accountstatus, sichtbare neutrale DE/EN-Loginfehler direkt im Formular.
+Header ohne Profilname zeigt Account, keine E-Mail und kein erfundenes cHa.
+Namenseditor und Cross-Tab-Invalidierung vorbereitet, im normalen UI aber
+`nameEditingEnabled = false`. Editor verborgen, Formsubmit deaktiviert;
+aktivierte Editorfälle wurden ausschließlich mit lokalen Auth-/RPC-Fixtures geprüft.
+Grund: v116-Nickname-Login sowie Party-Lookup/-Annahme und Karten-/Statusreferenzen
+benutzen Namen, Dedicated-v116 kürzt diese zudem auf 24 Zeichen.
+
+Admin-UI verwendet nun gemeinsame `admin/access.js`-Prüfung derselben bestehenden
+UID mit `getUser()`, auch auf direkten geschützten URLs und nach Accountwechsel.
+Doppelte Logoutweiterleitung beseitigt, Feedback-Tablet-Überlauf korrigiert,
+untrusted Gästebuch-/Galerietexte in Admin-HTML escaped. Produktive RLS unverändert.
+Bestehende breitere Galerie-Storage-Policies getrennt dokumentiert, nicht als
+durch den UI-Schutz repariert darstellen.
+
+Abnahme: 11 gezielte lokale Chrome-Prüfgruppen, 24 DE/EN-Ansichten bei
+1440/768/390/360 px plus Adminansichten auf allen vier Breiten. Normale
+JS-/Console-/HTTP-/Request-Fehler und Überläufe 0. Drei absichtlich simulierte
+HTTP-400-Ablehnungen (Namenskollision, falsches Passwort, unbekannte E-Mail)
+separat; keine produktiven Auth-/Profil-/Moderationswrites. Screenshotprüfung
+Desktop/Mobile bestanden. Bestehende Registrierung/Reset, Footer, Session,
+Forum-/Gästebuch-/Galerie-Anmeldestatus gezielt erhalten/geprüft.
+
+Nachweise: Temp `zhserver-account-cleanup-20261008/production-identity-audit.json`,
+`verification-summary.json`, `preservation.json`, Bytecode-Audit in
+`build-v116-readonly/`. Unveränderten früheren SMTP-/Handoff-Nachweis weiterverwenden.
+Echter Admin-/Nicht-Admin-Login mit produktiven Zugangsdaten und Laptopdateien
+weiterhin nicht live abgenommen. Profil/Login benötigen keine Accountmigration;
+vor einem tatsächlichen Push bleibt die verlangte echte Adminregression offen.
+19 fremde Wiki-Artefakte und Homepage-Wiki/`game/` bytegleich. Im Spielprojekt
+nur gelesen; parallele Änderung an `dedicated_server.gd` nicht angefasst.
+
+Kein Commit, Push oder Webexport. Nach dieser Phase STOPP.
+## Finale Auth-Abnahme – 08.10.2026, Live-Server Port 5500
+
+Der aktuelle lokale Stand wurde gegen `http://127.0.0.1:5500/` mit dem echten
+produktiven Supabase Auth geprüft. Adminpasswort ausschließlich vom Nutzer im
+Browser eingegeben, keine Passwörter/Tokens in Testdateien oder Logs.
+
+- Echter Adminlogin: Profil mit eigener privater E-Mail und aktivem Account,
+  Header ohne Anzeigenamen weiterhin `Account`, Namenseditor unsichtbar.
+  Profil-Reload erfolgreich; eigene E-Mail nicht im Startseiteninhalt.
+- Dieselbe Sitzung öffnet Dashboard und alle drei Moderationsansichten.
+  Gästebuch/Galerie korrekt leer, Bugs/Ideen mit echten Daten geladen.
+  Keine Freigabe, Löschung oder Statusänderung an produktiven Inhalten getestet.
+- Echter Logout: Adminzugang gesperrt, Profildetails verborgen, E-Mail entfernt.
+  Dashboard/Gästebuch/Galerie/Feedback direkt aufgerufen: alle vier Seiten
+  leiten zu `admin/index.html?status=denied` um.
+- Falsches Passwort und unbekannte E-Mail: beide echten Auth-Ablehnungen zeigen
+  exakt `E-Mail-Adresse oder Passwort ist falsch.` Zwei erwartete HTTP 400;
+  kein unerwarteter Browser-/Consolefehler in den abgenommenen Ansichten.
+- Nutzer hat den echten Nicht-Admin-Browserlogin durch serverseitige Prüfung
+  vorhandener Accounts ausdrücklich ersetzt: produktive UPDATE-/DELETE-RLS
+  für Gästebuch, Galerie-Einträge, Feedback sowie DELETE für Feedback-Storage
+  mit allen 11 vorhandenen Account-UUIDs ausgewertet. Jeweils 1 Admin erlaubt,
+  10 Nicht-Admins verweigert. RLS aktiv, keine Namen/Metadaten als Autorisierung.
+  Gemeinsame Browserkontrolle verifiziert dieselbe UUID mit `auth.getUser()`.
+  Das ersetzt keinen vollständigen Test aller übrigen Backendberechtigungen:
+  die bekannte breite Galerie-Storage-Policy bleibt unverändert offen.
+- Kein Account angelegt, Passwort geändert, Profilname übernommen, Daten oder
+  UUID migriert. Bereits installierte Own-Name-RPC behalten, Editor deaktiviert.
+- `git diff --check` sauber. 26 vorgesehene Dateien auf Secret-Muster geprüft:
+  keine Funde; ausschließlich bekannte öffentliche anon-JWTs erkannt.
+  19 fremde Wiki-Artefakte unverändert und nicht für Staging vorgesehen.
+
+Der Nutzer hat den echten Adminlogin zusammen mit dieser serverseitigen
+Nicht-Admin-Prüfung ausdrücklich als ausreichende Auth-Abnahme freigegeben.
+Diese angepasste Abnahme ist bestanden; Veröffentlichung ist damit beauftragt.
+Logout und anschließende echte Wiederanmeldung ebenfalls bestanden: eigenes
+Profil, Header `Account`, deaktivierter Editor und Dashboard erneut geprüft.
+Account-/Profil-/Admin-Prüfung auf der veröffentlichten Domain folgt nach
+dem Deployment.

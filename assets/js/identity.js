@@ -9,6 +9,7 @@
     const errorKeys = new Set(['identity.nameRequired', 'identity.unavailable', 'identity.sessionChanged', 'identity.signInRequired']);
     const errorKey = (error, fallback) => errorKeys.has(error?.message) ? error.message : fallback;
     const bindings = new Map();
+    const nameRevisionKey = 'zhserver_identity_revision'; // Invalidation marker, never a session or identity value.
     let state = Object.freeze({ status: 'checking', userId: null, displayName: null, createdAt: null });
     let revision = 0;
     const validName = value => typeof value === 'string' && value.trim().length > 0 && value.trim().length <= 80 &&
@@ -58,6 +59,22 @@
         }
         return principal;
     }
+    async function updateDisplayName(value) {
+        if (!validName(value)) throw new Error('account.nameInvalid');
+        const principal = await resolve();
+        if (!['member', 'nameRequired'].includes(principal.status)) throw new Error('identity.' + principal.status);
+        const before = await client.auth.getSession();
+        if (before.error || before.data.session?.access_token !== principal.accessToken) throw new Error('identity.sessionChanged');
+        const result = await client.rpc('set_zh_own_display_name', { p_display_name: value.trim() });
+        if (result.error) throw result.error;
+        try { localStorage.setItem(nameRevisionKey, Date.now() + ':' + Math.random().toString(36).slice(2)); } catch (_) { /* Same-tab refresh still works. */ }
+        const after = await client.auth.getSession();
+        if (after.error || after.data.session?.access_token !== principal.accessToken) throw new Error('identity.sessionChanged');
+        const updated = await resolve();
+        if (updated.userId !== principal.userId) throw new Error('identity.sessionChanged');
+        if (updated.status !== 'member') throw new Error('identity.' + updated.status);
+        return state;
+    }
     function syncForms() {
         for (const [form, binding] of bindings) {
             const guest = state.status === 'guest';
@@ -86,7 +103,7 @@
         syncForms();
     }
     function subscribe(callback) { subscribers.add(callback); callback(state); return () => subscribers.delete(callback); }
-    window.ZHIdentity = Object.freeze({ client, resolve, forSubmission, bindName, syncForms, subscribe, errorKey, validName, get state() { return state; } });
+    window.ZHIdentity = Object.freeze({ client, resolve, forSubmission, updateDisplayName, bindName, syncForms, subscribe, errorKey, validName, get state() { return state; } });
     client.auth.onAuthStateChange((event, session) => {
         ++revision;
         if (event === 'SIGNED_OUT') {
@@ -99,6 +116,7 @@
         }
     });
     document.addEventListener('zh:languagechange', syncForms);
+    window.addEventListener('storage', event => { if (event.key === nameRevisionKey) resolve(); });
     const form = document.getElementById('guestbook-form') || document.getElementById('uploadForm');
     const input = document.getElementById('guestbook-name') || document.getElementById('uploader');
     const note = document.querySelector('[data-identity-status]');

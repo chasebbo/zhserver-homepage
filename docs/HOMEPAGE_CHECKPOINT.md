@@ -359,3 +359,49 @@ Reset-Mailtest nach Veröffentlichung getrennt durchführen.
 
 Vor Commit genaue Stage-Dateiliste/Erhaltung prüfen; nach Push Deployment,
 öffentliche Seiten, DE/EN und Desktop/Mobile prüfen. Danach STOPP.
+
+## Neuester Auftrag: keine cHa-Übernahme, Identitätsaudit abgeschlossen
+
+08.10.2026. Diese Anweisung hat Vorrang vor den vorstehenden historischen
+Veröffentlichungs-/Migrationsfreigaben: **jetzt kein Commit, Push oder Webexport**.
+Legacy-cHa bleibt mit seiner UUID und sämtlichen Spieldaten bestehen. Zentrale
+Admin-UUID/-Rechte erhalten; kein künstlich gesetzter Anzeigename. Installierte
+`set_zh_own_display_name`-RPC behalten, keine Rollback-Migration.
+
+`ACCOUNT_IDENTITY_MIGRATION_AUDIT.md` enthält produktive Supabase-Funktionen,
+Tabellen-/FK-/RLS- und Edge-Befunde, gezielt gelesenen v116-Bytecode, getrennte
+lokale Spielbefunde, konkrete Legacy-/Admin-Datenzuordnung und späteren Plan.
+Keine Spieldatenmigration, U01-/F01-Änderung oder Dedicatedaktion durchgeführt.
+Laufender Laptop und dessen Dateien nicht live abgenommen.
+
+Unabhängige Profil-/Login- und Admin-UI-Fixes lokal fertig, Details in
+`ACCOUNT_CHECKPOINT.md`. Namenseditor im normalen UI deaktiviert, nur in
+isolierten Fixtures aktiviert/geprüft. 11 lokale Browser-Prüfgruppen,
+24 DE/EN-Ansichten, Desktop/Tablet/Mobile; normale Fehler/Überläufe 0.
+Backend-Account-/Gameplay-/Adminpolicy-Integrität im Read-only-Vergleich erhalten.
+19 lokale Wiki-Artefakte unberührt; keine Wiki-/`game/`-Änderung. Parallele
+Spiel-Dedicated-Änderung außerhalb dieses Auftrags nicht angefasst.
+
+Vor tatsächlicher Veröffentlichung echte Admin-/Nicht-Admin-Regression offen.
+Kein neues großes Teilprojekt beginnen. STOPP nach dieser Untersuchung.
+
+## Finale Auth-Abnahme und Veröffentlichungsauftrag – 08.10.2026
+
+Aktueller Live-Server: `http://127.0.0.1:5500/`. Echter Adminlogin, eigenes
+privates Profil, Header `Account`, Profil-Reload, Dashboard, drei echte
+Moderationsansichten, Logout und Sperre aller vier direkten Adminseiten geprüft.
+Beide echten Login-Ablehnungen zeigen dieselbe neutrale Meldung. Keine
+produktiven Inhalte, Accountdaten, Namen oder UUIDs geändert.
+
+Der Nutzer ersetzt den Nicht-Admin-Browserlogin ausdrücklich durch Prüfung
+der vorhandenen Account-UUIDs/Zugriffsregeln. Die sieben produktiven
+Moderationspolicies erlauben jeweils nur die unveränderte Admin-UUID und
+verweigern alle zehn existierenden Nicht-Admin-UUIDs; RLS aktiv, kein Name
+oder editierbare Metadaten als Rolle. Bekannte breite Galerie-Storage-Rechte
+bleiben separat offen und unverändert. Details: `ACCOUNT_CHECKPOINT.md`.
+
+Diese vom Nutzer angepasste Abnahme ist bestanden, Commit/Push damit ausdrücklich
+beauftragt. Nur Auth-/Profil-/Admin-Fixes und Dokumentation veröffentlichen;
+19 fremde Wiki-Artefakte ausschließen. Danach Deployment und veröffentlichte
+Account-/Profil-/Adminseiten prüfen. cHa bleibt Legacy, Editor deaktiviert,
+Own-RPC behalten; keine Migration, Spieländerung oder Webexport.

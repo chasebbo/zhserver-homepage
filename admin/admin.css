@@ -1,3 +1,4 @@
+body[data-zh-admin-protected]:not([data-zh-admin-verified]) > .section { visibility: hidden; }
 .admin-card{
     text-align:center;
     padding:40px 30px;
@@ -35,4 +36,4 @@
 .admin-feedback-actions{align-items:center;}
 .admin-feedback-status{flex:1;min-width:0;min-height:44px;padding:10px;border:1px solid rgba(212,175,55,.36);border-radius:8px;background:#101914;color:#f2f4ed;font:inherit;}
 .admin-feedback-delete{border:1px solid rgba(215,116,105,.55);background:rgba(106,48,43,.72);color:#fff;cursor:pointer;}
-@media(max-width:760px){.admin-feedback-grid{grid-template-columns:1fr;}.admin-feedback-actions{flex-direction:column;align-items:stretch;}.admin-feedback-status{width:100%;}.admin-feedback-delete{min-height:44px;}}
+@media(max-width:900px){.admin-feedback-grid{grid-template-columns:minmax(0,1fr);}.admin-feedback-actions{flex-direction:column;align-items:stretch;}.admin-feedback-status{width:100%;}.admin-feedback-delete{min-height:44px;}}

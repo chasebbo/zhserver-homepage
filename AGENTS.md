@@ -61,3 +61,20 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
   abgesichert werden; editierbare `user_metadata` nicht als Adminrolle verwenden.
 - Unbekannte produktive Tabellen/Rollen/RLS-Regeln nicht als nicht vorhanden
   behandeln und keine Migration auf Vermutungen aufbauen.
+
+## Account-/Namensmigration vorerst gesperrt – 08.10.2026
+
+- `cHa` bleibt beim bestehenden Legacy-Spielaccount. Den zentralen E-Mail-/
+  Adminaccount nicht automatisch darauf umbenennen und keine Spiel-/Besitzdaten
+  zwischen den Accounts verschieben. Fehlender Anzeigename bleibt fehlend.
+- Die bereits installierte `set_zh_own_display_name`-RPC bestehen lassen;
+  keine Rollback-Migration. Der vorbereitete Homepage-Namenseditor bleibt im
+  normalen UI deaktiviert, bis die Spiel-Namensreferenzen kontrolliert geklärt sind.
+- UUID ist technische Identität; Anzeigename nur Darstellung oder Suchauswahl.
+  Gruppen-/Clan-Namenssuche und temporäre Party-Namensreferenzen unterscheiden.
+- Vor einem späteren Auftrag `docs/ACCOUNT_IDENTITY_MIGRATION_AUDIT.md` und den
+  aktuellen Checkpoint lesen. Supabase-Produktion, exportierten v116-Build und
+  noch nicht ausgerollten lokalen Spielcode nicht gleichsetzen.
+- Bestehende Admin-UUID/-Rechte erhalten. Keine Autorisierung nach `cHa`,
+  anderen Anzeigenamen oder editierbaren Metadaten. Kein U01-/F01- oder
+  Dedicated-Rollout aus einer Homepage-Profilkorrektur ableiten.

@@ -209,3 +209,19 @@ Produktivrollout, Webexport oder Laptop-Neustart aus diesem Auftrag ableiten.
 Technische Grundlagen: [Supabase Session](https://supabase.com/docs/reference/javascript/auth-getsession),
 [Auth-Ereignisse](https://supabase.com/docs/reference/javascript/auth-onauthstatechange),
 [Godot JavaScriptBridge](https://docs.godotengine.org/en/stable/classes/class_javascriptbridge.html).
+
+## Aktuelle Identitätsgrenze – 08.10.2026
+
+`ACCOUNT_IDENTITY_MIGRATION_AUDIT.md` ergänzt die oben beschriebenen lokalen
+Transporttests. Aus dem vorhandenen exportierten v116-Bytecode rein lesend
+bestätigt: dortiger direkter Game-Login konstruiert weiterhin die alte interne
+Auth-E-Mail aus dem Nickname. Der neuere lokale Account-/Gastadapter ist nicht
+automatisch Bestandteil dieses Builds oder des tatsächlich laufenden Laptops.
+
+Eine Homepage-Session des zentralen Accounts erteilt keinen Zugriff auf den
+Legacy-cHa-Spielstand. Gleicher Anzeigename wäre weder Auth- noch Besitznachweis.
+Der zentrale Account bleibt aktuell ohne Profilnamen; cHa beim Legacyaccount.
+Party-Namensreferenzen müssen vor einer späteren kontrollierten Accountmigration
+auf UUID-/Einladungsverweise umgestellt werden. Hier keine Änderung am Handoff-
+Transport, Spielcode/Build, U01/F01, Backend-Ownership oder Dedicated; kein Export.
+Installierte Own-Name-RPC besteht unverändert, Homepage-Editor im normalen UI aus.

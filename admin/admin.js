@@ -13,7 +13,15 @@ const password = document.getElementById("password");
 const loginBtn = document.getElementById("loginBtn");
 const loginMessage = document.getElementById("loginMessage");
 
+if (loginMessage) {
+    loginMessage.setAttribute('role', 'status');
+    loginMessage.setAttribute('aria-live', 'polite');
+    if (new URLSearchParams(location.search).get('status') === 'denied') loginMessage.textContent = 'Bitte mit dem bestehenden Adminaccount anmelden.';
+}
 if (loginBtn) loginBtn.addEventListener("click", async () => {
+    if (loginBtn.disabled) return;
+    loginBtn.disabled = true;
+    try {
 
     loginMessage.textContent = "Anmeldung läuft...";
 
@@ -26,9 +34,15 @@ if (loginBtn) loginBtn.addEventListener("click", async () => {
 
     if (error) {
 
-        loginMessage.textContent = error.message;
+        loginMessage.textContent = error.code === 'invalid_credentials' ? 'E-Mail-Adresse oder Passwort ist falsch.' :
+            error.code === 'email_not_confirmed' ? 'Bitte bestätige zuerst deine E-Mail-Adresse.' :
+            'Die Anmeldung ist derzeit nicht möglich. Bitte versuche es später erneut.';
         return;
 
+    }
+    if (!await window.ZHAdminAccess.require(sb, { redirect: false })) {
+        loginMessage.textContent = 'Dieser Account hat keinen Zugang zum internen Adminbereich.';
+        return;
     }
 
     loginMessage.textContent = "Erfolgreich angemeldet.";
@@ -38,5 +52,6 @@ if (loginBtn) loginBtn.addEventListener("click", async () => {
         window.location.href = "dashboard.html";
 
     }, 700);
-
+    } catch (_) { loginMessage.textContent = 'Die Anmeldung ist derzeit nicht möglich. Bitte versuche es später erneut.'; }
+    finally { loginBtn.disabled = false; }
 });

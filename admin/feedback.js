@@ -1,4 +1,3 @@
-const ADMIN_UID = "7ba1fad4-d113-4526-8873-3e3b97e9be7e";
 const ADMIN_FEEDBACK_BUCKET = "community-feedback";
 const adminFeedbackClient = window.adminSupabase;
 const adminLists = {
@@ -66,6 +65,7 @@ function buildEntry(entry) {
 }
 
 async function loadFeedback(type) {
+    if (!await window.ZHAdminAccess.require(adminFeedbackClient)) return;
     const list = adminLists[type];
     list.replaceChildren();
     const { data, error } = await adminFeedbackClient
@@ -85,6 +85,7 @@ async function loadFeedback(type) {
 }
 
 async function updateStatus(id, type, select) {
+    if (!await window.ZHAdminAccess.require(adminFeedbackClient)) return;
     select.disabled = true;
     const { error } = await adminFeedbackClient
         .from("community_feedback")
@@ -95,6 +96,7 @@ async function updateStatus(id, type, select) {
 }
 
 async function deleteFeedback(entry) {
+    if (!await window.ZHAdminAccess.require(adminFeedbackClient)) return;
     if (!confirm(`${feedbackLabel(entry)} wirklich löschen?`)) return;
     if (entry.screenshot_path) {
         const { error: storageError } = await adminFeedbackClient.storage
@@ -117,10 +119,6 @@ async function deleteFeedback(entry) {
 }
 
 (async () => {
-    const { data: { session } } = await adminFeedbackClient.auth.getSession();
-    if (!session || session.user.id !== ADMIN_UID) {
-        window.location.href = "index.html";
-        return;
-    }
+    if (!await window.ZHAdminAccess.require(adminFeedbackClient)) return;
     await Promise.all([loadFeedback("bug"), loadFeedback("idea")]);
 })();

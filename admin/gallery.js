@@ -9,22 +9,14 @@ const sb = window.supabase.createClient(
 
 (async () => {
 
-    const {
-        data: { session }
-    } = await sb.auth.getSession();
-
-    if (!session) {
-
-        location.href = "index.html";
-        return;
-
-    }
+    if (!await window.ZHAdminAccess.require(sb)) return;
 
     loadGallery();
 
 })();
 
 async function loadGallery() {
+    if (!await window.ZHAdminAccess.require(sb)) return;
 
     const { data, error } = await sb
         .from("gallery")
@@ -62,12 +54,12 @@ async function loadGallery() {
         <div class="card admin-card">
 
             <img
-                src="${image.image_url}"
+                src="${window.ZHAdminAccess.escapeHTML(image.image_url)}"
                 style="width:100%;max-width:600px;border-radius:8px;margin-bottom:20px;">
 
-            <h3>${image.uploader ?? "Unbekannt"}</h3>
+            <h3>${window.ZHAdminAccess.escapeHTML(image.uploader ?? "Unbekannt")}</h3>
 
-            <p>${image.description ?? ""}</p>
+            <p>${window.ZHAdminAccess.escapeHTML(image.description ?? "")}</p>
 
             <div class="admin-actions">
 
@@ -90,6 +82,7 @@ async function loadGallery() {
 }
 
 async function approve(id) {
+    if (!await window.ZHAdminAccess.require(sb)) return;
 
     const { error } = await sb
         .from("gallery")
@@ -108,6 +101,7 @@ async function approve(id) {
 }
 
 async function removeImage(id) {
+    if (!await window.ZHAdminAccess.require(sb)) return;
 
     if (!confirm("Bild wirklich löschen?"))
         return;

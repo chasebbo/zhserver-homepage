@@ -58,6 +58,12 @@
 .account-consent a:hover { color: #f0d386; }
 .account-privacy-notice { margin: 10px 0 0 27px; color: #91a1af; font-size: .71rem; line-height: 1.85; }
 .account-status { margin-top: 17px; color: #c6b377; font-size: .78rem; line-height: 1.8; }
+.account-status[data-tone="error"] { color: #e0b0a6; }
+form > .account-status { margin: 0 0 17px; overflow-wrap: anywhere; }
+.profile-account-title { margin: 0 0 22px; color: #cdb776; font-size: .76rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+.profile-private-note { display: block; margin-top: 5px; color: #8998a8; font-size: .68rem; line-height: 1.6; }
+.profile-name-form { margin-top: 25px; padding-top: 23px; border-top: 1px solid rgba(179, 194, 207, .12); }
+.profile-name-form .account-field { margin-bottom: 15px; }
 .account-context { padding-top: 6px; max-width: 410px; }
 .account-context h2, .profile-section h2 { margin: 0 0 14px; font-size: 1.12rem; font-weight: 500; color: #e0e3df; }
 .account-context p, .profile-section p { margin: 0 0 14px; color: #99a8b7; font-size: .82rem; line-height: 1.85; }

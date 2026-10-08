@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../assets/css/i18n.css?v=20260930-de-en">
     <link rel="stylesheet" href="../assets/css/homepage-premium.css?v=20261008-release1">
     <link rel="stylesheet" href="../assets/css/header.css?v=20261001-original-logo">
-    <link rel="stylesheet" href="../assets/css/account.css?v=20261008-release1">
+    <link rel="stylesheet" href="../assets/css/account.css?v=20261008-account2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="../assets/js/translations.js?v=20261008-release1"></script>
-    <script src="../assets/js/i18n.js?v=20261008-release1"></script>
+    <script src="../assets/js/translations.js?v=20261008-account2"></script>
+    <script src="../assets/js/i18n.js?v=20261008-account2"></script>
 </head>
 <body class="account-page">
 <header class="header zh-site-header">
@@ -67,11 +67,19 @@
     </section>
     <div class="account-layout" id="profile-details" hidden>
         <section class="account-panel" aria-label="Eigenes Profil" data-account-label="account.myProfile">
+            <h2 class="profile-account-title" data-account-i18n="account.title">Account</h2>
             <dl class="profile-basics">
+                <div><dt data-account-i18n="account.email">E-Mail</dt><dd><span id="profile-email" data-i18n-ignore>—</span><small class="profile-private-note" data-account-i18n="account.emailPrivate">Nur für dich sichtbar.</small></dd></div>
                 <div><dt data-account-i18n="account.displayName">Öffentlicher Anzeigename</dt><dd id="profile-display-name" data-i18n-ignore>—</dd></div>
                 <div><dt data-account-i18n="account.createdAt">Registriert seit</dt><dd><time id="profile-created-at" data-i18n-ignore>—</time></dd></div>
+                <div><dt data-account-i18n="account.statusLabel">Accountstatus</dt><dd id="profile-account-status" data-i18n-ignore>—</dd></div>
             </dl>
-            <p class="profile-missing" id="profile-name-missing" data-account-i18n="account.nameMissing" hidden>Für diesen Account fehlt ein gültiger öffentlicher Anzeigename. Die Profilbearbeitung ist noch nicht freigeschaltet.</p>
+            <p class="profile-missing" id="profile-name-missing" data-account-i18n="account.nameMissing" hidden>Bitte lege einen öffentlichen Anzeigenamen fest, bevor du Beiträge oder Screenshots einreichst.</p>
+            <form class="profile-name-form" id="profile-name-form" hidden>
+                <div class="account-field"><label for="profile-name-input" data-account-i18n="account.displayName">Öffentlicher Anzeigename</label><input id="profile-name-input" name="display_name" autocomplete="nickname" maxlength="80" required aria-describedby="profile-name-hint profile-save-status"><small id="profile-name-hint" data-account-i18n="account.nameHint">Dein Name für Forum, Gästebuch und Screenshots. 1–80 Zeichen, keine E-Mail-Adresse.</small></div>
+                <p class="account-status" id="profile-save-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
+                <button type="submit" class="btn btn-gold account-submit" data-account-i18n="account.saveName">Speichern</button>
+            </form>
             <div class="account-actions"><a class="btn btn-outline" href="../game.html" data-account-i18n="account.toGame">Zum Spiel</a><a class="btn btn-outline" href="../forum/" data-account-i18n="account.toForum">Zum Forum</a></div>
         </section>
         <div class="account-context">
@@ -123,6 +131,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../assets/js/visitor-counter.js?v=20261008-release1"></script>
 <script src="../assets/js/main.js?v=20261008-release1"></script>
-<script src="../assets/js/identity.js?v=20261008-release1"></script>
+<script src="../assets/js/identity.js?v=20261008-account2"></script>
+<script src="../assets/js/account.js?v=20261008-account2" data-zh-account-loader></script>
 </body>
 </html>

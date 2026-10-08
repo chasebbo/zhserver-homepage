@@ -8,6 +8,9 @@
         key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlhd2FkeHpleXlyb3ptbHJva3VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMzQ4MTIsImV4cCI6MjEwMDkxMDgxMn0.B53O3gHURnfxUkVGKaZJ5ssx27Bj9FNMU70Yn85tfxE'
     });
     const language = window.ZHLanguage;
+    // Prepared editor stays inactive until game nickname references are separated from UUIDs.
+    // Keep the installed own-profile RPC; this is a UI gate, not an authorization rule.
+    const nameEditingEnabled = false;
     const site = path => new URL(path, root).href;
     const allowed = new Set(['', 'index.html', 'game.html', 'gallery.html', 'wiki.html', 'forum/',
         'forum/index.html', 'arma/', 'arma/index.html', 'bugs/', 'bugs/index.html', 'profile/', 'profile/index.html']);
@@ -40,7 +43,7 @@
             if (created) { script.src = src; document.body.append(script); }
         });
     }
-    const cssUrl = site('assets/css/account.css?v=20261008-account1');
+    const cssUrl = site('assets/css/account.css?v=20261008-account2');
     if (![...document.querySelectorAll('link[rel="stylesheet"]')].some(node => node.href === cssUrl)) {
         const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = cssUrl;
         document.head.append(css);
@@ -90,10 +93,49 @@
     const next = safeNext(params.get('next'));
     const form = document.getElementById('zh-account-form');
     const profile = document.getElementById('zh-profile');
+    const nameForm = document.getElementById('profile-name-form');
+    const nameInput = document.getElementById('profile-name-input');
+    if (nameForm) nameForm.hidden = !nameEditingEnabled;
+    let profileOwner = null, profileRead = 0, profileStatus = '';
     function setMessage(key) {
         accountStatus = key;
         const message = document.getElementById('account-status');
-        if (message) { message.hidden = !key; if (key) language.bind(message, key); }
+        if (message) {
+            message.hidden = !key;
+            message.dataset.tone = ['account.working', 'account.redirecting', 'account.checkMail', 'recovery.sent'].includes(key) ? 'info' : 'error';
+            if (key) language.bind(message, key);
+        }
+    }
+    function setProfileMessage(key) {
+        profileStatus = key;
+        const message = document.getElementById('profile-save-status');
+        if (!message) return;
+        message.hidden = !key;
+        message.dataset.tone = ['account.working', 'account.nameSaved'].includes(key) ? 'info' : 'error';
+        if (key) language.bind(message, key);
+    }
+    async function readPrivateAccount(state) {
+        const ticket = ++profileRead;
+        try {
+            const identity = await ready;
+            const session = await identity.client.auth.getSession();
+            if (session.error || !session.data.session) throw new Error();
+            const verified = await identity.client.auth.getUser(session.data.session.access_token);
+            const current = await identity.client.auth.getSession();
+            if (verified.error || current.error) throw new Error();
+            if (ticket !== profileRead || identity.state.userId !== state.userId || verified.data.user?.id !== state.userId ||
+                current.data.session?.access_token !== session.data.session.access_token) return;
+            if (verified.data.user.is_anonymous) throw new Error();
+            // Auth returns only this signed-in owner's email. It never enters public identity state or RPCs.
+            const email = verified.data.user.email;
+            document.getElementById('profile-email').textContent = typeof email === 'string' ? email : '—';
+            language.bind(document.getElementById('profile-account-status'), 'account.active');
+        } catch (_) {
+            if (ticket !== profileRead || window.ZHIdentity?.state.userId !== state.userId) return;
+            document.getElementById('profile-email').textContent = '—';
+            language.bind(document.getElementById('profile-account-status'), 'account.statusUnavailable');
+            if (!profileStatus) setProfileMessage('account.profileUnavailable');
+        }
     }
     function render(state) {
         const signedIn = !!state.userId && ['member', 'nameRequired'].includes(state.status);
@@ -103,17 +145,31 @@
         trigger.setAttribute('aria-label', language.t('account.menuLabel', { name: state.displayName || language.t('account.title') }));
         if (!signedIn) closeMenu();
         if (profile) {
+            const ownerChanged = profileOwner !== state.userId;
+            if (ownerChanged || !signedIn) {
+                ++profileRead; profileOwner = state.userId;
+                document.getElementById('profile-email').textContent = '—';
+                const status = document.getElementById('profile-account-status');
+                language.bind(status, 'account.statusUnavailable');
+                setProfileMessage('');
+                nameInput.value = ''; nameInput.dataset.dirty = 'false';
+            }
             profile.dataset.identityState = state.status;
             document.getElementById('profile-details').hidden = !signedIn;
             const gate = document.getElementById('profile-gate');
             gate.hidden = signedIn;
             language.bind(document.getElementById('profile-gate-message'), state.status === 'guest' ? 'account.profileGuest' : 'identity.' + state.status);
             document.getElementById('profile-name-missing').hidden = state.status !== 'nameRequired';
+            language.bind(document.getElementById('profile-name-missing'), nameEditingEnabled ? 'account.nameMissing' : 'account.nameEditingPending');
             document.getElementById('profile-display-name').textContent = state.displayName || '—';
             const created = document.getElementById('profile-created-at');
             created.textContent = state.createdAt ? new Intl.DateTimeFormat(language.locale,
                 { dateStyle: 'long', timeZone: 'Europe/Berlin' }).format(new Date(state.createdAt)) : '—';
             created.setAttribute('datetime', state.createdAt || '');
+            if (ownerChanged || nameInput.dataset.dirty !== 'true') nameInput.value = state.displayName || '';
+            nameInput.disabled = !nameEditingEnabled || !signedIn || nameForm.dataset.busy === 'true';
+            nameForm.querySelector('[type="submit"]').disabled = !nameEditingEnabled || !signedIn || nameForm.dataset.busy === 'true';
+            if (signedIn) readPrivateAccount(state);
         }
         if (form && signedIn && mode !== 'forgot') {
             setMessage('account.redirecting');
@@ -127,7 +183,7 @@
         if (form && mode === 'register') {
             await loadScript(site('assets/js/legal.js?v=20261008-legal1'), () => !!window.ZHLegal);
         }
-        await loadScript(site('assets/js/identity.js?v=20261008-account1'), () => !!window.ZHIdentity);
+        await loadScript(site('assets/js/identity.js?v=20261008-account2'), () => !!window.ZHIdentity);
         window.ZHIdentity.subscribe(render);
         return window.ZHIdentity;
     }
@@ -148,6 +204,34 @@
     document.querySelectorAll('[data-central-auth]').forEach(link => {
         link.href = authUrl(link.dataset.centralAuth, link.dataset.accountNext || location.href);
     });
+    if (nameForm) {
+        nameInput.addEventListener('input', () => { nameInput.dataset.dirty = 'true'; });
+        nameForm.addEventListener('invalid', () => setProfileMessage('account.nameInvalid'), true);
+        nameForm.addEventListener('submit', async event => {
+            event.preventDefault();
+            if (!nameEditingEnabled) return;
+            if (nameForm.dataset.busy === 'true' || !nameForm.reportValidity()) return;
+            const value = nameInput.value, owner = window.ZHIdentity?.state.userId;
+            if (!window.ZHIdentity?.validName(value)) { setProfileMessage('account.nameInvalid'); return; }
+            nameForm.dataset.busy = 'true'; nameInput.disabled = true;
+            nameForm.querySelector('[type="submit"]').disabled = true;
+            setProfileMessage('account.working');
+            try {
+                const identity = await ready;
+                await identity.updateDisplayName(value);
+                if (identity.state.userId !== owner) return;
+                nameInput.dataset.dirty = 'false'; nameInput.value = identity.state.displayName;
+                setProfileMessage('account.nameSaved');
+            } catch (error) {
+                if (window.ZHIdentity?.state.userId !== owner) return;
+                const known = ['account.nameInvalid', 'account.nameTaken', 'identity.sessionChanged', 'identity.signInRequired'];
+                setProfileMessage(known.includes(error?.message) ? error.message : 'account.nameSaveFailed');
+            } finally {
+                nameForm.dataset.busy = 'false';
+                if (window.ZHIdentity) render(window.ZHIdentity.state);
+            }
+        });
+    }
     if (form) {
         document.getElementById('account-register-fields').hidden = mode !== 'register';
         document.getElementById('account-password-repeat-field').hidden = mode !== 'register';
@@ -172,6 +256,10 @@
         other.href = authUrl(mode === 'register' ? 'login' : 'register', next);
         if (mode === 'forgot') other.href = authUrl('login', next);
         language.bind(other, mode === 'forgot' ? 'recovery.backToSignIn' : mode === 'register' ? 'account.alreadyRegistered' : 'account.needAccount');
+        form.addEventListener('invalid', event => {
+            setMessage(event.target.id === 'account-consent' ? 'legal.acceptanceRequired' :
+                event.target.id === 'account-email' && event.target.validity.typeMismatch ? 'account.emailInvalid' : 'account.requiredFields');
+        }, true);
         form.addEventListener('submit', async event => {
             event.preventDefault(); if (form.dataset.busy === 'true') return;
             if (mode === 'register' && !document.getElementById('account-consent').checked) {
@@ -212,9 +300,11 @@
                 }
             } catch (error) {
                 const legalError = ['legal.registrationUnavailable', 'legal.versionChanged'].includes(error?.message);
-                const key = legalError ? error.message : error?.code === 'invalid_credentials' ? 'account.invalidCredentials' :
+                const invalidCredentials = ['invalid_credentials', 'invalid_login_credentials', 'invalid_grant', 'user_not_found'].includes(error?.code) ||
+                    /invalid login credentials/i.test(error?.message || '');
+                const key = legalError ? error.message : invalidCredentials ? 'account.invalidCredentials' :
                     error?.code === 'email_not_confirmed' ? 'account.emailUnconfirmed' :
-                    error?.code === 'weak_password' ? 'account.weakPassword' : 'account.requestFailed';
+                    error?.code === 'weak_password' ? 'account.weakPassword' : mode === 'login' ? 'account.loginFailed' : 'account.requestFailed';
                 setMessage(key);
             } finally {
                 if (attempted) { password.value = ''; document.getElementById('account-password-repeat').value = ''; }
@@ -227,5 +317,6 @@
     document.addEventListener('zh:languagechange', () => {
         if (window.ZHIdentity) render(window.ZHIdentity.state);
         if (accountStatus) setMessage(accountStatus);
+        if (profileStatus) setProfileMessage(profileStatus);
     });
 })();

@@ -211,3 +211,33 @@ auch den Fall, dass eine Registrierung wegen erforderlicher Bestätigung keine
 Session liefert. Für Namen bleibt ausschließlich die geschützte Own-Identity-RPC
 maßgeblich; keine E-Mail als Anzeige und keine pauschale Freigabe von `profiles`.
 Diese Phase hat keine SQL-Migration oder produktive Auth-/Profiländerung ausgeführt.
+
+## Ergänzung: verifizierte Namens-/UUID-Abhängigkeiten – 08.10.2026
+
+Aktueller produktiver Read-only-Abgleich und kontrollierter späterer Plan:
+`ACCOUNT_IDENTITY_MIGRATION_AUDIT.md`. `cHa` bleibt Legacy; zentraler Adminaccount
+behält Auth-UUID und Rechte und hat weiterhin keinen Profileintrag. Bereits
+installierte sichere Own-Name-RPC behalten, nicht zurückrollen. Kein Account-
+oder Namensdatenwrite aus dieser Untersuchung.
+
+`invite_to_group`/`invite_to_clan` suchen nach Namen, speichern aber serverseitig
+aufgelöste UUIDs. Dauerhafte Mitgliedschaften sind bereits UUID-basiert.
+v116-Nickname-Login, temporäre Party-Namensvergleiche, clientseitige Party-
+Mitgliedsreferenzen und 24-Zeichen-Netzwerknamen müssen vor Migration/aktivierter
+Namensbearbeitung kontrolliert behandelt werden. v116, neuere lokale GDScripts
+und laufenden Laptop-Dedicated nicht als denselben nachgewiesenen Stand darstellen.
+
+Lokale Adminoberfläche prüft nun auf allen vier geschützten Seiten denselben
+bestehenden Adminaccount per serverbestätigtem `getUser()`. Kein Anzeigename oder
+editierbare Metadaten als Berechtigung. Direkter Nicht-Adminzugriff, Accountwechsel,
+Logout und Moderation lokal mit Fixtures geprüft; keine produktive Passwort-
+Anmeldung oder echte Moderationswriteprüfung. Admin-Tabellenpolicies bytegleich.
+Die früher dokumentierten allgemeinen Sessionchecks sind damit im lokalen
+Frontend verbessert, kein Nachweis einer produktiven Veröffentlichung.
+
+Vorhandene Galerie-Storage-UPDATE/DELETE-Policies für `authenticated` prüfen nur
+den Bucket; sie sind weiterhin breiter als die festen Admin-Tabellenpolicies.
+Separater Backendbefund, hier weder geändert noch mit Live-Writes getestet.
+Eigene Profil-E-Mail nur über eigene verifizierte Session, niemals öffentliches
+Identity-/Community-RPC-Feld. Namenseditor vorbereitet, normales UI deaktiviert.
+Keine weitere Migration, kein Commit/Push/Export. STOPP.

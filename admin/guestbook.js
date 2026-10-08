@@ -9,20 +9,14 @@ const sb = window.supabase.createClient(
 
 (async () => {
 
-    const { data:{session} } = await sb.auth.getSession();
-
-    if(!session){
-
-        location.href="index.html";
-        return;
-
-    }
+    if (!await window.ZHAdminAccess.require(sb)) return;
 
     loadEntries();
 
 })();
 
 async function loadEntries(){
+    if (!await window.ZHAdminAccess.require(sb)) return;
 
     const {data,error}=await sb
         .from("guestbook")
@@ -61,11 +55,11 @@ async function loadEntries(){
 
         <div class="card admin-card">
 
-            <h3>${entry.name}</h3>
+            <h3>${window.ZHAdminAccess.escapeHTML(entry.name)}</h3>
 
             <small>${date}</small>
 
-            <p>${entry.message}</p>
+            <p>${window.ZHAdminAccess.escapeHTML(entry.message)}</p>
 
             <div class="admin-actions">
 
@@ -94,15 +88,13 @@ async function loadEntries(){
 }
 
 async function approve(id){
+    if (!await window.ZHAdminAccess.require(sb)) return;
 
     const { data, error } = await sb
         .from("guestbook")
         .update({ approved: true })
         .eq("id", id)
         .select();
-
-    console.log("UPDATE DATA:", data);
-    console.log("UPDATE ERROR:", error);
 
     if(error){
         alert(error.message);
@@ -115,6 +107,7 @@ async function approve(id){
 
 
 async function removeEntry(id){
+    if (!await window.ZHAdminAccess.require(sb)) return;
 
     if(!confirm("Eintrag wirklich löschen?"))
         return;

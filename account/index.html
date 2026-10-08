@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="../assets/css/i18n.css?v=20260930-de-en">
     <link rel="stylesheet" href="../assets/css/homepage-premium.css?v=20261008-release1">
     <link rel="stylesheet" href="../assets/css/header.css?v=20261001-original-logo">
-    <link rel="stylesheet" href="../assets/css/account.css?v=20261008-release1">
+    <link rel="stylesheet" href="../assets/css/account.css?v=20261008-account2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="../assets/js/translations.js?v=20261008-release1"></script>
-    <script src="../assets/js/i18n.js?v=20261008-release1"></script>
+    <script src="../assets/js/translations.js?v=20261008-account2"></script>
+    <script src="../assets/js/i18n.js?v=20261008-account2"></script>
 </head>
 <body class="account-page">
 <header class="header zh-site-header">
@@ -74,10 +74,10 @@
                     <label class="account-consent-label" for="account-consent"><input id="account-consent" type="checkbox" name="legal_acceptance" data-registration-only disabled aria-describedby="account-privacy-notice"><span><span data-account-i18n="legal.acceptPrefix">Ich akzeptiere die </span><a href="../nutzungsbedingungen/?version=2026-10-08" target="_blank" rel="noopener" data-account-i18n="legal.terms">Nutzungsbedingungen</a><span data-account-i18n="legal.acceptAnd"> und </span><a href="../community-regeln/?version=2026-10-08" target="_blank" rel="noopener" data-account-i18n="legal.rules">Community-Regeln</a><span data-account-i18n="legal.acceptEnd">.</span></span></label>
                     <p class="account-privacy-notice" id="account-privacy-notice"><span data-account-i18n="legal.privacyPrefix">Die </span><a href="../pages/datenschutz.html" target="_blank" rel="noopener" data-account-i18n="legal.privacy">Datenschutzerklärung</a><span data-account-i18n="legal.privacySuffix"> habe ich zur Kenntnis genommen.</span></p>
                 </div>
+                <p class="account-status" id="account-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
                 <button class="btn btn-gold account-submit" type="submit">Anmelden</button>
             </form>
             <a class="account-other-mode" id="account-other-mode" href="?mode=register">Noch keinen Account? Registrieren</a>
-            <p class="account-status" id="account-status" role="status" aria-live="polite" hidden></p>
         </div>
         <aside class="account-context">
             <h2 data-account-i18n="account.existingTitle">Dein bestehender Zugang</h2>
@@ -129,6 +129,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../assets/js/visitor-counter.js?v=20261008-release1"></script>
 <script src="../assets/js/main.js?v=20261008-release1"></script>
-<script src="../assets/js/identity.js?v=20261008-release1"></script>
+<script src="../assets/js/identity.js?v=20261008-account2"></script>
+<script src="../assets/js/account.js?v=20261008-account2" data-zh-account-loader></script>
 </body>
 </html>

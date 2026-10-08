@@ -9,16 +9,7 @@ const dashboardClient = window.supabase.createClient(
 
 (async () => {
 
-    const {
-        data: { session }
-    } = await dashboardClient.auth.getSession();
-
-    if (!session) {
-
-        window.location.href = "index.html";
-        return;
-
-    }
+    await window.ZHAdminAccess.require(dashboardClient);
 
 })();
 
@@ -26,8 +17,8 @@ document
     .getElementById("logoutBtn")
     .addEventListener("click", async () => {
 
-        await dashboardClient.auth.signOut();
-
-        window.location.href = "index.html";
+        const { error } = await dashboardClient.auth.signOut();
+        if (error) alert("Abmelden ist derzeit nicht möglich. Bitte versuche es erneut.");
+        // The shared Auth watcher performs the redirect after a confirmed logout.
 
     });
