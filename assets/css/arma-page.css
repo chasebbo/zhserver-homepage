@@ -1,0 +1,121 @@
+/* Short information page; header, footer and visitor statistics use shared styles. */
+body.arma-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.arma-page .arma-main {
+    flex: 1;
+    padding: 196px 0 72px;
+}
+
+.arma-page .arma-content {
+    width: min(880px, 92%);
+}
+
+.arma-page .arma-breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 32px;
+    color: #aeb9c3;
+    font-size: .8rem;
+    line-height: 1.6;
+}
+
+.arma-page .arma-breadcrumbs a,
+.arma-page .arma-game-link {
+    color: #cbbb95;
+    text-decoration: underline;
+    text-decoration-color: rgba(203, 187, 149, .35);
+    text-underline-offset: 4px;
+}
+
+.arma-page .arma-breadcrumbs a:hover,
+.arma-page .arma-game-link:hover {
+    color: #f0dcaf;
+    text-decoration-color: currentColor;
+}
+
+.arma-page .arma-article {
+    max-width: 760px;
+}
+
+.arma-page .arma-article h1 {
+    margin: 0 0 26px;
+    color: #f2efe5;
+    font: 700 clamp(1.9rem, 3.4vw, 2.9rem)/1.25 Cinzel, serif;
+    text-wrap: balance;
+}
+
+.arma-page .arma-copy {
+    max-width: 66ch;
+    color: #bec9d2;
+    font-size: .97rem;
+    line-height: 1.85;
+}
+
+.arma-page .arma-copy p + p {
+    margin-top: 20px;
+}
+
+.arma-page .arma-copy .arma-intro {
+    color: #dce3e5;
+    font-size: 1.08rem;
+    line-height: 1.75;
+}
+
+.arma-page .arma-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px 28px;
+    margin-top: 34px;
+    padding-top: 26px;
+    border-top: 1px solid rgba(217, 189, 124, .14);
+}
+
+.arma-page .arma-actions .btn {
+    min-height: 44px;
+    padding: 12px 18px;
+    font-size: .87rem;
+}
+
+.arma-page .arma-game-link {
+    padding-block: 12px;
+    font-size: .86rem;
+    line-height: 1.5;
+}
+
+.arma-page .arma-main a:focus-visible {
+    outline: 2px solid #d9bd7c;
+    outline-offset: 5px;
+}
+
+@media (max-width: 900px) {
+    .arma-page .arma-main {
+        padding: 36px 0 56px;
+    }
+}
+
+@media (max-width: 520px) {
+    .arma-page .arma-breadcrumbs {
+        margin-bottom: 26px;
+    }
+
+    .arma-page .arma-article h1 {
+        margin-bottom: 22px;
+    }
+
+    .arma-page .arma-actions {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .arma-page .arma-actions .btn {
+        text-align: center;
+    }
+}

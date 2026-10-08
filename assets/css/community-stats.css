@@ -1,0 +1,45 @@
+/* Shared community figures; footer placement is styled in global-footer.css. */
+.zh-community {
+    --community-line: rgba(198, 174, 113, .17);
+    color: #d4dadc;
+    min-width: 0;
+}
+.zh-community-header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; }
+.zh-community .zh-community-title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.45;
+    letter-spacing: .02em;
+    color: #f0eee6;
+    margin: 0;
+}
+.zh-community-scope { font-size: .75rem; color: #a2afb7; margin: 0; }
+.zh-community-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 20px 0 0; }
+.zh-community-group { min-width: 0; }
+.zh-community .zh-community-group-title {
+    font-family: 'Inter', sans-serif;
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #c6ae71;
+    margin: 0 0 12px;
+}
+.zh-community dl { margin: 0; }
+.zh-community-line { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 7px 0; }
+.zh-community dt { color: #aebbc1; font-size: .8rem; line-height: 1.5; }
+.zh-community dd { margin: 0; color: #efeee7; font-size: .9rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.zh-community .zh-community-total { border-bottom: 1px solid var(--community-line); padding: 0 0 10px; margin-bottom: 4px; }
+.zh-community-total dd { font-size: 1.45rem; font-weight: 500; line-height: 1.2; }
+.zh-community-name dd { max-width: 55%; text-align: right; overflow-wrap: anywhere; }
+.zh-community-status { font-size: .73rem; color: #98a7af; margin: 14px 0 0; line-height: 1.6; }
+.zh-community-status:empty { display: none; }
+.forum-page .zh-community-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+.forum-page .zh-community-header { display: block; }
+.forum-page .zh-community-scope { margin-top: 6px; }
+@media (max-width: 600px) {
+    .zh-community-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+    .zh-community-header { display: block; }
+    .zh-community-scope { margin-top: 6px; }
+    .zh-community-name dd { max-width: 52%; }
+}

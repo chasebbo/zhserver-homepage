@@ -1,0 +1,11 @@
+/* Compact identity hints; no independent account panel. */
+.zh-identity-note {
+    margin: 0 0 12px;
+    font: 500 .8rem/1.5 'Inter', sans-serif;
+    color: #c6ae71;
+    overflow-wrap: anywhere;
+}
+.home-page #guestbook .zh-identity-note { margin: 0 0 12px; font-size: .8rem; line-height: 1.5; }
+.zh-identity-login { color: #c6ae71; font-size: .8rem; text-underline-offset: 3px; }
+.zh-identity-note[hidden], input[hidden] { display: none !important; }
+.zh-identity-login:focus-visible { outline: 2px solid #c6ae71; outline-offset: 4px; }

@@ -118,6 +118,133 @@ body.home-page > .section::before {
     }
 }
 
+/* Guestbook: compact, content-sized panels without changing form or data behavior. */
+body.home-page > #guestbook.section {
+    padding-block: clamp(48px, 4.5vw, 64px);
+}
+
+.home-page #guestbook > .container > .section-title { margin-bottom: 10px; }
+.home-page #guestbook > .container > h2 { margin-bottom: 14px; }
+.home-page #guestbook > .container > p { font-size: .94rem; line-height: 1.65; }
+
+.home-page #guestbook :is(.guestbook-box, .guestbook-card) {
+    min-height: 0;
+    height: auto;
+    border: 1px solid rgba(205, 183, 127, .12) !important;
+    border-radius: 9px !important;
+    background: linear-gradient(145deg, rgba(22, 29, 33, .58), rgba(13, 19, 23, .72)) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .12) !important;
+    transition: border-color .18s ease, background .18s ease !important;
+}
+
+.home-page #guestbook .guestbook-box { margin-top: 22px; padding: 20px 24px !important; }
+.home-page #guestbook :is(.guestbook-box, .guestbook-card) h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0;
+    color: #eceee9;
+    text-shadow: none;
+}
+.home-page #guestbook .guestbook-box h3 { margin: 0 0 14px; }
+
+.home-page #guestbook .guestbook-box :is(input, textarea) {
+    padding: 10px 12px !important;
+    margin-bottom: 10px;
+    border: 1px solid rgba(161, 173, 183, .22) !important;
+    border-radius: 6px !important;
+    background: rgba(9, 14, 18, .38) !important;
+    font-size: .9rem !important;
+    line-height: 1.5;
+    transition: border-color .18s ease, background .18s ease, box-shadow .18s ease !important;
+}
+.home-page #guestbook .guestbook-box input { min-height: 44px; }
+.home-page #guestbook .guestbook-box textarea { min-height: 104px; }
+.home-page #guestbook .guestbook-box :is(input, textarea):focus {
+    border-color: rgba(217, 189, 124, .65) !important;
+    background: rgba(9, 14, 18, .6) !important;
+    box-shadow: 0 0 0 2px rgba(217, 189, 124, .1) !important;
+}
+.home-page #guestbook .guestbook-box .btn {
+    min-height: 44px;
+    padding: 10px 16px !important;
+    border: 1px solid rgba(217, 189, 124, .38);
+    border-radius: 6px !important;
+    font-family: inherit;
+    font-size: .84rem !important;
+    font-weight: 600;
+    letter-spacing: .01em;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .16) !important;
+    transform: none !important;
+}
+.home-page #guestbook .guestbook-box .btn:focus-visible {
+    outline: 2px solid var(--home-gold);
+    outline-offset: 3px;
+}
+.home-page #guestbook .guestbook-info {
+    margin: 12px 0 0;
+    font-size: .76rem;
+    line-height: 1.55;
+    color: #93a1ab;
+    opacity: 1;
+}
+
+.home-page #guestbook .guestbook-entries { margin-top: 20px; gap: 10px; align-items: start; }
+.home-page #guestbook .guestbook-card { padding: 14px 20px !important; }
+.home-page #guestbook .guestbook-card:hover {
+    transform: none !important;
+    border-color: rgba(217, 189, 124, .24) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .12) !important;
+}
+.home-page #guestbook .guestbook-card h3 { margin: 0; overflow-wrap: anywhere; }
+.home-page #guestbook .guestbook-card > p {
+    margin: 4px 0 7px;
+    font-size: .91rem;
+    line-height: 1.5;
+    color: var(--home-copy);
+    overflow-wrap: anywhere;
+}
+.home-page #guestbook .guestbook-card small {
+    display: block;
+    font-size: .74rem;
+    line-height: 1.45;
+    color: #93a1ab;
+    opacity: 1;
+}
+.home-page #guestbook .guestbook-pagination { margin-top: 14px; }
+.home-page #guestbook .guestbook-page-button { border-radius: 6px; font-size: .8rem; }
+
+.home-page #guestbook .guestbook-card--pending { border-color: rgba(224, 169, 92, .2) !important; }
+.home-page #guestbook .guestbook-card-header { margin-bottom: 6px; }
+.home-page #guestbook .guestbook-pending-badge {
+    padding: 2px 7px;
+    font-size: .64rem !important;
+    font-weight: 600 !important;
+    letter-spacing: .04em !important;
+    border-color: rgba(224, 169, 92, .25);
+    background: rgba(224, 169, 92, .07);
+    text-shadow: none;
+    animation: none;
+}
+.home-page #guestbook .guestbook-pending-notice { margin: 10px 0; padding: 10px 12px; background: rgba(0, 0, 0, .2); border-color: rgba(224, 169, 92, .12); }
+.home-page #guestbook .guestbook-pending-title { gap: 6px; font-size: .72rem; line-height: 1.5; letter-spacing: .02em; }
+.home-page #guestbook .guestbook-pending-title strong { font-weight: 600; }
+.home-page #guestbook .guestbook-pending-text { margin-bottom: 6px; font-size: .83rem; font-style: normal; }
+.home-page #guestbook .guestbook-pending-redacted { font-size: .72rem; letter-spacing: 1px; opacity: .4; }
+.home-page #guestbook .guestbook-card-footer { margin-top: 8px; padding-top: 8px; gap: 6px; }
+
+@media (max-width: 600px) {
+    .home-page #guestbook .guestbook-box { padding: 18px 16px !important; }
+    .home-page #guestbook .guestbook-card { padding: 12px 16px !important; }
+    .home-page #guestbook .guestbook-box :is(input, textarea) { font-size: 1rem !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-page #guestbook :is(.guestbook-box, .guestbook-card),
+    .home-page #guestbook .guestbook-box :is(input, textarea) { transition: none !important; }
+}
+
 /* The existing hero image and two-column introduction remain in place. */
 .home-page .hero {
     min-height: min(900px, 100svh);
@@ -418,12 +545,14 @@ body.home-page > .support-section {
     margin-bottom: 14px;
 }
 
-.home-page .site-footer {
+.home-page .site-footer,
+.zh-global-footer {
     border-top-color: rgba(217, 189, 124, .12) !important;
     background: radial-gradient(ellipse at 20% 0%, rgba(195, 164, 103, .045), transparent 65%), #0c1116 !important;
 }
 
-.home-page .site-footer::before {
+.home-page .site-footer::before,
+.zh-global-footer::before {
     opacity: .25;
 }
 
@@ -534,7 +663,8 @@ body.home-page > .support-section {
         flex: 1 1 100%;
     }
 
-    .home-page .site-footer .footer {
+    .home-page .site-footer .footer,
+    .zh-global-footer .footer {
         padding-block: 36px;
     }
 

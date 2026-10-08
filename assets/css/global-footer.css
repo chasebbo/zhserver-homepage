@@ -1,0 +1,91 @@
+/* One compact footer on every regular homepage surface. */
+.site-footer.zh-global-footer {
+    border-top-color: rgba(217, 189, 124, .14) !important;
+    background: radial-gradient(ellipse at 20% 0%, rgba(195, 164, 103, .04), transparent 65%), #0c1116 !important;
+}
+.site-footer.zh-global-footer::before { opacity: .25; }
+.site-footer.zh-global-footer .footer {
+    display: block;
+    padding-block: 34px 64px;
+    text-align: left;
+}
+.site-footer.zh-global-footer .zh-footer-brand h3 { margin: 0 0 5px; font-size: 1.05rem; }
+.site-footer.zh-global-footer .zh-footer-brand p { font-size: .78rem; }
+.site-footer.zh-global-footer .zh-footer-stats {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.5fr);
+    gap: clamp(28px, 4vw, 64px);
+    align-items: start;
+    margin-top: 24px;
+}
+.site-footer.zh-global-footer .zh-footer-community {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: left;
+}
+.site-footer.zh-global-footer .zh-community-group-title,
+.site-footer.zh-global-footer .visitor-stats-title {
+    margin: 0 0 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    text-align: left;
+    color: #c6ae71;
+}
+.site-footer.zh-global-footer .zh-footer-community-heading {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin: 0 0 12px;
+}
+.site-footer.zh-global-footer .zh-footer-community-heading .zh-community-group-title { margin: 0; }
+.site-footer.zh-global-footer .zh-footer-account-reset {
+    color: #c6ae71;
+    font-family: 'Inter', sans-serif;
+    font-size: .64rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: .025em;
+    white-space: nowrap;
+}
+.site-footer.zh-global-footer .zh-community-line { padding: 5px 0; }
+.site-footer.zh-global-footer .zh-community-total { padding-top: 0; padding-bottom: 9px; margin-bottom: 4px; }
+.site-footer.zh-global-footer .zh-community-total dd { font-size: 1.25rem; }
+.site-footer.zh-global-footer .zh-community-status { margin-top: 10px; font-size: .71rem; color: #95a3ac; }
+.site-footer.zh-global-footer .zh-footer-visitors { min-width: 0; }
+.site-footer.zh-global-footer .visitor-stats { width: 100%; margin: 0; }
+.site-footer.zh-global-footer .visitor-stats-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.site-footer.zh-global-footer .visitor-stat-total { grid-column: auto; }
+.site-footer.zh-global-footer .footer > .zh-footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px 24px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(174, 184, 196, .1);
+    text-align: left;
+    font-size: .76rem;
+}
+.site-footer.zh-global-footer .zh-footer-links { display: flex; flex-wrap: wrap; gap: 5px 18px; line-height: 1.7; }
+.site-footer.zh-global-footer .zh-footer-links a { white-space: nowrap; }
+.site-footer.zh-global-footer .zh-footer-links a:focus-visible { outline: 2px solid #c6ae71; outline-offset: 4px; }
+.site-footer.zh-global-footer .zh-footer-copyright { font-size: .73rem; color: #8995a3; }
+@media (max-width: 850px) {
+    .site-footer.zh-global-footer .zh-footer-stats { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+    .site-footer.zh-global-footer .zh-footer-community { max-width: 540px; }
+    .site-footer.zh-global-footer .zh-footer-visitors { border-top: 1px solid rgba(174, 184, 196, .1); padding-top: 23px; }
+}
+@media (max-width: 600px) {
+    .site-footer.zh-global-footer .visitor-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .site-footer.zh-global-footer .visitor-stat-total { grid-column: 1 / -1; }
+    .site-footer.zh-global-footer .footer > .zh-footer-legal { display: block; text-align: center; }
+    .site-footer.zh-global-footer .zh-footer-copyright { display: block; margin-top: 8px; }
+    .site-footer.zh-global-footer .zh-footer-links { justify-content: center; gap: 5px 16px; }
+}

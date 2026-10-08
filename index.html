@@ -19,11 +19,13 @@
     <link rel="stylesheet" href="assets/css/style.css?v=20260910-nav">
     <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en">
     <link rel="stylesheet" href="assets/css/merch.css?v=20260930-products">
-    <link rel="stylesheet" href="assets/css/homepage-premium.css?v=20260930-premium">
-    <link rel="stylesheet" href="assets/css/homepage-bridge.css?v=20261001-atmosphere-hero">
+    <link rel="stylesheet" href="assets/css/homepage-premium.css?v=20261008-release1">
+    <link rel="stylesheet" href="assets/css/homepage-bridge.css?v=20261008-release1">
     <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
-    <script src="assets/js/translations.js?v=20261001-vision1"></script>
-    <script src="assets/js/i18n.js?v=20260930-then-now"></script>
+    <link rel="stylesheet" href="assets/css/community-stats.css?v=20261008-release1">
+    <link rel="stylesheet" href="assets/css/identity.css?v=20261008-release1">
+    <script src="assets/js/translations.js?v=20261008-release1"></script>
+    <script src="assets/js/i18n.js?v=20261008-release1"></script>
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -105,6 +107,18 @@
                         <p>Ein eigenständiges 2D-Multiplayer-Survival-Spiel in Entwicklung. Eine neue Welt, modulare Gebäude und gemeinsamer Basenbau bilden das nächste Kapitel.</p>
                         <span class="era-test-date">Nächster öffentlicher Testlauf: 24. Oktober</span>
                         <a class="btn btn-gold" href="game.html">Zum Spiel <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </article>
+            <article class="era-panel era-arma" aria-labelledby="era-arma-title">
+                <div class="era-visual">
+                    <img class="era-image" src="assets/images/hero.png" alt="" aria-hidden="true" width="1672" height="941" decoding="async">
+                </div>
+                <div class="era-story">
+                    <div class="era-copy">
+                        <h2 id="era-arma-title">Zombiehölle für Arma</h2>
+                        <p>Zombiehölle noch einmal im Arma-Umfeld: als kleines Projekt oder als Serverabend mit alten Freunden. Aktuell gibt es keine konkreten Pläne.</p>
+                        <a class="btn btn-outline" href="arma/" aria-label="Mehr zu Zombiehölle für Arma">Mehr dazu <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </article>
@@ -1397,11 +1411,14 @@
 
             <form id="guestbook-form">
 
+                <p class="zh-identity-note" data-identity-status role="status" aria-live="polite" hidden></p>
+
 
                 <input
                     id="guestbook-name"
                     type="text"
                     name="name"
+                    aria-label="Name / Nickname"
                     placeholder="Name / Nickname"
                     required>
 
@@ -1578,7 +1595,7 @@
 
 
 
-<footer class="site-footer">
+<footer class="site-footer zh-global-footer">
 
     <div class="container footer">
 
@@ -1655,9 +1672,10 @@
 </button>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="assets/js/visitor-counter.js?v=20261001-milestone"></script>
+<script src="assets/js/visitor-counter.js?v=20261008-release1"></script>
 <script src="assets/js/community-voting.js?v=20260930-shared-vote"></script>
-<script src="assets/js/main.js?v=20260930-then-now"></script>
+<script src="assets/js/main.js?v=20261008-release1"></script>
+<script src="assets/js/identity.js?v=20261008-release1"></script>
 
 </body>
 

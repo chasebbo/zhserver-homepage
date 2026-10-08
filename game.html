@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en">
     <link rel="stylesheet" href="assets/css/game-page.css?v=20261001-vision1">
     <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
-    <script src="assets/js/translations.js?v=20261001-vision1"></script>
-    <script src="assets/js/i18n.js?v=20260930-then-now"></script>
+    <script src="assets/js/translations.js?v=20261008-release1"></script>
+    <script src="assets/js/i18n.js?v=20261008-release1"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -826,7 +826,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="assets/js/community-voting.js?v=20260930-shared-vote"></script>
-<script src="assets/js/visitor-counter.js?v=20261001-milestone"></script>
+<script src="assets/js/visitor-counter.js?v=20261008-release1"></script>
 <script>
     if (!window.location.hash) {
         if ('scrollRestoration' in history) {
@@ -1124,7 +1124,9 @@
     const supabaseUrl = "https://yawadxzeyyrozmlrokun.supabase.co";
     const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlhd2FkeHpleXlyb3ptbHJva3VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMzQ4MTIsImV4cCI6MjEwMDkxMDgxMn0.B53O3gHURnfxUkVGKaZJ5ssx27Bj9FNMU70Yn85tfxE";
 
-    window.ZHCommunityVoting.init(window.supabase.createClient(supabaseUrl, supabaseAnonKey));
+    // Voting, footer and the embedded game use the existing central SDK session.
+    window.zhSupabaseClient ||= window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+    window.ZHCommunityVoting.init(window.zhSupabaseClient);
 
     function escapeHtml(value) {
         const element = document.createElement("span");
@@ -1311,5 +1313,6 @@
     });
 </script>
 
+<script src="assets/js/game-auth-bridge.js?v=20261008-release1"></script>
 </body>
 </html>

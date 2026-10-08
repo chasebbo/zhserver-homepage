@@ -555,9 +555,26 @@ def validate(project, ref):
     original_names = {entry["name"] for entry in originals}
     for original in originals:
         entry = names.get(original["name"])
+        # The old bed card promised a spawn function absent from the game.
+        # Keep that exact historical planning and verify the current real recipe.
+        corrected_bed = original["name"] == "Bett (Spawnpunkt)"
+        if corrected_bed:
+            entry = next((item for item in entries if item["id"] == "build_bed_spawn_01"), None)
+            if entry is not None:
+                checks.check(entry.get("name") == "Bett" and
+                             entry.get("stats_title") == "Aktuelle Baukosten" and
+                             entry.get("stats") == [{"label": "Holz", "value": "6x"},
+                                                     {"label": "Stoff", "value": "4x"}],
+                             "Corrected bed must document its existing real recipe")
+                checks.check("kein bett-spawnpunkt" in entry.get("presentation", {}).get("note", "").lower(),
+                             "Corrected bed must not promise a spawn function")
         checks.check(entry is not None, "Original card is missing", name=original["name"])
         if entry is not None:
             for field in ("name", "description", "stats_title", "stats", "tags", "image"):
+                if corrected_bed and field in {"name", "description", "stats_title", "stats"}:
+                    checks.check(normalize(entry.get("historical_planning", {}).get(field)) == normalize(original[field]),
+                                 "Original bed planning must remain in its historical record", field=field)
+                    continue
                 if field == "image" and entry["id"] in MASTER_KIT_IMAGE_UPDATES and entry.get("image"):
                     checks.check(entry.get("previous_image") == original[field]
                                  and entry["image"] == MASTER_KIT_IMAGE_UPDATES[entry["id"]],

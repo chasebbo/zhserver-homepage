@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de" data-homepage-i18n>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZHServer Account | ZHServer</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20260910-nav">
+    <link rel="stylesheet" href="../assets/css/i18n.css?v=20260930-de-en">
+    <link rel="stylesheet" href="../assets/css/homepage-premium.css?v=20261008-release1">
+    <link rel="stylesheet" href="../assets/css/header.css?v=20261001-original-logo">
+    <link rel="stylesheet" href="../assets/css/account.css?v=20261008-release1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="../assets/js/translations.js?v=20261008-release1"></script>
+    <script src="../assets/js/i18n.js?v=20261008-release1"></script>
+</head>
+<body class="account-page">
+<header class="header zh-site-header">
+    <div class="container">
+        <nav class="navbar">
+            <div class="header-brand-row">
+                <a href="../index.html#hero" class="header-emblem">
+                    <img src="../assets/images/android-chrome-512x512.png" width="512" height="512" alt="Zombiehölle / ZHServer" decoding="async">
+                </a>
+                <a href="../index.html#hero" class="logo">ZHServer.de / Zombiehölle.de</a>
+                <div class="header-controls">
+                    <div class="language-switcher" role="group" aria-label="Sprache wählen">
+                        <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
+                        <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
+                    </div>
+                    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Navigation öffnen" aria-controls="nav-menu" aria-expanded="false">
+    ☰
+</button>
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+
+                <li><a href="../index.html#hero">Start</a></li>
+                <li><a href="../index.html#history">Geschichte</a></li>
+                <li><a href="../index.html#timeline">Timeline</a></li>
+                <li><a href="../gallery.html">Galerie</a></li>
+                <li><a href="../wiki.html">Wiki</a></li>
+                <li><a href="../game.html" class="nav-game-link">SPIEL</a></li>
+                <li><a href="../bugs/index.html" data-bugs-route>BUGS / IDEEN</a></li>
+                <li><a href="../index.html#guestbook">Gästebuch</a></li>
+                <li><a href="../index.html#forum">Community</a></li>
+
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="account-main">
+    <div class="account-intro">
+        <span class="account-eyebrow">ZHSERVER ACCOUNT</span>
+        <h1 id="account-heading">Bei ZHServer anmelden</h1>
+        <p id="account-intro-copy" data-account-i18n="account.intro">Ein Account für die ZHServer-Homepage, das Forum und später deinen Spielcharakter.</p>
+    </div>
+    <div class="account-layout">
+        <div class="account-panel">
+            <form id="zh-account-form">
+                <div class="account-field"><label for="account-email" data-account-i18n="account.email">E-Mail</label><input id="account-email" type="email" name="email" autocomplete="username" maxlength="254" required></div>
+                <div id="account-register-fields" hidden>
+                    <div class="account-field"><label for="account-display-name" data-account-i18n="account.displayName">Öffentlicher Anzeigename</label><input id="account-display-name" name="display_name" autocomplete="nickname" maxlength="80" data-registration-only disabled aria-describedby="account-name-hint"><small id="account-name-hint" data-account-i18n="account.nameHint">Dein Name für Forum, Gästebuch und Screenshots. 1–80 Zeichen, keine E-Mail-Adresse.</small></div>
+                </div>
+                <div class="account-field" id="account-password-field"><label for="account-password" data-account-i18n="account.password">Passwort</label><input id="account-password" type="password" name="password" autocomplete="current-password" required><a class="account-forgot" id="account-forgot-password" href="?mode=forgot" data-account-i18n="recovery.forgot">Passwort vergessen?</a></div>
+                <div class="account-field" id="account-password-repeat-field" hidden><label for="account-password-repeat" data-account-i18n="account.repeatPassword">Passwort wiederholen</label><input id="account-password-repeat" type="password" name="password_repeat" autocomplete="new-password" data-registration-only disabled aria-describedby="account-password-hint"><small id="account-password-hint" data-account-i18n="account.passwordHint">Mindestens 6 Zeichen.</small></div>
+                <div class="account-consent" id="account-consent-fields" hidden>
+                    <label class="account-consent-label" for="account-consent"><input id="account-consent" type="checkbox" name="legal_acceptance" data-registration-only disabled aria-describedby="account-privacy-notice"><span><span data-account-i18n="legal.acceptPrefix">Ich akzeptiere die </span><a href="../nutzungsbedingungen/?version=2026-10-08" target="_blank" rel="noopener" data-account-i18n="legal.terms">Nutzungsbedingungen</a><span data-account-i18n="legal.acceptAnd"> und </span><a href="../community-regeln/?version=2026-10-08" target="_blank" rel="noopener" data-account-i18n="legal.rules">Community-Regeln</a><span data-account-i18n="legal.acceptEnd">.</span></span></label>
+                    <p class="account-privacy-notice" id="account-privacy-notice"><span data-account-i18n="legal.privacyPrefix">Die </span><a href="../pages/datenschutz.html" target="_blank" rel="noopener" data-account-i18n="legal.privacy">Datenschutzerklärung</a><span data-account-i18n="legal.privacySuffix"> habe ich zur Kenntnis genommen.</span></p>
+                </div>
+                <button class="btn btn-gold account-submit" type="submit">Anmelden</button>
+            </form>
+            <a class="account-other-mode" id="account-other-mode" href="?mode=register">Noch keinen Account? Registrieren</a>
+            <p class="account-status" id="account-status" role="status" aria-live="polite" hidden></p>
+        </div>
+        <aside class="account-context">
+            <h2 data-account-i18n="account.existingTitle">Dein bestehender Zugang</h2>
+            <p data-account-i18n="account.existingNote">Wenn du bereits einen ZHServer-Account hast, verwende denselben Zugang. Eine zweite Registrierung ist nicht nötig.</p>
+            <a href="../pages/datenschutz.html" data-account-i18n="account.privacyLink">Datenschutzhinweise</a>
+        </aside>
+    </div>
+</main>
+<footer class="site-footer zh-global-footer">
+
+    <div class="container footer">
+
+        <div>
+
+            <h3>
+                ZHServer Community
+            </h3>
+
+            <p>
+                Seit 2013
+            </p>
+
+            <p class="footer-visitor"><span id="total-visitors">0</span> Besucher insgesamt</p>
+
+        </div>
+
+
+        <div>
+
+            <a href="../pages/impressum.html">
+                Impressum
+            </a>
+
+            |
+
+            <a href="../pages/datenschutz.html">
+                Datenschutz
+            </a>
+
+            <br><br>
+
+            © 2013–2026 ZHServer Community
+
+        </div>
+
+    </div>
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/visitor-counter.js?v=20261008-release1"></script>
+<script src="../assets/js/main.js?v=20261008-release1"></script>
+<script src="../assets/js/identity.js?v=20261008-release1"></script>
+</body>
+</html>

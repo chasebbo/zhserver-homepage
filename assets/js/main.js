@@ -3,10 +3,11 @@ const SUPABASE_URL = "https://yawadxzeyyrozmlrokun.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlhd2FkeHpleXlyb3ptbHJva3VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMzQ4MTIsImV4cCI6MjEwMDkxMDgxMn0.B53O3gHURnfxUkVGKaZJ5ssx27Bj9FNMU70Yn85tfxE";
 
 // The static forum preview uses the shared header without a backend connection.
-const supabaseClient = document.body.classList.contains("forum-page") ? null : window.supabase.createClient(
+const supabaseClient = document.body.classList.contains("forum-page") ? null : window.zhSupabaseClient || window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
+if (supabaseClient) window.zhSupabaseClient = supabaseClient;
 function escapeHtml(str) {
     if (!str) return "";
     return String(str)
@@ -27,60 +28,69 @@ if (guestbookForm) {
     guestbookForm.addEventListener("submit", async function(event) {
 
         event.preventDefault();
+        if (guestbookForm.dataset.identityBusy === "true") return;
+        guestbookForm.dataset.identityBusy = "true";
+        window.ZHIdentity.syncForms();
+        try {
+            let principal;
+            try { principal = await window.ZHIdentity.forSubmission(); }
+            catch (error) { alert(window.ZHLanguage.t(window.ZHIdentity.errorKey(error, "identity.unavailable"))); return; }
+            const name = principal.status === "member" ? principal.displayName : document.querySelector("#guestbook-name").value.trim();
+
+            const message = document.querySelector("#guestbook-message").value.trim();
 
 
-        const name = document.querySelector("#guestbook-name").value.trim();
+            if (!name || !message) {
 
-        const message = document.querySelector("#guestbook-message").value.trim();
+                alert(homepageText("Bitte Name und Nachricht ausfüllen."));
 
+                return;
 
-        if (!name || !message) {
-
-            alert(homepageText("Bitte Name und Nachricht ausfüllen."));
-
-            return;
-
-        }
-
-
-        const response = await fetch(
-            `${SUPABASE_URL}/rest/v1/guestbook`,
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json",
-                    "apikey": SUPABASE_KEY,
-                    "Authorization": `Bearer ${SUPABASE_KEY}`,
-                    "Prefer": "return=minimal"
-                },
-
-                body: JSON.stringify({
-                    name: name,
-                    message: message,
-                    approved: false
-                })
             }
-        );
 
 
-        if (response.ok) {
+            const response = await fetch(
+                `${SUPABASE_URL}/rest/v1/guestbook`,
+                {
+                    method: "POST",
 
-            alert(
-                homepageText("Vielen Dank! Dein Eintrag wurde gespeichert und wird nach Prüfung freigeschaltet.")
+                    headers: {
+                        "Content-Type": "application/json",
+                        "apikey": SUPABASE_KEY,
+                        "Authorization": `Bearer ${principal.accessToken}`,
+                        "Prefer": "return=minimal"
+                    },
+
+                    body: JSON.stringify({
+                        name: name,
+                        message: message,
+                        approved: false
+                    })
+                }
             );
 
-            guestbookForm.reset();
+
+            if (response.ok) {
+
+                alert(
+                    homepageText("Vielen Dank! Dein Eintrag wurde gespeichert und wird nach Prüfung freigeschaltet.")
+                );
+
+                guestbookForm.reset();
 
 
-        } else {
+            } else {
 
-            console.log(await response.text());
+                const failure = await response.json().catch(() => ({}));
+                const key = window.ZHIdentity.errorKey(failure, null);
+                alert(key ? window.ZHLanguage.t(key) : homepageText("Fehler beim Speichern des Eintrags."));
 
-            alert(
-                homepageText("Fehler beim Speichern des Eintrags.")
-            );
-
+            }
+        } catch (_) {
+            alert(homepageText("Fehler beim Speichern des Eintrags."));
+        } finally {
+            delete guestbookForm.dataset.identityBusy;
+            window.ZHIdentity.syncForms();
         }
 
     });
@@ -155,8 +165,8 @@ if (guestbookEntries) {
             if (isApproved) {
                 guestbookEntries.innerHTML += `
                     <div class="guestbook-card">
-                        <h3>${escapeHtml(entry.name)}</h3>
-                        <p>${escapeHtml(entry.message)}</p>
+                        <h3 data-i18n-ignore>${escapeHtml(entry.name)}</h3>
+                        <p data-i18n-ignore>${escapeHtml(entry.message)}</p>
                         <small>Freigeschaltet am <time data-i18n-date="${escapeHtml(entry.created_at)}">${dateStr}</time></small>
                     </div>
                 `;
@@ -166,7 +176,7 @@ if (guestbookEntries) {
                         <div class="guestbook-card-header">
                             <span class="guestbook-pending-badge">⏳ QUARANTÄNE-PRÜFUNG</span>
                         </div>
-                        <h3>${escapeHtml(entry.name)}</h3>
+                        <h3 data-i18n-ignore>${escapeHtml(entry.name)}</h3>
                         <div class="guestbook-pending-notice">
                             <div class="guestbook-pending-title">
                                 <span>⚠️</span>
@@ -428,7 +438,7 @@ async function loadLatestGallery() {
 
     const { data, error } = await supabaseClient
         .from("gallery")
-        .select("*")
+        .select("id,image_url,uploader,description,approved,created_at")
         .order("created_at", { ascending: false })
         .limit(6);
 
