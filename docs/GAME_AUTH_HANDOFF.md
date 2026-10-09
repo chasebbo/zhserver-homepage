@@ -220,8 +220,25 @@ automatisch Bestandteil dieses Builds oder des tatsächlich laufenden Laptops.
 
 Eine Homepage-Session des zentralen Accounts erteilt keinen Zugriff auf den
 Legacy-cHa-Spielstand. Gleicher Anzeigename wäre weder Auth- noch Besitznachweis.
-Der zentrale Account bleibt aktuell ohne Profilnamen; cHa beim Legacyaccount.
+Historischer Stand 08.10.2026: zentral ohne Profilnamen, cHa beim Legacyaccount.
 Party-Namensreferenzen müssen vor einer späteren kontrollierten Accountmigration
 auf UUID-/Einladungsverweise umgestellt werden. Hier keine Änderung am Handoff-
 Transport, Spielcode/Build, U01/F01, Backend-Ownership oder Dedicated; kein Export.
 Installierte Own-Name-RPC besteht unverändert, Homepage-Editor im normalen UI aus.
+
+## Zentraler cHa-Account nach bewusster Legacy-Löschung – 09.10.2026
+
+Der ausdrückliche Folgeauftrag hat den Legacy-cHa-Authaccount und dessen eigene
+Gameplaydaten entfernt. Anzeigename cHa gehört jetzt zur bestehenden zentralen
+Admin-UUID `7ba1fad4-d113-4526-8873-3e3b97e9be7e`. Keine Gameplaydaten übertragen;
+zentraler Spielstand und zentrales Inventar wurden nicht künstlich angelegt.
+Der Handoff transportiert weiterhin dieselbe bestehende zentrale Session;
+Name ist Darstellung, bestätigte UUID die technische Identität.
+
+**Game-Client muss vor produktivem zentralen Login-Rollout auf zentrale
+Session/Auth umgestellt sein.** Der exportierte v116-Nickname-Client versucht
+weiterhin Login/Signup über `<nickname>@island-survival.local`; dieser Ablauf
+darf für cHa nicht mehr verwendet werden. Keinen Legacyaccount neu erzeugen.
+Dieser Homepage-Auftrag hat keinen Godot-Client, Build, Dedicated, U01/F01 oder
+Auth-Handoff-Transport geändert/ausgerollt. Allgemeiner Namenseditor bleibt aus.
+Details und exakt geprüfte Datenwirkung: `ACCOUNT_IDENTITY_MIGRATION_AUDIT.md`.

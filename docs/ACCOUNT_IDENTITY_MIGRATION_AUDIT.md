@@ -1,6 +1,112 @@
-# Account-Identität: Bestand und Vorbereitung, 08.10.2026
+# Account-Identität: zentraler cHa-Account und Legacy-Bereinigung
 
-## Verbindlicher Stand
+## Aktueller verbindlicher Stand – 09.10.2026
+
+Der neue ausdrückliche Auftrag ersetzt die frühere Sperre: Der Legacy-cHa-Account
+`c00a3f4e-862c-4e10-bb38-31f2e62a2ac7` wurde mit seinen eigenen Gameplaydaten
+bewusst und endgültig entfernt. Der bestehende zentrale E-Mail-/Adminaccount
+`7ba1fad4-d113-4526-8873-3e3b97e9be7e` ist künftig die alleinige Identität für
+diesen Nutzer. Sein Anzeigename/Ingame-Name ist jetzt **cHa**. Auth-UUID,
+Login-E-Mail, Passwort und sämtliche Admin-/Moderationspolicies bleiben erhalten.
+
+**Keine alten Gameplaydaten wurden auf den zentralen Account übertragen.**
+`display_name` ist Anzeige bzw. Suchtext; Ownership und Adminrechte bleiben an
+die UUID gebunden. Die installierte sichere Own-Name-RPC bleibt unverändert.
+Der allgemeine Homepage-Namenseditor bleibt wegen der dokumentierten
+Spiel-Namensabhängigkeiten deaktiviert.
+
+### Unmittelbar geprüfter Löschumfang und Ergebnis
+
+| Objekt | Legacy vorher | Legacy nachher / Wirkung |
+| --- | ---: | --- |
+| `auth.users` | 1 | 0 |
+| `auth.identities` | 1 | 0, bestehende FK-Cascade |
+| `auth.sessions` / `auth.refresh_tokens` | jeweils 288 | jeweils 0; nur Legacy-Sitzungen/Tokens |
+| `profiles` | 1, Name cHa | 0; zentraler Profileintrag separat per Own-RPC angelegt |
+| `player_state` / `player_inventory` / `player_presence` | jeweils 1 | jeweils 0 |
+| Eigene `player_groups` | 2 | 0; keine anderen akzeptierten Mitglieder in diesen Gruppen |
+| Eigene `group_members` | 4 | 0; zwei davon in fremden Gruppen, die erhalten bleiben |
+| Offene Einladungen an einen anderen Account in den beiden eigenen Gruppen | 2 | 0, technisch notwendige Cascade der entfernten Gruppen |
+| `clan_members` | 1 offene Einladung | 0; fremder Clan und dessen übrige Mitglieder erhalten |
+| Eigene Clans, Bases, Fahrzeuge, Death-Loot, Storage-Objekte | jeweils 0 | keine Änderungen an diesen Beständen |
+| Legacy-Verweise in anwendungsseitigen JSON-Feldern | 0 | keine JSON-Datenmigration |
+
+Fremde Accounts, Spielstände, Inventare, Bases, Fahrzeuge und verbleibende
+Gruppen-/Clan-Daten wurden nicht verändert. Die zwei mitgelöschten offenen
+Einladungen sind die einzige notwendige Wirkung auf Gruppenzeilen mit fremder
+Spieler-UUID; der betroffene andere Account bleibt vollständig erhalten.
+
+### Durchführung und technische Nachweise
+
+- Privilegierter SQL-Wartungsvorgang im bestehenden Projekt `zhserver`, keine
+  DDL-/RLS-/RPC-Migration. Zunächst dieselbe Transaktion vollständig mit
+  `ROLLBACK` geprüft, danach erfolgreich mit `COMMIT` ausgeführt.
+- Exakte Legacy-/Ziel-UUIDs, geprüfte E-Mail-Zuordnung im privaten Ausführungskontext,
+  Zeilenzahl-/Cascade-Guards und `FOR UPDATE` für beide Auth-Zeilen.
+  Zwei gezielte DELETEs: Legacy-Refresh-Tokens und genau ein Legacy-Authuser.
+  Übrige Löschungen über die vorher gelesenen vorhandenen Fremdschlüssel.
+- Name anschließend über **`public.set_zh_own_display_name('cHa')`** vergeben;
+  nur für die bestehende zentrale UUID im transaktionslokalen Wartungskontext.
+  Bestehender Validator und Unique-Index weiterverwendet, keine freie Ziel-UUID
+  im öffentlichen RPC eingeführt. Zentrales Profil behält das Auth-Registrierdatum.
+- Vorher/nachher innerhalb der Transaktion: Zeilenzahlen und Zeilenhashes aller
+  nicht betroffenen Daten in 26 Relationen verglichen, einschließlich Storage,
+  Auth-Accounts/-Identitäten/-Sessions sowie sämtlicher 21 Anwendungstabellen.
+  Vollständiger zentraler Auth-Datensatz und alle Policies unverändert.
+  Jede Abweichung hätte die gesamte Transaktion abgebrochen.
+- Anschließende unabhängige Leseprüfung: keine direkten Legacy-UUID-Referenzen,
+  keine verwaisten Profil-, Spielstand-, Inventar-, Gruppen- oder Clan-FKs.
+  Zentraler Spielstand und zentrales Inventar weiterhin **0 Zeilen**, keine
+  Übernahme oder künstliche Initialisierung. Authaccounts jetzt 10 statt 11.
+- Sieben bestehende Moderationspolicies erneut ausgewertet: jeweils nur
+  bestehende zentrale Admin-UUID zugelassen, alle neun übrigen Accounts verweigert.
+  Policy-Fingerprint identisch; keine Autorisierung über Name oder Metadaten.
+- Archivierte SQL-Datei: `account_legacy_cha_cleanup.sql`. Die private zentrale
+  Login-E-Mail ist aus dieser öffentlichen Archivkopie ausgelassen. Nach bereits
+  erfolgter Löschung bricht die Datei an ihren Vorbedingungen ab; nicht erneut
+  als Migration anwenden. Keine Passwörter oder Tokens im Repository.
+
+### Homepage-/Admin-Abnahme nach der Bereinigung
+
+Echter Login mit unverändertem zentralem Account: Header und Profil zeigen cHa,
+eigene private E-Mail korrekt und ausschließlich im eigenen Profil. Profil-Reload,
+DE/EN sowie bestehender deaktivierter Namenseditor geprüft. Gästebuch und Galerie
+übernehmen cHa automatisch und sperren die freie Namenseingabe. Forum zeigt
+denselben Namen im bestehenden lokalen Entwurfsformular; keine produktiven
+Forumbeiträge/Uploads/Gästebucheinträge für den Test erzeugt.
+
+Dashboard und Moderationsansichten mit echter Session zugänglich. Nach Logout
+private Profildaten entfernt und alle vier direkten Admin-URLs verweigert.
+Anschließende echte Wiederanmeldung bestätigt cHa, private Profilanzeige und
+unveränderten Dashboardzugang erneut. Passwort ausschließlich vom Nutzer im
+Formular eingegeben, nicht gelesen/gespeichert. Keine Browser-JS-/Consolefehler
+oder Überläufe in den geprüften Ansichten. Frontend-Struktur/-Logik unverändert.
+
+### Spielzugang und klare Grenze
+
+**Game-Client muss vor produktivem zentralen Login-Rollout auf zentrale
+Session/Auth umgestellt sein.** Der weiterhin exportierte v116-Client kann laut
+vorherigem Bytecode-Audit aus einem Nickname erneut eine
+`<nickname>@island-survival.local`-Registrierung versuchen. Er ist deshalb
+kein freigegebener zentraler Login-Client. Nicht mit altem cHa-Nickname neu
+registrieren und keinen Legacyaccount künstlich wiederherstellen.
+
+Dieser Auftrag ändert weder v116/`game/`, Godot-Spielcode, U01/F01 noch den
+Dedicated. Keine Sperre aller Supabase-Registrierungen oder zweite Auth-Lösung
+eingeführt. Laufender Laptop-Arbeitsspeicher und dessen lokale Dateien sind
+weiterhin nicht Bestandteil der Supabase-Bereinigung oder der Live-Abnahme.
+Die sichere zentrale Spielanmeldung muss separat mit passendem Client/Dedicated
+ausgerollt und getestet werden.
+
+### Rücknahme
+
+Vor dem Transaktionsabschluss werden Fehler vollständig zurückgerollt. Nach
+dem erfolgreichen Commit ist die bewusst freigegebene Datenlöschung nicht durch
+`git revert` rückgängig zu machen. Eine spätere Wiederherstellung benötigt einen
+passenden Supabase-Backupstand und einen gesondert freigegebenen Wiederherstellungsplan;
+in diesem Auftrag wurde keine Wiederherstellung zugesagt oder ausgeführt.
+
+## Historischer verbindlicher Stand – 08.10.2026 (überholt)
 
 **Keine Namensübernahme und keine Account-/Spieldatenmigration.** `cHa` bleibt
 beim bestehenden Legacy-Spielaccount. Der zentrale E-Mail-/Adminaccount bleibt

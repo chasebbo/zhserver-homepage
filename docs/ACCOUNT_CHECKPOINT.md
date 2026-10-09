@@ -292,3 +292,44 @@ Logout und anschließende echte Wiederanmeldung ebenfalls bestanden: eigenes
 Profil, Header `Account`, deaktivierter Editor und Dashboard erneut geprüft.
 Account-/Profil-/Admin-Prüfung auf der veröffentlichten Domain folgt nach
 dem Deployment.
+
+## Aktuell: Legacy-cHa bewusst entfernt, zentrale Identität cHa – 09.10.2026
+
+Der neue ausdrückliche Nutzerauftrag ersetzt die vorherige Namenssperre.
+Produktiver Legacy-Authaccount `c00a3f4e-862c-4e10-bb38-31f2e62a2ac7` sowie
+eigenes Profil, Spielstand, Inventar, Spiel-Presence, zwei eigene Gruppen und
+deren notwendige Referenzen entfernt. Eine offene Clan-Einladung entfernt;
+fremde Clans/Gruppen/Accounts und Gameplaybestände erhalten. Keine Datenübernahme.
+
+Bestehender zentraler Adminaccount `7ba1fad4-d113-4526-8873-3e3b97e9be7e`
+behält seine vollständige Auth-Zeile und Rechte. Eigener Profileintrag mit cHa
+über installierte `set_zh_own_display_name`-RPC angelegt; Registrierung bleibt
+30.07.2026, zentrale Spielstand-/Inventartabellen weiterhin ohne neue Zeilen.
+Keine DDL-, RLS- oder RPC-Änderung, Namenseditor weiter deaktiviert.
+
+Exakte Datenwirkung, Guards, archiviertes SQL, Rücknahmegrenze und notwendige
+Clientumstellung: `ACCOUNT_IDENTITY_MIGRATION_AUDIT.md`. Vollständiger Rollback-
+Probelauf vor erfolgreichem produktivem Commit. Nicht betroffene Zeilen in
+26 Relationen und alle Policies transaktionsintern unverändert; anschließende
+unabhängige Prüfung ohne Legacy-Referenzen oder verwaiste relevante FKs.
+Sieben Moderationspolicies erlauben nur die bestehende Admin-UUID, keine der
+neun übrigen Account-UUIDs. Bekannter Galerie-Storage-Rechtebefund bleibt offen.
+
+Echte Live-Sitzung: Header und Profil zeigen cHa, nur eigenes Profil zeigt
+private Login-E-Mail; Profil-Reload und DE/EN funktionieren. Forum-Entwurfsformular
+zeigt denselben Namen, Gästebuch und Galerie binden ihn automatisch in gesperrte
+Namensfelder. Keine Beiträge oder Screenshots zu Testzwecken gespeichert.
+Forum bleibt ausdrücklich lokal/Entwurf, kein produktives Veröffentlichungsbackend.
+Dashboard und alle Moderationsansichten mit echter Sitzung geöffnet/gelesen.
+Logout entfernt private Profildaten und sperrt alle vier direkten Admin-URLs.
+In den geprüften Ansichten keine Browser-JS-/Consolefehler oder horizontalen
+Überläufe. Bestehende Darstellung und Homepage-JS wurden nicht verändert.
+
+Letzte echte Wiederanmeldung nach Logout ebenfalls bestanden: Nutzer hat sein
+unverändertes Passwort ausschließlich im Formular eingegeben; Header/Profil
+weiterhin cHa, eigene private E-Mail korrekt und Dashboard erneut zugänglich.
+Produktive Auth-Abnahme damit abgeschlossen. Finale Stage-Prüfung, Commit/Push
+und Deployment sind im ausdrücklichen Auftrag freigegeben. Keine weitere
+Accountänderung oder Migration. Veröffentlichung enthält nur die zugehörigen
+Projektregeln/Account-Dokumentation und das geprüfte SQL-Archiv; keine Testartefakte.
+Kein Spiel-/Dedicated-/U01-/F01-Rollout, kein Godot-Webexport.

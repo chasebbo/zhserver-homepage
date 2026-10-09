@@ -1,8 +1,9 @@
 -- Narrow own-profile editor. Existing Auth IDs, name validator and unique index.
 -- No grants on profiles, no role changes and no writes to gameplay tables.
 -- Already installed as homepage_own_display_name_editor, version 20261008142028.
--- Keep this RPC. No rollback or account/name transfer is authorized.
--- cHa remains on the existing legacy game account; no name/data migration here.
+-- Keep this already installed RPC; do not reapply or roll it back for cleanup.
+-- Authorized 09.10.2026 cleanup removed legacy cHa and assigned the display name
+-- to the existing central UUID. No gameplay data was transferred; see the audit.
 
 CREATE OR REPLACE FUNCTION zh_identity_private.set_own_display_name(p_display_name text)
 RETURNS jsonb

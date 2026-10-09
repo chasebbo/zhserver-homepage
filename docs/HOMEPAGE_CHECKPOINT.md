@@ -405,3 +405,28 @@ beauftragt. Nur Auth-/Profil-/Admin-Fixes und Dokumentation veröffentlichen;
 19 fremde Wiki-Artefakte ausschließen. Danach Deployment und veröffentlichte
 Account-/Profil-/Adminseiten prüfen. cHa bleibt Legacy, Editor deaktiviert,
 Own-RPC behalten; keine Migration, Spieländerung oder Webexport.
+
+## Aktueller Folgeauftrag: zentrale Identität cHa – 09.10.2026
+
+Die ausdrücklich freigegebene Legacy-Löschung ist produktiv abgeschlossen.
+Legacy-cHa-Authaccount und eigene Gameplaydaten entfernt, keine Übernahme auf
+den zentralen Account. Bestehende zentrale Admin-UUID bleibt unverändert und
+hat jetzt das eigene Profil mit öffentlichem Namen cHa. Admin-/Moderationspolicies
+und bestehende Own-Name-RPC unverändert; allgemeiner Namenseditor weiter aus.
+
+Die bestehende gemeinsame Identity-Schicht zeigt den neuen Namen bereits live
+in Header/Profil sowie Forum-Entwurfsformular, Gästebuch und Galerie-Upload.
+Private E-Mail ausschließlich im eigenen Profil, Reload/DE/EN bestanden.
+Echter Adminzugang/Moderationsansichten bestanden; Logout und Schutz direkter
+Admin-URLs bestanden. Echte Wiederanmeldung nach Logout mit weiterhin cHa und
+bestehendem Adminzugang ebenfalls bestanden. Commit/Push damit freigegeben;
+Deployment und Live-Abnahme nach Veröffentlichung folgen.
+Details, Löschumfang und Fortsetzung: `ACCOUNT_CHECKPOINT.md`,
+`ACCOUNT_IDENTITY_MIGRATION_AUDIT.md`, `account_legacy_cha_cleanup.sql`.
+
+Nur Account-Dokumentation/Projektregeln und SQL-Archiv angepasst. Kein neuer
+Frontend-Auth-Code, kein Wiki-/`game/`-/Spielprojekt-Eingriff, kein Dedicated-
+oder U01/F01-Rollout. 19 vorhandene Wiki-Testartefakte weiterhin ausschließen.
+Push nach bestandener letzter Abnahme ausdrücklich beauftragt; kein Webexport.
+v116-Nickname-Signup darf keinen Legacy-cHa-Account neu anlegen. Der Game-Client
+muss vor produktivem zentralen Login-Rollout auf zentrale Session/Auth umgestellt sein.

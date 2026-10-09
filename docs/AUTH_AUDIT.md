@@ -214,6 +214,15 @@ Diese Phase hat keine SQL-Migration oder produktive Auth-/Profiländerung ausgef
 
 ## Ergänzung: verifizierte Namens-/UUID-Abhängigkeiten – 08.10.2026
 
+**Aktualisierung 09.10.2026:** Dieser historische Accountstand ist durch den
+neuen ausdrücklichen Löschauftrag überholt. Legacy-cHa bewusst samt eigenen
+Gameplaydaten entfernt; bestehende zentrale Admin-UUID unverändert, eigenes
+Profil mit Anzeigename cHa über die bestehende sichere Own-RPC angelegt.
+Keine Änderung an Auth-Anmeldung, Passwort, UUIDs, RLS oder RPC-Definitionen.
+Alle neun verbliebenen Nicht-Admin-UUIDs bleiben bei den sieben geprüften
+Moderationspolicies ausgeschlossen. Allgemeiner Namenseditor weiter deaktiviert.
+Aktueller Umfang/Nachweise: `ACCOUNT_IDENTITY_MIGRATION_AUDIT.md`.
+
 Aktueller produktiver Read-only-Abgleich und kontrollierter späterer Plan:
 `ACCOUNT_IDENTITY_MIGRATION_AUDIT.md`. `cHa` bleibt Legacy; zentraler Adminaccount
 behält Auth-UUID und Rechte und hat weiterhin keinen Profileintrag. Bereits

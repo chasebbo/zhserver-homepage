@@ -62,11 +62,15 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
 - Unbekannte produktive Tabellen/Rollen/RLS-Regeln nicht als nicht vorhanden
   behandeln und keine Migration auf Vermutungen aufbauen.
 
-## Account-/Namensmigration vorerst gesperrt – 08.10.2026
+## Zentraler cHa-Account – 09.10.2026
 
-- `cHa` bleibt beim bestehenden Legacy-Spielaccount. Den zentralen E-Mail-/
-  Adminaccount nicht automatisch darauf umbenennen und keine Spiel-/Besitzdaten
-  zwischen den Accounts verschieben. Fehlender Anzeigename bleibt fehlend.
+- Der Nutzer hat den Legacy-cHa-Account ausdrücklich zur endgültigen Löschung
+  samt eigener Gameplaydaten freigegeben. Die Bereinigung ist abgeschlossen.
+  `cHa` gehört jetzt als Anzeigename zum bestehenden zentralen Adminaccount
+  `7ba1fad4-d113-4526-8873-3e3b97e9be7e`. Dessen Auth-UUID/-Rechte erhalten.
+- Keine alten Gameplaydaten übertragen, keinen Legacyaccount neu anlegen.
+  Technische Identität und Ownership bleiben UUID-basiert. Die produktive
+  Löschung ist keine Freigabe anderer Account-/Spielmigrationen.
 - Die bereits installierte `set_zh_own_display_name`-RPC bestehen lassen;
   keine Rollback-Migration. Der vorbereitete Homepage-Namenseditor bleibt im
   normalen UI deaktiviert, bis die Spiel-Namensreferenzen kontrolliert geklärt sind.
