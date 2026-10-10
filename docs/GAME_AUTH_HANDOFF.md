@@ -1,6 +1,13 @@
 # Homepage → Godot: zentraler Auth-Handoff V1
 
-Stand: 08.10.2026. **Nur lokal vorbereitet; kein Commit, Push oder Webexport.**
+Ursprüngliche Transportabnahme: 08.10.2026. Die Homepage-Bridge ist inzwischen
+veröffentlicht. Der vorhandene v117-Webclient ist am 10.10.2026 **zur
+Veröffentlichung freigegeben**. Die zuvor fehlenden U01-RPCs sind inzwischen
+produktiv vorhanden; der öffentliche Transport `wss://ws.zhserver.de/ws` liefert
+über Cloudflare HTTP 101. Der Nutzer bestätigt den produktiven passenden
+Laptop-Dedicated samt Party-v117/U01. Commit/Push sind beauftragt; echte
+Cloudflare-/Account-/Game-Abnahme folgt nach dem Deployment. Befund und
+Fortsetzung: [GAME_WEBBUILD_V117_CHECKPOINT.md](GAME_WEBBUILD_V117_CHECKPOINT.md).
 Die Homepage stellt einen Session-/Token-Kandidaten bereit. Erst der Spielclient
 und unabhängig davon der Dedicated bestätigen ihn über Supabase Auth. Diese
 Datei beschreibt die Homepage-Seite und den tatsächlich gelesenen Spieladapter;
@@ -21,9 +28,10 @@ sie ersetzt keine gemeinsame End-to-End-Abnahme.
   identischem Origin gilt eine dortige Anmeldung auch für die Gamepage.
   `www.zhserver.de`, `zhserver.de` und ein lokaler HTTP-Server haben getrennte
   Origins/Speicher. Getestet wird über HTTP, nicht `file://`.
-- Aktuelles iframe: `#spiel-starten`, gleiche Origin, `game/survival-v116.html`.
-  `play.html` leitet wie bisher zur Gamepage weiter. Wartungsstatus, Builddateien,
-  bestehende Testparameter und CTAs bleiben unverändert.
+- Lokales iframe: `#spiel-starten`, gleiche Origin, `game/survival-v117.html`.
+  Elf manifestgeprüfte Dateien einschließlich Packloader und beider Packteile
+  ergänzt; v116-Dateien erhalten. `play.html` leitet wie bisher zur Gamepage
+  weiter. Wartungsstatus, bestehende Testparameter und CTAs bleiben unverändert.
 
 ## JS-Schnittstelle auf dem Parent-Fenster
 

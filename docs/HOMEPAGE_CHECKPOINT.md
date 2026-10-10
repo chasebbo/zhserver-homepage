@@ -430,3 +430,69 @@ oder U01/F01-Rollout. 19 vorhandene Wiki-Testartefakte weiterhin ausschließen.
 Push nach bestandener letzter Abnahme ausdrücklich beauftragt; kein Webexport.
 v116-Nickname-Signup darf keinen Legacy-cHa-Account neu anlegen. Der Game-Client
 muss vor produktivem zentralen Login-Rollout auf zentrale Session/Auth umgestellt sein.
+
+## v117-Homepage-Kandidat und Produktionsblocker – 09.10.2026
+
+Elf v117-Auslieferungsdateien unverändert aus dem lesend verwendeten Game-Handoff
+nach `game/` übernommen; alle SHA256-/Größenprüfungen bestanden. Beide Packteile
+ergeben den Originalpack, jede Datei unter 100 MiB. `game.html` verwendet lokal
+den vorhandenen iframe mit v117; v116, Wartung und Homepage-Bridge erhalten.
+
+Echter lokaler zentraler Login auf Port 5500 bestanden. Header/Profil, Admin,
+Gästebuch, Galerie und Forum-Entwurf verwenden weiterhin cHa; private E-Mail nur
+im eigenen Profil. Voller Footer und DE/EN erhalten; geprüfte Überläufe 0.
+
+Echter v117-Client erreicht aber **HTTP 404 bei `initialize_my_player_state`**.
+Rein lesend produktiv bestätigt: RPC fehlt, zentrale player_state-Zeilen 0;
+auch die beiden neuen Server-Persistenz-RPCs fehlen. Keine U01-Migration,
+Gameplaydaten-Initialisierung oder Auth-/Adminänderung durch diese Aufgabe.
+Passender Laptop-Dedicated vom Nutzer als nicht vorhanden / nicht bestätigt
+gemeldet; v117 laut Handoff nicht gegen Alt-Dedicated veröffentlichen.
+
+Zusätzlich nicht zugeordnete MutationObserver-Ausnahmen in den Game-Tabs
+und sehr kleine Game-Lobby im Hochformat dokumentiert. Keine Scheinfertigmeldung.
+Details, genaue Dateien, Nachweise und Wiederaufnahme:
+`docs/GAME_WEBBUILD_V117_CHECKPOINT.md`. Keine Gamequellen, Dedicated oder U01
+geändert; kein Export. Commit/Push nur nach vollständig bestandener Abnahme,
+derzeit **nicht durchgeführt**. 19 fremde Wiki-Testartefakte erhalten. STOPP.
+
+## v117-Fortsetzung: Cloudflare / U01 aktualisiert – 10.10.2026
+
+Kandidat und fremder Working Tree erhalten. Keine weitere funktionale Änderung.
+Lesende Produktionsprüfung: alle vier erforderlichen Read-/Initializer-/Server-
+RPCs inzwischen vorhanden, zentrale UUID/cHa unverändert, eigene player_state-
+Zeilen weiterhin 0 und Legacy-Account abwesend. U01 wurde im getrennten Backend-
+Auftrag angewendet, hier keine Migration/Edge oder Gameplaydatenänderung.
+
+Öffentliches `https://www.zhserver.de/game.html` HTTP 200 über Cloudflare; iframe
+weiterhin v116, identisch mit letztem veröffentlichten Commit. Alle elf noch
+unveröffentlichten v117-Dateien HTTP 404. Nach späterem Push Original-URLs samt
+HTTP 200, MIME, Manifest und möglichen gecachten 404 gezielt live prüfen.
+
+`wss://ws.zhserver.de/ws` (TLS-Port 443) mit Homepage-Origin erfolgreich: HTTP
+101, verifiziertes Zertifikat/TLS 1.3 und gültiger WebSocket-Accept. Keine Auth-/
+Gameplaynachricht gesendet, keine DNS-/Proxy-/Tunneländerung. Transport allein
+beweist keinen passenden Dedicated. Aktueller Spiel-Handoff beschreibt die
+vorbereitete Laptopphase; tatsächlicher v117-Laptop-/Browserbetrieb noch nicht
+bestätigt. Neue lokale Accountseite auf 5500 derzeit ausgeloggt; keine Sitzung
+kopiert. Vollständige Auth-/Gameplay-, HTTPS-, CORS- und CDN-Abnahme offen.
+
+Details und bisherige Browser-/Mobile-Befunde:
+`docs/GAME_WEBBUILD_V117_CHECKPOINT.md`. Kein Commit, Push, Webexport oder
+Dedicated-Neustart. STOPP; vorhandenen Kandidaten für die Abnahme erhalten.
+
+## v117-Veröffentlichung freigegeben – 10.10.2026
+
+Der Nutzer bestätigt Dedicated produktiv auf `192.168.0.114:7000`, Party-v117
+kompatibel, U01 und `player-state-persistence` produktiv, positiven Endpoint-Test
+und Parser/Runtime jeweils 0 Fehler. Damit ist die bisher offene Dedicated-
+Voraussetzung erfüllt. Ausdrücklicher Auftrag: vorhandenen vorbereiteten v117-
+Stand committen, origin/main pushen, Deployment abwarten und anschließend echte
+Cloudflare-/Live-Account-/Session-/Game-Abnahme durchführen. Keine erneute lokale
+Integration, keine Dedicated-/U01-Änderung und kein Webexport.
+
+Vor Commit gezielt bestätigt: alle elf Dateien weiterhin bytegleich mit dem
+v117-Manifest und unter 100 MiB, 19 fremde Wiki-Testartefakte erhalten, Bridge
+unverändert; origin/main entspricht dem bisherigen lokalen HEAD. Nur die
+vorgesehenen Release-Dateien aufnehmen, keine Temp-/Testartefakte. Ergebnisse
+nach dem Deployment dokumentieren; keine vollständige Live-Abnahme vorwegnehmen.

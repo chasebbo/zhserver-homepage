@@ -1,0 +1,4 @@
+# Preserve the manifest-verified v117 delivery bytes on every checkout.
+game/survival-v117.* -text whitespace=cr-at-eol
+# Godot's original HTML ends with a blank line; keep its verified SHA256.
+game/survival-v117.html whitespace=cr-at-eol,-blank-at-eof
