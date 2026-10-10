@@ -1,13 +1,15 @@
 # Homepage → Godot: zentraler Auth-Handoff V1
 
 Ursprüngliche Transportabnahme: 08.10.2026. Die Homepage-Bridge ist inzwischen
-veröffentlicht. Der vorhandene v117-Webclient ist am 10.10.2026 **zur
-Veröffentlichung freigegeben**. Die zuvor fehlenden U01-RPCs sind inzwischen
-produktiv vorhanden; der öffentliche Transport `wss://ws.zhserver.de/ws` liefert
-über Cloudflare HTTP 101. Der Nutzer bestätigt den produktiven passenden
-Laptop-Dedicated samt Party-v117/U01. Commit/Push sind beauftragt; echte
-Cloudflare-/Account-/Game-Abnahme folgt nach dem Deployment. Befund und
-Fortsetzung: [GAME_WEBBUILD_V117_CHECKPOINT.md](GAME_WEBBUILD_V117_CHECKPOINT.md).
+veröffentlicht. Der v117-Webclient wurde am 10.10.2026 mit Commit
+`cff094ac9125711f764c427cef478be08739542d` veröffentlicht. Alle elf Cloudflare-
+Builddateien sind HTTP 200 und manifestgleich; echte zentrale Anmeldung cHa,
+Spielstandladen, ZHServer1-Verbindung über `wss://ws.zhserver.de/ws`, Reload,
+Logout und Wiederanmeldung bei offenem Game sowie zweiter Tab sind bestätigt.
+Bestehende Adminrechte/UUID unverändert. Echter zeitgesteuerter Tokenrefresh und
+Wechsel zwischen zwei echten Accounts bleiben nicht vollständig live geprüft;
+die Mobile-Lobby ist im Hochformat noch sehr klein. Vollständige Nachweise und
+Grenzen: [GAME_WEBBUILD_V117_CHECKPOINT.md](GAME_WEBBUILD_V117_CHECKPOINT.md).
 Die Homepage stellt einen Session-/Token-Kandidaten bereit. Erst der Spielclient
 und unabhängig davon der Dedicated bestätigen ihn über Supabase Auth. Diese
 Datei beschreibt die Homepage-Seite und den tatsächlich gelesenen Spieladapter;
@@ -212,7 +214,8 @@ Produktivrollout, Webexport oder Laptop-Neustart aus diesem Auftrag ableiten.
   `C:\Users\sebbo\AppData\Local\Temp\zhserver-game-handoff-20261008`
   (`baseline.json`, `check.cjs`, `report.json`, `preservation.json`).
   Screenshots im bisherigen Visualisierungsordner, Unterordner
-  `game-handoff-20261008`. Gemeinsame reale End-to-End-Abnahme weiterhin offen.
+  `game-handoff-20261008`. Gemeinsame reale End-to-End-Abnahme war zu diesem
+  Zeitpunkt offen; die spätere v117-Live-Abnahme steht im aktuellen Checkpoint.
 
 Technische Grundlagen: [Supabase Session](https://supabase.com/docs/reference/javascript/auth-getsession),
 [Auth-Ereignisse](https://supabase.com/docs/reference/javascript/auth-onauthstatechange),

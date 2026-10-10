@@ -496,3 +496,27 @@ v117-Manifest und unter 100 MiB, 19 fremde Wiki-Testartefakte erhalten, Bridge
 unverändert; origin/main entspricht dem bisherigen lokalen HEAD. Nur die
 vorgesehenen Release-Dateien aufnehmen, keine Temp-/Testartefakte. Ergebnisse
 nach dem Deployment dokumentieren; keine vollständige Live-Abnahme vorwegnehmen.
+
+## v117 veröffentlicht und live geprüft – 10.10.2026
+
+Release `cff094ac9125711f764c427cef478be08739542d` auf `origin/main`, Pages-Run
+`38056532970` erfolgreich. Alle elf originalen Cloudflare-Build-URLs HTTP 200,
+Größen/SHA256 manifestgleich, passende MIME-Typen und beide Packteile tatsächlich
+geladen. Echt angemeldeter cHa-Account übernimmt die zentrale Session ohne zweite
+Spielanmeldung, lädt den regulär initialisierten eigenen UUID-Spielstand und
+verbindet ZHServer1 über `wss://ws.zhserver.de/ws`. Server-Snapshots/Autosaves,
+Spielabmeldung, Reload, zentrale Abmeldung und manuelle Wiederanmeldung bei offenem
+Game sowie zweiter Game-Tab bestätigt. Adminrechte/UUID, private E-Mail und
+deaktivierter Namenseditor erhalten; keine Account-/Gameplaymigration.
+
+Gezielte Live-Regression: Start/Gästebuch, Account/Profil, Admin, Galerie, Forum,
+Wiki und Game; DE/EN, Desktop 1280/1440, Tablet 768, Mobile 390 ohne horizontalen
+Homepage-Überlauf. 0 erfasste JS-/Console-Fehler; keine beobachteten relevanten
+HTTP-/404-/CORS-/Mixed-Content-Fehler. Fremde 19 Wiki-Testartefakte bytegleich
+erhalten. Keine Gamequellen-, Dedicated-, U01-, Wiki- oder Backendänderung, kein
+Webexport. Bestehende öffentliche Playtestpause nicht aufgehoben.
+
+Offen: gelieferte Godot-Lobby im Hochformat sehr klein; echter zeitgesteuerter
+Tokenrefresh und Kontowechsel zwischen zwei echten Accounts nicht vollständig
+live nachgewiesen. Details: `docs/GAME_WEBBUILD_V117_CHECKPOINT.md`.
+Diese Homepage-Releasephase abgeschlossen; **STOPP**.

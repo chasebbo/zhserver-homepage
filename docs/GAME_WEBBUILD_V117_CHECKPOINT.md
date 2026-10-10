@@ -1,13 +1,71 @@
-# Webbuild v117 – Homepage-Kandidat und Produktionsblocker
+# Webbuild v117 – Veröffentlichung und Live-Abnahme
 
-Stand: 10.10.2026. **Vorhandener v117-Stand zur Veröffentlichung freigegeben.**
-Der Nutzer hat den produktiven Dedicated auf `192.168.0.114:7000`, Party-v117-
-Kompatibilität, produktives U01/`player-state-persistence`, positiven Endpoint-
-Test und 0 Parser-/Runtimefehler bestätigt. Aktueller Auftrag: den bereits
-integrierten Stand committen/pushen, Deployment abwarten und anschließend echte
-Live-Abnahme durchführen. Keine erneute Integration, kein Webexport und keine
-Dedicated-/U01-Änderung. Die folgenden Vorab-Befunde sind zeitlich eingeordnet;
-die abschließende Live-Abnahme wird nach der Veröffentlichung dokumentiert.
+Stand: 10.10.2026. **v117 veröffentlicht; echte zentrale Live-Anmeldung und
+Dedicated-Verbindung bestanden.** Die folgenden älteren Vorab-Befunde sind
+historisch. Keine erneute Integration, kein Webexport, keine Backendmigration
+und keine Dedicated-/U01-Änderung in diesem Homepage-Auftrag.
+
+## Abschließende Live-Abnahme – 10.10.2026
+
+- Release-Commit `cff094ac9125711f764c427cef478be08739542d`, nach `origin/main`
+  gepusht. GitHub-Pages-Run `38056532970` erfolgreich:
+  <https://github.com/chasebbo/zhserver-homepage/actions/runs/38056532970>.
+- `https://www.zhserver.de/game.html` liefert den tatsächlichen v117-iframe
+  `game/survival-v117.html?build=account-v117-20261009` über Cloudflare. Alle elf
+  originalen Build-URLs: HTTP 200, vollständige GET-Größen/SHA256 bytegleich mit
+  dem Originalmanifest. Beide Packteile und Packloader im echten Browser geladen.
+  HTML/JS/WASM/Packteile/PNGs haben passende MIME-Typen. Keine veralteten v116-
+  Dateien oder gecachten 404 im geprüften v117-Pfad; keine Cache-/DNS-/Tunneländerung.
+- Echter Benutzerlogin im sichtbaren Formular, Passwort/Tokens nicht ausgelesen.
+  Header und Profil cHa; eigene private E-Mail nur im Profil. v117 übernimmt die
+  bestehende zentrale Session, zeigt `Eingeloggt als: cHa`, lädt den eigenen
+  Spielstand und benötigt keine zweite Anmeldung. Kein Legacy-Account/-Signup.
+- Echter ZHServer1-Beitritt: Browserlog `connecting to wss://ws.zhserver.de/ws`
+  und `connection established`, gerenderte Spielwelt, laufende Server-Snapshots
+  und reguläre Autosaves. Öffentlicher Host `ws.zhserver.de`, Pfad `/ws`, TLS 443;
+  kein öffentliches `ws://`/Mixed Content und keine Annahme eines Port-7000-Proxys.
+- Der vorhandene Client hat den vorher fehlenden eigenen Spielstand regulär über
+  U01 initialisiert. Rein lesend bestätigt: unveränderte zentrale Auth-UUID
+  `7ba1fad4-d113-4526-8873-3e3b97e9be7e`, Name cHa, genau eine eigene
+  `player_state`-Zeile; nach Autosaves/Abmeldung Version 35, `updated_at`
+  `2026-10-10 13:53:49.883449+00`. Keine manuelle Initialisierung, Datenmigration
+  oder Übernahme alter Gameplaydaten. Der gelöschte Legacy-Account bleibt abwesend.
+- Reguläre Spielabmeldung speichert/trennt; Reload lädt dieselbe zentrale Sitzung
+  und den Spielstand. Zentrale Homepage-Abmeldung entfernt private Profildaten,
+  sperrt den offenen Adminbereich und setzt den offenen Game-Tab auf Anmeldung/
+  Registrierung/Gast-Einstieg zurück. Echte manuelle Wiederanmeldung: derselbe
+  offene Game-Tab übernimmt cHa automatisch. Zweiter neu geöffneter Game-Tab lädt
+  ebenfalls cHa/Spielstand, ohne zweiten gleichzeitigen Serverbeitritt.
+- Startseite/Gästebuch, Galerie, Forum, Wiki, Account/Profil und Admin live geladen.
+  Gästebuch-/Uploadname cHa readonly, Forum mit zentraler Identität; keine Inhalte
+  abgesendet, keine Moderationsschreibaktion. Bestehende Admin-UUID-Verifikation
+  vor/nach Wiederanmeldung bestätigt, Namenseditor weiterhin verborgen. Beide
+  Statistikgruppen/volle Footer erhalten. Keine private E-Mail in den geprüften
+  öffentlichen Seiten. Wiki-/Homepagequellen und Auth-Bridge unverändert.
+- Desktop 1280/1440, Tablet 768 und Hochformat 390: kein horizontaler Homepage-
+  Überlauf; DE/EN einschließlich Reload. Live-Game-/Account-/Admin-/öffentliche
+  geprüfte Tabs: 0 erfasste JS-/Console-Fehler; 0 beobachtete relevante HTTP-/404-
+  Fehler, kein beobachteter CORS-/Mixed-Content-/Pack-/Bridgefehler. Die früheren
+  lokalen MutationObserver-Ausnahmen wurden in dieser Live-Abnahme nicht gesehen.
+- Erhalt/Release: nur 16 vorgesehene Dateien im Release, 19 fremde Wiki-Test-
+  artefakte bytegleich außerhalb Git erhalten; kein privilegierter Secretfund,
+  keine Testfixtures aufgenommen. `git diff --check` sauber.
+
+### Verbleibende Grenzen
+
+- Die bestehende öffentliche Playtestpause bleibt unverändert. Der echte Test
+  erfolgte über den bereits vorhandenen Zugang `game.html?test#spiel-starten`.
+- Die gelieferte Godot-Lobby ist bei 390 px Hochformat sehr klein und noch nicht
+  überzeugend lesbar. Keine Gamequellen-/UI-Neugestaltung im Homepage-Auftrag.
+- Echter zeitgesteuerter Tokenrefresh und Wechsel zwischen zwei verschiedenen
+  echten Accounts wurden nicht vollständig live durchlaufen. Vorhandene Bridge-
+  Eventprüfungen ersetzen diese noch offenen echten Lifecycle-Fälle nicht. Kein
+  zusätzlicher Account angelegt oder bestehendes Passwort verändert.
+- Kein Dedicated-Neustart durch diese Homepage-Aufgabe erforderlich; Serverstand
+  separat vom Nutzer bestätigt und nicht verändert. Weitergehende U01-/Party-/
+  Anti-Cheat-Mehrspielerabnahme bleibt beim zuständigen Server-/Spielauftrag.
+
+Aktuelle Phase abgeschlossen. Nicht erneut integrieren/exportieren. **STOPP.**
 
 ## Produktions- und Cloudflare-Vorabprüfung – 10.10.2026, 13:00 UTC
 
@@ -131,7 +189,7 @@ Damit sind spielbereite zentrale Lobby, cHa-Anzeige im Game und vollständige
 Auth-/Gameplay-Abnahme derzeit **nicht bestätigt**. Die Homepage allein kann
 die fehlende U01-Initialisierung nicht beheben.
 
-## Weitere Rolloutabhängigkeit
+## Historische Rolloutabhängigkeit vor der Freigabe
 
 Der Game-Handoff warnt ausdrücklich: v117 verlangt passenden
 `dedicated_server.gd`-/`account_party.gd`-Code wegen der UUID-Party-RPCs und darf
@@ -145,7 +203,7 @@ Abnahme müssen weiterhin getrennt bestätigt werden.
 **DEDICATED-NEUSTART AUF LAPTOP ERFORDERLICH** für den passenden gemeinsamen Stand; in dieser Homepage-
 Aufgabe kein Neustart.
 
-## Gezielt geprüft
+## Historische lokale Prüfung vor dem Release
 
 - Elf lokale HTTP-HEAD-Antworten: jeweils 200, erwartete Größen; HTML, JavaScript,
   WASM, Packteile und PNGs mit passenden MIME-Typen.
@@ -179,7 +237,7 @@ Nachweise außerhalb Git:
 `C:\Users\sebbo\.codex\visualizations\2026\09\30\01a0f137-f3f5-7bc0-b080-7b451ea65ff0\game-v117-homepage`.
 Keine Secrets, Testfixtures oder die 19 fremden Wiki-Testartefakte einchecken.
 
-## Fortsetzung
+## Historische Fortsetzung vor dem Release
 
 Nicht neu exportieren oder erneut von v116 anfangen. Diesen lokalen Kandidaten
 und alle fremden Änderungen erhalten. U01 und passender Laptopstand sind jetzt
@@ -193,5 +251,5 @@ Live-Dateien samt MIME/Manifest, ursprüngliche CDN-URLs ohne gecachte 404 und
 den echten HTTPS-Browser-Handoff über `wss://ws.zhserver.de/ws` prüfen. Keine
 Annahme, dass Cloudflare Port 7000 proxyt; vorhandene Konfiguration erhalten.
 
-**Aktuelle Phase: freigegebener Commit/Push, Deployment und echte Live-Abnahme.
+**Damals nächste Phase: freigegebener Commit/Push, Deployment und echte Live-Abnahme.
 Danach Abschlussbericht und STOPP. Kein neuer Export, kein Servereingriff.**
