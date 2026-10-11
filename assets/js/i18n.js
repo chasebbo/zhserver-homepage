@@ -194,6 +194,9 @@
     function initForumNavigation() {
         const nav = document.querySelector(".nav-menu");
         if (!nav || !languageScriptUrl) return;
+        // Community stays in the homepage content, outside the shared main menu.
+        nav.querySelectorAll('a[href="#forum"], a[href="index.html#forum"], a[href$="/index.html#forum"]')
+            .forEach(link => link.closest("li")?.remove());
         let link = nav.querySelector("[data-forum-route]");
         if (!link) {
             const item = document.createElement("li");

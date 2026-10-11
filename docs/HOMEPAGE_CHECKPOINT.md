@@ -520,3 +520,237 @@ Offen: gelieferte Godot-Lobby im Hochformat sehr klein; echter zeitgesteuerter
 Tokenrefresh und Kontowechsel zwischen zwei echten Accounts nicht vollständig
 live nachgewiesen. Details: `docs/GAME_WEBBUILD_V117_CHECKPOINT.md`.
 Diese Homepage-Releasephase abgeschlossen; **STOPP**.
+
+## Spielseite: neue visuelle Landingpage – 10.10.2026
+
+Der vorige kompakte Aufbau wurde visuell abgelehnt und ersetzt. `game.html`
+besitzt jetzt genau einen Einstieg im zweispaltigen Hero, ein großes vorhandenes
+Konzeptbild mit integriertem Serverstatus, vier Featurekarten, drei klar als
+Spielgrafik gekennzeichnete Bildflächen, kurze historische Zusatzinfo sowie
+kompakte Entwicklungs-/Communitybereiche. Mobil erscheint das Bild früh.
+Entwicklung, Roadmap, Abstimmung und alle 197 Changelogpunkte bleiben auf der
+vorhandenen `game-development.html`; diese Datei wurde in der visuellen Phase
+nicht verändert. Gemeinsamer Header/Footer und zentrale DE/EN-/Accountlogik
+weiterverwendet; keine neue Auth-, Tracking- oder Backendlogik.
+
+Echte lokale visuelle Abnahme auf Port 5500: Gast DE/EN bei 360/390/768/1280/1440,
+Mitglied mit vorhandener cHa-Sitzung auf Desktop/Tablet/Mobile. Sprache nach
+Reload und Seitenwechsel, Detailnavigation, Zurück/Vorwärts, Accordion und
+Mobilmenü geprüft. Neuer Hero startet den unveränderten v117-Client bis zur
+cHa-Lobby ohne zweite Anmeldung. Kein Spielweltbeitritt. 0 Browserfehler,
+0 Warnungen, 0 horizontale Überläufe; zehn lokale Dateien HTTP 200. Header,
+Footer, iframe-Markup und alle 33 geschützten Dateien unverändert.
+
+Gastbutton weiterhin deaktiviert. Veröffentlichung erst nach nachgewiesenen
+120000 ms im gelieferten Client **und zwei Minuten im produktiven Dedicated**,
+finaler Transportabnahme und ausdrücklicher Freigabe. Details, Screenshots und
+Fortsetzung: `docs/GAME_ENTRY_CHECKPOINT.md`. Lokale visuelle Teilphase fertig;
+STOPP. Kein Commit, Push, Deployment oder Webexport.
+
+## Spielseite: lokale Abschlussprüfung / v118-Handoff – 11.10.2026
+
+Die visuelle Landingpage bleibt im fertig geprüften lokalen Stand vom
+10.10.2026. In dieser Fortsetzung nur Checkpoints aktualisiert; Layout, Auth,
+Footer und übrige Homepagebereiche unverändert. JS-Syntax und `git diff --check`
+erneut sauber, alle 33 geschützten Dateien SHA256-identisch zum gespeicherten
+Ausgangsstand. Keine vollständige Wiederholung bereits bestandener Browsertests.
+
+Der gelieferte Kandidat `C:/ZHServer-Builds/v118/` ist jetzt verfügbar:
+Manifest `guest_duration_ms = 120000`; alle elf Dateien nach Größe/SHA256 geprüft
+und unter 100 MiB. Der Spiel-Handoff bestätigt nur die lokale/isolierte Abnahme,
+keinen produktiven v118-Rollout. Das Laden der Zwei-Minuten-Policy durch den
+Laptop-Dedicated und die anschließende produktive Gastabnahme sind noch offen.
+
+Deshalb kein Buildwechsel, Gaststart weiterhin gesperrt und `game/` unverändert
+auf v117. Keine Dedicated-, Spiel-, Wiki-, Backend- oder Accountänderung. Vor
+einer späteren v118-/Gastintegration den präzisen Handoff und die Freigabegrenzen
+in `docs/GAME_ENTRY_CHECKPOINT.md` verwenden. Die lokale visuelle Teilphase ist
+abgeschlossen. **STOPP. Kein Commit, Push, Deployment oder Webexport.**
+
+## Spielseite: tatsächliche visuelle Korrektur – 11.10.2026
+
+Der vorherige Abschlussbericht enthielt den vom Nutzer abgelehnten Entdecken-
+Bereich. Dieser Abschnitt ist jetzt maßgeblich; die frühere Beschreibung mit
+drei Bildkacheln ist überholt.
+
+Tatsächlich `game.html` und `assets/css/game-entry.css` geändert: „Die Welt von
+Zombiehölle / Zombiehölle entdecken“ mitsamt den drei Bildkacheln vollständig aus
+HTML und CSS entfernt. Kein Ersatzblock. Inhalts-Icons, Pfeildekoration und
+Badge-Boxen entfernt, Feature-/Entwicklungs-/Communityflächen vereinfacht.
+Hero-Grafik auf Desktop größer und vollständig gezeigt; auf Tablet/Mobile früh
+und groß vor dem Account-Einstieg. Konzeptkennzeichnung bleibt einfacher Text.
+
+Neue echte sichtbare Browserabnahme auf Port 5500: 14 DE/EN-Zustände mit Mitglied
+und Gast, Desktop 1280/1440, Tablet 768, Mobile 390/360. Neue Desktop-/Mobile-
+Hero- und Gesamtseiten-Screenshots tatsächlich angesehen. 0 Inhalts-Icons,
+0 Badge-Boxen, 0 Entdecken-Elemente, 0 horizontale Überläufe und 0 erfasste
+JS-/Consolefehler/Warnungen. Sprache nach Reload und mobiles Menü geprüft.
+Serverprobe OFFLINE und Start deshalb gesperrt; Serverlogik unverändert.
+
+Header, vollständiger Footer, Spielrahmen, Auth und sonstiger Working Tree
+erhalten. Keine JS-, Wiki-, `game/`-, Spiel-, Dedicated- oder Backendänderung.
+Details und neue Screenshotpfade: `docs/GAME_ENTRY_CHECKPOINT.md`.
+v118 bleibt nur vorbereitet, Gaststart deaktiviert. **STOPP nach sichtbarer
+Abnahme. Kein Commit, Push, Deployment oder Webexport.**
+
+## Spielseite nach neuer Bildvorgabe – 11.10.2026, lokale Nutzerabnahme offen
+
+Dieser Abschnitt ersetzt die früheren Layoutbeschreibungen. `game.html`, das
+scoped `game-entry.css` und die zwei vorhandenen Präsentationsscripts tatsächlich
+umgebaut: großer atmosphärischer Hero, zweifarbiger Titel, zentraler Einstieg
+links und integrierter v117-Spielrahmen mit echtem Serverstatus rechts. Vor dem
+Start bleibt die vorhandene Weltillustration ehrlich gekennzeichnet. Vier
+Features ohne Icons, gemeinsamer Alpha-Stand mit funktionierenden Changelog/
+Roadmap-Tabs und kompakter „Deine Ideen zählen“-Abschluss. Kein Entdecken-
+Bereich, keine drei Bildkacheln, kein großer Geschichtsblock oder Ersatzwerbung.
+
+Alpha 0.2.3 / 14 von 20 und die Kurzansichten kommen aus der unveränderten
+Entwicklungsseite. Neue Texte/Alttexte zentral DE/EN. Gemeinsames Header-/Footer-
+Markup unverändert, Besucher-/Communitylogik und Auth-Bridge erhalten.
+
+Echte cHa- und Gastansicht DE/EN, Desktop 1440/1280, Tablet 768, Mobile 390/360
+geprüft. Neue Screenshots tatsächlich erstellt und angesehen; Tabs samt Tastatur,
+Mobilmenü, Sprachwechsel/Reload und Anmeldelink/Rücknavigation funktionieren.
+0 erfasste Browser-JS-/Consolefehler/Warnungen, 0 horizontale Überläufe. Acht
+lokale Dateien HTTP 200. Neun isolierte Zustands-/Identitäts-/Startprüfungen
+bestanden; HTML, lokale Links, IDs, JS-Syntax und `git diff --check` sauber.
+
+WSS-Transport derzeit OFFLINE: Start korrekt gesperrt, deshalb kein erneuter
+echter Clientstart in dieser Runde. Das ist als offene Prüfung dokumentiert.
+Gast bleibt gesperrt, `game/` auf v117, v118 nur vorbereitet. Keine Änderungen
+an Wiki, Spiel, Dedicated/U01, Supabase oder Accounts. Alle 32 geschützten Dateien
+inklusive elf Builddateien und 19 fremder Wiki-Artefakte SHA256-unverändert.
+
+Details/Nachweise: `docs/GAME_ENTRY_CHECKPOINT.md`, Ordner
+`C:/Users/sebbo/.codex/visualizations/2026/09/30/01a0f137-f3f5-7bc0-b080-7b451ea65ff0/game-landing-reference-20261011`.
+**STOPP zur visuellen Abnahme durch Sebastian. Kein Commit, Push, Deployment
+oder Webexport.**
+
+## Spielseite: Hero über großem Spielfenster – 11.10.2026
+
+Jüngster Layoutauftrag umgesetzt: Hero mit Titel, Accountstatus und Spielbuttons
+oberhalb des contentbreiten Fensters. Kein Split mehr. Vorschau und echter v117-
+Client teilen weiterhin dasselbe Fenster; bei 1440 px ist der iframe 1309 × 736 px
+groß. Features, Alpha-Tabs, Community, Header, Footer, JS und DE/EN-Texte unverändert.
+Nur `game-entry.css`, CSS-Versionskennung und Bildgrößenangabe in `game.html` angepasst.
+
+Echter lokaler v117-Start mit cHa und ONLINE-Server bis zur Lobby geprüft, ohne
+Vollbild oder Spielweltbeitritt. DE/EN, 1440/1280/768/390/360 px: 0 horizontale
+Überläufe und 0 erfasste Consolefehler/Warnungen. Neue Desktop-/Mobile-Screenshots
+im Nachweisordner `game-landing-stacked-20261011`, vollständiger Pfad und Details
+in `docs/GAME_ENTRY_CHECKPOINT.md`. v118/Gaststart nicht freigegeben. **STOPP zur
+visuellen Abnahme. Kein Commit, Push, Deployment oder Webexport.**
+
+## Spielseite: v118 lokal integriert nach Dedicated-Freigabe – 11.10.2026
+
+Dieser aktuelle Stand ersetzt den oben dokumentierten v118-/Gastblocker. Der
+Nutzer hat Dedicated v118 mit 120000-ms-Gastlease produktiv auf WINLAP bestätigt.
+Alle elf Dateien aus `C:/ZHServer-Builds/v118` manifestgleich nach `game/`
+übernommen. `game.html` lädt v118; `game-entry.js` erlaubt den Gaststart nach
+erneuter Prüfung der bestehenden zentralen Identität. Kein eigener Gasttimer,
+keine neue Anmeldung oder UUID-/Accountänderung. Elf unreferenzierte v117-
+Laufzeitdateien nach Hash-/Referenzprüfung entfernt; Quellbuilds/Handoffs erhalten.
+
+Echter lokaler cHa-Start ohne zweiten Login bis zur v118-Lobby bestanden. Echter
+Gaststart mit 02:00-Countdown und beobachtetem Testzeit-Ende bestanden. Die exakte
+serverseitige Dauer und bereits bestätigte Reconnect-/F6-/Persistence-Tests werden
+aus der vom Nutzer gelieferten Dedicated-Abnahme übernommen. ZHServer1 ONLINE;
+öffentlicher WSS-Handshake HTTP 101; alle elf lokalen Builddateien HTTP 200 mit
+korrekten MIME-Typen. 0 erfasste Browser-JS-/Consolefehler/Warnungen und 0 Fehler
+in der gezielten HTTP-Prüfung. JS-Syntax und `git diff --check` sauber.
+
+Der lokale Umbau mit Hero über dem großen gemeinsamen Vorschau-/Spielfenster
+bleibt erhalten. CSS, Features, Alpha-/Communitybereich, Auth-Bridge, Footer,
+DE/EN, letzte Startseitenkorrektur und fremde Wiki-Artefakte unverändert. Keine
+Änderung an Dedicated, Spielquellen, U01/F01, Supabase oder Accounts.
+
+Details: `docs/GAME_ENTRY_CHECKPOINT.md`; neue Nachweise/Screenshots außerhalb Git:
+`C:/Users/sebbo/.codex/visualizations/2026/09/30/01a0f137-f3f5-7bc0-b080-7b451ea65ff0/game-v118-homepage-local-20261011`.
+**STOPP zur visuellen Abnahme. Kein Commit, Push, Deployment oder Webexport.**
+
+## Hauptnavigation nach heutiger Relevanz – 11.10.2026
+
+Auf allen 13 Seiten mit dem gemeinsamen Header ausschließlich die vorhandenen
+Menüpunkte neu geordnet: Start | SPIEL | Wiki | Community | Forum | Galerie |
+Geschichte | Timeline | Gästebuch. „BUGS / IDEEN“ vollständig aus diesen
+Navigationsblöcken entfernt. Vorhandene gemeinsame DE/EN-, Menü- und
+Aktivmarkierungslogik unverändert weiterverwendet; keine neue Navigation gebaut.
+
+Die direkten Bug-/Ideenbuttons in `game.html` und `game-development.html` führen
+nach `forum/#category/bugs` bzw. `forum/#category/ideas`. Der gemeinsame Feedback-
+Link innerhalb des Forums führt zur Kategorienübersicht. Die funktionierende
+Abstimmung bleibt erhalten; im Forum existiert noch kein Abstimmungsbereich.
+Keine alten Feedbackdaten oder Funktionen gelöscht, kein Forum-Backend ergänzt.
+
+Alle 13 Navigationsfolgen, lokalen Ziele und Anker statisch geprüft. Echte
+Browserprüfung DE/EN auf Desktop 1280/1440 und Mobile 390: Menü öffnen/schließen,
+Seitenwechsel mit erhaltener Sprache, aktive Spiel-/Wiki-/Forummarkierung,
+Bug-/Ideenziele und Zurücknavigation bestanden. 0 horizontale Überläufe und
+0 erfasste Browser-JS-/Consolefehler/Warnungen. `git diff --check` sauber.
+
+Nur Headernavigation und genannte Linkziele geändert; übrige Seiteninhalte,
+Wiki-Inhalte, Styles, sämtliche JS-Dateien, Account-/Footerlogik und alle elf
+v118-Dateien SHA256-unverändert. Fremde lokale Änderungen vollständig erhalten.
+Nachweise/Screenshots außerhalb Git: `navigation-order-20261011` unter dem
+bestehenden Visualisierungsordner. Kein Commit, Push, Deployment oder Webexport.
+
+## Konsolidierte lokale Homepage-Teilphase – 11.10.2026
+
+Bereits fertig übernommen: elf manifestgleiche v118-Dateien, aktiver Zwei-Minuten-
+Gaststart, zentrale cHa-/UUID-Session, Hero oberhalb des großen Vorschau-/
+Spielfensters, vier Features und Alpha-Tabs. Die Entfernung des Startseiten-
+Entwicklungsblocks und der neue Text/Alpha-Button der mittleren Karte bleiben
+erhalten. Keine erneute Integration oder Änderung am gelieferten Build.
+
+Neu ergänzt:
+- Die bestehende `community-voting.js` wird auch auf der Spielseite genau einmal
+  initialisiert. Dieselbe Tabelle `community_votes`, dieselben vier Options-IDs,
+  dieselbe `vote_for_feature`-RPC und gespeicherte Auswahl; kein zweites Votesystem.
+  Kompakte direkte Stimmabgabe unter „Deine Ideen zählen“, Ergebnisse und
+  „Mehr Details“ zur unveränderten Detail-/Archivseite. Bug/Idee führen ins Forum.
+- Gut sichtbare „SERVER ONLINE/OFFLINE“-Anzeige im Hero und Spielfenster. Beide
+  verwenden die vorhandenen `data-game-server-status`-/Message-Bindings;
+  `game-entry.js`, WebSocket-Probe, Accountprüfung und Gastlease unverändert.
+- Die vorhandene gemeinsame Navigation-Initialisierung in `i18n.js` entfernt
+  ausschließlich den alten Community-Menüpunkt. Auf allen 13 gemeinsamen Headern:
+  Start | SPIEL | Wiki | Forum | Galerie | Geschichte | Timeline | Gästebuch.
+  Community-Inhalt und andere Links bleiben erhalten. Keine Wiki-Datei geändert.
+- Ausschließlich `.era-present` erhält einen dünnen Goldrahmen und einen
+  maskierten, neun Sekunden umlaufenden Lichtreflex samt schwachem Glow. Kein
+  neues Bild/JS; die äußeren Karten bleiben unverändert. Reduced Motion blendet
+  beide animierten Pseudoelemente aus und erhält den statischen Rahmen.
+
+Prüfungen/Nachweise: tatsächliche DE/EN-Ansichten der Start- und Spielseite bei
+1440/1280/768/390/360 px; keine horizontalen Inhaltsüberläufe. Neue Screenshots
+inklusive echter cHa-/Gastansicht, großem Spielfenster, Goldrahmen und Abstimmung.
+Bestehende v118-/120000-ms-/HTTP-200-/WSS-101-Nachweise weiterverwendet; Details
+und Einschränkungen in `docs/GAME_ENTRY_CHECKPOINT.md`.
+
+Nachweise außerhalb Git: `homepage-consolidated-20261011` sowie
+`game-inline-vote-20261011` im bestehenden Visualisierungsordner.
+Abschließender echter cHa-Start im v118-Client ohne zweiten Login bestätigt.
+Desktop-Spielfenster 1309 x 736 px, Statusleiste vollständig unter dem Header.
+Kleine CSS-Scrollkorrektur auch bei 390 px geprüft, kein horizontaler Overflow.
+0 erfasste Browser-JS-/Consolefehler und Warnungen. Fremde Änderungen, Wiki,
+Auth-Bridge, gemeinsamer Vote-Renderer und sämtliche v118-Dateien unverändert.
+
+Kein Commit, Push, Deployment oder Webexport. STOPP zur visuellen Abnahme.
+
+## Veröffentlichung freigegeben – 11.10.2026
+
+Visuelle Abnahme durch Sebastian erteilt. Der aktuelle lokale Homepage-/v118-
+Stand darf gezielt auf origin/main veröffentlicht werden; kein neuer Webexport.
+Die zuvor blockierte native HTTP-Prüfung ist nachgeholt: sechs UI-Dateien plus
+Startseite/i18n/Goldrahmen/Einstiegsscript HTTP 200, passende MIME-Typen und
+lokaler Inhalt bestätigt. Öffentliche Abstimmungsdaten lesend erreichbar.
+Alle elf v118-Dateien SHA256-identisch zum freigegebenen Quellbuild, unter
+100 MiB pro Datei. Keine alten v117-Laufzeitdateien oder aktiven Referenzen.
+
+Für alle 13 gemeinsamen Header dieselbe i18n-Cachekennung gesetzt, damit die
+freigegebene Navigation beim Release auch nach früheren Seitenbesuchen lädt.
+Keine weiteren Inhalts-/Auth-/Backendänderungen. Fremde 19 Wiki-Prüfartefakte
+bleiben uncommittet erhalten. Bestehendes Pages-Deployment nach Push prüfen.
+Live-Account-/Client-, HTTP-/MIME-/SHA256-/WebSocket- und Responsive-Nachweise:
+`C:/Users/sebbo/.codex/visualizations/2026/09/30/01a0f137-f3f5-7bc0-b080-7b451ea65ff0/homepage-v118-release-20261011`.
+Eine vollständige Live-Abnahme wird vor ihrem tatsächlichen Abschluss nicht
+behauptet. Dedicated/U01/F01/Supabase/Cloudflare/Spielprojekt unverändert.

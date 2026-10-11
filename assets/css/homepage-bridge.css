@@ -108,8 +108,53 @@ body.home-page > .era-section::before {
     box-shadow: 0 10px 26px rgba(0, 0, 0, .23);
 }
 
+@property --zh-survival-edge-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
 .home-page .era-present {
-    border-color: rgba(161, 185, 139, .25);
+    border-color: rgba(185, 151, 83, .48);
+}
+
+.home-page .era-present:hover {
+    border-color: rgba(207, 174, 104, .7);
+}
+
+.home-page .era-present::before,
+.home-page .era-present::after {
+    content: '';
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    pointer-events: none;
+    background: conic-gradient(from var(--zh-survival-edge-angle), transparent 0deg 295deg, rgba(185, 151, 83, .1) 308deg, rgba(205, 173, 110, .32) 327deg, rgba(239, 212, 157, .95) 343deg, transparent 347deg 360deg);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: zh-survival-edge 9s linear infinite;
+}
+
+.home-page .era-present::after {
+    padding: 2px;
+    opacity: .55;
+    filter: blur(2px);
+}
+
+@keyframes zh-survival-edge {
+    to { --zh-survival-edge-angle: 360deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-page .era-present::before,
+    .home-page .era-present::after {
+        display: none;
+        animation: none;
+    }
 }
 
 .home-page .era-visual {
