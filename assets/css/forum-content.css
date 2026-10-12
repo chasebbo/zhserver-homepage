@@ -1,0 +1,57 @@
+/* Shared public avatar and functional forum content. Existing page layout stays intact. */
+.zh-public-avatar { display: inline-flex; width: 52px; height: 52px; flex: 0 0 auto; overflow: hidden; align-items: center; justify-content: center; border: 1px solid rgba(212,175,55,.25); border-radius: 50%; background: #19212a; color: #dfce92; font-size: .95rem; font-weight: 600; text-decoration: none; }
+.zh-public-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.zh-public-labels { display: grid; gap: 4px; margin-top: 7px; font-size: .66rem; line-height: 1.45; color: #9dabb7; }
+.zh-public-labels[hidden] { display: none; }
+.zh-public-role[data-system-role=admin] { color: #c5b57a; }
+.zh-public-rank { color: #9dabb7; }
+.forum-page .forum-author-details { min-width: 0; }
+.forum-page .forum-topic-author .zh-public-labels { margin-top: 3px; font-size: .6rem; }
+.forum-page .forum-server-status { margin: 0 0 16px; font-size: .78rem; color: var(--forum-soft); }
+.forum-page .forum-server-topics { list-style: none; margin: 0; padding: 0 24px; }
+.forum-page .forum-server-topic { display: grid; grid-template-columns: minmax(0,1fr) 72px 160px; gap: 16px; padding: 19px 0; border-bottom: 1px solid var(--forum-line); }
+.forum-page .forum-server-topic a { color: #e7e9e8; text-decoration: none; overflow-wrap: anywhere; }
+.forum-page .forum-server-topic a:hover { color: var(--gold); }
+.forum-page .forum-server-topic small { display: block; color: var(--forum-soft); margin-top: 6px; font-size: .71rem; }
+.forum-page .forum-server-topic .forum-topic-author { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+.forum-page .forum-server-topic .zh-public-avatar { width: 26px; height: 26px; font-size: .55rem; }
+.forum-page .forum-topic-state { color: #cbbb82; font-size: .63rem; margin: 0 10px 0 0; text-transform: uppercase; }
+.forum-page .forum-topic-count { text-align: center; color: var(--forum-soft); font-size: .76rem; }
+.forum-page .forum-topic-date { color: var(--forum-soft); font-size: .71rem; }
+.forum-page .forum-list-more { margin: 20px 24px; }
+.forum-page .forum-thread-posts { padding: 0 24px 24px; }
+.forum-page .forum-thread-posts .forum-post + .forum-post { margin-top: 18px; }
+.forum-page .forum-post-author a:not(.zh-public-avatar) { display: block; color: #e7e9e8; text-decoration: none; overflow-wrap: anywhere; margin-top: 10px; }
+.forum-page .forum-post-meta { flex-wrap: wrap; gap: 8px 18px; }
+.forum-page .forum-reply-form, .forum-page .forum-edit-form { padding: 22px 24px; border-top: 1px solid var(--forum-line); }
+.forum-page .forum-reply-form textarea, .forum-page .forum-edit-form textarea { width: 100%; min-height: 140px; }
+.forum-page .forum-reply-form .forum-button { margin-top: 14px; }
+.forum-page .forum-moderation { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 24px 18px; }
+.forum-page .forum-thread-status { color: #cbbb82; padding: 0 24px 14px; font-size: .76rem; }
+.forum-page .forum-profile-summary { display: flex; align-items: start; gap: 22px; padding: 0 24px 24px; }
+.forum-page .forum-profile-summary .zh-public-avatar { width: 88px; height: 88px; font-size: 1.4rem; }
+.forum-page .forum-profile-summary p { white-space: pre-wrap; overflow-wrap: anywhere; color: var(--forum-soft); margin: 12px 0 0; font-size: .86rem; line-height: 1.65; }
+.forum-page .forum-profile-posts { padding: 0 24px 24px; }
+.forum-page .forum-profile-posts h3 { font-size: .94rem; margin: 20px 0 12px; }
+.forum-page .forum-profile-posts a { display: block; color: #ddc77e; padding: 12px 0; overflow-wrap: anywhere; }
+.forum-page .forum-profile-posts p { color: var(--forum-soft); font-size: .8rem; }
+.forum-page .forum-error { color: #e4ad9c; }
+.account-page .profile-community-form { display: grid; gap: 17px; margin-top: 22px; }
+.account-page .profile-community-form label { display: block; color: #d5dce3; font-size: .8rem; margin-bottom: 8px; }
+.account-page .profile-community-form :is(textarea,input[type=file]) { width: 100%; max-width: 100%; color: #dce3ea; background: #10171f; border: 1px solid rgba(170,186,202,.2); border-radius: 5px; padding: 11px; font: inherit; font-size: .82rem; }
+.account-page .profile-community-form small { display: block; color: #98a8b6; font-size: .71rem; line-height: 1.55; margin-top: 8px; }
+.account-page #profile-public-link { display: inline-block; color: #ddc77e; margin-top: 16px; font-size: .79rem; }
+.account-page #profile-community-status { font-size: .8rem; line-height: 1.6; }
+@media(max-width:700px) {
+ .forum-page .forum-server-topics { padding: 0 18px; }
+ .forum-page .forum-server-topic { grid-template-columns: minmax(0,1fr) 52px; gap: 8px; }
+ .forum-page .forum-topic-date { grid-column: 1 / -1; }
+ .forum-page .forum-topic-count { text-align: right; }
+ .forum-page .forum-thread-posts { padding: 0 18px 18px; }
+ .forum-page .forum-post-author { grid-template-columns: 52px minmax(0,1fr); }
+ .forum-page .forum-post-author a:not(.zh-public-avatar) { margin: 0; }
+ .forum-page .forum-reply-form, .forum-page .forum-edit-form { padding: 18px; }
+ .forum-page .forum-profile-summary { gap: 14px; padding: 0 18px 18px; }
+ .forum-page .forum-profile-summary .zh-public-avatar { width: 64px; height: 64px; }
+ .forum-page .forum-profile-posts { padding: 0 18px 18px; }
+}

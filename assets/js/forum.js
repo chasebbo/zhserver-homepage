@@ -1,4 +1,4 @@
-/* Existing local forum drafts; author display uses the central account. */
+/* Existing local drafts plus the persistent forum; one central account identity. */
 (() => {
     "use strict";
     if (!document.body.classList.contains("forum-page")) return;
@@ -18,17 +18,24 @@
     const bodyInput = document.getElementById("forum-draft-body");
     const categorySelect = document.getElementById("forum-draft-category-select");
     const storageKey = "zhserver_forum_drafts_v1";
+    const content = window.ZHForumContent;
     function renderIdentity() {
         const state = window.ZHIdentity.state;
         const key = state.status === "member" ? "identity.signedIn" : state.status === "guest" ? "identity.signInRequired" : "identity." + state.status;
         language.bind(document.getElementById("forum-identity-status"), key, { name: state.displayName || "" });
         document.getElementById("forum-preview-author").textContent = state.displayName || language.t("forum.authorProfile");
+        const previewAvatar = document.getElementById("forum-preview-avatar");
+        previewAvatar.hidden = state.status !== "member";
+        previewAvatar.replaceChildren(window.ZHForum.avatar({ display_name: state.displayName }));
         document.getElementById("forum-identity-login").hidden = !!state.userId;
         const canWrite = state.status === "member";
         titleInput.readOnly = !canWrite; bodyInput.readOnly = !canWrite;
         document.querySelector('#forum-draft-form button[type="submit"]').disabled = !canWrite;
         document.getElementById("forum-save-draft").disabled = !canWrite;
         categorySelect.disabled = !canWrite;
+        document.querySelectorAll('[data-forum-publish]').forEach(button => {
+            button.disabled = !canWrite || button.dataset.busy === 'true';
+        });
     }
     let storageProblem = "";
     let saveFeedback = "";
@@ -75,6 +82,8 @@
     }
 
     function readRoute() {
+        const publicRoute = /^#(thread|profile)\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i.exec(location.hash);
+        if (publicRoute) return { view: publicRoute[1], id: publicRoute[2], category: null };
         const match = /^#(category|compose|draft|preview)\/([a-z]+)$/.exec(location.hash);
         return match && categories.has(match[2]) ? { view: match[1] === "compose" ? "draft" : match[1], category: match[2] } : { view: "overview", category: null };
     }
@@ -95,7 +104,8 @@
                 if (!draft || typeof draft.title !== "string" || typeof draft.body !== "string") continue;
                 result.set(id, {
                     title: draft.title.slice(0, 120), body: draft.body.slice(0, 8000),
-                    updatedAt: typeof draft.updatedAt === "string" && Number.isFinite(Date.parse(draft.updatedAt)) ? draft.updatedAt : null
+                    updatedAt: typeof draft.updatedAt === "string" && Number.isFinite(Date.parse(draft.updatedAt)) ? draft.updatedAt : null,
+                    requestId: typeof draft.requestId === 'string' && /^[0-9a-f-]{36}$/i.test(draft.requestId) ? draft.requestId : null
                 });
             }
         } catch (error) {
@@ -237,6 +247,7 @@
             button.setAttribute("aria-pressed", String(button.dataset.forumFilter === filter));
         });
         language.bind(document.getElementById("forum-empty-heading"), "forum.empty." + filter);
+        content?.category(route.category, filter);
     }
 
     function renderRoute(focus = false) {
@@ -292,8 +303,11 @@
         renderLocalDraft();
         renderTitles();
         renderIdentity();
+        if (route.view === 'overview') content?.overview();
+        if (route.view === 'thread') content?.thread(route.id);
+        if (route.view === 'profile') content?.profile(route.id);
         if (focus) {
-            const heading = document.getElementById({ overview: "forum-categories-title", category: "forum-category-title", draft: "forum-draft-heading", auth: "forum-auth-heading", preview: "forum-preview-heading" }[route.view]);
+            const heading = document.getElementById({ overview: "forum-categories-title", category: "forum-category-title", draft: "forum-draft-heading", auth: "forum-auth-heading", preview: "forum-preview-heading", thread: 'forum-thread-heading', profile: 'forum-public-profile-heading' }[route.view]);
             heading.focus({ preventScroll: true });
             document.querySelector(".forum-workspace").scrollIntoView({ block: "start", behavior: "instant" });
         }
@@ -407,6 +421,36 @@
     window.addEventListener("hashchange", () => { filter = "all"; renderRoute(true); });
     document.addEventListener("zh:languagechange", () => { renderRoute(); searchCategories(); });
     window.ZHIdentity.subscribe(() => renderRoute());
+    content?.connect({
+        route: () => route, title, renderIdentity,
+        prepare: () => {
+            if (!route.category || window.ZHIdentity.state.status !== 'member') return null;
+            if (route.view === 'draft' && !validatePreview()) return null;
+            cacheEditor(); const draft = draftFor(route.category);
+            if (draft.title.trim().length < 3 || draft.body.trim().length < 10) return null;
+            draft.requestId ||= crypto.randomUUID();
+            const next = loadDrafts();
+            if (!storageProblem) { next.set(route.category, { ...draft, updatedAt: draft.updatedAt || new Date().toISOString() }); writeDrafts(next); }
+            return { ...draft, category: route.category };
+        },
+        published: (payload, matches = true) => {
+            const draft = draftFor(payload.category);
+            // Clear only the exact submitted draft; another tab's edited text is retained.
+            const next = loadDrafts();
+            const saved = next.get(payload.category);
+            if (matches && !storageProblem && (!saved || (saved.title === payload.title && saved.body === payload.body))) {
+                next.delete(payload.category); writeDrafts(next);
+            }
+            if (matches && draft.title === payload.title && draft.body === payload.body) {
+                drafts.delete(payload.category); titleInput.value = ''; bodyInput.value = '';
+            }
+            if (!matches) {
+                draft.requestId = null;
+                if (saved && !storageProblem) { saved.requestId = null; next.set(payload.category,saved); writeDrafts(next); }
+            }
+            renderLocalDraft();
+        }
+    });
     renderRoute();
     searchCategories();
 })();

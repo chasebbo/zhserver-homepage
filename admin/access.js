@@ -1,7 +1,6 @@
-/* Existing homepage admin assignment. Display names and metadata are never roles. */
+/* Central server role verified through the existing Supabase session. */
 (() => {
     'use strict';
-    const adminId = '7ba1fad4-d113-4526-8873-3e3b97e9be7e';
     const login = new URL('index.html?status=denied', document.currentScript.src).href;
     const watched = new WeakSet();
     const pending = new WeakMap();
@@ -23,15 +22,24 @@
             if (session.error || !session.data.session) return false;
             const verified = await client.auth.getUser(session.data.session.access_token);
             const current = await client.auth.getSession();
-            if (verified.error || current.error || verified.data.user?.id !== adminId || verified.data.user?.is_anonymous) return false;
+            if (verified.error || current.error || !verified.data.user?.id || verified.data.user.is_anonymous) return false;
             if (current.data.session?.access_token !== session.data.session.access_token) {
                 return retry && current.data.session ? verify(client, false) : false;
             }
+            const role = await client.rpc('get_zh_own_identity');
+            if (role.error || !role.data || typeof role.data !== 'object') return false;
+            const latest = await client.auth.getSession();
+            if (latest.error || latest.data.session?.access_token !== session.data.session.access_token) {
+                return retry && latest.data.session ? verify(client, false) : false;
+            }
+            const allowed = role.data.role_version === 1 && role.data.system_role === 'admin';
+            if (!allowed) return false;
             if (protectedPage) document.body.setAttribute('data-zh-admin-verified', '');
             if (protectedPage && !watched.has(client)) {
                 watched.add(client);
                 client.auth.onAuthStateChange((_event, next) => {
-                    if (!next || next.user?.id !== adminId) deny(true);
+                    hide();
+                    if (!next) deny(true);
                     else setTimeout(() => requireAdmin(client), 0); // Keep SDK calls outside its Auth lock.
                 });
             }

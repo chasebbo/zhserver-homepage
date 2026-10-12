@@ -17,8 +17,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="../assets/js/translations.js?v=20261008-account2"></script>
-    <script src="../assets/js/i18n.js?v=20261011-main-navigation1"></script>
+    <script src="../assets/js/translations.js?v=20261012-account-roles1"></script>
+    <script src="../assets/js/i18n.js?v=20261012-static-navigation1"></script>
+    <link rel="stylesheet" href="../assets/css/forum-content.css?v=20261012-account-roles1">
 </head>
 <body class="account-page">
 <header class="header zh-site-header">
@@ -43,7 +44,6 @@
                 <li><a href="../index.html#hero">Start</a></li>
                 <li><a href="../game.html" class="nav-game-link">SPIEL</a></li>
                 <li><a href="../wiki.html">Wiki</a></li>
-                <li><a href="../index.html#forum">Community</a></li>
                 <li><a href="../forum/" data-forum-route>Forum</a></li>
                 <li><a href="../gallery.html">Galerie</a></li>
                 <li><a href="../index.html#history">Geschichte</a></li>
@@ -72,12 +72,22 @@
                 <div><dt data-account-i18n="account.createdAt">Registriert seit</dt><dd><time id="profile-created-at" data-i18n-ignore>—</time></dd></div>
                 <div><dt data-account-i18n="account.statusLabel">Accountstatus</dt><dd id="profile-account-status" data-i18n-ignore>—</dd></div>
             </dl>
+            <p id="profile-system-labels" hidden></p>
             <p class="profile-missing" id="profile-name-missing" data-account-i18n="account.nameMissing" hidden>Bitte lege einen öffentlichen Anzeigenamen fest, bevor du Beiträge oder Screenshots einreichst.</p>
             <form class="profile-name-form" id="profile-name-form" hidden>
                 <div class="account-field"><label for="profile-name-input" data-account-i18n="account.displayName">Öffentlicher Anzeigename</label><input id="profile-name-input" name="display_name" autocomplete="nickname" maxlength="80" required aria-describedby="profile-name-hint profile-save-status"><small id="profile-name-hint" data-account-i18n="account.nameHint">Dein Name für Forum, Gästebuch und Screenshots. 1–80 Zeichen, keine E-Mail-Adresse.</small></div>
                 <p class="account-status" id="profile-save-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
                 <button type="submit" class="btn btn-gold account-submit" data-account-i18n="account.saveName">Speichern</button>
             </form>
+            <form id="profile-community-form" class="profile-community-form" hidden>
+                <h2 data-account-i18n="forum.profileSettings">Öffentliches Profil</h2>
+                <div id="profile-avatar-preview"></div>
+                <div><label for="profile-avatar-file" data-account-i18n="forum.avatarChange">Profilbild / Avatar ändern</label><input id="profile-avatar-file" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="profile-avatar-hint"><small id="profile-avatar-hint" data-account-i18n="forum.avatarHint">JPG, PNG oder WebP, bis 2 MB. Wird quadratisch auf 256 × 256 Pixel verkleinert. Dein Avatar ist öffentlich.</small></div>
+                <div><label for="profile-bio" data-account-i18n="forum.bioLabel">Kurzer Profiltext (optional)</label><textarea id="profile-bio" maxlength="400" rows="3" aria-describedby="profile-bio-hint" data-i18n-ignore></textarea><small id="profile-bio-hint" data-account-i18n="forum.bioHint">Öffentlich sichtbar. Bitte keine privaten Kontaktdaten eintragen.</small></div>
+                <button type="submit" class="btn btn-gold account-submit" data-account-i18n="forum.savePublicProfile">Öffentliches Profil speichern</button>
+            </form>
+            <p id="profile-community-status" role="status" aria-live="polite" hidden></p>
+            <a id="profile-public-link" href="../forum/" data-account-i18n="forum.openPublicProfile" hidden>Öffentliches Profil ansehen</a>
             <div class="account-actions"><a class="btn btn-outline" href="../game.html" data-account-i18n="account.toGame">Zum Spiel</a><a class="btn btn-outline" href="../forum/" data-account-i18n="account.toForum">Zum Forum</a></div>
         </section>
         <div class="account-context">
@@ -131,5 +141,7 @@
 <script src="../assets/js/main.js?v=20261008-release1"></script>
 <script src="../assets/js/identity.js?v=20261008-account2"></script>
 <script src="../assets/js/account.js?v=20261008-account2" data-zh-account-loader></script>
+<script src="../assets/js/forum-api.js?v=20261012-account-roles1"></script>
+<script src="../assets/js/profile-community.js?v=20261012-account-roles1"></script>
 </body>
 </html>

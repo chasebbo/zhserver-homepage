@@ -1,5 +1,38 @@
 # Homepage – Fortsetzungscheckpoint
 
+**Produktivfreigabe 12.10.2026:** Der geprüfte Forum-/Profil-/Rollenstand darf nun
+gezielt auf `origin/main` veröffentlicht werden. Fremde lokale Wiki-Daten/JS und
+Prüfdateien ausschließen; keine neue Backend-/Spieländerung. Release-Grenze und
+Live-Prüfung in `docs/FORUM_CHECKPOINT.md`, Nachweise außerhalb Git in
+`forum-release-20261012`. Die folgenden Abschnitte dokumentieren den Ausgangsstand.
+
+**Zusatz 12.10.2026:** Die ausdrücklich freigegebene Rollen-Migration
+`20261012113834_homepage_central_account_forum_roles` ist produktiv installiert.
+cHa bleibt mit bestehender Admin-UUID einziger Admin; neun andere Accounts sind
+Member. Signup-Memberdefault, neun rollenbasierte Admin-Policies und kontrollierte
+spätere Adminzuweisung aktiv. Lokale Forum-/Profilrollen und Moderationsdarstellung
+gegen das echte Backend geprüft; kein UUID-/Namens-/Metadata-Fallback im Admin-Guard.
+Rang ausschließlich als NULL-Anzeigefeld vorbereitet, ohne Berechtigungswirkung.
+Produktive Rollen-/Posting-/Moderationstests vollständig zurückgerollt, bestehende
+Inhalte/Accounts/Avatare erhalten. Avatar-Abschlusscheck und direkte rohe Navigation
+ebenfalls bestanden. Details: `docs/ACCOUNT_FORUM_ROLES_REVIEW.md` und Forum-Checkpoint.
+
+**Aktuelle Teilphase 12.10.2026:** Echte Forum-Themen, Antworten, eigene
+Bearbeitung, öffentliche Profile und Avatarupload lokal angebunden und mit cHa
+sowie einer unabhängigen ausgeloggten Ansicht geprüft. Die zwei freigegebenen
+Forum-/Avatar-Migrationen und die separat freigegebene Rollen-Migration installiert. Details, echte
+Testdaten und nächste Grenze in `docs/FORUM_CHECKPOINT.md`.
+Keine Homepage-Veröffentlichung, kein Commit, Push oder Webexport in dieser Phase.
+
+Navigation in allen 13 rohen gemeinsamen HTML-Headern bereinigt:
+Start | SPIEL | Wiki | Forum | Galerie | Geschichte | Timeline | Gästebuch.
+Der alte Community-Punkt ist direkt entfernt; ausschließlich seine nachträgliche
+Entfernungslogik in `i18n.js` gelöscht. Andere Navigation, zentrale Authentifizierung,
+Footer, v118 und Dedicated bleiben funktional unverändert. Fremde lokale
+Wiki-Daten-/JS-Änderungen und die bestehenden 19 Prüfarbeitsdateien erhalten.
+
+Die folgenden Abschnitte sind die erhaltene Geschichte früherer Teilphasen.
+
 Stand: 06.10.2026. Lokale Teilphase „Zombiehölle für Arma“.
 
 ## Inhalt und Grenzen

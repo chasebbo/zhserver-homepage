@@ -2,7 +2,7 @@ const homepageText = (source) => window.ZHLanguage?.text(source) ?? source;
 const SUPABASE_URL = "https://yawadxzeyyrozmlrokun.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlhd2FkeHpleXlyb3ptbHJva3VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMzQ4MTIsImV4cCI6MjEwMDkxMDgxMn0.B53O3gHURnfxUkVGKaZJ5ssx27Bj9FNMU70Yn85tfxE";
 
-// The static forum preview uses the shared header without a backend connection.
+// Forum data uses the central identity client; homepage-only widgets stay inactive here.
 const supabaseClient = document.body.classList.contains("forum-page") ? null : window.zhSupabaseClient || window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY

@@ -1,5 +1,16 @@
 # Zombiehölle-Forum: Oberfläche und weitere Planung
 
+**Aktualisierung 12.10.2026:** Die unten beschriebene ursprüngliche Entwurfsphase
+ist inzwischen gezielt um echte Themen, Antworten, eigene Bearbeitungen und
+öffentliche Profile/Avatare erweitert. Der zentrale vorhandene Supabase-Client
+wird wiederverwendet; keine zweite Anmeldung. Die freigegebenen Backend-Ergänzungen
+sind installiert, die lokale Homepage-Anbindung wurde abgenommen und ist jetzt
+zur produktiven Veröffentlichung freigegeben.
+Aktueller Funktionsstand, tatsächliche Datenstrukturen, Rechte und Prüfungen:
+`FORUM_CHECKPOINT.md` und `FORUM_MIGRATION_REVIEW.md`.
+Reaktionen, persönliche Benachrichtigungen und ein erweitertes Meldesystem bleiben Planung.
+Die ursprünglichen Abschnitte dienen der Historie, nicht als Beschreibung des aktuellen Backends.
+
 Stand: 06.10.2026. Die vorhandene Baustellen-Seite unter `/forum/` wurde zu einer
 navigierbaren Oberfläche ausgebaut. Die acht bestehenden Kategorien, der gemeinsame
 Header, die Navigation und das zentrale DE/EN-System bleiben die Grundlage.

@@ -3499,8 +3499,8 @@ window.ZHTranslations = {
     "forum.notLive": { "de": "Noch nicht aktiv", "en": "Not active yet" },
     "forum.description.announcements": { "de": "Neuigkeiten, wichtige Hinweise und Updates von Zombiehölle.", "en": "News, important notices and updates from Zombie Hell." },
     "forum.description.general": { "de": "Austausch über das Spiel und die Community.", "en": "Talk about the game and the community." },
-    "forum.description.bugs": { "de": "Fehler besprechen, Beobachtungen teilen und Lösungen finden.", "en": "Discuss issues, share findings and find solutions." },
-    "forum.description.ideas": { "de": "Vorschläge sammeln und gemeinsam weiterdenken.", "en": "Share suggestions and develop ideas together." },
+    "forum.description.bugs": { "de": "Fehler melden, Probleme beschreiben und mögliche Lösungen vorschlagen.", "en": "Report bugs, describe issues and suggest possible solutions." },
+    "forum.description.ideas": { "de": "Bring deine Ideen ein und stell sie der Community und den Admins vor.", "en": "Share your ideas with the community and the admins." },
     "forum.description.guides": { "de": "Tipps, Anleitungen und Antworten für neue und erfahrene Spieler.", "en": "Tips, guides and answers for new and experienced players." },
     "forum.description.groups": { "de": "Mitspieler finden, Gruppen vorstellen und gemeinsame Pläne machen.", "en": "Find players, introduce your group and make plans together." },
     "forum.description.trading": { "de": "Angebote, Gesuche und Absprachen rund um den Handel im Spiel.", "en": "Offers, requests and arrangements for in-game trading." },
@@ -3766,3 +3766,303 @@ window.ZHTranslations = {
     }
   }
 };
+
+/* Functional forum and public avatar UI use the existing central message catalog. */
+Object.assign(window.ZHTranslations.messages, {
+  "forum.liveStage": {
+    "de": "Community-Forum",
+    "en": "Community forum"
+  },
+  "forum.published": {
+    "de": "Veröffentlicht",
+    "en": "Published"
+  },
+  "forum.liveIntro": {
+    "de": "Diskussionen, Fragen und Ideen rund um Zombiehölle.",
+    "en": "Discussions, questions and ideas about Zombie Hell."
+  },
+  "forum.liveDescription": {
+    "de": "Lies mit oder melde dich mit deinem ZHServer-Account an, um ein Thema zu eröffnen oder zu antworten.",
+    "en": "Browse the forum or sign in with your ZHServer account to start a topic or reply."
+  },
+  "forum.categoryNote": {
+    "de": "Wähle einen Bereich, um seine veröffentlichten Themen zu öffnen.",
+    "en": "Choose a category to see its published topics."
+  },
+  "forum.composerNote": {
+    "de": "Veröffentliche dein Thema für alle Besucher. Du kannst den Text auch erst als Entwurf in diesem Browser speichern.",
+    "en": "Publish your topic for everyone to read, or save a draft in this browser first."
+  },
+  "forum.saveDraft": {
+    "de": "Entwurf speichern",
+    "en": "Save draft"
+  },
+  "forum.publishTopic": {
+    "de": "Thema veröffentlichen",
+    "en": "Publish topic"
+  },
+  "forum.publishReply": {
+    "de": "Antwort veröffentlichen",
+    "en": "Post reply"
+  },
+  "forum.empty.all": {
+    "de": "Noch keine Themen",
+    "en": "No topics yet"
+  },
+  "forum.empty.pinned": {
+    "de": "Keine angehefteten Themen",
+    "en": "No pinned topics"
+  },
+  "forum.empty.closed": {
+    "de": "Keine geschlossenen Themen",
+    "en": "No closed topics"
+  },
+  "forum.emptyTopicsNote": {
+    "de": "In dieser Ansicht gibt es noch keine veröffentlichten Themen.",
+    "en": "There are no published topics in this view yet."
+  },
+  "forum.plannedStates": {
+    "de": "Themenstatus",
+    "en": "Topic status"
+  },
+  "forum.postPreviewNote": {
+    "de": "Vorschau deines lokalen Entwurfs. Erst „Thema veröffentlichen“ macht ihn öffentlich.",
+    "en": "Preview of your local draft. It becomes public only when you select “Publish topic”."
+  },
+  "forum.repliesNote": {
+    "de": "Auf einen Entwurf kann noch niemand antworten. Veröffentliche ihn zuerst als Thema.",
+    "en": "No one can reply to a draft. Publish it as a topic first."
+  },
+  "forum.replyUnavailable": {
+    "de": "Antworten erst nach Veröffentlichung",
+    "en": "Replies require a published topic"
+  },
+  "forum.underConstruction": {
+    "de": "Gemeinsam im Forum",
+    "en": "Join the discussion"
+  },
+  "forum.stageNote": {
+    "de": "Themen und Antworten werden mit deinem zentralen Account veröffentlicht. Lokale Entwürfe bleiben privat.",
+    "en": "Topics and replies are published under your central account. Local drafts stay private."
+  },
+  "forum.notOpen": {
+    "de": "Öffentliche Diskussionen",
+    "en": "Public discussions"
+  },
+  "forum.existingLinksNote": {
+    "de": "Wiki und Spiel erreichst du auch direkt von hier.",
+    "en": "You can also open the wiki and game from here."
+  },
+  "forum.noScript": {
+    "de": "Aktiviere JavaScript, um öffentliche Themen zu laden und Beiträge zu schreiben.",
+    "en": "Enable JavaScript to load topics and write posts."
+  },
+  "forum.loading": {
+    "de": "Wird geladen …",
+    "en": "Loading…"
+  },
+  "forum.publishing": {
+    "de": "Wird veröffentlicht …",
+    "en": "Publishing…"
+  },
+  "forum.saving": {
+    "de": "Wird gespeichert …",
+    "en": "Saving…"
+  },
+  "forum.networkError": {
+    "de": "Das Forum ist gerade nicht erreichbar. Dein Text bleibt erhalten. Bitte versuche es erneut.",
+    "en": "The forum is currently unavailable. Your text has been kept. Please try again."
+  },
+  "forum.invalid": {
+    "de": "Bitte prüfe Titel, Kategorie und Beitrag.",
+    "en": "Please check the title, category and post."
+  },
+  "forum.forbidden": {
+    "de": "Du darfst diesen Inhalt nicht ändern.",
+    "en": "You do not have permission to change this content."
+  },
+  "forum.announcementsAdmin": {
+    "de": "Ankündigungen werden vom Administrator veröffentlicht.",
+    "en": "Announcements are published by the administrator."
+  },
+  "forum.rateLimit": {
+    "de": "Bitte warte einen Moment, bevor du erneut veröffentlichst.",
+    "en": "Please wait a moment before posting again."
+  },
+  "forum.topicClosed": {
+    "de": "Dieses Thema ist geschlossen. Neue Antworten sind nicht möglich.",
+    "en": "This topic is closed. New replies are disabled."
+  },
+  "forum.notFound": {
+    "de": "Dieses Thema ist nicht verfügbar.",
+    "en": "This topic is not available."
+  },
+  "forum.profileNotFound": {
+    "de": "Dieses öffentliche Profil ist nicht verfügbar.",
+    "en": "This public profile is not available."
+  },
+  "forum.editConflict": {
+    "de": "Der Beitrag wurde inzwischen geändert. Lade das Thema neu und prüfe die aktuelle Fassung. Dein Text bleibt im Editor.",
+    "en": "This post has changed since you opened it. Reload the topic and review the latest version. Your text is still in the editor."
+  },
+  "forum.formerMember": {
+    "de": "Ehemaliges Mitglied",
+    "en": "Former member"
+  },
+  "forum.noActivity": {
+    "de": "Noch keine Beiträge",
+    "en": "No posts yet"
+  },
+  "forum.activityAt": {
+    "de": "{date}",
+    "en": "{date}"
+  },
+  "forum.moreForFilter": {
+    "de": "Weitere Themen können über „Mehr laden“ in diese Ansicht aufgenommen werden.",
+    "en": "Select “Load more” to include more topics in this view."
+  },
+  "forum.loadMore": {
+    "de": "Mehr laden",
+    "en": "Load more"
+  },
+  "forum.editPost": {
+    "de": "Beitrag bearbeiten",
+    "en": "Edit post"
+  },
+  "forum.editedAt": {
+    "de": "Bearbeitet: {date}",
+    "en": "Edited: {date}"
+  },
+  "forum.saveChanges": {
+    "de": "Änderungen speichern",
+    "en": "Save changes"
+  },
+  "forum.replyTitle": {
+    "de": "Antwort schreiben",
+    "en": "Write a reply"
+  },
+  "forum.hidden": {
+    "de": "Ausgeblendet",
+    "en": "Hidden"
+  },
+  "forum.hiddenTopic": {
+    "de": "Dieses Thema ist für Besucher ausgeblendet.",
+    "en": "This topic is hidden from visitors."
+  },
+  "forum.pinTopic": {
+    "de": "Anheften",
+    "en": "Pin topic"
+  },
+  "forum.unpinTopic": {
+    "de": "Lösen",
+    "en": "Unpin topic"
+  },
+  "forum.closeTopic": {
+    "de": "Schließen",
+    "en": "Close topic"
+  },
+  "forum.openTopic": {
+    "de": "Wieder öffnen",
+    "en": "Reopen topic"
+  },
+  "forum.hideTopic": {
+    "de": "Thema ausblenden",
+    "en": "Hide topic"
+  },
+  "forum.showTopic": {
+    "de": "Thema anzeigen",
+    "en": "Show topic"
+  },
+  "forum.hidePost": {
+    "de": "Antwort ausblenden",
+    "en": "Hide reply"
+  },
+  "forum.showPost": {
+    "de": "Antwort anzeigen",
+    "en": "Show reply"
+  },
+  "forum.publicProfile": {
+    "de": "Öffentliches Profil",
+    "en": "Public profile"
+  },
+  "forum.profileSettings": {
+    "de": "Öffentliches Profil",
+    "en": "Public profile"
+  },
+  "forum.memberSince": {
+    "de": "Mitglied seit {date}",
+    "en": "Member since {date}"
+  },
+  "forum.noBio": {
+    "de": "Noch kein Profiltext.",
+    "en": "No bio yet."
+  },
+  "forum.publicTopics": {
+    "de": "Öffentliche Themen",
+    "en": "Public topics"
+  },
+  "forum.publicPosts": {
+    "de": "Letzte öffentliche Beiträge",
+    "en": "Recent public posts"
+  },
+  "forum.noPublicTopics": {
+    "de": "Noch keine öffentlichen Themen.",
+    "en": "No public topics yet."
+  },
+  "forum.noPublicPosts": {
+    "de": "Noch keine öffentlichen Beiträge.",
+    "en": "No public posts yet."
+  },
+  "forum.avatarChange": {
+    "de": "Profilbild / Avatar ändern",
+    "en": "Change profile picture / avatar"
+  },
+  "forum.avatarHint": {
+    "de": "JPG, PNG oder WebP, bis 2 MB. Wird quadratisch auf 256 × 256 Pixel verkleinert. Dein Avatar ist öffentlich.",
+    "en": "JPG, PNG or WebP, up to 2 MB. Resized to a 256 × 256 square. Your avatar is public."
+  },
+  "forum.avatarInputInvalid": {
+    "de": "Bitte wähle ein gültiges JPG-, PNG- oder WebP-Bild bis 2 MB und höchstens 4096 × 4096 Pixel.",
+    "en": "Choose a valid JPG, PNG or WebP image up to 2 MB and no larger than 4096 × 4096 pixels."
+  },
+  "forum.avatarInvalid": {
+    "de": "Das Avatarbild konnte deinem Account nicht sicher zugeordnet werden.",
+    "en": "The avatar could not be securely associated with your account."
+  },
+  "forum.avatarUploadFailed": {
+    "de": "Das Profilbild konnte nicht hochgeladen werden. Bitte versuche es erneut.",
+    "en": "The profile picture could not be uploaded. Please try again."
+  },
+  "forum.bioLabel": {
+    "de": "Kurzer Profiltext (optional)",
+    "en": "Short bio (optional)"
+  },
+  "forum.bioHint": {
+    "de": "Öffentlich sichtbar. Bitte keine privaten Kontaktdaten eintragen.",
+    "en": "Publicly visible. Please do not include private contact details."
+  },
+  "forum.savePublicProfile": {
+    "de": "Öffentliches Profil speichern",
+    "en": "Save public profile"
+  },
+  "forum.profileSaved": {
+    "de": "Dein öffentliches Profil wurde gespeichert.",
+    "en": "Your public profile has been saved."
+  },
+  "forum.role.member": { "de": "ZH-Member", "en": "ZH-Member" },
+  "forum.role.admin": { "de": "ZH-Admin", "en": "ZH-Admin" },
+  "forum.deleteTopic": { "de": "Thema löschen", "en": "Delete topic" },
+  "forum.deleteReply": { "de": "Antwort löschen", "en": "Delete reply" },
+  "forum.confirmDeleteTopic": {
+    "de": "Dieses Thema mit allen Antworten aus dem öffentlichen Forum entfernen? Administratoren können es später wiederherstellen.",
+    "en": "Remove this topic and all its replies from the public forum? Administrators can restore it later."
+  },
+  "forum.confirmDeleteReply": {
+    "de": "Diese Antwort aus dem öffentlichen Forum entfernen? Administratoren können sie später wiederherstellen.",
+    "en": "Remove this reply from the public forum? Administrators can restore it later."
+  },
+  "forum.openPublicProfile": {
+    "de": "Öffentliches Profil ansehen",
+    "en": "View public profile"
+  }
+});

@@ -13,15 +13,16 @@
     <link rel="stylesheet" href="../assets/css/style.css?v=20260910-nav">
     <link rel="stylesheet" href="../assets/css/i18n.css?v=20260930-de-en-gallery">
     <link rel="stylesheet" href="../assets/css/homepage-premium.css?v=20261008-release1">
-    <link rel="stylesheet" href="../assets/css/forum.css?v=20261008-release1">
+    <link rel="stylesheet" href="../assets/css/forum.css?v=20261012-reduced-forum1">
     <link rel="stylesheet" href="../assets/css/community-stats.css?v=20261008-release1">
     <link rel="stylesheet" href="../assets/css/header.css?v=20261001-original-logo">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/identity.css?v=20261008-release1">
-    <script src="../assets/js/translations.js?v=20261008-release1"></script>
-    <script src="../assets/js/i18n.js?v=20261011-main-navigation1"></script>
+    <script src="../assets/js/translations.js?v=20261012-account-roles1"></script>
+    <script src="../assets/js/i18n.js?v=20261012-static-navigation1"></script>
+    <link rel="stylesheet" href="../assets/css/forum-content.css?v=20261012-account-roles1">
 </head>
 <body class="forum-page">
     <a class="forum-skip-link" href="#forum-main" data-forum-i18n="forum.skip">Zum Forum-Inhalt</a>
@@ -43,9 +44,8 @@
                 </div>
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="../index.html#hero">Start</a></li>
-                    <li><a href="../game.html" class="nav-game-link">SPIELEN</a></li>
+                    <li><a href="../game.html" class="nav-game-link">SPIEL</a></li>
                     <li><a href="../wiki.html">Wiki</a></li>
-                    <li><a href="../index.html#forum">Community</a></li>
                     <li><a href="./" data-forum-route aria-current="page">Forum</a></li>
                     <li><a href="../gallery.html">Galerie</a></li>
                     <li><a href="../index.html#history">Geschichte</a></li>
@@ -59,14 +59,15 @@
     <main class="forum-preparation" id="forum-main">
         <div class="container forum-content">
             <section class="forum-intro" aria-labelledby="forum-title">
-                <span class="forum-stage"><span aria-hidden="true"></span>Frühe Vorbereitung</span>
+                <span class="forum-stage"><span data-forum-i18n="forum.liveStage">Community-Forum</span></span>
                 <h1 id="forum-title">ZOMBIEHÖLLE FORUM</h1>
-                <p class="forum-status">Das Forum befindet sich derzeit im Aufbau.</p>
-                <p class="forum-description">Hier entsteht die Community-Plattform für Diskussionen, Guides, Vorschläge, Fehlermeldungen und alles rund um Zombiehölle.</p>
+                <p class="forum-status" data-forum-i18n="forum.liveIntro">Diskussionen, Fragen und Ideen rund um Zombiehölle.</p>
+                <p class="forum-description" data-forum-i18n="forum.liveDescription">Lies mit oder melde dich mit deinem ZHServer-Account an, um ein Thema zu eröffnen oder zu antworten.</p>
             </section>
 
             <div class="forum-workspace">
                 <div class="forum-primary">
+                    <p id="forum-server-status" class="forum-server-status" role="status" hidden></p>
                     <nav class="forum-breadcrumbs" aria-label="Forum-Pfad" data-forum-label="forum.breadcrumbs">
                         <a href="#overview" data-forum-i18n="forum.overview">Übersicht</a>
                         <span id="forum-breadcrumb-category" hidden></span>
@@ -82,7 +83,7 @@
                         </div>
                         <p class="forum-panel-description" data-forum-i18n="forum.categoryNote">Wähle einen Bereich, um die geplante Themenansicht zu öffnen. Öffentliche Beiträge sind noch nicht freigeschaltet.</p>
                         <div class="forum-search" id="forum-search-controls" hidden>
-                            <svg aria-hidden="true"><use href="#forum-icon-search"></use></svg>
+
                             <label class="forum-sr-only" for="forum-search" data-forum-i18n="forum.searchLabel">Kategorien durchsuchen</label>
                             <input id="forum-search" type="search" placeholder="Kategorie finden …" data-forum-placeholder="forum.searchPlaceholder" autocomplete="off" maxlength="100">
                             <button type="button" id="forum-search-clear" hidden data-forum-label="forum.clearSearch" aria-label="Suche zurücksetzen">×</button>
@@ -95,74 +96,66 @@
                         <ul class="forum-category-list" id="forum-category-list">
                             <li data-forum-category="announcements" id="category-announcements">
                                 <a class="forum-category-row" href="#category/announcements">
-                                    <span class="forum-category-icon"><svg aria-hidden="true"><use href="#forum-icon-announcements"></use></svg></span>
                                     <span class="forum-category-copy"><span class="forum-category-title" data-forum-copy="forum-category-announcements">Ankündigungen</span><span class="forum-category-description" data-forum-i18n="forum.description.announcements">Neuigkeiten, wichtige Hinweise und Updates von Zombiehölle.</span></span>
                                     <span class="forum-category-count"><span class="forum-mobile-label" data-forum-i18n="forum.topics">Themen</span><span aria-label="Noch nicht verfügbar" data-forum-label="forum.unavailable">—</span></span>
                                     <span class="forum-category-activity" data-forum-i18n="forum.notLive">Noch nicht aktiv</span>
-                                    <svg class="forum-row-arrow" aria-hidden="true"><use href="#forum-icon-arrow"></use></svg>
+
                                 </a>
                             </li>
                             <li data-forum-category="general" id="category-general">
                                 <a class="forum-category-row" href="#category/general">
-                                    <span class="forum-category-icon"><svg aria-hidden="true"><use href="#forum-icon-general"></use></svg></span>
                                     <span class="forum-category-copy"><span class="forum-category-title" data-forum-copy="forum-category-general">Allgemein</span><span class="forum-category-description" data-forum-i18n="forum.description.general">Austausch über das Spiel und die Community.</span></span>
                                     <span class="forum-category-count"><span class="forum-mobile-label" data-forum-i18n="forum.topics">Themen</span><span aria-label="Noch nicht verfügbar" data-forum-label="forum.unavailable">—</span></span>
                                     <span class="forum-category-activity" data-forum-i18n="forum.notLive">Noch nicht aktiv</span>
-                                    <svg class="forum-row-arrow" aria-hidden="true"><use href="#forum-icon-arrow"></use></svg>
+
                                 </a>
                             </li>
                             <li data-forum-category="bugs" id="category-bugs">
                                 <a class="forum-category-row" href="#category/bugs">
-                                    <span class="forum-category-icon"><svg aria-hidden="true"><use href="#forum-icon-bugs"></use></svg></span>
-                                    <span class="forum-category-copy"><span class="forum-category-title" data-forum-copy="forum-category-bugs">Bugs &amp; Probleme</span><span class="forum-category-description" data-forum-i18n="forum.description.bugs">Fehler besprechen, Beobachtungen teilen und Lösungen finden.</span></span>
+                                    <span class="forum-category-copy"><span class="forum-category-title" data-forum-copy="forum-category-bugs">Bugs &amp; Probleme</span><span class="forum-category-description" data-forum-i18n="forum.description.bugs">Fehler melden, Probleme beschreiben und mögliche Lösungen vorschlagen.</span></span>
                                     <span class="forum-category-count"><span class="forum-mobile-label" data-forum-i18n="forum.topics">Themen</span><span aria-label="Noch nicht verfügbar" data-forum-label="forum.unavailable">—</span></span>
                                     <span class="forum-category-activity" data-forum-i18n="forum.notLive">Noch nicht aktiv</span>
-                                    <svg class="forum-row-arrow" aria-hidden="true"><use href="#forum-icon-arrow"></use></svg>
+
                                 </a>
                             </li>
                             <li data-forum-category="ideas" id="category-ideas">
                                 <a class="forum-category-row" href="#category/ideas">
-                                    <span class="forum-category-icon"><svg aria-hidden="true"><use href="#forum-icon-ideas"></use></svg></span>
-                                    <span class="forum-category-copy"><span class="forum-category-title" data-forum-copy="forum-category-ideas">Ideen &amp; Vorschläge</span><span class="forum-category-description" data-forum-i18n="forum.description.ideas">Vorschläge sammeln und gemeinsam weiterdenken.</span></span>
+                                    <span class="forum-category-copy"><span class="forum-category-title" data-forum-copy="forum-category-ideas">Ideen &amp; Vorschläge</span><span class="forum-category-description" data-forum-i18n="forum.description.ideas">Bring deine Ideen ein und stell sie der Community und den Admins vor.</span></span>
                                     <span class="forum-category-count"><span class="forum-mobile-label" data-forum-i18n="forum.topics">Themen</span><span aria-label="Noch nicht verfügbar" data-forum-label="forum.unavailable">—</span></span>
                                     <span class="forum-category-activity" data-forum-i18n="forum.notLive">Noch nicht aktiv</span>
-                                    <svg class="forum-row-arrow" aria-hidden="true"><use href="#forum-icon-arrow"></use></svg>
+
                                 </a>
                             </li>
                             <li data-forum-category="guides" id="category-guides">
                                 <a class="forum-category-row" href="#category/guides">
-                                    <span class="forum-category-icon"><svg aria-hidden="true"><use href="#forum-icon-guides"></use></svg></span>
                                     <span class="forum-category-copy"><span class="forum-category-title" data-forum-copy="forum-category-guides">Guides &amp; Hilfe</span><span class="forum-category-description" data-forum-i18n="forum.description.guides">Tipps, Anleitungen und Antworten für neue und erfahrene Spieler.</span></span>
                                     <span class="forum-category-count"><span class="forum-mobile-label" data-forum-i18n="forum.topics">Themen</span><span aria-label="Noch nicht verfügbar" data-forum-label="forum.unavailable">—</span></span>
                                     <span class="forum-category-activity" data-forum-i18n="forum.notLive">Noch nicht aktiv</span>
-                                    <svg class="forum-row-arrow" aria-hidden="true"><use href="#forum-icon-arrow"></use></svg>
+
                                 </a>
                             </li>
                             <li data-forum-category="groups" id="category-groups">
                                 <a class="forum-category-row" href="#category/groups">
-                                    <span class="forum-category-icon"><svg aria-hidden="true"><use href="#forum-icon-groups"></use></svg></span>
                                     <span class="forum-category-copy"><span class="forum-category-title" data-forum-copy="forum-category-groups">Clans &amp; Gruppen</span><span class="forum-category-description" data-forum-i18n="forum.description.groups">Mitspieler finden, Gruppen vorstellen und gemeinsame Pläne machen.</span></span>
                                     <span class="forum-category-count"><span class="forum-mobile-label" data-forum-i18n="forum.topics">Themen</span><span aria-label="Noch nicht verfügbar" data-forum-label="forum.unavailable">—</span></span>
                                     <span class="forum-category-activity" data-forum-i18n="forum.notLive">Noch nicht aktiv</span>
-                                    <svg class="forum-row-arrow" aria-hidden="true"><use href="#forum-icon-arrow"></use></svg>
+
                                 </a>
                             </li>
                             <li data-forum-category="trading" id="category-trading">
                                 <a class="forum-category-row" href="#category/trading">
-                                    <span class="forum-category-icon"><svg aria-hidden="true"><use href="#forum-icon-trading"></use></svg></span>
                                     <span class="forum-category-copy"><span class="forum-category-title" data-forum-copy="forum-category-trading">Handel</span><span class="forum-category-description" data-forum-i18n="forum.description.trading">Angebote, Gesuche und Absprachen rund um den Handel im Spiel.</span></span>
                                     <span class="forum-category-count"><span class="forum-mobile-label" data-forum-i18n="forum.topics">Themen</span><span aria-label="Noch nicht verfügbar" data-forum-label="forum.unavailable">—</span></span>
                                     <span class="forum-category-activity" data-forum-i18n="forum.notLive">Noch nicht aktiv</span>
-                                    <svg class="forum-row-arrow" aria-hidden="true"><use href="#forum-icon-arrow"></use></svg>
+
                                 </a>
                             </li>
                             <li data-forum-category="offtopic" id="category-offtopic">
                                 <a class="forum-category-row" href="#category/offtopic">
-                                    <span class="forum-category-icon"><svg aria-hidden="true"><use href="#forum-icon-offtopic"></use></svg></span>
                                     <span class="forum-category-copy"><span class="forum-category-title" data-forum-copy="forum-category-offtopic">Offtopic</span><span class="forum-category-description" data-forum-i18n="forum.description.offtopic">Alles, was die Community abseits von Zombiehölle beschäftigt.</span></span>
                                     <span class="forum-category-count"><span class="forum-mobile-label" data-forum-i18n="forum.topics">Themen</span><span aria-label="Noch nicht verfügbar" data-forum-label="forum.unavailable">—</span></span>
                                     <span class="forum-category-activity" data-forum-i18n="forum.notLive">Noch nicht aktiv</span>
-                                    <svg class="forum-row-arrow" aria-hidden="true"><use href="#forum-icon-arrow"></use></svg>
+
                                 </a>
                             </li>
                         </ul>
@@ -177,15 +170,15 @@
                     <section class="forum-panel" id="forum-category" aria-labelledby="forum-category-title" data-forum-view="category" hidden>
                         <div class="forum-panel-heading">
                             <div><span class="forum-eyebrow" data-forum-i18n="forum.category">Kategorie</span><h2 id="forum-category-title" tabindex="-1"></h2></div>
-                            <span class="forum-preview-badge" data-forum-i18n="forum.previewBadge">Vorschau</span>
+                            <a class="forum-button forum-button-primary" id="forum-category-compose" href="#compose/general" data-forum-i18n="forum.createPost">Beitrag erstellen</a>
                         </div>
                         <p class="forum-panel-description" id="forum-category-description"></p>
                         <div class="forum-local-topic" id="forum-local-topic" hidden>
                             <span class="forum-eyebrow" data-forum-i18n="forum.yourDraft">Dein lokaler Entwurf</span>
                             <a class="forum-local-topic-row" id="forum-local-topic-link" href="#draft/general">
-                                <svg aria-hidden="true"><use href="#forum-icon-pen"></use></svg>
+
                                 <span><strong id="forum-local-topic-title" data-i18n-ignore></strong><span data-forum-i18n="forum.notPublished">Nicht veröffentlicht</span></span>
-                                <svg class="forum-row-arrow" aria-hidden="true"><use href="#forum-icon-arrow"></use></svg>
+
                             </a>
                         </div>
                         <div class="forum-topic-toolbar">
@@ -196,18 +189,19 @@
                             </div>
                         </div>
                         <div class="forum-topic-heading" aria-hidden="true"><span data-forum-i18n="forum.topic">Thema</span><span data-forum-i18n="forum.replies">Antworten</span><span data-forum-i18n="forum.lastActivity">Letzte Aktivität</span></div>
-                        <div class="forum-empty-topics" role="status">
-                            <span class="forum-empty-icon"><svg aria-hidden="true"><use href="#forum-icon-general"></use></svg></span>
+                        <p id="forum-category-server-status" class="forum-panel-description" role="status" hidden></p>
+                        <ul id="forum-server-topics" class="forum-server-topics"></ul>
+                        <button type="button" id="forum-load-topics" class="forum-button forum-button-secondary forum-list-more" data-forum-i18n="forum.loadMore" hidden>Mehr laden</button>
+                        <div class="forum-empty-topics" id="forum-empty-topics" role="status">
                             <h3 id="forum-empty-heading"></h3>
                             <p data-forum-i18n="forum.emptyTopicsNote">Öffentliche Themen sind noch nicht freigeschaltet. Hier werden später Diskussionen und ihre letzte Aktivität angezeigt.</p>
-                            <a class="forum-button forum-button-primary" id="forum-new-draft" href="#compose/general"><svg aria-hidden="true"><use href="#forum-icon-pen"></use></svg><span data-forum-i18n="forum.createPost">Beitrag erstellen</span></a>
-                            <span class="forum-action-note" data-forum-i18n="forum.localOnly">Nur in diesem Browser · kein öffentlicher Beitrag</span>
+                            <a class="forum-button forum-button-primary" id="forum-new-draft" href="#compose/general"><span data-forum-i18n="forum.createPost">Beitrag erstellen</span></a>
                         </div>
                         <details class="forum-topic-legend">
                             <summary data-forum-i18n="forum.plannedStates">Geplante Themenstatus</summary>
                             <dl>
-                                <div><dt><svg aria-hidden="true"><use href="#forum-icon-pin"></use></svg><span data-forum-i18n="forum.pinned">Angeheftet</span></dt><dd data-forum-i18n="forum.pinnedNote">Wichtige Themen bleiben am Anfang der Liste.</dd></div>
-                                <div><dt><svg aria-hidden="true"><use href="#forum-icon-lock"></use></svg><span data-forum-i18n="forum.closed">Geschlossen</span></dt><dd data-forum-i18n="forum.closedNote">Das Thema bleibt lesbar, neue Antworten sind gesperrt.</dd></div>
+                                <div><dt><span data-forum-i18n="forum.pinned">Angeheftet</span></dt><dd data-forum-i18n="forum.pinnedNote">Wichtige Themen bleiben am Anfang der Liste.</dd></div>
+                                <div><dt><span data-forum-i18n="forum.closed">Geschlossen</span></dt><dd data-forum-i18n="forum.closedNote">Das Thema bleibt lesbar, neue Antworten sind gesperrt.</dd></div>
                             </dl>
                         </details>
                     </section>
@@ -252,10 +246,12 @@
                                 <p class="forum-field-error" id="forum-body-error" hidden></p>
                             </div>
                             <div class="forum-draft-actions">
-                                <button type="submit" class="forum-button forum-button-primary"><span data-forum-i18n="forum.previewPost">Beitragsvorschau</span><svg aria-hidden="true"><use href="#forum-icon-arrow"></use></svg></button>
+                                <button type="button" class="forum-button forum-button-primary" data-forum-publish data-forum-i18n="forum.publishTopic">Thema veröffentlichen</button>
+                                <button type="submit" class="forum-button forum-button-secondary" data-forum-i18n="forum.previewPost">Beitragsvorschau</button>
                                 <button type="button" class="forum-button forum-button-secondary" id="forum-save-draft" data-forum-i18n="forum.saveDraft">Lokal speichern</button>
                                 <button type="button" class="forum-text-button forum-discard-button" id="forum-discard-draft" data-forum-i18n="forum.discardDraft">Entwurf verwerfen</button>
                             </div>
+                            <p class="forum-save-status" id="forum-publish-status" role="status" hidden></p>
                             <p class="forum-save-status" id="forum-save-status" role="status"></p>
                             <p class="forum-storage-warning" id="forum-storage-warning" role="status" hidden></p>
                             <div class="forum-discard-confirm" id="forum-discard-confirm" hidden>
@@ -279,22 +275,51 @@
                             <div class="forum-thread-title"><span class="forum-thread-status" data-forum-i18n="forum.notPublished">Nicht veröffentlicht</span><h3 id="forum-preview-title" data-i18n-ignore></h3></div>
                             <article class="forum-post" aria-label="Beitragsvorschau" data-forum-label="forum.previewPost">
                                 <aside class="forum-post-author" aria-label="Geplanter Autorenbereich" data-forum-label="forum.authorArea">
-                                    <span class="forum-author-avatar"><svg aria-hidden="true"><use href="#forum-icon-profile"></use></svg></span>
+                                    <span class="forum-preview-avatar" id="forum-preview-avatar" data-i18n-ignore></span>
                                     <span class="forum-author-label" id="forum-preview-author" data-i18n-ignore></span>
                                     <span class="forum-author-note" data-forum-i18n="forum.localOnly">Nur in diesem Browser · kein öffentlicher Beitrag</span>
                                 </aside>
                                 <div class="forum-post-content">
                                     <div class="forum-post-meta"><span data-forum-i18n="forum.yourDraft">Dein lokaler Entwurf</span><span id="forum-preview-saved"></span></div>
                                     <div class="forum-post-body" id="forum-preview-body" data-i18n-ignore></div>
-                                    <div class="forum-post-footer"><span data-forum-i18n="forum.localOnly">Nur in diesem Browser · kein öffentlicher Beitrag</span><a id="forum-edit-draft" href="#draft/general"><svg aria-hidden="true"><use href="#forum-icon-pen"></use></svg><span data-forum-i18n="forum.editDraft">Bearbeiten</span></a></div>
+                                    <div class="forum-post-footer"><span data-forum-i18n="forum.localOnly">Nur in diesem Browser · kein öffentlicher Beitrag</span><a id="forum-edit-draft" href="#draft/general"><span data-forum-i18n="forum.editDraft">Bearbeiten</span></a></div>
                                 </div>
                             </article>
+                            <div class="forum-reply-state"><button type="button" class="forum-button forum-button-primary" data-forum-publish data-forum-i18n="forum.publishTopic">Thema veröffentlichen</button><p id="forum-preview-publish-status" role="status" hidden></p></div>
                             <section class="forum-reply-state" aria-labelledby="forum-replies-title">
                                 <h3 id="forum-replies-title" data-forum-i18n="forum.replies">Antworten</h3>
-                                <div><svg aria-hidden="true"><use href="#forum-icon-general"></use></svg><p data-forum-i18n="forum.repliesNote">Antworten werden mit der Eröffnung des Forums verfügbar. Dein lokaler Entwurf ist für andere Besucher nicht sichtbar.</p></div>
+                                <div><p data-forum-i18n="forum.repliesNote">Antworten werden mit der Eröffnung des Forums verfügbar. Dein lokaler Entwurf ist für andere Besucher nicht sichtbar.</p></div>
                                 <button type="button" class="forum-button forum-button-secondary" disabled data-forum-i18n="forum.replyUnavailable">Antworten noch nicht verfügbar</button>
                             </section>
                         </div>
+                    </section>
+
+                    <section class="forum-panel" data-forum-view="thread" aria-labelledby="forum-thread-heading" hidden>
+                        <div class="forum-panel-heading"><div><span class="forum-eyebrow" id="forum-thread-category" data-i18n-ignore></span><h2 id="forum-thread-heading" tabindex="-1" data-i18n-ignore>Thema</h2></div></div>
+                        <p id="forum-thread-server-status" class="forum-panel-description" role="status" hidden></p>
+                        <p id="forum-thread-states" class="forum-thread-status" data-i18n-ignore hidden></p>
+                        <div id="forum-thread-moderation" class="forum-moderation" hidden></div>
+                        <div id="forum-thread-posts" class="forum-thread-posts"></div>
+                        <button type="button" id="forum-load-posts" class="forum-button forum-button-secondary forum-list-more" data-forum-i18n="forum.loadMore" hidden>Mehr laden</button>
+                        <form id="forum-edit-form" class="forum-edit-form" hidden>
+                            <h3 data-forum-i18n="forum.editPost">Beitrag bearbeiten</h3>
+                            <div id="forum-edit-title-wrap" class="forum-field"><label for="forum-edit-title" data-forum-i18n="forum.titleLabel">Thementitel</label><input id="forum-edit-title" maxlength="120" minlength="3" data-i18n-ignore></div>
+                            <div class="forum-field"><label for="forum-edit-body" data-forum-i18n="forum.bodyLabel">Dein Beitrag</label><textarea id="forum-edit-body" maxlength="8000" minlength="10" required data-i18n-ignore></textarea></div>
+                            <div class="forum-draft-actions"><button type="submit" id="forum-edit-save" class="forum-button forum-button-primary" data-forum-i18n="forum.saveChanges">Änderungen speichern</button><button type="button" id="forum-edit-cancel" class="forum-button forum-button-secondary" data-forum-i18n="forum.cancelCategory">Abbrechen</button></div>
+                            <p id="forum-edit-status" role="status" hidden></p>
+                        </form>
+                        <div class="forum-reply-state"><p id="forum-thread-write-note" role="status" hidden></p><a id="forum-thread-login" class="forum-button forum-button-secondary" href="../account/" data-forum-i18n="account.signIn" hidden>Anmelden</a></div>
+                        <form id="forum-reply-form" class="forum-reply-form" hidden>
+                            <h3 data-forum-i18n="forum.replyTitle">Antwort schreiben</h3>
+                            <div class="forum-field"><label for="forum-reply-body" data-forum-i18n="forum.bodyLabel">Dein Beitrag</label><textarea id="forum-reply-body" rows="5" maxlength="8000" minlength="10" required data-i18n-ignore></textarea></div>
+                            <button type="submit" id="forum-reply-submit" class="forum-button forum-button-primary" data-forum-i18n="forum.publishReply">Antwort veröffentlichen</button><p id="forum-reply-status" role="status" hidden></p>
+                        </form>
+                    </section>
+                    <section class="forum-panel" data-forum-view="profile" aria-labelledby="forum-public-profile-heading" hidden>
+                        <div class="forum-panel-heading"><div><span class="forum-eyebrow" data-forum-i18n="forum.publicProfile">Öffentliches Profil</span><h2 id="forum-public-profile-heading" tabindex="-1" data-i18n-ignore>Profil</h2><div id="forum-public-profile-labels" hidden></div></div></div>
+                        <p id="forum-profile-server-status" class="forum-panel-description" role="status" hidden></p>
+                        <div class="forum-profile-summary"><div id="forum-public-profile-avatar"></div><div><small id="forum-public-profile-since" data-i18n-ignore></small><p id="forum-public-profile-bio" data-i18n-ignore></p></div></div>
+                        <div class="forum-profile-posts"><h3 data-forum-i18n="forum.publicTopics">Öffentliche Themen</h3><ul id="forum-public-profile-topics" class="forum-server-topics"></ul><p id="forum-profile-no-topics" data-forum-i18n="forum.noPublicTopics" hidden>Noch keine öffentlichen Themen.</p><h3 data-forum-i18n="forum.publicPosts">Letzte öffentliche Beiträge</h3><div id="forum-public-profile-posts"></div><p id="forum-profile-no-posts" data-forum-i18n="forum.noPublicPosts" hidden>Noch keine öffentlichen Beiträge.</p></div>
                     </section>
                 </div>
 
@@ -303,7 +328,7 @@
                         <span class="forum-eyebrow" data-forum-i18n="forum.currentStage">Aktueller Stand</span>
                         <h2 data-forum-i18n="forum.underConstruction">Forum im Aufbau</h2>
                         <p data-forum-i18n="forum.stageNote">Du kannst die Bereiche bereits erkunden. Öffentliche Themen, Antworten und Benutzerprofile folgen später.</p>
-                        <span class="forum-side-status"><span aria-hidden="true"></span><span data-forum-i18n="forum.notOpen">Noch nicht eröffnet</span></span>
+                        <span class="forum-side-status"><span data-forum-i18n="forum.notOpen">Noch nicht eröffnet</span></span>
                     </section>
                     <section class="forum-side-section" id="forum-category-navigation" hidden>
                         <h2 data-forum-i18n="forum.categories">Kategorien</h2>
@@ -312,34 +337,15 @@
                     <section class="forum-side-section">
                         <h2 data-forum-i18n="forum.alreadyAvailable">Bereits erreichbar</h2>
                         <p data-forum-i18n="forum.existingLinksNote">Bis das Forum startet, findest du hier die bestehenden Bereiche.</p>
-                        <a class="forum-side-link" href="#overview"><span data-forum-i18n="forum.reportFeedback">Bugs melden &amp; Ideen teilen</span><svg aria-hidden="true"><use href="#forum-icon-arrow"></use></svg></a>
-                        <a class="forum-side-link" href="../wiki.html"><span data-forum-i18n="forum.openWiki">Im Wiki nachlesen</span><svg aria-hidden="true"><use href="#forum-icon-arrow"></use></svg></a>
-                        <a class="forum-side-link" href="../game.html"><span data-forum-i18n="forum.openGame">Zum Spiel</span><svg aria-hidden="true"><use href="#forum-icon-arrow"></use></svg></a>
+                        <a class="forum-side-link" href="#overview"><span data-forum-i18n="forum.reportFeedback">Bugs melden &amp; Ideen teilen</span></a>
+                        <a class="forum-side-link" href="../wiki.html"><span data-forum-i18n="forum.openWiki">Im Wiki nachlesen</span></a>
+                        <a class="forum-side-link" href="../game.html"><span data-forum-i18n="forum.openGame">Zum Spiel</span></a>
                     </section>
                 </aside>
             </div>
             <noscript><p class="forum-noscript" data-forum-i18n="forum.noScript">Die Kategorieübersicht ist eine Vorschau. Aktiviere JavaScript für die Themenansichten und die Suche.</p></noscript>
         </div>
     </main>
-
-    <svg class="forum-icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-            <symbol id="forum-icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
-            <symbol id="forum-icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></symbol>
-            <symbol id="forum-icon-announcements" viewBox="0 0 24 24"><path d="m4 9 14-4v14L4 15V9Zm3 7 1 4h4l-1-3m9-7 2-1m-2 5 2 1"/></symbol>
-            <symbol id="forum-icon-general" viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-6 3V6a2 2 0 0 1 2-2Z"/><path d="M7 9h10M7 13h6"/></symbol>
-            <symbol id="forum-icon-bugs" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="13" rx="5"/><path d="M9 7V5a3 3 0 0 1 6 0v2M7 10H3m14 0h4M7 14H3m14 0h4M7 18l-3 3m13-3 3 3M12 11v6"/></symbol>
-            <symbol id="forum-icon-ideas" viewBox="0 0 24 24"><path d="M8 15a7 7 0 1 1 8 0v3H8v-3Zm1 7h6m-7-4h8M12 7v5"/></symbol>
-            <symbol id="forum-icon-guides" viewBox="0 0 24 24"><path d="M12 5C9 3 5 3 2 4v15c4-1 7-1 10 1 3-2 6-2 10-1V4c-3-1-7-1-10 1v15ZM6 8l3 1M6 12l3 1m6-4 3-1m-3 5 3-1"/></symbol>
-            <symbol id="forum-icon-groups" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 20v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 3a5 5 0 0 1 3 5v2"/></symbol>
-            <symbol id="forum-icon-trading" viewBox="0 0 24 24"><path d="M3 7h17m-4-4 4 4-4 4M21 17H4m4-4-4 4 4 4"/></symbol>
-            <symbol id="forum-icon-offtopic" viewBox="0 0 24 24"><path d="M4 3h12v10a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V3Zm12 2h2a3 3 0 0 1 0 6h-2M2 21h18"/></symbol>
-            <symbol id="forum-icon-pin" viewBox="0 0 24 24"><path d="m15 3 6 6-3 1-4 4v4l-3-3-5-5h4l4-4 1-3ZM10 14l-6 6"/></symbol>
-            <symbol id="forum-icon-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4m-4 5v2"/></symbol>
-            <symbol id="forum-icon-pen" viewBox="0 0 24 24"><path d="m16 3 5 5L9 20l-6 1 1-6L16 3ZM13 6l5 5"/></symbol>
-            <symbol id="forum-icon-profile" viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/></symbol>
-        </defs>
-    </svg>
 
     <footer class="site-footer zh-global-footer">
         <div class="container footer">
@@ -361,6 +367,8 @@
     <script src="../assets/js/visitor-counter.js?v=20261008-release1"></script>
     <script src="../assets/js/main.js?v=20261008-release1"></script>
     <script src="../assets/js/identity.js?v=20261008-release1"></script>
-    <script src="../assets/js/forum.js?v=20261008-release1"></script>
+    <script src="../assets/js/forum-api.js?v=20261012-account-roles1"></script>
+    <script src="../assets/js/forum-content.js?v=20261012-account-roles1"></script>
+    <script src="../assets/js/forum.js?v=20261012-reduced-forum1"></script>
 </body>
 </html>
