@@ -12,7 +12,6 @@
     }]));
     const search = document.getElementById("forum-search");
     const views = [...document.querySelectorAll("[data-forum-view]")];
-    const shortcuts = document.getElementById("forum-category-shortcuts");
     const breadcrumb = document.getElementById("forum-breadcrumb-category");
     const titleInput = document.getElementById("forum-draft-title");
     const bodyInput = document.getElementById("forum-draft-body");
@@ -59,11 +58,6 @@
             node.setAttribute("data-i18n-ignore", "");
             node.textContent = window.ZHTranslations.copy[node.dataset.forumCopy][language.language];
         });
-        for (const link of shortcuts.querySelectorAll("a")) {
-            link.textContent = title(link.dataset.category);
-            if (link.dataset.category === route.category) link.setAttribute("aria-current", "page");
-            else link.removeAttribute("aria-current");
-        }
         for (const option of categorySelect.options) option.textContent = title(option.value);
     }
 
@@ -266,7 +260,6 @@
         for (const panel of views) panel.hidden = panel.dataset.forumView !== route.view;
         breadcrumb.hidden = !route.category;
         breadcrumb.replaceChildren();
-        document.getElementById("forum-category-navigation").hidden = !route.category;
         if (route.category) {
             const link = document.createElement("a");
             link.href = "#category/" + route.category;
@@ -314,12 +307,6 @@
     }
 
     for (const id of categories.keys()) {
-        const item = document.createElement("li");
-        const link = document.createElement("a");
-        link.href = "#category/" + id;
-        link.dataset.category = id;
-        item.append(link);
-        shortcuts.append(item);
         const option = document.createElement("option"); option.value = id; categorySelect.append(option);
     }
     bindText();

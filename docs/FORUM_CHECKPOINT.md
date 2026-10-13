@@ -1,5 +1,136 @@
 # Forum – Fortsetzungscheckpoint
 
+## Releasefreigabe – 13.10.2026
+
+- Nutzer hat den aktuellen Forum-/Profil-/Rollen-/Moderationsstand samt UI-Polish
+  zum Commit, Push auf `origin/main` und bestehenden GitHub-Pages-Deployment
+  ausdrücklich freigegeben. Keine neuen Homepage-Funktionen oder Migrationen.
+- Release umfasst nur die sieben Forum-UI-/Checkpointdateien sowie die drei
+  bereits freigegebenen Moderations-SQL-/Review-/Rücknahmedateien. Profil/Rollen
+  sind bereits im bisherigen Release enthalten; keine erneute Backendinstallation.
+- Vor Release: main und origin/main identisch, Index leer, JS-Syntax/Secret-Prüfung
+  bestanden, `git diff --check` sauber. Fremde Wiki-/Validierungsänderungen ausgeschlossen.
+- Live-Abnahme anschließend mit bestehender zentraler Sitzung: klassische Hierarchie,
+  Veröffentlichung/Antwort/Bearbeitung, Moderation, Profile/Avatare, echte Aktivität,
+  DE/EN und Responsive. Produktive bestehende Inhalte nicht als Testdaten verwenden.
+- Commit, Deployment und genaue Live-Nachweise außerhalb Git im bestehenden
+  Codex-Prüfpfad `forum-release-20261013` festhalten. Anschließend STOPP.
+
+## Optische Aktivitätsaufwertung lokal abgeschlossen – 13.10.2026
+
+- Bestehende klassische Hierarchie und Sidebar ausschließlich mit Top 5 erhalten.
+  Themen zeigen Titel, Autor/Avatar, Antwortzahl, letzten Schreiber und Zeit;
+  letzte Schreiber stehen nun vor dem Zeitstempel und sind besser lesbar.
+- Ruhiger Goldakzent ausschließlich aus echtem `last_activity_at` der letzten
+  24 Stunden. Ältere, ungültige oder zukünftige Zeiten werden nicht hervorgehoben.
+  Keine Animation, Neonfläche, neue Badge-/Iconreihe oder Ungelesen-Zählung.
+- Kategorien behalten letztes Thema, letzten Benutzer und Berlin-Zeit sowie
+  den ehrlichen Zustand „Noch keine Beiträge“. Keine Textkörper in Übersichten.
+- Threads: vorhandene öffentliche Avatare/Initialen, Namen und ZH-Admin/ZH-Member
+  deutlicher; kleinere Leerflächen, lesbare Beitragszeiten. Letzter sichtbarer
+  Beitrag mit feiner Kontur und DE/EN-Text. Erst nach Laden des vollständigen
+  Threads markieren; kein vorläufiges Seitenende und keine versteckten Beiträge.
+  Vorhandene Rangdarstellung wiederverwendet, keine Ränge erfunden.
+- Pinned/Closed als ruhige Textzustände. Backend, Rollen, Schreib-/Moderations-
+  funktionen unverändert. Header/Footer, Wiki, GAME und Dedicated nicht bearbeitet.
+- 27 isolierte Aktivitäts-/Paging-/Session-/Hierarchietests plus drei bestehende
+  Löschdialogtests bestanden. Nichtleere Browseransichten mit dem vorhandenen
+  isolierten PostgreSQL-Prüfmodell, ausschließlich Lese-RPCs, sichtbar gekennzeichnet;
+  keine produktive Verbindung oder angelegten produktiven Themen/Antworten.
+  Desktop 1280/1440, Tablet 768, Mobile 390/360, DE/EN: keine Überläufe oder JS-Fehler.
+- Echter lokaler Stand zusätzlich auf Port 5500 geprüft; vollständiger globaler
+  Footer erhalten. Fremde Working-Tree-Dateien aus aktuellem SHA-Snapshot erhalten.
+  Nachweise außerhalb Git: `forum-polish-20261013`. Temporäre Prüfumgebung stoppen.
+  **Kein Commit, Push, Deployment oder Webexport. STOPP nach lokalem Abschluss.**
+
+## Kleiner Forum-UI-Ausbau lokal abgeschlossen – 13.10.2026
+
+- Seitenleiste: „Aktueller Stand“ und „Bereits erreichbar“ entfernt. Nach der
+  Nutzerkorrektur ausschließlich Top 5 nach tatsächlicher Aktivität: Titel,
+  Kategorie, Antworten und Zeitpunkt. Kein Statistik-/Kategorie-/Ersatzblock.
+- `forum-activity.js` liest ausschließlich das vorhandene `get_zh_forum`:
+  alle Themenseiten für die korrekte Aktivitätssortierung trotz Pin-Reihenfolge;
+  letzte sichtbare Autoren bei Bedarf aus vorhandenen Beitragsseiten, maximal
+  drei parallele zusätzliche Aktivitätsabfragen, Cache nach Benutzer/Session und Themenstand.
+  Nach Veröffentlichung/Bearbeitung/Moderation wird die Anzeige aktualisiert.
+- Kategorien zeigen letztes Thema, letzten öffentlichen Autor und Berlin-Zeit;
+  Themenlisten ergänzen letzten Autor/Zeit sowie ruhige Anheftungsdarstellung.
+  Versteckte Moderationsinhalte bleiben aus öffentlichen Aktivitätsanzeigen heraus.
+- Statistiken ausschließlich im unveränderten globalen Footer. Der vorläufige
+  Sidebar-Statistikblock samt Footer-Datenabgriff, Observer, Styles und neuen
+  Statistiktexten wurde vollständig entfernt. Keine zweite Presence-/Account-Abfrage.
+  Die bisherige Sidebar-Kategoriennavigation entfällt ebenfalls; Kategorieübersicht,
+  Breadcrumbs, Kategorieauswahl im Editor und die Hauptnavigation bleiben erhalten.
+- Echter Bestand nur gelesen: zwei versteckte Themen/vier Beiträge, öffentlich
+  aktuell null Themen/Beiträge. Deshalb ehrliche leere Zustände, keine Testposts.
+  Nichtleere Fälle ausschließlich in isolierten Leseantwort-Tests außerhalb Git.
+- Klassische Hierarchie erhalten: Übersicht nur Kategorien/Aktivitätsmetadaten,
+  Kategorie nur Themenliste, eigenständige `#thread/<UUID>`-Ansicht mit Startbeitrag
+  und Antworten. „Beitrag erstellen“ in einer Kategorie verwendet weiterhin
+  `create_zh_forum_topic`; Antworten ausschließlich `reply_zh_forum_topic` im Thread.
+- 22 gezielte Aktivitäts-/Paging-/Cache-/DEEN-/Session-/Hierarchie-Tests und drei bisherige
+  Löschdialog-/Session-Regressionsprüfungen bestanden. Browser lokal auf Port 5500:
+  DE/EN, Desktop 1440/1280, Tablet 768, Mobile 390/360, Kategorienavigation und Reload.
+  Sieben native HTTP-Abrufe 200 mit passenden MIME-Typen und aktuellem Dateiinhalt.
+  Browser-JS-/Consolefehler 0, horizontale Überläufe 0; `git diff --check` sauber.
+- Footer und bestehende Moderations-/Profil-/Rollen-/Avatarfunktionen erhalten.
+  19 geschützte Wiki-Prüfdateien stimmen mit dem bisherigen SHA-Stand überein;
+  die beiden Wiki-Datendateien wurden währenddessen parallel aktualisiert und
+  vollständig stehen gelassen. Keine produktive SQL-/Schema-/Accountänderung;
+  GAME/Wiki/Dedicated von diesem Auftrag nicht bearbeitet.
+- Nachweise/Screenshots außerhalb Git in `forum-activity-20261013` unter dem
+  bestehenden Codex-Prüfpfad. **Kein Commit, Push, Deployment oder Webexport. STOPP.**
+
+## Moderationsmigration freigegeben, angewendet und lokal geprüft
+
+- Nutzerfreigabe: „Ja, genau diese Migration anwenden und lokal prüfen“.
+  Installation `20261012183738_homepage_forum_moderation_v2` erfolgreich;
+  genau die vorbereitete Datei, acht Guards/Cascade vorher erneut bestätigt.
+- Backend meldet `moderation_version=2`; v2-RPC registriert. Anonymer Aufruf
+  sicher HTTP 401, Lesen HTTP 200, CORS Port 5500 korrekt. Keine neue Advisor-Warnung.
+- Installierte RPCs mit bestehenden UUIDs unter `authenticated`: 20 erfolgreiche
+  Assertions plus drei Zeilenzählungen = 0 bei echtem DELETE/Cascade. Alle neuen
+  Testdaten zurückgerollt; vorhandene zwei Themen/vier Beiträge und Profil-/Avatar-
+  zusätze/Rollen vor/nach per Hash unverändert. Keine Accounts/Metadaten geändert.
+- Echte lokale cHa-Sitzung, ZH-Admin, Avatare/Reload, aktivierte Moderation,
+  Kategorieauswahl und DE/EN-Dialoge auf Port 5500 geprüft. Bestehende Inhalte nur
+  gelesen; Dialoge abgebrochen. Reale SQL-Löschung im Rollbacktest, bestätigte UI-
+  Abläufe bereits vollständig mit isolierten Prüfdaten getestet.
+  Eigenes Profil/private E-Mail/Avatar und bestehendes Admin-Dashboard ebenfalls
+  mit derselben echten Session bestätigt; keine Account-/Passwortänderung.
+- `forum-content.js` zusätzlich gezielt korrigiert: normale erneute Prüfung
+  derselben Session lässt die Bestätigung offen; echter Accountwechsel schließt sie.
+  Netzwerk-/Sessionfehler bleiben sichtbar. Drei entsprechende Tests bestanden.
+- Aktuelle Nachweise außerhalb Git im Ordner `forum-moderation-20261012`, darunter
+  `applied-validation.json` und neue echte Desktop-/Mobile-Screenshots.
+- Neue Oberfläche weiterhin nur lokal. **Kein Commit, Push, Deployment, Webexport.**
+  Wiki, GAME, Dedicated und alle fremden lokalen Änderungen erhalten. Nach Prüfung STOPP.
+
+## Moderationskorrektur vorbereitet – 12.10.2026, STOPP vor SQL-Freigabe
+
+- Neuer Auftrag: dauerhaftes Löschen statt Ausblenden, Verschieben, ruhiger
+  Moderationsbereich; bestehende Rollen/Accounts/Profile erhalten.
+- Produktiv ausschließlich gelesen: zwei Themen/vier Beiträge bei Audit,
+  bestehende Lösch-RPC setzt `hidden`; FK der Beiträge bereits ON DELETE CASCADE.
+  Keine bisherigen Inhalte gelöscht/wiederhergestellt, keine produktive Migration.
+- Lokale Oberfläche in `forum-content.js`, `forum-content.css`, `translations.js`
+  und `forum/index.html` angepasst. Klare native DE/EN-Löschdialoge statt
+  window.confirm, Standardfokus Abbrechen, Kategorieauswahl, keine Restore-Buttons.
+- Vorbereitete Migration `20261012170814_forum_moderation_v2.sql`: zwei neue
+  Funktionen für dieselben Tabellen, neue Capability und nur korrigierte
+  Sperrreihenfolge der bisherigen Bearbeitungsfunktion. Keine Tabellen-/Policy-/
+  Rollen-/Accountänderung. Dauerhaftes Löschen/Verschieben bis Capability 2 gesperrt.
+- Vollständiger Umfang, echte DELETE-Zeilen, Rechte, Rücknahme und Testgrenze:
+  `FORUM_MODERATION_V2_REVIEW.md`; Rücknahme `forum_moderation_v2_rollback.sql`.
+- 37 isolierte PostgreSQL-Prüfungen bestanden; reale Browserbedienung mit
+  isolierten lokalen Daten, DE/EN, 1440/768/390/360, Reload, Abbrechen/Esc,
+  tatsächliches Löschen, Kategorie-Rückkehr und Member-Sperren geprüft.
+  Browser-JS-/Consolefehler 0, horizontale Überläufe 0.
+- Nachweise außerhalb Git in `forum-moderation-20261012` im bestehenden Prüfpfad.
+  **Nächster Schritt ausschließlich nach neuer ausdrücklicher Freigabe:** Migration
+  anwenden und echte lokale Supabase-/PostgREST-Prüfung auf Port 5500.
+  Kein Commit, Push, Deployment oder Webexport. Wiki-/Spiel-/Dedicated unverändert.
+
 ## Produktivfreigabe – 12.10.2026
 
 - Der Nutzer hat den geprüften Forum-/Profil-/Rollenstand einschließlich der zwei

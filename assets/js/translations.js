@@ -3913,6 +3913,13 @@ Object.assign(window.ZHTranslations.messages, {
     "de": "Noch keine Beiträge",
     "en": "No posts yet"
   },
+  "forum.topTopics": { "de": "Top 5 Themen", "en": "Top 5 topics" },
+  "forum.replyCount": { "de": "{count} Antworten", "en": "{count} replies" },
+  "forum.replyCountOne": { "de": "1 Antwort", "en": "1 reply" },
+  "forum.lastBy": { "de": "Zuletzt von", "en": "Last post by" },
+  "forum.activityUnavailable": { "de": "Letzter Beitrag derzeit nicht verfügbar", "en": "Latest post currently unavailable" },
+  "forum.recentActivity": { "de": "Aktivität in den letzten 24 Stunden", "en": "Activity in the last 24 hours" },
+  "forum.latestPost": { "de": "Letzter Beitrag", "en": "Latest post" },
   "forum.activityAt": {
     "de": "{date}",
     "en": "{date}"
@@ -3954,7 +3961,7 @@ Object.assign(window.ZHTranslations.messages, {
     "en": "Pin topic"
   },
   "forum.unpinTopic": {
-    "de": "Lösen",
+    "de": "Anheftung lösen",
     "en": "Unpin topic"
   },
   "forum.closeTopic": {
@@ -4051,16 +4058,30 @@ Object.assign(window.ZHTranslations.messages, {
   },
   "forum.role.member": { "de": "ZH-Member", "en": "ZH-Member" },
   "forum.role.admin": { "de": "ZH-Admin", "en": "ZH-Admin" },
-  "forum.deleteTopic": { "de": "Thema löschen", "en": "Delete topic" },
-  "forum.deleteReply": { "de": "Antwort löschen", "en": "Delete reply" },
+  "forum.deleteTopic": { "de": "Thema dauerhaft löschen", "en": "Permanently delete topic" },
+  "forum.deleteReply": { "de": "Antwort dauerhaft löschen", "en": "Permanently delete reply" },
   "forum.confirmDeleteTopic": {
-    "de": "Dieses Thema mit allen Antworten aus dem öffentlichen Forum entfernen? Administratoren können es später wiederherstellen.",
-    "en": "Remove this topic and all its replies from the public forum? Administrators can restore it later."
+    "de": "Thema dauerhaft löschen?",
+    "en": "Permanently delete this topic?"
   },
   "forum.confirmDeleteReply": {
-    "de": "Diese Antwort aus dem öffentlichen Forum entfernen? Administratoren können sie später wiederherstellen.",
-    "en": "Remove this reply from the public forum? Administrators can restore it later."
+    "de": "Antwort dauerhaft löschen?",
+    "en": "Permanently delete this reply?"
   },
+  "forum.deleteTopicWarning": {
+    "de": "Das Thema und alle zugehörigen Antworten werden unwiderruflich aus der Datenbank entfernt. Eine Wiederherstellung im Forum ist nicht möglich.",
+    "en": "The topic and all its replies will be permanently removed from the database. They cannot be restored in the forum."
+  },
+  "forum.deleteReplyWarning": {
+    "de": "Diese Antwort wird unwiderruflich aus der Datenbank entfernt. Eine Wiederherstellung im Forum ist nicht möglich.",
+    "en": "This reply will be permanently removed from the database. It cannot be restored in the forum."
+  },
+  "forum.deletePermanently": { "de": "Dauerhaft löschen", "en": "Delete permanently" },
+  "forum.editReply": { "de": "Antwort bearbeiten", "en": "Edit reply" },
+  "forum.moderation": { "de": "Thema moderieren", "en": "Topic moderation" },
+  "forum.moveTopic": { "de": "Verschieben", "en": "Move" },
+  "forum.moveCategory": { "de": "Zielkategorie", "en": "Destination category" },
+  "forum.moderationPending": { "de": "Dauerhaftes Löschen und Verschieben sind noch nicht im Backend aktiviert.", "en": "Permanent deletion and moving topics have not been enabled on the server yet." },
   "forum.openPublicProfile": {
     "de": "Öffentliches Profil ansehen",
     "en": "View public profile"
