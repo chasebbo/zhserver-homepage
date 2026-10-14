@@ -55,8 +55,9 @@
         const meta = document.createElement('small'); meta.className = 'forum-topic-author';
         meta.append(api.avatar(topic.author, true), authorDetails(topic.author), document.createTextNode(' · ' + date(topic.created_at))); main.append(meta);
         const replies = textNode('span', String(topic.replies), 'forum-topic-count');
+        replies.dataset.label = lang.t('forum.replies');
         replies.setAttribute('aria-label', window.ZHForumActivity.replies(topic.replies));
-        row.append(main, replies, window.ZHForumActivity.topicCell(topic));
+        row.append(main, replies, window.ZHForumViews.cell(topic), window.ZHForumActivity.topicCell(topic));
         return row;
     }
     function renderCategories(data) {
@@ -138,6 +139,7 @@
         $('forum-thread-states').hidden = !$('forum-thread-states').textContent;
         renderModeration(topic);
         permissionFields(topic);
+        window.ZHForumViews.observe(threadData, drafts);
     }
     function renderModeration(topic) {
         const moderation = $('forum-thread-moderation'); moderation.replaceChildren(); moderation.hidden = !topic.can_moderate;
@@ -175,6 +177,7 @@
             $('forum-thread-posts').replaceChildren(); $('forum-thread-heading').textContent = lang.t('forum.topic');
             $('forum-thread-category').textContent = ''; $('forum-thread-moderation').hidden = true;
             $('forum-thread-states').hidden = true; $('forum-thread-write-note').hidden = true;
+            $('forum-thread-views').hidden = true;
             $('forum-thread-login').hidden = true; $('forum-load-posts').hidden = true;
             $('forum-reply-body').value = ''; replyRequest = null;
         }

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="de" data-homepage-i18n>
+<head>
+ <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>Community Pulse · ZHServer Admin</title><link rel="icon" href="../favicon.ico">
+ <link rel="stylesheet" href="../assets/css/style.css?v=20260910-nav">
+ <link rel="stylesheet" href="../assets/css/i18n.css?v=20260930-de-en">
+ <link rel="stylesheet" href="../assets/css/homepage-premium.css?v=20261008-release1">
+ <link rel="stylesheet" href="../assets/css/header.css?v=20261001-original-logo">
+ <link rel="stylesheet" href="../assets/css/identity.css?v=20261008-release1">
+ <link rel="stylesheet" href="admin.css?v=20261008-account2">
+ <link rel="stylesheet" href="../assets/css/community-pulse-admin.css?v=20261013-pulse-views1">
+ <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ <script src="../assets/js/translations.js?v=20261013-pulse-views1"></script>
+ <script src="../assets/js/i18n.js?v=20261012-static-navigation1"></script>
+</head>
+<body class="pulse-admin-page" data-zh-admin-protected>
+<header class="header zh-site-header">
+    <div class="container">
+        <nav class="navbar">
+            <div class="header-brand-row">
+                <a href="../index.html#" class="header-emblem">
+                    <img src="../assets/images/android-chrome-512x512.png" width="512" height="512" alt="Zombiehölle / ZHServer" decoding="async">
+                </a>
+                <a href="../index.html#" class="logo">ZHServer.de / Zombiehölle.de</a>
+                <div class="header-controls">
+                    <div class="language-switcher" role="group" aria-label="Sprache wählen">
+                        <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
+                        <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
+                    </div>
+                    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Navigation öffnen" aria-controls="nav-menu" aria-expanded="false">
+    ☰
+</button>
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#hero">Start</a></li>
+                <li><a href="../game.html" class="nav-game-link">SPIEL</a></li>
+                <li><a href="../wiki.html">Wiki</a></li>
+                <li><a href="../forum/" data-forum-route>Forum</a></li>
+                <li><a href="../gallery.html">Galerie</a></li>
+                <li><a href="../index.html#history">Geschichte</a></li>
+                <li><a href="../index.html#timeline">Timeline</a></li>
+                <li><a href="../index.html#guestbook">Gästebuch</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="section dark pulse-admin-main"><div class="container">
+ <span class="section-title">COMMUNITY PULSE</span>
+ <h1 data-i18n-message="pulse.admin.title">Community Pulse verwalten</h1>
+ <p data-i18n-message="pulse.admin.intro">Fragen und Antwortoptionen in DE/EN pflegen. Geschlossene und archivierte Umfragen bleiben erhalten.</p>
+ <div class="pulse-admin-toolbar">
+  <a class="btn btn-outline" href="dashboard.html" data-i18n-message="pulse.admin.back">Zur Adminübersicht</a>
+  <button type="button" class="btn btn-gold" id="pulse-admin-create" data-i18n-message="pulse.admin.create" disabled>Neue Umfrage</button>
+  <button type="button" class="btn btn-outline" id="pulse-admin-refresh" data-i18n-message="pulse.admin.refresh" disabled>Liste aktualisieren</button>
+ </div>
+ <p id="pulse-admin-status" class="pulse-admin-status" role="status" aria-live="polite" data-i18n-ignore></p>
+ <div class="pulse-admin-layout"><div id="pulse-admin-list"></div>
+ <form id="pulse-admin-form" class="pulse-admin-form" hidden>
+  <label><span data-i18n-message="pulse.admin.questionDe">Frage · Deutsch</span><textarea id="pulse-admin-question-de" maxlength="300" required></textarea></label>
+  <label><span data-i18n-message="pulse.admin.questionEn">Frage · Englisch</span><textarea id="pulse-admin-question-en" maxlength="300" required></textarea></label>
+  <fieldset><legend data-i18n-message="pulse.admin.options">Antwortoptionen</legend><div id="pulse-admin-options"></div></fieldset>
+  <p id="pulse-admin-option-note" class="pulse-admin-meta" data-i18n-message="pulse.optionsLocked" hidden></p>
+  <div class="pulse-admin-actions"><button type="button" class="btn btn-outline" id="pulse-admin-add-option" data-i18n-message="pulse.admin.addOption">Option ergänzen</button><button type="button" class="btn btn-outline" id="pulse-admin-remove-option" data-i18n-message="pulse.admin.removeOption">Letzte Option entfernen</button></div>
+  <label><span data-i18n-message="pulse.admin.state">Status</span><select id="pulse-admin-state"><option value="open" data-i18n-message="pulse.admin.state.open">Offen</option><option value="closed" data-i18n-message="pulse.admin.state.closed">Geschlossen</option><option value="archived" data-i18n-message="pulse.admin.state.archived">Archiviert</option></select></label>
+  <label><input type="checkbox" id="pulse-admin-active"> <span data-i18n-message="pulse.admin.active">Aktiv auf der Startseite</span></label>
+  <label><span data-i18n-message="pulse.admin.order">Reihenfolge</span><input type="number" id="pulse-admin-order" min="-10000" max="10000" value="0" required></label>
+  <div class="pulse-admin-actions"><button type="submit" class="btn btn-gold" id="pulse-admin-save" data-i18n-message="pulse.admin.save">Umfrage speichern</button><button type="button" class="btn btn-outline" id="pulse-admin-cancel" data-i18n-message="pulse.admin.cancel">Abbrechen</button></div>
+ </form></div>
+</div></main>
+<footer class="site-footer zh-global-footer">
+
+    <div class="container footer">
+
+        <div>
+
+            <h3>
+                ZHServer Community
+            </h3>
+
+            <p>
+                Seit 2013
+            </p>
+
+            <p class="footer-visitor"><span id="total-visitors">0</span> Besucher insgesamt</p>
+
+        </div>
+
+
+        <div>
+
+            <a href="../pages/impressum.html">
+                Impressum
+            </a>
+
+            |
+
+            <a href="../pages/datenschutz.html">
+                Datenschutz
+            </a>
+
+            <br><br>
+
+            © 2013–2026 ZHServer Community
+
+        </div>
+
+    </div>
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/visitor-counter.js?v=20261008-release1"></script>
+<script src="../assets/js/main.js?v=20261008-release1"></script>
+<script src="../assets/js/identity.js?v=20261008-release1"></script>
+<script src="access.js?v=20261012-central-role2"></script>
+<script src="../assets/js/community-features.js?v=20261013-pulse-active1"></script>
+<script src="../assets/js/community-pulse-api.js?v=20261013-pulse-views1"></script>
+<script src="community-pulse.js?v=20261013-pulse-views1"></script>
+</body></html>

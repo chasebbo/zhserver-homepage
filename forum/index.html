@@ -20,9 +20,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/identity.css?v=20261008-release1">
-    <script src="../assets/js/translations.js?v=20261013-forum-polish1"></script>
+    <script src="../assets/js/translations.js?v=20261013-pulse-views1"></script>
     <script src="../assets/js/i18n.js?v=20261012-static-navigation1"></script>
-    <link rel="stylesheet" href="../assets/css/forum-content.css?v=20261013-forum-polish1">
+    <link rel="stylesheet" href="../assets/css/forum-content.css?v=20261013-pulse-views1">
+    <link rel="stylesheet" href="../assets/css/forum-polish.css?v=20261014-depth1">
 </head>
 <body class="forum-page">
     <a class="forum-skip-link" href="#forum-main" data-forum-i18n="forum.skip">Zum Forum-Inhalt</a>
@@ -188,7 +189,7 @@
                                 <button type="button" data-forum-filter="closed" aria-pressed="false" data-forum-i18n="forum.closed">Geschlossen</button>
                             </div>
                         </div>
-                        <div class="forum-topic-heading" aria-hidden="true"><span data-forum-i18n="forum.topic">Thema</span><span data-forum-i18n="forum.replies">Antworten</span><span data-forum-i18n="forum.lastActivity">Letzte Aktivität</span></div>
+                        <div class="forum-topic-heading" aria-hidden="true"><span data-forum-i18n="forum.topic">Thema</span><span data-forum-i18n="forum.replies">Antworten</span><span data-forum-i18n="forum.views">Aufrufe</span><span data-forum-i18n="forum.lastActivity">Letzte Aktivität</span></div>
                         <p id="forum-category-server-status" class="forum-panel-description" role="status" hidden></p>
                         <ul id="forum-server-topics" class="forum-server-topics"></ul>
                         <button type="button" id="forum-load-topics" class="forum-button forum-button-secondary forum-list-more" data-forum-i18n="forum.loadMore" hidden>Mehr laden</button>
@@ -298,6 +299,7 @@
                         <div class="forum-panel-heading"><div><span class="forum-eyebrow" id="forum-thread-category" data-i18n-ignore></span><h2 id="forum-thread-heading" tabindex="-1" data-i18n-ignore>Thema</h2></div></div>
                         <p id="forum-thread-server-status" class="forum-panel-description" role="status" hidden></p>
                         <p id="forum-thread-states" class="forum-thread-status" data-i18n-ignore hidden></p>
+                        <p id="forum-thread-views" class="forum-thread-view-count" data-i18n-ignore hidden></p>
                         <div id="forum-thread-moderation" class="forum-moderation" hidden></div>
                         <div id="forum-thread-posts" class="forum-thread-posts"></div>
                         <button type="button" id="forum-load-posts" class="forum-button forum-button-secondary forum-list-more" data-forum-i18n="forum.loadMore" hidden>Mehr laden</button>
@@ -366,8 +368,10 @@
     <script src="../assets/js/main.js?v=20261008-release1"></script>
     <script src="../assets/js/identity.js?v=20261008-release1"></script>
     <script src="../assets/js/forum-api.js?v=20261012-account-roles1"></script>
-    <script src="../assets/js/forum-activity.js?v=20261013-forum-polish1"></script>
-    <script src="../assets/js/forum-content.js?v=20261013-forum-polish1"></script>
-    <script src="../assets/js/forum.js?v=20261013-forum-polish1"></script>
+<script src="../assets/js/community-features.js?v=20261013-pulse-active1"></script>
+    <script src="../assets/js/forum-views.js?v=20261013-pulse-views1"></script>
+    <script src="../assets/js/forum-activity.js?v=20261013-pulse-views1"></script>
+    <script src="../assets/js/forum-content.js?v=20261013-pulse-views1"></script>
+    <script src="../assets/js/forum.js?v=20261013-pulse-views1"></script>
 </body>
 </html>

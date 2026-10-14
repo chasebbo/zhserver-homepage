@@ -1,5 +1,100 @@
 # Forum – Fortsetzungscheckpoint
 
+## Produktivfreigabe für Pulse / Views / Forum-Polish – 14.10.2026
+
+Der Nutzer hat den aktuell geprüften optischen Forumstand und die bestehende
+Views-Anbindung zum gezielten Commit/Push und GitHub-Pages-Deployment freigegeben.
+Vorhandene Hierarchie, Themen/Antworten, Moderation, Rollen, Avatare und Profile
+bleiben erhalten. Keine neue Funktion, Strukturänderung oder Migration.
+Gemeinsamer Release mit Community Pulse und dem freigegebenen Startseiten-Hero;
+die separate lokale Adminzentralisierung und fremde Wiki-/GAME-/Validierungs-
+arbeiten ausschließen. Live-Abnahme nach Deployment, danach STOPP.
+Release-Nachweise außerhalb Git: `homepage-forum-release-20261014`.
+
+## Abschließende lokale Sichtprüfung – 14.10.2026
+
+- Nach ausdrücklicher Freigabe des Startseiten-/Community-Pulse-Layouts nur
+  den vorhandenen Forum-Polish fortgesetzt. Der vollständige CSS-Stand aus
+  dem folgenden Abschnitt ist bereits vorhanden und wurde unverändert
+  übernommen; kein weiterer Umbau oder neue Funktion erforderlich.
+- Originalauftrag `31116c8d-fdd2-47c2-90cc-1f82799a1c17` mit dem aktuellen
+  CSS und tatsächlichen Browseransichten abgeglichen: getrennte Kategorie-
+  und Themenflächen, gruppierte letzte Aktivität und Antwort-/Aufrufzahlen,
+  eigener Autorbereich und gut lesbare Beitragsfläche, ruhige Goldakzente,
+  zurückhaltende Pinned-/Closed-/Recent-Zustände und ausschließlich Top 5.
+  Keine zusätzlichen Icons, Rangdaten, Sidebar-Statistiken oder Animationen.
+- Die 30 vorhandenen Layoutprüfungen für Übersicht, Themenliste und Thread
+  bei 1440/1280/768/390/360 px in DE/EN wiederverwendet. Zusätzlich 15 aktuelle
+  gezielte Browserprüfungen auf Port 5500: Kategorie → eigenständiger Thread,
+  DE/EN, alle fünf Breiten, Mobile-Themenliste und Kategorienübersicht.
+  Keine horizontalen Überläufe oder abgeschnittenen Informationsbereiche.
+  Sidebar auf kleinen Breiten unter der Hauptliste, Avatar im Thread 64 px
+  auf Desktop / 48 px auf Mobile. Öffentliche Autorinformationen ohne E-Mail.
+- Nur vorhandenes öffentliches Thema gelesen. Keine Beiträge, Antworten,
+  Profile, Rollen oder Moderationszustände verändert. Struktur, Views und
+  Top-5-Logik sowie kompletter globaler Footer unverändert. Browserlogs:
+  0 relevante Fehler / 0 Warnungen. Keine neuen Backend-/Supabaseprüfungen
+  oder Migrationen; bestehende Funktionsnachweise bleiben maßgeblich.
+- Neue echte Browserbilder: Kategorienübersicht Desktop, Themenliste Desktop,
+  vollständiger Thread Desktop und Mobile-Themenliste. Nachweise außerhalb Git:
+  `C:/Users/sebbo/.codex/visualizations/2026/09/30/01a0f137-f3f5-7bc0-b080-7b451ea65ff0/forum-polish-final-20261014`
+  mit `overview-desktop.jpg`, `topics-desktop.jpg`, `thread-desktop.jpg`,
+  `topics-mobile.jpg`, `fresh-responsive-validation.json`, `browser-logs.json`
+  und `final-scope-validation.json`.
+- In dieser Fortsetzung ausschließlich diesen Checkpoint ergänzt und neue
+  Nachweise außerhalb Git erstellt. Sämtliche UI-/JS-Dateien einschließlich
+  des freigegebenen Hero-/Karten-/Pulse-Stands unverändert erhalten.
+  HEAD/Index unverändert; `git diff --check` sauber.
+  **Kein Commit, Push, Deployment oder Webexport. STOPP zur letzten visuellen Abnahme.**
+
+## Letzter optischer Polish lokal abgeschlossen – 14.10.2026
+
+- Bestehenden aktuellen Stand übernommen; kein Neuaufbau der Forumfunktionen.
+  Zusätzliche rein gestalterische `assets/css/forum-polish.css`, ausschließlich
+  auf `.forum-page` begrenzt; Einbindung nach den vorhandenen Forumstyles.
+- Kategorien als getrennte dunkle Flächen mit feinen Rahmen, ruhiger
+  Hintergrundtiefe, klarerem Titel und warmer Hover-/Fokusbetonung. Letztes Thema,
+  letzter Autor und Zeitpunkt rechts als eigener Informationsbereich; Mobile
+  unter der Kategorie. Ehrliche leere Zustände vollständig erhalten.
+- Themen als getrennte Zeilenflächen: Autor/Avatar, zusammengehörige Antwort-/
+  Aufrufzahlen und eigener letzter Aktivitätsbereich. Vorhandene Recent-/Pinned-/
+  Closed-Zustände gestalterisch verwendet; keine neuen Statusdaten oder Logik.
+- Einzelne Beiträge mit dezentem Rahmen/Schatten, eigenständigem Autorbereich,
+  64-px-Avatar auf Desktop, 48 px auf Mobile, ruhiger Rolle und besser lesbarem
+  Textbereich. Vorhandene optionale Rangdarstellung erhalten; kein Rang erfunden.
+  Letzter Beitrag bleibt dezent markiert. Antworten verwenden dieselbe Beitragsfläche.
+- Sidebar ausschließlich Top 5, eigener dezenter Container mit getrennten
+  Einträgen; keine Statistiken oder Ersatzblöcke. Wichtige Aktionen in Gold,
+  übrige Buttons schlicht. Keine neuen Icons/Badges und keine Animation;
+  Reduced-Motion-Regel deaktiviert die kurzen Farb-/Rahmenübergänge.
+- Klassische Hierarchie Kategorien → Themenliste → eigener Thread → Antworten
+  erhalten. Ausschließlich vorhandenes öffentliches Thema gelesen; keine
+  produktiven Testthemen/-antworten angelegt, keine Beiträge bearbeitet/moderiert.
+
+Lokale Prüfung auf `http://127.0.0.1:5500/forum/`: alle drei Ansichten jeweils
+1440/1280/768/390/360 px in DE/EN = 30 Layoutzustände. Horizontale Überläufe 0,
+abgeschnittene Informationsblöcke 0; Sidebar auf kleinen Breiten unter der
+Hauptliste. Bestehender zentraler cHa-Account/öffentlicher Avatar/Rolle sichtbar,
+Footer vollständig, Besucher-Script weiterhin genau einmal. Browserlogs:
+0 Fehler / 0 Warnungen. Forum-HTML und neue CSS-Datei nativ HTTP 200 mit
+passenden MIME-Typen. Keine erneuten Schreib-/Moderations-/Backendtests bei
+unveränderter Logik; vorhandene Nachweise bleiben maßgeblich.
+
+Echte neue Screenshots: Kategorienübersicht Desktop, Themenliste Desktop,
+Thread Desktop, Themenliste Mobile. Nachweise außerhalb Git:
+`C:/Users/sebbo/.codex/visualizations/2026/09/30/01a0f137-f3f5-7bc0-b080-7b451ea65ff0/forum-polish-20261014`
+mit `overview-desktop.jpg`, `topics-desktop.jpg`, `thread-desktop.jpg`,
+`topics-mobile.jpg` und `responsive-validation.json`.
+
+Für diesen Auftrag nur neue `assets/css/forum-polish.css`, ihre Einbindung
+in `forum/index.html` und dieser Checkpoint. Vorhandene Forum-CSS-/JS-Änderungen
+sowie alle übrigen lokalen Arbeiten erhalten: 52 geschützte Ausgangsdateien
+SHA-256-identisch; Forum-HTML nach Entfernen der neuen CSS-Einbindung identisch
+zum aktuellen Ausgangsstand. HEAD/Index unverändert, `git diff --check` sauber.
+Keine Änderung an Backend,
+Supabase, Rollen, Profilen, Avatarlogik, Views, Top-5-Sortierung, GAME, Wiki oder
+Dedicated. Kein Commit, Push, Deployment oder Webexport. STOPP zur visuellen Abnahme.
+
 ## Releasefreigabe – 13.10.2026
 
 - Nutzer hat den aktuellen Forum-/Profil-/Rollen-/Moderationsstand samt UI-Polish

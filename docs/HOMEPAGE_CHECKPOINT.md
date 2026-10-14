@@ -1,5 +1,15 @@
 # Homepage – Fortsetzungscheckpoint
 
+**Produktivfreigabe 14.10.2026 – Pulse / Hero / Forum:** Der aktuelle responsive
+Hero-/Kartenstand ist visuell abgenommen und bleibt unverändert. Community Pulse,
+Goldverbindung, Forum-CTA, Arma-Info, Entfernung der alten sichtbaren Game-Umfrage,
+Forum-Views/-Polish und zugehörige Sprach-/Checkpointdaten gezielt auf `main`
+veröffentlichen. Bereits installierte Migration nicht erneut ausführen.
+Separate lokale Adminzentralisierung/Account-/Profiländerungen sowie fremde
+Wiki-/GAME-/Prüfdateien erhalten und nicht mitcommitten. Live-Abnahme nach Pages-
+Deployment, danach STOPP. Release-Grenze/Nachweise:
+`docs/COMMUNITY_PULSE_VIEWS_CHECKPOINT.md`, `homepage-forum-release-20261014`.
+
 **Produktivfreigabe 12.10.2026:** Der geprüfte Forum-/Profil-/Rollenstand darf nun
 gezielt auf `origin/main` veröffentlicht werden. Fremde lokale Wiki-Daten/JS und
 Prüfdateien ausschließen; keine neue Backend-/Spieländerung. Release-Grenze und
@@ -787,3 +797,24 @@ Live-Account-/Client-, HTTP-/MIME-/SHA256-/WebSocket- und Responsive-Nachweise:
 `C:/Users/sebbo/.codex/visualizations/2026/09/30/01a0f137-f3f5-7bc0-b080-7b451ea65ff0/homepage-v118-release-20261011`.
 Eine vollständige Live-Abnahme wird vor ihrem tatsächlichen Abschluss nicht
 behauptet. Dedicated/U01/F01/Supabase/Cloudflare/Spielprojekt unverändert.
+
+## Neuer lokaler Arbeitsstand: Community Pulse + Forum-Aufrufe – 13.10.2026
+
+Der zuvor freigegebene Forum-Release ist abgeschlossen; HEAD bleibt
+`49b51da2411ce85059894e808c269b47411dbe26`. Die neue Teilphase verändert diesen
+Release nicht rückwirkend. Rechte Startseitenkarte zu Community Pulse umgebaut,
+Arma als kleine Notiz darunter, vorhandene zentrale Auth/i18n weiterverwendet.
+Adminpflege und echte Thread-Aufrufe lokal vorbereitet und mit isoliertem SQL
+geprüft. Nach ausdrücklicher Freigabe Migration im bestehenden Supabase-Projekt
+angewendet (Version `20261013164013`); beide Schalter in
+`assets/js/community-features.js` lokal true. Cachekennung `20261013-pulse-active1`.
+
+Fortsetzung ausschließlich über `docs/COMMUNITY_PULSE_VIEWS_CHECKPOINT.md` und
+den aktuellen Diff. Exakter Migrationsumfang/Rücknahme:
+`docs/COMMUNITY_PULSE_VIEWS_REVIEW.md`. Migration nicht erneut ausführen. Echte
+lokale Adminanbindung sowie Rechte-/Stimmtests mit vollständigem Rollback
+bestanden. Keine Testfragen/-stimmen gespeichert; echter Thread-Aufruf bleibt
+nach Reload/zweitem Tab bei 1. STOPP vor einem Homepage-Release.
+Kein Commit, Push, Deployment oder Webexport. Fremder
+Wiki-/Prüfbestand, GAME/Dedicated, zentrale Rollen/Profile sowie Besucher/Presence
+bleiben vollständig erhalten.

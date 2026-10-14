@@ -24,7 +24,8 @@
     <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
     <link rel="stylesheet" href="assets/css/community-stats.css?v=20261008-release1">
     <link rel="stylesheet" href="assets/css/identity.css?v=20261008-release1">
-    <script src="assets/js/translations.js?v=20261012-forum1"></script>
+    <script src="assets/js/translations.js?v=20261014-pulse-forum1"></script>
+    <link rel="stylesheet" href="assets/css/community-pulse.css?v=20261014-pulse-viewport1">
     <script src="assets/js/i18n.js?v=20261012-static-navigation1"></script>
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -76,10 +77,10 @@
 
 <section id="hero" class="section era-section" aria-labelledby="era-title">
     <div id="then-now" class="container">
+        <div class="era-primary">
         <div class="era-heading">
             <span class="section-title">EST. 2013</span>
             <h1 id="era-title">WILLKOMMEN ZURÜCK.</h1>
-            <p>Erinnerungen aus über 10 Jahren Zombiehölle und der Einstieg in das neue 2D-Survival-Projekt.</p>
         </div>
         <div class="era-split">
             <article class="era-panel era-past" aria-labelledby="era-past-title">
@@ -107,19 +108,57 @@
                     </div>
                 </div>
             </article>
-            <article class="era-panel era-arma" aria-labelledby="era-arma-title">
-                <div class="era-visual">
-                    <img class="era-image" src="assets/images/hero.png" alt="" aria-hidden="true" width="1672" height="941" decoding="async">
-                </div>
-                <div class="era-story">
-                    <div class="era-copy">
-                        <h2 id="era-arma-title">Zombiehölle für Arma</h2>
-                        <p>Zombiehölle noch einmal im Arma-Umfeld: als kleines Projekt oder als Serverabend mit alten Freunden. Aktuell gibt es keine konkreten Pläne.</p>
-                        <a class="btn btn-outline" href="arma/" aria-label="Mehr zu Zombiehölle für Arma">Mehr dazu <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <article class="era-panel era-pulse" id="community-pulse-card" aria-labelledby="pulse-title">
+                <span class="pulse-eyebrow">COMMUNITY PULSE</span>
+                <h2 id="pulse-title" data-i18n-message="pulse.title">Du entscheidest mit.</h2>
+                <p class="pulse-intro" data-i18n-message="pulse.intro">Deine Meinung zur nächsten Etappe von Zombiehölle Survival.</p>
+                <p id="pulse-status" role="status" data-i18n-message="pulse.preparing">Neue Abstimmungen werden vorbereitet.</p>
+                <div id="pulse-body" hidden>
+                    <h3 id="pulse-question" data-i18n-ignore></h3>
+                    <div id="pulse-options" class="pulse-options"></div>
+                    <div class="pulse-messages">
+                        <p id="pulse-total" class="pulse-quiet" hidden></p>
+                        <p id="pulse-feedback" class="pulse-quiet" role="status" aria-live="polite" hidden></p>
+                        <p id="pulse-closed" class="pulse-quiet" data-i18n-message="pulse.closed" hidden>Diese Abstimmung ist geschlossen.</p>
+                        <p id="pulse-account" class="pulse-account">
+                            <span data-i18n-message="pulse.accountNote">Zum Abstimmen brauchst du deinen ZHServer-Account.</span>
+                            <a id="pulse-login" href="account/?next=%2F%23hero" data-i18n-message="account.signIn">Anmelden</a>
+                            <span aria-hidden="true"> · </span>
+                            <a href="account/?mode=register&amp;next=%2F%23hero" data-i18n-message="account.register">Registrieren</a>
+                        </p>
                     </div>
+                    <div class="pulse-actions"><button type="button" id="pulse-result-toggle" class="pulse-text-button" data-i18n-message="pulse.showResults">Ergebnisse ansehen</button></div>
+                    <div class="pulse-nav" aria-label="Abstimmungen" data-i18n-ignore>
+                        <button type="button" id="pulse-prev" data-i18n-message="pulse.previous">Zurück</button>
+                        <span id="pulse-position"></span>
+                        <button type="button" id="pulse-next" data-i18n-message="pulse.next">Weiter</button>
+                    </div>
+                    <div id="pulse-dots" class="pulse-dots"></div>
+                </div>
+                <div class="pulse-forum">
+                    <a class="pulse-forum-cta" href="forum/"><span data-i18n-message="pulse.forumLink">Zum Forum</span><span aria-hidden="true">→</span></a>
                 </div>
             </article>
+            <svg class="era-connector" viewBox="0 0 100 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <defs>
+                    <linearGradient id="zh-pulse-thread-gold" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0" stop-color="#c7aa65" stop-opacity="0" />
+                        <stop offset=".25" stop-color="#c7aa65" stop-opacity=".6" />
+                        <stop offset=".6" stop-color="#e0c991" stop-opacity=".8" />
+                        <stop offset="1" stop-color="#c7aa65" stop-opacity="0" />
+                    </linearGradient>
+                </defs>
+                <path class="era-thread" d="M 1 20 C 28 5, 65 38, 99 26" />
+                <path class="era-thread era-thread-secondary" d="M 1 48 C 34 65, 68 28, 99 51" />
+                <path class="era-thread-pulse" d="M 1 20 C 28 5, 65 38, 99 26" pathLength="100" />
+            </svg>
         </div>
+        </div>
+        <aside class="era-arma-note" aria-labelledby="era-arma-title">
+            <h2 id="era-arma-title" data-i18n-message="pulse.armaTitle">Zombiehölle für Arma</h2>
+            <p data-i18n-message="pulse.armaNote">Zombiehölle begann im Arma-Umfeld. Für eine Rückkehr zu Arma 3 oder Arma Reforger gibt es derzeit keine konkreten Pläne.</p>
+            <a href="arma/"><span data-i18n-message="pulse.armaMore">Mehr dazu</span><span aria-hidden="true">→</span></a>
+        </aside>
     </div>
 </section>
 
@@ -1654,6 +1693,9 @@
 <script src="assets/js/community-voting.js?v=20260930-shared-vote"></script>
 <script src="assets/js/main.js?v=20261008-release1"></script>
 <script src="assets/js/identity.js?v=20261008-release1"></script>
+<script src="assets/js/community-features.js?v=20261013-pulse-active1"></script>
+<script src="assets/js/community-pulse-api.js?v=20261013-pulse-views1"></script>
+<script src="assets/js/community-pulse.js?v=20261013-pulse-views1"></script>
 
 </body>
 

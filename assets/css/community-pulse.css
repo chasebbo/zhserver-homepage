@@ -1,0 +1,141 @@
+/* Scoped homepage card; the Survival card remains the visual centre. */
+.home-page .era-heading h1 { margin-bottom: 0; }
+.home-page .era-pulse { padding: 28px; background: linear-gradient(145deg,rgba(25,29,28,.94),rgba(10,17,21,.92)); }
+.era-pulse .pulse-eyebrow { color: #c8b377; font-size: .66rem; letter-spacing: .16em; font-weight: 600; }
+.home-page .era-pulse h2 { margin: 12px 0; color: #efe9d9; font: 700 clamp(1.3rem,2vw,1.7rem)/1.3 Cinzel,serif; text-transform: none; letter-spacing: -.01em; }
+.era-pulse .pulse-intro { margin: 0 0 28px; color: #b6c1bd; font-size: .84rem; line-height: 1.7; }
+.era-pulse #pulse-status { margin: auto 0; padding: 24px 0; color: #bbc4bf; font-size: .87rem; line-height: 1.75; }
+.era-pulse #pulse-body { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.era-pulse #pulse-body[hidden], .era-pulse [hidden] { display: none; }
+.era-pulse #pulse-question { margin: 0 0 24px; font: 500 1.12rem/1.6 Inter,sans-serif; color: #eef1e9; overflow-wrap: anywhere; }
+.pulse-options { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+.pulse-option { position: relative; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; min-width: 0; padding: 15px 13px; border: 1px solid rgba(203,176,113,.3); border-radius: 6px; color: #e1dccb; background: rgba(8,14,17,.6); font: 500 .83rem/1.5 Inter,sans-serif; text-align: left; overflow-wrap: anywhere; cursor: pointer; }
+.pulse-option:hover { border-color: #b4a064; background: rgba(202,177,111,.07); }
+.pulse-option.is-selected { border-color: #b9a66c; background: rgba(202,177,111,.09); }
+.pulse-option:disabled { cursor: default; opacity: 1; }
+.pulse-showing-results .pulse-options { grid-template-columns: minmax(0,1fr); }
+.pulse-percent { margin-left: auto; color: #d5c38c; font-variant-numeric: tabular-nums; }
+.pulse-result-bar { display: block; width: 100%; height: 3px; background: linear-gradient(90deg,#b4a064 var(--pulse-share),rgba(162,177,177,.12) var(--pulse-share)); margin-top: 2px; }
+.pulse-quiet, .pulse-account { color: #a6b4ac; font-size: .72rem; line-height: 1.65; margin: 14px 0 0; }
+.pulse-account a, .pulse-text-button { color: #d6c48b; text-decoration: underline; text-underline-offset: 4px; }
+.pulse-text-button { border: 0; padding: 5px 0; background: none; font: inherit; font-size: .74rem; cursor: pointer; }
+.pulse-actions { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 16px; }
+.pulse-nav { display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 8px; margin-top: auto; padding-top: 28px; }
+.pulse-nav button { background: none; border: 0; color: #c9c4b6; padding: 8px 2px; cursor: pointer; font: 500 .7rem/1.5 Inter,sans-serif; }
+.pulse-nav button:disabled { opacity: .35; cursor: default; }
+.pulse-nav #pulse-position { text-align: center; color: #99a79e; font-size: .68rem; }
+.pulse-dots { display: flex; justify-content: center; gap: 2px; padding-top: 4px; }
+.community-pulse-dot { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
+.community-pulse-dot::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #596257; }
+.community-pulse-dot[aria-pressed=true]::before { background: #c9b16f; }
+.era-pulse :is(button,a):focus-visible { outline: 2px solid #d1bd7d; outline-offset: 4px; }
+.era-pulse .pulse-forum { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(176,188,183,.12); }
+.era-pulse .pulse-forum-cta { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 8px 12px; border: 1px solid rgba(195,169,103,.25); border-radius: 5px; background: transparent; color: #cfbd87; font: 500 .74rem/1.5 Inter,sans-serif; text-decoration: none; }
+.era-pulse .pulse-forum-cta:is(:hover,:focus-visible) { border-color: rgba(195,169,103,.5); background: rgba(195,169,103,.04); color: #e2cf96; }
+/* Reserved tracks keep questions, results and messages from moving the navigation.
+   On desktop the primary hero grid subtracts the actual heading height first. */
+@media (min-width:601px) {
+    .home-page .era-split > .era-panel { box-sizing: border-box; height: clamp(540px,70vh,640px); min-height: 0; }
+    .home-page .era-pulse { display: grid; grid-template-rows: 16px var(--pulse-heading-track,44px) var(--pulse-intro-track,48px) minmax(0,1fr) var(--pulse-forum-track,55px); row-gap: var(--pulse-gap,12px); }
+    .home-page .era-pulse > .pulse-eyebrow { grid-row: 1; }
+    .home-page .era-pulse > h2 { grid-row: 2; align-self: center; margin: 0; }
+    .home-page .era-pulse > .pulse-intro { grid-row: 3; margin: 0; }
+    .home-page .era-pulse #pulse-status { grid-row: 4; min-height: 0; max-height: 100%; align-self: center; margin: 0; padding: 0; overflow: auto; }
+    .home-page .era-pulse #pulse-body { grid-row: 4; min-height: 0; display: grid; grid-template-rows: var(--pulse-question-track,96px) minmax(0,1fr) var(--pulse-message-track,60px) var(--pulse-action-track,28px) var(--pulse-nav-track,32px) 24px; row-gap: var(--pulse-body-gap,4px); }
+    .home-page .era-pulse #pulse-body[hidden] { display: none; }
+    .home-page .era-pulse #pulse-question { grid-row: 1; min-height: 0; margin: 0; overflow: auto; scrollbar-width: thin; scrollbar-gutter: stable; }
+    .home-page .era-pulse .pulse-options { grid-row: 2; min-height: 0; grid-template-columns: repeat(2,minmax(0,1fr)); grid-auto-rows: minmax(48px,1fr); overflow: auto; scrollbar-width: thin; }
+    .home-page .era-pulse .pulse-option { height: 100%; min-height: 0; max-height: 72px; align-self: center; display: grid; grid-template-columns: minmax(0,1fr) auto; align-content: center; gap: 4px 8px; padding: 8px 10px; overflow: auto; scrollbar-width: thin; }
+    .home-page .era-pulse .pulse-option > span:first-child { grid-column: 1 / -1; }
+    .home-page .era-pulse .pulse-percent { grid-column: 2; grid-row: 2; margin-left: 0; font-size: .68rem; line-height: 1.4; }
+    .home-page .era-pulse .pulse-result-bar { grid-column: 1; grid-row: 2; align-self: center; margin-top: 0; }
+    .home-page .era-pulse .pulse-messages { grid-row: 3; min-height: 0; display: grid; align-content: start; gap: 4px; overflow: auto; scrollbar-width: thin; }
+    .home-page .era-pulse .pulse-messages p { margin: 0; }
+    .home-page .era-pulse .pulse-actions { grid-row: 4; margin: 0; }
+    .home-page .era-pulse .pulse-nav { grid-row: 5; min-height: 0; margin: 0; padding: 0; }
+    .home-page .era-pulse .pulse-nav button { padding-block: 6px; }
+    .home-page .era-pulse .pulse-dots { grid-row: 6; padding: 0; }
+    .home-page .era-pulse .pulse-forum { grid-row: 5; margin: 0; }
+}
+@media (min-width:1101px) {
+    body.home-page > .era-section {
+        --era-top: clamp(180px,21vh,202px);
+        /* Leave room above the existing floating radio control as well. */
+        --era-bottom: 4rem;
+        padding-top: var(--era-top);
+    }
+    .home-page .era-primary {
+        display: grid;
+        grid-template-rows: auto minmax(0,1fr);
+        gap: clamp(14px,2vh,24px);
+        height: calc(100vh - var(--era-top) - var(--era-bottom));
+        /* Up to 700 px for cards plus the heading and its separation. */
+        max-height: calc(700px + 108px);
+    }
+    .home-page .era-heading { margin: 0; }
+    .home-page .era-heading h1 { margin-top: 6px; font-size: clamp(2.05rem,5.2vh,3.5rem); }
+    .home-page .era-split { min-height: 0; container-type: size; }
+    .home-page .era-split > .era-panel { height: 100%; }
+    .home-page .era-visual { flex: 0 0 auto; }
+    .home-page .era-image { height: clamp(100px,28cqh,220px); max-height: none; aspect-ratio: auto; }
+    .home-page .era-story { padding: clamp(12px,3.4cqh,28px); }
+    .home-page .era-copy { min-height: 0; }
+    .home-page .era-copy h2 { font-size: clamp(1.2rem,4cqh,1.7rem); margin-bottom: clamp(6px,1.6cqh,12px); }
+    .home-page .era-copy p { font-size: clamp(.82rem,2.35cqh,.9rem); line-height: 1.6; margin-bottom: clamp(8px,2cqh,16px); }
+    .home-page .era-test-date { margin-bottom: clamp(8px,2cqh,16px); }
+    .home-page .era-copy .btn { min-height: 42px; padding: 9px 14px; font-size: .8rem; }
+    .home-page .era-pulse {
+        --pulse-heading-track: clamp(26px,6.8cqh,44px);
+        --pulse-intro-track: clamp(40px,7cqh,48px);
+        --pulse-forum-track: clamp(44px,9cqh,55px);
+        --pulse-gap: clamp(5px,1.6cqh,12px);
+        --pulse-question-track: clamp(64px,12cqh,96px);
+        --pulse-message-track: clamp(24px,8cqh,56px);
+        --pulse-action-track: 22px;
+        --pulse-nav-track: 28px;
+        --pulse-body-gap: 3px;
+        padding: clamp(12px,3.4cqh,28px);
+    }
+    .home-page .era-pulse h2 { font-size: clamp(1.2rem,4cqh,1.7rem); line-height: 1.25; }
+    .home-page .era-pulse .pulse-intro { font-size: .8rem; line-height: 1.5; }
+    .home-page .era-pulse #pulse-question { font-size: clamp(.9rem,2.6cqh,1.12rem); line-height: 1.4; }
+    .home-page .era-pulse .pulse-options { gap: 8px; }
+    .home-page .era-pulse .pulse-messages p { font-size: .7rem; line-height: 1.5; }
+    .home-page .era-pulse .pulse-forum { padding-top: 4px; align-self: end; }
+    @supports (height: 100dvh) {
+        body.home-page > .era-section { --era-top: clamp(180px,21dvh,202px); }
+        .home-page .era-primary { height: calc(100dvh - var(--era-top) - var(--era-bottom)); gap: clamp(14px,2dvh,24px); }
+        .home-page .era-heading h1 { font-size: clamp(2.05rem,5.2dvh,3.5rem); }
+    }
+    /* Very short browser windows keep navigation and CTAs visible; only long
+       questions, extra options or account notices may scroll in their own track. */
+    @container (max-height: 400px) {
+        .home-page .era-pulse {
+            --pulse-question-track: 48px;
+            --pulse-message-track: 20px;
+            --pulse-gap: 5px;
+            --pulse-body-gap: 2px;
+        }
+        .home-page .era-copy p { line-height: 1.5; }
+    }
+}
+.home-page .era-arma-note { display: grid; grid-template-columns: minmax(130px,190px) minmax(0,1fr) auto; align-items: center; gap: 12px 24px; margin-top: 22px; padding: 18px 22px; border: 1px solid rgba(176,188,183,.16); border-radius: 8px; background: rgba(10,17,21,.72); color: #a6b1ab; font-size: .77rem; line-height: 1.7; }
+.home-page .era-arma-note h2 { margin: 0; color: #c6b584; font: 600 .71rem/1.65 Inter,sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.era-arma-note p { margin: 0; min-width: 0; max-width: 85ch; }
+.era-arma-note a { display: inline-flex; align-items: center; justify-content: center; justify-self: end; gap: 10px; min-height: 40px; padding: 8px 12px; border: 1px solid rgba(195,169,103,.25); border-radius: 5px; color: #cfbd87; white-space: nowrap; font-size: .72rem; text-decoration: none; }
+.era-arma-note a:hover { border-color: rgba(195,169,103,.5); background: rgba(195,169,103,.04); color: #e2cf96; }
+.era-arma-note a:focus-visible { outline: 2px solid #c7aa65; outline-offset: 3px; }
+/* Two fine threads across the actual grid gap, clear of both cards' text. */
+.home-page .era-connector { position: absolute; grid-column: 2 / 3; right: -47px; top: 44%; width: 70px; height: 76px; z-index: 4; overflow: visible; pointer-events: none; opacity: .6; transition: opacity .35s ease; filter: drop-shadow(0 0 3px rgba(198,169,102,.18)); }
+.era-connector path { fill: none; vector-effect: non-scaling-stroke; }
+.era-thread { stroke: url(#zh-pulse-thread-gold); stroke-width: .8px; }
+.era-thread-secondary { stroke-width: .6px; opacity: .6; }
+.era-thread-pulse { stroke: #e5cc94; stroke-width: 1.2px; stroke-linecap: round; stroke-dasharray: 12 120; stroke-dashoffset: 16; opacity: 0; animation: zh-community-thread 18s linear infinite; }
+.era-present:is(:hover,:focus-within) ~ .era-connector, .era-pulse:is(:hover,:focus-within) ~ .era-connector { opacity: .95; }
+@keyframes zh-community-thread { 0%,60% { stroke-dashoffset: 16; opacity: 0; } 66% { stroke-dashoffset: 0; opacity: .8; } 90% { stroke-dashoffset: -88; opacity: .55; } 97%,100% { stroke-dashoffset: -116; opacity: 0; } }
+@media (min-width:801px) and (max-width:1100px) { .home-page .era-pulse { grid-column: 1 / -1; width: 100%; max-width: 600px; justify-self: center; } }
+@media (max-width:1100px) { .era-connector { display: none; } }
+@media (max-width:900px) { .home-page .era-arma-note { grid-template-columns: minmax(0,1fr); align-items: start; padding: 18px 20px; gap: 10px; } .era-arma-note a { justify-self: start; } }
+@media (max-width:600px) { .home-page .era-pulse { padding: 24px; } }
+@media (max-width:600px) { .era-pulse .pulse-forum-cta { display: flex; width: 100%; } }
+@media (prefers-reduced-motion:reduce) { .home-page .era-connector { transition: none; opacity: .45; } .era-thread-pulse { display: none; animation: none; } }
