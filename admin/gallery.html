@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Galerie</title>
+    <title>Galerie | ZHServer Admin</title>
 
         <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
@@ -14,7 +14,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
     <link rel="stylesheet" href="../assets/css/style.css?v=20260812-ui2">
-    <link rel="stylesheet" href="admin.css?v=20261008-account2">
+    <link rel="stylesheet" href="admin.css?v=20261014-gallery-admin1">
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -28,22 +28,35 @@
 
         <div class="dashboard-header">
 
-            <h2>🖼 Galerie</h2>
+            <div><span class="section-title">COMMUNITY</span><h2>GALERIE</h2></div>
 
             <a href="dashboard.html" class="btn">
-                ← Dashboard
+                &larr; Dashboard
             </a>
 
         </div>
 
-        <div id="galleryEntries"></div>
+        <p class="admin-feedback-intro">Freigeben, Zurückziehen und endgültiges Löschen sind ausschließlich für die zentrale Adminrolle freigeschaltet. Endgültiges Löschen entfernt zuerst die Bilddatei aus dem Galerie-Speicher und danach den Galerieeintrag.</p>
+
+        <p id="galleryAdminStatus" class="admin-gallery-status" role="status" aria-live="polite"></p>
+
+        <section class="admin-gallery-section" aria-labelledby="galleryPendingTitle">
+            <h3 id="galleryPendingTitle">OFFENE UPLOADS <span id="galleryPendingCount" class="admin-gallery-count"></span></h3>
+            <div id="galleryPending" class="admin-gallery-list"></div>
+        </section>
+
+        <section class="admin-gallery-section" aria-labelledby="galleryApprovedTitle">
+            <h3 id="galleryApprovedTitle">FREIGEGEBENE SCREENSHOTS <span id="galleryApprovedCount" class="admin-gallery-count"></span></h3>
+            <div id="galleryApproved" class="admin-gallery-list"></div>
+        </section>
 
     </div>
 
 </section>
 
 <script src="access.js?v=20261012-central-role2"></script>
-<script src="gallery.js?v=20261008-account2"></script>
+<script src="admin.js?v=20261008-account2"></script>
+<script src="gallery.js?v=20261014-gallery-admin1"></script>
 
 </body>
 
