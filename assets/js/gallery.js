@@ -9,6 +9,12 @@ const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const closeLightbox = document.getElementById("closeLightbox");
 let galleryImageTrigger = null;
+const GALLERY_MAX_BYTES = 5 * 1024 * 1024;
+const GALLERY_IMAGE_TYPES = new Map([
+    ["image/png", "png"],
+    ["image/jpeg", "jpg"],
+    ["image/webp", "webp"]
+]);
 
 function updateGalleryFileName() {
         const file = galleryImageField.files[0];
@@ -270,11 +276,19 @@ function updateGalleryFileName() {
             galleryChooseFile.focus();
             return;
         }
+        // Mirrors the gallery bucket limits and storage name policy.
+        const extension = GALLERY_IMAGE_TYPES.get(file.type);
+        if (!extension || file.size > GALLERY_MAX_BYTES) {
+            ZHLanguage.bind(uploadStatus, "gallery.upload.invalidFile");
+            galleryChooseFile.focus();
+            return;
+        }
 
         ZHLanguage.bind(uploadStatus, "gallery.uploading");
         stage = "upload";
-        const fileName = `${Date.now()}-${file.name}`;
-        const { error: uploadError } = await supabaseClient.storage.from("gallery").upload(fileName, file);
+        const fileName = `${crypto.randomUUID()}.${extension}`;
+        const { error: uploadError } = await supabaseClient.storage.from("gallery")
+            .upload(fileName, file, { cacheControl: "31536000", contentType: file.type, upsert: false });
         if (uploadError) throw uploadError;
         const { data: urlData } = supabaseClient.storage.from("gallery").getPublicUrl(fileName);
         stage = "save";

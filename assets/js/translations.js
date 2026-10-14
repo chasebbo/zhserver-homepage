@@ -3464,6 +3464,10 @@ window.ZHTranslations = {
       "de": "Bitte wähle ein Bild aus.",
       "en": "Please choose an image."
     },
+    "gallery.upload.invalidFile": {
+      "de": "Bitte wähle ein PNG-, JPEG- oder WebP-Bild bis 5 MB.",
+      "en": "Please choose a PNG, JPEG or WebP image up to 5 MB."
+    },
     "gallery.uploading": {
       "de": "Upload läuft...",
       "en": "Uploading..."
