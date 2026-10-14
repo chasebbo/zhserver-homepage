@@ -10,6 +10,16 @@ Wiki-/GAME-/Prüfdateien erhalten und nicht mitcommitten. Live-Abnahme nach Page
 Deployment, danach STOPP. Release-Grenze/Nachweise:
 `docs/COMMUNITY_PULSE_VIEWS_CHECKPOINT.md`, `homepage-forum-release-20261014`.
 
+**Separater Release freigegeben 14.10.2026 – zentraler Adminbereich:** `/admin/` führt die
+bestehenden Forum-/Pulse-/Gästebuch-/Galerie-/Feedbackfunktionen als gemeinsame
+Übersicht zusammen. Profil und Accountmenü zeigen den Adminlink erst nach
+bestehender serverseitiger Rollenprüfung. Zentrale Anmeldung wiederverwendet;
+`dashboard.html` als kompatible Weiterleitung, Einzelverwaltungen/Guards/RPCs
+unverändert. Echte cHa-Sitzung, alle fünf Ziele, Reload, DE/EN und Responsive
+lokal geprüft; vorhandener Stand jetzt zur Veröffentlichung freigegeben. Keine Migration. Details/Grenze:
+`docs/ADMIN_CENTRAL_CHECKPOINT.md`. Vorangegangenen Pulse-/Views-Stand und fremde
+Wiki-/Prüfänderungen vollständig erhalten.
+
 **Produktivfreigabe 12.10.2026:** Der geprüfte Forum-/Profil-/Rollenstand darf nun
 gezielt auf `origin/main` veröffentlicht werden. Fremde lokale Wiki-Daten/JS und
 Prüfdateien ausschließen; keine neue Backend-/Spieländerung. Release-Grenze und

@@ -1,70 +1,116 @@
-<!DOCTYPE html>
-<html lang="de">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!doctype html>
+<html lang="de" data-homepage-i18n>
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ZHServer Admin</title>
-
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="../site.webmanifest">
-
-    <link rel="stylesheet" href="../assets/css/style.css?v=20260812-ui2">
-    <link rel="stylesheet" href="admin.css?v=20261008-account2">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+ <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>Adminbereich · ZHServer</title><link rel="icon" href="../favicon.ico">
+ <link rel="stylesheet" href="../assets/css/style.css?v=20260910-nav">
+ <link rel="stylesheet" href="../assets/css/i18n.css?v=20260930-de-en">
+ <link rel="stylesheet" href="../assets/css/homepage-premium.css?v=20261008-release1">
+ <link rel="stylesheet" href="../assets/css/header.css?v=20261001-original-logo">
+ <link rel="stylesheet" href="../assets/css/identity.css?v=20261008-release1">
+ <link rel="stylesheet" href="admin.css?v=20261008-account2">
+ <link rel="stylesheet" href="dashboard.css?v=20261014-admin-hub1">
+ <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ <script src="../assets/js/translations.js?v=20261014-admin-hub1"></script>
+ <script src="../assets/js/i18n.js?v=20261014-admin-hub1"></script>
 </head>
+<body class="admin-hub-page" data-zh-admin-protected>
+<header class="header zh-site-header">
+    <div class="container">
+        <nav class="navbar">
+            <div class="header-brand-row">
+                <a href="../index.html#" class="header-emblem">
+                    <img src="../assets/images/android-chrome-512x512.png" width="512" height="512" alt="Zombiehölle / ZHServer" decoding="async">
+                </a>
+                <a href="../index.html#" class="logo">ZHServer.de / Zombiehölle.de</a>
+                <div class="header-controls">
+                    <div class="language-switcher" role="group" aria-label="Sprache wählen">
+                        <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
+                        <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
+                    </div>
+                    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Navigation öffnen" aria-controls="nav-menu" aria-expanded="false">
+    ☰
+</button>
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#hero">Start</a></li>
+                <li><a href="../game.html" class="nav-game-link">SPIEL</a></li>
+                <li><a href="../wiki.html">Wiki</a></li>
+                <li><a href="../forum/" data-forum-route>Forum</a></li>
+                <li><a href="../gallery.html">Galerie</a></li>
+                <li><a href="../index.html#history">Geschichte</a></li>
+                <li><a href="../index.html#timeline">Timeline</a></li>
+                <li><a href="../index.html#guestbook">Gästebuch</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="admin-hub" id="admin-hub">
+    <span class="section-title">ZHSERVER ADMIN</span>
+    <h1 data-admin-i18n="admin.title">Adminbereich</h1>
+    <p class="admin-hub-intro" data-admin-i18n="admin.intro">Die bestehenden ZHServer-Funktionen an einem Ort.</p>
+    <section class="admin-hub-gate" id="admin-hub-gate">
+        <p id="admin-hub-status" role="status" aria-live="polite" data-admin-i18n="admin.checking">Adminzugang wird geprüft …</p>
+        <div class="admin-hub-actions"><a class="btn btn-gold" id="admin-hub-login" href="../account/?next=../admin/" data-admin-i18n="account.signIn" hidden>Anmelden</a><a class="btn btn-outline" href="../profile/" data-admin-i18n="account.myProfile">Mein Profil</a></div>
+    </section>
+    <section class="admin-hub-content" id="admin-hub-content" aria-label="Adminfunktionen" data-admin-i18n="admin.functions" data-admin-label hidden>
+        <div class="admin-hub-session"><p id="admin-hub-identity" data-i18n-ignore></p><a href="../profile/" data-admin-i18n="account.myProfile">Mein Profil</a></div>
+        <div class="admin-hub-grid">
+        <a class="admin-hub-link" href="../forum/#overview"><h2 data-admin-i18n="admin.forum">Forum / Moderation</h2><p data-admin-i18n="admin.forumText">Themen und Antworten im Forum prüfen und moderieren.</p><span class="admin-hub-open" data-admin-i18n="admin.open">Öffnen</span></a>
+        <a class="admin-hub-link" href="community-pulse.html"><h2 data-admin-i18n="admin.pulse">Community Pulse / Umfragen</h2><p data-admin-i18n="admin.pulseText">Fragen, Antwortoptionen und Sichtbarkeit der Umfragen verwalten.</p><span class="admin-hub-open" data-admin-i18n="admin.open">Öffnen</span></a>
+        <a class="admin-hub-link" href="guestbook.html"><h2 data-admin-i18n="admin.guestbook">Gästebuch</h2><p data-admin-i18n="admin.guestbookText">Einträge prüfen, freigeben und verwalten.</p><span class="admin-hub-open" data-admin-i18n="admin.open">Öffnen</span></a>
+        <a class="admin-hub-link" href="gallery.html"><h2 data-admin-i18n="admin.gallery">Galerie / Screenshots</h2><p data-admin-i18n="admin.galleryText">Eingereichte Screenshots prüfen und verwalten.</p><span class="admin-hub-open" data-admin-i18n="admin.open">Öffnen</span></a>
+        <a class="admin-hub-link" href="feedback.html"><h2 data-admin-i18n="admin.feedback">Bugs / Ideen / Feedback</h2><p data-admin-i18n="admin.feedbackText">Bestehende Bug-, Ideen- und Feedbackmeldungen verwalten.</p><span class="admin-hub-open" data-admin-i18n="admin.open">Öffnen</span></a>
+        </div>
+    </section>
+</main>
+<footer class="site-footer zh-global-footer">
 
-<body>
+    <div class="container footer">
 
-<section class="section dark">
+        <div>
 
-    <div class="container login-container">
+            <h3>
+                ZHServer Community
+            </h3>
 
-        <span class="section-title">
-            ZHSERVER ADMIN
-        </span>
+            <p>
+                Seit 2013
+            </p>
 
-        <h2>Anmeldung</h2>
+            <p class="footer-visitor"><span id="total-visitors">0</span> Besucher insgesamt</p>
 
-        <div class="card login-card">
+        </div>
 
-            <input
-                type="email"
-                id="email"
-                placeholder="E-Mail">
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Passwort">
+        <div>
 
-            <button id="loginBtn" class="btn">
-                Anmelden
-            </button>
+            <a href="../pages/impressum.html">
+                Impressum
+            </a>
 
-            <p id="loginMessage"></p>
+            |
+
+            <a href="../pages/datenschutz.html">
+                Datenschutz
+            </a>
+
+            <br><br>
+
+            © 2013–2026 ZHServer Community
 
         </div>
 
     </div>
 
-</section>
-
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/visitor-counter.js?v=20261008-release1"></script>
+<script src="../assets/js/main.js?v=20261008-release1"></script>
+<script src="../assets/js/identity.js?v=20261008-account2"></script>
+<script src="../assets/js/account.js?v=20261014-admin-hub1" data-zh-account-loader></script>
 <script src="access.js?v=20261012-central-role2"></script>
-<script src="admin.js?v=20261008-account2"></script>
-
+<script src="dashboard.js?v=20261014-admin-hub1"></script>
 </body>
 </html>

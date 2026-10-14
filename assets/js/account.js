@@ -13,7 +13,8 @@
     const nameEditingEnabled = false;
     const site = path => new URL(path, root).href;
     const allowed = new Set(['', 'index.html', 'game.html', 'gallery.html', 'wiki.html', 'forum/',
-        'forum/index.html', 'arma/', 'arma/index.html', 'bugs/', 'bugs/index.html', 'profile/', 'profile/index.html']);
+        'forum/index.html', 'arma/', 'arma/index.html', 'bugs/', 'bugs/index.html', 'profile/', 'profile/index.html',
+        'admin/', 'admin/index.html']);
     function safeNext(value) {
         try {
             const url = new URL(value || 'profile/', root);
@@ -54,7 +55,7 @@
     const icon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3.5"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>';
     widget.innerHTML = '<a class="zh-account-guest" data-account-guest>' + icon + '<span data-account-i18n="account.signIn"></span></a>' +
         '<button type="button" class="zh-account-trigger" aria-expanded="false" aria-controls="zh-account-menu" hidden>' + icon + '<span data-account-name></span><span class="zh-account-chevron" aria-hidden="true">⌄</span></button>' +
-        '<nav class="zh-account-menu" id="zh-account-menu" hidden><a data-account-profile data-account-i18n="account.myProfile"></a><a data-account-game data-account-i18n="account.toGame"></a><button type="button" data-account-logout data-account-i18n="account.signOut"></button><p class="zh-account-error" role="status" hidden></p></nav>';
+        '<nav class="zh-account-menu" id="zh-account-menu" hidden><a data-account-profile data-account-i18n="account.myProfile"></a><a data-account-admin data-account-i18n="account.adminArea" hidden></a><a data-account-game data-account-i18n="account.toGame"></a><button type="button" data-account-logout data-account-i18n="account.signOut"></button><p class="zh-account-error" role="status" hidden></p></nav>';
     const trigger = widget.querySelector('button'), menu = widget.querySelector('nav');
     const guest = widget.querySelector('[data-account-guest]');
     guest.href = authUrl();
@@ -97,6 +98,23 @@
     const nameInput = document.getElementById('profile-name-input');
     if (nameForm) nameForm.hidden = !nameEditingEnabled;
     let profileOwner = null, profileRead = 0, profileStatus = '';
+    let adminState = null, adminRead = 0;
+    function renderAdminLinks(state, signedIn) {
+        if (adminState === state) return;
+        adminState = state;
+        const ticket = ++adminRead;
+        const links = [...document.querySelectorAll('[data-account-admin]')];
+        links.forEach(link => { link.href = site('admin/'); link.hidden = true; });
+        if (!signedIn) return;
+        ready.then(async identity => {
+            await loadScript(site('admin/access.js?v=20261012-central-role2'), () => !!window.ZHAdminAccess);
+            const allowed = await window.ZHAdminAccess.require(identity.client, { redirect: false });
+            const current = await identity.client.auth.getSession();
+            if (ticket !== adminRead || identity.state !== state || current.error ||
+                current.data.session?.user?.id !== state.userId) return;
+            links.forEach(link => { link.hidden = !allowed; });
+        }).catch(() => { /* Unverified role never exposes an admin shortcut. */ });
+    }
     function setMessage(key) {
         accountStatus = key;
         const message = document.getElementById('account-status');
@@ -139,6 +157,7 @@
     }
     function render(state) {
         const signedIn = !!state.userId && ['member', 'nameRequired'].includes(state.status);
+        renderAdminLinks(state, signedIn);
         guest.hidden = signedIn; trigger.hidden = !signedIn;
         const name = widget.querySelector('[data-account-name]');
         name.textContent = state.displayName || language.t('account.title');
