@@ -44,7 +44,7 @@
             if (created) { script.src = src; document.body.append(script); }
         });
     }
-    const cssUrl = site('assets/css/account.css?v=20261008-account2');
+    const cssUrl = site('assets/css/account.css?v=20261014-welcome1');
     if (![...document.querySelectorAll('link[rel="stylesheet"]')].some(node => node.href === cssUrl)) {
         const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = cssUrl;
         document.head.append(css);
@@ -54,24 +54,35 @@
     widget.className = 'zh-account'; widget.setAttribute('data-i18n-ignore', '');
     const icon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3.5"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>';
     widget.innerHTML = '<a class="zh-account-guest" data-account-guest>' + icon + '<span data-account-i18n="account.signIn"></span></a>' +
+        '<a class="zh-account-register" data-account-register><span data-account-i18n="account.register"></span></a>' +
         '<button type="button" class="zh-account-trigger" aria-expanded="false" aria-controls="zh-account-menu" hidden>' + icon + '<span data-account-name></span><span class="zh-account-chevron" aria-hidden="true">⌄</span></button>' +
         '<nav class="zh-account-menu" id="zh-account-menu" hidden><a data-account-profile data-account-i18n="account.myProfile"></a><a data-account-admin data-account-i18n="account.adminArea" hidden></a><a data-account-game data-account-i18n="account.toGame"></a><button type="button" data-account-logout data-account-i18n="account.signOut"></button><p class="zh-account-error" role="status" hidden></p></nav>';
     const trigger = widget.querySelector('button'), menu = widget.querySelector('nav');
     const guest = widget.querySelector('[data-account-guest]');
+    const register = widget.querySelector('[data-account-register]');
     guest.href = authUrl();
+    register.href = authUrl('register');
     widget.querySelector('[data-account-profile]').href = site('profile/');
     widget.querySelector('[data-account-game]').href = site('game.html');
     const mobileItem = document.createElement('li'); mobileItem.className = 'zh-account-mobile';
+    // On small screens the account area lives in the menu; guests still see a compact "Register" in the bar.
+    const quickRegister = document.createElement('a');
+    quickRegister.className = 'zh-account-quick-register'; quickRegister.href = authUrl('register');
+    quickRegister.setAttribute('data-i18n-ignore', ''); language.bind(quickRegister, 'account.register');
     const mobile = window.matchMedia('(max-width: 900px)');
+    // Between 741 and 900px the title shares the row with the controls; the free left column takes the button.
+    const midWidth = window.matchMedia('(min-width: 741px) and (max-width: 900px)');
     function placeWidget() {
         if (!header) return;
         if (mobile.matches) {
             header.querySelector('.nav-menu').append(mobileItem); mobileItem.append(widget);
+            if (midWidth.matches) header.querySelector('.header-emblem').after(quickRegister);
+            else header.querySelector('.header-controls').prepend(quickRegister);
         } else {
-            header.querySelector('.header-controls').prepend(widget); mobileItem.remove();
+            header.querySelector('.header-controls').prepend(widget); mobileItem.remove(); quickRegister.remove();
         }
     }
-    placeWidget(); mobile.addEventListener('change', placeWidget);
+    placeWidget(); mobile.addEventListener('change', placeWidget); midWidth.addEventListener('change', placeWidget);
     function closeMenu(focus = false) {
         menu.hidden = true; trigger.setAttribute('aria-expanded', 'false');
         if (focus && !trigger.hidden) trigger.focus();
@@ -158,7 +169,8 @@
     function render(state) {
         const signedIn = !!state.userId && ['member', 'nameRequired'].includes(state.status);
         renderAdminLinks(state, signedIn);
-        guest.hidden = signedIn; trigger.hidden = !signedIn;
+        guest.hidden = signedIn; register.hidden = signedIn; quickRegister.hidden = signedIn; trigger.hidden = !signedIn;
+        if (signedIn) window.ZHWelcome?.close();
         const name = widget.querySelector('[data-account-name]');
         name.textContent = state.displayName || language.t('account.title');
         trigger.setAttribute('aria-label', language.t('account.menuLabel', { name: state.displayName || language.t('account.title') }));
@@ -195,6 +207,41 @@
             location.replace(next);
         }
     }
+    // First-visit welcome for guests on content pages only. A local flag (never a cookie) stops repeats;
+    // without any usable browser storage the welcome is skipped rather than shown on every page.
+    const welcomeKey = 'zh_welcome_seen_v1';
+    const welcomePages = new Set(['', 'index.html', 'gallery.html', 'forum/', 'forum/index.html', 'bugs/', 'bugs/index.html',
+        'arma/', 'arma/index.html', 'game-development.html']);
+    let welcomeTimer = 0, welcomeShown = false;
+    function welcomeStore() {
+        for (const name of ['localStorage', 'sessionStorage']) {
+            try {
+                const store = window[name];
+                store.setItem('zh_storage_probe', '1'); store.removeItem('zh_storage_probe');
+                return store;
+            } catch (_) { /* Try the next storage area. */ }
+        }
+        return null;
+    }
+    function scheduleWelcome(state) {
+        clearTimeout(welcomeTimer);
+        if (welcomeShown || state.status !== 'guest' || form || profile) return;
+        if (!welcomePages.has(location.pathname.slice(root.pathname.length))) return;
+        const store = welcomeStore();
+        if (!store || store.getItem(welcomeKey)) return;
+        welcomeTimer = setTimeout(async () => {
+            if (window.ZHIdentity?.state.status !== 'guest' || store.getItem(welcomeKey)) return;
+            try {
+                await loadScript(site('assets/js/welcome.js?v=20261014-welcome2'), () => !!window.ZHWelcome);
+                welcomeShown = await window.ZHWelcome.open({
+                    cssUrl: site('assets/css/welcome.css?v=20261014-welcome2'),
+                    registerUrl: authUrl('register'),
+                    loginUrl: authUrl('login'),
+                    remember: () => { try { store.setItem(welcomeKey, new Date().toISOString().slice(0, 10)); } catch (_) { /* Optional. */ } }
+                });
+            } catch (_) { /* The welcome is optional and never blocks the page. */ }
+        }, 1400);
+    }
     async function bootstrap() {
         await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2', () => !!window.supabase?.createClient);
         window.zhSupabaseClient ||= window.supabase.createClient(config.url, config.key);
@@ -204,6 +251,7 @@
         }
         await loadScript(site('assets/js/identity.js?v=20261008-account2'), () => !!window.ZHIdentity);
         window.ZHIdentity.subscribe(render);
+        window.ZHIdentity.subscribe(scheduleWelcome);
         return window.ZHIdentity;
     }
     const ready = Promise.resolve().then(bootstrap);

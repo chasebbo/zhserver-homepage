@@ -1,5 +1,31 @@
 /* Shared account disclosure and the small central account/profile pages. */
-.zh-account { position: relative; flex: 0 0 auto; color: #dce4eb; }
+.zh-account { position: relative; flex: 0 0 auto; display: flex; align-items: center; gap: 8px; color: #dce4eb; }
+/* Guests see a slightly stronger "Register" next to "Sign in": anyone can join, not only admins. */
+.header.zh-site-header .zh-account .zh-account-register {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 42px; padding: 8px 14px;
+    color: #15120a; background: #d4af37;
+    border: 1px solid #d4af37; border-radius: 7px;
+    font-size: .76rem; font-weight: 600; line-height: 1.4; text-decoration: none; white-space: nowrap;
+}
+.header.zh-site-header .zh-account .zh-account-register:hover { color: #15120a; background: #e7c45a; border-color: #e7c45a; }
+.header.zh-site-header .zh-account-quick-register {
+    display: inline-flex; align-items: center; min-height: 36px; padding: 6px 11px;
+    color: #15120a; background: #d4af37; border: 1px solid #d4af37; border-radius: 7px;
+    font-size: .74rem; font-weight: 600; line-height: 1.2; letter-spacing: 0; text-transform: none; text-decoration: none; white-space: nowrap;
+}
+.header.zh-site-header .zh-account-quick-register[hidden] { display: none; }
+.header.zh-site-header .header-brand-row > .zh-account-quick-register { grid-column: 1; grid-row: 1; justify-self: end; align-self: center; margin-right: 12px; }
+@media (max-width: 400px) {
+    .header.zh-site-header .zh-account-quick-register { min-height: 34px; padding: 5px 7px; font-size: .68rem; }
+    .header.zh-site-header .header-controls:has(> .zh-account-quick-register:not([hidden])) { gap: 6px; }
+}
+/* Very narrow phones: no room beside the emblem; "Register" stays in the menu and in the welcome notice. */
+@media (max-width: 350px) {
+    .header.zh-site-header .zh-account-quick-register { display: none; }
+}
+.header.zh-site-header .zh-account-quick-register:hover { background: #e7c45a; border-color: #e7c45a; }
+.header.zh-site-header .zh-account-quick-register:focus-visible { outline: 2px solid #d5b448; outline-offset: 3px; }
 .zh-account [hidden], .account-main [hidden] { display: none !important; }
 .header.zh-site-header .zh-account :is(a, button) { font-family: inherit; text-transform: none; letter-spacing: 0; }
 .header.zh-site-header .zh-account :is(.zh-account-guest, .zh-account-trigger) {
@@ -81,12 +107,21 @@ form > .account-status { margin: 0 0 17px; overflow-wrap: anywhere; }
 .account-actions .btn { padding: 10px 18px; min-height: 44px; font-size: .8rem; }
 @media (min-width: 901px) and (max-width: 1100px) {
     .header.zh-site-header .zh-account :is(.zh-account-guest, .zh-account-trigger) { max-width: 125px; padding-inline: 9px; }
+    .header.zh-site-header .zh-account .zh-account-register { padding-inline: 10px; }
+    /* Narrow desktops: "Sign in" becomes icon-only (name kept for screen readers) so the centred title stays clear. */
+    .header.zh-site-header .zh-account .zh-account-guest { padding-inline: 11px; }
+    .header.zh-site-header .zh-account .zh-account-guest span {
+        position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+    }
     .header.zh-site-header .header-controls { gap: 7px; }
 }
 @media (max-width: 900px) {
     .header.zh-site-header .nav-menu > .zh-account-mobile { padding-top: 11px; margin-top: 5px; border-top: 1px solid rgba(183, 194, 205, .13); }
-    .zh-account { width: 100%; }
+    .zh-account { width: 100%; flex-wrap: wrap; }
     .header.zh-site-header .zh-account :is(.zh-account-guest, .zh-account-trigger) { justify-content: flex-start; width: 100%; max-width: none; }
+    /* In the mobile menu both guest actions share one row. */
+    .header.zh-site-header .zh-account .zh-account-guest:not([hidden]) { flex: 1 1 0; width: auto; }
+    .header.zh-site-header .zh-account .zh-account-register { flex: 1 1 0; }
     .zh-account-menu { position: static; width: 100%; margin-top: 7px; box-shadow: none; border-color: rgba(185, 196, 208, .1); }
     .account-main { padding: 40px 24px 60px; }
     .account-layout { gap: 32px; grid-template-columns: minmax(0, 1fr); max-width: 650px; }

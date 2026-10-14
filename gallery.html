@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en-gallery">
     <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
     <link rel="stylesheet" href="assets/css/identity.css?v=20261008-release1">
-    <script src="assets/js/translations.js?v=20261014-gallery1"></script>
+    <link rel="stylesheet" href="assets/css/gallery.css?v=20261014-gallery-public1">
+    <script src="assets/js/translations.js?v=20261014-gallery-public1"></script>
     <script src="assets/js/i18n.js?v=20261012-static-navigation1"></script>
 
     <link rel="stylesheet"
@@ -72,115 +73,94 @@
     </div>
 </header>
 
-<section class="hero gallery-hero">
+<main class="zh-gallery">
 
-    <div class="hero-overlay"></div>
+<section class="zh-gallery-hero" aria-labelledby="galleryTitle">
 
-    <div class="container hero-container">
+    <div class="container zh-gallery-hero-inner">
 
-        <div class="hero-content">
-
-            <span class="hero-est">
-
-                COMMUNITY
-
-            </span>
-
-            <h1>
-
-                Screenshot Galerie
-
-            </h1>
-
-            <p>
-                Erinnerungen an Zombieh&ouml;lle und ZHServer &bull; Stimme mit einem <i class="fa-solid fa-heart" style="color: #ff5267;" aria-hidden="true"></i> f&uuml;r den Screenshot des Monats ab!
-            </p>
-
+        <div class="zh-gallery-hero-copy">
+            <span class="zh-gallery-kicker">COMMUNITY</span>
+            <h1 id="galleryTitle">Screenshot Galerie</h1>
+            <p>Erinnerungen an Zombiehölle und ZHServer – festgehalten von der Community.</p>
         </div>
+
+        <a class="btn btn-outline zh-gallery-hero-upload" href="#upload" data-gallery-upload-link>Screenshot hochladen</a>
 
     </div>
 
 </section>
 
-<section class="section" id="upload">
+<section class="zh-gallery-main" aria-labelledby="galleryImagesTitle">
 
     <div class="container">
 
-        <span class="section-title">
-
-            SCREENSHOT HOCHLADEN
-
-        </span>
-
-        <h2>
-
-            Teile deine Erinnerungen
-
-        </h2>
-
-        <p>
-
-            Jeder Screenshot wird vor der Veröffentlichung geprüft.
-
-        </p>
-
-        <form id="uploadForm" class="guestbook-box" novalidate>
-
-            <p class="zh-identity-note" data-identity-status role="status" aria-live="polite" hidden></p>
-
-            <input
-                id="uploader"
-                type="text"
-                placeholder="Name / Nickname"
-                aria-label="Name / Nickname"
-                required>
-
-            <textarea
-                id="description"
-                placeholder="Beschreibung (optional)"
-                aria-label="Beschreibung (optional)"></textarea>
-
-            <div class="gallery-file-picker">
-                <button id="galleryChooseFile" class="btn btn-outline" type="button" aria-controls="image" aria-describedby="galleryFileName">Bild auswählen</button>
-                <input id="image" class="gallery-file-input" type="file" accept="image/png,image/jpeg,image/webp" aria-label="Bild auswählen" tabindex="-1" required>
-                <span id="galleryFileName" aria-live="polite">Keine Datei ausgewählt</span>
+        <div class="zh-gallery-head">
+            <div>
+                <span class="zh-gallery-kicker">Bilder/Erinnerungen</span>
+                <h2 id="galleryImagesTitle">Freigegebene Screenshots</h2>
             </div>
+            <p id="galleryCount" class="zh-gallery-count" aria-live="polite"></p>
+        </div>
 
-            <button
-                class="btn btn-gold"
-                type="submit">
-
-                Screenshot hochladen
-
-            </button>
-
-            <p id="uploadStatus" role="status" aria-live="polite"></p>
-
-        </form>
+        <ul id="galleryGrid" class="zh-gallery-grid" aria-label="Galerie-Bilder" aria-busy="true">
+            <li class="zh-gallery-skeleton" aria-hidden="true"></li>
+            <li class="zh-gallery-skeleton" aria-hidden="true"></li>
+            <li class="zh-gallery-skeleton" aria-hidden="true"></li>
+        </ul>
 
     </div>
 
 </section>
 
-<section class="section dark">
+<section class="zh-gallery-upload" id="upload" aria-labelledby="galleryUploadTitle">
 
     <div class="container">
 
-        <span class="section-title">
+        <div class="zh-gallery-upload-bar">
+            <div>
+                <h2 id="galleryUploadTitle">Teile deine Erinnerungen</h2>
+                <p>Jeder Screenshot wird vor der Veröffentlichung geprüft.</p>
+                <p class="zh-gallery-upload-rules">PNG, JPEG oder WebP · maximal 5 MB</p>
+            </div>
+            <button id="galleryUploadToggle" class="btn btn-gold" type="button" aria-expanded="false" aria-controls="galleryUploadPanel">Screenshot hochladen</button>
+        </div>
 
-            Bilder/Erinnerungen
+        <div id="galleryUploadPanel" class="zh-gallery-upload-panel" hidden>
 
-        </span>
+            <form id="uploadForm" class="guestbook-box" novalidate>
 
-        <h2>
+                <p class="zh-identity-note" data-identity-status role="status" aria-live="polite" hidden></p>
 
-            Freigegebene Screenshots
+                <input
+                    id="uploader"
+                    type="text"
+                    placeholder="Name / Nickname"
+                    aria-label="Name / Nickname"
+                    required>
 
-        </h2>
+                <textarea
+                    id="description"
+                    placeholder="Beschreibung (optional)"
+                    aria-label="Beschreibung (optional)"></textarea>
 
-        <div
-            id="galleryGrid"
-            class="gallery-grid" aria-label="Galerie-Bilder" aria-live="polite">
+                <div class="gallery-file-picker">
+                    <button id="galleryChooseFile" class="btn btn-outline" type="button" aria-controls="image" aria-describedby="galleryFileName">Bild auswählen</button>
+                    <input id="image" class="gallery-file-input" type="file" accept="image/png,image/jpeg,image/webp" aria-label="Bild auswählen" tabindex="-1" required>
+                    <span id="galleryFileName" aria-live="polite">Keine Datei ausgewählt</span>
+                </div>
+
+                <button
+                    class="btn btn-gold"
+                    type="submit">
+
+                    Screenshot hochladen
+
+                </button>
+
+                <p id="uploadStatus" role="status" aria-live="polite"></p>
+
+            </form>
 
         </div>
 
@@ -188,11 +168,18 @@
 
 </section>
 
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot groß anzeigen" aria-hidden="true">
+</main>
 
-    <button id="closeLightbox" type="button" aria-label="Bild schließen">&times;</button>
+<div id="lightbox" class="zh-gallery-lightbox" role="dialog" aria-modal="true" aria-label="Screenshot groß anzeigen" hidden>
 
-    <img id="lightboxImage" alt="" data-i18n-ignore>
+    <button id="closeLightbox" class="zh-gallery-lightbox-close" type="button" aria-label="Bild schließen">&times;</button>
+    <button id="lightboxPrev" class="zh-gallery-lightbox-nav is-prev" type="button" aria-label="Vorheriger Screenshot">&lsaquo;</button>
+    <button id="lightboxNext" class="zh-gallery-lightbox-nav is-next" type="button" aria-label="Nächster Screenshot">&rsaquo;</button>
+
+    <figure class="zh-gallery-lightbox-figure">
+        <img id="lightboxImage" alt="" data-i18n-ignore>
+        <figcaption id="lightboxCaption" class="zh-gallery-lightbox-caption" data-i18n-ignore></figcaption>
+    </figure>
 
 </div>
 
@@ -240,7 +227,7 @@
 <script src="assets/js/visitor-counter.js?v=20261008-release1"></script>
 <script src="assets/js/main.js?v=20261008-release1"></script>
 <script src="assets/js/identity.js?v=20261008-release1"></script>
-<script src="assets/js/gallery.js?v=20261014-gallery1"></script>
+<script src="assets/js/gallery.js?v=20261014-gallery-public1"></script>
 
 </body>
 

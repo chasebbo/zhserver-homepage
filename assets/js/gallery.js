@@ -1,20 +1,32 @@
 const galleryGrid = document.getElementById("galleryGrid");
+const galleryCount = document.getElementById("galleryCount");
 const uploadForm = document.getElementById("uploadForm");
 const uploadStatus = document.getElementById("uploadStatus");
+const uploadToggle = document.getElementById("galleryUploadToggle");
+const uploadPanel = document.getElementById("galleryUploadPanel");
 const galleryImageField = document.getElementById("image");
 const galleryChooseFile = document.getElementById("galleryChooseFile");
 const galleryFileName = document.getElementById("galleryFileName");
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCaption = document.getElementById("lightboxCaption");
 const closeLightbox = document.getElementById("closeLightbox");
-let galleryImageTrigger = null;
+const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
 const GALLERY_MAX_BYTES = 5 * 1024 * 1024;
 const GALLERY_IMAGE_TYPES = new Map([
     ["image/png", "png"],
     ["image/jpeg", "jpg"],
     ["image/webp", "webp"]
 ]);
+// Browser-local bookmarks only; they are not votes and are never sent anywhere.
+const STORAGE_LIKES_KEY = "zh_gallery_likes_v1";
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+let galleryEntries = [];
+let lightboxIndex = -1;
+let galleryImageTrigger = null;
 
 function updateGalleryFileName() {
         const file = galleryImageField.files[0];
@@ -25,40 +37,43 @@ function updateGalleryFileName() {
     galleryImageField.addEventListener("change", updateGalleryFileName);
     updateGalleryFileName();
 
-    function openGalleryImage(source, description, trigger) {
-        galleryImageTrigger = trigger;
-        lightboxImage.src = source;
-        ZHLanguage.bind(lightboxImage, description ? "gallery.image.userAlt" : "gallery.image.defaultAlt", { description: description || "" }, "alt");
-        lightbox.style.display = "flex";
-        lightbox.setAttribute("aria-hidden", "false");
-        closeLightbox.focus();
+    // The shared header overlaps the page top only while it is fixed (wide screens);
+    // on small screens it sits in the normal flow and needs no extra hero space.
+    const siteHeader = document.querySelector(".zh-site-header");
+    function syncHeaderHeight() {
+        if (!siteHeader) return;
+        const overlaps = ["fixed", "absolute"].includes(getComputedStyle(siteHeader).position);
+        document.documentElement.style.setProperty("--zh-header-height", `${overlaps ? siteHeader.offsetHeight : 0}px`);
+    }
+    syncHeaderHeight();
+    window.addEventListener("resize", syncHeaderHeight);
+    if (siteHeader && "ResizeObserver" in window) new ResizeObserver(syncHeaderHeight).observe(siteHeader);
+
+    function setUploadPanel(open) {
+        uploadPanel.hidden = !open;
+        uploadToggle.setAttribute("aria-expanded", String(open));
+        ZHLanguage.bind(uploadToggle, open ? "gallery.upload.toggleClose" : "gallery.upload.toggleOpen");
     }
 
-    function closeGalleryImage() {
-        lightbox.style.display = "none";
-        lightbox.setAttribute("aria-hidden", "true");
-        if (galleryImageTrigger?.isConnected) galleryImageTrigger.focus();
+    function focusUploadForm() {
+        const field = [...uploadForm.querySelectorAll("input:not([type=file]), textarea")]
+            .find((element) => !element.hidden && element.offsetParent !== null);
+        (field || galleryChooseFile).focus({ preventScroll: true });
     }
 
-    function updateGalleryLikeLabel(button, liked) {
-        const key = liked ? "gallery.like.remove" : "gallery.like.add";
-        ZHLanguage.bind(button, key, {}, "aria-label");
-        ZHLanguage.bind(button, key, {}, "title");
-        button.setAttribute("aria-pressed", String(liked));
-    }
-
-    function escapeHtml(str) {
-        if (!str) return "";
-        return String(str)
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-    }
-
-    const STORAGE_LIKES_KEY = "zh_gallery_likes_v1";
-    const STORAGE_COUNTS_KEY = "zh_gallery_like_counts_v1";
+    uploadToggle.addEventListener("click", () => {
+        const open = uploadPanel.hidden;
+        setUploadPanel(open);
+        if (open) focusUploadForm();
+    });
+    document.querySelectorAll("[data-gallery-upload-link]").forEach((link) => link.addEventListener("click", (event) => {
+        event.preventDefault();
+        setUploadPanel(true);
+        document.getElementById("upload").scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "start" });
+        focusUploadForm();
+    }));
+    setUploadPanel(location.hash === "#upload");
+    window.addEventListener("hashchange", () => { if (location.hash === "#upload") setUploadPanel(true); });
 
     function getGalleryLikes() {
         try {
@@ -67,189 +82,180 @@ function updateGalleryFileName() {
         } catch (e) { return {}; }
     }
 
-    function getGalleryLikeCounts() {
-        try {
-            const raw = localStorage.getItem(STORAGE_COUNTS_KEY);
-            return raw ? JSON.parse(raw) : {};
-        } catch (e) { return {}; }
-    }
-
     function saveGalleryLikes(likes) {
         try { localStorage.setItem(STORAGE_LIKES_KEY, JSON.stringify(likes)); } catch (e) {}
     }
 
-    function saveGalleryLikeCounts(counts) {
-        try { localStorage.setItem(STORAGE_COUNTS_KEY, JSON.stringify(counts)); } catch (e) {}
+    function updateSaveButton(button, saved) {
+        const key = saved ? "gallery.like.remove" : "gallery.like.add";
+        ZHLanguage.bind(button, key, {}, "aria-label");
+        ZHLanguage.bind(button, key, {}, "title");
+        button.setAttribute("aria-pressed", String(saved));
+        button.classList.toggle("is-saved", saved);
+        button.querySelector("i").className = saved ? "fa-solid fa-heart" : "fa-regular fa-heart";
+    }
+
+    function toggleSaved(id, button) {
+        const likes = getGalleryLikes();
+        const saved = !likes[id];
+        if (saved) likes[id] = true;
+        else delete likes[id];
+        saveGalleryLikes(likes);
+        updateSaveButton(button, saved);
+    }
+
+    function bindImageText(image, entry) {
+        const params = { description: entry.description || "" };
+        ZHLanguage.bind(image, entry.description ? "gallery.image.userAlt" : "gallery.image.defaultAlt", params, "alt");
+    }
+
+    function galleryNotice(key) {
+        const item = document.createElement("li");
+        item.className = "zh-gallery-notice";
+        item.setAttribute("role", "status");
+        galleryGrid.append(item);
+        ZHLanguage.bind(item, key);
+    }
+
+    function buildGalleryItem(entry, index, likes) {
+        const item = document.createElement("li");
+        item.className = "zh-gallery-item";
+        const card = document.createElement("article");
+        card.className = "zh-gallery-card";
+
+        const open = document.createElement("button");
+        open.type = "button";
+        open.className = "zh-gallery-open";
+        ZHLanguage.bind(open, entry.description ? "gallery.image.open" : "gallery.image.openUnnamed", { description: entry.description || "" }, "aria-label");
+        const image = document.createElement("img");
+        image.src = entry.image_url;
+        image.decoding = "async";
+        image.loading = index < 3 ? "eager" : "lazy";
+        image.setAttribute("data-i18n-ignore", "");
+        bindImageText(image, entry);
+        image.addEventListener("error", () => item.classList.add("is-broken"), { once: true });
+        open.append(image);
+        open.addEventListener("click", () => openGalleryImage(index, open));
+        card.append(open);
+
+        const meta = document.createElement("div");
+        meta.className = "zh-gallery-meta";
+        const text = document.createElement("div");
+        text.className = "zh-gallery-text";
+        if (entry.description) {
+            const title = document.createElement("p");
+            title.className = "zh-gallery-title";
+            title.setAttribute("data-i18n-ignore", "");
+            title.textContent = entry.description;
+            text.append(title);
+        }
+        const byline = document.createElement("p");
+        byline.className = "zh-gallery-byline";
+        const author = document.createElement("span");
+        ZHLanguage.bind(author, "gallery.by", { name: entry.uploader || "—" });
+        byline.append(author);
+        const created = new Date(entry.created_at);
+        if (Number.isFinite(created.getTime())) {
+            const time = document.createElement("time");
+            time.dateTime = entry.created_at;
+            time.setAttribute("data-i18n-date", entry.created_at);
+            time.textContent = created.toLocaleDateString(ZHLanguage.locale);
+            byline.append(time);
+        }
+        text.append(byline);
+        meta.append(text);
+
+        const save = document.createElement("button");
+        save.type = "button";
+        save.className = "zh-gallery-save";
+        save.innerHTML = '<i aria-hidden="true"></i>';
+        updateSaveButton(save, Boolean(likes[entry.id]));
+        save.addEventListener("click", () => toggleSaved(entry.id, save));
+        meta.append(save);
+
+        card.append(meta);
+        item.append(card);
+        return item;
+    }
+
+    function renderGallery() {
+        galleryGrid.replaceChildren();
+        galleryGrid.setAttribute("aria-busy", "false");
+        const total = galleryEntries.length;
+        galleryGrid.classList.toggle("is-few", total > 0 && total < 3);
+        if (total) ZHLanguage.bind(galleryCount, total === 1 ? "gallery.count.one" : "gallery.count", { count: total });
+        else galleryCount.textContent = "";
+        if (!total) {
+            galleryNotice("gallery.empty");
+            return;
+        }
+        const likes = getGalleryLikes();
+        galleryEntries.forEach((entry, index) => galleryGrid.append(buildGalleryItem(entry, index, likes)));
     }
 
     async function loadGallery() {
-
-        galleryGrid.innerHTML = "";
-
-        let data;
         try {
+            // Only approved entries belong to the public grid, also for signed-in admins.
             const result = await supabaseClient
                 .from("gallery")
-                .select("id,image_url,uploader,description,approved,created_at")
+                .select("id,image_url,uploader,description,created_at")
+                .eq("approved", true)
                 .order("created_at", { ascending: false });
             if (result.error) throw result.error;
             if (!Array.isArray(result.data)) throw new Error("Invalid gallery response");
-            data = result.data;
+            galleryEntries = result.data.filter((entry) => typeof entry.image_url === "string" && entry.image_url.startsWith("https://"));
         } catch (error) {
             console.error(error);
-            const notice = document.createElement("p");
-            notice.setAttribute("role", "status");
-            galleryGrid.appendChild(notice);
-            ZHLanguage.bind(notice, "gallery.load.failed");
+            galleryGrid.replaceChildren();
+            galleryGrid.setAttribute("aria-busy", "false");
+            galleryCount.textContent = "";
+            galleryNotice("gallery.load.failed");
             return;
         }
-
-        if (!data.length) {
-            const notice = document.createElement("p");
-            galleryGrid.appendChild(notice);
-            ZHLanguage.bind(notice, "gallery.empty");
-            return;
-        }
-
-        const likesMap = getGalleryLikes();
-        const countsMap = getGalleryLikeCounts();
-
-        // Determine max likes for top badge
-        let maxLikes = -1;
-        let topEntryId = null;
-        data.forEach(entry => {
-            if (!entry.approved) return;
-            // These are browser-local preferences, not public vote totals.
-            const count = likesMap[entry.id] ? 1 : 0;
-            countsMap[entry.id] = count;
-            if (count > maxLikes) {
-                maxLikes = count;
-                topEntryId = entry.id;
-            }
-        });
-        saveGalleryLikeCounts(countsMap);
-
-        data.forEach(entry => {
-
-            const card = document.createElement("article");
-            const isApproved = Boolean(entry.approved);
-
-            if (isApproved) {
-                const isTop = entry.id === topEntryId && maxLikes > 0;
-                const isLiked = Boolean(likesMap[entry.id]);
-                const count = countsMap[entry.id] || 0;
-
-                card.className = `gallery-card ${isTop ? "is-top-screenshot" : ""}`.trim();
-
-                card.innerHTML = `
-
-                    <div class="gallery-image">
-
-                        ${isTop ? '<span class="gallery-top-badge"><i class="fa-solid fa-bookmark" aria-hidden="true"></i> <span data-gallery-local-saved>Hier gemerkt</span></span>' : ''}
-
-                        <img
-                            src="${escapeHtml(entry.image_url)}"
-                            alt="${escapeHtml(entry.description ?? "")}" data-i18n-ignore>
-
-                    </div>
-
-                    <div class="gallery-info">
-
-                        <div class="gallery-info-head">
-                            <span data-i18n-ignore>${escapeHtml(entry.uploader)}</span>
-                            <button type="button" class="gallery-like-btn ${isLiked ? "is-liked" : ""}" data-entry-id="${entry.id}" aria-label="Gefällt mir" title="Gefällt mir">
-                                <i class="${isLiked ? "fa-solid fa-heart" : "fa-regular fa-heart"}" aria-hidden="true"></i>
-                                <span class="like-counter">${count}</span>
-                            </button>
-                        </div>
-
-                        <p data-i18n-ignore>${escapeHtml(entry.description ?? "")}</p>
-
-                    </div>
-
-                `;
-
-                ZHLanguage.bind(card.querySelector('[data-gallery-local-saved]'), 'gallery.localSaved');
-                const img = card.querySelector("img");
-                if (img) {
-                    img.tabIndex = 0;
-                    img.setAttribute("role", "button");
-                    ZHLanguage.bind(img, entry.description ? "gallery.image.open" : "gallery.image.openUnnamed", { description: entry.description || "" }, "aria-label");
-                    ZHLanguage.bind(img, entry.description ? "gallery.image.userAlt" : "gallery.image.defaultAlt", { description: entry.description || "" }, "alt");
-                    img.addEventListener("click", () => openGalleryImage(entry.image_url, entry.description, img));
-                    img.addEventListener("keydown", (event) => {
-                        if (event.key !== "Enter" && event.key !== " ") return;
-                        event.preventDefault();
-                        openGalleryImage(entry.image_url, entry.description, img);
-                    });
-                }
-
-                const likeBtn = card.querySelector(".gallery-like-btn");
-                if (likeBtn) {
-                    updateGalleryLikeLabel(likeBtn, isLiked);
-                    likeBtn.addEventListener("click", (e) => {
-                        e.stopPropagation();
-                        toggleLike(entry.id, likeBtn);
-                    });
-                }
-            } else {
-                card.className = "gallery-card gallery-card--pending";
-
-                card.innerHTML = `
-
-                    <div class="gallery-image gallery-image--pending">
-
-                        <div class="gallery-pending-placeholder">
-                            <div class="gallery-pending-icon">📷 ⏳</div>
-                            <span class="gallery-pending-badge">IN QUARANTÄNE</span>
-                            <small class="gallery-pending-hint">Screenshot wartet auf Freigabe</small>
-                        </div>
-
-                    </div>
-
-                    <div class="gallery-info">
-
-                        <span data-i18n-ignore>${escapeHtml(entry.uploader)}</span>
-
-                        <p class="gallery-pending-sub"><em>[Inhalt in Sicherheitsprüfung]</em></p>
-
-                    </div>
-
-                `;
-            }
-
-            galleryGrid.appendChild(card);
-
-        });
-
+        renderGallery();
+        // The browser jumps to #upload before the grid has its final height.
+        if (location.hash === "#upload") document.getElementById("upload").scrollIntoView({ block: "start", behavior: "instant" });
     }
 
-    function toggleLike(id, btn) {
-        const likes = getGalleryLikes();
-        const counts = getGalleryLikeCounts();
-        const currentlyLiked = Boolean(likes[id]);
+    function renderLightbox() {
+        const entry = galleryEntries[lightboxIndex];
+        if (!entry) return;
+        lightboxImage.src = entry.image_url;
+        bindImageText(lightboxImage, entry);
+        const text = document.createElement("span");
+        text.textContent = [entry.description, entry.uploader].filter(Boolean).join(" · ");
+        const position = document.createElement("span");
+        position.className = "zh-gallery-lightbox-position";
+        ZHLanguage.bind(position, "gallery.lightbox.position", { current: lightboxIndex + 1, total: galleryEntries.length });
+        lightboxCaption.replaceChildren(text, position);
+        const several = galleryEntries.length > 1;
+        lightboxPrev.hidden = !several;
+        lightboxNext.hidden = !several;
+    }
 
-        if (currentlyLiked) {
-            delete likes[id];
-            counts[id] = 0;
-        } else {
-            likes[id] = true;
-            counts[id] = 1;
-        }
+    function openGalleryImage(index, trigger) {
+        lightboxIndex = index;
+        galleryImageTrigger = trigger;
+        renderLightbox();
+        lightbox.hidden = false;
+        document.documentElement.classList.add("zh-gallery-lightbox-open");
+        closeLightbox.focus();
+    }
 
-        saveGalleryLikes(likes);
-        saveGalleryLikeCounts(counts);
+    function stepGalleryImage(step) {
+        if (galleryEntries.length < 2 || lightbox.hidden) return;
+        lightboxIndex = (lightboxIndex + step + galleryEntries.length) % galleryEntries.length;
+        renderLightbox();
+    }
 
-        btn.classList.toggle("is-liked", !currentlyLiked);
-        updateGalleryLikeLabel(btn, !currentlyLiked);
-        const icon = btn.querySelector("i");
-        if (icon) {
-            icon.className = !currentlyLiked ? "fa-solid fa-heart" : "fa-regular fa-heart";
-        }
-        const counter = btn.querySelector(".like-counter");
-        if (counter) {
-            counter.textContent = counts[id];
-        }
+    function closeGalleryImage() {
+        if (lightbox.hidden) return;
+        lightbox.hidden = true;
+        lightboxImage.removeAttribute("src");
+        document.documentElement.classList.remove("zh-gallery-lightbox-open");
+        // Return focus to the card that is now current, so arrow navigation stays traceable.
+        const current = galleryGrid.querySelectorAll(".zh-gallery-open")[lightboxIndex];
+        (current || galleryImageTrigger)?.focus();
     }
 
     uploadForm.addEventListener("submit", async (e) => {
@@ -320,11 +326,24 @@ function updateGalleryFileName() {
 });
 
 closeLightbox.addEventListener("click", closeGalleryImage);
+lightboxPrev.addEventListener("click", () => stepGalleryImage(-1));
+lightboxNext.addEventListener("click", () => stepGalleryImage(1));
 lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) closeGalleryImage();
+    if (e.target === lightbox || e.target.classList.contains("zh-gallery-lightbox-figure")) closeGalleryImage();
 });
 document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && lightbox.getAttribute("aria-hidden") === "false") closeGalleryImage();
+    if (lightbox.hidden) return;
+    if (event.key === "Escape") closeGalleryImage();
+    else if (event.key === "ArrowLeft") stepGalleryImage(-1);
+    else if (event.key === "ArrowRight") stepGalleryImage(1);
+    else if (event.key === "Tab") {
+        // Keep keyboard focus inside the open dialog.
+        const controls = [closeLightbox, lightboxPrev, lightboxNext].filter((button) => !button.hidden);
+        const position = controls.indexOf(document.activeElement);
+        event.preventDefault();
+        const next = event.shiftKey ? position - 1 : position + 1;
+        controls[(next + controls.length) % controls.length].focus();
+    }
 });
 
 loadGallery();

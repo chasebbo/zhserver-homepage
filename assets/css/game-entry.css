@@ -39,6 +39,9 @@
 .game-entry-page .landing-server-feedback { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 14px; }
 .game-entry-page .game-page .game-server-message { margin: 6px 0 0; font-size: .67rem; line-height: 1.5; color: #d0bb9a; }
 .game-entry-page .landing-play-surface:has([data-state='online']) .landing-server-feedback { display: none; }
+.game-entry-page .game-page .game-server-offline-note,
+.game-entry-page .game-page .game-server-last-check { flex: 1 0 100%; margin: 2px 0 0; color: #a9b2b6; font-size: .65rem; line-height: 1.55; }
+.game-entry-page .game-page .game-server-last-check { color: #8d979c; font-variant-numeric: tabular-nums; }
 .game-entry-page .game-server-retry { min-height: 30px; padding: 6px 0; border: 0; background: transparent; color: #ddbc78; font: inherit; font-size: .67rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .game-entry-page .landing-play-stage { position: relative; }
 .game-entry-page .landing-play-preview { position: relative; margin: 0; }

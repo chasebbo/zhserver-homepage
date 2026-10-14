@@ -20,10 +20,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/identity.css?v=20261008-release1">
-    <script src="../assets/js/translations.js?v=20261013-pulse-views1"></script>
+    <script src="../assets/js/translations.js?v=20261014-camp2"></script>
     <script src="../assets/js/i18n.js?v=20261012-static-navigation1"></script>
     <link rel="stylesheet" href="../assets/css/forum-content.css?v=20261013-pulse-views1">
     <link rel="stylesheet" href="../assets/css/forum-polish.css?v=20261014-depth1">
+    <link rel="stylesheet" href="../assets/css/forum-atmosphere.css?v=20261014-camp2">
 </head>
 <body class="forum-page">
     <a class="forum-skip-link" href="#forum-main" data-forum-i18n="forum.skip">Zum Forum-Inhalt</a>
@@ -60,10 +61,19 @@
     <main class="forum-preparation" id="forum-main">
         <div class="container forum-content">
             <section class="forum-intro" aria-labelledby="forum-title">
-                <span class="forum-stage"><span data-forum-i18n="forum.liveStage">Community-Forum</span></span>
-                <h1 id="forum-title">ZOMBIEHÖLLE FORUM</h1>
-                <p class="forum-status" data-forum-i18n="forum.liveIntro">Diskussionen, Fragen und Ideen rund um Zombiehölle.</p>
-                <p class="forum-description" data-forum-i18n="forum.liveDescription">Lies mit oder melde dich mit deinem ZHServer-Account an, um ein Thema zu eröffnen oder zu antworten.</p>
+                <div class="forum-intro-copy">
+                    <span class="forum-stage"><span data-forum-i18n="forum.liveStage">Community-Forum</span></span>
+                    <h1 id="forum-title">ZOMBIEHÖLLE FORUM</h1>
+                    <p class="forum-status" id="forum-intro-text">Registriere dich und diskutiere aktiv mit der Community.</p>
+                    <p class="forum-pulse" id="forum-pulse" data-i18n-ignore hidden></p>
+                </div>
+                <div class="forum-intro-guest" id="forum-intro-guest" hidden>
+                    <span data-forum-i18n="forum.guestRead">Lesen kannst du auch als Gast.</span>
+                    <div class="forum-intro-actions">
+                        <a class="forum-button forum-button-secondary" href="../account/" data-forum-i18n="account.signIn">Anmelden</a>
+                        <a class="forum-button forum-button-primary" href="../account/?mode=register" data-forum-i18n="account.register">Registrieren</a>
+                    </div>
+                </div>
             </section>
 
             <div class="forum-workspace">
@@ -326,10 +336,207 @@
                 </div>
 
                 <aside class="forum-sidebar" aria-label="Forum-Informationen" data-forum-label="forum.information">
-                    <section class="forum-side-section" aria-labelledby="forum-top-title">
-                        <h2 id="forum-top-title" data-forum-i18n="forum.topTopics">Top 5 Themen</h2>
-                        <ol id="forum-top-topics" class="forum-active-topics"></ol>
-                        <p id="forum-top-status" role="status" data-forum-i18n="forum.loading">Forum wird geladen …</p>
+                    <section class="forum-side-section forum-corner" aria-labelledby="forum-top-title">
+                        <!-- Decorative survivor camp (overview only): no text, no data, hidden from assistive technology. -->
+                        <div class="forum-camp" aria-hidden="true">
+                            <svg viewBox="0 0 360 200" focusable="false" preserveAspectRatio="xMidYMax meet">
+                                <defs>
+                                    <radialGradient id="camp-glow" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0" stop-color="#f0a14e" stop-opacity=".46"/>
+                                        <stop offset=".45" stop-color="#b8601f" stop-opacity=".16"/>
+                                        <stop offset="1" stop-color="#b8601f" stop-opacity="0"/>
+                                    </radialGradient>
+                                    <linearGradient id="camp-earth" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0" stop-color="#1c1710"/>
+                                        <stop offset="1" stop-color="#0e0d0a"/>
+                                    </linearGradient>
+                                    <radialGradient id="camp-ground-glow" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0" stop-color="#8a5526" stop-opacity=".5"/>
+                                        <stop offset="1" stop-color="#8a5526" stop-opacity="0"/>
+                                    </radialGradient>
+                                    <linearGradient id="camp-flame-outer" x1="0" y1="1" x2="0" y2="0">
+                                        <stop offset="0" stop-color="#8c2b12"/>
+                                        <stop offset=".45" stop-color="#cf5f1e"/>
+                                        <stop offset="1" stop-color="#e9973d" stop-opacity=".15"/>
+                                    </linearGradient>
+                                    <linearGradient id="camp-flame-inner" x1="0" y1="1" x2="0" y2="0">
+                                        <stop offset="0" stop-color="#f2a648"/>
+                                        <stop offset="1" stop-color="#ffe2a3" stop-opacity=".55"/>
+                                    </linearGradient>
+                                    <radialGradient id="camp-smoke" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0" stop-color="#4d3b2d" stop-opacity=".35"/>
+                                        <stop offset="1" stop-color="#4d3b2d" stop-opacity="0"/>
+                                    </radialGradient>
+                                    <radialGradient id="camp-lantern-glow" cx="50%" cy="50%" r="50%">
+                                        <stop offset="0" stop-color="#f6c06a" stop-opacity=".42"/>
+                                        <stop offset="1" stop-color="#f6c06a" stop-opacity="0"/>
+                                    </radialGradient>
+                                    <!-- Firelight rims: each survivor is lit only on the side facing the fire. -->
+                                    <linearGradient id="camp-rim-a" gradientUnits="userSpaceOnUse" x1="104" y1="0" x2="176" y2="0">
+                                        <stop offset="0" stop-color="#080a0c"/>
+                                        <stop offset=".72" stop-color="#14110e"/>
+                                        <stop offset=".92" stop-color="#3a2614"/>
+                                        <stop offset="1" stop-color="#6e4420"/>
+                                    </linearGradient>
+                                    <linearGradient id="camp-rim-b" gradientUnits="userSpaceOnUse" x1="262" y1="0" x2="336" y2="0">
+                                        <stop offset="0" stop-color="#6e4420"/>
+                                        <stop offset=".08" stop-color="#3a2614"/>
+                                        <stop offset=".28" stop-color="#14110e"/>
+                                        <stop offset="1" stop-color="#080a0c"/>
+                                    </linearGradient>
+                                    <linearGradient id="camp-rim-c" gradientUnits="userSpaceOnUse" x1="344" y1="0" x2="380" y2="0">
+                                        <stop offset="0" stop-color="#47301a"/>
+                                        <stop offset=".5" stop-color="#12100d"/>
+                                        <stop offset="1" stop-color="#07090b"/>
+                                    </linearGradient>
+                                    <linearGradient id="camp-rim-dog" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="110" y2="0">
+                                        <stop offset="0" stop-color="#0b0b09"/>
+                                        <stop offset=".62" stop-color="#241b12"/>
+                                        <stop offset=".9" stop-color="#4a2f17"/>
+                                        <stop offset="1" stop-color="#7a4b22"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <!-- Ruins in the dark: a broken wall and a leaning shack, no trees or snow. -->
+                                <path class="forum-camp-ruin" d="M0 152 L0 110 L12 106 L16 117 L27 112 L31 124 L41 120 L45 152 Z"/>
+                                <path class="forum-camp-ruin" d="M332 152 L336 108 L343 108 L345 152 Z M345 152 L354 114 L360 116 L360 152 Z M326 112 L360 103 L360 108 L327 116 Z"/>
+
+                                <ellipse class="forum-camp-glow" cx="180" cy="146" rx="140" ry="82" fill="url(#camp-glow)"/>
+                                <path d="M0 153 C60 147 120 149 180 150 C240 151 300 147 360 152 L360 200 L0 200 Z" fill="url(#camp-earth)"/>
+                                <ellipse cx="180" cy="171" rx="152" ry="26" fill="url(#camp-ground-glow)"/>
+
+                                <!-- Grass tufts and scattered boards on worn earth. -->
+                                <g class="forum-camp-grass">
+                                    <path d="M28 178 l-2 -6 M28 178 l1 -7 M28 178 l4 -5 M150 190 l-2 -6 M150 190 l1 -7 M150 190 l3 -5 M236 189 l-2 -6 M236 189 l1 -7 M236 189 l4 -5 M318 182 l-2 -6 M318 182 l1 -7 M318 182 l3 -5 M348 176 l-2 -5 M348 176 l2 -6"/>
+                                </g>
+                                <g class="forum-camp-boards">
+                                    <rect x="246" y="185" width="54" height="5" rx="1" transform="rotate(-4 273 187)"/>
+                                    <rect x="260" y="192" width="40" height="4" rx="1" transform="rotate(3 280 194)"/>
+                                </g>
+
+                                <!-- Smoke drifts slowly upwards. -->
+                                <circle class="forum-camp-smoke forum-camp-smoke-a" cx="181" cy="117" r="15" fill="url(#camp-smoke)"/>
+                                <circle class="forum-camp-smoke forum-camp-smoke-b" cx="175" cy="123" r="12" fill="url(#camp-smoke)"/>
+
+                                <!-- Backpack leaning in the shadow on the left. -->
+                                <g class="forum-camp-backpack">
+                                    <path d="M44 168 L43 153 C43 148 56 148 56 153 L57 168 Z"/>
+                                    <path class="forum-camp-backpack-flap" d="M43 155 C45 151 54 151 56 155 L56 159 L43 159 Z"/>
+                                </g>
+
+                                <g transform="translate(-41 -23)">
+                                    <!-- Survivor C, standing in the back, leaning on a rifle. -->
+                                    <g class="forum-camp-survivor-c" transform="translate(14 0)" fill="url(#camp-rim-c)" stroke="url(#camp-rim-c)" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M360 186 L361 158 M369 186 L367 158" fill="none" stroke-width="6.5"/>
+                                        <path d="M355 186 h8 M366 186 h8" fill="none" stroke-width="3.5"/>
+                                        <path d="M354 161 C351 148 353 136 362 131 L368 131 C376 136 377 149 374 161 Z" stroke="none"/>
+                                        <path d="M357 139 L349 157" fill="none" stroke-width="5.5"/>
+                                        <path d="M372 139 L374 158" fill="none" stroke-width="5.5"/>
+                                        <path d="M345 128 L349 186" fill="none" stroke-width="2.4"/>
+                                        <g class="forum-camp-head-c">
+                                            <path d="M362 132 L366 132 L366 127 L362 127 Z" stroke="none"/>
+                                            <circle cx="364" cy="120" r="7.5" stroke="none"/>
+                                            <path d="M355.5 121 C354 109 373 106 373 118 C370 114 361 113 357 124 Z" stroke="none"/>
+                                        </g>
+                                    </g>
+
+                                    <!-- Survivor A on a crate, holding a mug towards the fire. -->
+                                    <g class="forum-camp-crate">
+                                        <rect x="98" y="170" width="40" height="24" rx="2"/>
+                                        <path d="M98 178 H138 M98 186 H138 M118 170 V194"/>
+                                    </g>
+                                    <g class="forum-camp-survivor-a" fill="url(#camp-rim-a)" stroke="url(#camp-rim-a)" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M130 165 L162 160" fill="none" stroke-width="12"/>
+                                        <path d="M163 161 L165 189" fill="none" stroke-width="8.5"/>
+                                        <path d="M158 191 L174 191" fill="none" stroke-width="5.5"/>
+                                        <path d="M112 170 C109 154 115 140 126 133 L140 130 C148 135 149 148 145 158 L141 170 Z" stroke="none"/>
+                                        <path d="M140 136 L155 153 L168 148" fill="none" stroke-width="6.5"/>
+                                        <g class="forum-camp-head-a">
+                                            <path d="M136 132 L142 131 L141 126 L136 127 Z" stroke="none"/>
+                                            <circle cx="141" cy="119" r="8.5" stroke="none"/>
+                                            <path d="M131 122 C129 107 149 104 151 117 C147 112 138 112 135 127 Z" stroke="none"/>
+                                        </g>
+                                    </g>
+                                    <rect class="forum-camp-mug" x="167" y="141" width="6" height="7" rx="1.2"/>
+
+                                    <!-- Survivor B on a log, talking with gestures. -->
+                                    <g class="forum-camp-log">
+                                        <rect x="290" y="179" width="64" height="15" rx="7.5"/>
+                                        <ellipse cx="293" cy="186.5" rx="4" ry="7"/>
+                                    </g>
+                                    <g class="forum-camp-survivor-b" fill="url(#camp-rim-b)" stroke="url(#camp-rim-b)" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M308 175 L278 170" fill="none" stroke-width="12"/>
+                                        <path d="M277 171 L275 190" fill="none" stroke-width="8.5"/>
+                                        <path d="M282 192 L266 192" fill="none" stroke-width="5.5"/>
+                                        <path d="M330 180 C333 163 327 149 315 142 L301 140 C294 145 293 157 297 168 L302 180 Z" stroke="none"/>
+                                        <path d="M306 147 L292 163" fill="none" stroke-width="6.5"/>
+                                        <g class="forum-camp-arm-b">
+                                            <path d="M300 146 L287 155 L279 148" fill="none" stroke-width="6.5"/>
+                                        </g>
+                                        <g class="forum-camp-head-b">
+                                            <path d="M300 142 L305 142 L305 137 L299 137 Z" stroke="none"/>
+                                            <circle cx="300" cy="129" r="8.5" stroke="none"/>
+                                            <path d="M291.5 128 C290 117 306 113 309 124 L310 127 Z M293 124 L284 126 L292 128 Z" stroke="none"/>
+                                        </g>
+                                    </g>
+
+                                    <!-- Lantern on the log end, a second small warm light. -->
+                                    <g class="forum-camp-lantern">
+                                        <circle class="forum-camp-lantern-glow" cx="344" cy="168" r="18" fill="url(#camp-lantern-glow)"/>
+                                        <path class="forum-camp-lantern-handle" d="M339 162 C339 155 349 155 349 162"/>
+                                        <rect class="forum-camp-lantern-metal" x="338" y="161" width="12" height="3" rx="1"/>
+                                        <rect class="forum-camp-lantern-light" x="339.5" y="164" width="9" height="9" rx="1.5"/>
+                                        <rect class="forum-camp-lantern-metal" x="338" y="173" width="12" height="3" rx="1"/>
+                                    </g>
+
+                                    <!-- Campfire: stones, logs, flames and embers. -->
+                                    <g class="forum-camp-stones">
+                                        <ellipse cx="198" cy="193" rx="6" ry="3.5"/>
+                                        <ellipse cx="209" cy="195" rx="5" ry="3"/>
+                                        <ellipse cx="232" cy="195" rx="5.5" ry="3.2"/>
+                                        <ellipse cx="243" cy="193" rx="6" ry="3.5"/>
+                                    </g>
+                                    <g class="forum-camp-logs">
+                                        <rect x="200" y="186" width="42" height="6" rx="3" transform="rotate(-14 221 189)"/>
+                                        <rect x="200" y="186" width="42" height="6" rx="3" transform="rotate(14 221 189)"/>
+                                    </g>
+                                    <g class="forum-camp-fire">
+                                        <path class="forum-camp-flame forum-camp-flame-outer" fill="url(#camp-flame-outer)" d="M221 191 C204 188 202 174 209 163 C211 171 215 170 214 160 C213 151 219 143 223 135 C223 148 231 152 231 163 C235 158 236 154 236 150 C243 164 241 186 221 191 Z"/>
+                                        <path class="forum-camp-flame forum-camp-flame-mid" fill="#e07a2b" fill-opacity=".85" d="M221 190 C210 188 209 178 213 171 C215 176 218 175 218 168 C218 162 222 156 224 151 C225 160 230 164 229 172 C232 170 233 167 233 164 C237 174 234 188 221 190 Z"/>
+                                        <path class="forum-camp-flame forum-camp-flame-inner" fill="url(#camp-flame-inner)" d="M221 189 C215 188 214 182 216 178 C218 181 220 179 220 175 C221 171 223 168 224 166 C225 172 228 175 227 180 C229 179 229 177 229 176 C231 182 228 188 221 189 Z"/>
+                                    </g>
+                                    <g class="forum-camp-embers">
+                                        <circle class="forum-camp-ember forum-camp-ember-1" cx="216" cy="160" r="1.2"/>
+                                        <circle class="forum-camp-ember forum-camp-ember-2" cx="226" cy="156" r="1"/>
+                                        <circle class="forum-camp-ember forum-camp-ember-3" cx="221" cy="162" r="1.1"/>
+                                        <circle class="forum-camp-ember forum-camp-ember-4" cx="230" cy="164" r=".9"/>
+                                    </g>
+                                </g>
+
+                                <!-- A shepherd-type dog dozing in the warmth, head resting towards the fire. -->
+                                <g class="forum-camp-dog" fill="url(#camp-rim-dog)">
+                                    <path class="forum-camp-dog-tail" d="M22 193 C12 195 5 192 2 187" fill="none" stroke="url(#camp-rim-dog)" stroke-width="4" stroke-linecap="round"/>
+                                    <path class="forum-camp-dog-body" d="M20 190 C22 180 38 175 56 176 C68 176 76 180 79 186 L82 194 C76 197 48 198 30 196 C23 195 19 194 20 190 Z"/>
+                                    <path d="M22 192 C20 183 30 178 40 182 C45 186 43 194 37 197 L25 197 Z"/>
+                                    <path d="M74 192.5 L101 193.5 C104 193.5 104 197.5 101 197.5 L74 197.5 Z"/>
+                                    <g class="forum-camp-dog-head">
+                                        <path d="M72 188 C72 180 78 173 86 172 C91 171 95 173 97 176 L107 181 C109 182 108.5 185 105.5 185.5 L95 186 C91 189 81 191 74 190 Z"/>
+                                        <path d="M82.5 174.5 L84.5 163 L90 172.5 Z"/>
+                                        <path d="M88 172.5 L92 162.5 L95.5 174.5 Z"/>
+                                        <path class="forum-camp-dog-eye" d="M93.5 177.5 l4 1"/>
+                                        <path class="forum-camp-dog-rim" d="M86 172.6 C91 171.6 95 173.4 97 176.2 L107 181.2"/>
+                                    </g>
+                                    <!-- Firelit edge along the back, so the lying body separates from the ground. -->
+                                    <path class="forum-camp-dog-rim" d="M24 183 C33 177 50 175 63 176.5 C71 177.4 76 180.5 78.6 185.5"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="forum-corner-body">
+                            <span class="forum-eyebrow" data-forum-i18n="forum.campfire">Am Lagerfeuer</span>
+                            <h2 id="forum-top-title" data-forum-i18n="forum.topTopics">Top 5 Themen</h2>
+                            <ol id="forum-top-topics" class="forum-active-topics"></ol>
+                            <p id="forum-top-status" role="status" data-forum-i18n="forum.loading">Forum wird geladen …</p>
+                        </div>
                     </section>
                 </aside>
             </div>
@@ -373,5 +580,6 @@
     <script src="../assets/js/forum-activity.js?v=20261013-pulse-views1"></script>
     <script src="../assets/js/forum-content.js?v=20261013-pulse-views1"></script>
     <script src="../assets/js/forum.js?v=20261013-pulse-views1"></script>
+    <script src="../assets/js/forum-atmosphere.js?v=20261014-camp2"></script>
 </body>
 </html>

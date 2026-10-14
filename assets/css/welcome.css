@@ -1,0 +1,138 @@
+/* First-visit community welcome: compact panel on desktop, bottom sheet on phones. */
+.zh-welcome {
+    width: min(460px, calc(100vw - 32px));
+    max-height: calc(100dvh - 32px);
+    /* The site-wide reset removes the native dialog centering. */
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    border: 1px solid rgba(212, 175, 55, .3);
+    border-radius: 14px;
+    background:
+        radial-gradient(ellipse 120% 160px at 50% 0, rgba(201, 135, 62, .13), transparent 75%),
+        #10161c;
+    color: #dfe5ea;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .6);
+    font-family: "Inter", sans-serif;
+}
+.zh-welcome[open] { animation: zh-welcome-in .28s ease-out; }
+.zh-welcome::backdrop { background: rgba(4, 7, 10, .62); }
+html.zh-welcome-open { overflow: hidden; }
+
+.zh-welcome-inner { position: relative; padding: 28px 28px 24px; }
+.zh-welcome-kicker {
+    display: block;
+    margin-bottom: 8px;
+    color: #d6b465;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+}
+.zh-welcome h2 {
+    margin: 0 36px 10px 0;
+    color: #f1e8cf;
+    font-family: "Cinzel", serif;
+    font-size: 1.45rem;
+    line-height: 1.25;
+}
+.zh-welcome h2:focus { outline: none; }
+.zh-welcome h2:focus-visible { outline: 2px solid rgba(224, 178, 96, .8); outline-offset: 4px; border-radius: 3px; }
+.zh-welcome-text { margin: 0 0 16px; color: #c6cfd6; font-size: .94rem; line-height: 1.65; }
+.zh-welcome-benefits-title { margin: 0 0 8px; color: #e3d3a8; font-size: .82rem; font-weight: 600; }
+.zh-welcome-benefits { display: grid; gap: 6px; margin: 0 0 14px; padding: 0; list-style: none; }
+.zh-welcome-benefits li {
+    position: relative;
+    padding-left: 20px;
+    color: #c6cfd6;
+    font-size: .86rem;
+    line-height: 1.5;
+}
+.zh-welcome-benefits li::before {
+    content: "";
+    position: absolute;
+    top: .55em;
+    left: 4px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #e09a48;
+    box-shadow: 0 0 8px rgba(224, 154, 72, .5);
+}
+.zh-welcome-benefits .zh-welcome-benefit-game { color: #eadcb6; font-weight: 600; }
+.zh-welcome-note { margin: 0 0 6px; color: #8f9ba4; font-size: .78rem; line-height: 1.5; }
+.zh-welcome-note + .zh-welcome-actions { margin-top: 18px; }
+
+.zh-welcome-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.zh-welcome-actions :is(a, button) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font: inherit;
+    font-size: .84rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+.zh-welcome-register {
+    grid-column: 1 / -1;
+    border: 1px solid #d4af37;
+    background: #d4af37;
+    color: #15120a;
+}
+.zh-welcome-register:hover { background: #e7c45a; border-color: #e7c45a; }
+.zh-welcome-login { border: 1px solid rgba(212, 175, 55, .45); background: rgba(212, 175, 55, .06); color: #ead9ad; }
+.zh-welcome-login:hover { background: rgba(212, 175, 55, .12); }
+.zh-welcome-guest { border: 1px solid rgba(184, 194, 203, .2); background: transparent; color: #b9c3cb; }
+.zh-welcome-guest:hover { border-color: rgba(184, 194, 203, .38); color: #e3e8ec; }
+.zh-welcome :is(a, button):focus-visible { outline: 2px solid #e2b85c; outline-offset: 3px; }
+
+.zh-welcome-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 1px solid rgba(184, 194, 203, .18);
+    border-radius: 50%;
+    background: transparent;
+    color: #b9c3cb;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+}
+.zh-welcome-close:hover { color: #f1e8cf; border-color: rgba(212, 175, 55, .45); }
+
+@keyframes zh-welcome-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 600px) {
+    .zh-welcome {
+        width: 100%;
+        max-width: 100%;
+        max-height: 88dvh;
+        margin: auto 0 0;
+        border-width: 1px 0 0;
+        border-radius: 16px 16px 0 0;
+    }
+    .zh-welcome[open] { animation-name: zh-welcome-sheet; }
+    .zh-welcome-inner { padding: 24px 18px calc(18px + env(safe-area-inset-bottom)); }
+    .zh-welcome h2 { font-size: 1.25rem; }
+}
+@keyframes zh-welcome-sheet {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: none; opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .zh-welcome[open] { animation: none; }
+    .zh-welcome-actions :is(a, button) { transition: none; }
+}

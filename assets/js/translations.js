@@ -3192,6 +3192,22 @@ window.ZHTranslations = {
     "gallery.file.empty": {
       "de": "Keine Datei ausgewählt",
       "en": "No file selected"
+    },
+    "gallery.hero.text": {
+      "de": "Erinnerungen an Zombiehölle und ZHServer – festgehalten von der Community.",
+      "en": "Memories of Zombiehölle and ZHServer – captured by the community."
+    },
+    "gallery.upload.rules": {
+      "de": "PNG, JPEG oder WebP · maximal 5 MB",
+      "en": "PNG, JPEG or WebP · up to 5 MB"
+    },
+    "gallery.lightbox.previous": {
+      "de": "Vorheriger Screenshot",
+      "en": "Previous screenshot"
+    },
+    "gallery.lightbox.next": {
+      "de": "Nächster Screenshot",
+      "en": "Next screenshot"
     }
   },
   "messages": {
@@ -3302,6 +3318,8 @@ window.ZHTranslations = {
     "game.entry.serverOffline": { "de": "Der Spielserver ist momentan nicht erreichbar.", "en": "The game server is currently unavailable." },
     "game.entry.serverChecking": { "de": "Verfügbarkeit wird geprüft.", "en": "Checking server availability." },
     "game.entry.retry": { "de": "Erneut prüfen", "en": "Check again" },
+    "game.entry.offlineNote": { "de": "Meist werden gerade Wartungsarbeiten oder Updates durchgeführt. Normalerweise ist der Server nach wenigen Minuten wieder verfügbar.", "en": "This usually means maintenance or an update is in progress. The server is normally back within a few minutes." },
+    "game.entry.lastCheck": { "de": "Letzte Statusprüfung: {time} Uhr", "en": "Last status check: {time}" },
     "game.entry.about": { "de": "Eine offene Online-Welt mit verlassenen Orten, knappen Vorräten und Zombies. Erkunde sie allein oder mit anderen und baue dir einen eigenen Platz zum Überleben.", "en": "An open online world with abandoned places, scarce supplies and zombies. Explore on your own or with others, and build a place to survive." },
     "game.entry.origin": { "de": "Von 2013 bis 2016 war Zombiehölle eine Arma-2-DayZ-Servercommunity. Heute entsteht daraus ein eigenständiges 2D-Multiplayer-Survival-Spiel.", "en": "From 2013 to 2016, Zombie Hell was an Arma 2 DayZ server community. Today, it is evolving into its own independent 2D multiplayer survival game." },
     "game.entry.multiplayer": { "de": "Gemeinsam überleben, Gruppen bilden und im Chat in Verbindung bleiben.", "en": "Survive together, form groups and stay in touch through chat." },
@@ -3483,6 +3501,30 @@ window.ZHTranslations = {
     "gallery.upload.success": {
       "de": "Vielen Dank! Dein Screenshot wurde erfolgreich hochgeladen und wartet auf Freigabe.",
       "en": "Thank you! Your screenshot has been uploaded and is awaiting approval."
+    },
+    "gallery.count": {
+      "de": "{count} Screenshots",
+      "en": "{count} screenshots"
+    },
+    "gallery.count.one": {
+      "de": "1 Screenshot",
+      "en": "1 screenshot"
+    },
+    "gallery.by": {
+      "de": "von {name}",
+      "en": "by {name}"
+    },
+    "gallery.upload.toggleClose": {
+      "de": "Formular schließen",
+      "en": "Close form"
+    },
+    "gallery.upload.toggleOpen": {
+      "de": "Screenshot hochladen",
+      "en": "Upload screenshot"
+    },
+    "gallery.lightbox.position": {
+      "de": "Bild {current} von {total}",
+      "en": "Image {current} of {total}"
     },
     "forum.skip": { "de": "Zum Forum-Inhalt", "en": "Skip to forum content" },
     "forum.overview": { "de": "Übersicht", "en": "Overview" },
@@ -3788,6 +3830,34 @@ Object.assign(window.ZHTranslations.messages, {
   "forum.liveDescription": {
     "de": "Lies mit oder melde dich mit deinem ZHServer-Account an, um ein Thema zu eröffnen oder zu antworten.",
     "en": "Browse the forum or sign in with your ZHServer account to start a topic or reply."
+  },
+  "forum.introGuest": {
+    "de": "Registriere dich und diskutiere aktiv mit der Community.",
+    "en": "Sign up and join the community's discussions."
+  },
+  "forum.introMember": {
+    "de": "Schön, dass du da bist – setz dich dazu und diskutiere mit.",
+    "en": "Good to see you – pull up a seat and join the discussion."
+  },
+  "forum.guestRead": {
+    "de": "Lesen kannst du auch als Gast.",
+    "en": "Guests can read along, too."
+  },
+  "forum.campfire": {
+    "de": "Am Lagerfeuer",
+    "en": "By the campfire"
+  },
+  "forum.pulse.latest": {
+    "de": "Zuletzt aktiv:",
+    "en": "Latest activity:"
+  },
+  "forum.pulse.topics": {
+    "de": "{count} Themen",
+    "en": "{count} topics"
+  },
+  "forum.pulse.topicsOne": {
+    "de": "1 Thema",
+    "en": "1 topic"
   },
   "forum.categoryNote": {
     "de": "Wähle einen Bereich, um seine veröffentlichten Themen zu öffnen.",
@@ -4171,4 +4241,24 @@ Object.assign(window.ZHTranslations.messages, {
   "forum.viewsPending": {de:"Die Aufruferfassung ist noch nicht aktiviert.",en:"View tracking has not been enabled yet."},
   "forum.viewsSinceStart": {de:"Gezählte Thread-Aufrufe seit Beginn der Erfassung; je Account/Browser höchstens einmal in 24 Stunden.",en:"Thread views counted since tracking began; each account/browser counts at most once every 24 hours."},
   "forum.viewUnavailable": {de:"Die Aufrufzahl konnte gerade nicht aktualisiert werden.",en:"The view count could not be updated just now."}
+});
+
+
+/* First-visit community welcome for guests; names only features that exist today. */
+Object.assign(window.ZHTranslations.messages, {
+  "welcome.dialog": {de:"Willkommen bei Zombiehölle",en:"Welcome to Zombie Hell"},
+  "welcome.title": {de:"Willkommen bei Zombiehölle",en:"Welcome to Zombie Hell"},
+  "welcome.text": {de:"Du kannst dich als Gast umsehen oder kostenlos einen Account anlegen.",en:"You can look around as a guest or create a free account."},
+  "welcome.benefits": {de:"Mit einem Account kannst du:",en:"With an account you can:"},
+  "welcome.game": {de:"Zombiehölle mit deinem eigenen Spielkonto starten – direkt von der Homepage, ohne zweiten Login",en:"start Zombie Hell with your own game account – straight from the website, without a second login"},
+  "welcome.forum": {de:"im Forum Themen eröffnen und antworten",en:"start topics and reply in the forum"},
+  "welcome.pulse": {de:"bei Community-Pulse-Abstimmungen mitmachen",en:"take part in Community Pulse votes"},
+  "welcome.profile": {de:"ein eigenes Profil mit Avatar anlegen",en:"set up your own profile with an avatar"},
+  "welcome.name": {de:"Screenshots und Gästebucheinträge unter deinem Namen teilen",en:"share screenshots and guestbook entries under your name"},
+  "welcome.accountNote": {de:"Dein ZHServer-Account ist auch dein Spielkonto. Charakter und Fortschritt werden später über deinen Account gespeichert.",en:"Your ZHServer account is also your game account. Your character and progress will later be saved to your account."},
+  "welcome.guestNote": {de:"Als Gast kannst du 2 Minuten testen. Für dauerhaften Fortschritt brauchst du einen Account.",en:"As a guest you can play for 2 minutes. For lasting progress you need an account."},
+  "welcome.register": {de:"Kostenlos registrieren",en:"Register for free"},
+  "welcome.login": {de:"Einloggen",en:"Sign in"},
+  "welcome.guest": {de:"Als Gast weitermachen",en:"Continue as a guest"},
+  "welcome.close": {de:"Hinweis schließen",en:"Close notice"}
 });

@@ -15,6 +15,8 @@
     let principal = { status: "checking" };
     let serverStatus = "checking";
     let socket, probeTimer, pollingTimer, probeRevision = 0, starting = false;
+    // Time of the last completed probe only; there is no stored "offline since".
+    let lastCheckedAt = null;
     let autoStart = params.has("play") || params.has("test") || params.has("dev") || window.location.hash === "#spiel-starten";
 
     const all = selector => document.querySelectorAll(selector);
@@ -69,7 +71,20 @@
         bind("[data-game-server-message]", message);
         all("[data-game-server-status]").forEach(element => { element.dataset.state = status; });
         show("[data-game-retry]", status === "offline");
+        renderOfflineNote();
         renderAccess();
+    }
+
+    function renderOfflineNote() {
+        const offline = serverStatus === "offline";
+        show("[data-game-offline-note]", offline);
+        show("[data-game-last-check]", offline && !!lastCheckedAt);
+        if (!offline) return;
+        bind("[data-game-offline-note]", "offlineNote");
+        if (lastCheckedAt) {
+            const time = new Intl.DateTimeFormat(language.locale, { hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(lastCheckedAt);
+            bind("[data-game-last-check]", "lastCheck", { time });
+        }
     }
 
     function cancelProbe() {
@@ -90,6 +105,7 @@
             if (completed || revision !== probeRevision) return;
             completed = true;
             cancelProbe();
+            lastCheckedAt = new Date();
             renderServer(status);
         };
         try {
