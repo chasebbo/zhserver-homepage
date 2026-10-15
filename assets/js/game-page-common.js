@@ -75,7 +75,7 @@
             });
         });
 
-        // One existing source for the version, changelog and roadmap. Only text is
+        // Official changes come from the forum; the development page supplies only the roadmap. Only text is
         // extracted; scripts, markup and backend calls on the detail page never run here.
         const renderSource = element => {
             element.textContent = language.text(element.dataset.alphaSource);
@@ -94,10 +94,17 @@
         void fetch(new URL("game-development.html", window.location.href)).then(async response => {
             if (!response.ok) throw new Error("Development overview unavailable");
             const source = new DOMParser().parseFromString(await response.text(), "text/html");
-            const changes = [...source.querySelectorAll("#compact-changelog-list .compact-change-text")].slice(0, 4);
+            const result = await window.ZHIdentity.client.rpc('get_zh_forum', {p_category:'changelog'});
+            if (result.error) throw new Error('Changelog unavailable');
+            const latest = result.data?.topics.find(topic => topic.changelog?.version);
+            if (!latest) throw new Error('Changelog unavailable');
+            const thread = await window.ZHIdentity.client.rpc('get_zh_forum', {p_topic_id:latest.id});
+            if (thread.error) throw new Error('Changelog unavailable');
+            const allChanges = (thread.data?.posts.find(post => post.opener)?.body || '').split('\n').filter(line => /^- /.test(line));
+            const changes = allChanges.slice(0, 4).map(line => ({textContent:line.slice(2)}));
             const roadmap = [...source.querySelectorAll(".game-roadmap-grid > article")].slice(0, 4);
-            const version = source.querySelector(".changelog-version-title")?.textContent.match(/Alpha\s+(\d+\.\d+\.\d+)/i)?.[1];
-            const count = source.querySelectorAll("#latest-change-list > li").length;
+            const version = latest.changelog.version;
+            const count = allChanges.length;
             if (!version || count < 1 || count > 20 || changes.length !== 4 || roadmap.length !== 4 ||
                 roadmap.some(article => !article.querySelector("h3") || !article.querySelector("li"))) {
                 throw new Error("Development overview invalid");

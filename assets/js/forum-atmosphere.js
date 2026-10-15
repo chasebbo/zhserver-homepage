@@ -1,14 +1,13 @@
-/* Presentation for the forum overview: campfire visibility, intro by sign-in state and a
+/* Presentation for the forum overview: campfire visibility, guest actions and a
    community line built only from forum data the activity module has already loaded. */
 (() => {
     'use strict';
     if (!document.body.classList.contains('forum-page')) return;
     const lang = window.ZHLanguage, identity = window.ZHIdentity, activity = window.ZHForumActivity;
     const overview = document.getElementById('forum-overview');
-    const intro = document.getElementById('forum-intro-text');
     const guest = document.getElementById('forum-intro-guest');
     const pulse = document.getElementById('forum-pulse');
-    if (!lang || !overview || !intro || !guest || !pulse) return;
+    if (!lang || !overview || !guest || !pulse) return;
 
     // The campfire belongs to the overview only; category and thread views keep the warm styling.
     const syncView = () => document.documentElement.classList.toggle('forum-detail-view', overview.hidden);
@@ -50,6 +49,11 @@
             + ' · ' + activity.replies(replies), 'forum-pulse-counts');
         pulse.replaceChildren(node('span', lang.t('forum.pulse.latest'), 'forum-pulse-label'), link);
         if (when) pulse.append(node('span', '·', 'forum-pulse-sep'), time);
+        const author = activity.authorLine(null, true);
+        pulse.append(node('span', '·', 'forum-pulse-sep'), author);
+        activity.lastAuthor(latest).then(post => {
+            if (pulse.contains(author)) author.replaceWith(activity.authorLine(post, true));
+        });
         pulse.append(counts);
         pulse.hidden = false;
     }
@@ -67,13 +71,11 @@
     }
 
     function syncIdentity(state) {
-        lang.bind(intro, state.status === 'member' ? 'forum.introMember' : 'forum.introGuest');
         guest.hidden = state.status !== 'guest';
         loadPulse();
     }
 
     if (identity) identity.subscribe(syncIdentity);
-    else lang.bind(intro, 'forum.introGuest');
     document.addEventListener('zh:languagechange', renderPulse);
     window.addEventListener('hashchange', () => { if (!overview.hidden) loadPulse(); });
 })();

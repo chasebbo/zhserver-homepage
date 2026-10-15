@@ -1,0 +1,24 @@
+/* Official category, same forum surfaces and hierarchy. */
+.forum-page .forum-alpha-label { display:inline-block; flex:none; padding:2px 7px; border:1px solid rgba(193,159,80,.32); border-radius:3px; color:#cfb572; font:600 .63rem/1.5 Inter,sans-serif; letter-spacing:.11em; vertical-align:middle; }
+.forum-page .forum-changelog-version { display:flex; align-items:center; gap:9px; color:#e4d4a6; font-size:.86rem; font-weight:600; margin-bottom:8px; }
+.forum-page .forum-category-title .forum-alpha-label { margin-left:9px; }
+.forum-page .forum-changelog-category .forum-topic-toolbar,
+.forum-page .forum-changelog-category .forum-topic-legend { display:none; }
+.forum-page .forum-topic-likes { color:#c5b27d; font-size:.82rem; text-align:center; font-variant-numeric:tabular-nums; }
+.forum-page .forum-changelog-topic .forum-topic-main>a { overflow-wrap:anywhere; }
+.forum-page .forum-changelog-thread .forum-post-body { line-height:1.85; overflow-wrap:anywhere; }
+.forum-page .forum-changelog-thread .forum-post-meta { font-variant-numeric:tabular-nums; }
+.forum-page #forum-thread-alpha { margin:10px 0 4px; }
+.forum-page .forum-changelog-form { padding:0 24px 24px; }
+.forum-page .forum-changelog-fields { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:18px; }
+.forum-page .forum-changelog-fields .forum-field { min-width:0; }
+.forum-page .forum-changelog-form input,.forum-page .forum-changelog-form textarea { box-sizing:border-box; width:100%; min-width:0; border:1px solid var(--forum-line); border-radius:5px; background:#0d1419; color:#d8dfe2; padding:11px 12px; font:inherit; }
+.forum-page .forum-changelog-form input:focus-visible,.forum-page .forum-changelog-form textarea:focus-visible { outline:2px solid #b89c5b; outline-offset:2px; }
+.forum-page .forum-changelog-form textarea { min-height:240px; resize:vertical; line-height:1.7; }
+.forum-page #forum-changelog-form-status { margin:16px 24px 24px; color:var(--forum-soft); }
+@media(max-width:600px){
+ .forum-page .forum-changelog-fields { grid-template-columns:1fr; gap:0; }
+ .forum-page .forum-changelog-form { padding:0 16px 20px; }
+ .forum-page .forum-topic-likes { text-align:left; }
+ .forum-page .forum-topic-likes::before { content:attr(data-label) ': '; color:var(--forum-soft); font-size:.7rem; }
+}

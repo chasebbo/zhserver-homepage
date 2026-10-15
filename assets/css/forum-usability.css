@@ -1,0 +1,16 @@
+/* Existing warm forum surfaces, with larger targets and compact post reactions. */
+.forum-page .forum-clickable-row { cursor: pointer; }
+.forum-page .forum-clickable-row:focus-visible { outline: 2px solid #b89c5b; outline-offset: 3px; }
+.forum-page .forum-server-topic.forum-clickable-row:hover { border-color: rgba(193,159,80,.4); background-color: #191f23; }
+.forum-page .forum-active-topic.forum-clickable-row:hover { background: rgba(193,159,80,.055); }
+.forum-page .forum-clickable-row :is(button,input,select,textarea) { cursor: auto; }
+.forum-page .forum-reactions { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+.forum-page .forum-reaction-choice { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 36px; min-width: 54px; padding: 6px 10px; border: 1px solid rgba(182,193,201,.16); border-radius: 5px; background: rgba(6,12,17,.32); color: #b9c2c8; font: 500 .76rem/1.4 Inter,sans-serif; cursor: pointer; }
+.forum-page .forum-reaction-choice:hover { color: #e5d6ae; border-color: rgba(193,159,80,.45); }
+.forum-page .forum-reaction-choice[aria-pressed="true"] { color: #ead59a; border-color: #a78e53; background: rgba(160,129,56,.14); }
+.forum-page .forum-reaction-choice:focus-visible { outline: 2px solid #c3a35a; outline-offset: 3px; }
+.forum-page .forum-reaction-choice:disabled { cursor: wait; opacity: .6; }
+.forum-page .forum-reaction-symbol { font-size: .9rem; line-height: 1; }
+.forum-page .forum-reaction-status { flex: 1 0 100%; color: var(--forum-soft); font-size: .73rem; line-height: 1.5; }
+.forum-page .forum-reaction-status:empty { display: none; }
+@media (max-width:600px) { .forum-page .forum-reaction-choice { min-height: 42px; min-width: 60px; } }

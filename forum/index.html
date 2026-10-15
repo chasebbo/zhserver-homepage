@@ -20,11 +20,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/identity.css?v=20261008-release1">
-    <script src="../assets/js/translations.js?v=20261014-camp2"></script>
-    <script src="../assets/js/i18n.js?v=20261012-static-navigation1"></script>
+    <script src="../assets/js/translations.js?v=20261015-changelog2"></script>
+    <script src="../assets/js/i18n.js?v=20261015-release1"></script>
     <link rel="stylesheet" href="../assets/css/forum-content.css?v=20261013-pulse-views1">
     <link rel="stylesheet" href="../assets/css/forum-polish.css?v=20261014-depth1">
-    <link rel="stylesheet" href="../assets/css/forum-atmosphere.css?v=20261014-camp2">
+    <link rel="stylesheet" href="../assets/css/forum-atmosphere.css?v=20261015-release1">
+    <link rel="stylesheet" href="../assets/css/forum-usability.css?v=20261015-forum-reactions1">
+    <link rel="stylesheet" href="../assets/css/forum-changelog.css?v=20261015-changelog2">
+<link rel="stylesheet" href="../assets/css/forum-roles.css?v=20261015-roles1">
 </head>
 <body class="forum-page">
     <a class="forum-skip-link" href="#forum-main" data-forum-i18n="forum.skip">Zum Forum-Inhalt</a>
@@ -62,9 +65,7 @@
         <div class="container forum-content">
             <section class="forum-intro" aria-labelledby="forum-title">
                 <div class="forum-intro-copy">
-                    <span class="forum-stage"><span data-forum-i18n="forum.liveStage">Community-Forum</span></span>
                     <h1 id="forum-title">ZOMBIEHÖLLE FORUM</h1>
-                    <p class="forum-status" id="forum-intro-text">Registriere dich und diskutiere aktiv mit der Community.</p>
                     <p class="forum-pulse" id="forum-pulse" data-i18n-ignore hidden></p>
                 </div>
                 <div class="forum-intro-guest" id="forum-intro-guest" hidden>
@@ -169,6 +170,13 @@
 
                                 </a>
                             </li>
+                            <li data-forum-category="changelog" id="category-changelog">
+                                <a class="forum-category-row" href="#category/changelog">
+                                    <span class="forum-category-copy"><span class="forum-category-title"><span data-forum-copy="forum-category-changelog">Changelog</span> <span class="forum-alpha-label">ALPHA</span></span><span class="forum-category-description" data-forum-i18n="forum.description.changelog">Entwicklung und größere Änderungen an Zombiehölle.</span></span>
+                                    <span class="forum-category-count"><span class="forum-mobile-label" data-forum-i18n="forum.topics">Themen</span><span data-forum-label="forum.unavailable">—</span></span>
+                                    <span class="forum-category-activity" data-forum-i18n="forum.loading">Forum wird geladen …</span>
+                                </a>
+                            </li>
                         </ul>
                         <div class="forum-search-empty" id="forum-search-empty" hidden>
                             <h3 data-forum-i18n="forum.noCategories">Keine passende Kategorie</h3>
@@ -215,6 +223,21 @@
                                 <div><dt><span data-forum-i18n="forum.closed">Geschlossen</span></dt><dd data-forum-i18n="forum.closedNote">Das Thema bleibt lesbar, neue Antworten sind gesperrt.</dd></div>
                             </dl>
                         </details>
+                    </section>
+
+                    <section class="forum-panel" id="forum-changelog-editor" aria-labelledby="forum-changelog-heading" data-forum-view="changelog" hidden>
+                        <div class="forum-panel-heading"><div><span class="forum-eyebrow">CHANGELOG · ALPHA</span><h2 id="forum-changelog-heading" tabindex="-1" data-forum-i18n="forum.changelogNew">Neuer Changelog</h2></div></div>
+                        <p class="forum-panel-description" data-forum-i18n="forum.changelogEditorNote">Offizielle Veröffentlichung. Das Datum bestimmt die Reihenfolge; Kommentare sind nicht vorgesehen.</p>
+                        <form id="forum-changelog-form" class="forum-changelog-form" hidden>
+                            <div class="forum-changelog-fields">
+                                <div class="forum-field"><label for="forum-changelog-version" data-forum-i18n="forum.changelogVersion">Version</label><input id="forum-changelog-version" required pattern="[0-9]{1,4}(\.[0-9]{1,4}){1,3}" maxlength="19" autocomplete="off" placeholder="0.2.4"></div>
+                                <div class="forum-field"><label for="forum-changelog-date" data-forum-i18n="forum.changelogDate">Datum</label><input id="forum-changelog-date" type="date" required min="2013-01-01"></div>
+                            </div>
+                            <div class="forum-field"><label for="forum-changelog-title" data-forum-i18n="forum.changelogTitle">Titel</label><input id="forum-changelog-title" required minlength="3" maxlength="120" autocomplete="off"></div>
+                            <div class="forum-field"><label for="forum-changelog-body" data-forum-i18n="forum.changelogContent">Inhalt</label><textarea id="forum-changelog-body" required minlength="10" maxlength="8000" rows="14"></textarea></div>
+                            <div class="forum-draft-actions"><button id="forum-changelog-submit" type="submit" class="forum-button forum-button-primary" data-forum-i18n="forum.changelogPublish">Veröffentlichen</button><a id="forum-changelog-cancel" class="forum-text-button" href="#category/changelog" data-forum-i18n="forum.cancelCategory">Abbrechen</a></div>
+                        </form>
+                        <p id="forum-changelog-form-status" role="status" aria-live="polite"></p>
                     </section>
 
                     <section class="forum-panel" id="forum-auth-gate" aria-labelledby="forum-auth-heading" data-forum-view="auth" hidden>
@@ -305,8 +328,8 @@
                         </div>
                     </section>
 
-                    <section class="forum-panel" data-forum-view="thread" aria-labelledby="forum-thread-heading" hidden>
-                        <div class="forum-panel-heading"><div><span class="forum-eyebrow" id="forum-thread-category" data-i18n-ignore></span><h2 id="forum-thread-heading" tabindex="-1" data-i18n-ignore>Thema</h2></div></div>
+                    <section class="forum-panel" id="forum-thread" data-forum-view="thread" aria-labelledby="forum-thread-heading" hidden>
+                        <div class="forum-panel-heading"><div><span class="forum-eyebrow" id="forum-thread-category" data-i18n-ignore></span><div id="forum-thread-alpha" hidden></div><h2 id="forum-thread-heading" tabindex="-1" data-i18n-ignore>Thema</h2></div></div>
                         <p id="forum-thread-server-status" class="forum-panel-description" role="status" hidden></p>
                         <p id="forum-thread-states" class="forum-thread-status" data-i18n-ignore hidden></p>
                         <p id="forum-thread-views" class="forum-thread-view-count" data-i18n-ignore hidden></p>
@@ -574,12 +597,15 @@
     <script src="../assets/js/visitor-counter.js?v=20261008-release1"></script>
     <script src="../assets/js/main.js?v=20261008-release1"></script>
     <script src="../assets/js/identity.js?v=20261008-release1"></script>
-    <script src="../assets/js/forum-api.js?v=20261012-account-roles1"></script>
+    <script src="../assets/js/forum-api.js?v=20261015-changelog2"></script>
 <script src="../assets/js/community-features.js?v=20261013-pulse-active1"></script>
     <script src="../assets/js/forum-views.js?v=20261013-pulse-views1"></script>
-    <script src="../assets/js/forum-activity.js?v=20261013-pulse-views1"></script>
-    <script src="../assets/js/forum-content.js?v=20261013-pulse-views1"></script>
-    <script src="../assets/js/forum.js?v=20261013-pulse-views1"></script>
-    <script src="../assets/js/forum-atmosphere.js?v=20261014-camp2"></script>
+    <script src="../assets/js/forum-links.js?v=20261015-forum-reactions1"></script>
+    <script src="../assets/js/forum-reactions.js?v=20261015-changelog2"></script>
+    <script src="../assets/js/forum-changelog.js?v=20261015-changelog2"></script>
+    <script src="../assets/js/forum-activity.js?v=20261015-changelog2"></script>
+    <script src="../assets/js/forum-content.js?v=20261015-changelog2"></script>
+    <script src="../assets/js/forum.js?v=20261015-changelog2"></script>
+    <script src="../assets/js/forum-atmosphere.js?v=20261015-release1"></script>
 </body>
 </html>

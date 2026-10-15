@@ -9,10 +9,10 @@
  <link rel="stylesheet" href="../assets/css/header.css?v=20261001-original-logo">
  <link rel="stylesheet" href="../assets/css/identity.css?v=20261008-release1">
  <link rel="stylesheet" href="admin.css?v=20261008-account2">
- <link rel="stylesheet" href="../assets/css/community-pulse-admin.css?v=20261013-pulse-views1">
+ <link rel="stylesheet" href="../assets/css/community-pulse-admin.css?v=20261015-delete1">
  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
- <script src="../assets/js/translations.js?v=20261013-pulse-views1"></script>
- <script src="../assets/js/i18n.js?v=20261012-static-navigation1"></script>
+ <script src="../assets/js/translations.js?v=20261015-delete1"></script>
+ <script src="../assets/js/i18n.js?v=20261015-release1"></script>
 </head>
 <body class="pulse-admin-page" data-zh-admin-protected>
 <header class="header zh-site-header">
@@ -69,6 +69,12 @@
   <div class="pulse-admin-actions"><button type="submit" class="btn btn-gold" id="pulse-admin-save" data-i18n-message="pulse.admin.save">Umfrage speichern</button><button type="button" class="btn btn-outline" id="pulse-admin-cancel" data-i18n-message="pulse.admin.cancel">Abbrechen</button></div>
  </form></div>
 </div></main>
+<dialog id="pulse-delete-dialog" class="pulse-delete-dialog" aria-labelledby="pulse-delete-heading" aria-describedby="pulse-delete-warning">
+ <h2 id="pulse-delete-heading" data-i18n-message="pulse.admin.delete">Umfrage löschen</h2>
+ <p id="pulse-delete-question" data-i18n-ignore></p>
+ <p id="pulse-delete-warning" data-i18n-message="pulse.admin.deleteWarning">Diese Umfrage und alle zugehörigen Stimmen werden dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.</p>
+ <div class="pulse-admin-actions"><button type="button" id="pulse-delete-cancel" class="btn btn-outline" data-i18n-message="pulse.admin.cancel" autofocus>Abbrechen</button><button type="button" id="pulse-delete-confirm" class="btn pulse-admin-delete" data-i18n-message="pulse.admin.deleteConfirm">Umfrage endgültig löschen</button></div>
+</dialog>
 <footer class="site-footer zh-global-footer">
 
     <div class="container footer">
@@ -115,6 +121,6 @@
 <script src="../assets/js/identity.js?v=20261008-release1"></script>
 <script src="access.js?v=20261012-central-role2"></script>
 <script src="../assets/js/community-features.js?v=20261013-pulse-active1"></script>
-<script src="../assets/js/community-pulse-api.js?v=20261013-pulse-views1"></script>
-<script src="community-pulse.js?v=20261013-pulse-views1"></script>
+<script src="../assets/js/community-pulse-api.js?v=20261015-delete1"></script>
+<script src="community-pulse.js?v=20261015-delete1"></script>
 </body></html>

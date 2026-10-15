@@ -1,5 +1,16 @@
 # Homepage – Fortsetzungscheckpoint
 
+**Produktivfreigabe 15.10.2026:** Der vollständige lokal abgenommene Forum-/
+Changelog-/Header-/Rollenfarben-/Pulse-Lösch-/Responsiveblock wird gezielt auf
+`main` veröffentlicht. Umfang und Grenzen: oberster Abschnitt in
+`docs/FORUM_CHECKPOINT.md`; Release-/Pages-/Live-Nachweise extern unter
+`homepage-forum-release-20261015`. Bereits installierte Migrationen und Import
+nicht wiederholen. 24 fremde Wiki-/Galerie-SQL-/Validierungsdateien bleiben
+unverändert und uncommittet. Keine GAME-/Dedicated-/Supabase-Strukturänderung.
+Die nachfolgenden Freigaben und lokalen STOPP-Vermerke sind historischer Verlauf.
+
+**Aktueller Abschluss 15.10.2026:** Der beauftragte Changelog-/Header-/Pulse-Lösch-/Rollenblock ist lokal fertig; zwei ausdrücklich freigegebene Backendmigrationen sind angewendet und 14 historische Originaleinträge mit nutzerseitig festgelegten Datumswerten importiert. Einzelheiten, echte Prüfungen und Grenzen: docs/FORUM_CHECKPOINT.md (oberster Abschnitt) und docs/FORUM_CHANGELOG_REVIEW.md. Frontend noch unveröffentlicht. Kein Commit/Push/Deployment/Webexport. Fremde Wiki-/Validierungs-/Galerie-SQL-Änderungen erhalten. Die älteren Freigaben darunter sind Verlauf, keine Veröffentlichungserlaubnis für diesen neuen Block.
+
 **Produktivfreigabe 14.10.2026 – Pulse / Hero / Forum:** Der aktuelle responsive
 Hero-/Kartenstand ist visuell abgenommen und bleibt unverändert. Community Pulse,
 Goldverbindung, Forum-CTA, Arma-Info, Entfernung der alten sichtbaren Game-Umfrage,

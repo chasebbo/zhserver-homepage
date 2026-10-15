@@ -26,6 +26,18 @@
 }
 .header.zh-site-header .zh-account-quick-register:hover { background: #e7c45a; border-color: #e7c45a; }
 .header.zh-site-header .zh-account-quick-register:focus-visible { outline: 2px solid #d5b448; outline-offset: 3px; }
+.header.zh-site-header .zh-account-quick-actions {
+    grid-column: 1 / -1; display: flex; justify-content: center; gap: 8px; padding-top: 7px;
+}
+.header.zh-site-header .zh-account-quick-actions[hidden] { display: none; }
+.header.zh-site-header .zh-account-quick-login {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 6px 12px;
+    color: #dce4eb; border: 1px solid rgba(183,194,205,.3); border-radius: 7px;
+    font-size: .74rem; font-weight: 500; text-transform: none; letter-spacing: 0; line-height: 1.2;
+}
+.header.zh-site-header .zh-account-quick-login:hover { color: #e7c45a; border-color: #b39a59; }
+.header.zh-site-header .zh-account-quick-login:focus-visible { outline: 2px solid #d5b448; outline-offset: 3px; }
+@media (max-width: 740px) { .header.zh-site-header .zh-account-quick-actions { grid-row: 3; } }
 .zh-account [hidden], .account-main [hidden] { display: none !important; }
 .header.zh-site-header .zh-account :is(a, button) { font-family: inherit; text-transform: none; letter-spacing: 0; }
 .header.zh-site-header .zh-account :is(.zh-account-guest, .zh-account-trigger) {

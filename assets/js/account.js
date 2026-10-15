@@ -44,7 +44,7 @@
             if (created) { script.src = src; document.body.append(script); }
         });
     }
-    const cssUrl = site('assets/css/account.css?v=20261014-welcome1');
+    const cssUrl = site('assets/css/account.css?v=20261015-mobile-links1');
     if (![...document.querySelectorAll('link[rel="stylesheet"]')].some(node => node.href === cssUrl)) {
         const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = cssUrl;
         document.head.append(css);
@@ -65,24 +65,25 @@
     widget.querySelector('[data-account-profile]').href = site('profile/');
     widget.querySelector('[data-account-game]').href = site('game.html');
     const mobileItem = document.createElement('li'); mobileItem.className = 'zh-account-mobile';
-    // On small screens the account area lives in the menu; guests still see a compact "Register" in the bar.
+    // On small screens the signed-in disclosure stays in the menu; both guest links stay in the header.
+    const quickActions = document.createElement('div'); quickActions.className = 'zh-account-quick-actions';
+    const quickLogin = document.createElement('a'); quickLogin.className = 'zh-account-quick-login';
+    quickLogin.href = authUrl(); quickLogin.setAttribute('data-i18n-ignore', ''); language.bind(quickLogin, 'account.signIn');
     const quickRegister = document.createElement('a');
     quickRegister.className = 'zh-account-quick-register'; quickRegister.href = authUrl('register');
     quickRegister.setAttribute('data-i18n-ignore', ''); language.bind(quickRegister, 'account.register');
+    quickActions.append(quickLogin, quickRegister);
     const mobile = window.matchMedia('(max-width: 900px)');
-    // Between 741 and 900px the title shares the row with the controls; the free left column takes the button.
-    const midWidth = window.matchMedia('(min-width: 741px) and (max-width: 900px)');
     function placeWidget() {
         if (!header) return;
         if (mobile.matches) {
             header.querySelector('.nav-menu').append(mobileItem); mobileItem.append(widget);
-            if (midWidth.matches) header.querySelector('.header-emblem').after(quickRegister);
-            else header.querySelector('.header-controls').prepend(quickRegister);
+            header.querySelector('.header-brand-row').append(quickActions);
         } else {
-            header.querySelector('.header-controls').prepend(widget); mobileItem.remove(); quickRegister.remove();
+            header.querySelector('.header-controls').prepend(widget); mobileItem.remove(); quickActions.remove();
         }
     }
-    placeWidget(); mobile.addEventListener('change', placeWidget); midWidth.addEventListener('change', placeWidget);
+    placeWidget(); mobile.addEventListener('change', placeWidget);
     function closeMenu(focus = false) {
         menu.hidden = true; trigger.setAttribute('aria-expanded', 'false');
         if (focus && !trigger.hidden) trigger.focus();
@@ -169,7 +170,7 @@
     function render(state) {
         const signedIn = !!state.userId && ['member', 'nameRequired'].includes(state.status);
         renderAdminLinks(state, signedIn);
-        guest.hidden = signedIn; register.hidden = signedIn; quickRegister.hidden = signedIn; trigger.hidden = !signedIn;
+        guest.hidden = signedIn; register.hidden = signedIn; quickActions.hidden = signedIn; trigger.hidden = !signedIn;
         if (signedIn) window.ZHWelcome?.close();
         const name = widget.querySelector('[data-account-name]');
         name.textContent = state.displayName || language.t('account.title');

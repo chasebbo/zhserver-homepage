@@ -31,7 +31,7 @@
         }
         return el;
     }
-    const publicTopics = () => snapshot ? snapshot.topics.filter(topic => !topic.hidden).sort(recentFirst) : [];
+    const publicTopics = () => snapshot ? snapshot.topics.filter(topic => !topic.hidden && topic.category!=='changelog').sort(recentFirst) : [];
     const replies = count => lang.t(count === 1 ? 'forum.replyCountOne' : 'forum.replyCount', { count:count.toLocaleString(lang.locale) });
     function isRecent(value) {
         const age = Date.now() - Date.parse(value);
@@ -71,7 +71,7 @@
         if (!post) { line.textContent = '—'; line.title = lang.t('forum.activityUnavailable'); return line; }
         const name = post.author?.display_name || lang.t('forum.formerMember');
         line.append(document.createTextNode(lang.t('forum.lastBy') + ' '));
-        const author = node(linked && post.author?.user_id ? 'a' : 'span', name);
+        const author = api.name(post.author, linked && post.author?.user_id ? 'a' : 'span');
         if (author.tagName === 'A') author.href = '#profile/' + post.author.user_id;
         line.append(author); return line;
     }
@@ -95,9 +95,12 @@
             activity.removeAttribute('data-forum-i18n'); activity.setAttribute('data-i18n-ignore', '');
             activity.replaceChildren();
             if (!stat?.topics) { activity.textContent = lang.t('forum.noActivity'); return; }
-            const topic = topics.find(item => item.category === row.dataset.forumCategory && item.last_activity_at === stat.last_activity_at);
+            const topic = topics.find(item => item.category === row.dataset.forumCategory && item.last_activity_at === stat.last_activity_at) || stat.latest_topic;
             if (!topic) { activity.append(timestamp(stat.last_activity_at)); return; }
             const title = node('span', topic.title, 'forum-last-topic'); title.title = topic.title;
+            if(row.dataset.forumCategory==='changelog'){
+                activity.append(title,authorLine({author:topic.author}),node('time',window.ZHForumChangelog.date(topic)));return;
+            }
             activity.append(title, authorLine(null), timestamp(topic.last_activity_at));
             const ticket = generation;
             latest(topic).then(post => {
@@ -115,7 +118,12 @@
             const meta = node('span', '', 'forum-active-meta'), category = node('a', controller.title(topic.category));
             category.href = '#category/' + topic.category;
             meta.append(category, node('span', replies(topic.replies)));
-            item.append(link, meta, timestamp(topic.last_activity_at)); return item;
+            item.append(link, meta, authorLine(null, true), timestamp(topic.last_activity_at));
+            const ticket = generation;
+            latest(topic).then(post => {
+                if (ticket === generation && item.isConnected) item.querySelector('.forum-last-author').replaceWith(authorLine(post, true));
+            });
+            window.ZHForumLinks.bind(item, link); return item;
         }));
         $('forum-top-status').hidden = topics.length > 0;
         if (!topics.length) lang.bind($('forum-top-status'), 'forum.noActivity');
@@ -166,5 +174,5 @@
         identity.subscribe(backgroundRefresh);
         backgroundRefresh();
     }
-    window.ZHForumActivity = Object.freeze({ connect, refresh, invalidate, categories, topicCell, replies, isRecent });
+    window.ZHForumActivity = Object.freeze({ connect, refresh, invalidate, categories, topicCell, replies, isRecent, lastAuthor:latest, authorLine });
 })();

@@ -4235,6 +4235,10 @@ Object.assign(window.ZHTranslations.messages, {
   "pulse.admin.order": {de:"Reihenfolge",en:"Display order"},
   "pulse.admin.save": {de:"Umfrage speichern",en:"Save poll"},
   "pulse.admin.cancel": {de:"Abbrechen",en:"Cancel"},
+  "pulse.admin.delete": {de:"Umfrage löschen",en:"Delete poll"},
+  "pulse.admin.deleteWarning": {de:"Diese Umfrage und alle zugehörigen Stimmen werden dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",en:"This poll and all of its votes will be permanently deleted. This action cannot be undone."},
+  "pulse.admin.deleteConfirm": {de:"Umfrage endgültig löschen",en:"Permanently delete poll"},
+  "pulse.admin.deleted": {de:"Die Umfrage und ihre Stimmen wurden dauerhaft gelöscht.",en:"The poll and its votes have been permanently deleted."},
   "pulse.admin.summary": {de:"{state} · {active} · Position {order}",en:"{state} · {active} · Position {order}"},
   "forum.views": {de:"Aufrufe",en:"Views"},
   "forum.viewCount": {de:"Aufrufe: {count}",en:"Views: {count}"},
@@ -4261,4 +4265,39 @@ Object.assign(window.ZHTranslations.messages, {
   "welcome.login": {de:"Einloggen",en:"Sign in"},
   "welcome.guest": {de:"Als Gast weitermachen",en:"Continue as a guest"},
   "welcome.close": {de:"Hinweis schließen",en:"Close notice"}
+});
+
+Object.assign(window.ZHTranslations.messages, {
+  "forum.openThread": {de:"Thema öffnen: {title}",en:"Open topic: {title}"},
+  "forum.reactions": {de:"Bewertungen",en:"Reactions"},
+  "forum.like": {de:"Gefällt mir",en:"Like"},
+  "forum.dislike": {de:"Gefällt mir nicht",en:"Dislike"},
+  "forum.reactionSignIn": {de:"Zum Bewerten musst du angemeldet sein.",en:"Sign in to react to a post."},
+  "forum.reactionsUnavailable": {de:"Bewertungen sind gerade nicht verfügbar.",en:"Reactions are currently unavailable."}
+});
+
+Object.assign(window.ZHTranslations.copy, {
+  "forum-category-changelog": {de:"Changelog",en:"Changelog"}
+});
+Object.assign(window.ZHTranslations.messages, {
+  "forum.description.changelog": {de:"Entwicklung und größere Änderungen an Zombiehölle.",en:"Development updates and major changes to Zombie Hell."},
+  "forum.changelogUpdate": {de:"UPDATE",en:"UPDATE"},
+  "game.changelogForumIntro": {de:"Alle Änderungen und Entwicklungsstände findest du im Forum.",en:"You can find all changes and development updates in the forum."},
+  "game.changelogForumLink": {de:"Zum Changelog",en:"View changelog"},
+  "forum.changelogNew": {de:"Neuer Changelog",en:"New changelog"},
+  "forum.changelogEdit": {de:"Changelog bearbeiten",en:"Edit changelog"},
+  "forum.changelogVersion": {de:"Version",en:"Version"},
+  "forum.changelogDate": {de:"Datum",en:"Date"},
+  "forum.changelogContent": {de:"Inhalt",en:"Content"},
+  "forum.changelogTitle": {de:"Titel",en:"Title"},
+  "forum.changelogPublish": {de:"Veröffentlichen",en:"Publish"},
+  "forum.changelogLikes": {de:"Likes",en:"Likes"},
+  "forum.changelogSignIn": {de:"Zum Liken musst du angemeldet sein.",en:"Sign in to like this changelog."},
+  "forum.changelogDateUnknown": {de:"Datum unklar",en:"Date unconfirmed"},
+  "forum.changelogEditorNote": {de:"Offizielle Veröffentlichung. Das Datum bestimmt die Reihenfolge; Kommentare sind nicht vorgesehen.",en:"Official publication. The date determines its position in the changelog. Comments are disabled."},
+  "forum.changelogPending": {de:"Der offizielle Changelog wird vorbereitet. Veröffentlichungen folgen nach Freigabe der Datenbankanbindung und der historischen Daten.",en:"The official changelog is being prepared. Entries will be published once the database integration and historical dates are approved."},
+  "forum.changelogPublisher": {de:"Offizielle Changelogs können ausschließlich vom dafür freigegebenen ZHServer-Account veröffentlicht und bearbeitet werden.",en:"Only the designated ZHServer account can publish and edit official changelogs."},
+  "forum.changelogNoReplies": {de:"Changelogs sind offizielle Veröffentlichungen ohne Antworten oder Kommentare.",en:"Changelogs are official publications. Replies and comments are disabled."},
+  "forum.changelogLikeOnly": {de:"Im Changelog sind ausschließlich Likes möglich.",en:"Changelog entries support likes only."},
+  "forum.changelogMove": {de:"Offizielle Changelogs bleiben im Changelog-Bereich. Diskussionen können nicht dorthin verschoben werden.",en:"Official changelogs stay in their own category. Discussion topics cannot be moved into it."}
 });

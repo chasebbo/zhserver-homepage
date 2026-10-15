@@ -7,42 +7,44 @@
         #0b1015;
 }
 
-/* Compact intro: one line of text, small guest actions on the right. */
+/* Centred title and existing live activity, with a quiet atmospheric wash. */
 .forum-page .forum-intro {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 16px 32px;
-    flex-wrap: wrap;
+    display: grid;
+    justify-items: center;
+    gap: 16px;
     max-width: none;
     margin-bottom: 26px;
     padding-bottom: 22px;
     border-bottom: 1px solid rgba(205, 160, 86, .14);
 }
-.forum-page .forum-intro-copy { min-width: 0; max-width: 720px; }
-.forum-page .forum-stage { margin-bottom: 10px; color: #cdb06d; }
-.forum-page .forum-stage::before {
+.forum-page .forum-intro-copy { position: relative; isolation: isolate; min-width: 0; width: 100%; text-align: center; }
+.forum-page .forum-intro-copy::before {
     content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #e09a48;
-    box-shadow: 0 0 8px rgba(224, 154, 72, .55);
+    position: absolute;
+    z-index: -1;
+    top: -24px;
+    left: 0;
+    width: 100%;
+    height: 128px;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 38% 56% at 50% 36%, rgba(174, 136, 70, .11), transparent 80%),
+        radial-gradient(ellipse 62% 70% at 50% 48%, rgba(53, 70, 82, .12), transparent 85%);
 }
 .forum-page .forum-intro h1 {
-    margin: 0 0 8px;
-    font-size: clamp(1.6rem, 2.7vw, 2.3rem);
-    letter-spacing: .01em;
+    margin: 0;
+    font-size: clamp(1.55rem, 3.6vw, 2.7rem);
+    letter-spacing: .035em;
     color: #eeeadc;
     text-shadow: 0 2px 22px rgba(201, 120, 52, .12);
 }
-.forum-page .forum-intro .forum-status { margin: 0; color: #c9d0d4; font-size: .98rem; }
 
 /* Community line: real forum data only (topics, replies, latest activity). */
 .forum-page .forum-pulse {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
+    justify-content: center;
     gap: 4px 8px;
     margin: 12px 0 0;
     color: #9aa6ae;
@@ -67,8 +69,10 @@
 
 .forum-page .forum-intro-guest {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 8px;
     color: #9aa6ae;
     font-size: .8rem;
@@ -299,10 +303,9 @@ html.forum-detail-view .forum-page .forum-corner-body { padding-top: 18px; }
 }
 @media (max-width: 600px) {
     .forum-page .forum-intro { margin-bottom: 20px; padding-bottom: 18px; }
-    .forum-page .forum-intro-guest { align-items: flex-start; }
-    /* The intro sentence already invites guests; phones keep only the two small actions. */
+    /* Keep the existing guest actions compact below the centred activity line. */
     .forum-page .forum-intro-guest > span { display: none; }
-    .forum-page .forum-pulse-counts { flex-basis: 100%; padding-left: 15px; }
+    .forum-page .forum-pulse-counts { flex-basis: 100%; padding-left: 0; }
     .forum-page .forum-pulse-counts::before { display: none; }
 }
 

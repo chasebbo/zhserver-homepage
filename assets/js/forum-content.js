@@ -19,7 +19,7 @@
     const date = value => new Intl.DateTimeFormat(lang.locale, { dateStyle:'medium', timeStyle:'short', timeZone:'Europe/Berlin' }).format(new Date(value));
     const memberName = profile => profile?.display_name || lang.t('forum.formerMember');
     function authorLink(profile) {
-        const node = textNode(profile?.user_id ? 'a' : 'span', memberName(profile));
+        const node = api.name(profile, profile?.user_id ? 'a' : 'span');
         if (profile?.user_id) node.href = '#profile/' + profile.user_id;
         return node;
     }
@@ -53,11 +53,18 @@
         if (states.childElementCount) main.append(states);
         const link = textNode('a', topic.title); link.href = '#thread/' + topic.id; main.append(link);
         const meta = document.createElement('small'); meta.className = 'forum-topic-author';
-        meta.append(api.avatar(topic.author, true), authorDetails(topic.author), document.createTextNode(' · ' + date(topic.created_at))); main.append(meta);
+        const official=window.ZHForumChangelog.is(topic);
+        if(official){row.classList.add('forum-changelog-topic');main.prepend(window.ZHForumChangelog.label(topic));}
+        meta.append(api.avatar(topic.author, true), authorDetails(topic.author), document.createTextNode(' · ' + (official?window.ZHForumChangelog.date(topic):date(topic.created_at)))); main.append(meta);
         const replies = textNode('span', String(topic.replies), 'forum-topic-count');
         replies.dataset.label = lang.t('forum.replies');
         replies.setAttribute('aria-label', window.ZHForumActivity.replies(topic.replies));
-        row.append(main, replies, window.ZHForumViews.cell(topic), window.ZHForumActivity.topicCell(topic));
+        if(official){
+            const likes=textNode('span',Number.isSafeInteger(topic.changelog?.likes)?String(topic.changelog.likes):'—','forum-topic-likes');
+            likes.dataset.label=lang.t('forum.changelogLikes');likes.setAttribute('aria-label',lang.t('forum.changelogLikes'));
+            row.append(main,likes,window.ZHForumViews.cell(topic),textNode('span',window.ZHForumChangelog.date(topic),'forum-topic-activity'));
+        }else row.append(main, replies, window.ZHForumViews.cell(topic), window.ZHForumActivity.topicCell(topic));
+        window.ZHForumLinks.bind(row, link);
         return row;
     }
     function renderCategories(data) {
@@ -83,9 +90,11 @@
         $('forum-category-compose').hidden = drafts.route().category === 'announcements' && !categoryData.can_announce;
         if (filter !== 'all' && topics.length === 0 && categoryData.topics.length < categoryData.total) bind('forum-category-server-status', 'forum.moreForFilter');
         else $('forum-category-server-status').hidden = true;
+        window.ZHForumChangelog.category(categoryData);
     }
     async function category(id, filter = 'all', more = false) {
         if (!id) return;
+        if(id==='changelog')window.ZHForumChangelog.category({});
         const key = id + ':' + userKey();
         if (categoryKey === key && !more && categoryData) { renderTopicList(filter); return; }
         if (categoryKey !== key) { categoryData = null; $('forum-server-topics').replaceChildren(); }
@@ -106,7 +115,8 @@
         author.append(api.avatar(post.author, true), authorDetails(post.author));
         const main = textNode('div', '', 'forum-post-content');
         const meta = textNode('div', '', 'forum-post-meta');
-        const time = textNode('time', date(post.created_at)); time.dateTime = post.created_at;
+        const time = textNode('time', window.ZHForumChangelog.is(threadData?.topic)?window.ZHForumChangelog.date(threadData.topic):date(post.created_at));
+        if(post.created_at)time.dateTime = post.created_at;
         meta.append(textNode('span', lang.t('forum.published')), time);
         if (last) meta.append(textNode('span', lang.t('forum.latestPost'), 'forum-latest-post-note'));
         if (post.updated_at !== post.created_at) meta.append(textNode('span', lang.t('forum.editedAt', { date:date(post.updated_at) })));
@@ -115,7 +125,7 @@
         const actions = textNode('div', '', 'forum-post-footer');
         if (post.can_edit && identity.state.status === 'member' && (post.can_moderate || (!threadData.topic.closed && !threadData.topic.hidden && !post.hidden))) {
             const button = textNode('button', lang.t(post.opener ? 'forum.editPost' : 'forum.editReply'), 'forum-text-button'); button.type = 'button';
-            button.addEventListener('click', () => openEdit(post)); actions.append(button);
+            button.addEventListener('click', () => window.ZHForumChangelog.is(threadData.topic)?window.ZHForumChangelog.openEdit(threadData):openEdit(post)); actions.append(button);
         }
         if (post.can_moderate && !post.opener) {
             const button = textNode('button', lang.t('forum.deleteReply'), 'forum-text-button forum-delete-link'); button.type='button';
@@ -132,13 +142,15 @@
         const breadcrumb = $('forum-breadcrumb-category'); breadcrumb.hidden = false;
         const link = textNode('a', drafts.title(topic.category)); link.href = '#category/' + topic.category; breadcrumb.replaceChildren(link);
         // Only the actual end of the full thread is marked, never the end of a partial page.
-        const last = threadData.posts.length >= threadData.post_count ? threadData.posts.filter(post => !post.hidden).at(-1) : null;
+        const last = !window.ZHForumChangelog.is(topic)&&threadData.posts.length >= threadData.post_count ? threadData.posts.filter(post => !post.hidden).at(-1) : null;
         $('forum-thread-posts').replaceChildren(...threadData.posts.map(post => renderPost(post, post.id === last?.id)));
+        window.ZHForumReactions.mount(threadData, drafts);
         $('forum-load-posts').hidden = threadData.posts.length >= threadData.post_count;
         $('forum-thread-states').textContent = ['pinned','closed','hidden'].filter(s => topic[s]).map(s => lang.t('forum.'+s)).join(' · ');
         $('forum-thread-states').hidden = !$('forum-thread-states').textContent;
         renderModeration(topic);
         permissionFields(topic);
+        window.ZHForumChangelog.thread(threadData);
         window.ZHForumViews.observe(threadData, drafts);
     }
     function renderModeration(topic) {
@@ -156,6 +168,7 @@
         const label = textNode('label', lang.t('forum.moveCategory')); label.htmlFor = 'forum-move-category';
         const select = document.createElement('select'); select.id = 'forum-move-category'; select.setAttribute('data-i18n-ignore', '');
         document.querySelectorAll('[data-forum-category]').forEach(row => {
+            if(row.dataset.forumCategory==='changelog')return;
             const option = textNode('option', drafts.title(row.dataset.forumCategory)); option.value = row.dataset.forumCategory; select.append(option);
         });
         select.value = topic.category; select.disabled = !moderationReady() || moderationBusy;
@@ -163,7 +176,8 @@
         moveButton.disabled = !moderationReady() || moderationBusy || select.value === topic.category;
         select.addEventListener('change', () => { moveButton.disabled = moderationBusy || select.value === topic.category; });
         move.addEventListener('submit', event => { event.preventDefault(); if (!moveButton.disabled) moderate('move', null, null, select.value); });
-        move.append(label, select, moveButton); actions.append(move, toggle('closed', topic.closed ? 'openTopic' : 'closeTopic'));
+        move.append(label, select, moveButton); move.hidden=window.ZHForumChangelog.is(topic);
+        actions.append(move, toggle('closed', topic.closed ? 'openTopic' : 'closeTopic'));
         const remove = textNode('button', lang.t('forum.deleteTopic'), 'forum-button forum-button-danger'); remove.type='button';
         remove.dataset.forumDelete = ''; remove.disabled = !moderationReady() || moderationBusy;
         remove.addEventListener('click', () => confirmDelete('delete_topic')); actions.append(remove); moderation.append(actions);
@@ -296,7 +310,9 @@
     }
     function renderProfile() {
         if (!profileData) return;
-        const p=profileData.profile; $('forum-public-profile-heading').textContent=p.display_name;
+        const p=profileData.profile; const heading=$('forum-public-profile-heading'); heading.textContent=p.display_name;
+        heading.classList.add('zh-public-name'); heading.removeAttribute('data-system-role');
+        if(['admin','member'].includes(p.system_role))heading.dataset.systemRole=p.system_role;
         const labels = api.labels(p);
         $('forum-public-profile-labels').replaceChildren(labels); $('forum-public-profile-labels').hidden=labels.hidden;
         $('forum-public-profile-avatar').replaceChildren(api.avatar(p));
@@ -327,6 +343,7 @@
     }
     function connect(controller) {
         drafts=controller;
+        window.ZHForumChangelog.connect(controller);
         window.ZHForumActivity.connect(controller);
         document.querySelectorAll('[data-forum-publish]').forEach(b=>b.addEventListener('click',publish));
         $('forum-load-topics').addEventListener('click',()=>category(drafts.route().category, document.querySelector('[data-forum-filter][aria-pressed="true"]').dataset.forumFilter, true));
@@ -346,6 +363,13 @@
         });
         function refresh() { window.ZHForumActivity.invalidate(); categoryKey=''; threadKey=''; profileKey=''; overviewKey=''; const r=drafts.route(); if(r.view==='thread') thread(r.id); if(r.view==='profile') profile(r.id); if(r.view==='category') category(r.category); if(r.view==='overview') overview(); }
         document.addEventListener('zh:publicprofilechange',refresh);
+        document.addEventListener('zh:forumchange',refresh);
+        const reactionChanged=()=>{
+            categoryKey='';profileKey='';
+            if(drafts.route().view==='category'&&drafts.route().category==='changelog')category('changelog');
+        };
+        document.addEventListener('zh:forumreactionchange',reactionChanged);
+        window.addEventListener('storage',e=>{if(e.key==='zh_forum_reaction_revision')reactionChanged();});
         window.addEventListener('storage',e=>{if(e.key==='zhserver_public_profile_revision') refresh();});
     }
     window.ZHForumContent=Object.freeze({connect,overview,category,thread,profile});

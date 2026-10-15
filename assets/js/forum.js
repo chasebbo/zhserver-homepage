@@ -18,11 +18,26 @@
     const categorySelect = document.getElementById("forum-draft-category-select");
     const storageKey = "zhserver_forum_drafts_v1";
     const content = window.ZHForumContent;
+    let ownPublicId = null, ownPublicProfile = null;
     function renderIdentity() {
         const state = window.ZHIdentity.state;
+        if (state.userId !== ownPublicId) {
+            ownPublicId = state.userId; ownPublicProfile = null;
+            if (state.userId && state.status === 'member') {
+                const owner = state.userId;
+                window.ZHForum.rpc('get_zh_forum_profile', {p_user_id:owner}).then(data => {
+                    if (window.ZHIdentity.state.userId !== owner || ownPublicId !== owner) return;
+                    ownPublicProfile = data.profile; renderIdentity();
+                }).catch(() => {}); // Unknown role remains neutral; writing permissions are unchanged.
+            }
+        }
+        const profile = {display_name:state.displayName || language.t('forum.authorProfile'), system_role:ownPublicProfile?.system_role};
         const key = state.status === "member" ? "identity.signedIn" : state.status === "guest" ? "identity.signInRequired" : "identity." + state.status;
-        language.bind(document.getElementById("forum-identity-status"), key, { name: state.displayName || "" });
-        document.getElementById("forum-preview-author").textContent = state.displayName || language.t("forum.authorProfile");
+        const status = document.getElementById('forum-identity-status');
+        const parts = language.t(key, {name:'\u0000'}).split('\u0000');
+        if (parts.length === 2) status.replaceChildren(document.createTextNode(parts[0]), window.ZHForum.name(profile), document.createTextNode(parts[1]));
+        else status.textContent = language.t(key, {name:state.displayName || ''});
+        document.getElementById("forum-preview-author").replaceChildren(window.ZHForum.name(profile));
         const previewAvatar = document.getElementById("forum-preview-avatar");
         previewAvatar.hidden = state.status !== "member";
         previewAvatar.replaceChildren(window.ZHForum.avatar({ display_name: state.displayName }));
@@ -76,6 +91,8 @@
     }
 
     function readRoute() {
+        const editChangelog = /^#editchangelog\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i.exec(location.hash);
+        if(editChangelog)return {view:'changelog',id:editChangelog[1],category:'changelog'};
         const publicRoute = /^#(thread|profile)\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i.exec(location.hash);
         if (publicRoute) return { view: publicRoute[1], id: publicRoute[2], category: null };
         const match = /^#(category|compose|draft|preview)\/([a-z]+)$/.exec(location.hash);
@@ -248,6 +265,7 @@
         cacheEditor();
         const previous = route;
         route = readRoute();
+        if(route.category==='changelog'&&['draft','preview'].includes(route.view))route.view='changelog';
         if (route.view === "draft" && window.ZHIdentity.state.status !== "member") route.view = "auth";
         if (route.category !== previous.category || route.view !== previous.view) {
             saveFeedback = "";
@@ -269,7 +287,7 @@
             if (route.view !== "category") {
                 const current = document.createElement("span");
                 current.className = "forum-breadcrumb-current";
-                current.textContent = language.t(["draft", "auth"].includes(route.view) ? "forum.createPost" : "forum.previewBadge");
+                current.textContent = language.t(route.view==='changelog'?(route.id?'forum.changelogEdit':'forum.changelogNew'):["draft", "auth"].includes(route.view) ? "forum.createPost" : "forum.previewBadge");
                 current.setAttribute("aria-current", "page");
                 breadcrumb.append(current);
             }
@@ -299,14 +317,16 @@
         if (route.view === 'overview') content?.overview();
         if (route.view === 'thread') content?.thread(route.id);
         if (route.view === 'profile') content?.profile(route.id);
+        if (route.view === 'changelog') window.ZHForumChangelog.editor({route:()=>route,title});
         if (focus) {
-            const heading = document.getElementById({ overview: "forum-categories-title", category: "forum-category-title", draft: "forum-draft-heading", auth: "forum-auth-heading", preview: "forum-preview-heading", thread: 'forum-thread-heading', profile: 'forum-public-profile-heading' }[route.view]);
+            const heading = document.getElementById({ overview: "forum-categories-title", category: "forum-category-title", draft: "forum-draft-heading", auth: "forum-auth-heading", preview: "forum-preview-heading", thread: 'forum-thread-heading', profile: 'forum-public-profile-heading',changelog:'forum-changelog-heading' }[route.view]);
             heading.focus({ preventScroll: true });
             document.querySelector(".forum-workspace").scrollIntoView({ block: "start", behavior: "instant" });
         }
     }
 
     for (const id of categories.keys()) {
+        if(id==='changelog')continue;
         const option = document.createElement("option"); option.value = id; categorySelect.append(option);
     }
     bindText();
@@ -411,7 +431,7 @@
     content?.connect({
         route: () => route, title, renderIdentity,
         prepare: () => {
-            if (!route.category || window.ZHIdentity.state.status !== 'member') return null;
+            if (!route.category || route.category==='changelog' || window.ZHIdentity.state.status !== 'member') return null;
             if (route.view === 'draft' && !validatePreview()) return null;
             cacheEditor(); const draft = draftFor(route.category);
             if (draft.title.trim().length < 3 || draft.body.trim().length < 10) return null;

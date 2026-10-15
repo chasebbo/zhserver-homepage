@@ -2,7 +2,7 @@
 (() => {
     'use strict';
     const api=window.ZHPulseAPI, lang=window.ZHLanguage, identity=window.ZHIdentity;
-    const $=id=>document.getElementById(id); let polls=[], selected=null, busy=false;
+    const $=id=>document.getElementById(id); let polls=[], selected=null, busy=false, deleteReady=false, deleting=null;
     document.querySelectorAll('[data-i18n-message]').forEach(e=>{const key=e.getAttribute('data-i18n-message');if(key)lang.bind(e,key);});
     const node=(tag,text,cls)=>{const e=document.createElement(tag);e.textContent=text;e.setAttribute('data-i18n-ignore','');if(cls)e.className=cls;return e;};
     function feedback(key) { lang.bind($('pulse-admin-status'),key); }
@@ -43,15 +43,39 @@
             });
             article.append(node('p',lang.t(poll.total===1?'pulse.totalOne':'pulse.total',{count:poll.total.toLocaleString(lang.locale)}),'pulse-admin-meta'));
             const button=node('button',lang.t('pulse.admin.edit'),'btn btn-outline');button.type='button';button.disabled=busy;
-            button.addEventListener('click',()=>edit(poll));article.append(button);list.append(article);
+            button.addEventListener('click',()=>edit(poll));article.append(button);
+            if(deleteReady){
+                const remove=node('button',lang.t('pulse.admin.delete'),'btn btn-outline pulse-admin-delete');remove.type='button';remove.disabled=busy;
+                remove.addEventListener('click',()=>{
+                    deleting={poll,userId:identity.state.userId,trigger:remove};
+                    $('pulse-delete-question').textContent=api.copy(poll.question);$('pulse-delete-dialog').showModal();
+                });article.append(remove);
+            }
+            list.append(article);
         });
     }
     async function load() {
         if(!api.enabled()){feedback('pulse.preparing');return;}
-        try{polls=(await api.read(true)).polls;render();feedback('pulse.admin.ready');}
+        try{const data=await api.read(true);polls=data.polls;deleteReady=data.delete_version===1;render();feedback('pulse.admin.ready');}
         catch(e){feedback(lang.t(e.message)===e.message?'pulse.network':e.message);}
     }
     $('pulse-admin-create').addEventListener('click',()=>edit());
+    $('pulse-delete-cancel').addEventListener('click',()=>{$('pulse-delete-dialog').close();});
+    $('pulse-delete-dialog').addEventListener('close',()=>{const previous=deleting;deleting=null;previous?.trigger?.focus();});
+    $('pulse-delete-confirm').addEventListener('click',async()=>{
+        const pending=deleting;if(busy||!pending||pending.userId!==identity.state.userId)return;
+        busy=true;$('pulse-delete-confirm').disabled=true;$('pulse-delete-cancel').disabled=true;
+        try{
+            const data=await api.remove(pending.poll.id,pending.poll.updated_at);polls=data.polls;
+            if(selected?.id===pending.poll.id){selected=null;$('pulse-admin-form').hidden=true;}
+            $('pulse-delete-dialog').close();feedback('pulse.admin.deleted');
+            try{localStorage.setItem('zh_pulse_revision',String(Date.now()));}catch(_){/* Reload/visibility refresh remains available. */}
+            document.dispatchEvent(new CustomEvent('zh:pulsechange'));
+        }catch(e){$('pulse-delete-dialog').close();feedback(lang.t(e.message)===e.message?'pulse.network':e.message);}
+        finally{busy=false;$('pulse-delete-confirm').disabled=false;$('pulse-delete-cancel').disabled=false;render();}
+    });
+    $('pulse-delete-dialog').addEventListener('cancel',event=>{if(busy)event.preventDefault();});
+    identity.subscribe(state=>{if(deleting&&deleting.userId!==state.userId)$('pulse-delete-dialog').close();});
     $('pulse-admin-refresh').addEventListener('click',load);
     $('pulse-admin-state').addEventListener('change',stateField);
     $('pulse-admin-add-option').addEventListener('click',()=>optionFields([...options(),{de:'',en:''}]));

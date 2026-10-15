@@ -1,0 +1,14 @@
+/* Public identity color comes only from the server-provided system_role. */
+.forum-page :is(.zh-public-name, .zh-public-role)[data-system-role] {
+    color: var(--role-ink); text-shadow: 0 0 8px var(--role-glow);
+    animation: zh-role-glow 12s ease-in-out infinite;
+}
+.forum-page .forum-thread-posts .forum-post-author .forum-author-details > .zh-public-name[data-system-role],
+.forum-page .forum-topic-activity .forum-last-author .zh-public-name[data-system-role] { color: var(--role-ink); }
+.forum-page [data-system-role="admin"] { --role-ink: #bd7a91; --role-glow: rgba(130, 40, 69, .34); }
+.forum-page [data-system-role="member"] { --role-ink: #849ec7; --role-glow: rgba(47, 75, 119, .34); }
+.forum-page a.zh-public-name:hover { color: var(--role-ink); text-decoration: underline; text-underline-offset: 3px; }
+@keyframes zh-role-glow { 0%, 100% { text-shadow: 0 0 6px var(--role-glow); } 50% { text-shadow: 0 0 11px var(--role-glow); } }
+@media (prefers-reduced-motion: reduce) {
+    .forum-page :is(.zh-public-name, .zh-public-role)[data-system-role] { animation: none; }
+}

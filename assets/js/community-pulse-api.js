@@ -27,5 +27,6 @@
     window.ZHPulseAPI = Object.freeze({ enabled, copy,
         read: (admin = false) => request('get_zh_community_pulse', { p_admin:admin }),
         vote: (id, option) => request('cast_zh_community_pulse_vote', { p_poll_id:id,p_option_id:option }, true),
-        save: payload => request('manage_zh_community_pulse', payload, true) });
+        save: payload => request('manage_zh_community_pulse', payload, true),
+        remove: (id, expected) => request('delete_zh_community_pulse', {p_poll_id:id,p_expected_at:expected}, true) });
 })();

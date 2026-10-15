@@ -89,13 +89,16 @@
             lang.bind($('pulse-feedback'), lang.t(e.message) === e.message ? 'pulse.network' : e.message); $('pulse-feedback').hidden=false;
         } finally { if(ticket===generation) { busy=false; pause('vote',false); render(); } }
     }
-    async function load() {
-        const ticket = ++generation; clearTimeout(timer); busy=false; polls=[]; render();
+    async function load(refresh=false) {
+        const previous=refresh?polls[index]:null, previousResult=result;
+        const ticket = ++generation; clearTimeout(timer); busy=false;
+        if(!refresh){polls=[];render();}
         if (!api.enabled()) return;
-        status('pulse.loading');
+        if(!refresh||!polls.length)status('pulse.loading');
         try {
             const data=await api.read(); if(ticket!==generation) return;
-            polls=data.polls; index=0; result=Boolean(polls[0]?.my_vote)||polls[0]?.state==='closed'; render();
+            polls=data.polls; index=Math.max(0,polls.findIndex(p=>p.id===previous?.id));
+            result=Boolean(polls[index]?.my_vote)||polls[index]?.state==='closed'||Boolean(previous&&polls[index]?.id===previous.id&&previousResult);render();
         } catch (e) { if(ticket===generation) status(e.message==='identity.sessionChanged'?'pulse.loading':'pulse.network'); }
     }
     root.addEventListener('pointerenter',e=>{if(e.pointerType!=='touch')pause('hover',true);});
@@ -109,6 +112,10 @@
     $('pulse-prev').addEventListener('click',()=>change(-1)); $('pulse-next').addEventListener('click',()=>change(1));
     $('pulse-result-toggle').addEventListener('click',()=>{result=!result;render();});
     document.addEventListener('zh:languagechange',render);
+    document.addEventListener('zh:pulsechange',()=>load(true));
+    window.addEventListener('storage',event=>{if(event.key==='zh_pulse_revision')load(true);});
+    // A previously open homepage refreshes when returning from poll administration.
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)load(true);});
     let scope;
     identity.subscribe(state=>{const next=state.status+':'+state.userId;if(next!==scope){scope=next;load();}});
     load();

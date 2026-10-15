@@ -1,5 +1,173 @@
 # Forum – Fortsetzungscheckpoint
 
+## Produktivfreigabe und Release – 15.10.2026
+
+Die lokale Abnahme des gesamten Homepage-/Forumblocks ist erteilt. Freigegeben
+sind Reaktionen/Usability, offizieller Changelog samt historischem Importbeleg,
+kompakter Entwicklungsseiten-Hinweis und Forum-Vorschau, mobile Anmelden-/
+Registrieren-Links, Pulse-Löschoberfläche, Rollenfarben sowie die letzte Header-/
+Pulse-Skalierungskorrektur. Nur diese 41 Laufzeit-/Dokumentationsdateien werden
+gezielt auf `main` veröffentlicht. `index.html` enthält dabei ausschließlich neue
+Cache-Kennungen der geänderten gemeinsamen Ressourcen; sein Layout bleibt gleich.
+
+Alle drei bereits installierten Migrationen und der historische Import werden
+NICHT erneut ausgeführt. Fremde Wiki-, Galerie-SQL- und Validierungsdateien bleiben
+bytegleich und außerhalb des Commits. Keine GAME-/Dedicated-/Accountänderung.
+Vorhandene lokale SQL-/UI-Prüfungen gelten weiter; die Produktionsabnahme prüft
+zusätzlich ausgelieferte Quellen und reale DE/EN-Oberflächen. Keine echten
+Umfragen oder Forumbeiträge zum Test löschen. Commit, Pages-Lauf, HTTP-/Browser-
+Nachweise und Abschlussstand werden außerhalb Git unter
+`homepage-forum-release-20261015` im bestehenden Visualisierungsordner festgehalten.
+Die folgenden Abschnitte dokumentieren den bereits abgeschlossenen lokalen Stand.
+
+## Lokale optische Korrektur zur Abnahme – 15.10.2026
+
+Nur `forum/index.html`, `assets/css/forum-atmosphere.css`, `assets/js/forum-atmosphere.js` und `assets/css/community-pulse.css` angepasst. Community-Forum-Kicker und Begrüßungsabsatz entfernt; Titel und bestehende echte Aktivitätszeile mittig, dezenter ruhiger CSS-Hintergrundakzent. Im Script ausschließlich die Bindung des entfernten Absatzes und dessen Existenzprüfung herausgenommen; Laden, Inhalt, Links und Berechnung der Aktivitätszeile unverändert.
+
+Pulse-Antworten wachsen mit ihrem Text statt maximal 72 px hoch zu sein und intern zu scrollen. Text, Prozentwert und durchgehender Balken sind im Grid getrennt ausgerichtet. Mobil einspaltige Auswahl und Ergebnisse; kurze Desktop-Viewports verwenden kompaktere Antwortabstände/Schrift. Die freigegebene Hero-/Hauptkartenhöhe und goldene Verbindung bleiben unverändert.
+
+Lokal mit bestehenden echten Daten geprüft: Forum 1440/430/390/360 in DE/EN; Pulse lange friendly-Antwort bei 430/390/360 in Auswahl/Ergebnis, ebenfalls DE/EN. Zusätzliche Pulse-Gegenprobe bei 1440×900, 1280×720 und 768×1024. 32 finale Ansichten ohne horizontalen Overflow, internen Antwortscroll oder abgeschnittenen Text. Desktop-Hauptkarten weiterhin exakt gleich hoch. 0 relevante Browser-/Consolefehler. Keine Stimmen abgegeben oder Daten geändert. Nachweise/Screenshots extern in `forum-header-pulse-layout-20261015`. Vorherige lokale Arbeiten vollständig erhalten. Kein Backend-/Supabase-/Rollen-/Changelog-/GAME-/Wiki-/Dedicated-Eingriff. Kein Commit, Push oder Deployment. STOPP zur visuellen Abnahme.
+
+## Gesamtblock abgeschlossen – 15.10.2026
+
+Die ausdrücklich freigegebenen produktiven Migrationen sind angewendet:
+- 20261015122923_homepage_official_forum_changelog (Quelle: 20261015083510_homepage_official_forum_changelog.sql).
+- 20261015123435_homepage_pulse_delete (Quelle: 20261015123154_homepage_pulse_delete.sql; eigene konkrete Freigabe erhalten).
+Die bereits installierte Reaktionsmigration wurde NICHT erneut ausgeführt.
+
+14 offizielle Einträge mit 206 Originalpunkten sind unter cHas bestehender zentraler UUID importiert. Alle Klartextinhalte und Originalquell-Hashes stimmen mit der fertigen Inventur überein. Datumsliste ausdrücklich vom Nutzer für diesen Import festgelegt, keine neu recherchierten oder behaupteten Original-Veröffentlichungsdaten: 0.1.1=15.07., 0.1.2=22.07., 0.1.3=29.07., 0.1.4=05.08., 0.1.5=12.08., 0.1.6=19.08., 0.1.7=26.08., 0.1.8=02.09., 0.1.9=09.09., 0.2.0=16.09., 0.2.1=23.09., 0.2.2=30.09., 0.2.3=07.10., unversioniertes Update=14.10.2026.
+
+Die ausdrücklich unversionierte Quelle bleibt ohne erfundene Versionsnummer. Dafür akzeptiert das geprüfte Metadaten-CHECK eine leere Version ausschließlich mit vorhandener Importquelle; normales generisches Topic-Erstellen kann die offiziellen Regeln nicht umgehen. Source-Key und Hash bleiben erhalten, identische Importwiederholung wurde ohne Dubletten geprüft. Berlin-Datum statt Importzeit. Nur bestehende Publisher-UUID UND echte zentrale Adminrolle dürfen offizielle Inhalte veröffentlichen/bearbeiten. Keine Replies/Kommentare/Dislikes; derselbe bestehende Like-RPC, unveränderte Views. Top 5 bleibt nach Diskussionen/Aktivität sortiert.
+
+game-development.html enthält keine ausführliche oder kopierte kompakte Changelog-Historie mehr, sondern einen DE/EN-Hinweis mit direktem Forumlink. Die kleine Spielseiten-Vorschau liest ihre vier Punkte und Alpha-Version aus dem Forum; Roadmap bleibt am bisherigen Ort. Kein zweiter vollständiger Pflegebestand. Archivierte Originalquellfragmente in der Inventur bleiben als Importbeleg erhalten.
+
+Mobiler globaler Header: Anmelden UND Registrieren direkt sichtbar, ohne geöffnetes Menü. Dieselbe zentrale Session-/Accountlogik; angemeldete Ansicht unverändert. Geprüft 430/390/360 in DE/EN, ohne Overflow. Gastprüfung auf temporärem Port 5503 mit unveränderten echten Repository-Dateien; cHas vorhandene echte Sitzung auf Port 5500 wurde dafür nicht abgemeldet oder kopiert.
+
+Pulse-Admin: endgültige Löschung mit benannter Umfrage, eindeutiger Warnung und Abbrechen/Bestätigen. Rollenprüfung und Zeitstempelkonflikt serverseitig, Löschkaskaden nur für diese Umfrage/Optionen/Stimmen. Vorhandene drei Umfragen mit sechs Optionen und vier Stimmen beim Test unverändert. Echte Löschtests auf installierten Produktionsfunktionen ausschließlich mit uncommitteten Testdaten in einer zurückgerollten Transaktion. Keine öffentlichen Testumfragen hinterlassen. Browserdialog DE/EN mit echter cHa-Sitzung geöffnet und abgebrochen; endgültige UI-Aktion zusätzlich isoliert getestet. Offene Homepage aktualisiert bei Tab-Rückkehr oder Admin-Änderung und behält eine weiterhin vorhandene aktuelle Frage samt Ergebniszustand. Hero-/Karten-CSS nicht verändert.
+
+Forum-Namen UND Rollenlabel: Admin Bordeaux, Member Marineblau, kleiner langsamer 12-Sekunden-Glow. Einheitlicher Name-Helfer verwendet ausschließlich system_role aus dem bestehenden Backend. Kategorien, Themen, Startbeitrag, Antworten, letzte Autoren, Top 5, Communityzeile und öffentliches Profil berücksichtigt. Bestehende spezifischere Threadstyles bei der echten Sichtprüfung korrigiert. Reduced-motion-Regel statisch geprüft: keine Animation, Farbe/Glow bleiben. Browserprobe mit echten Anni-Member- und cHa-Admin-Beiträgen, öffentliche E-Mail weiterhin nicht sichtbar.
+
+Prüfungen: 48 isolierte Changelog-SQL-, 61 Changelog-UI-, 25 normale Reaktions-/Klickflächen-, 15 Pulse-SQL-, 12 Admin-UI- und 8 Homepage-Pulse-Prüfungen bestanden. Echte Produktions-RPC-Prüfung mit bestehender Member-UUID vollständig zurückgerollt: Like erlaubt, Dislike/Reply/Publisher/Edit verweigert. Echter cHa-Like, Reload und Unlike im Browser bestanden; Test-Like wieder entfernt. Forum in DE/EN bei 1440/768/390/360, 24 finale Kombinationen ohne falsche Rollenfarbe oder Overflow. 22 aktuelle HTTP-Ressourcen mit Status 200 und Quellabgleich, 15 JS-Dateien syntaktisch geprüft. 0 relevante Browser-JS-/Consolefehler. 24 fremde Wiki-/Galerie-SQL-/Validierungsdateien hashidentisch zum Beginn; globaler Footer unverändert. Rollen- und Reaktionsfunktion MD5 unverändert. Keine neuen Security-Advisory-Warnungen gegenüber vorliegendem Bestand.
+
+Nachweise/Screenshots: externes Verzeichnis forum-changelog-20261015 im bestehenden Visualisierungsordner, insbesondere block-final-validation.json, pulse-delete-validation.json, pulse-ui-validation.json, sql-validation.json, frontend-validation.json und native-block-validation.json. Keine Testwerkzeuge/Fixtures in Git übernommen.
+
+Frontend lokal fertig; noch NICHT veröffentlicht. Kein Commit, Push, Deployment oder Webexport. Wiki, game/, GAME und Dedicated nicht bearbeitet. STOPP nach Abschluss dieses Blocks. Die folgenden Abschnitte sind ausschließlich der frühere Vorbereitungs-/Projektverlauf und keine offenen Schritte dieses Auftrags.
+
+
+
+## Offizieller Changelog lokal vorbereitet – 15.10.2026
+
+Auf dem unveränderten bisherigen Working Tree fortgesetzt. Reaktionen und große
+Klickflächen bleiben erhalten; 25 bestehende Frontendprüfungen erneut bestanden.
+Neue Kategorie `changelog` ganz unten, gleiche Kategorie → Themenliste → Thread-
+Hierarchie. Kleine ALPHA-/Versionsdarstellung, nur Like, keine Antwortbox/-zahlen,
+kleiner Editor für den offiziellen Publisher, zentrale DE/EN-Bedienelemente.
+
+Inventur: 13 Alpha-Versionen 0.1.1–0.2.3 aus `game-development.html` mit 197 Punkten;
+zusätzlich ein unversionierter GAME-Eintrag in `CHANGELOG.md` mit neun Punkten.
+**Alle 14 Veröffentlichungsdaten unklar. Aktuell importierbar: 0 Topics und
+0 Startbeiträge.** Keine Datumswerte geraten, keine Inhalte umformuliert und keine
+Versionszuordnung für den zusätzlichen GAME-Eintrag erfunden. Vollständige Tabelle,
+Originalinhalte und exakte Quellfragmente: `FORUM_CHANGELOG_INVENTORY.md`/`.json`.
+
+Migration `20261015083510_homepage_official_forum_changelog.sql` vorbereitet,
+**NICHT produktiv angewendet**. Drei Metadatenspalten in bestehenden Topics,
+keine neue Tabelle. Publisher = bestehende zentrale UUID + zentrale Adminrolle;
+serverseitige Trigger gegen fremdes Veröffentlichen/Bearbeiten, alle Replies und
+Dislikes. Normale Forumrechte/Reaktionen bleiben erhalten; andere Admins können
+anheften, schließen und dauerhaft löschen. Diskussionen und Changelogs nicht
+ineinander verschieben. Vorhandene Views unverändert.
+
+Top 5 und Community-Aktivitätsstrom bleiben Diskussionen vorbehalten. Changelogs
+sind in ihrer Kategorie mit echtem historischem Veröffentlichungsdatum sichtbar;
+ein Import erzeugt keine Aktivität heute. Deterministischer Source-Key/UUID und
+Hash-/Versionsprüfung verhindern doppelte oder stille überschreibende Importe.
+`forum_changelog_import_prepare.sql` enthält alle Quellen, aber ausschließlich
+`approved=false`/`date=null`; es bricht vor jedem Import ab. Daten erhaltende
+Deaktivierung: `forum_changelog_disable.sql`. Exakter Umfang einschließlich des
+ersetzten Kategorie-CHECKs und Rücknahme: `FORUM_CHANGELOG_REVIEW.md`.
+
+Prüfung: 45 isolierte SQL-, 61 Changelog-Frontend- und 25 normale Reaktions-/
+Klickflächentests bestanden. Browser: Liste, Thread und Editor bei 1440/768/390/360
+in DE/EN, 24 Ansichten ohne Overflow oder abgeschnittene Formfelder. Publisher-
+Formular als ausdrücklich simulierte lokale Ansicht, keine produktive Sitzung
+oder Veröffentlichung behauptet. Produktives Backend nur lesend geprüft: vier
+Themen, sieben Beiträge, kein historisches Changelog und keine neuen Spalten.
+
+Port 5500 zeigt ohne neue Capability den ehrlichen Vorbereitungshinweis, normale
+Themen/Replies/Like+Dislike/Top 5 bleiben aktiv. Markierte isolierte Vorschau auf
+Port 5502, Adapter/Fixtures/Belege ausschließlich außerhalb Git im Verzeichnis
+`forum-changelog-20261015`. Neue Desktop-/Mobilebilder dort; keine Datenbank-
+Verbindung der Vorschau. GAME nur gelesen, bisherige Spielanzeige beibehalten.
+
+**STOPP vor produktiver Migration und historischem Import.** Zuerst Freigabe der
+Struktur und belegte Datums-/Versionsentscheidung für ausgewählte Originaldaten.
+Reaktionsmigration nicht erneut installieren. Kein Commit, Push, Deployment oder
+Webexport. Fremde Wiki-/Validierungs-/Galerie-SQL-Dateien vollständig erhalten.
+Abschlussabgleich: `main.gd` im GAME änderte sich parallel außerhalb dieses
+Auftrags; ausschließlich gelesen und nicht zurückgesetzt. Die kanonische GAME-
+Quelle `CHANGELOG.md` sowie die Homepage-Historie sind gegenüber Arbeitsbeginn
+unverändert. Aktuelle HUD-Fundstelle lesend bestätigt: `main.gd:12904`, weiterhin
+ALPHA 0.2.1 und keine historische Changelog-Liste.
+
+## Reaktionen freigegeben, installiert und lokal geprüft – 15.10.2026
+
+Die konkrete vorbereitete Migration wurde ausdrücklich freigegeben und unverändert
+im bestehenden Projekt `zhserver` angewendet: produktive Kennung
+`20261015081259_homepage_forum_reactions`, Quelldatei
+`20261015073229_homepage_forum_reactions.sql`. Nicht erneut anwenden.
+Die lokale Oberfläche auf Port 5500 ist durch `reactions_version=1` aktiviert.
+
+Echter zentraler Adminlogin, automatische Übernahme in der offenen Forumseite,
+Startbeitrag/Antwort, Like/Unlike/Dislike/Undislike, beide Wechselrichtungen,
+Reload und zweiter Tab bestanden. Browser-Testreaktionen wieder entfernt.
+Gastschutz im Browser und Datenbankgrants geprüft; vorhandener Member zusätzlich
+unter seiner UUID/`authenticated` in einer vollständig zurückgerollten Transaktion
+geprüft. Kein neuer Account, kein Member-Passwort und kein behaupteter Member-
+Browserlogin. Ausschließlich `auth.uid()` ist die Reaktionsidentität.
+
+Nachher: 0 Reaktionszeilen/0 verwaiste Reaktionen, bisherige vier Themen und sieben
+Beiträge mit identischen IDs erhalten, zentrale Rollenfunktion unverändert.
+Bestehende isolierte 36 SQL-/25 Frontendprüfungen weiterhin gültig; neue echte
+DE/EN-Ansichten mit geladenen Zahlen bei 1440/768/390/360 ohne Overflow.
+Keine neuen Sicherheitswarnungen; private RLS-Tabelle ohne direkte Policies ist
+beabsichtigt. Umfang und genaue Testgrenzen in `FORUM_REACTIONS_REVIEW.md`.
+
+Neue echte Browserbilder und Produktionsnachweise außerhalb Git im bestehenden
+Verzeichnis `forum-reactions-20261015`. Vorherige Vorbereitungsnotiz unten bleibt
+als Verlauf erhalten. Fremde Wiki-/Validierungs- und Galerie-SQL-Dateien erhalten.
+Frontend noch nicht veröffentlicht. **Kein Commit, Push, Deployment oder Webexport.
+STOPP zur lokalen Abnahme.**
+
+## Usability und Like/Dislike vorbereitet – 15.10.2026
+
+Aktuellen Working Tree auf Basis `1310dc77cb845536e17475a852deaa6fd07ea75f`
+übernommen. Neue große Klickflächen für Themen-/Top-5-Zeilen, native Titellinks
+und eigene Autoren-/Kategorielinks erhalten; Enter/Space und Touch geprüft.
+Warme Forumgestaltung, Struktur, Moderation, Rollen, Profile, Views und Sortierung
+bleiben erhalten. Neuer `forum-links.js`-Helfer und kleine `forum-usability.css`.
+
+Echte persistente Reaktionen lokal vorbereitet: eine private Tabelle pro
+Beitrags-UUID und Account-UUID, zwei begrenzte RPCs und Capability im vorhandenen
+Lese-Wrapper. Startbeiträge/Antworten verwenden beide die vorhandene `posts.id`.
+Frontend `forum-reactions.js` bleibt ohne Capability vollständig inaktiv;
+keine Fake-Zähler oder Aufrufe noch nicht vorhandener produktiver RPCs.
+
+Vorwärtsskript `20261015073229_homepage_forum_reactions.sql`, Daten erhaltende
+Deaktivierung `forum_reactions_disable.sql`, exakter Umfang/Freigabeunterlage
+`FORUM_REACTIONS_REVIEW.md`. 36 isolierte SQL- und 25 Frontendprüfungen bestanden;
+fünf JS-Dateien ohne Parserfehler. Produktives Supabase nur lesend geprüft.
+Browser auf Port 5500: sechs Klickflächen, Tastatur, eigene Links, Mobile;
+1440/768/390/360 in DE/EN ohne Overflow. Views nach Reload unverändert 8.
+
+Nächster Schritt: ausdrückliche produktive SQL-Freigabe einholen, dann erst die
+geprüfte Migration anwenden und echte persistente Reaktionen mit bestehenden
+Accounts lokal prüfen. Keine neuen Testaccounts/Passwörter; Admin/Member/Gast
+weiter unterscheiden. Kein Commit, Push, Deployment oder Webexport.
+Fremde Wiki-/Validierungs- und Galerie-SQL-Dateien vollständig erhalten.
+Nachweise außerhalb Git: `forum-reactions-20261015` im bisherigen Visualisierungs-
+verzeichnis. **STOPP vor produktiver Migration.**
+
 ## Produktivfreigabe für Pulse / Views / Forum-Polish – 14.10.2026
 
 Der Nutzer hat den aktuell geprüften optischen Forumstand und die bestehende

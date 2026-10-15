@@ -7,7 +7,8 @@
     const client = identity.client;
     const allowedErrors = new Set(['identity.signInRequired', 'identity.nameRequired', 'identity.sessionChanged',
         'forum.invalid', 'forum.forbidden', 'forum.announcementsAdmin', 'forum.rateLimit', 'forum.topicClosed',
-        'forum.notFound', 'forum.profileNotFound', 'forum.editConflict', 'forum.avatarInvalid']);
+        'forum.notFound', 'forum.profileNotFound', 'forum.editConflict', 'forum.avatarInvalid',
+        'forum.changelogPublisher','forum.changelogNoReplies','forum.changelogLikeOnly','forum.changelogMove']);
     async function rpc(name, args, write = false, expectedOwner = identity.state.userId) {
         const owner = write ? (await identity.forSubmission()).userId : null;
         if (write && !owner) throw new Error('identity.signInRequired');
@@ -55,5 +56,13 @@
         node.hidden = !node.childElementCount;
         return node;
     }
-    window.ZHForum = Object.freeze({ rpc, avatar, avatarUrl, labels, client });
+    function name(profile, tag = 'span') {
+        const node = document.createElement(tag);
+        node.textContent = profile?.display_name || window.ZHLanguage.t('forum.formerMember');
+        node.setAttribute('data-i18n-ignore', '');
+        if (['admin', 'member'].includes(profile?.system_role)) node.dataset.systemRole = profile.system_role;
+        node.className = 'zh-public-name';
+        return node;
+    }
+    window.ZHForum = Object.freeze({ rpc, avatar, avatarUrl, labels, name, client });
 })();
