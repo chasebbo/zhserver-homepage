@@ -4301,3 +4301,25 @@ Object.assign(window.ZHTranslations.messages, {
   "forum.changelogLikeOnly": {de:"Im Changelog sind ausschließlich Likes möglich.",en:"Changelog entries support likes only."},
   "forum.changelogMove": {de:"Offizielle Changelogs bleiben im Changelog-Bereich. Diskussionen können nicht dorthin verschoben werden.",en:"Official changelogs stay in their own category. Discussion topics cannot be moved into it."}
 });
+
+Object.assign(window.ZHTranslations.copy, {
+  "development-roadmap-safezone": {de:"Safezone & Handelsplatz",en:"Safe zone & trading post"},
+  "development-roadmap-safezone-copy": {de:"Die Adminbase als Treffpunkt für Handel und Versorgung ausbauen.",en:"Expand the admin base into a meeting place for trade and supplies."},
+  "development-roadmap-graphics": {de:"Grafik",en:"Graphics"},
+  "development-roadmap-graphics-copy": {de:"Gebäude, Umgebung und Licht überarbeiten.",en:"Rework buildings, the environment and lighting."},
+  "development-roadmap-character": {de:"Charakter",en:"Character"},
+  "development-roadmap-character-copy": {de:"Charaktergrafik und sichtbare Ausrüstung überarbeiten.",en:"Update character visuals and visible equipment."},
+  "development-roadmap-building": {de:"Bau-System",en:"Building system"},
+  "development-roadmap-building-copy": {de:"Mehr Bauteile und bessere Werkzeuge für den Basenbau.",en:"More building pieces and better tools for base building."},
+  "development-roadmap-portals": {de:"Portale",en:"Portals"},
+  "development-roadmap-portals-copy": {de:"Portale und die Gebiete dahinter ausbauen.",en:"Expand the portals and the areas beyond them."},
+  "development-world-title": {de:"WELTLAGE",en:"WORLD STATUS"},
+  "development-world-safezone-title": {de:"SAFEZONE",en:"SAFE ZONE"},
+  "development-world-safezone-copy": {de:"Die Adminbase wird zum sicheren Zentrum für Handel, Versorgung und neue Spieler ausgebaut.",en:"The admin base is being expanded into a safe hub for trade, supplies and new players."},
+  "development-world-towns-title": {de:"STÄDTE & DÖRFER",en:"TOWNS & VILLAGES"},
+  "development-world-towns-copy": {de:"Die meisten Orte wurden überrannt oder aufgegeben.",en:"Most settlements have been overrun or abandoned."},
+  "development-world-military-title": {de:"MILITÄR",en:"MILITARY"},
+  "development-world-military-copy": {de:"Einzelne Einheiten halten noch Stellungen und Außenposten. Das Militär versucht, die Portale unter Kontrolle zu halten und braucht Unterstützung.",en:"Some units still hold positions and outposts. The military is trying to keep the portals under control and needs help."},
+  "development-world-portals-title": {de:"PORTALE",en:"PORTALS"},
+  "development-world-portals-copy": {de:"Durch die Portale gelangen seltsame und gefährliche Zombies in die Welt.",en:"Strange and dangerous zombies enter the world through the portals."}
+});

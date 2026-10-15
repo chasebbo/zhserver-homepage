@@ -1,0 +1,65 @@
+/* Equal Roadmap / World status cards on the game entry page only. */
+.game-entry-page .landing-alpha-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+}
+.game-entry-page .landing-alpha-card {
+    position: relative;
+    isolation: isolate;
+    min-width: 0;
+    padding: 20px 22px 15px;
+    overflow: hidden;
+    border: 1px solid #879da733;
+    border-radius: 4px;
+    background: #0c151e;
+}
+.game-entry-page .landing-alpha-card::before,
+.game-entry-page .landing-alpha-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+.game-entry-page .landing-alpha-card::before {
+    background: var(--alpha-backdrop) center 70% / cover no-repeat;
+    opacity: .55;
+    filter: saturate(.5);
+}
+.game-entry-page .landing-alpha-card::after {
+    background: linear-gradient(90deg, #091117ed, #091117b0 70%, #09111770),
+        linear-gradient(180deg, #09111780, #09111720 55%, #09111755);
+}
+.game-entry-page .landing-alpha-roadmap {
+    --alpha-backdrop: url('../images/development/roadmap-abandoned-road.webp');
+}
+.game-entry-page .landing-alpha-world {
+    --alpha-backdrop: url('../images/development/world-state-portal.webp');
+}
+.game-entry-page .landing-alpha-card h3 {
+    margin: 0 0 3px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #b895483d;
+    color: #e4d7b4;
+    font: 700 1.05rem/1.35 Cinzel, serif;
+    letter-spacing: .035em;
+}
+.game-entry-page .landing-alpha-card .landing-roadmap-list > div:last-child {
+    border-bottom: 0;
+}
+.game-entry-page .landing-alpha-card .landing-roadmap-list dt {
+    font-weight: 600;
+    overflow-wrap: break-word;
+}
+.game-entry-page .landing-alpha-card .landing-roadmap-list dd {
+    color: #c4ccc9;
+    overflow-wrap: break-word;
+}
+.game-entry-page .landing-development-link { margin-top: 9px; }
+@media (max-width: 900px) {
+    .game-entry-page .landing-alpha-layout { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+    .game-entry-page .landing-alpha-card { padding: 19px 18px 14px; }
+    .game-entry-page .landing-alpha-card::before { opacity: .42; }
+}

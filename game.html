@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en">
         <link rel="stylesheet" href="assets/css/game-page.css?v=20261001-vision1">
         <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
-        <script src="assets/js/translations.js?v=20261015-release1">
+        <script src="assets/js/translations.js?v=20261015-alpha-tabs1">
         </script>
         <script src="assets/js/i18n.js?v=20261015-release1">
         </script>
@@ -24,6 +24,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/homepage-premium.css?v=20261001-premium">
         <link rel="stylesheet" href="assets/css/game-entry.css?v=20261014-offline1">
+        <link rel="stylesheet" href="assets/css/game-alpha-panels.css?v=20261015-cards1">
     </head>
     <body class="game-product-page game-entry-page">
         <header class="header zh-site-header">
@@ -131,28 +132,27 @@
             <section id="game-updates" class="landing-development" aria-labelledby="game-development-title">
                 <div class="landing-section-heading"><p class="game-kicker" data-game-copy="game.presentation.developmentKicker">ENTWICKLUNG</p><h2 id="game-development-title" data-game-copy="game.presentation.developmentTitle">Aktueller Alpha-Stand</h2></div>
                 <div class="landing-alpha-layout">
-                    <article class="landing-alpha-summary">
-                        <h3 data-alpha-version>Alpha 0.2.3</h3>
-                        <p data-game-copy="game.presentation.alphaSummary">Weltgrafik und Basenbau stehen gerade im Mittelpunkt. Die Alpha wächst Schritt für Schritt.</p>
-                        <ul class="landing-alpha-focus"><li data-game-copy="game.presentation.focusWorld">Gebäude und Weltgrafik</li><li data-game-copy="game.presentation.focusBuild">Modulare Bauteile für eigene Basen</li><li data-game-copy="game.presentation.focusSafezone">Adminbasis und Safezone</li></ul>
-                        <div class="landing-version-progress"><span data-game-copy="game.presentation.versionChanges">Änderungen dieser Version</span><strong data-alpha-count>14 / 20</strong></div>
-                        <progress class="landing-alpha-progress" data-alpha-progress value="14" max="20" aria-label="Änderungen dieser Alpha-Version">14 / 20</progress>
-                        <p class="landing-alpha-caveat" data-game-copy="game.presentation.alphaCaveat">Frühe Alpha: Inhalte, Balancing und Spielstände können sich noch ändern.</p>
-                    </article>
-                    <div class="landing-alpha-feed" data-alpha-tabs>
-                        <div class="landing-alpha-tabs" role="tablist" aria-label="Alpha-Entwicklung"><button type="button" id="alpha-changelog-tab" role="tab" aria-controls="alpha-changelog-panel" aria-selected="true">CHANGELOG</button><button type="button" id="alpha-roadmap-tab" role="tab" aria-controls="alpha-roadmap-panel" aria-selected="false" tabindex="-1">ROADMAP</button></div>
-                        <section id="alpha-changelog-panel" class="landing-alpha-panel" role="tabpanel" aria-labelledby="alpha-changelog-tab" tabindex="0">
-                            <ol class="landing-change-list" data-alpha-changes></ol>
-                            <p class="landing-feed-status" data-alpha-load-status data-game-copy="game.presentation.loading">Entwicklungsstand wird geladen.</p>
-                            <a class="landing-feed-link" href="forum/#category/changelog" data-game-copy="game.presentation.fullChangelog">VOLLSTÄNDIGER CHANGELOG</a>
-                        </section>
-                        <section id="alpha-roadmap-panel" class="landing-alpha-panel" role="tabpanel" aria-labelledby="alpha-roadmap-tab" tabindex="0" hidden>
-                            <p class="landing-roadmap-note" data-game-copy="game.presentation.roadmapNote">Geplante Bereiche – ohne feste Veröffentlichungstermine.</p>
-                            <dl class="landing-roadmap-list" data-alpha-roadmap></dl>
-                            <a class="landing-feed-link" href="game-development.html#game-roadmap" data-game-copy="game.presentation.fullRoadmap">GESAMTE ROADMAP</a>
-                        </section>
-                    </div>
+                    <section class="landing-alpha-card landing-alpha-roadmap" aria-labelledby="alpha-roadmap-title">
+                        <h3 id="alpha-roadmap-title">ROADMAP</h3>
+                        <dl class="landing-roadmap-list">
+                            <div><dt>Safezone &amp; Handelsplatz</dt><dd>Die Adminbase als Treffpunkt für Handel und Versorgung ausbauen.</dd></div>
+                            <div><dt>Grafik</dt><dd>Gebäude, Umgebung und Licht überarbeiten.</dd></div>
+                            <div><dt>Charakter</dt><dd>Charaktergrafik und sichtbare Ausrüstung überarbeiten.</dd></div>
+                            <div><dt>Bau-System</dt><dd>Mehr Bauteile und bessere Werkzeuge für den Basenbau.</dd></div>
+                            <div><dt>Portale</dt><dd>Portale und die Gebiete dahinter ausbauen.</dd></div>
+                        </dl>
+                    </section>
+                    <section class="landing-alpha-card landing-alpha-world" aria-labelledby="alpha-world-title">
+                        <h3 id="alpha-world-title">WELTLAGE</h3>
+                        <dl class="landing-roadmap-list">
+                            <div><dt>SAFEZONE</dt><dd>Die Adminbase wird zum sicheren Zentrum für Handel, Versorgung und neue Spieler ausgebaut.</dd></div>
+                            <div><dt>STÄDTE &amp; DÖRFER</dt><dd>Die meisten Orte wurden überrannt oder aufgegeben.</dd></div>
+                            <div><dt>MILITÄR</dt><dd>Einzelne Einheiten halten noch Stellungen und Außenposten. Das Militär versucht, die Portale unter Kontrolle zu halten und braucht Unterstützung.</dd></div>
+                            <div><dt>PORTALE</dt><dd>Durch die Portale gelangen seltsame und gefährliche Zombies in die Welt.</dd></div>
+                        </dl>
+                    </section>
                 </div>
+                <a class="landing-feed-link landing-development-link" href="game-development.html#game-roadmap" data-game-copy="game.entry.viewDevelopment">ENTWICKLUNG ANSEHEN</a>
             </section>
             <section id="community-feedback" class="landing-community" aria-labelledby="community-help-title">
                 <div><p class="game-kicker" data-game-copy="game.presentation.communityKicker">MITGESTALTEN</p><h2 id="community-help-title" data-game-copy="game.presentation.communityTitle">Deine Ideen zählen</h2><p class="landing-community-note" data-game-copy="game.presentation.communityNote">Melde Fehler, bring deine Ideen ein oder stimme über kommende Inhalte ab.</p></div>
@@ -201,7 +201,7 @@
         </script>
         <script src="assets/js/identity.js?v=20261008-release1">
         </script>
-        <script src="assets/js/game-page-common.js?v=20261015-forum-history1">
+        <script src="assets/js/game-page-common.js?v=20261015-alpha-cards1">
         </script>
         <script src="assets/js/game-auth-bridge.js?v=20261008-release1">
         </script>
