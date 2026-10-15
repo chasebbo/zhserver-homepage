@@ -2,6 +2,14 @@
 
 ## Produktivfreigabe und Release – 15.10.2026
 
+Bei der echten Live-Abnahme nach dem ersten Release wurde ein Start-Rennen der
+Pulse-Verwaltung reproduziert: Admin-Rollenprüfung fertig, zentrale öffentliche
+Identität noch `checking`; der Reader verwarf danach korrekt die Antwort wegen
+gewechselter Identität. Gezielt korrigiert: Nach dem unveränderten Rollen-Guard
+zuerst die bestehende `identity.resolve()` abwarten, dann die Liste laden.
+Keine Auth-, Rollen-, RPC- oder Löschlogik geändert. Kleiner separater Fix-Commit
+innerhalb desselben freigegebenen Releases; neuer Script-Cache-Key.
+
 Die lokale Abnahme des gesamten Homepage-/Forumblocks ist erteilt. Freigegeben
 sind Reaktionen/Usability, offizieller Changelog samt historischem Importbeleg,
 kompakter Entwicklungsseiten-Hinweis und Forum-Vorschau, mobile Anmelden-/

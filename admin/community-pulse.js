@@ -96,6 +96,8 @@
     document.addEventListener('zh:languagechange',render);
     (async()=>{
         if(!await window.ZHAdminAccess.require(identity.client))return;
+        // The role guard and public identity settle independently on a direct page load.
+        await identity.resolve();
         $('pulse-admin-create').disabled=!api.enabled();$('pulse-admin-refresh').disabled=!api.enabled();await load();
     })();
 })();
