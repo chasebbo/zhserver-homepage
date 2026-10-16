@@ -203,7 +203,7 @@ function updateGalleryFileName() {
                 .order("created_at", { ascending: false });
             if (result.error) throw result.error;
             if (!Array.isArray(result.data)) throw new Error("Invalid gallery response");
-            galleryEntries = result.data.filter((entry) => typeof entry.image_url === "string" && entry.image_url.startsWith("https://"));
+            galleryEntries = result.data.filter((entry) => !!safeGalleryImageUrl(entry.image_url));
         } catch (error) {
             console.error(error);
             galleryGrid.replaceChildren();

@@ -1,0 +1,1156 @@
+{
+  "date": "2026-10-15",
+  "baseline_commit": "4c9d57a22b258c3d75cdbec3fd8559cf7718cb52",
+  "database": {
+    "engine": "PGlite PostgreSQL, isolated in memory; no production rows copied",
+    "functions_loaded": 96,
+    "passed": 50,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "member metadata/name cannot grant admin",
+        "pass": true
+      },
+      {
+        "name": "admin role granted only from private table",
+        "pass": true
+      },
+      {
+        "name": "member cannot change role",
+        "pass": true
+      },
+      {
+        "name": "member cannot read role table",
+        "pass": true
+      },
+      {
+        "name": "guest cannot read own identity",
+        "pass": true
+      },
+      {
+        "name": "identity exposes no email or metadata",
+        "pass": true
+      },
+      {
+        "name": "profiles own only",
+        "pass": true
+      },
+      {
+        "name": "profile foreign role update denied by RLS",
+        "pass": true
+      },
+      {
+        "name": "anonymous cannot choose approved guestbook flag",
+        "pass": true
+      },
+      {
+        "name": "before: pending guestbook readable confirms disclosure",
+        "pass": true
+      },
+      {
+        "name": "after: guest cannot read pending guestbook",
+        "pass": true
+      },
+      {
+        "name": "after: member cannot read pending guestbook",
+        "pass": true
+      },
+      {
+        "name": "after: admin can moderate pending guestbook",
+        "pass": true
+      },
+      {
+        "name": "guestbook logged in spoofed name rebound to own identity",
+        "pass": true
+      },
+      {
+        "name": "guest cannot create topic",
+        "pass": true
+      },
+      {
+        "name": "member topic author comes from auth.uid",
+        "pass": true
+      },
+      {
+        "name": "same request id is idempotent",
+        "pass": true
+      },
+      {
+        "name": "foreign request-id reuse forbidden",
+        "pass": true
+      },
+      {
+        "name": "foreign edit forbidden",
+        "pass": true
+      },
+      {
+        "name": "member moderation forbidden",
+        "pass": true
+      },
+      {
+        "name": "admin closes topic",
+        "pass": true
+      },
+      {
+        "name": "member reply to closed thread forbidden",
+        "pass": true
+      },
+      {
+        "name": "admin can reopen and member can reply",
+        "pass": true
+      },
+      {
+        "name": "reaction one per member and repeat idempotent",
+        "pass": true
+      },
+      {
+        "name": "reaction switch does not create second row",
+        "pass": true
+      },
+      {
+        "name": "invalid reaction denied",
+        "pass": true
+      },
+      {
+        "name": "guest reaction denied",
+        "pass": true
+      },
+      {
+        "name": "guest pulse admin read denied",
+        "pass": true
+      },
+      {
+        "name": "member pulse admin read denied",
+        "pass": true
+      },
+      {
+        "name": "member pulse delete denied",
+        "pass": true
+      },
+      {
+        "name": "member direct consent update denied",
+        "pass": true
+      },
+      {
+        "name": "signup without legal assertion rejected",
+        "pass": true
+      },
+      {
+        "name": "consent server version and time recorded",
+        "pass": true
+      },
+      {
+        "name": "public profile has no private email",
+        "pass": true
+      },
+      {
+        "name": "foreign avatar association denied",
+        "pass": true
+      },
+      {
+        "name": "avatar own-directory storage policy rejects foreign path",
+        "pass": true
+      },
+      {
+        "name": "view repeated browser/account counted once",
+        "pass": true
+      },
+      {
+        "name": "legacy vote replay is reproducible offline",
+        "pass": true
+      },
+      {
+        "name": "admin pulse create succeeds",
+        "pass": true
+      },
+      {
+        "name": "member pulse manage denied",
+        "pass": true
+      },
+      {
+        "name": "pulse repeat vote idempotent",
+        "pass": true
+      },
+      {
+        "name": "pulse switch and second account totals consistent",
+        "pass": true
+      },
+      {
+        "name": "legacy vote cannot alter pulse",
+        "pass": true
+      },
+      {
+        "name": "pulse admin delete exact target cascade",
+        "pass": true
+      },
+      {
+        "name": "member official changelog publication denied",
+        "pass": true
+      },
+      {
+        "name": "designated admin changelog publication succeeds",
+        "pass": true
+      },
+      {
+        "name": "changelog direct member reply blocked by guard",
+        "pass": true
+      },
+      {
+        "name": "changelog dislike blocked by guard",
+        "pass": true
+      },
+      {
+        "name": "changelog like allowed",
+        "pass": true
+      },
+      {
+        "name": "admin permanently deletes thread cascade in isolated fixture",
+        "pass": true
+      }
+    ]
+  },
+  "network": {
+    "pages": [
+      {
+        "route": "gallery.html",
+        "status": 200,
+        "headers": {
+          "content-security-policy": null,
+          "content-security-policy-report-only": null,
+          "x-content-type-options": null,
+          "referrer-policy": null,
+          "permissions-policy": null,
+          "x-frame-options": null,
+          "strict-transport-security": null,
+          "cross-origin-opener-policy": null,
+          "cross-origin-embedder-policy": null,
+          "access-control-allow-origin": "*",
+          "cache-control": "max-age=600",
+          "set-cookie": null
+        }
+      },
+      {
+        "route": "pages/impressum.html",
+        "status": 200,
+        "headers": {
+          "content-security-policy": null,
+          "content-security-policy-report-only": null,
+          "x-content-type-options": null,
+          "referrer-policy": null,
+          "permissions-policy": null,
+          "x-frame-options": null,
+          "strict-transport-security": null,
+          "cross-origin-opener-policy": null,
+          "cross-origin-embedder-policy": null,
+          "access-control-allow-origin": "*",
+          "cache-control": "max-age=600",
+          "set-cookie": null
+        }
+      },
+      {
+        "route": "profile/",
+        "status": 200,
+        "headers": {
+          "content-security-policy": null,
+          "content-security-policy-report-only": null,
+          "x-content-type-options": null,
+          "referrer-policy": null,
+          "permissions-policy": null,
+          "x-frame-options": null,
+          "strict-transport-security": null,
+          "cross-origin-opener-policy": null,
+          "cross-origin-embedder-policy": null,
+          "access-control-allow-origin": "*",
+          "cache-control": "max-age=600",
+          "set-cookie": null
+        }
+      },
+      {
+        "route": "account/reset-password/",
+        "status": 200,
+        "headers": {
+          "content-security-policy": null,
+          "content-security-policy-report-only": null,
+          "x-content-type-options": null,
+          "referrer-policy": null,
+          "permissions-policy": null,
+          "x-frame-options": null,
+          "strict-transport-security": null,
+          "cross-origin-opener-policy": null,
+          "cross-origin-embedder-policy": null,
+          "access-control-allow-origin": "*",
+          "cache-control": "max-age=600",
+          "set-cookie": null
+        }
+      },
+      {
+        "route": "account/",
+        "status": 200,
+        "headers": {
+          "content-security-policy": null,
+          "content-security-policy-report-only": null,
+          "x-content-type-options": null,
+          "referrer-policy": null,
+          "permissions-policy": null,
+          "x-frame-options": null,
+          "strict-transport-security": null,
+          "cross-origin-opener-policy": null,
+          "cross-origin-embedder-policy": null,
+          "access-control-allow-origin": "*",
+          "cache-control": "max-age=600",
+          "set-cookie": null
+        }
+      },
+      {
+        "route": "pages/datenschutz.html",
+        "status": 200,
+        "headers": {
+          "content-security-policy": null,
+          "content-security-policy-report-only": null,
+          "x-content-type-options": null,
+          "referrer-policy": null,
+          "permissions-policy": null,
+          "x-frame-options": null,
+          "strict-transport-security": null,
+          "cross-origin-opener-policy": null,
+          "cross-origin-embedder-policy": null,
+          "access-control-allow-origin": "*",
+          "cache-control": "max-age=600",
+          "set-cookie": null
+        }
+      },
+      {
+        "route": "admin/",
+        "status": 200,
+        "headers": {
+          "content-security-policy": null,
+          "content-security-policy-report-only": null,
+          "x-content-type-options": null,
+          "referrer-policy": null,
+          "permissions-policy": null,
+          "x-frame-options": null,
+          "strict-transport-security": null,
+          "cross-origin-opener-policy": null,
+          "cross-origin-embedder-policy": null,
+          "access-control-allow-origin": "*",
+          "cache-control": "max-age=600",
+          "set-cookie": null
+        }
+      },
+      {
+        "route": "game.html",
+        "status": 200,
+        "headers": {
+          "content-security-policy": null,
+          "content-security-policy-report-only": null,
+          "x-content-type-options": null,
+          "referrer-policy": null,
+          "permissions-policy": null,
+          "x-frame-options": null,
+          "strict-transport-security": null,
+          "cross-origin-opener-policy": null,
+          "cross-origin-embedder-policy": null,
+          "access-control-allow-origin": "*",
+          "cache-control": "max-age=600",
+          "set-cookie": null
+        }
+      },
+      {
+        "route": "",
+        "status": 200,
+        "headers": {
+          "content-security-policy": null,
+          "content-security-policy-report-only": null,
+          "x-content-type-options": null,
+          "referrer-policy": null,
+          "permissions-policy": null,
+          "x-frame-options": null,
+          "strict-transport-security": null,
+          "cross-origin-opener-policy": null,
+          "cross-origin-embedder-policy": null,
+          "access-control-allow-origin": "*",
+          "cache-control": "max-age=600",
+          "set-cookie": null
+        }
+      },
+      {
+        "route": "docs/account_legacy_cha_cleanup.sql",
+        "status": 200,
+        "headers": {
+          "content-security-policy": null,
+          "content-security-policy-report-only": null,
+          "x-content-type-options": null,
+          "referrer-policy": null,
+          "permissions-policy": null,
+          "x-frame-options": null,
+          "strict-transport-security": null,
+          "cross-origin-opener-policy": null,
+          "cross-origin-embedder-policy": null,
+          "access-control-allow-origin": "*",
+          "cache-control": "max-age=600",
+          "set-cookie": null
+        }
+      },
+      {
+        "route": "forum/",
+        "status": 200,
+        "headers": {
+          "content-security-policy": null,
+          "content-security-policy-report-only": null,
+          "x-content-type-options": null,
+          "referrer-policy": null,
+          "permissions-policy": null,
+          "x-frame-options": null,
+          "strict-transport-security": null,
+          "cross-origin-opener-policy": null,
+          "cross-origin-embedder-policy": null,
+          "access-control-allow-origin": "*",
+          "cache-control": "max-age=600",
+          "set-cookie": null
+        }
+      }
+    ],
+    "api": [
+      {
+        "name": "profiles",
+        "status": 200,
+        "code": null,
+        "count": "*/0",
+        "rows": 0,
+        "topKeys": [],
+        "sensitiveFields": []
+      },
+      {
+        "name": "roles-private",
+        "status": 404,
+        "code": "PGRST205",
+        "count": null,
+        "rows": null,
+        "topKeys": [
+          "code",
+          "details",
+          "hint",
+          "message"
+        ],
+        "sensitiveFields": []
+      },
+      {
+        "name": "pending-guestbook",
+        "status": 200,
+        "code": null,
+        "count": "*/0",
+        "rows": 0,
+        "topKeys": [],
+        "sensitiveFields": []
+      },
+      {
+        "name": "own-identity",
+        "status": 401,
+        "code": "42501",
+        "count": null,
+        "rows": null,
+        "topKeys": [
+          "code",
+          "details",
+          "hint",
+          "message"
+        ],
+        "sensitiveFields": []
+      },
+      {
+        "name": "forum-read",
+        "status": 200,
+        "code": null,
+        "count": "0-0/1",
+        "rows": null,
+        "topKeys": [
+          "total",
+          "topics",
+          "categories",
+          "can_announce",
+          "can_moderate",
+          "role_version",
+          "views_version",
+          "changelog_version",
+          "reactions_version",
+          "moderation_version",
+          "can_publish_changelog"
+        ],
+        "sensitiveFields": []
+      },
+      {
+        "name": "pulse-read",
+        "status": 200,
+        "code": null,
+        "count": "0-0/1",
+        "rows": null,
+        "topKeys": [
+          "polls",
+          "version",
+          "delete_version"
+        ],
+        "sensitiveFields": []
+      },
+      {
+        "name": "pulse-admin-read",
+        "status": 401,
+        "code": "42501",
+        "count": null,
+        "rows": null,
+        "topKeys": [
+          "code",
+          "details",
+          "hint",
+          "message"
+        ],
+        "sensitiveFields": []
+      },
+      {
+        "name": "newest",
+        "status": 200,
+        "code": null,
+        "count": "0-0/1",
+        "rows": null,
+        "topKeys": [
+          "created_at",
+          "display_name"
+        ],
+        "sensitiveFields": []
+      },
+      {
+        "name": "policy",
+        "status": 200,
+        "code": null,
+        "count": "0-0/1",
+        "rows": null,
+        "topKeys": [
+          "terms_version",
+          "acceptance_required",
+          "community_rules_version"
+        ],
+        "sensitiveFields": []
+      },
+      {
+        "name": "private-schema",
+        "status": 406,
+        "code": "PGRST106",
+        "message": "Invalid schema: zh_forum_private"
+      }
+    ],
+    "edge": [
+      {
+        "slug": "base-persistence",
+        "status": 401,
+        "error": "unauthorized_server",
+        "cors": null
+      },
+      {
+        "slug": "vehicle-persistence",
+        "status": 401,
+        "error": "unauthorized_server",
+        "cors": null
+      },
+      {
+        "slug": "player-state-persistence",
+        "status": 401,
+        "error": "unauthorized_server",
+        "cors": null
+      }
+    ],
+    "sdk": {
+      "status": 200,
+      "version": "2.118.0",
+      "integrity": "sha384-UagCvVPT5XXA0Hx+nJYUAGBFseHT9zBgpJMSebsAxl9lciTwbT+39j5VfRjdP5Tp"
+    },
+    "negative_login": [
+      {
+        "kind": "existing",
+        "status": 400,
+        "code": "invalid_credentials",
+        "message": "Invalid login credentials"
+      },
+      {
+        "kind": "unknown",
+        "status": 400,
+        "code": "invalid_credentials",
+        "message": "Invalid login credentials"
+      }
+    ],
+    "websocket": {
+      "open": true,
+      "handshake": 101
+    },
+    "private_schemas": [
+      {
+        "schema": "zh_community_private",
+        "status": 406,
+        "code": "PGRST106"
+      },
+      {
+        "schema": "zh_identity_private",
+        "status": 406,
+        "code": "PGRST106"
+      },
+      {
+        "schema": "zh_legal_private",
+        "status": 406,
+        "code": "PGRST106"
+      },
+      {
+        "schema": "zh_forum_private",
+        "status": 406,
+        "code": "PGRST106"
+      },
+      {
+        "schema": "zh_pulse_private",
+        "status": 406,
+        "code": "PGRST106"
+      }
+    ],
+    "invalid_tokens": [
+      {
+        "name": "malformed",
+        "status": 401,
+        "code": "PGRST301"
+      },
+      {
+        "name": "forged-uid-and-admin-metadata",
+        "status": 401,
+        "code": "PGRST301"
+      }
+    ],
+    "local_files": [
+      {
+        "file": "account/index.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "account/reset-password/index.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "admin/community-pulse.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "admin/feedback.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "admin/gallery.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "admin/guestbook.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "admin/index.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "arma/index.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "assets/js/account.js",
+        "status": 200,
+        "mime": "application/javascript; charset=UTF-8"
+      },
+      {
+        "file": "assets/js/community-stats.js",
+        "status": 200,
+        "mime": "application/javascript; charset=UTF-8"
+      },
+      {
+        "file": "assets/js/gallery.js",
+        "status": 200,
+        "mime": "application/javascript; charset=UTF-8"
+      },
+      {
+        "file": "assets/js/game-entry.js",
+        "status": 200,
+        "mime": "application/javascript; charset=UTF-8"
+      },
+      {
+        "file": "assets/js/main.js",
+        "status": 200,
+        "mime": "application/javascript; charset=UTF-8"
+      },
+      {
+        "file": "bugs/index.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "community-regeln/index.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "forum/index.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "gallery.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "game-development.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "game.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "index.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "nutzungsbedingungen/index.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      },
+      {
+        "file": "profile/index.html",
+        "status": 200,
+        "mime": "text/html; charset=UTF-8"
+      }
+    ]
+  },
+  "limits": [
+    "No productive content writes, account creation or migration execution",
+    "SQL tests use an isolated engine, not production concurrent sessions",
+    "Recovery mail/password change and new registration were not performed",
+    "Normal page visits use existing visitor/presence logic",
+    "Game/Dedicated sources, SMTP credentials and Cloudflare settings unchanged"
+  ],
+  "audit_completed_local_date": "2026-10-16",
+  "frontend": {
+    "command": "node tools/security-regression.mjs",
+    "passed": 31,
+    "failed": 0
+  },
+  "prepared_migration": {
+    "file": "docs/20261015214609_homepage_guestbook_read_security.sql",
+    "sha256": "f24ec3bc91a310f7524e03bf4b1741b739235a9693690e85118c277b02734616",
+    "applied_to_production": true,
+    "production_version": "20261016050805",
+    "production_name": "homepage_guestbook_read_security",
+    "verified_at_utc": "2026-10-16T05:09:57Z",
+    "unsafe_policy_removed": true,
+    "remaining_guestbook_policies_unchanged": true,
+    "rows_before": 5,
+    "rows_after": 5,
+    "row_digest_unchanged": true,
+    "anonymous_approved_count": 5,
+    "anonymous_pending_count": 0,
+    "anonymous_unfiltered_count": 5,
+    "admin_access_retained": true,
+    "pending_fixture_limit": "No pending production rows existed; verified live policy predicates and read-only role checks plus prior isolated row-fixture tests. No production moderation write executed."
+  },
+  "browser": {
+    "checks": [
+      {
+        "account": "cHa",
+        "adminLink": true,
+        "overflow": false,
+        "ownEmail": true,
+        "page": "own-profile",
+        "title": "Mein ZHServer-Profil"
+      },
+      {
+        "imagesLoaded": true,
+        "lang": "en",
+        "overflow": false,
+        "page": "gallery-en",
+        "title": "Screenshot gallery"
+      },
+      {
+        "emailRendered": false,
+        "overflow": false,
+        "page": "public-profile",
+        "profileVisible": true
+      },
+      {
+        "emailRendered": false,
+        "height": 900,
+        "language": "de",
+        "overflow": false,
+        "page": "forum-guest",
+        "width": 1440
+      },
+      {
+        "emailRendered": false,
+        "height": 900,
+        "language": "en",
+        "overflow": false,
+        "page": "forum-guest",
+        "width": 1440
+      },
+      {
+        "emailRendered": false,
+        "height": 900,
+        "language": "de",
+        "overflow": false,
+        "page": "forum-guest",
+        "width": 768
+      },
+      {
+        "emailRendered": false,
+        "height": 900,
+        "language": "en",
+        "overflow": false,
+        "page": "forum-guest",
+        "width": 768
+      },
+      {
+        "emailRendered": false,
+        "height": 900,
+        "language": "en",
+        "overflow": false,
+        "page": "forum-guest",
+        "width": 430
+      },
+      {
+        "emailRendered": false,
+        "height": 900,
+        "language": "en",
+        "overflow": false,
+        "page": "forum-guest",
+        "width": 430
+      },
+      {
+        "emailRendered": false,
+        "height": 900,
+        "language": "de",
+        "overflow": false,
+        "page": "forum-guest",
+        "width": 390
+      },
+      {
+        "emailRendered": false,
+        "height": 900,
+        "language": "en",
+        "overflow": false,
+        "page": "forum-guest",
+        "width": 390
+      },
+      {
+        "emailRendered": false,
+        "height": 900,
+        "language": "de",
+        "overflow": false,
+        "page": "forum-guest",
+        "width": 360
+      },
+      {
+        "emailRendered": false,
+        "height": 900,
+        "language": "en",
+        "overflow": false,
+        "page": "forum-guest",
+        "width": 360
+      },
+      {
+        "language": "de",
+        "overflow": false,
+        "page": "forum-guest-recheck",
+        "width": 430
+      },
+      {
+        "language": "en",
+        "overflow": false,
+        "page": "forum-guest-recheck",
+        "width": 430
+      },
+      {
+        "language": "de",
+        "optionOverflow": false,
+        "overflow": false,
+        "page": "home-pulse-results",
+        "pulseVisible": true,
+        "width": 1440
+      },
+      {
+        "language": "en",
+        "optionOverflow": false,
+        "overflow": false,
+        "page": "home-pulse-results",
+        "pulseVisible": true,
+        "width": 1440
+      },
+      {
+        "language": "de",
+        "optionOverflow": false,
+        "overflow": false,
+        "page": "home-pulse-results",
+        "pulseVisible": true,
+        "width": 768
+      },
+      {
+        "language": "en",
+        "optionOverflow": false,
+        "overflow": false,
+        "page": "home-pulse-results",
+        "pulseVisible": true,
+        "width": 768
+      },
+      {
+        "language": "de",
+        "optionOverflow": false,
+        "overflow": false,
+        "page": "home-pulse-results",
+        "pulseVisible": true,
+        "width": 430
+      },
+      {
+        "language": "en",
+        "optionOverflow": false,
+        "overflow": false,
+        "page": "home-pulse-results",
+        "pulseVisible": true,
+        "width": 430
+      },
+      {
+        "language": "de",
+        "optionOverflow": false,
+        "overflow": false,
+        "page": "home-pulse-results",
+        "pulseVisible": true,
+        "width": 390
+      },
+      {
+        "language": "en",
+        "optionOverflow": false,
+        "overflow": false,
+        "page": "home-pulse-results",
+        "pulseVisible": true,
+        "width": 390
+      },
+      {
+        "language": "de",
+        "optionOverflow": false,
+        "overflow": false,
+        "page": "home-pulse-results",
+        "pulseVisible": true,
+        "width": 360
+      },
+      {
+        "language": "en",
+        "optionOverflow": false,
+        "overflow": false,
+        "page": "home-pulse-results",
+        "pulseVisible": true,
+        "width": 360
+      },
+      {
+        "language": "de",
+        "loadedImages": 2,
+        "overflow": false,
+        "page": "gallery-guest",
+        "width": 1440
+      },
+      {
+        "language": "en",
+        "loadedImages": 2,
+        "overflow": false,
+        "page": "gallery-guest",
+        "width": 1440
+      },
+      {
+        "language": "de",
+        "loadedImages": 2,
+        "overflow": false,
+        "page": "gallery-guest",
+        "width": 768
+      },
+      {
+        "language": "en",
+        "loadedImages": 2,
+        "overflow": false,
+        "page": "gallery-guest",
+        "width": 768
+      },
+      {
+        "language": "de",
+        "loadedImages": 2,
+        "overflow": false,
+        "page": "gallery-guest",
+        "width": 430
+      },
+      {
+        "language": "en",
+        "loadedImages": 2,
+        "overflow": false,
+        "page": "gallery-guest",
+        "width": 430
+      },
+      {
+        "language": "de",
+        "loadedImages": 2,
+        "overflow": false,
+        "page": "gallery-guest",
+        "width": 390
+      },
+      {
+        "language": "en",
+        "loadedImages": 2,
+        "overflow": false,
+        "page": "gallery-guest",
+        "width": 390
+      },
+      {
+        "language": "de",
+        "loadedImages": 2,
+        "overflow": false,
+        "page": "gallery-guest",
+        "width": 360
+      },
+      {
+        "language": "en",
+        "loadedImages": 2,
+        "overflow": false,
+        "page": "gallery-guest",
+        "width": 360
+      }
+    ],
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "horizontalOverflows": 0,
+    "notes": [
+      "Existing local admin session restored; no password entry or account creation",
+      "Isolated localhost guest origin; no session copied",
+      "Normal visitor/presence calls remain active"
+    ]
+  },
+  "secret_scan": {
+    "files": 818,
+    "bytes": 1344498619,
+    "confirmedPrivilegedSecrets": 0,
+    "binaryPatternReview": [
+      {
+        "file": "game/index.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v103.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v104.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v105.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v106.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v107.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v108.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v109.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v110.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v111.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v112.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v113.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v114.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v115.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v116.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      },
+      {
+        "file": "game/survival-v118.wasm",
+        "markers": 6,
+        "fullPemBlocks": 0,
+        "shortNullTerminatedLabels": true
+      }
+    ],
+    "limits": "Pattern scan includes binary delivery bytes; compressed/encrypted embedded files and image pixels are not semantically decoded."
+  },
+  "final_checks": {
+    "foreignFilesUnchanged": true,
+    "foreignFilesCount": 24,
+    "syntaxPassed": 41,
+    "syntaxFailed": 0,
+    "staticSriCount": 17,
+    "allStaticSri": true,
+    "headUnchanged": true,
+    "indexUnchanged": true,
+    "diffCheck": true
+  }
+}

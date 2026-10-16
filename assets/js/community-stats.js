@@ -143,7 +143,9 @@
         if (!window.supabase?.createClient) {
             await new Promise((resolve, reject) => {
                 const script = document.createElement('script');
-                script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+                script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0';
+                script.integrity = 'sha384-UagCvVPT5XXA0Hx+nJYUAGBFseHT9zBgpJMSebsAxl9lciTwbT+39j5VfRjdP5Tp';
+                script.crossOrigin = 'anonymous';
                 script.onload = resolve;
                 script.onerror = reject;
                 document.head.append(script);

@@ -18,6 +18,18 @@ function escapeHtml(str) {
         .replace(/'/g, "&#039;");
 }
 
+// Public gallery images are raster files from this project's existing bucket.
+// Never interpolate a stored URL as HTML or load an arbitrary tracking origin.
+function safeGalleryImageUrl(value) {
+    if (typeof value !== "string") return "";
+    try {
+        const url = new URL(value);
+        if (url.origin !== SUPABASE_URL || url.username || url.password || url.search || url.hash ||
+            !/^\/storage\/v1\/object\/public\/gallery\/[A-Za-z0-9_-]+\.(?:png|jpe?g|webp)$/i.test(url.pathname)) return "";
+        return url.href;
+    } catch (_) { return ""; }
+}
+
 // ================= GÄSTEBUCH SPEICHERN =================
 
 const guestbookForm = document.querySelector("#guestbook-form");
@@ -140,7 +152,7 @@ if (guestbookEntries) {
         const { data: { session } = {} } = await supabaseClient.auth.getSession().catch(() => ({}));
         const authToken = session?.access_token || SUPABASE_KEY;
         const response = await fetch(
-            `${SUPABASE_URL}/rest/v1/guestbook?select=id,name,message,approved,created_at&order=created_at.desc&limit=${GUESTBOOK_PAGE_SIZE}&offset=${offset}`,
+            `${SUPABASE_URL}/rest/v1/guestbook?select=id,name,message,approved,created_at&approved=eq.true&order=created_at.desc&limit=${GUESTBOOK_PAGE_SIZE}&offset=${offset}`,
             {
                 headers: {
                     "apikey": SUPABASE_KEY,
@@ -439,6 +451,7 @@ async function loadLatestGallery() {
     const { data, error } = await supabaseClient
         .from("gallery")
         .select("id,image_url,uploader,description,approved,created_at")
+        .eq("approved", true)
         .order("created_at", { ascending: false })
         .limit(6);
 
@@ -453,6 +466,8 @@ async function loadLatestGallery() {
 
     data.forEach(entry => {
         const isApproved = Boolean(entry.approved);
+        const imageUrl = safeGalleryImageUrl(entry.image_url);
+        if (!imageUrl) return;
 
         if (isApproved) {
             latestGallery.innerHTML += `
@@ -462,7 +477,7 @@ async function loadLatestGallery() {
                     <div class="gallery-image">
 
                         <img
-                            src="${entry.image_url}"
+                            src="${escapeHtml(imageUrl)}"
                             alt="${escapeHtml(entry.description ?? "")}">
 
                     </div>

@@ -134,7 +134,8 @@
             if (!frame.getAttribute("src")) {
                 const url = new URL(frame.dataset.src, window.location.href);
                 const server = params.get("server");
-                if (server) url.searchParams.set("server", server);
+                // A shared link must not redirect an account-bearing client to another server.
+                if (server === serverUrl) url.searchParams.set("server", server);
                 frame.src = url.href;
             }
             wrapper.scrollIntoView({ behavior: "auto", block: "start" });

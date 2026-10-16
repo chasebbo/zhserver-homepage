@@ -1,1 +1,6 @@
 game/*.import
+
+# Local credentials must never become homepage assets or Git content.
+.env
+.env.*
+!.env.example

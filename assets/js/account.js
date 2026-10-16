@@ -41,7 +41,14 @@
             const timer = setTimeout(() => reject(new Error('account.unavailable')), 10000);
             script.addEventListener('load', () => { clearTimeout(timer); ready() ? resolve() : reject(new Error('account.unavailable')); }, { once: true });
             script.addEventListener('error', () => { clearTimeout(timer); reject(new Error('account.unavailable')); }, { once: true });
-            if (created) { script.src = src; document.body.append(script); }
+            if (created) {
+                script.src = src;
+                if (src === 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0') {
+                    script.integrity = 'sha384-UagCvVPT5XXA0Hx+nJYUAGBFseHT9zBgpJMSebsAxl9lciTwbT+39j5VfRjdP5Tp';
+                    script.crossOrigin = 'anonymous';
+                }
+                document.body.append(script);
+            }
         });
     }
     const cssUrl = site('assets/css/account.css?v=20261015-mobile-links1');
@@ -244,7 +251,7 @@
         }, 1400);
     }
     async function bootstrap() {
-        await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2', () => !!window.supabase?.createClient);
+        await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0', () => !!window.supabase?.createClient);
         window.zhSupabaseClient ||= window.supabase.createClient(config.url, config.key);
         window.ZHPasswordReset?.connect(window.zhSupabaseClient);
         if (form && mode === 'register') {

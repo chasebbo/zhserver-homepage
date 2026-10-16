@@ -68,8 +68,8 @@
                 <div class="account-field" id="account-password-field"><label for="account-password" data-account-i18n="account.password">Passwort</label><input id="account-password" type="password" name="password" autocomplete="current-password" required><a class="account-forgot" id="account-forgot-password" href="?mode=forgot" data-account-i18n="recovery.forgot">Passwort vergessen?</a></div>
                 <div class="account-field" id="account-password-repeat-field" hidden><label for="account-password-repeat" data-account-i18n="account.repeatPassword">Passwort wiederholen</label><input id="account-password-repeat" type="password" name="password_repeat" autocomplete="new-password" data-registration-only disabled aria-describedby="account-password-hint"><small id="account-password-hint" data-account-i18n="account.passwordHint">Mindestens 6 Zeichen.</small></div>
                 <div class="account-consent" id="account-consent-fields" hidden>
-                    <label class="account-consent-label" for="account-consent"><input id="account-consent" type="checkbox" name="legal_acceptance" data-registration-only disabled aria-describedby="account-privacy-notice"><span><span data-account-i18n="legal.acceptPrefix">Ich akzeptiere die </span><a href="../nutzungsbedingungen/?version=2026-10-08" target="_blank" rel="noopener" data-account-i18n="legal.terms">Nutzungsbedingungen</a><span data-account-i18n="legal.acceptAnd"> und </span><a href="../community-regeln/?version=2026-10-08" target="_blank" rel="noopener" data-account-i18n="legal.rules">Community-Regeln</a><span data-account-i18n="legal.acceptEnd">.</span></span></label>
-                    <p class="account-privacy-notice" id="account-privacy-notice"><span data-account-i18n="legal.privacyPrefix">Die </span><a href="../pages/datenschutz.html" target="_blank" rel="noopener" data-account-i18n="legal.privacy">Datenschutzerklärung</a><span data-account-i18n="legal.privacySuffix"> habe ich zur Kenntnis genommen.</span></p>
+                    <label class="account-consent-label" for="account-consent"><input id="account-consent" type="checkbox" name="legal_acceptance" data-registration-only disabled aria-describedby="account-privacy-notice"><span><span data-account-i18n="legal.acceptPrefix">Ich akzeptiere die </span><a href="../nutzungsbedingungen/?version=2026-10-08" target="_blank" rel="noopener noreferrer" data-account-i18n="legal.terms">Nutzungsbedingungen</a><span data-account-i18n="legal.acceptAnd"> und </span><a href="../community-regeln/?version=2026-10-08" target="_blank" rel="noopener noreferrer" data-account-i18n="legal.rules">Community-Regeln</a><span data-account-i18n="legal.acceptEnd">.</span></span></label>
+                    <p class="account-privacy-notice" id="account-privacy-notice"><span data-account-i18n="legal.privacyPrefix">Die </span><a href="../pages/datenschutz.html" target="_blank" rel="noopener noreferrer" data-account-i18n="legal.privacy">Datenschutzerklärung</a><span data-account-i18n="legal.privacySuffix"> habe ich zur Kenntnis genommen.</span></p>
                 </div>
                 <p class="account-status" id="account-status" role="status" aria-live="polite" aria-atomic="true" hidden></p>
                 <button class="btn btn-gold account-submit" type="submit">Anmelden</button>
@@ -123,7 +123,7 @@
     </div>
 
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0" integrity="sha384-UagCvVPT5XXA0Hx+nJYUAGBFseHT9zBgpJMSebsAxl9lciTwbT+39j5VfRjdP5Tp" crossorigin="anonymous"></script>
 <script src="../assets/js/visitor-counter.js?v=20261008-release1"></script>
 <script src="../assets/js/main.js?v=20261008-release1"></script>
 <script src="../assets/js/identity.js?v=20261008-account2"></script>
