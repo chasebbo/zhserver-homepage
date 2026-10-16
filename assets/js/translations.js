@@ -1,6 +1,30 @@
 /* Central homepage copy. German HTML remains the no-JavaScript fallback. */
 window.ZHTranslations = {
   "copy": {
+    "world-status-example": {
+      "de": "BEISPIELWERTE",
+      "en": "EXAMPLE VALUES"
+    },
+    "world-status-planned": {
+      "de": "GEPLANTES WELTSYSTEM",
+      "en": "PLANNED WORLD SYSTEM"
+    },
+    "world-status-survivors": {
+      "de": "ÜBERLEBENDE",
+      "en": "SURVIVORS"
+    },
+    "world-status-infected": {
+      "de": "INFIZIERTE",
+      "en": "INFECTED"
+    },
+    "world-status-contested": {
+      "de": "UMKÄMPFT",
+      "en": "CONTESTED"
+    },
+    "world-status-plan-note": {
+      "de": "Geplant: Strategische Gebiete sollen künftig vom Militär, Überlebenden oder Infizierten kontrolliert werden können. Angriffe, Portale und Rückeroberungen sollen die Weltlage dauerhaft verändern.",
+      "en": "Planned: Strategic areas could be controlled by the military, survivors or infected. Attacks, portals and efforts to reclaim territory would have a lasting effect on the world."
+    },
     "landing-current-world-status": {
       "de": "AKTUELLE WELTLAGE",
       "en": "CURRENT WORLD STATUS"

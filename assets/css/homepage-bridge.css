@@ -394,17 +394,27 @@ body.home-page > #community-pulse.survival-preview-section {
 }
 
 .home-page .era-present .era-world-note {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     flex: 0 0 auto;
-    gap: 2px 12px;
+    gap: 4px;
     width: 100%;
     margin-top: 10px;
     padding-top: 8px;
     border-top: 1px solid rgba(217, 189, 124, .16);
 }
+
+.home-page .era-present .zh-world-example {
+    font-size: .53rem;
+    letter-spacing: .025em;
+}
+.home-page .era-present .zh-world-values {
+    margin: 0;
+    gap: 5px;
+}
+.home-page .era-present .zh-world-values dt { font-size: .52rem; }
+.home-page .era-present .zh-world-values dd { font-size: .7rem; margin-top: 1px; }
+.home-page .era-present .era-world-link { justify-self: start; }
 
 .home-page .era-present .era-world-label {
     color: #a8b3ad;
