@@ -1,6 +1,14 @@
 /* Central homepage copy. German HTML remains the no-JavaScript fallback. */
 window.ZHTranslations = {
   "copy": {
+    "landing-current-world-status": {
+      "de": "AKTUELLE WELTLAGE",
+      "en": "CURRENT WORLD STATUS"
+    },
+    "landing-view-world-status": {
+      "de": "Weltlage ansehen",
+      "en": "View world status"
+    },
     "notice-merch-title": {
       "de": "ZHServer Merch",
       "en": "ZHServer Merch"

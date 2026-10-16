@@ -361,3 +361,85 @@ body.home-page > #community-pulse.survival-preview-section {
         justify-content: center;
     }
 }
+
+/* Larger chapter images; keep the existing hero height and Pulse tracks intact. */
+.home-page .era-split > :is(.era-past, .era-present) .era-visual {
+    flex: 0 1 40%;
+    min-height: 0;
+}
+
+.home-page .era-split > :is(.era-past, .era-present) .era-image {
+    height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+    object-fit: cover;
+}
+
+.home-page .era-past .era-image {
+    object-position: center 38%;
+}
+
+.home-page .era-present .era-image {
+    object-position: center 54%;
+}
+
+/* Copy keeps its required space; on short viewports the image yields first. */
+.home-page .era-split > :is(.era-past, .era-present) .era-story {
+    flex: 1 0 auto;
+}
+
+.home-page .era-split > :is(.era-past, .era-present) .era-copy {
+    flex: 1;
+    height: auto;
+}
+
+.home-page .era-present .era-world-note {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    gap: 2px 12px;
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(217, 189, 124, .16);
+}
+
+.home-page .era-present .era-world-label {
+    color: #a8b3ad;
+    font: 600 .57rem/1.4 Inter, sans-serif;
+    letter-spacing: .08em;
+}
+
+.home-page .era-present .era-world-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 28px;
+    color: #cfbd87;
+    font: 500 .72rem/1.4 Inter, sans-serif;
+    text-decoration: underline;
+    text-decoration-color: rgba(207, 189, 135, .4);
+    text-underline-offset: 4px;
+}
+
+.home-page .era-present .era-world-link:hover {
+    color: #e2cf96;
+    text-decoration-color: currentColor;
+}
+
+.home-page .era-present .era-world-link:focus-visible {
+    outline: 2px solid #c7aa65;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .home-page .era-split > :is(.era-past, .era-present) .era-visual {
+        flex: 0 0 auto;
+    }
+
+    .home-page .era-split > :is(.era-past, .era-present) .era-image {
+        height: clamp(200px, 60vw, 280px);
+    }
+}
