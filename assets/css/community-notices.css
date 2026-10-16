@@ -1,0 +1,118 @@
+/* Shared, secondary notices below the game and forum content. */
+.zh-community-notices {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-block: 24px;
+}
+
+.zh-community-notices .zh-community-notice {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-width: 0;
+    padding: 18px 22px 12px;
+    border: 1px solid rgba(217, 189, 124, .22);
+    border-radius: 7px;
+    background: #10171d;
+}
+
+.zh-community-notices .zh-community-notice::before,
+.zh-community-notices .zh-community-notice::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.zh-community-notices .zh-community-notice::before {
+    opacity: .55;
+    filter: grayscale(.55);
+    background-repeat: no-repeat;
+}
+
+/* Existing, transparent merchandise from the main homepage backdrop. */
+.zh-community-notices .zh-community-notice-merch::before {
+    background-image: url('../images/merch/mens-shirt.webp'), url('../images/merch/mug.webp');
+    background-size: auto 236px, auto 116px;
+    background-position: 60% -10px, 88% 64%;
+}
+
+/* Local server-rack artwork spans the entire card, like the merch backdrop. */
+.zh-community-notices .zh-community-notice-support::before {
+    background-image: url('../images/support/server-rack.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+/* The same shading keeps both backgrounds secondary to the copy. */
+.zh-community-notices .zh-community-notice::after {
+    background: linear-gradient(90deg, rgba(16, 23, 29, .97) 0%, rgba(16, 23, 29, .83) 42%, rgba(16, 23, 29, .65) 100%);
+}
+
+.zh-community-notices .zh-community-notice > * {
+    position: relative;
+    z-index: 1;
+}
+
+.zh-community-notices .zh-community-notice h2 {
+    margin: 0 0 7px;
+    color: #e0ded5;
+    font: 600 1rem/1.4 "Cinzel", serif;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.zh-community-notices .zh-community-notice p {
+    margin: 0;
+    color: #aeb8bd;
+    font: 400 .8rem/1.6 "Inter", sans-serif;
+    overflow-wrap: anywhere;
+}
+
+.zh-community-notices .zh-community-notice a {
+    display: inline-flex;
+    align-items: center;
+    justify-self: start;
+    min-height: 44px;
+    margin-top: 5px;
+    color: #d9bd7c;
+    font: 500 .8rem/1.4 "Inter", sans-serif;
+    text-decoration: underline;
+    text-decoration-color: rgba(217, 189, 124, .4);
+    text-underline-offset: 4px;
+}
+
+.zh-community-notices .zh-community-notice a:hover {
+    color: #f0d69d;
+    text-decoration-color: currentColor;
+}
+
+.zh-community-notices .zh-community-notice a:focus-visible {
+    outline: 2px solid #d9bd7c;
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+    .zh-community-notices {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .zh-community-notices .zh-community-notice {
+        padding: 16px 18px 10px;
+    }
+
+    .zh-community-notices .zh-community-notice-merch::before {
+        background-size: auto 210px, auto 98px;
+        background-position: 38% -5px, 100% 75%;
+    }
+
+    .zh-community-notices .zh-community-notice-support::before {
+        background-position: 72% center;
+    }
+}

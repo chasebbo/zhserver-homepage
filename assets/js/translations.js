@@ -1,6 +1,30 @@
 /* Central homepage copy. German HTML remains the no-JavaScript fallback. */
 window.ZHTranslations = {
   "copy": {
+    "notice-merch-title": {
+      "de": "ZHServer Merch",
+      "en": "ZHServer Merch"
+    },
+    "notice-merch-description": {
+      "de": "Ein kleines Stück Zombiehölle für zuhause.",
+      "en": "A little piece of Zombie Hell for your home."
+    },
+    "notice-merch-link": {
+      "de": "Shop ansehen",
+      "en": "Browse the shop"
+    },
+    "notice-support-title": {
+      "de": "Projekt unterstützen",
+      "en": "Support the project"
+    },
+    "notice-support-description": {
+      "de": "Freiwillige Unterstützung für Hosting und Entwicklung.",
+      "en": "Voluntary support for hosting and development."
+    },
+    "notice-support-link": {
+      "de": "Mehr erfahren",
+      "en": "Find out more"
+    },
     "arma-title": {
         "de": "Zombiehölle für Arma",
         "en": "Zombie Hell for Arma"
