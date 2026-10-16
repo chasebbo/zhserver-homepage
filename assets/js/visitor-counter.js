@@ -252,7 +252,7 @@
         if (!counterScriptUrl) return;
         const load = (name) => new Promise((resolve, reject) => {
             const script = document.createElement("script");
-            script.src = new URL(name + "?v=20261007-community", counterScriptUrl).href;
+            script.src = new URL(name + "?v=20261016-security1", counterScriptUrl).href;
             script.onload = resolve;
             script.onerror = reject;
             document.head.append(script);
