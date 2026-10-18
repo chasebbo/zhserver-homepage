@@ -36,6 +36,14 @@
 .game-entry-page .game-start-server { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 13px; margin: 0 0 14px; }
 .game-entry-page .game-start-server-caption { color: #b8c2ba; font-size: .69rem; line-height: 1.5; }
 .game-entry-page .game-page .landing-server-meta { margin: 5px 0 0; color: #b6bec1; font-size: .63rem; line-height: 1.5; }
+.game-entry-page .landing-server-worlds { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 15px; margin-top: 12px; padding-top: 10px; border-top: 1px solid #b8954826; font: 500 .62rem/1.5 Inter, sans-serif; }
+.game-entry-page .game-worlds-label { color: #c6b78e; letter-spacing: .07em; }
+.game-entry-page .game-worlds-count { color: #aab6b6; font-variant-numeric: tabular-nums; }
+.game-entry-page .game-world-segments { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; width: 100px; margin-left: auto; }
+.game-entry-page .game-world-segments > span { height: 5px; border: 1px solid #78858b38; border-radius: 2px; background: #3b454b; }
+.game-entry-page .game-world-segments > [data-state='online'] { border-color: #79ad8a; background: #79ad8a; }
+.game-entry-page .game-world-segments > [data-state='offline'] { border-color: #9b746a; background: #644c48; }
+.game-entry-page .game-world-segments > [data-state='planned'] { border-color: #48525966; background: #202a30; }
 .game-entry-page .landing-server-feedback { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 14px; }
 .game-entry-page .game-page .game-server-message { margin: 6px 0 0; font-size: .67rem; line-height: 1.5; color: #d0bb9a; }
 .game-entry-page .landing-play-surface:has([data-state='online']) .landing-server-feedback { display: none; }
@@ -169,6 +177,8 @@
     .game-entry-page .landing-server-bar { padding: 13px 15px 12px; }
     .game-entry-page .landing-server-heading > strong { font-size: 1rem; }
     .game-entry-page .landing-server-meta { max-width: 40ch; }
+    .game-entry-page .landing-server-worlds { gap: 7px 12px; }
+    .game-entry-page .game-world-segments { flex: 0 0 100px; }
     .game-entry-page .landing-play-preview figcaption { padding: 11px 14px; font-size: .64rem; }
     .game-entry-page .landing-play-preview small { font-size: .56rem; }
     .game-entry-page .game-embed { min-height: 360px; }

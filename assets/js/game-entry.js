@@ -14,6 +14,13 @@
     const params = new URLSearchParams(window.location.search);
     let principal = { status: "checking" };
     let serverStatus = "checking";
+    // Only world 1 is probed today. Planned worlds have no reachability claim.
+    // Future world probes can update their own record and reuse this renderer.
+    const serverWorlds = [
+        { id: "1", state: "checking" },
+        { id: "2", state: "planned" },
+        { id: "3", state: "planned" }
+    ];
     let socket, probeTimer, pollingTimer, probeRevision = 0, starting = false;
     // Time of the last completed probe only; there is no stored "offline since".
     let lastCheckedAt = null;
@@ -65,6 +72,8 @@
 
     function renderServer(status) {
         serverStatus = status;
+        serverWorlds[0].state = status;
+        renderServerWorlds();
         const message = status === "online" ? "serverReady" :
             status === "offline" ? "serverOffline" : "serverChecking";
         bind("[data-game-server-status]", status);
@@ -73,6 +82,23 @@
         show("[data-game-retry]", status === "offline");
         renderOfflineNote();
         renderAccess();
+    }
+
+    function renderServerWorlds() {
+        const checking = serverWorlds.some(world => world.state === "checking");
+        const online = serverWorlds.filter(world => world.state === "online").length;
+        bind("[data-game-world-count]", checking ? "worldsChecking" : "worldsOnline",
+            { online, total: serverWorlds.length });
+        all("[data-game-world-segments]").forEach(element =>
+            language.bind(element, "game.entry.worlds", {}, "aria-label"));
+        all("[data-game-world]").forEach(element => {
+            const world = serverWorlds.find(item => item.id === element.dataset.gameWorld);
+            if (!world) return;
+            element.dataset.state = world.state;
+            const key = "game.entry.worldState." + world.state;
+            language.bind(element, key, { number: world.id }, "aria-label");
+            language.bind(element, key, { number: world.id }, "title");
+        });
     }
 
     function renderOfflineNote() {

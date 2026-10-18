@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en">
         <link rel="stylesheet" href="assets/css/game-page.css?v=20261001-vision1">
         <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
-        <script src="assets/js/translations.js?v=20261016-world-concept1">
+        <script src="assets/js/translations.js?v=20261018-server-worlds1">
         </script>
         <script src="assets/js/i18n.js?v=20261016-security1">
         </script>
@@ -23,7 +23,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/homepage-premium.css?v=20261001-premium">
-        <link rel="stylesheet" href="assets/css/game-entry.css?v=20261014-offline1">
+        <link rel="stylesheet" href="assets/css/game-entry.css?v=20261018-server-worlds1">
         <link rel="stylesheet" href="assets/css/game-alpha-panels.css?v=20261016-world-concept1">
         <link rel="stylesheet" href="assets/css/community-notices.css?v=20261016-merch3">
     </head>
@@ -98,8 +98,17 @@
                 </div>
                 <div class="landing-play-surface" aria-labelledby="game-server-title">
                     <div class="landing-server-bar">
-                        <div class="landing-server-heading"><strong id="game-server-title">ZHServer1</strong><span class="game-server-status" data-game-server-status data-state="checking" role="status" data-i18n-ignore>SERVERSTATUS WIRD GEPRÜFT</span></div>
+                        <div class="landing-server-heading"><strong id="game-server-title" data-game-copy="game.entry.productTitle">ZOMBIEHÖLLE SURVIVAL</strong><span class="game-server-status" data-game-server-status data-state="checking" role="status" data-i18n-ignore>SERVERSTATUS WIRD GEPRÜFT</span></div>
                         <p class="landing-server-meta" data-game-copy="game.presentation.serverMeta">Browser-Client · Multiplayer · Persistenter Fortschritt</p>
+                        <div class="landing-server-worlds">
+                            <span class="game-worlds-label" data-game-copy="game.entry.worlds">SERVERWELTEN</span>
+                            <span class="game-worlds-count" data-game-world-count role="status" data-i18n-ignore>STATUS WIRD GEPRÜFT</span>
+                            <div class="game-world-segments" data-game-world-segments role="group" aria-label="Serverwelten" data-i18n-ignore>
+                                <span data-game-world="1" data-state="checking" role="img" aria-label="ZHServer 1: Status wird geprüft" title="ZHServer 1: Status wird geprüft"></span>
+                                <span data-game-world="2" data-state="planned" role="img" aria-label="ZHServer 2: geplant" title="ZHServer 2: geplant"></span>
+                                <span data-game-world="3" data-state="planned" role="img" aria-label="ZHServer 3: geplant" title="ZHServer 3: geplant"></span>
+                            </div>
+                        </div>
                         <div class="landing-server-feedback"><p class="game-server-message" data-game-server-message role="status" data-i18n-ignore>Verfügbarkeit wird geprüft.</p><button type="button" class="game-server-retry" data-game-retry hidden>Erneut prüfen</button><p class="game-server-offline-note" data-game-offline-note data-i18n-ignore hidden></p><p class="game-server-last-check" data-game-last-check data-i18n-ignore hidden></p></div>
                     </div>
                     <div class="landing-play-stage">
@@ -233,7 +242,7 @@
         </script>
         <script src="assets/js/game-auth-bridge.js?v=20261008-release1">
         </script>
-        <script src="assets/js/game-entry.js?v=20261016-security1">
+        <script src="assets/js/game-entry.js?v=20261018-server-worlds1">
         </script>
         <script src="assets/js/visitor-counter.js?v=20261016-security1">
         </script>
