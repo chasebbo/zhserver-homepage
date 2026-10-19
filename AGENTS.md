@@ -82,3 +82,41 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
 - Bestehende Admin-UUID/-Rechte erhalten. Keine Autorisierung nach `cHa`,
   anderen Anzeigenamen oder editierbaren Metadaten. Kein U01-/F01- oder
   Dedicated-Rollout aus einer Homepage-Profilkorrektur ableiten.
+
+
+## Verbindliche Homepage-Schreibregeln
+
+- Natürlich, direkt und verständlich schreiben. Kurze, vollständige Sätze. Keine
+  künstliche Werbung, KI-Floskeln, dramatischen Formulierungen, Wiederholungen
+  oder Gedankenstriche als Ersatz für normale Sätze.
+- Nur bestätigte Fakten nennen. Keine Spielinhalte, Termine oder fertigen
+  Funktionen erfinden. Fehlende notwendige Informationen erfragen. Technische
+  Details nur erklären, wenn sie an der jeweiligen Stelle relevant sind.
+- Das aktuelle Projekt als persistente **3D-Multiplayer-Welt** beschreiben.
+  Historische 2D-Versionen dürfen weiterhin korrekt als 2D bezeichnet werden.
+- Gute bestehende Texte erhalten. Nur veraltete, falsche oder ausdrücklich
+  beauftragte Texte ändern. Keine zusätzlichen Überschriften, Werbesprüche,
+  Infoboxen oder unnötig verlängerten Erklärungen.
+- DE und EN natürlich formulieren und das zentrale Übersetzungssystem nutzen.
+  Englische Texte sinngemäß übersetzen.
+- Verbindlicher Landingpage-Titel: **Zombiehölle Survival heute**.
+- Verbindlicher deutscher Landingpage-Absatz, wortgetreu:
+  „Erkunde die Welt von Zombiehölle Survival, sammle Ausrüstung, baue deine eigene Basis und überlebe gemeinsam mit anderen Spielern. Die persistente 3D-Multiplayer-Welt wird ständig erweitert und verbessert.“
+- In diesen Absatz keine zusätzlichen Erklärungen zu älteren Testversionen,
+  Veröffentlichungen oder dem Stand der 3D-Umstellung aufnehmen.
+- Bei jeder künftigen Textänderung diese Regeln prüfen. Eine ausdrückliche
+  konkrete Formulierung des Nutzers hat Vorrang.
+
+
+## Datierter Web-Alpha-Status
+
+- Anzeige DE: `Web-Alpha jetzt spielbar · Stand: TT.MM.JJJJ`; EN entsprechend.
+  Die Web-Alpha nicht als „ältere Web-Alpha“ bezeichnen und keine zusätzlichen
+  Erklärungen über alte und neue Versionen ergänzen.
+- Maßgeblich ist das belegte Veröffentlichungsdatum des öffentlich spielbaren
+  Builds, nicht das Datum eines Homepage-Updates. Bei jedem neuen Spielbuild-
+  Upload den Status in HTML und im zentralen DE/EN-Katalog gemeinsam aktualisieren.
+- Ohne eindeutigen Uploadnachweis nur „Web-Alpha jetzt spielbar“ anzeigen und
+  das fehlende Datum zur Klärung melden. Niemals das Tagesdatum einsetzen.
+- Aktueller belegter Spielbuild: v118, veröffentlicht am 11.10.2026, Commit
+  `c0482440c88c6e95bb769662723f11f44fa0f84b`, erfolgreicher Pages-Run `38160695060`.

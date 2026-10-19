@@ -71,8 +71,10 @@ body{
 }
 .nav-menu a{
     color:#cbd2d8;
-    font-size:.9rem;
+    font-size:.82rem;
     font-weight:500;
+    text-transform:none;
+    letter-spacing:normal;
     text-decoration:none;
     transition:.25s ease;
     position:relative;
@@ -85,38 +87,26 @@ body{
     transform:translateX(-50%);
     bottom:-5px;
     width:0;
-    height:2px;
-    background:var(--gold);
+    height:1px;
+    background:rgba(203,210,216,.5);
     transition:.25s ease;
 }
 .nav-menu a:hover{color:#fff}
 .nav-menu a:hover::after{width:100%}
-.nav-menu a.nav-game-link{
-    color:#f2a64a;
-    font-weight:700;
-    animation:game-nav-pulse 3s ease-in-out infinite;
-}
-.nav-menu a.nav-game-link::after{
-    width:0;
-    background:#f2a64a;
-    opacity:1;
-}
-.nav-menu a.nav-game-link:hover{
-    color:#ffd08a;
-}
-.nav-menu a.nav-game-link:hover::after{
-    width:100%;
+.header.zh-site-header .nav-menu a:focus-visible{
+    outline:1px solid #cbd2d8;
+    outline-offset:4px;
 }
 .nav-menu a[aria-current="page"],
 .nav-menu a.active{
-    color:var(--gold) !important;
-    font-weight:700;
+    color:#cbd2d8 !important;
+    font-weight:500;
 }
 .nav-menu a[aria-current="page"]::after,
 .nav-menu a.active::after{
     width:100% !important;
-    background:var(--gold) !important;
-    box-shadow:0 0 10px rgba(212,175,55,.75);
+    background:rgba(203,210,216,.5) !important;
+    box-shadow:none;
     opacity:1 !important;
 }
 
@@ -140,7 +130,6 @@ body{
 }
 
 @media (prefers-reduced-motion:reduce){
-    .nav-menu a.nav-game-link,
     .btn.game-cta{
         animation:none;
     }

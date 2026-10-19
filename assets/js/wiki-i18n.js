@@ -4,6 +4,14 @@
   const catalog = window.ZHTranslations;
   if (!catalog) return;
   Object.assign(catalog.copy, {
+  "wiki-update-title": {
+    "de": "Wiki wird überarbeitet",
+    "en": "Wiki is being updated"
+  },
+  "wiki-update-text": {
+    "de": "Einige Inhalte entsprechen noch einer früheren Entwicklungsphase von Zombiehölle Survival.",
+    "en": "Some content still reflects an earlier development stage of Zombiehölle Survival."
+  },
   "wiki-0": {
     "de": "Bauen, Welt & Ausrüstung",
     "en": "Building, world & equipment"

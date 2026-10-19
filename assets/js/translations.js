@@ -1,6 +1,9 @@
 /* Central homepage copy. German HTML remains the no-JavaScript fallback. */
 window.ZHTranslations = {
   "copy": {
+    "home-game-current": { "de": "Zombiehölle Survival · 3D-Entwicklung", "en": "Zombie Hell Survival · 3D development" },
+    "development-3d-label": { "de": "04 / 3D-ENTWICKLUNG", "en": "04 / 3D DEVELOPMENT" },
+
     "world-status-example": {
       "de": "BEISPIELWERTE",
       "en": "EXAMPLE VALUES"
@@ -214,12 +217,12 @@ window.ZHTranslations = {
         "en": "Zombie Hell Survival today"
     },
     "bridge-present-copy": {
-        "de": "Registriere dich und nimm an der frühen Alpha von Zombiehölle Survival teil. Erkunde die neue 2D-Multiplayer-Welt, entdecke modulare Gebäude und baue gemeinsam mit anderen deine eigene Basis.",
-        "en": "Sign up and join the early alpha of Zombie Hell Survival. Explore the new 2D multiplayer world, discover modular buildings and build your own base together with other players."
+        "de": "Erkunde die Welt von Zombiehölle Survival, sammle Ausrüstung, baue deine eigene Basis und überlebe gemeinsam mit anderen Spielern. Die persistente 3D-Multiplayer-Welt wird ständig erweitert und verbessert.",
+        "en": "Explore the world of Zombie Hell Survival, gather equipment, build your own base and survive alongside other players. This persistent 3D multiplayer world is continually expanded and improved."
     },
     "bridge-alpha-status": {
-        "de": "Frühe Alpha jetzt spielbar.",
-        "en": "Early alpha available to play now."
+        "de": "Web-Alpha jetzt spielbar · Stand: 11.10.2026",
+        "en": "Web alpha now playable · Updated: 11/10/2026"
     },
     "bridge-present-cta": {
         "de": "Zur Alpha",
@@ -310,8 +313,8 @@ window.ZHTranslations = {
         "en": "ZOMBIE HELL SURVIVAL"
     },
     "game-hero-description": {
-        "de": "Ein eigenständiges 2D-Multiplayer-Survival-Spiel, entstanden aus der früheren Zombiehölle-Community rund um Arma 2 DayZ.",
-        "en": "An independent 2D multiplayer survival game, growing out of the former Zombie Hell Arma 2 DayZ community."
+        "de": "In Entwicklung: Eine persistente 3D-Multiplayer-Survival-Welt mit fester, geneigter Draufsicht.",
+        "en": "In development: a persistent 3D multiplayer survival world with a fixed, tilted overhead view."
     },
     "game-public-date": {
         "de": "NÄCHSTER TESTLAUF AB 24.10.",
@@ -542,8 +545,8 @@ window.ZHTranslations = {
       "en": "ZHServer Community | Since 2013"
     },
     "die-geschichte-der-zhserver-community-gegruendet-2013-als-zombiehoelle": {
-      "de": "Die Geschichte der ZHServer Community – gegründet 2013 als Zombiehölle.",
-      "en": "The story of the ZHServer community, founded in 2013 as Zombiehölle."
+      "de": "ZHServer seit 2013: Community-Archiv und die 3D-Entwicklung von Zombiehölle Survival.",
+      "en": "ZHServer since 2013: the community archive and the 3D development of Zombie Hell Survival."
     },
     "start": {
       "de": "Start",
@@ -574,8 +577,8 @@ window.ZHTranslations = {
       "en": "WELCOME BACK."
     },
     "erinnerungen-aus-ueber-10-jahren-zombiehoelle-und-der-einstieg-in-das": {
-      "de": "Erinnerungen aus über 10 Jahren Zombiehölle und der Einstieg in das neue 2D-Survival-Projekt.",
-      "en": "Memories from over ten years of Zombiehölle, and a first look at the new 2D survival project."
+      "de": "Erinnerungen aus über 10 Jahren Zombiehölle und Einblicke in die 3D-Entwicklung von Zombiehölle Survival.",
+      "en": "Memories from over ten years of Zombiehölle and a look at the 3D development of Zombie Hell Survival."
     },
     "community-entdecken": {
       "de": "Community entdecken",
@@ -594,8 +597,8 @@ window.ZHTranslations = {
       "en": "Playable again on 24 October"
     },
     "ein-multiplayer-ueberlebensspiel-in-2d-es-wird-fortlaufend-an-dem-proj": {
-      "de": "Ein Multiplayer-Überlebensspiel in 2D. Es wird fortlaufend an dem Projekt gearbeitet. Die aktuelle Version kann ab dem 24.10. wieder getestet werden – ein Steam-Release ist für spätere Phasen geplant.",
-      "en": "A 2D multiplayer survival game in ongoing development. The next playtest opens on 24 October, with a Steam release planned for a later stage."
+      "de": "Eine persistente 3D-Multiplayer-Survival-Welt in Entwicklung.",
+      "en": "A persistent 3D multiplayer survival world in development."
     },
     "testlauf-ab-24-10": {
       "de": "TESTLAUF AB 24.10.",
@@ -1046,12 +1049,12 @@ window.ZHTranslations = {
       "en": "Today"
     },
     "archiv-2d-survival": {
-      "de": "Archiv & 2D-Survival",
-      "en": "Archive & 2D survival"
+      "de": "Archiv & 3D-Entwicklung",
+      "en": "Archive & 3D development"
     },
     "die-alten-arma-server-sind-geschichte-aber-das-archiv-bleibt-online-ne": {
-      "de": "Die alten ARMA-Server sind Geschichte, aber das Archiv bleibt online. Nebenbei wird aktiv an dem neuen 2D-Survival-Projekt gearbeitet.",
-      "en": "The old ARMA servers are part of our history, but the archive remains online. Meanwhile, work continues on the new 2D survival project."
+      "de": "Die alten ARMA-Server sind Geschichte, das Archiv bleibt online. Zombiehölle Survival wird inzwischen als 3D-Multiplayer-Survival-Welt weiterentwickelt.",
+      "en": "The old ARMA servers are part of our history, and the archive remains online. Zombie Hell Survival is now being developed as a 3D multiplayer survival world."
     },
     "galerie-2": {
       "de": "GALERIE",
@@ -1522,12 +1525,12 @@ window.ZHTranslations = {
       "en": "SOLO DEVELOPMENT • THE STORY BEHIND IT"
     },
     "vom-dayz-server-zum-eigenen-2d-survival-spiel": {
-      "de": "VOM DAYZ-SERVER ZUM EIGENEN 2D-SURVIVAL-SPIEL",
-      "en": "FROM AN ARMA 2 DAYZ SERVER TO ITS OWN 2D SURVIVAL GAME"
+      "de": "VOM DAYZ-SERVER ZUR EIGENEN 3D-SURVIVAL-WELT",
+      "en": "FROM AN ARMA 2 DAYZ SERVER TO ITS OWN 3D SURVIVAL WORLD"
     },
     "zombiehoelle-war-von-2013-bis-2016-eine-eigene-servercommunity-rund-um": {
-      "de": "Zombiehölle war von 2013 bis 2016 eine eigene Servercommunity rund um DayZ und Arma. Heute baue ich diese Welt als unabhängiges 2D-Multiplayer-Survival-Spiel komplett alleine weiter aus – mit dem nächsten großen Testlauf am 24. Oktober und dem langfristigen Ziel eines eigenständigen Releases auf Steam.",
-      "en": "From 2013 to 2016, Zombie Hell was an Arma 2 DayZ server community. Today, it is evolving into its own independent 2D multiplayer survival game. Its next major playtest starts on 24 October, with a standalone Steam release as its long-term goal."
+      "de": "Zombiehölle war von 2013 bis 2016 eine eigene Servercommunity rund um DayZ und Arma. Heute wird Zombiehölle Survival als eigenständige 3D-Multiplayer-Survival-Welt weiterentwickelt.",
+      "en": "From 2013 to 2016, Zombie Hell was an Arma 2 DayZ server community. Today, it is evolving into its own independent 3D multiplayer survival world."
     },
     "du-erkundest-verlassene-staedte-kaempfst-gegen-zombies-sammelst-loot-f": {
       "de": "Du erkundest verlassene Städte, kämpfst gegen Zombies, sammelst Loot, fährst Fahrzeuge und baust gemeinsam deine Basis auf. Die Welt wird stetig erweitert – jedes Feedback und jeder gefundene Bug helfen direkt bei den kommenden Patches.",
@@ -3267,7 +3270,7 @@ window.ZHTranslations = {
     }
   },
   "messages": {
-    "game.presentation.intro": {"de":"Eine persistente Multiplayer-Welt. Erkunde, sammle, baue und überlebe gemeinsam mit anderen.","en":"A persistent multiplayer world. Explore, gather, build and survive alongside other players."},
+    "game.presentation.intro": {"de":"Zombiehölle Survival wird als persistente 3D-Multiplayer-Welt mit fester, geneigter Draufsicht entwickelt.","en":"Zombie Hell Survival is being developed as a persistent 3D multiplayer world with a fixed, tilted overhead view."},
     "game.presentation.guestNote": {"de":"Der Gastzugang ist ein kurzer Test ohne dauerhafte Speicherung.","en":"The guest trial is a quick introduction without permanent saves."},
     "game.presentation.serverMeta": {"de":"Browser-Client · Multiplayer · Persistenter Fortschritt","en":"Browser client · Multiplayer · Saved progress"},
     "game.presentation.previewAlt": {"de":"Zombiehölle-Adminbasis bei Nacht – Illustration der Spielwelt","en":"Zombie Hell admin base at night – game world illustration"},
@@ -3348,11 +3351,11 @@ window.ZHTranslations = {
     "game.entry.featureSurvival": {"de":"Zombies & Überleben","en":"Zombies & survival"},
     "game.entry.updatesLabel": {"de":"Entwicklung und Community","en":"Development and community"},
     "game.entry.detailPageTitle": {"de":"Entwicklung & Community | Zombiehölle","en":"Development & community | Zombie Hell"},
-    "game.entry.detailPageDescription": {"de":"Entwicklung, Roadmap, Community-Abstimmung und Changelog von Zombiehölle Survival.","en":"Development, roadmap, community votes and changelog for Zombie Hell Survival."},
+    "game.entry.detailPageDescription": {"de":"Die 3D-Entwicklung und Roadmap von Zombiehölle Survival.","en":"The 3D development and roadmap of Zombie Hell Survival."},
 
     "game.entry.brand": { "de": "ZOMBIEHÖLLE", "en": "ZOMBIE HELL" },
-    "game.entry.status": { "de": "FRÜHE ALPHA · JETZT SPIELBAR", "en": "EARLY ALPHA · PLAY NOW" },
-    "game.entry.intro": { "de": "Erkunde eine persistente 2D-Multiplayer-Welt, sammle Ausrüstung, baue deine Basis und überlebe gemeinsam mit anderen Spielern.", "en": "Explore a persistent 2D multiplayer world, gather equipment, build your base and survive alongside other players." },
+    "game.entry.status": { "de": "Web-Alpha jetzt spielbar · Stand: 11.10.2026", "en": "Web alpha now playable · Updated: 11/10/2026" },
+    "game.entry.intro": { "de": "Zombiehölle Survival: persistente 3D-Multiplayer-Welt in Entwicklung.", "en": "Zombie Hell Survival: a persistent 3D multiplayer world in development." },
     "game.entry.welcome": { "de": "Willkommen zurück, {name}.", "en": "Welcome back, {name}." },
     "game.entry.saved": { "de": "Dein Fortschritt wird mit deinem ZHServer-Account gespeichert.", "en": "Your progress is saved to your ZHServer account." },
     "game.entry.signInNote": { "de": "Kostenlos anmelden und deinen Fortschritt dauerhaft speichern.", "en": "Sign in for free to save your progress." },
@@ -3385,7 +3388,7 @@ window.ZHTranslations = {
     "game.entry.offlineNote": { "de": "Meist werden gerade Wartungsarbeiten oder Updates durchgeführt. Normalerweise ist der Server nach wenigen Minuten wieder verfügbar.", "en": "This usually means maintenance or an update is in progress. The server is normally back within a few minutes." },
     "game.entry.lastCheck": { "de": "Letzte Statusprüfung: {time} Uhr", "en": "Last status check: {time}" },
     "game.entry.about": { "de": "Eine offene Online-Welt mit verlassenen Orten, knappen Vorräten und Zombies. Erkunde sie allein oder mit anderen und baue dir einen eigenen Platz zum Überleben.", "en": "An open online world with abandoned places, scarce supplies and zombies. Explore on your own or with others, and build a place to survive." },
-    "game.entry.origin": { "de": "Von 2013 bis 2016 war Zombiehölle eine Arma-2-DayZ-Servercommunity. Heute entsteht daraus ein eigenständiges 2D-Multiplayer-Survival-Spiel.", "en": "From 2013 to 2016, Zombie Hell was an Arma 2 DayZ server community. Today, it is evolving into its own independent 2D multiplayer survival game." },
+    "game.entry.origin": { "de": "Von 2013 bis 2016 war Zombiehölle eine Arma-2-DayZ-Servercommunity. Heute wird Zombiehölle Survival als eigenständige 3D-Multiplayer-Survival-Welt weiterentwickelt.", "en": "From 2013 to 2016, Zombie Hell was an Arma 2 DayZ server community. Today, it is evolving into its own independent 3D multiplayer survival world." },
     "game.entry.multiplayer": { "de": "Gemeinsam überleben, Gruppen bilden und im Chat in Verbindung bleiben.", "en": "Survive together, form groups and stay in touch through chat." },
     "game.entry.persistence": { "de": "Dein Charakter und dein Fortschritt bleiben mit deinem Account erhalten.", "en": "Your character and progress are saved to your account." },
     "game.entry.building": { "de": "Eine eigene Basis aufbauen und Schritt für Schritt erweitern.", "en": "Build a base of your own and expand it over time." },
@@ -3411,13 +3414,13 @@ window.ZHTranslations = {
     "game.entry.alphaNote": { "de": "Zombiehölle befindet sich in einer frühen Alpha und wird aktiv weiterentwickelt. Inhalte, Balancing und Spielstände können während der Entwicklung angepasst werden.", "en": "Zombie Hell is in early alpha and is being actively developed. Content, balancing and saved progress may change during development." },
     "game.entry.access": { "de": "Dein Einstieg in Zombiehölle", "en": "Start playing Zombie Hell" },
     "game.entry.detailTitle": { "de": "Entwicklung & Community", "en": "Development & community" },
-    "game.entry.detailIntro": { "de": "Aktuelle Arbeiten, geplante Inhalte, Abstimmungen und die bisherigen Änderungen an Zombiehölle.", "en": "Current work, planned features, community votes and past changes to Zombie Hell." },
+    "game.entry.detailIntro": { "de": "Hier findest du aktuelle Arbeiten an der 3D-Umstellung, geplante Inhalte und bisherige Änderungen.", "en": "Here you can find current work on the transition to 3D, planned features and past changes." },
     "game.entry.back": { "de": "ZUR SPIELSEITE", "en": "BACK TO THE GAME" },
-    "game.entry.detailWork": { "de": "Weltgrafik, modulare Gebäude und Basenbau stehen im Mittelpunkt der aktuellen Arbeiten.", "en": "World artwork, modular buildings and base building are the current focus." },
+    "game.entry.detailWork": { "de": "Zombiehölle Survival wird als persistente 3D-Multiplayer-Welt mit fester, geneigter 75°-Kamera entwickelt. 3D-Charaktere, Fahrzeuge und begehbare Gebäude sind bereits vorhanden. Erste Gebäude haben mehrere Stockwerke.", "en": "Zombie Hell Survival is being developed as a persistent 3D multiplayer world with a fixed camera tilted at 75°. 3D characters, vehicles and enterable buildings are already present. Some buildings now have multiple floors." },
     "game.entry.detailTesting": { "de": "Neue Inhalte werden anhand von Feedback und Fehlermeldungen weiter überarbeitet.", "en": "New content is being refined using feedback and bug reports." },
-    "game.entry.detailAlphaTitle": { "de": "Die Alpha weiterentwickeln", "en": "Developing the alpha" },
-    "game.entry.detailAlpha": { "de": "Bausystem und Multiplayer werden zusammen mit neuen Inhalten weiter geprüft und verbessert.", "en": "Building and multiplayer are being tested and improved as new content is added." },
-    "navigation.game": { "de": "SPIEL", "en": "GAME" },
+    "game.entry.detailAlphaTitle": { "de": "3D-Umstellung", "en": "Transition to 3D" },
+    "game.entry.detailAlpha": { "de": "Die große zusammenhängende Welt wird clusterweise nachgeladen. Der persistente Online-Multiplayer ist auf einen gemeinsamen Dedicated Server ausgelegt. Die 3D-Umstellung läuft noch. Einzelne Bestandteile nutzen weiterhin 2D-Darstellungen. 3D-Zombies und eine überarbeitete Spawnlogik sind geplant.", "en": "The large continuous world loads in clusters. Persistent online multiplayer is designed around a shared dedicated server. The transition to 3D is still underway. Some elements still use 2D visuals. 3D zombies and revised spawning logic are planned." },
+    "navigation.game": { "de": "Spiel", "en": "Game" },
     "language.label": {
       "de": "Sprache wählen",
       "en": "Choose language"
@@ -3876,6 +3879,13 @@ window.ZHTranslations = {
     }
   }
 };
+
+Object.assign(window.ZHTranslations.messages, {
+  "home.forum.title": {de: "AKTUELLE THEMEN", en: "LATEST TOPICS"},
+  "home.forum.kicker": {de: "AUS DEM FORUM", en: "FROM THE FORUM"},
+  "home.forum.allTopics": {de: "Zum Forum", en: "Go to forum"},
+  "home.forum.unavailable": {de: "Forum-Themen derzeit nicht verfügbar.", en: "Forum topics are currently unavailable."}
+});
 
 /* Functional forum and public avatar UI use the existing central message catalog. */
 Object.assign(window.ZHTranslations.messages, {

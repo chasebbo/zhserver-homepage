@@ -1,0 +1,87 @@
+{
+  "status": "APPLIED_ACTIVE",
+  "instructions": "Already created and activated with explicit approval on 2026-10-19 through the existing admin UI / manage_zh_community_pulse. Do not execute these historical CREATE parameters again. Use created_poll_id to identify the existing poll.",
+  "polls": [
+    {
+      "position": 3,
+      "created_poll_id": "da950651-98aa-47b4-99c0-a652bdfb323a",
+      "label": "Fahrzeug-Tuning",
+      "rpc": "manage_zh_community_pulse",
+      "args": {
+        "p_poll_id": null,
+        "p_question": {
+          "de": "Soll es möglich sein, Fahrzeuge mit Panzerung und Bewaffnung nachzurüsten?",
+          "en": "Should it be possible to upgrade vehicles with armour and weapons?"
+        },
+        "p_options": [
+          {
+            "de": "Ja",
+            "en": "Yes"
+          },
+          {
+            "de": "Nein",
+            "en": "No"
+          }
+        ],
+        "p_active": true,
+        "p_state": "open",
+        "p_order": 3,
+        "p_expected_at": null
+      }
+    },
+    {
+      "position": 4,
+      "created_poll_id": "46825c24-11c3-4c75-bc57-f29fa7585cf3",
+      "label": "Hunde als Begleiter",
+      "rpc": "manage_zh_community_pulse",
+      "args": {
+        "p_poll_id": null,
+        "p_question": {
+          "de": "Soll es Hunde als Begleiter im Spiel geben?",
+          "en": "Should there be dogs as companions in the game?"
+        },
+        "p_options": [
+          {
+            "de": "Ja",
+            "en": "Yes"
+          },
+          {
+            "de": "Nein",
+            "en": "No"
+          }
+        ],
+        "p_active": true,
+        "p_state": "open",
+        "p_order": 4,
+        "p_expected_at": null
+      }
+    },
+    {
+      "position": 5,
+      "created_poll_id": "a2a18c54-5205-444e-aec6-73db5a26dcc7",
+      "label": "Unterirdischer Basenbau",
+      "rpc": "manage_zh_community_pulse",
+      "args": {
+        "p_poll_id": null,
+        "p_question": {
+          "de": "Soll es möglich sein, unterirdische Basen zu bauen?",
+          "en": "Should it be possible to build underground bases?"
+        },
+        "p_options": [
+          {
+            "de": "Ja",
+            "en": "Yes"
+          },
+          {
+            "de": "Nein",
+            "en": "No"
+          }
+        ],
+        "p_active": true,
+        "p_state": "open",
+        "p_order": 5,
+        "p_expected_at": null
+      }
+    }
+  ]
+}

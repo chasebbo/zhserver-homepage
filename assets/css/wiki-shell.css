@@ -1,5 +1,27 @@
 /* Wiki additions are scoped; the current shared homepage shell stays authoritative. */
-.wiki-page .nav-menu a[aria-current="page"] { color: var(--gold); }
+.wiki-page .wiki-update-notice {
+  max-width: 640px;
+  margin: 18px auto 0;
+  padding: 10px 14px;
+  border-left: 2px solid rgba(199, 170, 101, .6);
+  border-radius: 5px;
+  background: rgba(10, 16, 20, .72);
+  text-align: left;
+}
+.wiki-page .wiki-update-notice h2 {
+  margin: 0 0 4px;
+  color: #c7aa65;
+  font-family: inherit;
+  font-size: .9rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.wiki-page .wiki-hero .wiki-update-notice p {
+  margin: 0;
+  color: #bdcebf;
+  font-size: .84rem !important;
+  line-height: 1.5;
+}
 .wiki-page .wiki-language-note { max-width: 900px; margin: 0 auto 24px; color: #bdcebf; font-size: .88rem; }
 .wiki-page .wiki-extra-filters { display: flex; flex-wrap: wrap; gap: 14px; margin: 16px 0; }
 .wiki-page .wiki-extra-filters label { display: grid; gap: 6px; min-width: 0; flex: 1 1 200px; color: #bdcebf; font-size: .82rem; }
