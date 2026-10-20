@@ -32,7 +32,7 @@
     const show = (selector, visible) => all(selector).forEach(element => { element.hidden = !visible; });
 
     bind("[data-game-start]", "play");
-    bind("[data-game-login]", "login");
+    bind("[data-game-login]", "play");
     bind("[data-game-profile]", "profile");
     bind("[data-game-guest]", "guest");
     bind("[data-game-retry]", "retry");
@@ -46,8 +46,7 @@
         bind("[data-game-welcome]", member ? "welcome" : guest ? "signInNote" :
             noName ? "nameRequired" : unavailable ? "accountUnavailable" : "checkAccount",
             { name: principal.displayName || "" });
-        bind("[data-game-save]", "saved");
-        show("[data-game-save]", member);
+        show("[data-game-welcome]", member || noName || unavailable);
         show("[data-game-start]", member);
         show("[data-game-login]", guest || unavailable);
         show("[data-game-profile]", noName);

@@ -4,16 +4,17 @@
 .game-entry-page .game-page { position: relative; isolation: isolate; padding: 187px 0 0; background: #0c131a; }
 .game-entry-page .game-page::before { content: ''; position: absolute; z-index: -1; inset: 135px 0 auto; height: 720px; pointer-events: none; background: linear-gradient(90deg, #0c131af2 0%, #0c131a9c 45%, #0c131a55 100%), linear-gradient(0deg, #0c131a 0%, transparent 50%, #0c131a33 100%), url('../images/zombiehoelle-survival-vision1.webp') center 35% / cover no-repeat; opacity: .65; }
 .game-entry-page .game-page > * { width: min(1320px, 92%); }
-.game-entry-page .landing-hero { grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: start; padding-bottom: 38px; }
+.game-entry-page .landing-hero { grid-template-columns: minmax(0, 1fr); gap: 20px; align-items: start; padding-bottom: 38px; }
 .game-entry-page .game-hero-copy { min-width: 0; width: 100%; padding: 10px 0 0; text-align: center; }
 .game-entry-page .game-page .landing-alpha-note { margin: 0 0 13px; color: #e4bb64; font-size: .68rem; font-weight: 600; letter-spacing: .09em; line-height: 1.5; }
-.game-entry-page .game-page-title { margin: 0 0 16px; font-size: clamp(2.75rem, 4.45vw, 4.1rem); line-height: 1.03; letter-spacing: -.028em; }
+.game-entry-page .game-page-title { margin: 0 0 12px; font-size: clamp(2.75rem, 4.45vw, 4.1rem); line-height: 1.03; letter-spacing: -.028em; }
 .game-entry-page .game-page-title span { display: inline-block; }
 .game-entry-page .game-page-title .landing-title-accent { margin-left: .18em; color: #edc474; font-size: 1.07em; letter-spacing: -.015em; }
 .game-entry-page .game-page .game-hero-description { max-width: 62ch; margin: 0 auto 22px; color: #e0e0d9; font-size: 1.03rem; line-height: 1.6; }
-.game-entry-page .game-account-entry { width: min(720px, 100%); margin-inline: auto; }
-.game-entry-page .game-page .game-entry-welcome { margin: 0 0 12px; color: #eeeee5; font-size: .87rem; font-weight: 500; overflow-wrap: anywhere; }
-.game-entry-page .game-entry-actions { gap: 10px; }
+.game-entry-page .game-account-entry { width: min(640px, 100%); margin-inline: auto; }
+.game-entry-page .game-page .game-entry-welcome { margin: 0 0 14px; color: #c7cecb; font-size: .83rem; font-weight: 400; overflow-wrap: anywhere; }
+.game-entry-page .game-entry-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; min-height: 46px; }
+.game-entry-page .game-page .game-entry-version { margin: 11px 0 0; color: #9ca8a7; font-size: .65rem; line-height: 1.5; }
 .game-entry-page .game-product-actions .btn { min-height: 46px; padding: 12px 19px; border-radius: 4px; font-size: .7rem; font-weight: 600; line-height: 1.45; letter-spacing: .025em; white-space: normal; text-align: center; }
 .game-entry-page .game-entry-actions .btn-gold { flex: 1 1 150px; background: linear-gradient(135deg, #e8be61, #cea443); color: #151711; border-color: #e7bd62; box-shadow: 0 4px 22px #cfab4430; }
 .game-entry-page .game-entry-actions .btn-gold:hover { background: #eac776; transform: none; }
@@ -142,7 +143,7 @@
 .game-detail-page .game-page .changelog-lead { margin: 8px 0 0; font-size: .9rem; }
 
 @media (max-width: 1150px) {
-    .game-entry-page .landing-hero { gap: 27px; }
+    .game-entry-page .landing-hero { gap: 20px; }
     .game-entry-page .game-page-title { font-size: clamp(2.4rem, 4.4vw, 3.7rem); }
     .game-entry-page .landing-feature-grid > li { padding: 18px; }
     .game-entry-page .landing-community { grid-template-columns: minmax(0, 1fr); gap: 16px; }
@@ -150,7 +151,7 @@
 @media (max-width: 900px) {
     .game-entry-page .game-page { padding-top: 30px; }
     .game-entry-page .game-page::before { inset-block-start: 0; height: 700px; opacity: .4; }
-    .game-entry-page .landing-hero { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-bottom: 29px; }
+    .game-entry-page .landing-hero { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-bottom: 29px; }
     .game-entry-page .game-hero-copy { padding: 0; }
     .game-entry-page .game-page-title { font-size: clamp(2.6rem, 7vw, 4rem); }
     .game-entry-page .game-hero-description { max-width: 49ch; }
@@ -164,16 +165,17 @@
 }
 @media (max-width: 600px) {
     .game-entry-page .game-page { padding-top: 24px; }
-    .game-entry-page .landing-hero { gap: 23px; padding-bottom: 24px; }
+    .game-entry-page .landing-hero { gap: 18px; padding-bottom: 24px; }
     .game-entry-page .game-page .landing-alpha-note { margin-bottom: 10px; font-size: .61rem; }
     .game-entry-page .game-page-title { font-size: clamp(2.25rem, 10.6vw, 3rem); margin-bottom: 13px; }
-    .game-entry-page .game-hero-copy { text-align: left; }
+    .game-entry-page .game-hero-copy { text-align: center; }
     .game-entry-page .game-start-server { justify-content: flex-start; }
     .game-entry-page .game-server-status { font-size: .68rem; padding: 8px 10px; }
     .game-entry-page .game-page-title span { display: block; }
     .game-entry-page .game-page-title .landing-title-accent { margin-left: 0; }
     .game-entry-page .game-page .game-hero-description { font-size: .9rem; line-height: 1.6; margin-bottom: 18px; }
     .game-entry-page .game-entry-actions .btn { width: 100%; flex-basis: 100%; min-height: 45px; font-size: .7rem; }
+    .game-entry-page .game-entry-actions { grid-template-columns: minmax(0, 1fr); }
     .game-entry-page .game-page .game-entry-welcome { font-size: .8rem; }
     .game-entry-page .landing-server-bar { padding: 13px 15px 12px; }
     .game-entry-page .landing-server-heading > strong { font-size: 1rem; }

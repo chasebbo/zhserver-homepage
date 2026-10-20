@@ -3282,6 +3282,7 @@ window.ZHTranslations = {
     "screenshots.open": {de:"Screenshot vergrößern: {description}",en:"Enlarge screenshot: {description}"},
     "screenshots.close": {de:"Großansicht schließen",en:"Close enlarged view"},
     "game.presentation.intro": {"de":"Zombiehölle Survival wird als persistente 3D-Multiplayer-Welt mit fester, geneigter Draufsicht entwickelt.","en":"Zombie Hell Survival is being developed as a persistent 3D multiplayer world with a fixed, tilted overhead view."},
+    "game.presentation.webAlphaStand": {"de":"Web-Alpha · Stand: 11.10.2026","en":"Web alpha · Updated: 11/10/2026"},
     "game.presentation.guestNote": {"de":"Der Gastzugang ist ein kurzer Test ohne dauerhafte Speicherung.","en":"The guest trial is a quick introduction without permanent saves."},
     "game.presentation.serverMeta": {"de":"Browser-Client · Multiplayer · Persistenter Fortschritt","en":"Browser client · Multiplayer · Saved progress"},
     "game.presentation.previewAlt": {"de":"Safezone aus der Vogelperspektive mit Gebäuden und Landeplätzen","en":"Bird's-eye view of the safe zone with buildings and helipads"},
