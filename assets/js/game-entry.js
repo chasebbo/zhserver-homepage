@@ -35,6 +35,8 @@
     bind("[data-game-login]", "play");
     bind("[data-game-profile]", "profile");
     bind("[data-game-guest]", "guest");
+    bind("[data-game-register-hint]", "registerHint");
+    bind("[data-game-guest-hint]", "guestWorldHint");
     bind("[data-game-retry]", "retry");
     language.bind(document.getElementById("game-guest-note"), "game.entry.guestPending");
 
@@ -50,6 +52,10 @@
         show("[data-game-start]", member);
         show("[data-game-login]", guest || unavailable);
         show("[data-game-profile]", noName);
+        show("[data-game-primary-action]", member || guest || noName || unavailable);
+        show("[data-game-guest-action]", member || guest);
+        show("[data-game-register-hint]", guest);
+        show("[data-game-guest-hint]", guestTrialReady && guest && serverStatus === "online" && !starting);
         show("[data-game-guest-options]", member || guest);
         show("#game-guest-note", (member || guest) && !guestTrialReady);
         all("[data-game-start]").forEach(button => {

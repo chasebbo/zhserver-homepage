@@ -81,10 +81,16 @@
                     <div class="game-account-entry" data-game-account>
                         <p class="game-entry-welcome" data-game-welcome data-i18n-ignore hidden>Deine Anmeldung wird geprüft.</p>
                         <div class="game-product-actions game-entry-actions">
-                            <button type="button" class="btn btn-gold" data-game-start disabled>JETZT SPIELEN</button>
-                            <a class="btn btn-gold" data-game-login href="account/?next=%2Fgame.html%3Fplay%23spiel-starten" hidden>JETZT SPIELEN</a>
-                            <a class="btn btn-outline" data-game-profile href="profile/" hidden>Profil ansehen</a>
-                            <button type="button" class="btn btn-outline game-guest-button" data-game-guest data-game-guest-options hidden disabled aria-describedby="game-guest-note">2 MINUTEN ALS GAST TESTEN</button>
+                            <div class="game-entry-action" data-game-primary-action hidden>
+                                <button type="button" class="btn btn-gold" data-game-start disabled>JETZT SPIELEN</button>
+                                <a class="btn btn-gold" data-game-login href="account/?next=%2Fgame.html%3Fplay%23spiel-starten" aria-describedby="game-register-hint" hidden>JETZT SPIELEN</a>
+                                <a class="btn btn-outline" data-game-profile href="profile/" hidden>Profil ansehen</a>
+                                <p id="game-register-hint" class="game-entry-hint" data-game-register-hint data-i18n-ignore hidden>Registriere dich, um zu spielen.</p>
+                            </div>
+                            <div class="game-entry-action" data-game-guest-action hidden>
+                                <button type="button" class="btn btn-outline game-guest-button" data-game-guest data-game-guest-options hidden disabled aria-describedby="game-guest-note game-guest-hint">2 MINUTEN ALS GAST TESTEN</button>
+                                <p id="game-guest-hint" class="game-entry-hint" data-game-guest-hint data-i18n-ignore hidden>Fortschritt wird nicht gespeichert (Offline-Welt).</p>
+                            </div>
                         </div>
                         <p class="game-entry-version" data-game-copy="game.presentation.webAlphaStand">Web-Alpha · Stand: 11.10.2026</p>
                         <p id="game-guest-note" class="game-guest-pending" data-i18n-ignore hidden>Der kurze Gastzugang wird vorbereitet.</p>

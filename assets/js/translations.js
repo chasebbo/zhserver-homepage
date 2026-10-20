@@ -3375,6 +3375,8 @@ window.ZHTranslations = {
     "game.entry.play": { "de": "JETZT SPIELEN", "en": "PLAY NOW" },
     "game.entry.guest": { "de": "2 MINUTEN ALS GAST TESTEN", "en": "TRY AS A GUEST FOR 2 MINUTES" },
     "game.entry.guestSave": { "de": "Gastfortschritt wird nicht gespeichert.", "en": "Guest progress is not saved." },
+    "game.entry.registerHint": { "de": "Registriere dich, um zu spielen.", "en": "Register to play." },
+    "game.entry.guestWorldHint": { "de": "Fortschritt wird nicht gespeichert (Offline-Welt).", "en": "Progress is not saved (offline world)." },
     "game.entry.guestPending": { "de": "Der kurze Gastzugang wird vorbereitet.", "en": "The short guest trial is being prepared." },
     "game.entry.checkAccount": { "de": "Deine Anmeldung wird geprüft.", "en": "Checking your sign-in status." },
     "game.entry.nameRequired": { "de": "Bitte lege zuerst einen öffentlichen Anzeigenamen fest.", "en": "Please set a public display name first." },
