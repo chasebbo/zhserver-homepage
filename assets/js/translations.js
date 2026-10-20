@@ -233,8 +233,8 @@ window.ZHTranslations = {
         "en": "Web alpha now playable · Updated: 11/10/2026"
     },
     "bridge-present-cta": {
-        "de": "Zur Alpha",
-        "en": "Play the alpha"
+        "de": "Zum Spiel (Alpha)",
+        "en": "Play Alpha"
     },
     "home-preview-title": {
         "de": "Die nächste Welt entsteht.",
