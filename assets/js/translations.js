@@ -3898,7 +3898,15 @@ Object.assign(window.ZHTranslations.messages, {
   "home.forum.title": {de: "AKTUELLE THEMEN", en: "LATEST TOPICS"},
   "home.forum.kicker": {de: "AUS DEM FORUM", en: "FROM THE FORUM"},
   "home.forum.allTopics": {de: "Zum Forum", en: "Go to forum"},
-  "home.forum.unavailable": {de: "Forum-Themen derzeit nicht verfügbar.", en: "Forum topics are currently unavailable."}
+  "home.forum.unavailable": {de: "Forum-Themen derzeit nicht verfügbar.", en: "Forum topics are currently unavailable."},
+  "home.survivors.title": {de: "TOP 5 ÜBERLEBENDE", en: "TOP 5 SURVIVORS"},
+  "home.survivors.kicker": {de: "AKTUELL AM LEBEN", en: "CURRENTLY ALIVE"},
+  "home.survivors.preparing": {de: "Rangliste in Vorbereitung", en: "Leaderboard in preparation"},
+  "home.survivors.loading": {de: "Rangliste wird geladen …", en: "Loading leaderboard…"},
+  "home.survivors.empty": {de: "Noch keine Überlebensserien verfügbar.", en: "No survival streaks available yet."},
+  "home.survivors.unavailable": {de: "Rangliste derzeit nicht verfügbar.", en: "Leaderboard currently unavailable."},
+  "home.survivors.day": {de: "{count} Tag", en: "{count} day"},
+  "home.survivors.days": {de: "{count} Tage", en: "{count} days"}
 });
 
 /* Functional forum and public avatar UI use the existing central message catalog. */

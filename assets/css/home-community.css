@@ -1,0 +1,104 @@
+/* Landingpage Community Pulse only; survey and public forum readers stay intact. */
+.home-page.home-chapters .era-split > .era-pulse-chapter {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.08fr) minmax(0, 1fr);
+    align-items: stretch;
+}
+.home-page.home-chapters .era-pulse-chapter > .era-pulse { grid-column: 1; grid-row: 1; }
+.home-page.home-chapters .era-pulse-chapter > .era-camp-visual { grid-column: 2; grid-row: 1; }
+.home-page.home-chapters .era-pulse-chapter > .home-survivors { grid-column: 3; grid-row: 1; }
+.home-page.home-chapters .era-pulse-chapter > :is(.era-pulse, .era-camp-visual, .home-survivors) { position: relative; z-index: 1; }
+/* One image and one continuous overlay behind both right-hand columns. */
+.home-page.home-chapters .home-community-scene {
+    position: relative;
+    grid-column: 2 / -1;
+    grid-row: 1;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+.home-page.home-chapters .home-community-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% center; }
+.home-page.home-chapters .home-community-scene::after { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, rgba(8, 14, 18, .84), rgba(8, 14, 18, .56)); }
+.home-page.home-chapters .era-pulse-chapter .era-camp-visual { background: transparent; }
+.home-page.home-chapters .era-pulse-chapter .era-camp-visual::after { content: none; }
+.home-page.home-chapters .era-pulse-chapter > .era-pulse { padding-inline: 18px; }
+.home-page.home-chapters .era-pulse-chapter .home-forum-teaser {
+    width: auto;
+    margin: 16px 8px 16px 0;
+    padding-inline: 14px;
+    background: transparent;
+}
+.home-page.home-chapters .era-pulse-chapter .home-forum-topic-meta { font-size: .72rem; }
+.home-page.home-chapters .home-survivors {
+    min-width: 0;
+    margin: 16px 16px 16px 0;
+    padding: 12px 14px 8px;
+    border-left: 1px solid rgba(197, 165, 98, .4);
+    background: transparent;
+    overflow-wrap: anywhere;
+}
+.home-page.home-chapters .home-survivors h3 {
+    margin: 0;
+    color: #d8c28e;
+    font: 600 .79rem/1.4 Inter, sans-serif;
+    letter-spacing: .075em;
+}
+.home-page.home-chapters .home-survivors-kicker {
+    margin: 3px 0 7px;
+    color: #adb5b3;
+    font-size: .65rem;
+    line-height: 1.5;
+    letter-spacing: .09em;
+}
+.home-page.home-chapters .home-survivors-status {
+    margin: 0;
+    padding: 18px 0;
+    border-top: 1px solid rgba(197, 165, 98, .2);
+    color: #b2bcb6;
+    font-size: .8rem;
+    line-height: 1.6;
+}
+.home-page.home-chapters .home-survivors-list { list-style: none; margin: 0; padding: 0; }
+.home-page.home-chapters .home-survivors-list li {
+    display: grid;
+    grid-template-columns: 1.1em minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 8px;
+    padding: 9px 0;
+    border-top: 1px solid rgba(197, 165, 98, .18);
+    color: #dce1da;
+    font-size: .8rem;
+    line-height: 1.5;
+}
+.home-page.home-chapters .home-survivor-position { color: #939d96; font-variant-numeric: tabular-nums; }
+.home-page.home-chapters .home-survivor-name { min-width: 0; overflow-wrap: anywhere; }
+.home-page.home-chapters .home-survivor-days { color: #c9c4b6; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.home-page.home-chapters .home-survivors-list li:first-child .home-survivor-name { color: #ddcb9b; }
+.home-page.home-chapters .home-survivors [hidden] { display: none; }
+
+@media (min-width: 1101px) {
+    .home-page.home-chapters .era-pulse-chapter .pulse-intro { font-size: .8rem; }
+    .home-page.home-chapters .era-pulse-chapter .pulse-dots { gap: 0; }
+    .home-page.home-chapters .era-pulse-chapter #pulse-body { column-gap: 8px; }
+}
+@media (max-width: 1100px) {
+    .home-page.home-chapters .era-split > .era-pulse-chapter { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .home-page.home-chapters .era-pulse-chapter > .era-pulse { grid-column: 1 / -1; width: auto; max-width: none; justify-self: stretch; }
+    .home-page.home-chapters .era-pulse-chapter > .era-camp-visual { grid-column: 1; grid-row: 2; }
+    .home-page.home-chapters .era-pulse-chapter > .home-survivors { grid-column: 2; grid-row: 2; }
+    .home-page.home-chapters .home-community-scene { grid-column: 1 / -1; grid-row: 2; }
+    .home-page.home-chapters .era-pulse-chapter .home-forum-teaser { margin: 16px; }
+    .home-page.home-chapters .era-pulse-chapter > .era-camp-visual { min-height: 260px; }
+    .home-page.home-chapters .home-survivors { margin: 16px 16px 16px 0; }
+}
+@media (max-width: 700px) {
+    .home-page.home-chapters .era-split > .era-pulse-chapter { grid-template-columns: minmax(0, 1fr); }
+    .home-page.home-chapters .era-pulse-chapter > .home-survivors { grid-column: 1; grid-row: 3; }
+    .home-page.home-chapters .home-community-scene { grid-row: 2 / 4; }
+    .home-page.home-chapters .home-survivors { margin: 0 16px 18px; }
+    .home-page.home-chapters .era-pulse-chapter > .era-pulse { padding-inline: 22px; }
+    .home-page.home-chapters .era-pulse-chapter .home-forum-teaser { margin-bottom: 20px; }
+    .home-page.home-chapters .home-survivors h3 { font-size: .84rem; }
+    .home-page.home-chapters .home-survivors-list li { font-size: .85rem; }
+}
