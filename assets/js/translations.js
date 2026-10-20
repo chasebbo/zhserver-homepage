@@ -1,6 +1,14 @@
 /* Central homepage copy. German HTML remains the no-JavaScript fallback. */
 window.ZHTranslations = {
   "copy": {
+    "gameplay-screenshots": {de:"Spielscreenshots",en:"Gameplay screenshots"},
+    "gameplay-development-note": {de:"Spiel und Grafik werden stetig verbessert.",en:"Gameplay and graphics are continuously being improved."},
+    "gameplay-base-overview": {de:"Safezone aus der Vogelperspektive mit Gebäuden und Landeplätzen",en:"Bird's-eye view of the safe zone with buildings and helipads"},
+    "gameplay-road-encounter": {de:"Militär und Zombies auf der Straße neben einem Fahrzeug",en:"Military and zombies on the road beside a vehicle"},
+    "gameplay-north-gate": {de:"Tor Nord mit Zombies außerhalb der Safezone",en:"North Gate with zombies outside the safe zone"},
+    "gameplay-safezone-road": {de:"Tor Nord, Straße und Lagerfeuer in der Safezone",en:"North Gate, road and campfire inside the safe zone"},
+    "gameplay-north-gate-close": {de:"Nahaufnahme von Tor Nord mit Fahrzeugen",en:"Close-up of North Gate with vehicles"},
+    "gameplay-campfire": {de:"Spieler am Lagerfeuer im Camp",en:"Players gathered around the campfire"},
     "home-game-current": { "de": "Zombiehölle Survival · 3D-Entwicklung", "en": "Zombie Hell Survival · 3D development" },
     "development-3d-label": { "de": "04 / 3D-ENTWICKLUNG", "en": "04 / 3D DEVELOPMENT" },
 
@@ -3270,10 +3278,13 @@ window.ZHTranslations = {
     }
   },
   "messages": {
+    "screenshots.select": {de:"Bild {number}: {description}",en:"Image {number}: {description}"},
+    "screenshots.open": {de:"Screenshot vergrößern: {description}",en:"Enlarge screenshot: {description}"},
+    "screenshots.close": {de:"Großansicht schließen",en:"Close enlarged view"},
     "game.presentation.intro": {"de":"Zombiehölle Survival wird als persistente 3D-Multiplayer-Welt mit fester, geneigter Draufsicht entwickelt.","en":"Zombie Hell Survival is being developed as a persistent 3D multiplayer world with a fixed, tilted overhead view."},
     "game.presentation.guestNote": {"de":"Der Gastzugang ist ein kurzer Test ohne dauerhafte Speicherung.","en":"The guest trial is a quick introduction without permanent saves."},
     "game.presentation.serverMeta": {"de":"Browser-Client · Multiplayer · Persistenter Fortschritt","en":"Browser client · Multiplayer · Saved progress"},
-    "game.presentation.previewAlt": {"de":"Zombiehölle-Adminbasis bei Nacht – Illustration der Spielwelt","en":"Zombie Hell admin base at night – game world illustration"},
+    "game.presentation.previewAlt": {"de":"Safezone aus der Vogelperspektive mit Gebäuden und Landeplätzen","en":"Bird's-eye view of the safe zone with buildings and helipads"},
     "game.presentation.playHere": {"de":"Dein Browser-Spiel öffnet sich hier.","en":"Your browser game opens here."},
     "game.presentation.artwork": {"de":"Spielwelt-Illustration","en":"Game world illustration"},
     "game.presentation.featuresKicker": {"de":"DAS SPIEL","en":"THE GAME"},

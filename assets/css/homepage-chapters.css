@@ -377,3 +377,79 @@ body.home-page.home-chapters > .era-section + .section::before {
 @media (prefers-reduced-motion: reduce) {
     .home-page.home-chapters .era-connector { opacity: .45; transition: none; }
 }
+
+/* Real gameplay: a full overview and four quiet, uncropped supporting frames. */
+.home-page.home-chapters .era-split .era-screenshot-collage {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) 58px auto;
+    gap: 5px;
+    min-height: 0;
+    padding: 6px;
+    background: #080e12;
+}
+.home-page.home-chapters .era-split .era-screenshot-collage::after { content: none; }
+.home-page.home-chapters .screenshot-main,
+.home-page.home-chapters .screenshot-thumb {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    border: 1px solid #b49b632b;
+    background: #080e12;
+}
+.home-page.home-chapters .screenshot-strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; min-width: 0; }
+.home-page.home-chapters .screenshot-development-note { margin: 0; color: #9ba3a5; font: 400 .65rem/1.4 Inter, sans-serif; text-align: left; }
+.home-page.home-chapters .era-screenshot-collage img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
+
+/* Keep the campfire clear of the existing forum overlay. */
+.home-page.home-chapters .era-pulse-chapter .era-camp-visual { overflow: hidden; }
+.home-page.home-chapters .era-pulse-chapter .era-camp-visual .era-image {
+    left: auto;
+    width: 75%;
+    object-position: left center;
+    opacity: 1;
+    filter: none;
+}
+@media (max-width: 900px) {
+    .home-page.home-chapters .era-split .era-screenshot-collage { height: auto; grid-template-rows: auto clamp(58px, 9vw, 80px) auto; }
+    .home-page.home-chapters .screenshot-main { aspect-ratio: 2048 / 853; }
+}
+@media (max-width: 600px) {
+    .home-page.home-chapters .era-pulse-chapter .era-camp-visual { --camp-scene-height: clamp(170px, 42vw, 220px); padding-top: calc(var(--camp-scene-height) - 28px); }
+    .home-page.home-chapters .era-pulse-chapter .era-camp-visual .era-image { width: 100%; height: var(--camp-scene-height); object-position: 40% center; }
+    .home-page.home-chapters .era-pulse-chapter .era-camp-visual::after { inset: 0 0 auto; height: var(--camp-scene-height); background: linear-gradient(180deg, transparent 65%, #0c1418); }
+    .home-page.home-chapters .era-camp-visual .home-forum-teaser { margin-top: 0; }
+}
+
+/* Scoped gallery enhancement; frame and strip dimensions remain unchanged. */
+.home-page.home-chapters .era-screenshot-collage :is(.screenshot-main, .screenshot-thumb) { display: block; padding: 0; border-radius: 0; font: inherit; cursor: zoom-in; }
+.home-page.home-chapters .era-screenshot-collage .screenshot-thumb { cursor: pointer; }
+.home-page.home-chapters .screenshot-thumb[aria-pressed="true"] { border-color: #d5b369; box-shadow: inset 0 0 0 1px #d5b36980; background: #242219; }
+.home-page.home-chapters .era-screenshot-collage button:focus-visible { outline: 2px solid #ecd398; outline-offset: -3px; }
+.home-page.home-chapters .screenshot-main img { opacity: 0; transition: opacity 240ms ease; }
+.home-page.home-chapters .screenshot-main img:first-child:last-child,
+.home-page.home-chapters .screenshot-main img.is-current { opacity: 1; }
+html.home-screenshot-open { overflow: hidden; scrollbar-gutter: stable; }
+.home-page .home-screenshot-dialog { width: min(96vw, 1680px); max-width: 96vw; height: min(94dvh, 1100px); max-height: 94dvh; margin: auto; padding: 12px; overflow: hidden; border: 1px solid #b49b6366; border-radius: 5px; background: #080d12; color: #eeeae0; box-shadow: 0 24px 90px #000a; }
+.home-page .home-screenshot-dialog[open] { display: grid; grid-template-rows: 44px minmax(0, 1fr) auto; gap: 8px; }
+.home-page .home-screenshot-dialog::backdrop { background: #02060bf2; }
+.home-page .screenshot-dialog-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.home-page .screenshot-position { padding-left: 8px; color: #c2bdaf; font: 500 .8rem/1.4 Inter, sans-serif; }
+.home-page .home-screenshot-dialog button { flex-shrink: 0; width: 44px; height: 44px; padding: 0; border: 1px solid #b49b6340; border-radius: 3px; background: #121b21; color: #e6d7b3; font: 400 2rem/1 Inter, sans-serif; cursor: pointer; }
+.home-page .home-screenshot-dialog button:hover { background: #252823; border-color: #b49b63; }
+.home-page .home-screenshot-dialog button:focus-visible { outline: 2px solid #e6c680; outline-offset: 2px; }
+.home-page .screenshot-dialog-stage { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 10px; min-height: 0; min-width: 0; touch-action: pan-y pinch-zoom; }
+.home-page .screenshot-dialog-image { display: block; width: 100%; height: 100%; min-height: 0; min-width: 0; object-fit: contain; user-select: none; }
+.home-page .screenshot-dialog-image.is-loading { opacity: 0; }
+.home-page .screenshot-dialog-caption { margin: 0; padding: 4px 8px 8px; color: #cdc7ba; font: 400 .82rem/1.5 Inter, sans-serif; text-align: center; }
+@media (max-width: 600px) {
+    .home-page .home-screenshot-dialog { padding: 8px; }
+    .home-page .screenshot-dialog-stage { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr) 44px; gap: 8px; }
+    .home-page .screenshot-dialog-image { grid-column: 1 / -1; grid-row: 1; }
+    .home-page .screenshot-dialog-stage [data-screenshot-prev] { grid-column: 1; grid-row: 2; justify-self: start; }
+    .home-page .screenshot-dialog-stage [data-screenshot-next] { grid-column: 2; grid-row: 2; justify-self: end; }
+    .home-page .screenshot-dialog-caption { font-size: .75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .home-page.home-chapters .screenshot-main img { transition: none; }
+}

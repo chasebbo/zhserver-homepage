@@ -54,6 +54,7 @@
 .game-entry-page .landing-play-stage { position: relative; }
 .game-entry-page .landing-play-preview { position: relative; margin: 0; }
 .game-entry-page .landing-play-preview img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.game-entry-page .landing-play-preview .gameplay-capture { aspect-ratio: 2048 / 853; object-fit: contain; }
 .game-entry-page .landing-play-preview figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 3px 12px; padding: 12px 20px; color: #d0d2cb; background: #0b131c; font-size: .69rem; line-height: 1.5; }
 .game-entry-page .landing-play-preview small { color: #84908f; font-size: .6rem; }
 .game-entry-page .landing-play-stage:has(#game-wrapper:not([hidden])) .landing-play-preview { display: none; }
