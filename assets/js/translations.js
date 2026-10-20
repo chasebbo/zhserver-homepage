@@ -3287,7 +3287,7 @@ window.ZHTranslations = {
     "game.presentation.serverMeta": {"de":"Browser-Client · Multiplayer · Persistenter Fortschritt","en":"Browser client · Multiplayer · Saved progress"},
     "game.presentation.previewAlt": {"de":"Safezone aus der Vogelperspektive mit Gebäuden und Landeplätzen","en":"Bird's-eye view of the safe zone with buildings and helipads"},
     "game.presentation.playHere": {"de":"Dein Browser-Spiel öffnet sich hier.","en":"Your browser game opens here."},
-    "game.presentation.artwork": {"de":"Spielwelt-Illustration","en":"Game world illustration"},
+    "game.presentation.artwork": {"de":"Ingame-Grafik · Herausgezoomte Ansicht","en":"In-game graphics · Zoomed-out view"},
     "game.presentation.featuresKicker": {"de":"DAS SPIEL","en":"THE GAME"},
     "game.presentation.featuresTitle": {"de":"Was dich erwartet","en":"What to expect"},
     "game.presentation.multiplayer": {"de":"Multiplayer & Gruppen","en":"Multiplayer & groups"},
