@@ -130,7 +130,9 @@
     function probeServer() {
         const revision = ++probeRevision;
         cancelProbe();
-        renderServer("checking");
+        // Keep the last result during refreshes; the checking feedback changes layout.
+        // Only the initial probe has no completed result to display yet.
+        if (!lastCheckedAt) renderServer("checking");
         let completed = false;
         const finish = status => {
             if (completed || revision !== probeRevision) return;
