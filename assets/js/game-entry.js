@@ -7,6 +7,8 @@
     // The client/server enforce the duration; the homepage does not create a timer.
     const guestTrialReady = true;
     const serverUrl = "wss://ws.zhserver.de/ws";
+    // Current upper bound for the one-time graphics preparation on a first start.
+    const firstStartMinutes = 4;
     const language = window.ZHLanguage;
     const identity = window.ZHIdentity;
     const wrapper = document.getElementById("game-wrapper");
@@ -39,6 +41,8 @@
     bind("[data-game-guest-hint]", "guestWorldHint");
     bind("[data-game-retry]", "retry");
     language.bind(document.getElementById("game-guest-note"), "game.entry.guestPending");
+    bind("[data-game-load-hint]", "loadHint", { minutes: firstStartMinutes });
+    show("[data-game-load-hint]", true);
 
     function renderAccess() {
         const member = principal.status === "member";
@@ -177,6 +181,19 @@
             renderAccess();
         }
     }
+
+    // A focused game canvas scrolls its iframe into view without regard to the fixed header.
+    // Keep the top edge of the game visible; the client shows its compact loading bar there.
+    function revealGameTop() {
+        const header = document.querySelector(".header");
+        if (wrapper.hidden || !header || !/^(fixed|sticky)$/.test(getComputedStyle(header).position)) return;
+        const covered = header.getBoundingClientRect().bottom + 12 - wrapper.getBoundingClientRect().top;
+        if (covered > 0) window.scrollBy({ top: -covered, behavior: "auto" });
+    }
+    // Focus moving into the iframe blurs this window; the iframe element gets no focus event then.
+    window.addEventListener("blur", () => requestAnimationFrame(() => {
+        if (document.activeElement === frame) revealGameTop();
+    }));
 
     all("[data-game-start]").forEach(button => button.addEventListener("click", () => void startGame()));
     all("[data-game-retry]").forEach(button => button.addEventListener("click", probeServer));

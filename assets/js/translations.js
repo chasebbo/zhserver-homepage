@@ -3378,6 +3378,7 @@ window.ZHTranslations = {
     "game.entry.registerHint": { "de": "Registriere dich, um zu spielen.", "en": "Register to play." },
     "game.entry.guestWorldHint": { "de": "Fortschritt wird nicht gespeichert (Offline-Welt).", "en": "Progress is not saved (offline world)." },
     "game.entry.guestPending": { "de": "Der kurze Gastzugang wird vorbereitet.", "en": "The short guest trial is being prepared." },
+    "game.entry.loadHint": { "de": "Erster Start? Dein Browser bereitet die Grafik einmalig vor. Das dauert im Moment bis zu etwa {minutes} Minuten. Zeit für einen Kaffee oder einen kurzen Gang zur Toilette. Wir arbeiten daran, dass es schneller geht. Beim nächsten Mal bist du deutlich schneller drin.", "en": "Playing for the first time? Your browser prepares the graphics once. This currently takes up to about {minutes} minutes. Time for a coffee or a quick bathroom break. We are working on making it faster. Next time you will be in much sooner." },
     "game.entry.checkAccount": { "de": "Deine Anmeldung wird geprüft.", "en": "Checking your sign-in status." },
     "game.entry.nameRequired": { "de": "Bitte lege zuerst einen öffentlichen Anzeigenamen fest.", "en": "Please set a public display name first." },
     "game.entry.accountUnavailable": { "de": "Deine Anmeldung konnte nicht geprüft werden. Bitte versuche es erneut.", "en": "Your sign-in status could not be checked. Please try again." },
