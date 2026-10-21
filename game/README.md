@@ -1,36 +1,32 @@
 # Gelieferter Godot-Webbuild
 
-Aktueller Homepage-Webbuild: **v118**, Stand 11.10.2026.
-Quelle: `C:/ZHServer-Builds/v118`; kein neuer Webexport erstellt.
+Aktuelle Hauptversion: **v119**, veröffentlicht am 20.10.2026.
 
 `game.html` lädt den Client erst nach dem bestehenden Account-/Gaststart:
-`game/survival-v118.html?build=guest-v118-20261011`.
-Vorschau und Client teilen dasselbe große Spielfenster. Die bestehende zentrale
-ZHServer-Sitzung wird über die unveränderte `game-auth-bridge.js` übernommen.
+`game/survival-v119.html?build=v119-20261020`.
+Die bestehende zentrale ZHServer-Sitzung wird über die unveränderte
+`game-auth-bridge.js` übernommen.
 
-Alle **elf** manifestgeprüften Dateien gehören zusammen:
+Ein Build besteht aus elf zusammengehörigen Dateien:
 
-- `survival-v118.html`
-- `survival-v118.js`
-- `survival-v118.wasm`
-- `survival-v118.pack-loader.js`
-- `survival-v118.pck.part00`
-- `survival-v118.pck.part01`
-- `survival-v118.audio.worklet.js`
-- `survival-v118.audio.position.worklet.js`
-- `survival-v118.apple-touch-icon.png`
-- `survival-v118.icon.png`
-- `survival-v118.png`
+- `survival-v119.html`
+- `survival-v119.js`
+- `survival-v119.wasm`
+- `survival-v119.pack-loader.js`
+- `survival-v119.pck.part00`
+- `survival-v119.pck.part01`
+- `survival-v119.audio.worklet.js`
+- `survival-v119.audio.position.worklet.js`
+- `survival-v119.apple-touch-icon.png`
+- `survival-v119.icon.png`
+- `survival-v119.png`
 
-Die Packteile werden durch den gelieferten Loader verlustfrei zusammengeführt.
-Kein einzelner Teil überschreitet 100 MiB. Gastdauer: **120000 ms**, durch
-gelieferten Client und den vom Nutzer bestätigten produktiven Dedicated bestimmt.
-Keine zweite Auth-, Gasttimer- oder Persistence-Lösung auf der Homepage.
+Der gelieferte Loader setzt die Packteile verlustfrei zusammen. Kein einzelner
+Teil überschreitet 100 MiB. Keine zweite Auth-, Gasttimer- oder
+Persistence-Lösung auf der Homepage.
 
-Die elf nicht mehr referenzierten v117-Laufzeitdateien wurden nach erfolgreicher
-lokaler v118-Prüfung entfernt. Quellbuilds und historische Handoffs bleiben erhalten.
+Öffentlich liegen nur die Hauptversion, die vorherige Hauptversion v118 als
+Rückfall und nicht verlinkte Testversionen. Ältere Builds sind außerhalb des
+Repositorys archiviert.
 
 Prüfstand und Freigabegrenzen: `../docs/GAME_ENTRY_CHECKPOINT.md`.
-**Visuelle Abnahme und Veröffentlichung am 11.10.2026 ausdrücklich freigegeben.**
-Bestehendes GitHub-Pages-Deployment verwenden; kein neuer Webexport.
-Live-Nachweise liegen außerhalb Git im dokumentierten Release-Prüfordner.
