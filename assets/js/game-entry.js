@@ -13,6 +13,10 @@
     const identity = window.ZHIdentity;
     const wrapper = document.getElementById("game-wrapper");
     const frame = document.getElementById("spiel-starten");
+    // Stage mode (game covers the browser window) is enabled per page via data-game-stage.
+    // The iframe is only restyled; it is never moved or recreated, so the auth bridge keeps its target.
+    const stagePage = document.body.hasAttribute("data-game-stage");
+    let stageActive = false, stageScrollY = 0;
     const params = new URLSearchParams(window.location.search);
     let principal = { status: "checking" };
     let serverStatus = "checking";
@@ -175,7 +179,8 @@
                 if (server === serverUrl) url.searchParams.set("server", server);
                 frame.src = url.href;
             }
-            wrapper.scrollIntoView({ behavior: "auto", block: "start" });
+            if (stagePage) enterStage();
+            else wrapper.scrollIntoView({ behavior: "auto", block: "start" });
         } finally {
             starting = false;
             renderAccess();
@@ -186,7 +191,7 @@
     // Keep the top edge of the game visible; the client shows its compact loading bar there.
     function revealGameTop() {
         const header = document.querySelector(".header");
-        if (wrapper.hidden || !header || !/^(fixed|sticky)$/.test(getComputedStyle(header).position)) return;
+        if (stageActive || wrapper.hidden || !header || !/^(fixed|sticky)$/.test(getComputedStyle(header).position)) return;
         const covered = header.getBoundingClientRect().bottom + 12 - wrapper.getBoundingClientRect().top;
         if (covered > 0) window.scrollBy({ top: -covered, behavior: "auto" });
     }
@@ -195,17 +200,72 @@
         if (document.activeElement === frame) revealGameTop();
     }));
 
+    function renderStage() {
+        if (!stagePage) return;
+        const running = !!frame.getAttribute("src");
+        document.documentElement.classList.toggle("zh-game-running", running);
+        show("[data-game-stage-resume-wrap]", running && !stageActive);
+    }
+    function enterStage() {
+        if (!stagePage || stageActive || wrapper.hidden) return;
+        stageActive = true;
+        stageScrollY = window.scrollY;
+        // iOS ignores overflow on the body; fixing the body keeps the page still behind the game.
+        document.body.style.top = -stageScrollY + "px";
+        document.documentElement.classList.add("zh-game-stage");
+        renderStage();
+        focusGame();
+    }
+    // Godot reads keys from its focused canvas; the iframe document alone is not enough.
+    function focusGame() {
+        try {
+            const canvas = frame.contentDocument?.getElementById("canvas");
+            if (canvas) { canvas.focus(); return; }
+        } catch (_) { /* Same origin is expected; fall back to the frame itself. */ }
+        frame.focus();
+    }
+    function leaveStage() {
+        // Leaves only the stage; the game keeps running in its unchanged iframe.
+        if (!stageActive) return;
+        stageActive = false;
+        if (document.fullscreenElement) void document.exitFullscreen().catch(() => {});
+        document.documentElement.classList.remove("zh-game-stage");
+        document.body.style.top = "";
+        window.scrollTo({ top: stageScrollY, behavior: "instant" });
+        renderStage();
+    }
+    if (stagePage) {
+        bind("[data-game-stage-leave]", "stageLeave");
+        bind("[data-game-stage-leave-short]", "stageLeaveShort");
+        bind("[data-game-stage-resume]", "stageResume");
+        bind("#game-mobile-overlay p", "stageRunning");
+        bind("#btn-activate-game", "stageResume");
+        all("[data-game-stage-key]").forEach(element =>
+            language.bind(element, "game.entry.stageKey." + element.dataset.gameStageKey));
+        all("[data-game-stage-keys]").forEach(element => language.bind(element, "game.entry.stageKeys", {}, "aria-label"));
+        all("[data-game-stage-leave-button]").forEach(button => button.addEventListener("click", leaveStage));
+        all("[data-game-stage-resume], #btn-activate-game").forEach(button => button.addEventListener("click", enterStage));
+        // Only a real page exit ends the game, so the browser's own leave prompt is used for that case.
+        window.addEventListener("beforeunload", event => {
+            if (!frame.getAttribute("src")) return;
+            event.preventDefault();
+            event.returnValue = "";
+        });
+        renderStage();
+    }
+
     all("[data-game-start]").forEach(button => button.addEventListener("click", () => void startGame()));
     all("[data-game-retry]").forEach(button => button.addEventListener("click", probeServer));
     all("[data-game-guest]").forEach(button => button.addEventListener("click", () => void startGame(true)));
     if (identity) identity.subscribe(state => { principal = state; renderAccess(); });
     else { principal = { status: "unavailable" }; renderAccess(); }
 
-    const fullscreenButton = document.getElementById("game-fullscreen");
+    // The stage bar has its own fullscreen button; both share one handler.
+    const fullscreenButtons = [document.getElementById("game-fullscreen"), ...all("[data-game-fullscreen]")];
     const fullscreenMessage = document.getElementById("fullscreen-message");
     let fullscreenSource = "";
     const fullscreenText = source => { fullscreenSource = source; fullscreenMessage.textContent = language.text(source); };
-    fullscreenButton.addEventListener("click", async () => {
+    fullscreenButtons.forEach(button => button.addEventListener("click", async () => {
         try {
             if (document.fullscreenElement) await document.exitFullscreen();
             else if (frame.requestFullscreen) await frame.requestFullscreen();
@@ -213,15 +273,22 @@
         } catch (_) {
             fullscreenText("Vollbild wurde vom Browser nicht geoeffnet. Bitte erneut versuchen.");
         }
-    });
+    }));
+    // Browsers without element fullscreen (iPhone Safari) use the stage itself instead.
+    show("[data-game-fullscreen]", !!frame.requestFullscreen);
     const updateFullscreen = () => {
-        fullscreenButton.textContent = language.text(document.fullscreenElement ? "VOLLBILD VERLASSEN" : "VOLLBILD");
+        fullscreenButtons.forEach(button => {
+            button.textContent = language.text(document.fullscreenElement ? "VOLLBILD VERLASSEN" : "VOLLBILD");
+        });
         if (fullscreenSource) fullscreenMessage.textContent = language.text(fullscreenSource);
+        // Keyboard input belongs to the game again after entering or leaving fullscreen in the stage.
+        if (stageActive) focusGame();
     };
     document.addEventListener("fullscreenchange", updateFullscreen);
     document.addEventListener("zh:languagechange", updateFullscreen);
     document.getElementById("btn-activate-game").addEventListener("click", () => {
-        wrapper.classList.add("is-game-active");
+        // On stage pages this button re-enters the stage instead.
+        if (!stagePage) wrapper.classList.add("is-game-active");
     });
     document.getElementById("btn-deactivate-game").addEventListener("click", () => {
         wrapper.classList.remove("is-game-active");

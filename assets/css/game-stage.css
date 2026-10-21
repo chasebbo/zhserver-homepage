@@ -1,0 +1,50 @@
+/* Stage mode: the game covers the browser window. Loaded only by pages with body[data-game-stage]. */
+.game-entry-page .game-stage-bar,
+.game-entry-page .game-stage-keys { display: none; }
+
+/* Outside the stage the running game rests behind a resume overlay on every width (replaces the mobile activation). */
+body[data-game-stage] .game-mobile-exit-btn { display: none !important; }
+body[data-game-stage] .game-embed { pointer-events: none; }
+body[data-game-stage] .game-mobile-overlay { position: absolute; inset: 0; z-index: 10; display: flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 20px; background: rgba(7, 11, 15, .82); text-align: center; }
+body[data-game-stage] .game-mobile-overlay p { margin: 0; color: #d6d9d3; font-size: .85rem; }
+body[data-game-stage] .game-mobile-overlay .btn { min-height: 46px; padding: 12px 22px; border-radius: 4px; font-size: .72rem; font-weight: 600; letter-spacing: .05em; }
+body[data-game-stage] .game-entry-resume { margin: 0 auto; max-width: 320px; }
+body[data-game-stage] .game-entry-resume .btn { width: 100%; min-height: 46px; border-radius: 4px; font-size: .72rem; font-weight: 600; letter-spacing: .05em; }
+html.zh-game-running .game-entry-page .game-entry-actions { display: none; }
+
+/* Stage: page scroll locked (fixed body for iOS), header and all other page elements hidden. */
+html.zh-game-stage { overflow: hidden; overscroll-behavior: none; }
+html.zh-game-stage body { position: fixed; left: 0; right: 0; width: 100%; overflow: hidden; }
+html.zh-game-stage body > :not(main) { visibility: hidden; }
+html.zh-game-stage .game-entry-page .game-page { isolation: auto; }
+html.zh-game-stage .game-entry-page #game-wrapper { position: fixed; inset: 0; z-index: 2147483000; display: grid; grid-template-rows: 52px minmax(0, 1fr) 40px; justify-items: center; width: auto; max-width: none; margin: 0; background: radial-gradient(ellipse at 50% 40%, #121a21 0%, #070a0d 70%); overscroll-behavior: none; }
+html.zh-game-stage .game-entry-page .game-embed { align-self: center; width: min(calc(100vw - 48px), calc((100vh - 120px) * 16 / 9)); width: min(calc(100vw - 48px), calc((100dvh - 120px) * 16 / 9)); min-height: 0; height: auto; aspect-ratio: 16 / 9; border: 1px solid #c9a45c80; border-radius: 6px; box-shadow: 0 0 0 1px #000, 0 24px 70px #000000b3, 0 0 60px #c9a45c12; pointer-events: auto; }
+html.zh-game-stage .game-mobile-overlay { display: none !important; }
+
+.game-entry-page .game-stage-bar { align-items: center; justify-content: space-between; gap: 12px; box-sizing: border-box; width: 100%; padding: 0 20px; background: #06090cd9; border-bottom: 1px solid #c9a45c40; color: #e9d6a4; font-size: .7rem; font-weight: 600; letter-spacing: .14em; line-height: 1.2; }
+html.zh-game-stage .game-entry-page .game-stage-bar { display: flex; }
+.game-entry-page .game-stage-title { display: flex; align-items: center; gap: 10px; min-width: 0; overflow: hidden; white-space: nowrap; }
+.game-entry-page .game-stage-title span:last-child { overflow: hidden; text-overflow: ellipsis; }
+.game-entry-page .game-stage-dot { flex: none; width: 7px; height: 7px; border-radius: 50%; background: #74d39a; box-shadow: 0 0 8px #74d39a99; }
+.game-entry-page .game-stage-actions { display: flex; flex: none; gap: 8px; }
+.game-entry-page .game-stage-button { min-height: 32px; padding: 7px 12px; border: 1px solid #c9a45c70; border-radius: 3px; background: #0c1218; color: #e7d09a; font: inherit; font-size: .64rem; letter-spacing: .1em; cursor: pointer; }
+.game-entry-page .game-stage-button:hover { border-color: #d9b46a; background: #151b21; }
+.game-entry-page .game-stage-button:focus-visible { outline: 2px solid #d5b448; outline-offset: 2px; }
+.game-entry-page .game-stage-button-primary { border-color: #d9b46a; background: #1a1710; }
+.game-entry-page .game-stage-leave-short { display: none; }
+
+.game-entry-page .game-stage-keys { align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px 18px; margin: 0; padding: 0 16px; color: #8f9a96; font-size: .64rem; letter-spacing: .04em; }
+html.zh-game-stage .game-entry-page .game-stage-keys { display: flex; }
+.game-entry-page .game-stage-keys kbd { margin-right: 5px; color: #d8c8a1; font: inherit; }
+
+@media (max-width: 900px) {
+    html.zh-game-stage .game-entry-page #game-wrapper { grid-template-rows: 34px minmax(0, 1fr); }
+    html.zh-game-stage .game-entry-page .game-embed { width: 100vw; height: 100%; aspect-ratio: auto; border: 0; border-radius: 0; box-shadow: none; }
+    .game-entry-page .game-stage-bar { padding: 0 6px 0 10px; background: #05080b; font-size: .58rem; }
+    .game-entry-page .game-stage-title span:last-child { display: none; }
+    .game-entry-page .game-stage-button { min-height: 26px; padding: 4px 9px; font-size: .56rem; letter-spacing: .08em; }
+    .game-entry-page .game-stage-leave-long { display: none; }
+    .game-entry-page .game-stage-leave-short { display: inline; }
+    html.zh-game-stage .game-entry-page .game-stage-keys { display: none; }
+}
+body[data-game-stage] #game-wrapper { position: relative; }

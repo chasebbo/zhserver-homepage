@@ -108,15 +108,16 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
   konkrete Formulierung des Nutzers hat Vorrang.
 
 
-## Datierter Web-Alpha-Status
+## Web-Alpha-Status ohne Datum
 
-- Anzeige DE: `Web-Alpha jetzt spielbar · Stand: TT.MM.JJJJ`; EN entsprechend.
-  Die Web-Alpha nicht als „ältere Web-Alpha“ bezeichnen und keine zusätzlichen
-  Erklärungen über alte und neue Versionen ergänzen.
-- Maßgeblich ist das belegte Veröffentlichungsdatum des öffentlich spielbaren
-  Builds, nicht das Datum eines Homepage-Updates. Bei jedem neuen Spielbuild-
-  Upload den Status in HTML und im zentralen DE/EN-Katalog gemeinsam aktualisieren.
-- Ohne eindeutigen Uploadnachweis nur „Web-Alpha jetzt spielbar“ anzeigen und
-  das fehlende Datum zur Klärung melden. Niemals das Tagesdatum einsetzen.
-- Aktueller belegter Spielbuild: v118, veröffentlicht am 11.10.2026, Commit
-  `c0482440c88c6e95bb769662723f11f44fa0f84b`, erfolgreicher Pages-Run `38160695060`.
+- Entscheidung Sebastian, 21.10.2026: Keine manuell gepflegten Versions- oder
+  Datumsangaben zum Web-Alpha-Status mehr. Die frühere Regel „Datierter
+  Web-Alpha-Status“ gilt nicht mehr. Auf `game.html` ist die Zeile
+  „Web-Alpha · Stand: …“ entfernt.
+- Keine neuen Datums- oder Versionsangaben zum Spielstand in HTML oder im
+  DE/EN-Katalog ergänzen. Neutral „Web-Alpha jetzt spielbar“ ist erlaubt.
+- Noch vorhandene datierte Anzeige: `index.html` und `game.entry.status`
+  („Web-Alpha jetzt spielbar · Stand: 11.10.2026“). Entfernen erst nach
+  Sebastians Freigabe für die Startseite.
+- Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
+- Hauptversion für `game.html`: v119 (veröffentlicht am 20.10.2026).
