@@ -13,6 +13,7 @@
     const nameEditingEnabled = false;
     const site = path => new URL(path, root).href;
     const allowed = new Set(['', 'index.html', 'game.html', 'gallery.html', 'wiki.html', 'forum/',
+        'game-test-v121.html',
         'forum/index.html', 'arma/', 'arma/index.html', 'bugs/', 'bugs/index.html', 'profile/', 'profile/index.html',
         'admin/', 'admin/index.html']);
     function safeNext(value) {
