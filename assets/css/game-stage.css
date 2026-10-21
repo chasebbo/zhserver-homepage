@@ -17,11 +17,13 @@ html.zh-game-stage { overflow: hidden; overscroll-behavior: none; }
 html.zh-game-stage body { position: fixed; left: 0; right: 0; width: 100%; overflow: hidden; }
 html.zh-game-stage body > :not(main) { visibility: hidden; }
 html.zh-game-stage .game-entry-page .game-page { isolation: auto; }
-html.zh-game-stage .game-entry-page #game-wrapper { position: fixed; inset: 0; z-index: 2147483000; display: grid; grid-template-rows: 52px minmax(0, 1fr) 40px; justify-items: center; width: auto; max-width: none; margin: 0; background: radial-gradient(ellipse at 50% 40%, #121a21 0%, #070a0d 70%); overscroll-behavior: none; }
-html.zh-game-stage .game-entry-page .game-embed { align-self: center; width: min(calc(100vw - 48px), calc((100vh - 120px) * 16 / 9)); width: min(calc(100vw - 48px), calc((100dvh - 120px) * 16 / 9)); min-height: 0; height: auto; aspect-ratio: 16 / 9; border: 1px solid #c9a45c80; border-radius: 6px; box-shadow: 0 0 0 1px #000, 0 24px 70px #000000b3, 0 0 60px #c9a45c12; pointer-events: auto; }
+/* Flex layout without percentage heights: WebKit resolved the old grid height against the whole stage and covered the bar.
+   Height and top follow the visible area (game-entry.js sets them from visualViewport; dvh is the fallback). */
+html.zh-game-stage .game-entry-page #game-wrapper { position: fixed; left: 0; right: 0; top: var(--zh-stage-top, 0px); z-index: 2147483000; display: flex; flex-direction: column; align-items: center; box-sizing: border-box; width: auto; max-width: none; height: 100vh; height: var(--zh-stage-height, 100dvh); margin: 0; padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px); background: radial-gradient(ellipse at 50% 40%, #121a21 0%, #070a0d 70%); overscroll-behavior: none; }
+html.zh-game-stage .game-entry-page .game-embed { flex: none; margin: auto 0; width: min(calc(100% - 48px), calc((100vh - 120px) * 16 / 9)); width: min(calc(100% - 48px), calc((var(--zh-stage-height, 100dvh) - 120px) * 16 / 9)); min-height: 0; height: auto; aspect-ratio: 16 / 9; border: 1px solid #c9a45c80; border-radius: 6px; box-shadow: 0 0 0 1px #000, 0 24px 70px #000000b3, 0 0 60px #c9a45c12; pointer-events: auto; }
 html.zh-game-stage .game-mobile-overlay { display: none !important; }
 
-.game-entry-page .game-stage-bar { align-items: center; justify-content: space-between; gap: 12px; box-sizing: border-box; width: 100%; padding: 0 20px; background: #06090cd9; border-bottom: 1px solid #c9a45c40; color: #e9d6a4; font-size: .7rem; font-weight: 600; letter-spacing: .14em; line-height: 1.2; }
+.game-entry-page .game-stage-bar { flex: none; align-items: center; justify-content: space-between; gap: 12px; box-sizing: border-box; width: 100%; height: 52px; padding: 0 20px; background: #06090cd9; border-bottom: 1px solid #c9a45c40; color: #e9d6a4; font-size: .7rem; font-weight: 600; letter-spacing: .14em; line-height: 1.2; }
 html.zh-game-stage .game-entry-page .game-stage-bar { display: flex; }
 .game-entry-page .game-stage-title { display: flex; align-items: center; gap: 10px; min-width: 0; overflow: hidden; white-space: nowrap; }
 .game-entry-page .game-stage-title span:last-child { overflow: hidden; text-overflow: ellipsis; }
@@ -33,18 +35,47 @@ html.zh-game-stage .game-entry-page .game-stage-bar { display: flex; }
 .game-entry-page .game-stage-button-primary { border-color: #d9b46a; background: #1a1710; }
 .game-entry-page .game-stage-leave-short { display: none; }
 
-.game-entry-page .game-stage-keys { align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px 18px; margin: 0; padding: 0 16px; color: #8f9a96; font-size: .64rem; letter-spacing: .04em; }
+.game-entry-page .game-stage-keys { flex: none; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px 18px; height: 40px; margin: 0; padding: 0 16px; color: #8f9a96; font-size: .64rem; letter-spacing: .04em; }
 html.zh-game-stage .game-entry-page .game-stage-keys { display: flex; }
 .game-entry-page .game-stage-keys kbd { margin-right: 5px; color: #d8c8a1; font: inherit; }
 
-@media (max-width: 900px) {
-    html.zh-game-stage .game-entry-page #game-wrapper { grid-template-rows: 34px minmax(0, 1fr); }
-    html.zh-game-stage .game-entry-page .game-embed { width: 100vw; height: 100%; aspect-ratio: auto; border: 0; border-radius: 0; box-shadow: none; }
-    .game-entry-page .game-stage-bar { padding: 0 6px 0 10px; background: #05080b; font-size: .58rem; }
+/* Hint to turn narrow touch screens sideways: a card over the game, closed with OK. */
+.game-entry-page .game-stage-rotate { display: none; }
+.game-entry-page .game-stage-rotate { position: absolute; z-index: 5; left: 50%; top: 50%; translate: -50% -50%; box-sizing: border-box; width: min(300px, calc(100% - 40px)); flex-direction: column; align-items: center; gap: 14px; padding: 22px 20px 18px; text-align: center; color: #e6dcc3; font-size: .82rem; line-height: 1.4; background: #0b1117f2; border: 1px solid #c9a45c99; border-radius: 8px; box-shadow: 0 20px 60px #000c; }
+.game-entry-page .game-stage-rotate p { margin: 0; }
+.game-entry-page .game-stage-rotate-icon { position: relative; width: 34px; height: 34px; border: 1.5px solid #d9b46a; border-radius: 5px; transform: rotate(90deg); }
+.game-entry-page .game-stage-rotate-icon::after { content: ""; position: absolute; left: 50%; bottom: 3px; width: 6px; height: 2px; margin-left: -3px; border-radius: 1px; background: #d9b46a; }
+
+/* Touch without a mouse: larger targets, no key row, the game fills the area. Decided by input and size only. */
+@media (hover: none) and (pointer: coarse) {
+    html.zh-game-stage .game-entry-page .game-stage-keys { display: none; }
+    .game-entry-page .game-stage-bar { height: 48px; padding: 0 8px 0 14px; font-size: .62rem; }
+    .game-entry-page .game-stage-button { min-height: 38px; padding: 8px 12px; font-size: .6rem; }
+    .game-entry-page .game-stage-leave-long { display: none; }
+    .game-entry-page .game-stage-leave-short { display: inline; }
+    html.zh-game-stage .game-entry-page .game-embed { flex: 1 1 0; width: 100%; margin: 0; aspect-ratio: auto; border: 0; border-radius: 0; box-shadow: none; }
+}
+/* Large touch screens (tablets): framed game with a small gap and full button labels. */
+@media (hover: none) and (pointer: coarse) and (min-width: 700px) and (min-height: 700px) {
+    .game-entry-page .game-stage-leave-long { display: inline; }
+    .game-entry-page .game-stage-leave-short { display: none; }
+    html.zh-game-stage .game-entry-page .game-embed { width: calc(100% - 24px); margin: 12px 0; border: 1px solid #c9a45c80; border-radius: 6px; }
+}
+/* Narrow touch screens upright: show the turn-sideways card. */
+@media (orientation: portrait) and (max-width: 600px) and (pointer: coarse) {
+    html.zh-game-stage .game-entry-page .game-stage-rotate { display: flex; }
+}
+/* Flat landscape (phones): a slim rail on the right instead of a top bar, the game keeps the full height. */
+@media (orientation: landscape) and (max-height: 500px) {
+    html.zh-game-stage .game-entry-page #game-wrapper { flex-direction: row-reverse; align-items: stretch; }
+    .game-entry-page .game-stage-bar { flex-direction: column; justify-content: space-between; width: 64px; height: auto; padding: 10px 6px; border-bottom: 0; border-left: 1px solid #c9a45c40; }
+    .game-entry-page .game-stage-title { flex-direction: column; gap: 6px; }
     .game-entry-page .game-stage-title span:last-child { display: none; }
-    .game-entry-page .game-stage-button { min-height: 26px; padding: 4px 9px; font-size: .56rem; letter-spacing: .08em; }
+    .game-entry-page .game-stage-actions { flex-direction: column; gap: 8px; width: 100%; }
+    .game-entry-page .game-stage-button { width: 100%; min-height: 44px; padding: 4px 2px; font-size: .5rem; letter-spacing: .04em; }
     .game-entry-page .game-stage-leave-long { display: none; }
     .game-entry-page .game-stage-leave-short { display: inline; }
     html.zh-game-stage .game-entry-page .game-stage-keys { display: none; }
+    html.zh-game-stage .game-entry-page .game-embed { flex: 1 1 0; width: auto; margin: 0; height: calc(var(--zh-stage-height, 100dvh) - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); aspect-ratio: auto; border: 0; border-radius: 0; box-shadow: none; }
 }
 body[data-game-stage] #game-wrapper { position: relative; }

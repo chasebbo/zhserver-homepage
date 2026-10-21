@@ -213,8 +213,20 @@
         // iOS ignores overflow on the body; fixing the body keeps the page still behind the game.
         document.body.style.top = -stageScrollY + "px";
         document.documentElement.classList.add("zh-game-stage");
+        syncStageViewport();
         renderStage();
         focusGame();
+    }
+    // Mobile browser bars change the visible area while the page is fixed; the stage follows it.
+    function syncStageViewport() {
+        const view = window.visualViewport, style = document.documentElement.style;
+        if (!stageActive || !view) {
+            style.removeProperty("--zh-stage-height");
+            style.removeProperty("--zh-stage-top");
+            return;
+        }
+        style.setProperty("--zh-stage-height", view.height + "px");
+        style.setProperty("--zh-stage-top", view.offsetTop + "px");
     }
     // Godot reads keys from its focused canvas; the iframe document alone is not enough.
     function focusGame() {
@@ -230,6 +242,7 @@
         stageActive = false;
         if (document.fullscreenElement) void document.exitFullscreen().catch(() => {});
         document.documentElement.classList.remove("zh-game-stage");
+        syncStageViewport();
         document.body.style.top = "";
         window.scrollTo({ top: stageScrollY, behavior: "instant" });
         renderStage();
@@ -243,6 +256,20 @@
         all("[data-game-stage-key]").forEach(element =>
             language.bind(element, "game.entry.stageKey." + element.dataset.gameStageKey));
         all("[data-game-stage-keys]").forEach(element => language.bind(element, "game.entry.stageKeys", {}, "aria-label"));
+        bind("[data-game-stage-rotate-text]", "stageRotate");
+        bind("[data-game-stage-rotate-ok]", "stageRotateOk");
+        // The turn-sideways card is shown once per browser session; CSS limits it to narrow upright touch screens.
+        const rotateKey = "zh_stage_rotate_seen";
+        let rotateSeen = false;
+        try { rotateSeen = sessionStorage.getItem(rotateKey) === "1"; } catch (_) { /* Memory only. */ }
+        show("[data-game-stage-rotate]", !rotateSeen);
+        all("[data-game-stage-rotate-ok]").forEach(button => button.addEventListener("click", () => {
+            show("[data-game-stage-rotate]", false);
+            try { sessionStorage.setItem(rotateKey, "1"); } catch (_) { /* Memory only. */ }
+            focusGame();
+        }));
+        window.visualViewport?.addEventListener("resize", syncStageViewport);
+        window.visualViewport?.addEventListener("scroll", syncStageViewport);
         all("[data-game-stage-leave-button]").forEach(button => button.addEventListener("click", leaveStage));
         all("[data-game-stage-resume], #btn-activate-game").forEach(button => button.addEventListener("click", enterStage));
         // Only a real page exit ends the game, so the browser's own leave prompt is used for that case.

@@ -17,16 +17,22 @@
         'game-test-v123.html',
         'forum/index.html', 'arma/', 'arma/index.html', 'bugs/', 'bugs/index.html', 'profile/', 'profile/index.html',
         'admin/', 'admin/index.html']);
+    // Allowed targets that need more than a signed-in account. They are reached after sign-in only when
+    // the existing server role check passes; otherwise the start page is used.
+    const restricted = new Set(['admin/', 'admin/index.html']);
+    const pagePath = href => new URL(href).pathname.slice(root.pathname.length);
     function safeNext(value) {
         try {
-            const url = new URL(value || 'profile/', root);
+            const url = new URL(value || '', root);
             if (url.origin !== root.origin || !url.pathname.startsWith(root.pathname) || url.username || url.password ||
                 !allowed.has(url.pathname.slice(root.pathname.length)) ||
                 ['access_token', 'refresh_token', 'code', 'token_hash'].some(key => url.searchParams.has(key)) ||
-                /(?:^|[&#?])(?:access_token|refresh_token|code|token_hash)=/i.test(decodeURIComponent(url.hash))) return site('profile/');
+                /(?:^|[&#?])(?:access_token|refresh_token|code|token_hash)=/i.test(decodeURIComponent(url.hash))) return site('');
             return url.href;
-        } catch (_) { return site('profile/'); }
+        } catch (_) { return site(''); }
     }
+    // Header links never carry a restricted page: after a sign-out there, the next account may lack the role.
+    const headerNext = () => restricted.has(pagePath(location.href)) ? site('') : location.href;
     function authUrl(mode = 'login', next = location.href) {
         const url = new URL('account/', root);
         if (['register', 'forgot'].includes(mode)) url.searchParams.set('mode', mode);
@@ -69,17 +75,17 @@
     const trigger = widget.querySelector('button'), menu = widget.querySelector('nav');
     const guest = widget.querySelector('[data-account-guest]');
     const register = widget.querySelector('[data-account-register]');
-    guest.href = authUrl();
-    register.href = authUrl('register');
+    guest.href = authUrl('login', headerNext());
+    register.href = authUrl('register', headerNext());
     widget.querySelector('[data-account-profile]').href = site('profile/');
     widget.querySelector('[data-account-game]').href = site('game.html');
     const mobileItem = document.createElement('li'); mobileItem.className = 'zh-account-mobile';
     // On small screens the signed-in disclosure stays in the menu; both guest links stay in the header.
     const quickActions = document.createElement('div'); quickActions.className = 'zh-account-quick-actions';
     const quickLogin = document.createElement('a'); quickLogin.className = 'zh-account-quick-login';
-    quickLogin.href = authUrl(); quickLogin.setAttribute('data-i18n-ignore', ''); language.bind(quickLogin, 'account.signIn');
+    quickLogin.href = authUrl('login', headerNext()); quickLogin.setAttribute('data-i18n-ignore', ''); language.bind(quickLogin, 'account.signIn');
     const quickRegister = document.createElement('a');
-    quickRegister.className = 'zh-account-quick-register'; quickRegister.href = authUrl('register');
+    quickRegister.className = 'zh-account-quick-register'; quickRegister.href = authUrl('register', headerNext());
     quickRegister.setAttribute('data-i18n-ignore', ''); language.bind(quickRegister, 'account.register');
     quickActions.append(quickLogin, quickRegister);
     const mobile = window.matchMedia('(max-width: 900px)');
@@ -214,8 +220,25 @@
         }
         if (form && signedIn && mode !== 'forgot') {
             setMessage('account.redirecting');
-            location.replace(next);
+            void redirectAfterSignIn(state);
         }
+    }
+    let redirectRead = 0;
+    async function redirectAfterSignIn(state) {
+        const ticket = ++redirectRead;
+        let target = next;
+        if (restricted.has(pagePath(next))) {
+            let permitted = false;
+            try {
+                const identity = await ready;
+                await loadScript(site('admin/access.js?v=20261012-central-role2'), () => !!window.ZHAdminAccess);
+                permitted = await window.ZHAdminAccess.require(identity.client, { redirect: false });
+            } catch (_) { permitted = false; }
+            // A later sign-in or account switch on this page decides again for its own account.
+            if (ticket !== redirectRead || window.ZHIdentity?.state.userId !== state.userId) return;
+            if (!permitted) target = site('');
+        }
+        location.replace(target);
     }
     // First-visit welcome for guests on content pages only. A local flag (never a cookie) stops repeats;
     // without any usable browser storage the welcome is skipped rather than shown on every page.

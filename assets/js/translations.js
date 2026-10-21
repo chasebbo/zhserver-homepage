@@ -3393,6 +3393,8 @@ window.ZHTranslations = {
     "game.entry.stageKey.map": { "de": "Karte", "en": "Map" },
     "game.entry.stageKey.group": { "de": "Gruppe", "en": "Group" },
     "game.entry.stageKey.help": { "de": "Steuerung", "en": "Controls" },
+    "game.entry.stageRotate": { "de": "Für das beste Spielerlebnis Handy quer halten.", "en": "For the best experience, turn your phone sideways." },
+    "game.entry.stageRotateOk": { "de": "OK", "en": "OK" },
     "game.entry.checkAccount": { "de": "Deine Anmeldung wird geprüft.", "en": "Checking your sign-in status." },
     "game.entry.nameRequired": { "de": "Bitte lege zuerst einen öffentlichen Anzeigenamen fest.", "en": "Please set a public display name first." },
     "game.entry.accountUnavailable": { "de": "Deine Anmeldung konnte nicht geprüft werden. Bitte versuche es erneut.", "en": "Your sign-in status could not be checked. Please try again." },
