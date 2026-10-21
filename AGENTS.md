@@ -116,8 +116,7 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
   „Web-Alpha · Stand: …“ entfernt.
 - Keine neuen Datums- oder Versionsangaben zum Spielstand in HTML oder im
   DE/EN-Katalog ergänzen. Neutral „Web-Alpha jetzt spielbar“ ist erlaubt.
-- Noch vorhandene datierte Anzeige: `index.html` und `game.entry.status`
-  („Web-Alpha jetzt spielbar · Stand: 11.10.2026“). Entfernen erst nach
-  Sebastians Freigabe für die Startseite.
+- Auf `index.html` (Freigabe Sebastian, 21.10.2026) steht nur noch
+  „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
 - Hauptversion für `game.html`: v119 (veröffentlicht am 20.10.2026).

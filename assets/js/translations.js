@@ -229,8 +229,8 @@ window.ZHTranslations = {
         "en": "Explore the world of Zombie Hell Survival, gather equipment, build your own base and survive alongside other players. This persistent 3D multiplayer world is continually expanded and improved."
     },
     "bridge-alpha-status": {
-        "de": "Web-Alpha jetzt spielbar · Stand: 11.10.2026",
-        "en": "Web alpha now playable · Updated: 11/10/2026"
+        "de": "Web-Alpha jetzt spielbar",
+        "en": "Web alpha now playable"
     },
     "bridge-present-cta": {
         "de": "Zum Spiel (Alpha)",
@@ -3365,7 +3365,7 @@ window.ZHTranslations = {
     "game.entry.detailPageDescription": {"de":"Die 3D-Entwicklung und Roadmap von Zombiehölle Survival.","en":"The 3D development and roadmap of Zombie Hell Survival."},
 
     "game.entry.brand": { "de": "ZOMBIEHÖLLE", "en": "ZOMBIE HELL" },
-    "game.entry.status": { "de": "Web-Alpha jetzt spielbar · Stand: 11.10.2026", "en": "Web alpha now playable · Updated: 11/10/2026" },
+    "game.entry.status": { "de": "Web-Alpha jetzt spielbar", "en": "Web alpha now playable" },
     "game.entry.intro": { "de": "Zombiehölle Survival: persistente 3D-Multiplayer-Welt in Entwicklung.", "en": "Zombie Hell Survival: a persistent 3D multiplayer world in development." },
     "game.entry.welcome": { "de": "Willkommen zurück, {name}.", "en": "Welcome back, {name}." },
     "game.entry.saved": { "de": "Dein Fortschritt wird mit deinem ZHServer-Account gespeichert.", "en": "Your progress is saved to your ZHServer account." },
