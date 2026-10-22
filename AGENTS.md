@@ -120,3 +120,18 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
   „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
 - Hauptversion für `game.html`: v119 (veröffentlicht am 20.10.2026).
+
+## Spiel-Builds online (Dauerregel, Sebastian 22.10.2026)
+
+- Online liegen höchstens drei Spiel-Builds: die Hauptversion (`game.html`), die
+  aktuelle Testversion (eine nicht verlinkte `game-test-vNNN.html`) und die
+  vorherige Hauptversion als Rückfall.
+- Bei jedem neuen Build-Upload wird im selben Auftrag der älteste nicht mehr
+  benötigte Build entfernt. Vorher alle Verweise prüfen (Seiten, Skripte, Wiki,
+  Rückleitungsliste in `assets/js/account.js`, `AGENTS.md`), den Build samt
+  Testseite nach `C:\ZHServer-Archiv\homepage-builds\<version>\` mit Manifest
+  (Pfad, Größe, SHA-256) archivieren und gegen den Commit prüfen. Danach den
+  Rückleitungseintrag nur dieser Testseite entfernen.
+- Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
+  deutlich unter 1 GB.
+- Stand 22.10.2026: Hauptversion v119, Testversion v124, Rückfall v118.
