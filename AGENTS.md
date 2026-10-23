@@ -119,7 +119,7 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
 - Auf `index.html` (Freigabe Sebastian, 21.10.2026) steht nur noch
   „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
-- Hauptversion für `game.html`: v119 (veröffentlicht am 20.10.2026).
+- Hauptversion für `game.html`: v127 (veröffentlicht am 23.10.2026).
 
 ## Spiel-Builds online (Dauerregel, Sebastian 22.10.2026)
 
@@ -134,4 +134,4 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
   Rückleitungseintrag nur dieser Testseite entfernen.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 22.10.2026: Hauptversion v119, Testversion v124, Rückfall v118.
+- Stand 23.10.2026: Hauptversion v127, Rückfall v119, keine Testversion.
