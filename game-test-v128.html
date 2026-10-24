@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de" data-homepage-i18n>
+    <head>
+        <meta name="robots" content="noindex, nofollow">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Zombiehölle Survival: persistente 3D-Multiplayer-Welt in Entwicklung.">
+        <title>Zombiehoelle Survival – Testversion v128 | ZHServer Community</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="stylesheet" href="assets/css/style.css?v=20261019-neutral-navigation1">
+        <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en">
+        <link rel="stylesheet" href="assets/css/game-page.css?v=20261001-vision1">
+        <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
+        <script src="assets/js/translations.js?v=20261021-stage3">
+        </script>
+        <script src="assets/js/i18n.js?v=20261016-security1">
+        </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/homepage-premium.css?v=20261001-premium">
+        <link rel="stylesheet" href="assets/css/game-entry.css?v=20261021-load-hint1">
+        <link rel="stylesheet" href="assets/css/game-stage.css?v=20261021-stage2">
+        <link rel="stylesheet" href="assets/css/game-alpha-panels.css?v=20261019-world-motion1">
+        <script defer src="assets/js/world-status.js?v=20261019-world-motion1"></script>
+        <link rel="stylesheet" href="assets/css/community-notices.css?v=20261016-merch3">
+    </head>
+    <body class="game-product-page game-entry-page" data-game-stage>
+        <header class="header zh-site-header">
+            <div class="container">
+                <nav class="navbar">
+                    <div class="header-brand-row">
+                        <a href="index.html" class="header-emblem">
+                            <img src="assets/images/android-chrome-512x512.png" width="512" height="512" alt="Zombiehölle / ZHServer" decoding="async">
+                        </a>
+                        <a href="index.html" class="logo">ZHServer.de / Zombiehölle.de</a>
+                        <div class="header-controls">
+                            <div class="language-switcher" role="group" aria-label="Sprache wählen">
+                                <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
+                                <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
+                            </div>
+                            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Menü öffnen" aria-controls="nav-menu" aria-expanded="false">
+                                &#9776;
+                            </button>
+                        </div>
+                    </div>
+                    <ul class="nav-menu" id="nav-menu">
+                        <li>
+                            <a href="index.html#hero">Start</a>
+                        </li>
+                        <li>
+                            <a href="game.html" class="nav-game-link">Spiel</a>
+                        </li>
+                        <li><a href="forum/" data-forum-route>Forum</a></li>
+                        <li>
+                            <a href="gallery.html">Galerie</a>
+                        </li>
+                        <li>
+                            <a href="index.html#history">Geschichte</a>
+                        </li>
+                        <li>
+                            <a href="index.html#timeline">Timeline</a>
+                        </li>
+                        <li>
+                            <a href="index.html#guestbook">Gästebuch</a>
+                        </li>
+                        <li>
+                            <a href="wiki.html">Wiki</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main class="section game-page">
+            <section id="game-intro" class="game-product-hero landing-hero" aria-labelledby="game-title">
+                <div class="game-hero-copy">
+                    <h1 id="game-title" class="game-page-title"><span data-game-copy="game.entry.brand">ZOMBIEHÖLLE</span><span class="landing-title-accent">SURVIVAL</span></h1>
+                    <div class="game-account-entry" data-game-account>
+                        <p class="game-entry-welcome" data-game-welcome data-i18n-ignore hidden>Deine Anmeldung wird geprüft.</p>
+                        <div class="game-entry-resume" data-game-stage-resume-wrap hidden><button type="button" class="btn btn-gold" data-game-stage-resume data-i18n-ignore>ZURÜCK ZUM SPIEL</button></div>
+                        <div class="game-product-actions game-entry-actions">
+                            <div class="game-entry-action" data-game-primary-action hidden>
+                                <button type="button" class="btn btn-gold" data-game-start disabled>JETZT SPIELEN</button>
+                                <a class="btn btn-gold" data-game-login href="account/?next=%2Fgame-test-v128.html%3Fplay%23spiel-starten" aria-describedby="game-register-hint" hidden>JETZT SPIELEN</a>
+                                <a class="btn btn-outline" data-game-profile href="profile/" hidden>Profil ansehen</a>
+                                <p id="game-register-hint" class="game-entry-hint" data-game-register-hint data-i18n-ignore hidden>Registriere dich, um zu spielen.</p>
+                            </div>
+                            <div class="game-entry-action" data-game-guest-action hidden>
+                                <button type="button" class="btn btn-outline game-guest-button" data-game-guest data-game-guest-options hidden disabled aria-describedby="game-guest-note game-guest-hint">2 MINUTEN ALS GAST TESTEN</button>
+                                <p id="game-guest-hint" class="game-entry-hint" data-game-guest-hint data-i18n-ignore hidden>Fortschritt wird nicht gespeichert (Offline-Welt).</p>
+                            </div>
+                        </div>
+                        <p class="game-entry-load-hint" data-game-load-hint data-i18n-ignore hidden></p>
+                        <p class="game-entry-version" data-i18n-ignore>Testversion v128 · nicht öffentlich · Stand 24.10.2026</p>
+                        <p id="game-guest-note" class="game-guest-pending" data-i18n-ignore hidden>Der kurze Gastzugang wird vorbereitet.</p>
+                    </div>
+                </div>
+                <div class="landing-play-surface" aria-labelledby="game-server-title">
+                    <div class="landing-server-bar">
+                        <div class="landing-server-heading"><strong id="game-server-title" data-game-copy="game.entry.productTitle">ZOMBIEHÖLLE SURVIVAL</strong><span class="game-server-status" data-game-server-status data-state="checking" role="status" data-i18n-ignore>SERVERSTATUS WIRD GEPRÜFT</span></div>
+                        <p class="landing-server-meta" data-game-copy="game.presentation.serverMeta">Browser-Client · Multiplayer · Persistenter Fortschritt</p>
+                        <div class="landing-server-worlds">
+                            <span class="game-worlds-label" data-game-copy="game.entry.worlds">SERVERWELTEN</span>
+                            <span class="game-worlds-count" data-game-world-count role="status" data-i18n-ignore>STATUS WIRD GEPRÜFT</span>
+                            <div class="game-world-segments" data-game-world-segments role="group" aria-label="Serverwelten" data-i18n-ignore>
+                                <span data-game-world="1" data-state="checking" role="img" aria-label="ZHServer 1: Status wird geprüft" title="ZHServer 1: Status wird geprüft"></span>
+                                <span data-game-world="2" data-state="planned" role="img" aria-label="ZHServer 2: geplant" title="ZHServer 2: geplant"></span>
+                                <span data-game-world="3" data-state="planned" role="img" aria-label="ZHServer 3: geplant" title="ZHServer 3: geplant"></span>
+                            </div>
+                        </div>
+                        <div class="landing-server-feedback"><p class="game-server-message" data-game-server-message role="status" data-i18n-ignore>Verfügbarkeit wird geprüft.</p><button type="button" class="game-server-retry" data-game-retry hidden>Erneut prüfen</button><p class="game-server-offline-note" data-game-offline-note data-i18n-ignore hidden></p><p class="game-server-last-check" data-game-last-check data-i18n-ignore hidden></p></div>
+                    </div>
+                    <div class="landing-play-stage">
+                        <figure class="landing-play-preview">
+                            <img class="gameplay-capture" src="assets/images/gameplay/base-overview.webp" srcset="assets/images/gameplay/base-overview-960.webp 960w, assets/images/gameplay/base-overview.webp 2048w" sizes="(min-width: 1435px) 1320px, 92vw" width="2048" height="853" fetchpriority="high" decoding="async" data-game-image-alt="game.presentation.previewAlt" alt="Safezone aus der Vogelperspektive mit Gebäuden und Landeplätzen">
+                            <figcaption><span data-game-copy="game.presentation.playHere">Dein Browser-Spiel öffnet sich hier.</span><small data-game-copy="game.presentation.artwork">Ingame-Grafik · Herausgezoomte Ansicht</small></figcaption>
+                        </figure>
+                        <div class="game-embed-wrapper" id="game-wrapper" hidden>
+                            <div class="game-stage-bar" data-game-stage-bar><strong class="game-stage-title"><span class="game-stage-dot" aria-hidden="true"></span><span data-game-copy="game.entry.productTitle">ZOMBIEHÖLLE SURVIVAL</span></strong><div class="game-stage-actions"><button type="button" class="game-stage-button" data-game-fullscreen>VOLLBILD</button><button type="button" class="game-stage-button game-stage-button-primary" data-game-stage-leave-button><span class="game-stage-leave-long" data-game-stage-leave data-i18n-ignore>ZURÜCK ZUR HOMEPAGE</span><span class="game-stage-leave-short" data-game-stage-leave-short data-i18n-ignore>ZURÜCK</span></button></div></div>
+                            <iframe id="spiel-starten" class="game-embed" data-src="game/survival-v128.html?build=v128-20261024" title="Zombiehölle Survival" allow="autoplay; fullscreen"></iframe>
+                            <div class="game-stage-keys" data-game-stage-keys role="group" aria-label="Tastenbelegung im Spiel" data-i18n-ignore><span><kbd>W A S D</kbd><span data-game-stage-key="move">Laufen</span></span><span><kbd>Shift</kbd><span data-game-stage-key="sprint">Sprinten</span></span><span><kbd data-game-stage-key="space">Leertaste</kbd><span data-game-stage-key="jump">Springen</span></span><span><kbd>E</kbd><span data-game-stage-key="search">Durchsuchen</span></span><span><kbd>I</kbd><span data-game-stage-key="inventory">Inventar</span></span><span><kbd>B</kbd><span data-game-stage-key="build">Baumenü</span></span><span><kbd>M</kbd><span data-game-stage-key="map">Karte</span></span><span><kbd>G</kbd><span data-game-stage-key="group">Gruppe</span></span><span><kbd>F1</kbd><span data-game-stage-key="help">Steuerung</span></span></div>
+                            <div class="game-stage-rotate" data-game-stage-rotate role="note"><span class="game-stage-rotate-icon" aria-hidden="true"></span><p data-game-stage-rotate-text data-i18n-ignore>Für das beste Spielerlebnis Handy quer halten.</p><button type="button" class="game-stage-button" data-game-stage-rotate-ok data-i18n-ignore>OK</button></div>
+                            <div class="game-mobile-overlay" id="game-mobile-overlay"><p>Tippe zum Spielen</p><button class="btn btn-gold btn-activate-game" id="btn-activate-game" type="button">SPIEL AKTIVIEREN</button></div>
+                            <button class="game-mobile-exit-btn" id="btn-deactivate-game" type="button">SCROLL-MODUS</button>
+                        </div>
+                    </div>
+                    <div class="game-technical-controls" data-game-controls hidden>
+                        <div class="game-controls-bar" aria-label="Tastenbelegung und Steuerung"><span><kbd>W A S D</kbd> Laufen</span><span><kbd>E</kbd> Durchsuchen</span><span><kbd>I</kbd> Inventar</span><span><kbd>B</kbd> Baumenü</span><span><kbd>M</kbd> Karte</span><span><kbd>G</kbd> Gruppe</span></div>
+                        <div class="landing-play-tools"><a href="wiki.html#baumenue" class="btn-wiki-link">Bausystem-Wiki</a><button id="game-fullscreen" type="button" class="game-fullscreen-button">VOLLBILD</button></div>
+                        <span id="fullscreen-message" class="fullscreen-message" role="status" aria-live="polite" data-i18n-ignore></span>
+                        <p class="game-mobile-hint">Am besten im Querformat spielen. Links laufen, rechts feuern; E durchsucht, INV öffnet das Inventar.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="game-features" class="landing-features" aria-labelledby="game-features-title">
+                <div class="landing-section-heading"><p class="game-kicker" data-game-copy="game.presentation.featuresKicker">DAS SPIEL</p><h2 id="game-features-title" data-game-copy="game.presentation.featuresTitle">Was dich erwartet</h2></div>
+                <ul class="landing-feature-grid">
+                    <li><h3 data-game-copy="game.presentation.multiplayer">Multiplayer &amp; Gruppen</h3><p data-game-copy="game.presentation.multiplayerNote">Erkunde die Welt gemeinsam, bilde eine Gruppe und bleib über den Chat in Verbindung.</p></li>
+                    <li><h3 data-game-copy="game.presentation.building">Basenbau</h3><p data-game-copy="game.presentation.buildingNote">Baue deine eigene Basis mit modularen Bauteilen und schaffe Platz für deine Vorräte.</p></li>
+                    <li><h3 data-game-copy="game.presentation.persistence">Persistente Welt</h3><p data-game-copy="game.presentation.persistenceNote">Dein Charakter und dein Fortschritt bleiben mit deinem ZHServer-Account erhalten.</p></li>
+                    <li><h3 data-game-copy="game.presentation.loot">Fahrzeuge &amp; Loot</h3><p data-game-copy="game.presentation.lootNote">Finde Fahrzeuge, durchsuche verlassene Orte und stell deine Ausrüstung zusammen.</p></li>
+                </ul>
+            </section>
+            <section id="game-updates" class="landing-development" aria-labelledby="game-development-title">
+                <div class="landing-section-heading"><p class="game-kicker" data-game-copy="game.presentation.developmentKicker">ENTWICKLUNG</p><h2 id="game-development-title" data-game-copy="game.presentation.developmentTitle">Aktueller Alpha-Stand</h2></div>
+                <div class="landing-alpha-layout">
+                    <section class="landing-alpha-card landing-alpha-roadmap" aria-labelledby="alpha-roadmap-title">
+                        <h3 id="alpha-roadmap-title">ROADMAP</h3>
+                        <dl class="landing-roadmap-list">
+                            <div><dt>Safezone &amp; Handelsplatz</dt><dd>Die Adminbase als Treffpunkt für Handel und Versorgung ausbauen.</dd></div>
+                            <div><dt>Grafik</dt><dd>Gebäude, Umgebung und Licht überarbeiten.</dd></div>
+                            <div><dt>Charakter</dt><dd>Charaktergrafik und sichtbare Ausrüstung überarbeiten.</dd></div>
+                            <div><dt>Bau-System</dt><dd>Mehr Bauteile und bessere Werkzeuge für den Basenbau.</dd></div>
+                            <div><dt>Portale</dt><dd>Portale und die Gebiete dahinter ausbauen.</dd></div>
+                        </dl>
+                    </section>
+                    <section class="landing-alpha-card landing-alpha-world" aria-labelledby="alpha-world-title">
+                        <h3 id="alpha-world-title">WELTLAGE</h3>
+                        <div class="zh-world-status">
+                            <div class="zh-world-heading">
+                                <span class="zh-world-planned">GEPLANTES WELTSYSTEM</span>
+                            </div>
+                            <dl class="zh-world-values">
+                                <div data-world-value="military"><dt>MILITÄR</dt><dd><span class="zh-world-number">72 %</span></dd></div>
+                                <div data-world-value="survivors"><dt>ÜBERLEBENDE</dt><dd><span class="zh-world-number">18 %</span></dd></div>
+                                <div data-world-value="infected"><dt>INFIZIERTE</dt><dd><span class="zh-world-number">7 %</span></dd></div>
+                                <div data-world-value="contested"><dt>UMKÄMPFT</dt><dd><span class="zh-world-number">3 %</span></dd></div>
+                            </dl>
+                            <div class="zh-world-bar" aria-hidden="true">
+                                <span class="zh-world-military"></span><span class="zh-world-survivors"></span><span class="zh-world-infected"></span><span class="zh-world-contested"></span>
+                            </div>
+                        </div>
+                        <p class="zh-world-note">Geplant: Strategische Gebiete sollen künftig vom Militär, Überlebenden oder Infizierten kontrolliert werden können. Angriffe, Portale und Rückeroberungen sollen die Weltlage dauerhaft verändern.</p>
+                        <dl class="landing-roadmap-list">
+                            <div><dt>SAFEZONE</dt><dd>Die Adminbase wird zum sicheren Zentrum für Handel, Versorgung und neue Spieler ausgebaut.</dd></div>
+                            <div><dt>STÄDTE &amp; DÖRFER</dt><dd>Die meisten Orte wurden überrannt oder aufgegeben.</dd></div>
+                            <div><dt>MILITÄR</dt><dd>Einzelne Einheiten halten noch Stellungen und Außenposten. Das Militär versucht, die Portale unter Kontrolle zu halten und braucht Unterstützung.</dd></div>
+                            <div><dt>PORTALE</dt><dd>Durch die Portale gelangen seltsame und gefährliche Zombies in die Welt.</dd></div>
+                        </dl>
+                    </section>
+                </div>
+                <a class="landing-feed-link landing-development-link" href="game-development.html#game-roadmap" data-game-copy="game.entry.viewDevelopment">ENTWICKLUNG ANSEHEN</a>
+            </section>
+            <section id="community-feedback" class="landing-community" aria-labelledby="community-help-title">
+                <div><p class="game-kicker" data-game-copy="game.presentation.communityKicker">MITGESTALTEN</p><h2 id="community-help-title" data-game-copy="game.presentation.communityTitle">Deine Ideen zählen</h2><p class="landing-community-note" data-game-copy="game.presentation.communityNote">Melde Fehler, bring deine Ideen ein oder stimme über kommende Inhalte ab.</p></div>
+                <div class="game-product-actions"><a class="btn btn-outline" href="forum/#category/bugs">BUG MELDEN</a><a class="btn btn-outline" href="forum/#category/ideas">IDEE EINREICHEN</a></div>
+            </section>
+            <div class="zh-community-notices">
+                <aside class="zh-community-notice zh-community-notice-merch" aria-labelledby="merch-notice-title">
+                    <h2 id="merch-notice-title">ZHServer Merch</h2>
+                    <p>Ein kleines Stück Zombiehölle für zuhause.</p>
+                    <a href="https://Zhoelle.myspreadshop.de" target="_blank" rel="noopener noreferrer">Shop ansehen</a>
+                </aside>
+                <aside class="zh-community-notice zh-community-notice-support" aria-labelledby="support-notice-title">
+                    <h2 id="support-notice-title">Projekt unterstützen</h2>
+                    <p>Freiwillige Unterstützung für Hosting und Entwicklung.</p>
+                    <a href="https://paypal.me/ZHServerDE" target="_blank" rel="noopener noreferrer">Mehr erfahren</a>
+                </aside>
+            </div>
+        </main>
+        <footer class="site-footer zh-global-footer">
+            <div class="container footer">
+                <div>
+                    <h3>
+                        ZHServer Community
+                    </h3>
+                    <p>
+                        Seit 2013
+                    </p>
+                    <p class="footer-visitor">
+                        <span id="total-visitors">0</span> Besucher insgesamt</p>
+                </div>
+                <div>
+                    <a href="pages/impressum.html">
+                        Impressum
+                    </a>
+
+                    |
+
+                    <a href="pages/datenschutz.html">
+                        Datenschutz
+                    </a>
+                    <br>
+                    <br>
+
+                    © 2013–2026 ZHServer Community
+
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0" integrity="sha384-UagCvVPT5XXA0Hx+nJYUAGBFseHT9zBgpJMSebsAxl9lciTwbT+39j5VfRjdP5Tp" crossorigin="anonymous">
+        </script>
+        <script>
+            const supabaseUrl = "https://yawadxzeyyrozmlrokun.supabase.co";
+            const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlhd2FkeHpleXlyb3ptbHJva3VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMzQ4MTIsImV4cCI6MjEwMDkxMDgxMn0.B53O3gHURnfxUkVGKaZJ5ssx27Bj9FNMU70Yn85tfxE";
+
+            // Voting, footer and the embedded game use the existing central SDK session.
+            window.zhSupabaseClient ||= window.supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+        </script>
+        <script src="assets/js/identity.js?v=20261008-release1">
+        </script>
+        <script src="assets/js/game-page-common.js?v=20261015-alpha-cards1">
+        </script>
+        <script src="assets/js/game-auth-bridge.js?v=20261008-release1">
+        </script>
+        <script src="assets/js/game-entry.js?v=20261021-stage2">
+        </script>
+        <script src="assets/js/visitor-counter.js?v=20261016-security1">
+        </script>
+    </body>
+</html>
