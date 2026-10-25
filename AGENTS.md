@@ -119,7 +119,7 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
 - Auf `index.html` (Freigabe Sebastian, 21.10.2026) steht nur noch
   „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
-- Hauptversion für `game.html`: v127 (veröffentlicht am 23.10.2026).
+- Hauptversion für `game.html`: v129 (veröffentlicht am 25.10.2026).
 
 ## Spiel-Builds online (Dauerregel, Sebastian 22.10.2026)
 
