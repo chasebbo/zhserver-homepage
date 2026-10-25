@@ -134,4 +134,5 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
   Rückleitungseintrag nur dieser Testseite entfernen.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 23.10.2026: Hauptversion v127, Rückfall v119, keine Testversion.
+- Stand 25.10.2026: Hauptversion v127 (`game.html`), Rückfall v119, Testversion v129
+  (`game-test-v129.html`). v128 ist archiviert und entfernt.
