@@ -3288,7 +3288,7 @@ window.ZHTranslations = {
     "game.presentation.serverMeta": {"de":"Browser-Client · Multiplayer · Persistenter Fortschritt","en":"Browser client · Multiplayer · Saved progress"},
     "game.presentation.previewAlt": {"de":"Portal der Militärbasis Ost bei Nacht, Zombies auf der Rampe, MG-Nester an den Seiten","en":"The portal at Military Base East at night, zombies on the ramp and machine-gun nests on both sides"},
     "game.presentation.playHere": {"de":"Dein Browser-Spiel öffnet sich hier.","en":"Your browser game opens here."},
-    "game.presentation.artwork": {"de":"Ingame-Grafik · Herausgezoomte Ansicht","en":"In-game graphics · Zoomed-out view"},
+    "game.presentation.artwork": {"de":"Ingame-Grafik · Portal der Basis Ost bei Nacht","en":"In-game graphics · Base East portal at night"},
     "game.presentation.featuresKicker": {"de":"DAS SPIEL","en":"THE GAME"},
     "game.presentation.featuresTitle": {"de":"Was dich erwartet","en":"What to expect"},
     "game.presentation.multiplayer": {"de":"Multiplayer & Gruppen","en":"Multiplayer & groups"},
