@@ -118,7 +118,9 @@
             const meta = node('span', '', 'forum-active-meta'), category = node('a', controller.title(topic.category));
             category.href = '#category/' + topic.category;
             meta.append(category, node('span', replies(topic.replies)));
-            item.append(link, meta, authorLine(null, true), timestamp(topic.last_activity_at));
+            item.append(link);
+            const suggestion = window.ZHForumSuggestion?.badge(topic); if (suggestion) item.append(suggestion);
+            item.append(meta, authorLine(null, true), timestamp(topic.last_activity_at));
             const ticket = generation;
             latest(topic).then(post => {
                 if (ticket === generation && item.isConnected) item.querySelector('.forum-last-author').replaceWith(authorLine(post, true));

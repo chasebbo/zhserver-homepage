@@ -4436,3 +4436,19 @@ Object.assign(window.ZHTranslations.copy, {
   "development-world-portals-title": {de:"PORTALE",en:"PORTALS"},
   "development-world-portals-copy": {de:"Durch die Portale gelangen seltsame und gefährliche Zombies in die Welt.",en:"Strange and dangerous zombies enter the world through the portals."}
 });
+// Forum: status for topics in "Ideen & Vorschläge" (set by ZH admins only).
+Object.assign(window.ZHTranslations.messages, {
+  "forum.suggestion.accepted": {de:"Vorschlag angenommen – in Planung",en:"Suggestion accepted – planned"},
+  "forum.suggestion.declined": {de:"Vorschlag abgelehnt",en:"Suggestion declined"},
+  "forum.suggestion.reviewing": {de:"Wird geprüft",en:"Under review"},
+  "forum.suggestion.in_progress": {de:"In Arbeit",en:"In progress"},
+  "forum.suggestion.done": {de:"Umgesetzt",en:"Implemented"},
+  "forum.suggestionReasonShown": {de:"Begründung: {reason}",en:"Reason: {reason}"},
+  "forum.suggestionHeading": {de:"Vorschlagsstatus",en:"Suggestion status"},
+  "forum.suggestionAccept": {de:"Vorschlag angenommen",en:"Accept suggestion"},
+  "forum.suggestionDecline": {de:"Vorschlag abgelehnt",en:"Decline suggestion"},
+  "forum.suggestionReason": {de:"Begründung bei Ablehnung (optional, höchstens 200 Zeichen)",en:"Reason for declining (optional, up to 200 characters)"},
+  "forum.suggestionClear": {de:"Status entfernen",en:"Remove status"},
+  "forum.filterAccepted": {de:"Angenommen",en:"Accepted"},
+  "forum.empty.accepted": {de:"Noch keine angenommenen Vorschläge",en:"No accepted suggestions yet"}
+});

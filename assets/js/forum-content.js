@@ -52,6 +52,7 @@
         }
         if (states.childElementCount) main.append(states);
         const link = textNode('a', topic.title); link.href = '#thread/' + topic.id; main.append(link);
+        const suggestion = window.ZHForumSuggestion?.badge(topic); if (suggestion) main.append(suggestion);
         const meta = document.createElement('small'); meta.className = 'forum-topic-author';
         const official=window.ZHForumChangelog.is(topic);
         if(official){row.classList.add('forum-changelog-topic');main.prepend(window.ZHForumChangelog.label(topic));}
@@ -82,7 +83,9 @@
     }
     function renderTopicList(filter) {
         if (!categoryData) return;
-        const topics = categoryData.topics.filter(t => filter === 'all' || t[filter]);
+        const ideas = window.ZHForumSuggestion?.filterVisible(drafts.route().category);
+        if (filter === 'accepted' && !ideas) { document.querySelector('[data-forum-filter="all"]')?.click(); return; }
+        const topics = categoryData.topics.filter(t => window.ZHForumSuggestion ? window.ZHForumSuggestion.matches(t, filter) : filter === 'all' || t[filter]);
         $('forum-server-topics').replaceChildren(...topics.map(topicItem));
         $('forum-empty-topics').hidden = topics.length > 0;
         $('forum-load-topics').hidden = categoryData.topics.length >= categoryData.total;
@@ -148,6 +151,7 @@
         $('forum-load-posts').hidden = threadData.posts.length >= threadData.post_count;
         $('forum-thread-states').textContent = ['pinned','closed','hidden'].filter(s => topic[s]).map(s => lang.t('forum.'+s)).join(' · ');
         $('forum-thread-states').hidden = !$('forum-thread-states').textContent;
+        renderSuggestion(topic);
         renderModeration(topic);
         permissionFields(topic);
         window.ZHForumChangelog.thread(threadData);
@@ -182,6 +186,31 @@
         remove.dataset.forumDelete = ''; remove.disabled = !moderationReady() || moderationBusy;
         remove.addEventListener('click', () => confirmDelete('delete_topic')); actions.append(remove); moderation.append(actions);
         if (!moderationReady()) moderation.append(textNode('p', lang.t('forum.moderationPending'), 'forum-moderation-note'));
+        const suggestion = window.ZHForumSuggestion?.controls(topic, threadData, setSuggestion);
+        if (suggestion) { suggestion.querySelectorAll('button, input').forEach(node => { if (moderationBusy) node.disabled = true; }); moderation.append(suggestion); }
+    }
+    function renderSuggestion(topic) {
+        let slot = $('forum-thread-suggestion');
+        if (!slot) { slot = textNode('div', '', 'forum-thread-suggestion-slot'); slot.id = 'forum-thread-suggestion'; $('forum-thread-states').after(slot); }
+        const note = window.ZHForumSuggestion?.threadNote(topic);
+        slot.replaceChildren(...(note ? [note] : [])); slot.hidden = !note;
+    }
+    // Uses the same busy state, session check and refresh as the other moderation actions.
+    async function setSuggestion(status, note) {
+        const topic = threadData?.topic;
+        if (!topic?.can_moderate || moderationBusy || threadData.suggestion_status_version !== 1) return;
+        const id = topic.id, owner = identity.state.userId;
+        moderationBusy = true; moderationControls(true); bind('forum-thread-server-status', 'forum.saving');
+        try {
+            await api.rpc('set_zh_forum_suggestion_status', { p_topic_id:id, p_status:status, p_note:note }, true, owner);
+            overviewKey=''; categoryKey=''; profileKey='';
+            window.ZHForumActivity.invalidate();
+            if (drafts.route().id === id) await thread(id,false,true);
+        } catch(e) { error('forum-thread-server-status', e); }
+        finally {
+            moderationBusy=false; moderationControls(false);
+            if (threadData && drafts.route().id === id) renderThread();
+        }
     }
     async function thread(id, more = false, refresh = false) {
         const key = id + ':' + userKey();
@@ -191,6 +220,7 @@
             $('forum-thread-posts').replaceChildren(); $('forum-thread-heading').textContent = lang.t('forum.topic');
             $('forum-thread-category').textContent = ''; $('forum-thread-moderation').hidden = true;
             $('forum-thread-states').hidden = true; $('forum-thread-write-note').hidden = true;
+            if ($('forum-thread-suggestion')) $('forum-thread-suggestion').hidden = true;
             $('forum-thread-views').hidden = true;
             $('forum-thread-login').hidden = true; $('forum-load-posts').hidden = true;
             $('forum-reply-body').value = ''; replyRequest = null;

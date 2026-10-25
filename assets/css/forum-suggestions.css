@@ -1,0 +1,27 @@
+/* Status badges for "Ideen & Vorschläge" and the admin controls under "Thema moderieren". */
+.forum-page .forum-suggestion-badge { display: inline-flex; align-items: center; gap: 5px; margin: 4px 0 0 10px; padding: 3px 9px; border: 1px solid; border-radius: 999px; font-size: .64rem; font-weight: 600; letter-spacing: .03em; line-height: 1.35; vertical-align: middle; white-space: normal; }
+.forum-page .forum-suggestion-badge[data-suggestion-status="accepted"] { color: #9fe0b3; background: rgba(78, 160, 104, .14); border-color: rgba(116, 196, 140, .45); }
+.forum-page .forum-suggestion-badge[data-suggestion-status="declined"] { color: #f0aaa0; background: rgba(190, 96, 82, .14); border-color: rgba(222, 132, 118, .45); }
+.forum-page .forum-suggestion-badge[data-suggestion-status="reviewing"] { color: #c3cbd2; background: rgba(160, 172, 182, .1); border-color: rgba(180, 190, 198, .35); }
+.forum-page .forum-suggestion-badge[data-suggestion-status="in_progress"] { color: #a9cdf2; background: rgba(82, 136, 196, .14); border-color: rgba(120, 166, 220, .45); }
+.forum-page .forum-suggestion-badge[data-suggestion-status="done"] { color: #9fe0b3; background: rgba(78, 160, 104, .14); border-color: rgba(116, 196, 140, .45); }
+.forum-page .forum-suggestion-badge[data-suggestion-status="done"]::before { content: "✓"; }
+.forum-page .forum-active-topic .forum-suggestion-badge { margin: 4px 0 2px; justify-self: start; }
+.forum-page .forum-thread-suggestion-slot { padding: 0 24px 14px; }
+.forum-page .forum-suggestion-thread .forum-suggestion-badge { margin: 0; font-size: .74rem; padding: 5px 12px; }
+.forum-page .forum-suggestion-note { margin: 8px 0 0; color: #d9c3bd; font-size: .78rem; line-height: 1.5; overflow-wrap: anywhere; }
+.forum-page .forum-suggestion-controls { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(181, 190, 195, .14); }
+.forum-page .forum-suggestion-controls h4 { margin: 0 0 9px; color: #cbbb82; font-size: .7rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.forum-page .forum-suggestion-actions { display: flex; align-items: end; flex-wrap: wrap; gap: 9px; }
+.forum-page .forum-suggestion-actions .forum-button { min-height: 36px; padding: 9px 12px; font-size: .7rem; }
+.forum-page .forum-suggestion-accept { border-color: rgba(116, 196, 140, .45); color: #a8e2b9; }
+.forum-page .forum-suggestion-accept:not(:disabled):hover { background: rgba(78, 160, 104, .12); }
+.forum-page .forum-suggestion-reason { display: grid; gap: 4px; flex: 1 1 220px; min-width: 0; }
+.forum-page .forum-suggestion-reason label { color: #b8c1c8; font-size: .66rem; }
+.forum-page .forum-suggestion-reason input { min-height: 36px; padding: 7px 10px; border: 1px solid rgba(169, 186, 202, .25); border-radius: 4px; background: rgba(0, 0, 0, .25); color: #e4e7e8; font: inherit; font-size: .78rem; }
+.forum-page .forum-suggestion-reason input:focus-visible { outline: 2px solid #c9a45c; outline-offset: 1px; }
+@media (max-width: 640px) {
+    .forum-page .forum-suggestion-badge { margin-left: 0; display: flex; width: fit-content; }
+    .forum-page .forum-thread-suggestion-slot { padding: 0 16px 12px; }
+    .forum-page .forum-suggestion-actions .forum-button { flex: 1 1 100%; }
+}
