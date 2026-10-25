@@ -397,7 +397,7 @@ body.home-page.home-chapters > .era-section + .section::before {
     border: 1px solid #b49b632b;
     background: #080e12;
 }
-.home-page.home-chapters .screenshot-strip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; min-width: 0; }
+.home-page.home-chapters .screenshot-strip { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; min-width: 0; }
 .home-page.home-chapters .screenshot-development-note { margin: 0; color: #9ba3a5; font: 400 .65rem/1.4 Inter, sans-serif; text-align: left; }
 .home-page.home-chapters .era-screenshot-collage img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
 
