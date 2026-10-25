@@ -102,3 +102,14 @@
     .home-page.home-chapters .home-survivors h3 { font-size: .84rem; }
     .home-page.home-chapters .home-survivors-list li { font-size: .85rem; }
 }
+
+/* As long as the leaderboard is not available, Top 5 stays a compact note
+   and does not stretch the Community Pulse block. */
+.home-page.home-chapters .home-survivors:has(#home-survivors-list[hidden]) { align-self: start; }
+.home-page.home-chapters .home-survivors:has(#home-survivors-list[hidden]) .home-survivors-status { padding: 8px 0 4px; }
+@media (min-width: 1101px) {
+    .home-page.home-chapters .era-split > .era-pulse-chapter:has(#home-survivors-list[hidden]) { grid-template-columns: minmax(0, 2fr) minmax(0, 1.08fr) minmax(0, .8fr); }
+}
+@media (max-width: 600px) {
+    .home-page.home-chapters .era-pulse-chapter .era-camp-visual { --camp-scene-height: clamp(112px, 30vw, 150px); }
+}

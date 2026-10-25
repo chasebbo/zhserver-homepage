@@ -453,3 +453,63 @@ html.home-screenshot-open { overflow: hidden; scrollbar-gutter: stable; }
 @media (prefers-reduced-motion: reduce) {
     .home-page.home-chapters .screenshot-main img { transition: none; }
 }
+
+/* Newest changelog as a slim band between Survival and Community Pulse.
+   The glow is a static shadow on a pseudo-element; only its opacity animates. */
+.home-page.home-chapters .home-changelog-band {
+    position: relative;
+    border: 1px solid rgba(197, 165, 98, .48);
+    border-radius: 6px;
+    background: #0c1418;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .15);
+}
+.home-page.home-chapters .home-changelog-band[hidden] { display: none; }
+.home-page.home-chapters .home-changelog-band::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    box-shadow: 0 0 0 1px rgba(232, 200, 122, .8), 0 0 18px rgba(214, 178, 96, .34), inset 0 0 24px rgba(214, 178, 96, .13);
+    opacity: .12;
+    pointer-events: none;
+    animation: zh-changelog-glow 5s ease-in-out infinite;
+    will-change: opacity;
+}
+@keyframes zh-changelog-glow {
+    0%, 100% { opacity: .12; }
+    50% { opacity: .9; }
+}
+.home-page.home-chapters .home-changelog-link {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 18px;
+    min-height: 46px;
+    padding: 9px 22px;
+    color: #e4e1d6;
+    text-decoration: none;
+}
+.home-page.home-chapters .home-changelog-lead { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-width: 0; }
+.home-page.home-chapters .home-changelog-new {
+    padding: 2px 7px;
+    border: 1px solid rgba(197, 165, 98, .5);
+    border-radius: 3px;
+    color: #d8c28e;
+    font: 600 .62rem/1.4 Inter, sans-serif;
+    letter-spacing: .1em;
+}
+.home-page.home-chapters .home-changelog-title { color: #f1e6c8; font: 600 .9rem/1.4 Inter, sans-serif; overflow-wrap: anywhere; }
+.home-page.home-chapters .home-changelog-more { color: #cfc6ae; font: 400 .8rem/1.4 Inter, sans-serif; }
+.home-page.home-chapters .home-changelog-arrow { color: #d8c28e; }
+.home-page.home-chapters .home-changelog-meta { display: inline-flex; align-items: center; gap: 12px; margin-left: auto; color: #b2bcb6; font: 400 .74rem/1.4 Inter, sans-serif; white-space: nowrap; }
+.home-page.home-chapters .home-changelog-views { display: inline-flex; align-items: center; gap: 4px; }
+.home-page.home-chapters .home-changelog-views i { font-size: .95em; opacity: .8; }
+.home-page.home-chapters .home-changelog-link:hover :is(.home-changelog-title, .home-changelog-more) { color: #f1dca8; }
+.home-page.home-chapters .home-changelog-link:focus-visible { outline: 1px solid #d8c28e; outline-offset: -5px; border-radius: 6px; }
+@media (max-width: 600px) {
+    .home-page.home-chapters .home-changelog-link { padding: 10px 16px; gap: 4px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .home-page.home-chapters .home-changelog-band::before { animation: none; opacity: .6; }
+}
