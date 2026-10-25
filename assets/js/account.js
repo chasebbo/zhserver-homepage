@@ -12,7 +12,7 @@
     // Keep the installed own-profile RPC; this is a UI gate, not an authorization rule.
     const nameEditingEnabled = false;
     const site = path => new URL(path, root).href;
-    const allowed = new Set(['', 'index.html', 'game.html', 'game-test-v129.html', 'game-test-v128.html', 'gallery.html', 'wiki.html', 'forum/',
+    const allowed = new Set(['', 'index.html', 'game.html', 'game-test-v129.html', 'gallery.html', 'wiki.html', 'forum/',
         'forum/index.html', 'arma/', 'arma/index.html', 'bugs/', 'bugs/index.html', 'profile/', 'profile/index.html',
         'admin/', 'admin/index.html']);
     // Allowed targets that need more than a signed-in account. They are reached after sign-in only when
