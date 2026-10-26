@@ -148,3 +148,16 @@ form > .account-status { margin: 0 0 17px; overflow-wrap: anywhere; }
     .account-actions { align-items: stretch; }
     .account-actions .btn { flex: 1 1 auto; text-align: center; }
 }
+.account-turnstile { margin: 0 0 17px; }
+.account-main .account-resend { margin: 0 0 17px; min-height: 40px; padding: 8px 18px; font-size: .78rem; }
+.account-confirm h2 { margin: 0 0 14px; font-family: 'Cinzel', serif; font-size: 1.2rem; color: #ecebe4; line-height: 1.4; }
+.account-confirm p:not(.account-status) { margin: 0 0 12px; color: #bdc8d2; font-size: .86rem; line-height: 1.8; overflow-wrap: anywhere; }
+.account-confirm .account-confirm-hint { color: #91a1af; font-size: .78rem; }
+.account-confirm .account-status { margin: 4px 0 16px; overflow-wrap: anywhere; }
+.account-confirm .account-field { margin-top: 6px; }
+.account-confirm-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.account-main .account-confirm-actions .btn { min-height: 44px; padding: 10px 22px; font-size: .82rem; }
+.account-main .account-confirm-actions .btn:disabled { opacity: .55; cursor: not-allowed; }
+@media (max-width: 560px) {
+    .account-confirm-actions .btn { flex: 1 1 auto; text-align: center; }
+}

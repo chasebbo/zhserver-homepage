@@ -57,7 +57,7 @@
             }
         });
     }
-    const cssUrl = site('assets/css/account.css?v=20261015-mobile-links1');
+    const cssUrl = site('assets/css/account.css?v=20261026-confirm1');
     if (![...document.querySelectorAll('link[rel="stylesheet"]')].some(node => node.href === cssUrl)) {
         const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = cssUrl;
         document.head.append(css);
@@ -118,6 +118,18 @@
     const mode = ['register', 'forgot'].includes(params.get('mode')) ? params.get('mode') : 'login';
     const next = safeNext(params.get('next'));
     const form = document.getElementById('zh-account-form');
+    // Confirmation links return to this page. Read the result before the SDK consumes the URL hash.
+    const landing = form ? (() => {
+        const hash = new URLSearchParams(location.hash.slice(1));
+        const failed = hash.get('error_code') || hash.get('error') || params.get('error_code') || params.get('error');
+        if (failed) {
+            const clean = new URL(location.href); clean.hash = '';
+            ['error', 'error_code', 'error_description'].forEach(key => clean.searchParams.delete(key));
+            history.replaceState(history.state, '', clean.href);
+            return { failed };
+        }
+        return hash.get('type') === 'signup' && hash.has('access_token') ? { confirmed: true } : null;
+    })() : null;
     const profile = document.getElementById('zh-profile');
     const nameForm = document.getElementById('profile-name-form');
     const nameInput = document.getElementById('profile-name-input');
@@ -145,8 +157,59 @@
         const message = document.getElementById('account-status');
         if (message) {
             message.hidden = !key;
-            message.dataset.tone = ['account.working', 'account.redirecting', 'account.checkMail', 'recovery.sent'].includes(key) ? 'info' : 'error';
+            message.dataset.tone = ['account.working', 'account.redirecting', 'account.checkMail', 'recovery.sent', 'confirm.resent'].includes(key) ? 'info' : 'error';
             if (key) language.bind(message, key);
+        }
+    }
+    function authErrorKey(error, fallback) {
+        if (error?.message === 'turnstile.failed' || error?.code === 'captcha_failed') return 'turnstile.failed';
+        if (error?.status === 429 || ['over_email_send_rate_limit', 'over_request_rate_limit'].includes(error?.code)) return 'confirm.wait';
+        return fallback;
+    }
+    // Email confirmation: pending after sign-up, expired or used link, confirmed landing.
+    const confirmPanel = document.getElementById('account-confirm');
+    let confirmEmail = '', confirmCaptcha = null, resendTimer = 0;
+    function setConfirmStatus(key) {
+        const status = document.getElementById('account-confirm-status');
+        status.hidden = !key;
+        status.dataset.tone = ['account.working', 'confirm.resent', 'confirm.done'].includes(key) ? 'info' : 'error';
+        if (key) language.bind(status, key);
+    }
+    function showConfirm(view, email = '') {
+        if (!confirmPanel || confirmPanel.dataset.view === view) return;
+        confirmPanel.dataset.view = view; confirmEmail = email;
+        form.hidden = true; confirmPanel.hidden = false;
+        const text = document.getElementById('account-confirm-text');
+        text.hidden = view !== 'pending';
+        if (view === 'pending') language.bind(text, 'confirm.sent', { email });
+        document.getElementById('account-confirm-title').hidden = view === 'confirmed';
+        document.getElementById('account-confirm-hint').hidden = view !== 'pending';
+        document.getElementById('account-confirm-email-field').hidden = view !== 'expired';
+        const resend = document.getElementById('account-confirm-resend');
+        resend.hidden = view === 'confirmed'; resend.className = view === 'expired' ? 'btn btn-gold' : 'btn btn-outline';
+        document.getElementById('account-confirm-continue').hidden = view !== 'confirmed';
+        document.getElementById('account-other-mode').hidden = view === 'confirmed';
+        setConfirmStatus(view === 'expired' ? 'confirm.expired' : view === 'confirmed' ? 'confirm.done' : '');
+        if (view !== 'confirmed') confirmCaptcha ||= window.ZHTurnstile?.create(document.getElementById('account-confirm-turnstile'), language.language) || null;
+    }
+    async function resendConfirmation(email, captcha, report, button) {
+        if (!email) { report('account.emailInvalid'); return; }
+        button.disabled = true; report('account.working');
+        let sent = false;
+        try {
+            const identity = await ready;
+            const captchaToken = await captcha?.token();
+            const result = await identity.client.auth.resend({ type: 'signup', email, options: { emailRedirectTo: authUrl('login', next), captchaToken } });
+            if (result.error) throw result.error;
+            sent = true; report('confirm.resent');
+        } catch (error) {
+            report(authErrorKey(error, 'account.requestFailed'));
+        } finally {
+            captcha?.reset();
+            // Supabase allows one confirmation mail per address and minute.
+            clearTimeout(resendTimer);
+            if (sent) resendTimer = setTimeout(() => { button.disabled = false; }, 60000);
+            else button.disabled = false;
         }
     }
     function setProfileMessage(key) {
@@ -217,8 +280,8 @@
             if (signedIn) readPrivateAccount(state);
         }
         if (form && signedIn && mode !== 'forgot') {
-            setMessage('account.redirecting');
-            void redirectAfterSignIn(state);
+            if (landing?.confirmed) showConfirm('confirmed');
+            else { setMessage('account.redirecting'); void redirectAfterSignIn(state); }
         }
     }
     let redirectRead = 0;
@@ -358,8 +421,22 @@
             setMessage(event.target.id === 'account-consent' ? 'legal.acceptanceRequired' :
                 event.target.id === 'account-email' && event.target.validity.typeMismatch ? 'account.emailInvalid' : 'account.requiredFields');
         }, true);
+        const formCaptcha = window.ZHTurnstile?.create(document.getElementById('account-turnstile'), language.language) || null;
+        const resendButton = document.getElementById('account-resend');
+        resendButton.addEventListener('click', () =>
+            resendConfirmation(document.getElementById('account-email').value.trim(), formCaptcha, setMessage, resendButton));
+        const confirmResend = document.getElementById('account-confirm-resend');
+        confirmResend.addEventListener('click', () => {
+            const email = confirmPanel.dataset.view === 'expired' ? document.getElementById('account-confirm-email').value.trim() : confirmEmail;
+            resendConfirmation(email, confirmCaptcha, setConfirmStatus, confirmResend);
+        });
+        document.getElementById('account-confirm-continue').addEventListener('click', () => {
+            if (window.ZHIdentity) void redirectAfterSignIn(window.ZHIdentity.state);
+        });
+        if (landing?.failed) showConfirm('expired');
         form.addEventListener('submit', async event => {
             event.preventDefault(); if (form.dataset.busy === 'true') return;
+            resendButton.hidden = true;
             if (mode === 'register' && !document.getElementById('account-consent').checked) {
                 setMessage('legal.acceptanceRequired'); document.getElementById('account-consent').focus(); return;
             }
@@ -370,7 +447,8 @@
                 const identity = await ready;
                 const email = document.getElementById('account-email').value.trim();
                 if (mode === 'forgot') {
-                    const result = await identity.client.auth.resetPasswordForEmail(email, { redirectTo: site('account/reset-password/') });
+                    const captchaToken = await formCaptcha?.token();
+                    const result = await identity.client.auth.resetPasswordForEmail(email, { redirectTo: site('account/reset-password/'), captchaToken });
                     if (result.error && result.error.code !== 'user_not_found') throw result.error;
                     setMessage('recovery.sent');
                     return;
@@ -381,17 +459,21 @@
                     if (!identity.validName(name)) { setMessage('account.nameInvalid'); return; }
                     if (password.value !== document.getElementById('account-password-repeat').value) { setMessage('account.passwordMismatch'); return; }
                     await window.ZHLegal.verifyRegistration(identity.client);
+                    const captchaToken = await formCaptcha?.token();
                     attempted = true;
-                    const result = await identity.client.auth.signUp({ ...credentials, options: { data: { display_name: name, ...window.ZHLegal.signupData() } } });
+                    // The language only selects the text of the confirmation mail.
+                    const result = await identity.client.auth.signUp({ ...credentials, options: { emailRedirectTo: authUrl('login', next), captchaToken,
+                        data: { display_name: name, language: language.language, ...window.ZHLegal.signupData() } } });
                     if (result.error) throw result.error;
                     if (result.data.session) {
                         const resolved = await identity.resolve();
                         if (resolved.status === 'unavailable') setMessage('account.unavailable');
                     }
-                    else setMessage('account.checkMail');
+                    else { setMessage(''); showConfirm('pending', email); }
                 } else {
+                    const captchaToken = await formCaptcha?.token();
                     attempted = true;
-                    const result = await identity.client.auth.signInWithPassword(credentials);
+                    const result = await identity.client.auth.signInWithPassword({ ...credentials, options: { captchaToken } });
                     if (result.error) throw result.error;
                     const resolved = await identity.resolve();
                     if (resolved.status === 'unavailable') setMessage('account.unavailable');
@@ -402,9 +484,11 @@
                     /invalid login credentials/i.test(error?.message || '');
                 const key = legalError ? error.message : invalidCredentials ? 'account.invalidCredentials' :
                     error?.code === 'email_not_confirmed' ? 'account.emailUnconfirmed' :
-                    error?.code === 'weak_password' ? 'account.weakPassword' : mode === 'login' ? 'account.loginFailed' : 'account.requestFailed';
+                    error?.code === 'weak_password' ? 'account.weakPassword' : authErrorKey(error, mode === 'login' ? 'account.loginFailed' : 'account.requestFailed');
                 setMessage(key);
+                resendButton.hidden = key !== 'account.emailUnconfirmed';
             } finally {
+                formCaptcha?.reset();
                 if (attempted) { password.value = ''; document.getElementById('account-password-repeat').value = ''; }
                 form.dataset.busy = 'false'; submit.disabled = false;
             }
