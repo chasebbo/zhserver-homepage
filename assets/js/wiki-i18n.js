@@ -17,8 +17,8 @@
     "en": "Building, world & equipment"
   },
   "wiki-1": {
-    "de": "Bausystem, Weltmodule, Ausrüstung und Ressourcen – mit klaren Angaben zu vorhandenem und geplantem Inhalt.",
-    "en": "Building, world modules, equipment and resources – with clear information on available and planned content."
+    "de": "Bausystem, Weltmodule, Ausrüstung und Ressourcen, mit klaren Angaben zu vorhandenem und geplantem Inhalt.",
+    "en": "Building, world modules, equipment and resources, with clear information on available and planned content."
   },
   "wiki-2": {
     "de": "Katalog",
