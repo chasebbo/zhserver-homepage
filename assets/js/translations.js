@@ -175,7 +175,7 @@ window.ZHTranslations = {
         "en": "Concept art of a fortified Zombie Hell admin base with a floodlit courtyard, checkpoint and helipads"
     },
     "game-concept-caption": {
-        "de": "Konzeptgrafik – kein aktueller Gameplay-Screenshot. Maßstab und Details können vom späteren Spiel abweichen.",
+        "de": "Konzeptgrafik, kein aktueller Gameplay-Screenshot. Maßstab und Details können vom späteren Spiel abweichen.",
         "en": "Concept art, not a current gameplay screenshot. Scale and details may differ from the final game."
     },
     "game-concept-scale": {
@@ -219,8 +219,8 @@ window.ZHTranslations = {
         "en": "Concept / visual direction"
     },
     "bridge-concept-note": {
-        "de": "Survival-Konzeptgrafik – Maßstab und Details können vom späteren Spiel abweichen.",
-        "en": "Survival concept art — scale and details may differ from the final game."
+        "de": "Survival-Konzeptgrafik. Maßstab und Details können vom späteren Spiel abweichen.",
+        "en": "Survival concept art. Scale and details may differ from the final game."
     },
     "bridge-present-title": {
         "de": "Zombiehölle Survival heute",
@@ -550,6 +550,10 @@ window.ZHTranslations = {
       "de": "Offtopic",
       "en": "Off-topic"
     },
+    "copyright-2013-bis-2026": {
+      "de": "© 2013 bis 2026 ZHServer Community",
+      "en": "© 2013 to 2026 ZHServer Community"
+    },
     "zhserver-community-seit-2013": {
       "de": "ZHServer Community | Seit 2013",
       "en": "ZHServer Community | Since 2013"
@@ -747,7 +751,7 @@ window.ZHTranslations = {
       "en": " server. What began as a place for a handful of players to meet grew into a community that reached far beyond a typical game server."
     },
     "von-dayz-ueber-epoch-bis-hin-zu-arma-3-und-exile-jedes-projekt-brachte": {
-      "de": "Von DayZ über Epoch bis hin zu ARMA 3 und Exile – jedes Projekt brachte neue Spieler, neue Geschichten und unzählige Erinnerungen hervor.",
+      "de": "Von DayZ über Epoch bis hin zu ARMA 3 und Exile: Jedes Projekt brachte neue Spieler, neue Geschichten und unzählige Erinnerungen hervor.",
       "en": "From DayZ and Epoch to ARMA 3 and Exile, each project brought new players, new stories and countless memories."
     },
     "heute-existieren-diese-server-nicht-mehr-doch-ihre-geschichte-bleibt-e": {
@@ -1075,7 +1079,7 @@ window.ZHTranslations = {
       "en": "Still have screenshots or photos? Share them with us."
     },
     "ob-arma-2-dayz-epoch-arma-3-oder-exile-wenn-ihr-noch-alte-screenshots": {
-      "de": "Ob ARMA 2, DayZ, Epoch, ARMA 3 oder Exile – wenn ihr noch alte Screenshots oder besondere Momente habt, könnt ihr sie hier teilen. Nach einer kurzen Prüfung erscheinen sie in der Galerie.",
+      "de": "Ob ARMA 2, DayZ, Epoch, ARMA 3 oder Exile: Wenn ihr noch alte Screenshots oder besondere Momente habt, könnt ihr sie hier teilen. Nach einer kurzen Prüfung erscheinen sie in der Galerie.",
       "en": "Whether they're from ARMA 2, DayZ, Epoch, ARMA 3 or Exile, you can share your old screenshots and special moments here. They'll appear in the gallery after a quick review."
     },
     "alle-bilder-ansehen": {
@@ -1163,8 +1167,8 @@ window.ZHTranslations = {
       "en": "Visit the ZHServer shop"
     },
     "game-hosting-entwicklung": {
-      "de": "Game – Hosting & Entwicklung",
-      "en": "Game – Hosting & development"
+      "de": "Game: Hosting & Entwicklung",
+      "en": "Game: Hosting & development"
     },
     "mit-einer-freiwilligen-unterstuetzung-hilfst-du-beim-erhalt-des-archiv": {
       "de": "Mit einer freiwilligen Unterstützung hilfst du beim Erhalt des Archivs sowie bei Hosting und Entwicklung des ZH Games.",
@@ -1491,7 +1495,7 @@ window.ZHTranslations = {
       "en": "The entire building system and multiplayer gameplay are being thoroughly tested so that everything runs smoothly when the next playtest opens on 24 October."
     },
     "ich-entwickle-dieses-spiel-komplett-alleine-die-pause-wird-genutzt-um": {
-      "de": "Ich entwickle dieses Spiel komplett alleine. Die Pause wird genutzt, um das bisherige Feedback gründlich abzuarbeiten und das Spiel sichtbar zu verbessern :) – damit der 2-monatige Testlauf ab dem ersten Tag stabil und rund für alle spielbar ist. <3 bis dann",
+      "de": "Ich entwickle dieses Spiel komplett alleine. Die Pause wird genutzt, um das bisherige Feedback gründlich abzuarbeiten und das Spiel sichtbar zu verbessern, damit der 2-monatige Testlauf ab dem ersten Tag stabil und rund für alle spielbar ist :) <3 bis dann",
       "en": "I'm developing this game entirely on my own. This break gives me time to work through your feedback and make visible improvements :) so the two-month playtest is stable and enjoyable for everyone from day one. <3 See you then!"
     },
     "idee-oder-feedback-einreichen": {
@@ -1543,7 +1547,7 @@ window.ZHTranslations = {
       "en": "From 2013 to 2016, Zombie Hell was an Arma 2 DayZ server community. Today, it is evolving into its own independent 3D multiplayer survival world."
     },
     "du-erkundest-verlassene-staedte-kaempfst-gegen-zombies-sammelst-loot-f": {
-      "de": "Du erkundest verlassene Städte, kämpfst gegen Zombies, sammelst Loot, fährst Fahrzeuge und baust gemeinsam deine Basis auf. Die Welt wird stetig erweitert – jedes Feedback und jeder gefundene Bug helfen direkt bei den kommenden Patches.",
+      "de": "Du erkundest verlassene Städte, kämpfst gegen Zombies, sammelst Loot, fährst Fahrzeuge und baust gemeinsam deine Basis auf. Die Welt wird stetig erweitert. Jedes Feedback und jeder gefundene Bug helfen direkt bei den kommenden Patches.",
       "en": "Its world brings together abandoned cities, zombies, scavenging, vehicles and cooperative base building. As it continues to grow, player feedback and bug reports help shape its upcoming updates."
     },
     "bereits-spielbar": {
@@ -1699,8 +1703,8 @@ window.ZHTranslations = {
       "en": "Steam release planned"
     },
     "grafik-ui-zielrichtung": {
-      "de": "GRAFIK & UI – ZIELRICHTUNG",
-      "en": "ARTWORK & UI – TARGET DIRECTION"
+      "de": "GRAFIK & UI: ZIELRICHTUNG",
+      "en": "ARTWORK & UI: TARGET DIRECTION"
     },
     "konzeptgrafik-grafik-und-ui-gross-anzeigen": {
       "de": "Konzeptgrafik Grafik und UI groß anzeigen",
@@ -1727,8 +1731,8 @@ window.ZHTranslations = {
       "en": "DEVELOPMENT PROGRESS"
     },
     "aenderungen-alpha-0-2-3": {
-      "de": "ÄNDERUNGEN – Alpha 0.2.3",
-      "en": "UPDATES – Alpha 0.2.3"
+      "de": "ÄNDERUNGEN: Alpha 0.2.3",
+      "en": "UPDATES: Alpha 0.2.3"
     },
     "aktuelle-arbeiten-fuer-den-naechsten-testlauf-am": {
       "de": "Aktuelle Arbeiten für den nächsten Testlauf am",
@@ -2647,16 +2651,16 @@ window.ZHTranslations = {
       "en": "Travelling there from the regular Zombiehölle Survival world would still require a spacesuit."
     },
     "langfristige-idee-nicht-fuer-die-aktuelle-entwicklungsphase": {
-      "de": "LANGFRISTIGE IDEE – NICHT FÜR DIE AKTUELLE ENTWICKLUNGSPHASE",
-      "en": "LONG-TERM IDEA – PLANNED FOR A LATER DEVELOPMENT STAGE"
+      "de": "LANGFRISTIGE IDEE: NICHT FÜR DIE AKTUELLE ENTWICKLUNGSPHASE",
+      "en": "LONG-TERM IDEA: PLANNED FOR A LATER DEVELOPMENT STAGE"
     },
     "zukunftsvision-ritterwelt-koenig-und-drache": {
       "de": "Zukunftsvision Ritterwelt, König und Drache",
       "en": "Future vision: medieval world, king and dragon"
     },
     "portalwelten-ritterwelt-koenig-drache": {
-      "de": "PORTALWELTEN – RITTERWELT, KÖNIG & DRACHE",
-      "en": "PORTAL WORLDS – KNIGHTS, A KING & A DRAGON"
+      "de": "PORTALWELTEN: RITTERWELT, KÖNIG & DRACHE",
+      "en": "PORTAL WORLDS: KNIGHTS, A KING & A DRAGON"
     },
     "eine-mittelalterliche-welt-ohne-zombies-mit-burgbelagerung-koenig-drac": {
       "de": "Eine mittelalterliche Welt ohne Zombies mit Burgbelagerung, König, Drachen und einzigartigem Loot.",
@@ -2787,7 +2791,7 @@ window.ZHTranslations = {
       "en": "DEVELOPMENT FEEDBACK"
     },
     "zombiehoelle-survival-befindet-sich-in-einer-aktiven-alpha-und-ich-ent": {
-      "de": "Zombiehölle Survival befindet sich in einer aktiven Alpha und ich entwickle das Spiel komplett alleine. Wenn dir beim Testen Fehler auffallen oder du Ideen und Verbesserungsvorschläge hast, trage sie gerne ein – ich schaue mir jeden Eintrag an und lasse sinnvolle Vorschläge direkt in die nächsten Schritte einfließen.",
+      "de": "Zombiehölle Survival befindet sich in einer aktiven Alpha und ich entwickle das Spiel komplett alleine. Wenn dir beim Testen Fehler auffallen oder du Ideen und Verbesserungsvorschläge hast, trage sie gerne ein. Ich schaue mir jeden Eintrag an und lasse sinnvolle Vorschläge direkt in die nächsten Schritte einfließen.",
       "en": "Zombiehölle Survival is in active alpha development, and I'm building the game entirely on my own. If you find bugs while testing or have ideas for improvements, please send them in. I read every entry and use helpful suggestions to guide the next steps."
     },
     "bugs-ideen-und-wuensche-kannst-du-direkt-hier-auf-der-homepage-einreic": {
@@ -2835,7 +2839,7 @@ window.ZHTranslations = {
       "en": "A note on current development"
     },
     "zombiehoelle-wird-aktuell-umfassend-ueberarbeitet-aeltere-meldungen-wu": {
-      "de": "Zombiehölle wird aktuell umfassend überarbeitet – ältere Meldungen wurden deshalb zurückgesetzt. Neue Bugs und Ideen können weiterhin jederzeit eingereicht werden. Angenommene Bugs und Vorschläge werden aus der öffentlichen Liste entfernt, sobald sie in die Entwicklung übernommen bzw. abgearbeitet werden.",
+      "de": "Zombiehölle wird aktuell umfassend überarbeitet. Ältere Meldungen wurden deshalb zurückgesetzt. Neue Bugs und Ideen können weiterhin jederzeit eingereicht werden. Angenommene Bugs und Vorschläge werden aus der öffentlichen Liste entfernt, sobald sie in die Entwicklung übernommen bzw. abgearbeitet werden.",
       "en": "Zombiehölle is undergoing a major rework, so older reports have been cleared. You can still submit new bugs and ideas at any time. Accepted reports and suggestions are removed from the public list once they are taken into development or addressed."
     },
     "fehler-melden": {
@@ -3263,8 +3267,8 @@ window.ZHTranslations = {
       "en": "No file selected"
     },
     "gallery.hero.text": {
-      "de": "Erinnerungen an Zombiehölle und ZHServer – festgehalten von der Community.",
-      "en": "Memories of Zombiehölle and ZHServer – captured by the community."
+      "de": "Erinnerungen an Zombiehölle und ZHServer, festgehalten von der Community.",
+      "en": "Memories of Zombiehölle and ZHServer, captured by the community."
     },
     "gallery.upload.rules": {
       "de": "PNG, JPEG oder WebP · maximal 5 MB",
@@ -3309,7 +3313,7 @@ window.ZHTranslations = {
     "game.presentation.alphaCaveat": {"de":"Frühe Alpha: Inhalte, Balancing und Spielstände können sich noch ändern.","en":"Early alpha: content, balancing and saved progress may still change."},
     "game.presentation.loading": {"de":"Entwicklungsstand wird geladen.","en":"Loading development updates."},
     "game.presentation.loadUnavailable": {"de":"Die Kurzansicht ist momentan nicht verfügbar. Alle Details findest du auf der Entwicklungsseite.","en":"The overview is currently unavailable. You can find all the details on the development page."},
-    "game.presentation.roadmapNote": {"de":"Geplante Bereiche – ohne feste Veröffentlichungstermine.","en":"Planned areas, with no fixed release dates."},
+    "game.presentation.roadmapNote": {"de":"Geplante Bereiche, ohne feste Veröffentlichungstermine.","en":"Planned areas, with no fixed release dates."},
     "game.presentation.fullChangelog": {"de":"VOLLSTÄNDIGER CHANGELOG","en":"FULL CHANGELOG"},
     "game.presentation.fullRoadmap": {"de":"GESAMTE ROADMAP","en":"FULL ROADMAP"},
     "game.presentation.tabsLabel": {"de":"Alpha-Entwicklung","en":"Alpha development"},
@@ -3815,7 +3819,7 @@ window.ZHTranslations = {
     "account.password": { "de": "Passwort", "en": "Password" },
     "account.repeatPassword": { "de": "Passwort wiederholen", "en": "Repeat password" },
     "account.displayName": { "de": "Öffentlicher Anzeigename", "en": "Public display name" },
-    "account.nameHint": { "de": "Dein Name für Forum, Gästebuch und Screenshots. 1–80 Zeichen, keine E-Mail-Adresse.", "en": "Your name for the forum, guestbook and screenshots. 1–80 characters, without an email address." },
+    "account.nameHint": { "de": "Dein Name für Forum, Gästebuch und Screenshots. 1 bis 80 Zeichen, keine E-Mail-Adresse.", "en": "Your name for the forum, guestbook and screenshots. 1 to 80 characters, without an email address." },
     "account.passwordHint": { "de": "Mindestens 6 Zeichen.", "en": "At least 6 characters." },
     "account.needAccount": { "de": "Noch keinen Account? Registrieren", "en": "Need an account? Register" },
     "account.alreadyRegistered": { "de": "Bereits registriert? Anmelden", "en": "Already registered? Sign in" },
@@ -3826,7 +3830,7 @@ window.ZHTranslations = {
     "account.working": { "de": "Anfrage wird verarbeitet …", "en": "Processing your request …" },
     "account.redirecting": { "de": "Du bist angemeldet. Es geht gleich weiter …", "en": "You are signed in. Continuing …" },
     "account.checkMail": { "de": "Prüfe dein E-Mail-Postfach. Falls eine Bestätigung erforderlich ist, findest du dort den nächsten Schritt. Danach kannst du dich anmelden.", "en": "Check your inbox. If confirmation is required, you will find the next step there. You can then sign in." },
-    "account.nameInvalid": { "de": "Bitte wähle einen Anzeigenamen mit 1–80 Zeichen, ohne E-Mail-Adresse, technische ID oder Steuerzeichen.", "en": "Choose a display name of 1–80 characters without an email address, technical ID or control characters." },
+    "account.nameInvalid": { "de": "Bitte wähle einen Anzeigenamen mit 1 bis 80 Zeichen, ohne E-Mail-Adresse, technische ID oder Steuerzeichen.", "en": "Choose a display name of 1 to 80 characters without an email address, technical ID or control characters." },
     "account.passwordMismatch": { "de": "Die beiden Passwörter stimmen nicht überein.", "en": "The two passwords do not match." },
     "account.invalidCredentials": { "de": "E-Mail-Adresse oder Passwort ist falsch.", "en": "Email address or password is incorrect." },
     "account.emailUnconfirmed": { "de": "Bitte bestätige zuerst deine E-Mail-Adresse.", "en": "Please confirm your email address first." },
@@ -3903,12 +3907,12 @@ window.ZHTranslations = {
       "en": "Total"
     },
     "visitor.stats.minimum": {
-      "de": "Mindestens {count} Besucher – bisher ist nur der heutige Wert verfügbar.",
-      "en": "At least {count} visitors — only today's count is available."
+      "de": "Mindestens {count} Besucher. Bisher ist nur der heutige Wert verfügbar.",
+      "en": "At least {count} visitors. Only today's count is available."
     },
     "visitor.stats.partial": {
-      "de": "Mindestens {count} Besucher – Erfassung seit {date} (Berlin); der Zeitraum ist noch nicht vollständig.",
-      "en": "At least {count} visitors — tracking started on {date} (Berlin); this period is not yet fully covered."
+      "de": "Mindestens {count} Besucher. Erfassung seit {date} (Berlin); der Zeitraum ist noch nicht vollständig.",
+      "en": "At least {count} visitors. Tracking started on {date} (Berlin); this period is not yet fully covered."
     }
   }
 };
@@ -3954,8 +3958,8 @@ Object.assign(window.ZHTranslations.messages, {
     "en": "Sign up and join the community's discussions."
   },
   "forum.introMember": {
-    "de": "Schön, dass du da bist – setz dich dazu und diskutiere mit.",
-    "en": "Good to see you – pull up a seat and join the discussion."
+    "de": "Schön, dass du da bist. Setz dich dazu und diskutiere mit.",
+    "en": "Good to see you. Pull up a seat and join the discussion."
   },
   "forum.guestRead": {
     "de": "Lesen kannst du auch als Gast.",
@@ -4372,7 +4376,7 @@ Object.assign(window.ZHTranslations.messages, {
   "welcome.title": {de:"Willkommen bei Zombiehölle",en:"Welcome to Zombie Hell"},
   "welcome.text": {de:"Du kannst dich als Gast umsehen oder kostenlos einen Account anlegen.",en:"You can look around as a guest or create a free account."},
   "welcome.benefits": {de:"Mit einem Account kannst du:",en:"With an account you can:"},
-  "welcome.game": {de:"Zombiehölle mit deinem eigenen Spielkonto starten – direkt von der Homepage, ohne zweiten Login",en:"start Zombie Hell with your own game account – straight from the website, without a second login"},
+  "welcome.game": {de:"Zombiehölle mit deinem eigenen Spielkonto starten, direkt von der Homepage und ohne zweiten Login",en:"start Zombie Hell with your own game account, straight from the website and without a second login"},
   "welcome.forum": {de:"im Forum Themen eröffnen und antworten",en:"start topics and reply in the forum"},
   "welcome.pulse": {de:"bei Community-Pulse-Abstimmungen mitmachen",en:"take part in Community Pulse votes"},
   "welcome.profile": {de:"ein eigenes Profil mit Avatar anlegen",en:"set up your own profile with an avatar"},
@@ -4443,7 +4447,7 @@ Object.assign(window.ZHTranslations.copy, {
 });
 // Forum: status for topics in "Ideen & Vorschläge" (set by ZH admins only).
 Object.assign(window.ZHTranslations.messages, {
-  "forum.suggestion.accepted": {de:"Vorschlag angenommen – in Planung",en:"Suggestion accepted – planned"},
+  "forum.suggestion.accepted": {de:"Vorschlag angenommen und in Planung",en:"Suggestion accepted and planned"},
   "forum.suggestion.declined": {de:"Vorschlag abgelehnt",en:"Suggestion declined"},
   "forum.suggestion.reviewing": {de:"Wird geprüft",en:"Under review"},
   "forum.suggestion.in_progress": {de:"In Arbeit",en:"In progress"},
