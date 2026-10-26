@@ -50,7 +50,7 @@
             panel.querySelectorAll('[data-community-value]').forEach(el => {
                 const field = el.dataset.communityValue;
                 const value = fresh ? snapshot[field] : null;
-                el.textContent = value === null ? '—' : typeof value === 'number' ?
+                el.textContent = value === null ? text('none') : typeof value === 'number' ?
                     value.toLocaleString(lang === 'en' ? 'en-GB' : 'de-DE') : value;
                 if (field === 'newest_member' && value === null) el.title = text('nameUnavailable');
                 else el.removeAttribute('title');

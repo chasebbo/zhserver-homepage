@@ -3882,6 +3882,7 @@ window.ZHTranslations = {
     "community.stats.newest": { "de": "Neuestes Mitglied", "en": "Newest member" },
     "community.stats.unavailable": { "de": "Community-Zahlen sind noch nicht verfügbar.", "en": "Community figures are not available yet." },
     "community.stats.nameUnavailable": { "de": "Ein öffentlicher Anzeigename ist noch nicht verfügbar.", "en": "A public display name is not available yet." },
+    "community.stats.none": { "de": "keine", "en": "none" },
     "visitor.stats.title": {
       "de": "Besucher",
       "en": "Visitors"
@@ -3905,6 +3906,10 @@ window.ZHTranslations = {
     "visitor.stats.total": {
       "de": "Insgesamt",
       "en": "Total"
+    },
+    "visitor.stats.none": {
+      "de": "keine",
+      "en": "none"
     },
     "visitor.stats.minimum": {
       "de": "Mindestens {count} Besucher. Bisher ist nur der heutige Wert verfügbar.",

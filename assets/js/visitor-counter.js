@@ -60,12 +60,13 @@
 
     async function loadVisitorTranslations() {
         const translationsReady = () => Boolean(window.ZHTranslations?.messages["visitor.stats.title"] &&
-            window.ZHTranslations?.messages["visitor.stats.partial"]);
+            window.ZHTranslations?.messages["visitor.stats.partial"] &&
+            window.ZHTranslations?.messages["visitor.stats.none"]);
         if (translationsReady()) return true;
         if (!counterScriptUrl) return false;
         return new Promise((resolve) => {
             const script = document.createElement("script");
-            script.src = new URL("translations.js?v=20261003-visitor-persistence", counterScriptUrl).href;
+            script.src = new URL("translations.js?v=20261026-none1", counterScriptUrl).href;
             script.onload = () => resolve(translationsReady());
             script.onerror = () => resolve(false);
             document.head.append(script);
@@ -152,7 +153,7 @@
         for (const field of statFields) {
             visitorWidget.querySelector(`[data-visitor-label="${field}"]`).textContent = visitorText(`visitor.stats.${field}`);
             const value = visitorWidget.querySelector(`[data-visitor-value="${field}"]`);
-            value.textContent = values[field] === null ? "—" : values[field].toLocaleString(locale);
+            value.textContent = values[field] === null ? visitorText("visitor.stats.none") : values[field].toLocaleString(locale);
             const isFallback = fallbackPeriods.has(field);
             const isPartial = !isFallback && values[field] !== null && visitorPartialPeriod(field, started);
             value.toggleAttribute("data-visitor-fallback", isFallback);
@@ -252,7 +253,7 @@
         if (!counterScriptUrl) return;
         const load = (name) => new Promise((resolve, reject) => {
             const script = document.createElement("script");
-            script.src = new URL(name + "?v=20261016-security1", counterScriptUrl).href;
+            script.src = new URL(name + "?v=20261026-none1", counterScriptUrl).href;
             script.onload = resolve;
             script.onerror = reject;
             document.head.append(script);

@@ -41,8 +41,10 @@ der aktuellen `index.html`**. Kein vereinfachter oder neu erfundener Ersatz.
   ihre gemeinsame Platzierung im Footer ändert weder Backend noch Zähllogik.
 - DE/EN aus dem bestehenden zentralen Katalog verwenden, auch für Footer-Links.
   Desktop nebeneinander, kleinere Breiten sinnvoll umbrechen/untereinander.
-- Solange die produktive Presence nicht bestätigt/aktiviert ist, „—“ und den
-  vorhandenen ehrlichen Verfügbarkeitshinweis zeigen. Keine simulierten Zahlen.
+- Fehlende Werte in der Statistik zeigen „keine“ (EN „none“) aus dem zentralen
+  Katalog, nicht „—“. Solange die produktive Presence nicht bestätigt/aktiviert
+  ist, dazu den vorhandenen ehrlichen Verfügbarkeitshinweis zeigen. Keine
+  simulierten Zahlen.
 - Neue Seiten vor Abschluss auf beide Statistikgruppen, genau eine Einbindung,
   vollständige Links/Copyright, DE/EN, Responsive und Browserfehler prüfen.
 
