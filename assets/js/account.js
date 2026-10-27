@@ -422,7 +422,7 @@
         document.getElementById('account-forgot-password').href = authUrl('forgot', next);
         document.getElementById('account-intro-copy').dataset.accountI18n = mode === 'forgot' ? 'recovery.requestIntro' : 'account.intro';
         password.autocomplete = mode === 'register' ? 'new-password' : 'current-password';
-        password.minLength = mode === 'register' ? 6 : 1;
+        password.minLength = mode === 'register' ? 10 : 1;
         const heading = document.getElementById('account-heading');
         const titleKey = mode === 'forgot' ? 'recovery.requestTitle' : mode === 'register' ? 'account.registerTitle' : 'account.loginTitle';
         language.bind(heading, titleKey);

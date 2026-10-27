@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="../../assets/js/translations.js?v=20261026-none1"></script>
+    <script src="../../assets/js/translations.js?v=20261027-password1"></script>
     <script src="../../assets/js/i18n.js?v=20261016-security1"></script>
 </head>
 <body class="account-page">
@@ -64,8 +64,8 @@
         <div class="account-panel">
             <p class="account-recovery-note" id="password-reset-status" role="status" aria-live="polite" data-i18n-ignore>Dein Reset-Link wird geprüft …</p>
             <form id="zh-password-reset-form" hidden>
-                <div class="account-field"><label for="password-reset-new" data-account-i18n="recovery.newPassword">Neues Passwort</label><input id="password-reset-new" type="password" name="password" autocomplete="new-password" minlength="6" required disabled aria-describedby="password-reset-hint"><small id="password-reset-hint" data-account-i18n="account.passwordHint">Mindestens 6 Zeichen.</small></div>
-                <div class="account-field"><label for="password-reset-repeat" data-account-i18n="account.repeatPassword">Passwort wiederholen</label><input id="password-reset-repeat" type="password" name="password_repeat" autocomplete="new-password" minlength="6" required disabled></div>
+                <div class="account-field"><label for="password-reset-new" data-account-i18n="recovery.newPassword">Neues Passwort</label><input id="password-reset-new" type="password" name="password" autocomplete="new-password" minlength="10" required disabled aria-describedby="password-reset-hint"><small id="password-reset-hint" data-account-i18n="account.passwordHint">Mindestens 10 Zeichen.</small></div>
+                <div class="account-field"><label for="password-reset-repeat" data-account-i18n="account.repeatPassword">Passwort wiederholen</label><input id="password-reset-repeat" type="password" name="password_repeat" autocomplete="new-password" minlength="10" required disabled></div>
                 <button class="btn btn-gold account-submit" type="submit" disabled data-account-i18n="recovery.save">Neues Passwort speichern</button>
             </form>
             <div class="account-actions">

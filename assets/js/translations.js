@@ -3824,7 +3824,7 @@ window.ZHTranslations = {
     "account.repeatPassword": { "de": "Passwort wiederholen", "en": "Repeat password" },
     "account.displayName": { "de": "Öffentlicher Anzeigename", "en": "Public display name" },
     "account.nameHint": { "de": "Dein Name für Forum, Gästebuch und Screenshots. 1 bis 80 Zeichen, keine E-Mail-Adresse.", "en": "Your name for the forum, guestbook and screenshots. 1 to 80 characters, without an email address." },
-    "account.passwordHint": { "de": "Mindestens 6 Zeichen.", "en": "At least 6 characters." },
+    "account.passwordHint": { "de": "Mindestens 10 Zeichen.", "en": "At least 10 characters." },
     "account.needAccount": { "de": "Noch keinen Account? Registrieren", "en": "Need an account? Register" },
     "account.alreadyRegistered": { "de": "Bereits registriert? Anmelden", "en": "Already registered? Sign in" },
     "account.intro": { "de": "Ein Account für die ZHServer-Homepage, das Forum und später deinen Spielcharakter.", "en": "One account for the ZHServer website, forum and, in time, your game character." },
