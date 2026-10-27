@@ -123,6 +123,8 @@
             }
         }
     });
+    // The browser stops a too short password before submit; name the actual rule.
+    password.addEventListener('invalid', () => { if (status === 'ready' && password.validity.tooShort) render('ready', 'account.passwordTooShort'); });
     finish.addEventListener('click', () => { if (changed && status === 'logoutPending') void endRecoverySession(); });
     login.href = new URL('account/', root).href;
     document.getElementById('password-reset-request').href = new URL('account/?mode=forgot', root).href;

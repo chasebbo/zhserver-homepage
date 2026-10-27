@@ -3875,6 +3875,7 @@ window.ZHTranslations = {
     "account.requestFailed": { "de": "Die Anfrage konnte nicht abgeschlossen werden. Bitte versuche es später erneut.", "en": "Your request could not be completed. Please try again later." },
     "account.loginFailed": { "de": "Die Anmeldung ist derzeit nicht möglich. Bitte versuche es später erneut.", "en": "Sign-in is currently unavailable. Please try again later." },
     "account.requiredFields": { "de": "Bitte fülle die markierten Pflichtfelder aus.", "en": "Please complete the highlighted required fields." },
+    "account.passwordTooShort": { "de": "Das Passwort braucht mindestens 10 Zeichen.", "en": "Your password needs at least 10 characters." },
     "account.emailInvalid": { "de": "Bitte gib eine gültige E-Mail-Adresse ein.", "en": "Please enter a valid email address." },
     "account.unavailable": { "de": "Die Anmeldung ist gerade nicht verfügbar. Bitte versuche es erneut.", "en": "Sign-in is currently unavailable. Please try again." },
     "account.logoutFailed": { "de": "Abmelden ist gerade nicht möglich. Bitte erneut versuchen.", "en": "Sign-out failed. Please try again." },

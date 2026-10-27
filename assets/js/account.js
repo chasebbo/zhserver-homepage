@@ -435,7 +435,8 @@
         language.bind(other, mode === 'forgot' ? 'recovery.backToSignIn' : mode === 'register' ? 'account.alreadyRegistered' : 'account.needAccount');
         form.addEventListener('invalid', event => {
             setMessage(event.target.id === 'account-consent' ? 'legal.acceptanceRequired' :
-                event.target.id === 'account-email' && event.target.validity.typeMismatch ? 'account.emailInvalid' : 'account.requiredFields');
+                event.target.id === 'account-email' && event.target.validity.typeMismatch ? 'account.emailInvalid' :
+                event.target === password && password.validity.tooShort ? 'account.passwordTooShort' : 'account.requiredFields');
         }, true);
         const formCaptcha = window.ZHTurnstile?.create(document.getElementById('account-turnstile'), language.language) || null;
         const resendButton = document.getElementById('account-resend');
