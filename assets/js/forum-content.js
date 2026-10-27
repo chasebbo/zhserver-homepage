@@ -33,9 +33,14 @@
         form.hidden = identity.state.status !== 'member' || topic.closed || topic.hidden || (topic.category === 'announcements' && !topic.can_moderate);
         const hint = $('forum-thread-write-note');
         hint.hidden = !form.hidden;
-        if (form.hidden) lang.bind(hint, topic.closed ? 'forum.topicClosed' : topic.hidden ? 'forum.hiddenTopic' : identity.state.status !== 'member' ? 'forum.loginRequired' : 'forum.announcementsAdmin');
-        $('forum-thread-login').hidden = !!identity.state.userId;
-        $('forum-thread-login').href = '../account/?next=' + encodeURIComponent(location.pathname + location.hash);
+        // A pending Google account sees how to finish its sign-up instead of a sign-in request.
+        const pending = identity.state.consentPending === true;
+        if (form.hidden) lang.bind(hint, topic.closed ? 'forum.topicClosed' : topic.hidden ? 'forum.hiddenTopic' :
+            identity.state.status !== 'member' ? (pending ? 'identity.consentRequired' : 'forum.loginRequired') : 'forum.announcementsAdmin');
+        const login = $('forum-thread-login');
+        login.hidden = !!identity.state.userId && !pending;
+        login.href = pending ? identity.finishUrl(location.href) : '../account/?next=' + encodeURIComponent(location.pathname + location.hash);
+        lang.bind(login, pending ? 'consent.finish' : 'account.signIn');
     }
     function topicItem(topic) {
         const row = textNode('li', '', 'forum-server-topic');

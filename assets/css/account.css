@@ -161,3 +161,22 @@ form > .account-status { margin: 0 0 17px; overflow-wrap: anywhere; }
 @media (max-width: 560px) {
     .account-confirm-actions .btn { flex: 1 1 auto; text-align: center; }
 }
+/* Google sign-in (dark button per Google branding) and completing a pending Google account. */
+.account-oauth { margin-bottom: 20px; }
+.account-oauth[hidden] { display: none; }
+.account-google { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; min-height: 44px; padding: 0 16px;
+    border: 1px solid #8e918f; border-radius: 6px; background: #131314; color: #e3e3e3; font: 500 .9rem/1.2 Roboto, Inter, Arial, sans-serif; cursor: pointer; }
+.account-google:hover { background: #1f1f20; }
+.account-google:focus-visible { outline: 2px solid #bfa556; outline-offset: 2px; }
+.account-google:disabled { opacity: .65; cursor: wait; }
+.account-google svg { flex: 0 0 auto; }
+.account-oauth-note { margin: 9px 0 0; color: #8998a8; font-size: .68rem; line-height: 1.6; }
+.account-divider { display: flex; align-items: center; gap: 12px; margin: 20px 0 4px; color: #8998a8; font-size: .72rem; }
+.account-divider::before, .account-divider::after { content: ""; flex: 1; border-top: 1px solid rgba(172, 191, 205, .14); }
+.account-finish-via { display: flex; align-items: center; gap: 10px; margin: 0 0 20px; padding: 10px 12px; border-radius: 6px;
+    background: rgba(172, 191, 205, .06); color: #bdc8d2; font-size: .78rem; line-height: 1.6; }
+.account-finish-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
+.account-finish-cancel { padding: 0; border: 0; background: none; color: #91a1af; font: inherit; font-size: .78rem;
+    text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.account-finish-cancel:hover { color: #c9d3dc; }
+.account-finish-cancel:focus-visible { outline: 2px solid #bfa556; outline-offset: 3px; }

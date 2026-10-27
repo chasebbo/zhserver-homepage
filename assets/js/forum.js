@@ -299,7 +299,8 @@
             if (route.view === "preview") renderPreview();
             if (route.view === "auth") {
                 const state = window.ZHIdentity.state;
-                language.bind(document.getElementById("forum-auth-message"), state.status === "guest" ? "forum.loginRequired" : "identity." + state.status);
+                language.bind(document.getElementById("forum-auth-message"), state.status === "guest" ? "forum.loginRequired" :
+                    state.consentPending ? "identity.consentRequired" : "identity." + state.status);
                 const next = location.pathname + location.search + "#compose/" + route.category;
                 for (const mode of ["login", "register"]) {
                     const link = document.getElementById("forum-auth-" + mode);
@@ -308,7 +309,11 @@
                     url.searchParams.set("next", next); link.href = url.href;
                     link.hidden = !!state.userId || state.status === "checking";
                 }
-                document.getElementById("forum-auth-profile").hidden = state.status !== "nameRequired";
+                const profileLink = document.getElementById("forum-auth-profile");
+                profileLink.hidden = state.status !== "nameRequired";
+                // A pending Google account completes terms, rules and name first, then returns to the draft.
+                profileLink.href = state.consentPending ? window.ZHIdentity.finishUrl(next) : "../profile/";
+                language.bind(profileLink, state.consentPending ? "consent.finish" : "account.myProfile");
             }
         }
         renderLocalDraft();

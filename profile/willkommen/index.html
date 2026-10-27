@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de" data-homepage-i18n>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Anmeldung abschließen | ZHServer</title>
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="../../site.webmanifest">
+    <link rel="stylesheet" href="../../assets/css/style.css?v=20261019-neutral-navigation1">
+    <link rel="stylesheet" href="../../assets/css/i18n.css?v=20260930-de-en">
+    <link rel="stylesheet" href="../../assets/css/homepage-premium.css?v=20261008-release1">
+    <link rel="stylesheet" href="../../assets/css/header.css?v=20261001-original-logo">
+    <link rel="stylesheet" href="../../assets/css/account.css?v=20261027-google1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="../../assets/js/translations.js?v=20261027-google1"></script>
+    <script src="../../assets/js/i18n.js?v=20261016-security1"></script>
+</head>
+<body class="account-page">
+<header class="header zh-site-header">
+    <div class="container">
+        <nav class="navbar">
+            <div class="header-brand-row">
+                <a href="../../index.html#hero" class="header-emblem">
+                    <img src="../../assets/images/android-chrome-512x512.png" width="512" height="512" alt="Zombiehölle / ZHServer" decoding="async">
+                </a>
+                <a href="../../index.html#hero" class="logo">ZHServer.de / Zombiehölle.de</a>
+                <div class="header-controls">
+                    <div class="language-switcher" role="group" aria-label="Sprache wählen">
+                        <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
+                        <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
+                    </div>
+                    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Navigation öffnen" aria-controls="nav-menu" aria-expanded="false">
+    ☰
+</button>
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../../index.html#hero">Start</a></li>
+                <li><a href="../../game.html" class="nav-game-link">Spiel</a></li>
+                <li><a href="../../forum/" data-forum-route>Forum</a></li>
+                <li><a href="../../gallery.html">Galerie</a></li>
+                <li><a href="../../index.html#history">Geschichte</a></li>
+                <li><a href="../../index.html#timeline">Timeline</a></li>
+                <li><a href="../../index.html#guestbook">Gästebuch</a></li>
+                <li><a href="../../wiki.html">Wiki</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="account-main">
+    <div class="account-intro">
+        <span class="account-eyebrow">ZHSERVER ACCOUNT</span>
+        <h1 id="finish-heading" data-account-i18n="finish.title">Fast geschafft</h1>
+        <p data-account-i18n="finish.intro">Du bist mit Google angemeldet. Bevor du spielen und im Forum schreiben kannst, fehlen noch zwei Dinge.</p>
+    </div>
+    <div class="account-layout">
+        <div class="account-panel">
+            <p class="account-status" id="finish-check" role="status" aria-live="polite" data-account-i18n="finish.checking">Dein Konto wird geprüft …</p>
+            <form id="zh-finish-form" hidden>
+                <div class="account-finish-via"><svg aria-hidden="true" viewBox="0 0 48 48" width="18" height="18"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span data-account-i18n="finish.via">Angemeldet mit Google</span></div>
+                <div class="account-field"><label for="finish-name" data-account-i18n="finish.name">Dein Spielername</label><input id="finish-name" name="display_name" autocomplete="off" maxlength="80" required aria-describedby="finish-name-hint"><small id="finish-name-hint" data-account-i18n="finish.nameHint">So sehen dich andere im Spiel, im Forum und im Gästebuch. 1 bis 80 Zeichen, keine E-Mail-Adresse. Deinen Namen bei Google übernehmen wir nicht.</small></div>
+                <div class="account-consent">
+                    <label class="account-consent-label" for="finish-consent"><input id="finish-consent" type="checkbox" name="legal_acceptance" required aria-describedby="finish-privacy-notice"><span><span data-account-i18n="legal.acceptPrefix">Ich akzeptiere die </span><a href="../../nutzungsbedingungen/?version=2026-10-08" target="_blank" rel="noopener noreferrer" data-account-i18n="legal.terms">Nutzungsbedingungen</a><span data-account-i18n="legal.acceptAnd"> und </span><a href="../../community-regeln/?version=2026-10-08" target="_blank" rel="noopener noreferrer" data-account-i18n="legal.rules">Community-Regeln</a><span data-account-i18n="legal.acceptEnd">.</span></span></label>
+                    <p class="account-privacy-notice" id="finish-privacy-notice"><span data-account-i18n="legal.privacyPrefix">Die </span><a href="../../pages/datenschutz.html" target="_blank" rel="noopener noreferrer" data-account-i18n="legal.privacy">Datenschutzerklärung</a><span data-account-i18n="legal.privacySuffix"> habe ich zur Kenntnis genommen.</span></p>
+                </div>
+                <p class="account-status" id="finish-status" role="status" aria-live="polite" aria-atomic="true" data-i18n-ignore hidden></p>
+                <div class="account-finish-actions">
+                    <button class="btn btn-gold account-submit" id="finish-submit" type="submit" data-account-i18n="finish.submit">Konto fertigstellen</button>
+                    <button class="account-finish-cancel" id="finish-cancel" type="button" data-account-i18n="finish.cancel">Abbrechen und abmelden</button>
+                </div>
+            </form>
+            <a class="btn btn-gold account-submit" id="finish-signin" href="../../account/?next=%2Fprofile%2F" data-account-i18n="account.signIn" hidden>Anmelden</a>
+        </div>
+        <aside class="account-context">
+            <h2 data-account-i18n="finish.asideTitle">Warum noch dieser Schritt?</h2>
+            <p data-account-i18n="finish.aside1">Bei der Anmeldung über Google können wir dich nicht vorher fragen. Deshalb holen wir das hier nach.</p>
+            <p data-account-i18n="finish.aside2">Bis du fertig bist, sind Spiel und Forum für dein Konto gesperrt. Du kannst jederzeit hierher zurückkommen.</p>
+        </aside>
+    </div>
+</main>
+<footer class="site-footer zh-global-footer">
+
+    <div class="container footer">
+
+        <div>
+
+            <h3>
+                ZHServer Community
+            </h3>
+
+            <p>
+                Seit 2013
+            </p>
+
+            <p class="footer-visitor"><span id="total-visitors">0</span> Besucher insgesamt</p>
+
+        </div>
+
+
+        <div>
+
+            <a href="../../pages/impressum.html">
+                Impressum
+            </a>
+
+            |
+
+            <a href="../../pages/datenschutz.html">
+                Datenschutz
+            </a>
+
+            <br><br>
+
+            © 2013 bis 2026 ZHServer Community
+
+        </div>
+
+    </div>
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0" integrity="sha384-UagCvVPT5XXA0Hx+nJYUAGBFseHT9zBgpJMSebsAxl9lciTwbT+39j5VfRjdP5Tp" crossorigin="anonymous"></script>
+<script src="../../assets/js/visitor-counter.js?v=20261026-none1"></script>
+<script src="../../assets/js/main.js?v=20261016-security1"></script>
+<script src="../../assets/js/identity.js?v=20261027-google1"></script>
+<script src="../../assets/js/legal.js?v=20261008-legal1"></script>
+<script src="../../assets/js/account.js?v=20261027-google1" data-zh-account-loader></script>
+<script src="../../assets/js/account-finish.js?v=20261027-google1"></script>
+</body>
+</html>

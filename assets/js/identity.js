@@ -2,11 +2,12 @@
 (() => {
     'use strict';
     if (window.ZHIdentity) return;
+    const root = new URL('../../', document.currentScript?.src || location.href);
     const client = window.zhSupabaseClient || window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
     window.zhSupabaseClient = client;
     const anonymousKey = typeof SUPABASE_KEY === 'string' ? SUPABASE_KEY : window.ZHAccount?.config.key;
     const subscribers = new Set();
-    const errorKeys = new Set(['identity.nameRequired', 'identity.unavailable', 'identity.sessionChanged', 'identity.signInRequired']);
+    const errorKeys = new Set(['identity.nameRequired', 'identity.unavailable', 'identity.sessionChanged', 'identity.signInRequired', 'legal.consentPending']);
     const errorKey = (error, fallback) => errorKeys.has(error?.message) ? error.message : fallback;
     const bindings = new Map();
     const nameRevisionKey = 'zhserver_identity_revision'; // Invalidation marker, never a session or identity value.
@@ -42,7 +43,9 @@
             const displayName = validName(profile.data?.display_name) ? profile.data.display_name.trim() : null;
             const date = profile.data?.created_at;
             const createdAt = typeof date === 'string' && Number.isFinite(Date.parse(date)) ? date : null;
-            const next = { status: displayName ? 'member' : 'nameRequired', userId, displayName, createdAt };
+            // Google accounts stay without a public name until terms, rules and name are completed.
+            const consentPending = profile.data?.consent_pending === true;
+            const next = { status: displayName && !consentPending ? 'member' : 'nameRequired', userId, displayName, createdAt, consentPending };
             if (ticket === revision) setState(next);
             return { ...next, accessToken: session.access_token };
         } catch (_) {
@@ -87,14 +90,27 @@
             binding.guestMode = guest;
             binding.note.hidden = guest;
             if (!guest) window.ZHLanguage.bind(binding.note,
-                state.status === 'member' ? 'identity.signedIn' : 'identity.' + state.status,
+                state.status === 'member' ? 'identity.signedIn' : state.consentPending ? 'identity.consentRequired' : 'identity.' + state.status,
                 { name: state.displayName || '' });
+            binding.finish.hidden = !state.consentPending;
+            if (state.consentPending) binding.finish.href = finishUrl(location.href);
             const submit = form.querySelector('button[type="submit"]');
             if (submit) submit.disabled = !['guest', 'member'].includes(state.status) || form.dataset.identityBusy === 'true';
         }
     }
+    // Page that completes a pending Google account. The target is checked again there.
+    function finishUrl(next) {
+        const url = new URL('profile/willkommen/', root);
+        const target = new URL(next, location.href);
+        if (target.origin === root.origin) url.searchParams.set('next', target.pathname + target.search + target.hash);
+        return url.href;
+    }
     function bindName(form, input, note) {
-        bindings.set(form, { input, note, guestMode: true, guestName: input.value });
+        const finish = document.createElement('a');
+        finish.className = 'zh-identity-login zh-identity-finish'; finish.hidden = true; finish.setAttribute('data-i18n-ignore', '');
+        window.ZHLanguage.bind(finish, 'consent.finish');
+        note.after(finish);
+        bindings.set(form, { input, note, finish, guestMode: true, guestName: input.value });
         note.setAttribute('data-i18n-ignore', '');
         form.addEventListener('reset', () => setTimeout(() => {
             if (state.status === 'guest') bindings.get(form).guestName = '';
@@ -103,7 +119,7 @@
         syncForms();
     }
     function subscribe(callback) { subscribers.add(callback); callback(state); return () => subscribers.delete(callback); }
-    window.ZHIdentity = Object.freeze({ client, resolve, forSubmission, updateDisplayName, bindName, syncForms, subscribe, errorKey, validName, get state() { return state; } });
+    window.ZHIdentity = Object.freeze({ client, resolve, forSubmission, updateDisplayName, bindName, syncForms, subscribe, errorKey, validName, finishUrl, get state() { return state; } });
     client.auth.onAuthStateChange((event, session) => {
         ++revision;
         if (event === 'SIGNED_OUT') {

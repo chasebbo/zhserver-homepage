@@ -53,9 +53,15 @@
         const guest = principal.status === "guest";
         const noName = principal.status === "nameRequired";
         const unavailable = principal.status === "unavailable";
+        // A pending Google account first completes terms, rules and its player name.
+        const pending = noName && principal.consentPending === true;
         bind("[data-game-welcome]", member ? "welcome" : guest ? "signInNote" :
-            noName ? "nameRequired" : unavailable ? "accountUnavailable" : "checkAccount",
+            pending ? "consentRequired" : noName ? "nameRequired" : unavailable ? "accountUnavailable" : "checkAccount",
             { name: principal.displayName || "" });
+        bind("[data-game-profile]", pending ? "finish" : "profile");
+        all("[data-game-profile]").forEach(link => {
+            link.href = pending ? identity.finishUrl(window.location.href) : "profile/";
+        });
         show("[data-game-welcome]", member || noName || unavailable);
         show("[data-game-start]", member);
         show("[data-game-login]", guest || unavailable);

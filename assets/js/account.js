@@ -57,7 +57,7 @@
             }
         });
     }
-    const cssUrl = site('assets/css/account.css?v=20261026-confirm1');
+    const cssUrl = site('assets/css/account.css?v=20261027-google1');
     if (![...document.querySelectorAll('link[rel="stylesheet"]')].some(node => node.href === cssUrl)) {
         const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = cssUrl;
         document.head.append(css);
@@ -118,15 +118,18 @@
     const mode = ['register', 'forgot'].includes(params.get('mode')) ? params.get('mode') : 'login';
     const next = safeNext(params.get('next'));
     const form = document.getElementById('zh-account-form');
-    // Confirmation links return to this page. Read the result before the SDK consumes the URL hash.
+    // Confirmation links and Google sign-in return to this page. Read the result before the SDK consumes the URL hash.
     const landing = form ? (() => {
         const hash = new URLSearchParams(location.hash.slice(1));
-        const failed = hash.get('error_code') || hash.get('error') || params.get('error_code') || params.get('error');
-        if (failed) {
+        const code = hash.get('error_code') || params.get('error_code');
+        const error = hash.get('error') || params.get('error');
+        if (code || error) {
             const clean = new URL(location.href); clean.hash = '';
             ['error', 'error_code', 'error_description'].forEach(key => clean.searchParams.delete(key));
             history.replaceState(history.state, '', clean.href);
-            return { failed };
+            // Only an expired or used email link offers a new link. Everything else came from Google.
+            if (code === 'otp_expired') return { failed: code };
+            return { google: error === 'access_denied' ? 'google.cancelled' : 'google.failed' };
         }
         return hash.get('type') === 'signup' && hash.has('access_token') ? { confirmed: true } : null;
     })() : null;
@@ -157,7 +160,7 @@
         const message = document.getElementById('account-status');
         if (message) {
             message.hidden = !key;
-            message.dataset.tone = ['account.working', 'account.redirecting', 'account.checkMail', 'recovery.sent', 'confirm.resent'].includes(key) ? 'info' : 'error';
+            message.dataset.tone = ['account.working', 'account.redirecting', 'account.checkMail', 'recovery.sent', 'confirm.resent', 'google.redirecting'].includes(key) ? 'info' : 'error';
             if (key) language.bind(message, key);
         }
     }
@@ -179,6 +182,7 @@
         if (!confirmPanel || confirmPanel.dataset.view === view) return;
         confirmPanel.dataset.view = view; confirmEmail = email;
         form.hidden = true; confirmPanel.hidden = false;
+        document.getElementById('account-oauth').hidden = true;
         const text = document.getElementById('account-confirm-text');
         text.hidden = view !== 'pending';
         if (view === 'pending') language.bind(text, 'confirm.sent', { email });
@@ -248,6 +252,11 @@
         renderAdminLinks(state, signedIn);
         guest.hidden = signedIn; register.hidden = signedIn; quickActions.hidden = signedIn; trigger.hidden = !signedIn;
         if (signedIn) window.ZHWelcome?.close();
+        // A pending Google account finishes terms, rules and name before using its profile.
+        const profileLink = widget.querySelector('[data-account-profile]');
+        profileLink.href = state.consentPending ? window.ZHIdentity.finishUrl(location.href) : site('profile/');
+        language.bind(profileLink, state.consentPending ? 'consent.finish' : 'account.myProfile');
+        if (profile && state.consentPending) { leaveForFinish(site('profile/')); return; }
         const name = widget.querySelector('[data-account-name]');
         name.textContent = state.displayName || language.t('account.title');
         trigger.setAttribute('aria-label', language.t('account.menuLabel', { name: state.displayName || language.t('account.title') }));
@@ -280,9 +289,16 @@
             if (signedIn) readPrivateAccount(state);
         }
         if (form && signedIn && mode !== 'forgot') {
-            if (landing?.confirmed) showConfirm('confirmed');
+            if (state.consentPending) { setMessage('account.redirecting'); leaveForFinish(next); }
+            else if (landing?.confirmed) showConfirm('confirmed');
             else { setMessage('account.redirecting'); void redirectAfterSignIn(state); }
         }
+    }
+    // Several identity updates arrive while the page is left; navigate only once.
+    let finishing = false;
+    function leaveForFinish(target) {
+        if (finishing) return;
+        finishing = true; location.replace(window.ZHIdentity.finishUrl(target));
     }
     let redirectRead = 0;
     async function redirectAfterSignIn(state) {
@@ -343,7 +359,7 @@
         if (form && mode === 'register') {
             await loadScript(site('assets/js/legal.js?v=20261008-legal1'), () => !!window.ZHLegal);
         }
-        await loadScript(site('assets/js/identity.js?v=20261008-account2'), () => !!window.ZHIdentity);
+        await loadScript(site('assets/js/identity.js?v=20261027-google1'), () => !!window.ZHIdentity);
         window.ZHIdentity.subscribe(render);
         window.ZHIdentity.subscribe(scheduleWelcome);
         return window.ZHIdentity;
@@ -434,6 +450,26 @@
             if (window.ZHIdentity) void redirectAfterSignIn(window.ZHIdentity.state);
         });
         if (landing?.failed) showConfirm('expired');
+        // Google: same account flow for sign-in and sign-up. A new account completes terms, rules and name afterwards.
+        const oauth = document.getElementById('account-oauth');
+        const google = document.getElementById('account-google');
+        oauth.hidden = mode === 'forgot' || !!landing?.failed;
+        language.bind(google.querySelector('span'), mode === 'register' ? 'google.signUp' : 'google.signIn');
+        document.getElementById('account-oauth-note').hidden = mode !== 'register';
+        if (landing?.google) setMessage(landing.google);
+        google.addEventListener('click', async () => {
+            if (form.dataset.busy === 'true') return;
+            form.dataset.busy = 'true'; google.disabled = true; resendButton.hidden = true; setMessage('google.redirecting');
+            try {
+                const identity = await ready;
+                const result = await identity.client.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: authUrl('login', next) } });
+                if (result.error) throw result.error;
+                // The SDK now leaves this page for Google.
+            } catch (_) {
+                setMessage('google.failed');
+                form.dataset.busy = 'false'; google.disabled = false;
+            }
+        });
         form.addEventListener('submit', async event => {
             event.preventDefault(); if (form.dataset.busy === 'true') return;
             resendButton.hidden = true;
