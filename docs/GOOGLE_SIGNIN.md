@@ -1,6 +1,6 @@
 # Mit Google anmelden
 
-Stand 27.10.2026. Homepage lokal fertig. Die Migration ist vorbereitet und noch nicht angewendet.
+Stand 27.10.2026. Die Migration ist am 27.10.2026 nach Sebastians Freigabe eingespielt (`homepage_google_oauth_onboarding`, Teil A und Teil B). Die Homepage folgt mit dem Push.
 
 ## Ablauf
 
@@ -23,12 +23,16 @@ Stand 27.10.2026. Homepage lokal fertig. Die Migration ist vorbereitet und noch 
 - Migration: [`google_oauth_onboarding_prepare.sql`](google_oauth_onboarding_prepare.sql)
 - Rückweg: [`google_oauth_onboarding_rollback.sql`](google_oauth_onboarding_rollback.sql)
 - Lokal mit PGlite geprüft: 60 von 60 Prüfungen, einschließlich des Rückwegs.
+- Eingespielt am 27.10.2026 als `homepage_google_oauth_onboarding`, genau diese Datei. Danach lesend geprüft:
+  - Tabelle, Funktionen und Rechte wie im Entwurf; `get_zh_account_ready` nur für `service_role`.
+  - Mitgliederzahl, neuestes Mitglied, Bestenliste und Spielerzahl unverändert.
+  - Bestehende Konten liefern beim eigenen Identitätsabruf „nicht offen“ und denselben Namen wie vorher.
 - Teil B ist freigegeben: Konten mit „Zustimmung offen“ zählen nicht als registrierte Mitglieder, erscheinen nicht als neuestes Mitglied und nicht in der Spielerzahl der Spielseite.
 
 ## Reihenfolge der Veröffentlichung
 
-1. Sebastian gibt die Migration frei, sie wird angewendet und gelesen geprüft.
-2. Danach „Push frei“ für die Homepage.
+1. Sebastian gibt die Migration frei, sie wird angewendet und gelesen geprüft. Erledigt am 27.10.2026.
+2. Danach „Push frei“ für die Homepage. Erteilt am 27.10.2026.
 3. Ohne Migration schlägt eine Google-Registrierung fehl und die Seite meldet „hat nicht geklappt“. Es wird kein Konto angelegt. Bestehende Konten können sich trotzdem über Google anmelden.
 
 ## Für Opus 3 (Spiel) und den Spielserver
