@@ -3982,8 +3982,8 @@ Object.assign(window.ZHTranslations.messages, {
   "home.survivors.loading": {de: "Rangliste wird geladen …", en: "Loading leaderboard…"},
   "home.survivors.empty": {de: "Noch keine Überlebensserien verfügbar.", en: "No survival streaks available yet."},
   "home.survivors.unavailable": {de: "Rangliste derzeit nicht verfügbar.", en: "Leaderboard currently unavailable."},
-  "home.survivors.day": {de: "{count} Tag", en: "{count} day"},
-  "home.survivors.days": {de: "{count} Tage", en: "{count} days"}
+  "home.survivors.day": {de: "{count} Spieltag", en: "{count} game day"},
+  "home.survivors.days": {de: "{count} Spieltage", en: "{count} game days"}
 });
 
 /* Functional forum and public avatar UI use the existing central message catalog. */
