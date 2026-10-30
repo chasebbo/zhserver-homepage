@@ -7,7 +7,8 @@
 
     // ================= 1. VISITOR STATISTICS (FOOTER) =================
     const counterScriptUrl = document.currentScript?.src;
-    const statFields = ["today", "yesterday", "week", "month", "total"];
+    // Shown in the footer: this month and total. Today stays computed as lower bound for the month.
+    const statFields = ["month", "total"];
     let visitorWidget = null;
     let legacyStats = null;
     let periodStats = null;
@@ -253,7 +254,7 @@
         if (!counterScriptUrl) return;
         const load = (name) => new Promise((resolve, reject) => {
             const script = document.createElement("script");
-            script.src = new URL(name + "?v=20261026-none1", counterScriptUrl).href;
+            script.src = new URL(name + "?v=20261030-footer1", counterScriptUrl).href;
             script.onload = resolve;
             script.onerror = reject;
             document.head.append(script);

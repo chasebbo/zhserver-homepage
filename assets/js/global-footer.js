@@ -32,9 +32,6 @@
                 <small class="zh-footer-account-reset" data-community-text="accountReset">ACCOUNT-RESET: 15.07.2026</small>
             </div>
             <dl>
-                <div class="zh-community-line zh-community-total"><dt data-community-text="totalOnline">Insgesamt online</dt><dd data-community-value="online_total">—</dd></div>
-                <div class="zh-community-line"><dt data-community-text="membersOnline">Mitglieder</dt><dd data-community-value="online_members">—</dd></div>
-                <div class="zh-community-line"><dt data-community-text="guestsOnline">Gäste</dt><dd data-community-value="online_guests">—</dd></div>
                 <div class="zh-community-line"><dt data-community-text="registered">Registrierte Mitglieder</dt><dd data-community-value="registered_members">—</dd></div>
                 <div class="zh-community-line zh-community-name"><dt data-community-text="newest">Neuestes Mitglied</dt><dd data-community-value="newest_member">—</dd></div>
             </dl>
@@ -49,7 +46,7 @@
             return new Promise(resolve => {
                 const link = document.createElement('link');
                 link.rel = 'stylesheet';
-                link.href = new URL(`../css/${name}.css?v=20261007-footer`, scriptUrl).href;
+                link.href = new URL(`../css/${name}.css?v=20261030-footer1`, scriptUrl).href;
                 link.onload = resolve;
                 link.onerror = resolve;
                 document.head.append(link);

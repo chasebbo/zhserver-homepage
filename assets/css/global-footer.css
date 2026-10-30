@@ -84,7 +84,6 @@
 }
 @media (max-width: 600px) {
     .site-footer.zh-global-footer .visitor-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .site-footer.zh-global-footer .visitor-stat-total { grid-column: 1 / -1; }
     .site-footer.zh-global-footer .footer > .zh-footer-legal { display: block; text-align: center; }
     .site-footer.zh-global-footer .zh-footer-copyright { display: block; margin-top: 8px; }
     .site-footer.zh-global-footer .zh-footer-links { justify-content: center; gap: 5px 16px; }
