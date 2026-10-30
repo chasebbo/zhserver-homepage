@@ -72,10 +72,11 @@
                 return {displayName: row.displayName.trim(), survivalDays: row.survivalDays};
             });
             statusKey = 'home.survivors.empty';
-        } catch (_) {
+        } catch (error) {
             if (ticket !== revision) return;
             rows = [];
-            statusKey = 'home.survivors.unavailable';
+            // The leaderboard function arrives with a game release; until then keep the preparation note.
+            statusKey = error?.message === 'survivors.notReady' ? 'home.survivors.preparing' : 'home.survivors.unavailable';
         } finally {
             clearTimeout(timeout);
             if (ticket === revision) { controller = null; render(); schedule(); }
@@ -103,4 +104,38 @@
     });
     window.ZHHomeSurvivors = Object.freeze({connect, disconnect});
     render();
+
+    // Public leaderboard from the database (get_top_survivors, anon key, read only).
+    // Result and "not ready yet" are kept 5 minutes in this browser; names stay plain text.
+    const cacheKey = 'zh_top_survivors_v1';
+    function cached() {
+        try {
+            const saved = JSON.parse(localStorage.getItem(cacheKey));
+            const age = Date.now() - saved?.at;
+            if (Number.isFinite(age) && age >= 0 && age < refreshMs && (saved.notReady === true || Array.isArray(saved.rows))) return saved;
+        } catch (_) { /* No usable cache: ask the database. */ }
+        return null;
+    }
+    function remember(value) {
+        try { localStorage.setItem(cacheKey, JSON.stringify({...value, at: Date.now()})); } catch (_) { /* Optional. */ }
+    }
+    async function readTopSurvivors({signal}) {
+        const saved = cached();
+        if (saved?.notReady) throw new Error('survivors.notReady');
+        if (saved) return saved.rows;
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_top_survivors`, {
+            method: 'POST', signal, body: JSON.stringify({p_limit: 5}),
+            headers: {'Content-Type': 'application/json', apikey: SUPABASE_KEY, Authorization: 'Bearer ' + SUPABASE_KEY}
+        });
+        if (response.status === 404) { remember({notReady: true}); throw new Error('survivors.notReady'); }
+        if (!response.ok) throw new Error('unavailable');
+        const data = await response.json();
+        if (!data || data.time_unit !== 'game_days' || !Array.isArray(data.survivors)) throw new Error('invalid');
+        const result = [...data.survivors]
+            .sort((a, b) => (a?.rank ?? 0) - (b?.rank ?? 0))
+            .map(row => ({displayName: row?.player_name, survivalDays: row?.survived_days}));
+        remember({rows: result});
+        return result;
+    }
+    if (typeof SUPABASE_URL === 'string' && typeof SUPABASE_KEY === 'string') connect(readTopSurvivors);
 })();
