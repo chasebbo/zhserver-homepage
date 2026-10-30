@@ -88,3 +88,14 @@
     .site-footer.zh-global-footer .zh-footer-copyright { display: block; margin-top: 8px; }
     .site-footer.zh-global-footer .zh-footer-links { justify-content: center; gap: 5px 16px; }
 }
+/* Footer "Aktuell": game server and current release. */
+.site-footer.zh-global-footer .zh-footer-server { display: inline-flex; align-items: center; gap: 8px; }
+.site-footer.zh-global-footer .zh-footer-server::before {
+    content: ""; flex: 0 0 auto; width: 9px; height: 9px; border-radius: 50%; background: #8b97a3;
+}
+.site-footer.zh-global-footer .zh-footer-server[data-state="online"]::before { background: #4fbf6a; box-shadow: 0 0 0 3px rgba(79, 191, 106, .18); }
+.site-footer.zh-global-footer .zh-footer-server[data-state="offline"]::before { background: #d0644f; box-shadow: 0 0 0 3px rgba(208, 100, 79, .18); }
+.site-footer.zh-global-footer .zh-footer-release a { color: #e7d29b; text-decoration: none; }
+.site-footer.zh-global-footer .zh-footer-release a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.site-footer.zh-global-footer .zh-footer-release a:focus-visible { outline: 2px solid #c6ae71; outline-offset: 3px; }
+.site-footer.zh-global-footer .zh-footer-release small { display: block; margin-top: 2px; color: #95a3ac; font-size: .7rem; font-weight: 400; }

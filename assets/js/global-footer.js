@@ -24,18 +24,16 @@
     function communitySection() {
         const section = document.createElement('section');
         section.className = 'zh-community zh-footer-community';
-        section.setAttribute('data-community-stats', '');
+        section.setAttribute('data-footer-status', '');
         section.setAttribute('data-i18n-ignore', '');
         section.setAttribute('aria-labelledby', 'zh-footer-community-title');
+        // Filled by footer-status.js: game server and current release.
         section.innerHTML = `<div class="zh-footer-community-heading">
-                <h4 class="zh-community-group-title" id="zh-footer-community-title" data-community-text="accounts">Community</h4>
-                <small class="zh-footer-account-reset" data-community-text="accountReset">ACCOUNT-RESET: 15.07.2026</small>
+                <h4 class="zh-community-group-title" id="zh-footer-community-title" data-footer-text="title">Aktuell</h4>
             </div>
             <dl>
-                <div class="zh-community-line"><dt data-community-text="registered">Registrierte Mitglieder</dt><dd data-community-value="registered_members">—</dd></div>
-                <div class="zh-community-line zh-community-name"><dt data-community-text="newest">Neuestes Mitglied</dt><dd data-community-value="newest_member">—</dd></div>
-            </dl>
-            <p class="zh-community-status" data-community-status>Community-Zahlen sind noch nicht verfügbar.</p>`;
+                <div class="zh-community-line"><dt data-footer-text="server">Spielserver</dt><dd class="zh-footer-server" data-footer-server data-state="checking"><span>wird geprüft</span></dd></div>
+                <div class="zh-community-line zh-community-name"><dt data-footer-text="version">Version</dt><dd class="zh-footer-release" data-footer-release>wird geprüft</dd></div>            </dl>`;
         return section;
     }
 
@@ -46,7 +44,7 @@
             return new Promise(resolve => {
                 const link = document.createElement('link');
                 link.rel = 'stylesheet';
-                link.href = new URL(`../css/${name}.css?v=20261030-footer1`, scriptUrl).href;
+                link.href = new URL(`../css/${name}.css?v=20261030-status1`, scriptUrl).href;
                 link.onload = resolve;
                 link.onerror = resolve;
                 document.head.append(link);

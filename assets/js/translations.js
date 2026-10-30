@@ -3921,6 +3921,14 @@ window.ZHTranslations = {
     "community.stats.unavailable": { "de": "Community-Zahlen sind noch nicht verfügbar.", "en": "Community figures are not available yet." },
     "community.stats.nameUnavailable": { "de": "Ein öffentlicher Anzeigename ist noch nicht verfügbar.", "en": "A public display name is not available yet." },
     "community.stats.none": { "de": "keine", "en": "none" },
+    "footer.status.title": { "de": "Aktuell", "en": "Latest" },
+    "footer.status.server": { "de": "Spielserver", "en": "Game server" },
+    "footer.status.online": { "de": "online", "en": "online" },
+    "footer.status.offline": { "de": "offline", "en": "offline" },
+    "footer.status.checking": { "de": "wird geprüft", "en": "checking" },
+    "footer.status.version": { "de": "Version", "en": "Version" },
+    "footer.status.updated": { "de": "aktualisiert am {date}", "en": "updated {date}" },
+    "footer.status.unavailable": { "de": "nicht verfügbar", "en": "not available" },
     "visitor.stats.title": {
       "de": "Besucher",
       "en": "Visitors"

@@ -62,12 +62,13 @@
     async function loadVisitorTranslations() {
         const translationsReady = () => Boolean(window.ZHTranslations?.messages["visitor.stats.title"] &&
             window.ZHTranslations?.messages["visitor.stats.partial"] &&
-            window.ZHTranslations?.messages["visitor.stats.none"]);
+            window.ZHTranslations?.messages["visitor.stats.none"] &&
+            window.ZHTranslations?.messages["footer.status.title"]);
         if (translationsReady()) return true;
         if (!counterScriptUrl) return false;
         return new Promise((resolve) => {
             const script = document.createElement("script");
-            script.src = new URL("translations.js?v=20261026-none1", counterScriptUrl).href;
+            script.src = new URL("translations.js?v=20261030-status1", counterScriptUrl).href;
             script.onload = () => resolve(translationsReady());
             script.onerror = () => resolve(false);
             document.head.append(script);
@@ -247,14 +248,14 @@
         renderVisitorStats();
     });
 
-    // ================= 2. GLOBAL COMMUNITY PRESENCE =================
+    // ================= 2. GLOBAL FOOTER STATUS =================
     // All existing normal homepage surfaces load this script, including Wiki.
-    // Keep the persistent visitor widget above independent of live presence.
+    // Game server, current release and newest forum topic; independent of the visitor widget above.
     async function loadGlobalCommunity() {
         if (!counterScriptUrl) return;
         const load = (name) => new Promise((resolve, reject) => {
             const script = document.createElement("script");
-            script.src = new URL(name + "?v=20261030-footer2", counterScriptUrl).href;
+            script.src = new URL(name + "?v=20261030-status1", counterScriptUrl).href;
             script.onload = resolve;
             script.onerror = reject;
             document.head.append(script);
@@ -262,16 +263,15 @@
         await loadVisitorTranslations();
         if (!window.ZHGlobalFooter) await load("global-footer.js");
         await window.ZHGlobalFooter.mount();
-        if (document.querySelector("[data-community-stats]") &&
+        if (document.querySelector("[data-footer-status]") &&
             !document.querySelector('link[href*="community-stats.css"]')) {
             const stylesheet = document.createElement("link");
             stylesheet.rel = "stylesheet";
             stylesheet.href = new URL("../css/community-stats.css?v=20261007-community", counterScriptUrl).href;
             document.head.append(stylesheet);
         }
-        if (!window.ZHCommunityConfig) await load("community-config.js");
-        if (!window.ZHCommunityStats) await load("community-stats.js");
-        await window.ZHCommunityStats.start({ url: SUPABASE_URL, key: SUPABASE_KEY });
+        if (!window.ZHFooterStatus) await load("footer-status.js");
+        window.ZHFooterStatus.start({ url: SUPABASE_URL, key: SUPABASE_KEY });
     }
     loadGlobalCommunity().catch(() => { /* The static unavailable state stays honest. */ });
 })();
