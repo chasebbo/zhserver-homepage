@@ -1,17 +1,19 @@
-/* One global presence source, independent of persistent visitor statistics. */
+/* Community figures for the footer (members, newest member), independent of visitor statistics.
+   Read only: since 30.10.2026 the footer shows no online count, so no presence is reported. */
 (() => {
     'use strict';
     if (window.ZHCommunityStats) return;
     const INTERVAL = 60000;
     const ONLINE_WINDOW = 180000;
-    const ID_KEY = 'zhserver_presence_browser';
-    const BEAT_KEY = 'zhserver_presence_heartbeat';
-    const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
     const panels = [...document.querySelectorAll('[data-community-stats]')];
-    let settings, client, browserId, sharedStorage = false;
+    let settings, client;
     let snapshot = null, receivedAt = 0, timer, busy = false, started = false, suspended = false;
     let refreshPending = false, channel;
-    let memoryBeat = null;
+    // Browser ID and heartbeat marker of the former presence report are no longer needed.
+    for (const name of ['localStorage', 'sessionStorage']) {
+        try { window[name].removeItem('zhserver_presence_browser'); window[name].removeItem('zhserver_presence_heartbeat'); }
+        catch (_) { /* Storage blocked: nothing was stored there either. */ }
+    }
 
     const language = () => {
         if (window.ZHLanguage) return window.ZHLanguage.language;
@@ -70,34 +72,6 @@
             public_name_available: parsed.newest_member !== null } });
         return true;
     }
-    function createBrowserId() {
-        for (const name of ['localStorage', 'sessionStorage']) {
-            try {
-                const store = window[name];
-                let id = store.getItem(ID_KEY);
-                if (!UUID.test(id || '')) {
-                    id = crypto.randomUUID();
-                    store.setItem(ID_KEY, id);
-                }
-                if (store.getItem(ID_KEY) !== id) continue;
-                sharedStorage = name === 'localStorage';
-                return id;
-            } catch (_) { /* If both stores are blocked, read counts without registering. */ }
-        }
-        return null;
-    }
-    function lastBeat() {
-        if (!sharedStorage) return memoryBeat;
-        try { return JSON.parse(localStorage.getItem(BEAT_KEY)); }
-        catch (_) { return null; }
-    }
-    function rememberBeat(identity) {
-        memoryBeat = { browserId, identity, at: Date.now() };
-        if (sharedStorage) {
-            try { localStorage.setItem(BEAT_KEY, JSON.stringify(memoryBeat)); }
-            catch (_) { /* The server still deduplicates the stable browser ID. */ }
-        }
-    }
     async function rpc(name, args = {}) {
         const controller = new AbortController();
         const timeout = setTimeout(() => controller.abort(), 8000);
@@ -109,20 +83,7 @@
     }
     async function sample() {
         if (document.hidden || suspended) return;
-        if (!browserId) browserId = createBrowserId();
-        // getSession supplies the existing token. Membership is decided by auth.uid()
-        // in SQL, never by this user object, a client flag or editable metadata.
-        const { data, error } = await client.auth.getSession();
-        if (error) return;
-        const identity = data.session?.user?.id || 'guest';
-        const previous = lastBeat();
-        const age = Date.now() - previous?.at;
-        const recent = previous?.browserId === browserId && previous.identity === identity &&
-            Number.isFinite(age) && age >= 0 && age < INTERVAL;
-        const shouldHeartbeat = browserId && !recent;
-        const response = await rpc(shouldHeartbeat ? 'heartbeat_zh_community' : 'get_zh_community_stats',
-            shouldHeartbeat ? { p_browser_id: browserId } : {});
-        if (accept(response) && shouldHeartbeat) rememberBeat(identity);
+        accept(await rpc('get_zh_community_stats'));
     }
     function schedule(delay = INTERVAL) {
         clearTimeout(timer);
