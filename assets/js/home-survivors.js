@@ -22,8 +22,8 @@
             for (const [text, cls] of [
                 [String(index + 1) + '.', 'home-survivor-position'],
                 [row.displayName, 'home-survivor-name'],
-                [lang.t(row.survivalDays === 1 ? 'home.survivors.day' : 'home.survivors.days',
-                    {count: row.survivalDays.toLocaleString(lang.locale)}), 'home-survivor-days']
+                [lang.t(row.count === 1 ? 'home.survivors.zombie' : 'home.survivors.zombies',
+                    {count: row.count.toLocaleString(lang.locale)}), 'home-survivor-days']
             ]) {
                 const span = document.createElement('span');
                 span.className = cls;
@@ -67,15 +67,15 @@
             rows = data.slice(0, 5).map(row => {
                 if (!row || typeof row.displayName !== 'string' || !row.displayName.trim() ||
                     row.displayName.length > 120 || /[@\u0000-\u001f\u007f]/u.test(row.displayName) ||
-                    !Number.isSafeInteger(row.survivalDays) || row.survivalDays < 0)
+                    !Number.isSafeInteger(row.count) || row.count < 1)
                     throw new Error('invalid public row');
-                return {displayName: row.displayName.trim(), survivalDays: row.survivalDays};
+                return {displayName: row.displayName.trim(), count: row.count};
             });
             statusKey = 'home.survivors.empty';
         } catch (error) {
             if (ticket !== revision) return;
             rows = [];
-            // The leaderboard function arrives with a game release; until then keep the preparation note.
+            // Without the leaderboard function in the database keep the preparation note.
             statusKey = error?.message === 'survivors.notReady' ? 'home.survivors.preparing' : 'home.survivors.unavailable';
         } finally {
             clearTimeout(timeout);
@@ -105,9 +105,9 @@
     window.ZHHomeSurvivors = Object.freeze({connect, disconnect});
     render();
 
-    // Public leaderboard from the database (get_top_survivors, anon key, read only).
+    // Public zombie killer leaderboard from the database (get_top_zombie_killers, anon key, read only).
     // Result and "not ready yet" are kept 5 minutes in this browser; names stay plain text.
-    const cacheKey = 'zh_top_survivors_v1';
+    const cacheKey = 'zh_top_zombie_killers_v1';
     function cached() {
         try {
             const saved = JSON.parse(localStorage.getItem(cacheKey));
@@ -119,23 +119,22 @@
     function remember(value) {
         try { localStorage.setItem(cacheKey, JSON.stringify({...value, at: Date.now()})); } catch (_) { /* Optional. */ }
     }
-    async function readTopSurvivors({signal}) {
+    async function readTopZombieKillers({signal}) {
         const saved = cached();
         if (saved?.notReady) throw new Error('survivors.notReady');
         if (saved) return saved.rows;
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_top_survivors`, {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_top_zombie_killers`, {
             method: 'POST', signal, body: JSON.stringify({p_limit: 5}),
             headers: {'Content-Type': 'application/json', apikey: SUPABASE_KEY, Authorization: 'Bearer ' + SUPABASE_KEY}
         });
         if (response.status === 404) { remember({notReady: true}); throw new Error('survivors.notReady'); }
         if (!response.ok) throw new Error('unavailable');
         const data = await response.json();
-        if (!data || data.time_unit !== 'game_days' || !Array.isArray(data.survivors)) throw new Error('invalid');
-        const result = [...data.survivors]
-            .sort((a, b) => (a?.rank ?? 0) - (b?.rank ?? 0))
-            .map(row => ({displayName: row?.player_name, survivalDays: row?.survived_days}));
+        if (!data || !Array.isArray(data.killers)) throw new Error('invalid');
+        // The database returns the killers already in rank order.
+        const result = data.killers.map(row => ({displayName: row?.player_name, count: row?.zombies_defeated}));
         remember({rows: result});
         return result;
     }
-    if (typeof SUPABASE_URL === 'string' && typeof SUPABASE_KEY === 'string') connect(readTopSurvivors);
+    if (typeof SUPABASE_URL === 'string' && typeof SUPABASE_KEY === 'string') connect(readTopZombieKillers);
 })();
