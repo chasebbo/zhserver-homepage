@@ -121,7 +121,7 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
 - Auf `index.html` (Freigabe Sebastian, 21.10.2026) steht nur noch
   „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
-- Hauptversion für `game.html`: v130 (veröffentlicht am 02.11.2026).
+- Hauptversion für `game.html`: v130-1, Client-Hotfix zu v130 (veröffentlicht am 02.11.2026).
 
 ## Spiel-Builds online (Dauerregel, Sebastian 22.10.2026)
 
@@ -136,6 +136,7 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
   Rückleitungseintrag nur dieser Testseite entfernen.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 02.11.2026: Hauptversion v130 (`game.html`), Rückfall v129,
-  Testseiten `game-test-v129.html` und `game-test-v130.html`. v127 ist
+- Stand 02.11.2026: Hauptversion v130-1 (`game.html`), Rückfall v129,
+  Testseiten `game-test-v129.html` (v129) und `game-test-v130.html` (v130-1).
+  `survival-v130.*` bleibt als Rückweg für den Hotfix liegen. v127 ist
   archiviert und entfernt (vorher v128 und v119).
