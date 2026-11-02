@@ -147,6 +147,6 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
   deutlich unter 1 GB.
 - Stand 02.11.2026: Hauptversion v130-2 (`game.html`), Rückweg v130-1, Rückfall
   v129, Testseiten `game-test-v129.html` (v129) und `game-test-v130.html` (Testkandidat
-  v131). Vier Builds sind bis zum v131-Release erlaubt (Sebastian 02.11.2026), aufgeräumt
-  wird beim Release.
+  v131-2, davor v131). Bis zum v131-Release dürfen die Builds liegen bleiben (Sebastian
+  02.11.2026), aufgeräumt wird beim Release.
   v130 und v127 sind archiviert und entfernt (vorher v128 und v119).
