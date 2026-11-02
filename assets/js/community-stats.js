@@ -6,6 +6,9 @@
     const INTERVAL = 60000;
     const ONLINE_WINDOW = 180000;
     const panels = [...document.querySelectorAll('[data-community-stats]')];
+    // Public forum profile of the newest member, the same page as the names in the forum.
+    const forumUrl = new URL('../../forum/', document.currentScript?.src || location.href);
+    const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
     let settings, client;
     let snapshot = null, receivedAt = 0, timer, busy = false, started = false, suspended = false;
     let refreshPending = false, channel;
@@ -38,19 +41,20 @@
         const publicName = row.public_name_available === true && typeof name === 'string' &&
             name.trim().length > 0 && name.length <= 80 && !/[@\u0000-\u001f\u007f]/.test(name) &&
             !/^[0-9a-f]{8}-[0-9a-f-]{27,}$/i.test(name) ? name.trim() : null;
-        // Join date of the newest member, date only.
-        const since = publicName && typeof row.newest_member_since === 'string' &&
-            /^\d{4}-\d{2}-\d{2}$/.test(row.newest_member_since) ? row.newest_member_since : null;
+        // Profile link and role colour of the newest member, only together with the public name.
+        const memberId = publicName && typeof row.newest_member_id === 'string' && UUID.test(row.newest_member_id) ? row.newest_member_id : null;
+        const memberRole = memberId && ['admin', 'member'].includes(row.newest_member_role) ? row.newest_member_role : null;
         return { online_total: total, online_members: members, online_guests: guests,
-            registered_members: count(row.registered_members), newest_member: publicName, newest_member_since: since };
+            registered_members: count(row.registered_members), newest_member: publicName,
+            newest_member_id: memberId, newest_member_role: memberRole };
     }
     function render() {
         const lang = language(), fresh = snapshot && Date.now() - receivedAt < ONLINE_WINDOW;
         for (const panel of panels) {
             panel.lang = lang;
             panel.dataset.communityState = fresh ? 'available' : 'unavailable';
-            // Footer line: shown only with a public name and its join date.
-            if (panel.hasAttribute('data-community-hide-empty')) panel.hidden = !(fresh && snapshot.newest_member && snapshot.newest_member_since);
+            // Footer line: shown only with a public name.
+            if (panel.hasAttribute('data-community-hide-empty')) panel.hidden = !(fresh && snapshot.newest_member);
             panel.querySelectorAll('[data-community-text]').forEach(el => {
                 el.textContent = text(el.dataset.communityText);
             });
@@ -58,11 +62,14 @@
                 const field = el.dataset.communityValue;
                 const value = fresh ? snapshot[field] : null;
                 el.textContent = value === null ? text('none') : typeof value === 'number' ?
-                    value.toLocaleString(lang === 'en' ? 'en-GB' : 'de-DE') : field === 'newest_member_since' ?
-                    new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : 'de-DE', lang === 'en' ? { day: 'numeric', month: 'short', timeZone: 'UTC' } :
-                        { day: '2-digit', month: '2-digit', timeZone: 'UTC' }).format(new Date(value + 'T00:00:00Z')) : value;
+                    value.toLocaleString(lang === 'en' ? 'en-GB' : 'de-DE') : value;
                 if (field === 'newest_member' && value === null) el.title = text('nameUnavailable');
                 else el.removeAttribute('title');
+            });
+            panel.querySelectorAll('[data-community-member-link]').forEach(el => {
+                const id = fresh ? snapshot.newest_member_id : null, role = fresh ? snapshot.newest_member_role : null;
+                if (id) el.href = new URL('#profile/' + id, forumUrl).href; else el.removeAttribute('href');
+                if (role) el.dataset.systemRole = role; else el.removeAttribute('data-system-role');
             });
             const status = panel.querySelector('[data-community-status]');
             if (status) status.textContent = fresh ? '' : text('unavailable');

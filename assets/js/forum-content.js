@@ -356,12 +356,16 @@
         $('forum-public-profile-bio').textContent=p.bio || lang.t('forum.noBio');
         $('forum-public-profile-since').textContent=lang.t('forum.memberSince',{date:date(p.created_at)});
         $('forum-public-profile-topics').replaceChildren(...profileData.topics.map(topicItem));
-        $('forum-public-profile-posts').replaceChildren(...profileData.posts.map(post => {
-            const node=textNode('div',''); const link=textNode('a',post.title); link.href='#thread/'+post.topic_id;
-            node.append(link,textNode('small',date(post.created_at)),textNode('p',post.excerpt)); return node;
+        // Last 5 public posts: new topics and replies, each with type, category, date and link.
+        const openers=new Set(profileData.topics.map(topic=>topic.id+'|'+topic.created_at));
+        const recent=profileData.posts.slice(0,5);
+        $('forum-public-profile-posts').replaceChildren(...recent.map(post => {
+            const node=textNode('div','','forum-profile-post'); const link=textNode('a',post.title); link.href='#thread/'+post.topic_id;
+            const kind=openers.has(post.topic_id+'|'+post.created_at)?lang.t('forum.topic'):(lang.language==='en'?'Reply':'Antwort');
+            node.append(link,textNode('small',[kind,drafts.title(post.category),date(post.created_at)].filter(Boolean).join(' · '))); return node;
         }));
         $('forum-profile-no-topics').hidden=profileData.topics.length>0;
-        $('forum-profile-no-posts').hidden=profileData.posts.length>0;
+        $('forum-profile-no-posts').hidden=recent.length>0;
     }
     async function profile(id) {
         if (profileKey===id && profileData) { renderProfile(); return; }

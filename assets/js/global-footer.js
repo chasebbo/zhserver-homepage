@@ -34,7 +34,7 @@
             <dl>
                 <div class="zh-community-line"><dt data-footer-text="server">Spielserver</dt><dd class="zh-footer-server" data-footer-server data-state="checking"><span>wird geprüft</span></dd></div>
                 <div class="zh-community-line zh-community-name"><dt data-footer-text="version">Version</dt><dd class="zh-footer-release" data-footer-release>wird geprüft</dd></div>
-                <div class="zh-community-line zh-community-name" data-community-stats data-community-hide-empty hidden><dt data-community-text="newest">Neuestes Mitglied</dt><dd class="zh-footer-newest"><span data-community-value="newest_member"></span> · <span data-community-value="newest_member_since"></span></dd></div>
+                <div class="zh-community-line zh-community-name" data-community-stats data-community-hide-empty hidden><dt data-community-text="newest">Neuestes Mitglied</dt><dd class="zh-footer-newest"><a class="zh-public-name" data-community-value="newest_member" data-community-member-link></a></dd></div>
             </dl>`;
         return section;
     }
@@ -46,7 +46,7 @@
             return new Promise(resolve => {
                 const link = document.createElement('link');
                 link.rel = 'stylesheet';
-                link.href = new URL(`../css/${name}.css?v=20261030-status1`, scriptUrl).href;
+                link.href = new URL(`../css/${name}.css?v=20261102-newest2`, scriptUrl).href;
                 link.onload = resolve;
                 link.onerror = resolve;
                 document.head.append(link);

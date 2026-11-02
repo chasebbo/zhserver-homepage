@@ -255,7 +255,7 @@
         if (!counterScriptUrl) return;
         const load = (name) => new Promise((resolve, reject) => {
             const script = document.createElement("script");
-            script.src = new URL(name + "?v=20261102-newest1", counterScriptUrl).href;
+            script.src = new URL(name + "?v=20261102-newest2", counterScriptUrl).href;
             script.onload = resolve;
             script.onerror = reject;
             document.head.append(script);
@@ -267,7 +267,7 @@
             !document.querySelector('link[href*="community-stats.css"]')) {
             const stylesheet = document.createElement("link");
             stylesheet.rel = "stylesheet";
-            stylesheet.href = new URL("../css/community-stats.css?v=20261007-community", counterScriptUrl).href;
+            stylesheet.href = new URL("../css/community-stats.css?v=20261102-newest2", counterScriptUrl).href;
             document.head.append(stylesheet);
         }
         if (!window.ZHFooterStatus) await load("footer-status.js");

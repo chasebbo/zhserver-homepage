@@ -43,3 +43,12 @@
     .zh-community-scope { margin-top: 6px; }
     .zh-community-name dd { max-width: 52%; }
 }
+
+/* Footer "Neuestes Mitglied": name in the same role colour as in the forum, linked to the public profile. */
+.zh-footer-newest .zh-public-name { text-decoration: none; }
+.zh-footer-newest .zh-public-name[data-system-role] { color: var(--role-ink); text-shadow: 0 0 8px var(--role-glow); animation: zh-footer-role-glow 12s ease-in-out infinite; }
+.zh-footer-newest [data-system-role="admin"] { --role-ink: #bd7a91; --role-glow: rgba(130, 40, 69, .34); }
+.zh-footer-newest [data-system-role="member"] { --role-ink: #849ec7; --role-glow: rgba(47, 75, 119, .34); }
+.zh-footer-newest a.zh-public-name[href]:is(:hover, :focus-visible) { text-decoration: underline; text-underline-offset: 3px; }
+@keyframes zh-footer-role-glow { 0%, 100% { text-shadow: 0 0 6px var(--role-glow); } 50% { text-shadow: 0 0 11px var(--role-glow); } }
+@media (prefers-reduced-motion: reduce) { .zh-footer-newest .zh-public-name[data-system-role] { animation: none; } }

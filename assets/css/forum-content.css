@@ -139,3 +139,7 @@
  .forum-page .forum-move-form select { max-width: none; }
  .forum-page .forum-delete-dialog { padding: 22px; }
 }
+/* Public profile: last public posts with type, category and date. */
+.forum-page .forum-profile-post { padding: 10px 0; border-bottom: 1px solid var(--forum-line); }
+.forum-page .forum-profile-post a { padding: 0 0 4px; }
+.forum-page .forum-profile-post small { display: block; color: #94a2ac; font-size: .74rem; line-height: 1.5; }
