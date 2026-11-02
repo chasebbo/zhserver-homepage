@@ -38,14 +38,19 @@
         const publicName = row.public_name_available === true && typeof name === 'string' &&
             name.trim().length > 0 && name.length <= 80 && !/[@\u0000-\u001f\u007f]/.test(name) &&
             !/^[0-9a-f]{8}-[0-9a-f-]{27,}$/i.test(name) ? name.trim() : null;
+        // Join date of the newest member, date only.
+        const since = publicName && typeof row.newest_member_since === 'string' &&
+            /^\d{4}-\d{2}-\d{2}$/.test(row.newest_member_since) ? row.newest_member_since : null;
         return { online_total: total, online_members: members, online_guests: guests,
-            registered_members: count(row.registered_members), newest_member: publicName };
+            registered_members: count(row.registered_members), newest_member: publicName, newest_member_since: since };
     }
     function render() {
         const lang = language(), fresh = snapshot && Date.now() - receivedAt < ONLINE_WINDOW;
         for (const panel of panels) {
             panel.lang = lang;
             panel.dataset.communityState = fresh ? 'available' : 'unavailable';
+            // Footer line: shown only with a public name and its join date.
+            if (panel.hasAttribute('data-community-hide-empty')) panel.hidden = !(fresh && snapshot.newest_member && snapshot.newest_member_since);
             panel.querySelectorAll('[data-community-text]').forEach(el => {
                 el.textContent = text(el.dataset.communityText);
             });
@@ -53,7 +58,9 @@
                 const field = el.dataset.communityValue;
                 const value = fresh ? snapshot[field] : null;
                 el.textContent = value === null ? text('none') : typeof value === 'number' ?
-                    value.toLocaleString(lang === 'en' ? 'en-GB' : 'de-DE') : value;
+                    value.toLocaleString(lang === 'en' ? 'en-GB' : 'de-DE') : field === 'newest_member_since' ?
+                    new Intl.DateTimeFormat(lang === 'en' ? 'en-GB' : 'de-DE', lang === 'en' ? { day: 'numeric', month: 'short', timeZone: 'UTC' } :
+                        { day: '2-digit', month: '2-digit', timeZone: 'UTC' }).format(new Date(value + 'T00:00:00Z')) : value;
                 if (field === 'newest_member' && value === null) el.title = text('nameUnavailable');
                 else el.removeAttribute('title');
             });

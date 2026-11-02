@@ -27,13 +27,15 @@
         section.setAttribute('data-footer-status', '');
         section.setAttribute('data-i18n-ignore', '');
         section.setAttribute('aria-labelledby', 'zh-footer-community-title');
-        // Filled by footer-status.js: game server and current release.
+        // Filled by footer-status.js: game server and current release; community-stats.js: newest member.
         section.innerHTML = `<div class="zh-footer-community-heading">
                 <h4 class="zh-community-group-title" id="zh-footer-community-title" data-footer-text="title">Aktuell</h4>
             </div>
             <dl>
                 <div class="zh-community-line"><dt data-footer-text="server">Spielserver</dt><dd class="zh-footer-server" data-footer-server data-state="checking"><span>wird geprüft</span></dd></div>
-                <div class="zh-community-line zh-community-name"><dt data-footer-text="version">Version</dt><dd class="zh-footer-release" data-footer-release>wird geprüft</dd></div>            </dl>`;
+                <div class="zh-community-line zh-community-name"><dt data-footer-text="version">Version</dt><dd class="zh-footer-release" data-footer-release>wird geprüft</dd></div>
+                <div class="zh-community-line zh-community-name" data-community-stats data-community-hide-empty hidden><dt data-community-text="newest">Neuestes Mitglied</dt><dd class="zh-footer-newest"><span data-community-value="newest_member"></span> · <span data-community-value="newest_member_since"></span></dd></div>
+            </dl>`;
         return section;
     }
 

@@ -255,7 +255,7 @@
         if (!counterScriptUrl) return;
         const load = (name) => new Promise((resolve, reject) => {
             const script = document.createElement("script");
-            script.src = new URL(name + "?v=20261030-status1", counterScriptUrl).href;
+            script.src = new URL(name + "?v=20261102-newest1", counterScriptUrl).href;
             script.onload = resolve;
             script.onerror = reject;
             document.head.append(script);
@@ -272,6 +272,10 @@
         }
         if (!window.ZHFooterStatus) await load("footer-status.js");
         window.ZHFooterStatus.start({ url: SUPABASE_URL, key: SUPABASE_KEY });
+        // Newest member line: existing read-only community figures, no presence report.
+        if (!window.ZHCommunityConfig) await load("community-config.js");
+        if (!window.ZHCommunityStats) await load("community-stats.js");
+        await window.ZHCommunityStats.start({ url: SUPABASE_URL, key: SUPABASE_KEY });
     }
     loadGlobalCommunity().catch(() => { /* The static unavailable state stays honest. */ });
 })();
