@@ -91,6 +91,10 @@
             const count = row.querySelector('.forum-category-count span:last-child');
             count.removeAttribute('data-forum-label'); count.removeAttribute('aria-label');
             count.setAttribute('data-i18n-ignore', ''); count.textContent = String(stat?.topics ?? 0);
+            // Sum of the per-topic views of the published topics, read from the forum summary; no own counting.
+            const views = row.querySelector('.forum-category-views span:last-child');
+            views.removeAttribute('data-forum-label'); views.removeAttribute('aria-label'); views.setAttribute('data-i18n-ignore', '');
+            views.textContent = Number.isSafeInteger(stat?.views) && stat.views >= 0 ? stat.views.toLocaleString(lang.locale) : stat ? '—' : '0';
             const activity = row.querySelector('.forum-category-activity');
             activity.removeAttribute('data-forum-i18n'); activity.setAttribute('data-i18n-ignore', '');
             activity.replaceChildren();

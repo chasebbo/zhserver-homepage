@@ -1,0 +1,16 @@
+/* Forum overview: column "Aufrufe" next to "Themen", same look as the topic count. */
+.forum-page .forum-list-heading span:nth-child(3) { text-align: center; }
+.forum-page .forum-list-heading, .forum-page .forum-category-row { grid-template-columns: minmax(0, 1fr) 48px 56px 200px; }
+@media (max-width: 1100px) and (min-width: 901px) {
+    .forum-page .forum-list-heading, .forum-page .forum-category-row { grid-template-columns: minmax(0, 1fr) 36px 48px 165px; }
+}
+@media (max-width: 900px) and (min-width: 601px) {
+    .forum-page .forum-list-heading, .forum-page .forum-category-row { grid-template-columns: minmax(0, 1fr) 44px 52px 150px; gap: 14px; }
+}
+/* Phone: topics and views share one line below the description. */
+@media (max-width: 600px) {
+    .forum-page .forum-category-row { grid-template-columns: max-content minmax(0, 1fr); }
+    .forum-page .forum-category-row > .forum-category-copy,
+    .forum-page .forum-category-row > .forum-category-activity { grid-column: 1 / -1; }
+    .forum-page .forum-category-row > .forum-category-count { grid-column: auto; }
+}
