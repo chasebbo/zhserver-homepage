@@ -151,7 +151,8 @@
             <a href="#loot" class="wiki-quick-btn">Loot &amp; Ressourcen</a>
             <a href="#systeme" class="wiki-quick-btn">Spielsysteme</a>
             <a href="#item/world_adminbase_central_01" class="wiki-quick-btn">Adminbasis / Safezone</a>
-            <a href="#baumenue" class="wiki-quick-btn">Bauleitfaden (Taste B)</a>
+            <a href="#baumenue" class="wiki-quick-btn">Basenbau (Taste B)</a>
+            <a href="#pvp" class="wiki-quick-btn">PvP</a>
             <a href="#art-referenz" class="wiki-quick-btn">Art- &amp; Perspektivvorgabe</a>
         </nav>
 
@@ -217,234 +218,206 @@
     <div id="wikiArtDirection"><noscript><p>Die zentralen Detailvorgaben werden mit dem Wiki-Katalog geladen. Vorhandene Frontal- und Seitenbilder bleiben Ideen- und Formreferenzen; f&uuml;r neue spielnahe Bilder gilt die gemeinsame Zielperspektive.</p></noscript></div>
     <div class="wiki-chain wiki-art-guide-chain" aria-label="Von der Wiki-Referenz zur modularen Stadtstruktur"><span>Wiki-Referenz</span> &rarr; <span>Art- / Design-Vorgabe</span> &rarr; <span>Spielasset</span> &rarr; <span>Baumen&uuml;</span> &rarr; <span>Spielerbasis</span> &rarr; <span>modulares Weltgeb&auml;ude</span> &rarr; <span>modulare Stadtstruktur</span></div>
 </details>
-<details class="wiki-guide" id="bauleitfaden"><summary>Bauleitfaden <span>Steuerung, Ausbaustufen &amp; Systemkonzepte</span></summary>
-<p class="wiki-guide-note"><strong>KONZEPT &amp; bisheriger Planungsstand.</strong> Dieser Leitfaden bewahrt die bisherigen Beschreibungen und Werte. Die Umsetzung der beschriebenen Systeme ist damit nicht best&auml;tigt; offene Freigaben sind in den jeweiligen Eintr&auml;gen gekennzeichnet.</p>
-        <!-- ================= BAUMENÜ & BAUSYSTEM MASTER GUIDE ================= -->
+<details class="wiki-guide" id="bauleitfaden"><summary>Basenbau <span>Baumenü, Ausbau, Abreißen und neue Teile (Stand v130)</span></summary>
         <div id="baumenue" class="baumenue-master-section">
             <div class="baumenue-header">
-                <span class="baumenue-kicker"><i class="fa-solid fa-drafting-compass"></i> SYSTEM-SPEZIFIKATION &bull; BAUSYSTEM-ARCHITEKTUR</span>
-                <h3>Das Baumen&uuml;: Steuerung, Ausbaustufen &amp; System-Architektur</h3>
-                <p>
-                    F&uuml;r <strong>Zombieh&ouml;lle Survival (2D)</strong> vereinen wir modulare Baufreiheit, realistische Materialstufen und packende Geb&auml;ude-Barrikadierung in einem durchdachten System.
-                    Dieser Leitfaden definiert die technischen Mechaniken unseres Bausystems im Detail: Vom ersten Verbarrikadieren verlassener H&auml;user &uuml;ber schrittweise Holzkonstruktionen bis hin zur autarken, stahlverst&auml;rkten Bunkerfestung mit eigener Strom- und Wasserversorgung.
-                </p>
+                <span class="baumenue-kicker"><i class="fa-solid fa-hammer"></i> BASENBAU · STAND v130</span>
+                <h3>Das Baumenü (Taste B)</h3>
+                <p>Sechs Reiter mit 56 Karten: HOLZ, STEIN, METALL, ABWEHR, VERSORGUNG und EINRICHTUNG. Alle Werte stammen aus dem Spiel.</p>
             </div>
 
-            <!-- COMPARISON TABLE: 4 TIERS DIRECT COMPARISON -->
-            <div class="baumenue-subheading">
-                <i class="fa-solid fa-layer-group"></i>
-                <span>1. Die 4 Ausbaustufen im Systemvergleich: Von der Notbarrikade zum Bunker</span>
-            </div>
+            <div class="baumenue-subheading"><i class="fa-solid fa-list-check"></i><span>1. Das Wichtigste</span></div>
+            <ul class="wiki-guide-list">
+                <li><strong>Baumenü (B):</strong> Klicken wählt, Linksklick setzt, <strong>R</strong> dreht, <strong>V</strong> wechselt das Aussehen (zum Beispiel Steinwand als Beton oder Putz). Jedes Aussehen hat eigene Kosten. Auf dem Handy: DREHEN, nach einer vollen Runde kommt das nächste Aussehen.</li>
+                <li><strong>Bauen:</strong> nur in der eigenen Basis (Basisflagge), in einer Basis, in der du Mitglied bist, und in der Clanbasis. Ein neues Teil ist erst eine Baustelle: zweimal E.</li>
+                <li><strong>Ausbauen (U):</strong> in Stufen Holz, Stein, Metall für Böden, Wände, Fenster und Zäune; Holztür zu Stahltür, Metalltor zu Verstärktem Tor. Es kostet die nächste Stufe. Der Besitzer baut alles aus, Mitglieder nur Teile, die sie selbst gebaut haben.</li>
+                <li><strong>Abreißen:</strong> Der Besitzer reißt alles ab, Mitglieder nur eigene Teile, in der Clanbasis der Anführer alles. Du bekommst die Hälfte des Materials zurück. Ein Lager mit Inhalt lässt sich nicht abreißen, erst ausräumen.</li>
+                <li><strong>Zombies</strong> stoßen an Bauteilen an deren echter Form an wie Spieler: Wände, Zäune und geschlossene Türen halten sie auf; über Böden und durch offene Türen laufen sie. Durch eine Wand schlagen sie nicht.</li>
+                <li><strong>Leben und Reparatur (H):</strong> Bauteile haben Leben, aber zurzeit beschädigt nichts sie. Das kommt erst mit Basenangriffen oder PvP.</li>
+                <li><strong>Ältere Teile:</strong> Teile, die nicht mehr im Menü stehen (zum Beispiel Generator, Solaranlage, Militär- und Ladeneinrichtung), bleiben stehen, wenn sie schon gebaut sind, und lassen sich abreißen. Neu bauen kann man sie nicht. Strom gibt es im Spiel nicht. <a class="wiki-ref-link" href="#bausystem?sub=aeltere_teile">Ältere Teile im Katalog</a></li>
+            </ul>
 
-            <div class="comparison-wrap" role="region" aria-label="Vergleich der vier Ausbaustufen" tabindex="0">
+            <div class="baumenue-subheading"><i class="fa-solid fa-star"></i><span>2. Neue Teile</span></div>
+            <ul class="wiki-guide-list">
+                <li><strong><a class="wiki-ref-link" href="#item/build_wood_window_barricade_01?category=bausystem&amp;sub=holz">Fensterbarrikade</a></strong> (2 Holz, 2 Nägel): auf ein Fenster, eine Tür oder einen offenen Türrahmen setzen. Die Tür geht nicht mehr auf, der Rahmen ist zu, für Zombies und Fremde. Mitglieder der Basis nehmen sie mit E ab und bekommen 1 Holz und 1 Nagel zurück.</li>
+                <li><strong><a class="wiki-ref-link" href="#item/build_barbed_wire_01?category=bausystem&amp;sub=abwehr">Stacheldraht</a></strong> (2 Draht, 1 Metall): als Rolle auf einen Holz-, Stein- oder Metallzaun setzen. Zombies am Draht (bis 1,3 m) werden halb so schnell und verlieren alle 2 Sekunden 15 % ihres Lebens.</li>
+                <li><strong><a class="wiki-ref-link" href="#item/build_wood_watchtower_01?category=bausystem&amp;sub=holz">Wachturm</a> besteigbar:</strong> E an der Leiter, oben kannst du dich auf der Plattform bewegen, mit E wieder hinunter. Oben erreicht kein Zombie den Spieler. Nur Besitzer und Mitglieder der Basis.</li>
+                <li>Werkbank, Lagerfeuer, Lampe und Fallen haben jetzt eine Aufgabe (siehe Tabellen). Zombies, die an Fallen oder Stacheldraht sterben, zählen für niemanden als Kill.</li>
+            </ul>
+
+            <div class="baumenue-subheading"><i class="fa-solid fa-table-cells"></i><span>3. Alle Karten im Baumenü</span></div>
+            <h4 class="wiki-guide-tab" id="baumenue-holz">Reiter HOLZ <a class="wiki-ref-link" href="#bausystem?sub=holz">13 Karten im Katalog</a></h4>
+            <div class="comparison-wrap" role="region" aria-label="Reiter HOLZ" tabindex="0">
                 <table class="building-compare-table">
-                    <thead>
-                        <tr>
-                            <th>Kriterium / Phase</th>
-                            <th><span class="feature-pill pill-t1">Stufe 1</span> Notbarrikade</th>
-                            <th><span class="feature-pill pill-t2">Stufe 2</span> Modulare Holzbasis</th>
-                            <th><span class="feature-pill pill-t3">Stufe 3</span> Stein &amp; Cinderblock</th>
-                            <th class="col-highlight"><span class="feature-pill pill-t4">Stufe 4</span> Autarke Festung &amp; Bunker</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Bauteil</th><th>Kosten</th><th>Aufgabe</th><th>Aussehen und Ausbau</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td class="col-feature">Einsatzbereich &amp; Spielphase</td>
-                            <td>Fr&uuml;he N&auml;chte: Schneller Schutz in verlassenen Zivilgeb&auml;uden.</td>
-                            <td>Erste eigene Siedlung im Wald oder auf offenem Gel&auml;nde.</td>
-                            <td>Dauerhafter Gruppensitz und gut befestigter St&uuml;tzpunkt.</td>
-                            <td class="col-zh2d"><strong>Endzeit-Bunker:</strong> Maximaler Schutz f&uuml;r gro&szlig;e Gruppen und schwere Fahrzeuge.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-feature">Verteidigungswert &amp; Haltbarkeit</td>
-                            <td>H&auml;lt einzelne Streuner ab; bricht unter st&auml;ndigem Druck.</td>
-                            <td>Widersteht kleineren Zombie-Gruppen; anf&auml;llig gegen Feuer.</td>
-                            <td>Hohe Resistenz gegen gro&szlig;e Horden und Schusswechsel.</td>
-                            <td class="col-zh2d"><strong>Maximaler Schutz:</strong> Beschuss- und sprengstoffsicher; abweisend gegen Massen-Events.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-feature">Zugang &amp; Verschlusstechnik</td>
-                            <td>Innenliegende T&uuml;r-Querriegel und vernagelte Holzbretter.</td>
-                            <td>Holzt&uuml;ren und Tore mit manuellen Vorh&auml;ngeschl&ouml;ssern.</td>
-                            <td>Elektronische <strong>Codelocks mit 4-stelligem PIN</strong>.</td>
-                            <td class="col-zh2d"><strong>Panzerschleusen:</strong> PIN-gesicherte Stahltore, Alarmsensoren und Tresor-R&auml;ume.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-feature">Territorium &amp; Raidschutz</td>
-                            <td>Provisorisch im Einzelgeb&auml;ude ohne Gebietsanspruch.</td>
-                            <td>Holzz&auml;une, Palisaden und h&ouml;lzerne Wacht&uuml;rme.</td>
-                            <td><strong>&Uuml;berlebenden-Flagge:</strong> Sichert 30m Umkreis gegen Fremdbau.</td>
-                            <td class="col-zh2d"><strong>Festungsring:</strong> Stacheldrahtkronen, Elektro-Z&auml;une und Flutlicht-Ausleuchtung.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-feature">Autarkie, Strom &amp; Wasser</td>
-                            <td>Keine, abh&auml;ngig von gefundener Rucksack-Beute.</td>
-                            <td>Einfache Holzkisten und offene Kochstellen.</td>
-                            <td>Werkbank Stufe 2, Schmelzofen und Waffenschr&auml;nke.</td>
-                            <td class="col-zh2d"><strong>Vollst&auml;ndige Autarkie:</strong> Notstromaggregat (Benzin), Regenwasserfilter &amp; K&uuml;hlung.</td>
-                        </tr>
-                        <tr>
-                            <td class="col-feature">Ben&ouml;tigte Werkzeuge &amp; Materialien</td>
-                            <td>Hammer, N&auml;gel, Holzbretter, Stofflaken.</td>
-                            <td>Holzf&auml;lleraxt, Baus&auml;ge, N&auml;gel, Holzst&auml;mme.</td>
-                            <td>Spitzhacke, Maurerkelle, Stein, M&ouml;rtel, Codelock.</td>
-                            <td class="col-zh2d"><strong>Schweres Ger&auml;t:</strong> Schwei&szlig;ger&auml;t, Stahltr&auml;ger, Elektronik-Kits, Generatorteile.</td>
-                        </tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_workbench_01?category=bausystem&amp;sub=holz">Werkbank</a></td><td>6 Holz, 2 Metall, 4 Nägel</td><td>Macht aus Metall Baumaterial (1 Metall zu 4 Nägeln, 1 Metall zu 2 Draht, 2 Metall und 1 Draht zu 1 Schloss). E öffnet das Fenster. Nur Besitzer und Mitglieder.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_campfire_01?category=bausystem&amp;sub=holz">Lagerfeuer</a></td><td>4 Holz, 4 Stein</td><td>E zündet es mit 1 Holz an, es brennt 10 Minuten, Holz nachlegen bis 30 Minuten. Brennend: warm essen (Konserven und Fisch je +40 Hunger statt +32 und +20), in 4 m sinkt der Hunger halb so schnell, nachts Licht in 6 m.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_crate_wood_01?category=bausystem&amp;sub=holz">Lagerkiste</a></td><td>5 Holz, 3 Nägel</td><td>Lager 20 Plätze.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_wood_floor_01?category=bausystem&amp;sub=holz">Holzboden</a></td><td>2 Holz, 1 Nägel</td><td>Boden für die eigene Basis.</td><td>Aussehen mit V: Wohnhaus-Dielenboden. Jedes Aussehen hat eigene Kosten. Ausbau mit U: zu Steinboden.</td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_wood_wall_01?category=bausystem&amp;sub=holz">Holzwand</a></td><td>3 Holz, 2 Nägel</td><td>Wand für die eigene Basis.</td><td>Aussehen mit V: Wohnhaus-Holzwand, Wohnhaus-Holzecke. Jedes Aussehen hat eigene Kosten. Ausbau mit U: zu Steinwand.</td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_wood_door_01?category=bausystem&amp;sub=holz">Holztür</a></td><td>3 Holz, 2 Nägel</td><td>Tür, öffnen mit E, mit Schloss verriegeln (L).</td><td>Aussehen mit V: Offener Wohnhaus-Türrahmen, Offener öffentlicher Türrahmen. Jedes Aussehen hat eigene Kosten. Ausbau mit U: zu Stahltür.</td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_wood_foundation_01?category=bausystem&amp;sub=holz">Holzfundament</a></td><td>5 Holz, 3 Nägel</td><td>Fundament (Boden) für die eigene Basis.</td><td>Ausbau mit U: zu Steinfundament.</td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_wood_wall_window_01?category=bausystem&amp;sub=holz">Fensterwand</a></td><td>3 Holz, 2 Nägel, 1 Stoff</td><td>Wand mit Fenster für die eigene Basis.</td><td>Aussehen mit V: Wohnhaus-Holzfensterwand. Jedes Aussehen hat eigene Kosten. Ausbau mit U: zu Steinfensterwand.</td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_wood_fence_01?category=bausystem&amp;sub=holz">Holzzaun</a></td><td>4 Holz, 2 Nägel</td><td>Zaun für die eigene Basis.</td><td>Ausbau mit U: zu Steinzaun.</td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_wood_roof_01?category=bausystem&amp;sub=holz">Holzdach</a></td><td>5 Holz, 3 Nägel</td><td>Dach, über der eigenen Figur ausgeblendet.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_wood_pillar_01?category=bausystem&amp;sub=holz">Holzpfeiler</a></td><td>3 Holz, 2 Nägel</td><td>Pfeiler für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_wood_watchtower_01?category=bausystem&amp;sub=holz">Wachturm</a></td><td>14 Holz, 8 Nägel, 2 Metall</td><td>Wachturm, besteigbar: E an der Leiter, oben erreicht kein Zombie den Spieler. Hinweis: mit den geplanten Basenangriffen greifen Zombies auch den Turm an.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_wood_window_barricade_01?category=bausystem&amp;sub=holz">Fensterbarrikade</a></td><td>2 Holz, 2 Nägel</td><td>Bretter vor ein Fenster oder eine Tür: Tür geht nicht mehr auf, offener Rahmen ist zu; Mitglieder nehmen sie mit E ab (+1 Holz, +1 Nagel).</td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h4 class="wiki-guide-tab" id="baumenue-stein">Reiter STEIN <a class="wiki-ref-link" href="#bausystem?sub=stein">7 Karten im Katalog</a></h4>
+            <div class="comparison-wrap" role="region" aria-label="Reiter STEIN" tabindex="0">
+                <table class="building-compare-table">
+                    <thead><tr><th>Bauteil</th><th>Kosten</th><th>Aufgabe</th><th>Aussehen und Ausbau</th></tr></thead>
+                    <tbody>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_stone_floor_01?category=bausystem&amp;sub=stein">Steinboden</a></td><td>3 Stein</td><td>Boden für die eigene Basis.</td><td>Aussehen mit V: Betonboden, Wohnhaus-Steinboden, Dienstgebäude-Fliesenboden. Jedes Aussehen hat eigene Kosten. Ausbau mit U: zu Metallboden.</td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_stone_wall_01?category=bausystem&amp;sub=stein">Steinwand</a></td><td>5 Stein, 2 Ziegel</td><td>Wand für die eigene Basis.</td><td>Aussehen mit V: Betonwand, Betonwandecke, Öffentliche Putzwand, Öffentliche Putz-/Steinecke. Jedes Aussehen hat eigene Kosten. Ausbau mit U: zu Metallwand.</td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_stone_foundation_01?category=bausystem&amp;sub=stein">Steinfundament</a></td><td>7 Stein, 3 Ziegel</td><td>Fundament (Boden) für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_stone_wall_window_01?category=bausystem&amp;sub=stein">Steinfensterwand</a></td><td>6 Stein, 3 Ziegel, 1 Metall</td><td>Wand mit Fenster für die eigene Basis.</td><td>Aussehen mit V: Öffentliche Fensterwand. Jedes Aussehen hat eigene Kosten. Ausbau mit U: zu Militär-Fensterwand.</td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_stone_pillar_01?category=bausystem&amp;sub=stein">Steinpfeiler</a></td><td>6 Stein, 3 Ziegel</td><td>Pfeiler für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_stone_roof_01?category=bausystem&amp;sub=stein">Steindach</a></td><td>7 Stein, 4 Ziegel</td><td>Dach, über der eigenen Figur ausgeblendet.</td><td>Aussehen mit V: Wohnhaus-Schieferdach, Öffentliches Flachdach. Jedes Aussehen hat eigene Kosten.</td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_stone_fence_01?category=bausystem&amp;sub=stein">Steinzaun</a></td><td>5 Stein, 2 Ziegel</td><td>Zaun für die eigene Basis.</td><td>Ausbau mit U: zu Metallzaun.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h4 class="wiki-guide-tab" id="baumenue-metall">Reiter METALL <a class="wiki-ref-link" href="#bausystem?sub=metall">10 Karten im Katalog</a></h4>
+            <div class="comparison-wrap" role="region" aria-label="Reiter METALL" tabindex="0">
+                <table class="building-compare-table">
+                    <thead><tr><th>Bauteil</th><th>Kosten</th><th>Aufgabe</th><th>Aussehen und Ausbau</th></tr></thead>
+                    <tbody>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_crate_metal_01?category=bausystem&amp;sub=metall">Metallkiste</a></td><td>8 Metall, 1 Schloss</td><td>Lager 40 Plätze.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_gun_cabinet_01?category=bausystem&amp;sub=metall">Waffenschrank</a></td><td>10 Metall, 1 Schloss, 2 Draht</td><td>Lager 50 Plätze.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_safe_01?category=bausystem&amp;sub=metall">Tresor</a></td><td>14 Metall, 2 Schloss, 2 Elektronik</td><td>Lager 12 Plätze, nur der Besitzer (Clan: Anführer).</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_metal_door_01?category=bausystem&amp;sub=metall">Stahltür</a></td><td>4 Metall, 1 Schloss</td><td>Tür, öffnen mit E, verriegeln (L).</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_metal_gate_01?category=bausystem&amp;sub=metall">Metalltor</a></td><td>8 Metall, 3 Draht, 1 Schloss</td><td>Tor, 2 Felder breit.</td><td>Ausbau mit U: zu Verstärktes Tor.</td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_metal_floor_01?category=bausystem&amp;sub=metall">Metallboden</a></td><td>5 Metall, 3 Nägel</td><td>Boden für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_metal_wall_01?category=bausystem&amp;sub=metall">Metallwand</a></td><td>7 Metall, 4 Nägel</td><td>Wand für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_metal_fence_01?category=bausystem&amp;sub=metall">Metallzaun</a></td><td>6 Metall, 3 Draht</td><td>Zaun für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_metal_gate_reinforced_01?category=bausystem&amp;sub=metall">Verstärktes Tor</a></td><td>12 Metall, 4 Draht, 1 Schloss</td><td>Tor, 2 Felder breit.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_metal_garage_door_01?category=bausystem&amp;sub=metall">Garagentor</a></td><td>16 Metall, 3 Elektronik, 1 Schloss</td><td>Garagentor, 3 Felder breit.</td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h4 class="wiki-guide-tab" id="baumenue-abwehr">Reiter ABWEHR <a class="wiki-ref-link" href="#bausystem?sub=abwehr">11 Karten im Katalog</a></h4>
+            <div class="comparison-wrap" role="region" aria-label="Reiter ABWEHR" tabindex="0">
+                <table class="building-compare-table">
+                    <thead><tr><th>Bauteil</th><th>Kosten</th><th>Aufgabe</th><th>Aussehen und Ausbau</th></tr></thead>
+                    <tbody>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_barbed_wire_01?category=bausystem&amp;sub=abwehr">Stacheldraht</a></td><td>2 Draht, 1 Metall</td><td>Rolle auf einen Zaun (Holz, Stein, Metall): Zombies daran werden langsamer und nehmen alle 2 s etwas Schaden.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/trap_spike_01?category=bausystem&amp;sub=abwehr">Stachelfalle</a></td><td>3 Holz, 2 Metall, 3 Nägel</td><td>Hält einen Zombie 3 Sekunden fest, 50 % Schaden. Nach 5 Zombies stumpf, E spannt sie mit 2 Nägeln neu.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/trap_wire_01?category=bausystem&amp;sub=abwehr">Drahtfalle</a></td><td>4 Draht, 1 Metall</td><td>Zombies darin werden 10 Sekunden halb so schnell und verlieren 10 % Leben.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_sandbag_wall_01?category=bausystem&amp;sub=abwehr">Sandsackwand</a></td><td>4 Stoff, 2 Stein</td><td>Sperre für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_sandbag_corner_01?category=bausystem&amp;sub=abwehr">Sandsackecke</a></td><td>6 Stoff, 3 Stein</td><td>Sperre (Ecke) für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_metal_fence_corner_01?category=bausystem&amp;sub=abwehr">Metallzaunecke</a></td><td>9 Metall, 4 Draht</td><td>Zaun (Ecke) für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_concrete_barrier_01?category=bausystem&amp;sub=abwehr">Betonbarriere</a></td><td>4 Stein, 1 Ziegel</td><td>Sperre für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_hesco_wall_01?category=bausystem&amp;sub=abwehr">HESCO-Wand</a></td><td>6 Stoff, 6 Stein, 4 Metall, 4 Draht</td><td>Sperre, 2 Felder.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_hesco_short_01?category=bausystem&amp;sub=abwehr">HESCO-Kurzsegment</a></td><td>3 Stoff, 3 Stein, 2 Metall, 2 Draht</td><td>Sperre für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_hesco_corner_01?category=bausystem&amp;sub=abwehr">HESCO-Ecke</a></td><td>21 Stoff, 21 Stein, 14 Metall, 14 Draht</td><td>Sperre, Ecke 4 mal 4.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_hesco_reinforced_01?category=bausystem&amp;sub=abwehr">HESCO-Verstärkung</a></td><td>12 Stoff, 12 Stein, 8 Metall, 8 Draht</td><td>Sperre, 2 Felder, doppelt hoch.</td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h4 class="wiki-guide-tab" id="baumenue-versorgung">Reiter VERSORGUNG <a class="wiki-ref-link" href="#bausystem?sub=versorgung">5 Karten im Katalog</a></h4>
+            <div class="comparison-wrap" role="region" aria-label="Reiter VERSORGUNG" tabindex="0">
+                <table class="building-compare-table">
+                    <thead><tr><th>Bauteil</th><th>Kosten</th><th>Aufgabe</th><th>Aussehen und Ausbau</th></tr></thead>
+                    <tbody>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_floodlight_01?category=bausystem&amp;sub=versorgung">Lampe</a></td><td>2 Metall, 1 Elektronik, 1 Draht</td><td>Leuchtet nachts 12 m weit; solange es dunkel ist, wachsen in 25 m keine Zombies nach.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_rain_barrel_01?category=bausystem&amp;sub=versorgung">Regentonne</a></td><td>4 Metall, 1 Draht</td><td>Sammelt bei Regen Wasser (1 je Regenphase, höchstens 10), E: Wasser nehmen.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_hospital_bed_01?category=bausystem&amp;sub=versorgung">Krankenbett</a></td><td>6 Metall, 6 Stoff, 2 Elektronik</td><td>E: +25 Leben, alle 10 Minuten je Spieler.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_claim_flag_01?category=bausystem&amp;sub=versorgung">Basisflagge</a></td><td>1 Basisflagge</td><td>Eigene Basis, Gebiet, bis 5 Personen.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_clan_flag_01?category=bausystem&amp;sub=versorgung">Clanbasisflagge</a></td><td>1 Clanbasisflagge</td><td>200 Felder, nur der Clan-Anführer, ab 3 Mitgliedern.</td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h4 class="wiki-guide-tab" id="baumenue-einrichtung">Reiter EINRICHTUNG <a class="wiki-ref-link" href="#bausystem?sub=einrichtung">10 Karten im Katalog</a></h4>
+            <div class="comparison-wrap" role="region" aria-label="Reiter EINRICHTUNG" tabindex="0">
+                <table class="building-compare-table">
+                    <thead><tr><th>Bauteil</th><th>Kosten</th><th>Aufgabe</th><th>Aussehen und Ausbau</th></tr></thead>
+                    <tbody>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/build_bed_spawn_01?category=bausystem&amp;sub=einrichtung">Bett</a></td><td>6 Holz, 4 Stoff</td><td>Wiedereinstieg am Bett (höchstens alle 10 Minuten).</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/world_military_interior_table_01?category=bausystem&amp;sub=einrichtung">Militär-Tisch</a></td><td>6 Holz, 2 Metall, 4 Nägel</td><td>Einrichtung für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/world_military_interior_armchair_01?category=bausystem&amp;sub=einrichtung">Militär-Sessel</a></td><td>6 Holz, 4 Stoff</td><td>Einrichtung für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/world_military_interior_sofa_01?category=bausystem&amp;sub=einrichtung">Militär-Sofa</a></td><td>6 Holz, 4 Stoff</td><td>Einrichtung für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/world_military_interior_cabinet_01?category=bausystem&amp;sub=einrichtung">Militär-Schrank</a></td><td>5 Holz, 3 Nägel</td><td>Schrank, Lager 20 Plätze.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/world_military_interior_kitchen_01?category=bausystem&amp;sub=einrichtung">Feldküche</a></td><td>4 Metall, 1 Draht</td><td>Einrichtung für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/world_military_interior_toilet_01?category=bausystem&amp;sub=einrichtung">Toilette</a></td><td>4 Metall, 1 Draht</td><td>Einrichtung für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/world_military_interior_shower_01?category=bausystem&amp;sub=einrichtung">Dusche</a></td><td>4 Metall, 1 Draht</td><td>Einrichtung für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/world_military_interior_washbasin_01?category=bausystem&amp;sub=einrichtung">Waschbecken</a></td><td>4 Metall, 1 Draht</td><td>Einrichtung für die eigene Basis.</td><td></td></tr>
+                        <tr><td class="col-feature"><a class="wiki-ref-link" href="#item/world_military_interior_rug_01?category=bausystem&amp;sub=einrichtung">Bodenläufer</a></td><td>4 Stoff</td><td>Einrichtung für die eigene Basis.</td><td></td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- WORKFLOW STEPS -->
-            <div class="baumenue-subheading">
-                <i class="fa-solid fa-gamepad"></i>
-                <span>2. Steuerung &amp; In-Game Workflow (Taste B)</span>
+            <div class="baumenue-subheading"><i class="fa-solid fa-image"></i><span>4. Bilder aus dem Spiel</span></div>
+            <div class="wiki-reference-gallery-grid">
+                <figure class="wiki-reference-figure"><figcaption><h4>Baumenü und neue Teile</h4></figcaption><img src="assets/images/wiki/basenbau-v130/baumenue-neue-teile.jpg" alt="Baumenü mit den Reitern HOLZ, ABWEHR, VERSORGUNG und STEIN, dazu Fensterbarrikade, Stacheldraht und besteigbarer Wachturm im Spiel" loading="lazy" decoding="async"><a class="wiki-ref-link wiki-reference-original" href="assets/images/wiki/basenbau-v130/baumenue-neue-teile.jpg" target="_blank" rel="noopener">Bild in voller Größe <span aria-hidden="true">↗</span><span class="wiki-sr-only"> (neuer Tab)</span></a></figure>
+                <figure class="wiki-reference-figure"><figcaption><h4>Grundteile im Spiel</h4></figcaption><img src="assets/images/wiki/basenbau-v130/grundteile-im-spiel.jpg" alt="Die Grundteile des Baumenüs im Spiel, jeweils mit ihrer Bauteil-Nummer" loading="lazy" decoding="async"><a class="wiki-ref-link wiki-reference-original" href="assets/images/wiki/basenbau-v130/grundteile-im-spiel.jpg" target="_blank" rel="noopener">Bild in voller Größe <span aria-hidden="true">↗</span><span class="wiki-sr-only"> (neuer Tab)</span></a></figure>
+                <figure class="wiki-reference-figure"><figcaption><h4>Geräte bei Tag und Nacht</h4></figcaption><img src="assets/images/wiki/basenbau-v130/geraete-tag-nacht.jpg" alt="Lampe, brennendes und kaltes Lagerfeuer, Werkbank und Fallen bei Tag und nachts mit Licht" loading="lazy" decoding="async"><a class="wiki-ref-link wiki-reference-original" href="assets/images/wiki/basenbau-v130/geraete-tag-nacht.jpg" target="_blank" rel="noopener">Bild in voller Größe <span aria-hidden="true">↗</span><span class="wiki-sr-only"> (neuer Tab)</span></a></figure>
+                <figure class="wiki-reference-figure"><figcaption><h4>Werkbank</h4></figcaption><img src="assets/images/wiki/basenbau-v130/werkbank-fenster.jpg" alt="Fenster der Werkbank: aus Metall werden Nägel, Draht und Schlösser" loading="lazy" decoding="async"><a class="wiki-ref-link wiki-reference-original" href="assets/images/wiki/basenbau-v130/werkbank-fenster.jpg" target="_blank" rel="noopener">Bild in voller Größe <span aria-hidden="true">↗</span><span class="wiki-sr-only"> (neuer Tab)</span></a></figure>
+            </div>
+        </div>
+</details>
+<details class="wiki-guide" id="pvp"><summary>PvP <span>Kampf zwischen Spielern (Stand v130)</span></summary>
+        <div class="baumenue-master-section">
+            <div class="baumenue-header">
+                <span class="baumenue-kicker"><i class="fa-solid fa-crosshairs"></i> PVP · STAND v130</span>
+                <h3>PvP: Kampf zwischen Spielern</h3>
+                <p>PvP ist für jeden zuerst aus. Schaden zwischen Spielern gibt es nur, wenn beide es eingeschaltet haben.</p>
             </div>
 
-            <div class="workflow-grid">
-                <div class="workflow-card">
-                    <span class="workflow-step-num">SCHRITT 01</span>
-                    <h4>[B] Baumen&uuml; &ouml;ffnen</h4>
-                    <p>
-                        Ein Druck auf die Taste <strong>B</strong> &ouml;ffnet das taktische Bau-Overlay. Kategorien sind strukturiert nach Barrikaden, W&auml;nden, T&uuml;ren, Lagerung, Abwehr und Strom.
-                    </p>
-                </div>
+            <div class="baumenue-subheading"><i class="fa-solid fa-toggle-on"></i><span>1. PvP an und aus</span></div>
+            <ul class="wiki-guide-list">
+                <li>Einschalten im <strong>Charakterfenster</strong> (Taste <strong>K</strong>, am Handy MENÜ, AUFTRÄGE, Reiter CHARAKTER), nur in der <a class="wiki-ref-link" href="#item/world_adminbase_central_01">Safezone</a>. Die Wahl bleibt nach dem Ausloggen gespeichert.</li>
+                <li>Schaden zwischen zwei Spielern gibt es nur, wenn <strong>beide PvP an</strong> haben und beide draußen sind: nicht in der Safezone, nicht im Umkreis von 50 m um ein Safezone-Tor, nicht im Fahrzeug.</li>
+                <li><strong>Gruppe und Clan</strong> treffen sich nie gegenseitig.</li>
+                <li><strong>Schutz:</strong> 30 Sekunden nach dem Verlassen der Safezone und nach dem Einloggen. Wer im Schutz selbst angreift, beendet ihn.</li>
+                <li>Spieler mit PvP an haben einen roten Namen mit „PvP“, im Schutz einen blauen Ring. Oben rechts steht der eigene Zustand, zum Beispiel „PvP AN · Schutz 19 s“.</li>
+            </ul>
 
-                <div class="workflow-card">
-                    <span class="workflow-step-num">SCHRITT 02</span>
-                    <h4>Hologramm &amp; Drehung [R]</h4>
-                    <p>
-                        Ein semi-transparentes Ghost-Objekt zeigt die exakte Platzierung. Mit der Taste <strong>R</strong> wird das Objekt um 90 Grad gedreht.
-                    </p>
-                    <div class="ghost-indicator-row">
-                        <span class="ghost-indicator ghost-green"><i class="fa-solid fa-check"></i> Gr&uuml;n: Baubar</span>
-                        <span class="ghost-indicator ghost-yellow"><i class="fa-solid fa-magnet"></i> Gelb: Snap</span>
-                        <span class="ghost-indicator ghost-red"><i class="fa-solid fa-ban"></i> Rot: Blockiert</span>
-                    </div>
-                </div>
+            <div class="baumenue-subheading"><i class="fa-solid fa-gun"></i><span>2. Schaden gegen Spieler</span></div>
+            <ul class="wiki-kv" aria-label="Schaden gegen Spieler">
+                <li><span>Faust</span><strong>5 Schaden</strong></li>
+                <li><span>Kampfmesser, Hammer</span><strong>15 Schaden</strong></li>
+                <li><span>Spitzhacke</span><strong>20 Schaden</strong></li>
+                <li><span>Axt</span><strong>25 Schaden</strong></li>
+                <li><span>Kompaktpistole</span><strong>16 Schaden</strong></li>
+                <li><span>Pistole</span><strong>18 Schaden</strong></li>
+                <li><span>Dienstpistole</span><strong>20 Schaden</strong></li>
+                <li><span>Sturmgewehr, Schwere Pistole</span><strong>28 Schaden</strong></li>
+                <li><span>AKM</span><strong>30 Schaden</strong></li>
+                <li><span>G3</span><strong>40 Schaden</strong></li>
+                <li><span>SVD</span><strong>60 Schaden</strong></li>
+                <li><span>Scharfschützengewehr</span><strong>80 Schaden</strong></li>
+            </ul>
+            <ul class="wiki-guide-list">
+                <li>Reichweiten wie gegen Zombies: Nahkampf 2 m, Pistole 11 m, Gewehr 17,5 m, Scharfschütze 28 m. Deckung hält Kugeln auf.</li>
+                <li><strong>Schutzweste</strong> nimmt 30 % weg, <strong>Militärweste</strong> und <strong>Taktische Rüstung</strong> 45 %, <strong>Helm</strong> 15 %.</li>
+            </ul>
 
-                <div class="workflow-card">
-                    <span class="workflow-step-num">SCHRITT 03</span>
-                    <h4>Snap-Magnetismus</h4>
-                    <p>
-                        Bauteile wie W&auml;nde, Z&auml;une und B&ouml;den docken im Nahbereich automatisch an benachbarte Kanten an. Verhindert L&uuml;cken, durch die Zombies durchglitchen k&ouml;nnten.
-                    </p>
-                </div>
+            <div class="baumenue-subheading"><i class="fa-solid fa-skull"></i><span>3. Tod durch einen Spieler</span></div>
+            <ul class="wiki-guide-list">
+                <li>Die Todesbeute gehört 5 Minuten lang nur dem Toten und seiner Gruppe, danach jedem.</li>
+                <li>Danach <strong>10 Minuten PvP-Ruhe</strong>: kein Schaden nehmen und keinen geben.</li>
+                <li>Für einen Spieler-Kill gibt es keine Punkte, und er zählt nicht als Zombie-Kill.</li>
+            </ul>
 
-                <div class="workflow-card">
-                    <span class="workflow-step-num">SCHRITT 04</span>
-                    <h4>Montage mit Werkzeug</h4>
-                    <p>
-                        Das Platzieren setzt den Bausatz (Kit). Die Fertigstellung erfolgt mit Hammer, Axt oder Schaufel unter schrittweisem Verbrauch der Materialien im Rucksack.
-                    </p>
-                </div>
-            </div>
+            <div class="baumenue-subheading"><i class="fa-solid fa-person-running"></i><span>4. Kampf und Abmelden</span></div>
+            <ul class="wiki-guide-list">
+                <li><strong>Im Kampf</strong> bist du, wenn du in den letzten 30 Sekunden getroffen hast oder getroffen wurdest, oder wenn ein Zombie dich verfolgt oder angreift. Das gilt mit und ohne PvP.</li>
+                <li>Im Kampf kannst du dich nicht abmelden, nicht „Pause machen“ und den Charakter nicht löschen. Die Meldungszeile zählt die Sekunden herunter.</li>
+                <li><strong>Tab zu oder Verbindung weg im Kampf:</strong> Die Figur bleibt stehen, bis der Kampf vorbei ist, und kann so lange getroffen werden. Erst dann wird gespeichert.</li>
+                <li>Wiedereinstieg bei der <strong>Gruppe</strong> nach dem Tod geht nur, wenn das Gruppenmitglied gerade nicht im Kampf ist.</li>
+            </ul>
 
-            <div class="wiki-rule-banner" id="rasterregel">
-                <h4>Feste Bau-Regel: nur 90&deg;-Schritte</h4>
-                <p>
-                    Bauteile werden ausschlie&szlig;lich in 90&deg;-Schritten gedreht und auf einem klaren Raster gesnappt.
-                    Frei schr&auml;g gedrehte Module sind keine Designgrundlage. Taste <strong>R</strong> dreht um genau 90 Grad.
-                    Dieselben Module sollen sp&auml;ter sowohl Spielerbasen als auch modulare Weltgeb&auml;ude tragen.
-                </p>
-                <div class="wiki-module-row">
-                    <div class="wiki-module-chip">gerade Wand</div>
-                    <div class="wiki-module-chip">T&uuml;rwand</div>
-                    <div class="wiki-module-chip">Fensterwand</div>
-                    <div class="wiki-module-chip">Ecke</div>
-                    <div class="wiki-module-chip">Boden</div>
-                    <div class="wiki-module-chip">Dach</div>
-                    <div class="wiki-module-chip">Zaun</div>
-                    <div class="wiki-module-chip">Tor</div>
-                </div>
-            </div>
-
-            <!-- 4 TIERS PROGRESSION -->
-            <div class="baumenue-subheading">
-                <i class="fa-solid fa-cubes-stacked"></i>
-                <span>3. Die 4 Ausbaustufen im Detail</span>
-            </div>
-
-            <div class="tiers-grid">
-                <div class="tier-card tier-1">
-                    <span class="tier-badge">STUFE 1 &bull; IMPROVISIERT</span>
-                    <h4>Notbarrikadierung</h4>
-                    <p class="tier-desc">Schneller Schutz f&uuml;r die ersten N&auml;chte. Verbarrikadiere verlassene Zivilgeb&auml;ude, bevor du eigene Bauten errichten kannst.</p>
-                    <ul class="tier-features">
-                        <li><i class="fa-solid fa-shield-halved"></i> Fenster mit 1 bis 3 Holzbrettern zunageln</li>
-                        <li><i class="fa-solid fa-eye-slash"></i> Bettlaken als Sichtschutz gegen Zombies</li>
-                        <li><i class="fa-solid fa-bars"></i> T&uuml;ren von innen mit Querriegel sichern</li>
-                        <li><i class="fa-solid fa-person-falling"></i> Fluchtseil aus Stoff f&uuml;r den oberen Notausstieg</li>
-                    </ul>
-                    <div class="tier-footer">Werkzeuge: <strong>Hammer, N&auml;gel, S&auml;ge</strong></div>
-                </div>
-
-                <div class="tier-card tier-2">
-                    <span class="tier-badge">STUFE 2 &bull; HOLZBAU</span>
-                    <h4>Modulare Holzbasis</h4>
-                    <p class="tier-desc">Die erste vollst&auml;ndig eigene Basis im Wald oder auf freiem Feld auf festem Holzfundament.</p>
-                    <ul class="tier-features">
-                        <li><i class="fa-solid fa-cubes"></i> Holzfundamente &amp; modulare Steckw&auml;nde</li>
-                        <li><i class="fa-solid fa-door-closed"></i> Holzt&uuml;ren mit Vorh&auml;ngeschloss</li>
-                        <li><i class="fa-solid fa-box-archive"></i> Robuste Holzkisten f&uuml;r Loot-Lagerung</li>
-                        <li><i class="fa-solid fa-tower-observation"></i> Wachturm f&uuml;r erweiterten Sichtbereich</li>
-                    </ul>
-                    <div class="tier-footer">Werkzeuge: <strong>Axt, Hammer, Schaufel</strong></div>
-                </div>
-
-                <div class="tier-card tier-3">
-                    <span class="tier-badge">STUFE 3 &bull; STEIN &amp; BETON</span>
-                    <h4>Cinderblock-Festung</h4>
-                    <p class="tier-desc">Massive Stein- und Betonw&auml;nde widerstehen selbst gro&szlig;en Horden und anhaltendem Beschuss.</p>
-                    <ul class="tier-features">
-                        <li><i class="fa-solid fa-monument"></i> Massiver Stein- &amp; Cinderblock-Wandbau</li>
-                        <li><i class="fa-solid fa-key"></i> <strong>Codelocks mit 4-stelligem PIN</strong></li>
-                        <li><i class="fa-solid fa-vault"></i> Feuersicherer Waffenschrank &amp; Tresor</li>
-                        <li><i class="fa-solid fa-flag"></i> &Uuml;berlebenden-Flagge (30m Gebietsanspruch)</li>
-                    </ul>
-                    <div class="tier-footer">Werkzeuge: <strong>Spitzhacke, Maurerkelle, M&ouml;rtel</strong></div>
-                </div>
-
-                <div class="tier-card tier-4">
-                    <span class="tier-badge">STUFE 4 &bull; AUTARKIE &amp; BUNKER</span>
-                    <h4>Stahlbunker &amp; Strom</h4>
-                    <p class="tier-desc">Vollst&auml;ndig gepanzerte Zuflucht mit unabh&auml;ngiger Strom- und Wasserversorgung.</p>
-                    <ul class="tier-features">
-                        <li><i class="fa-solid fa-shield"></i> Stahlpanzerw&auml;nde &amp; Doppeltore f&uuml;r Autos</li>
-                        <li><i class="fa-solid fa-bolt"></i> Notstromaggregat (Benzin) &amp; Flutlicht</li>
-                        <li><i class="fa-solid fa-faucet-drip"></i> Regenwasser-Sammeltonne mit Kohlefilter</li>
-                        <li><i class="fa-solid fa-skull-crossbones"></i> Stacheldrahtkronen &amp; Elektro-Verteidigung</li>
-                    </ul>
-                    <div class="tier-footer">Werkzeuge: <strong>Schwei&szlig;ger&auml;t, Elektronik-Kit</strong></div>
-                </div>
-            </div>
-
-            <!-- TWO-COLUMN DEEP DIVE: TERRITORY & LOOT INTEGRATION -->
-            <div class="baumenue-two-cols">
-                <div class="baumenue-info-box">
-                    <h4><i class="fa-solid fa-flag"></i> Territorium, Codelocks &amp; Raid-Balance</h4>
-                    <p>
-                        Das Territorium-System sichert deine harte Arbeit gegen fremde &Uuml;bergriffe ab: Sobald eine <em>&Uuml;berlebenden-Flagge</em> platziert wird, geh&ouml;rt der Umkreis von 30 Metern deiner Gruppe. Fremde Spieler k&ouml;nnen dort keine Objekte bauen oder W&auml;nde abbauen.
-                    </p>
-                    <ul>
-                        <li><strong>PIN-Codelocks:</strong> T&uuml;ren und Lagertruhen werden mit einem 4-stelligen Code gesichert. Gruppenmitglieder geben den Code einmalig ein und k&ouml;nnen die T&uuml;r danach nahtlos passieren.</li>
-                        <li><strong>Zombie-Angriff:</strong> Zombies, die durch Sch&uuml;sse oder Scheinwerfer aufgeschreckt werden, belagern Holzw&auml;nde und Barrikaden. Stehen mehrere Zombies davor, sinkt die Haltbarkeit rapide.</li>
-                        <li><strong>Spieler-Raids:</strong> Um feiges Offline-Griefing zu verhindern, erfordern Raids seltene Sprengladungen (C4) oder enormen Werkzeugeinsatz mit Vorschlagh&auml;mmern. Reines Einloggen und Kisten leerr&auml;umen ist unm&ouml;glich.</li>
-                    </ul>
-                </div>
-
-                <div class="baumenue-info-box">
-                    <h4><i class="fa-solid fa-boxes-stacked"></i> Verzahnung von Bausystem &amp; Lootsystem: Fundorte</h4>
-                    <p>
-                        Alle Baumaterialien und Werkzeuge sind logisch an die Spielwelt und deren Zonen gekoppelt:
-                    </p>
-                    <ul>
-                        <li><strong>Natur-Rohstoffe:</strong> Holzst&auml;mme (Axt an B&auml;umen) &bull; Bruchstein (Spitzhacke an Felsen).</li>
-                        <li><strong>Zivil-Loot (Wohngebiete):</strong> N&auml;gel, Stofflaken, Klebeband, Seile, S&auml;gen, Vorh&auml;ngeschl&ouml;sser, Vorratskisten.</li>
-                        <li><strong>Industrie- &amp; Baustellenloot:</strong> Wellblech, Zements&auml;cke, M&ouml;rtel, Scharniere, H&auml;mmer, Schaufeln, Stacheldraht.</li>
-                        <li><strong>Milit&auml;r &amp; Technik (Selten):</strong> Elektronische Codelocks, Notstromaggregate, Schwei&szlig;ger&auml;te, Stahlplatten, C4-Sprengstoff.</li>
-                    </ul>
-                </div>
-            </div>
+            <div class="baumenue-subheading"><i class="fa-solid fa-user-shield"></i><span>5. Wachen</span></div>
+            <ul class="wiki-guide-list">
+                <li>Die Wachen auf ihren Posten (Safezone, Admin-Base, Militärbasis Ost, Werkschutz am Steinbruch) haben 100 Leben und lassen sich <strong>nur mit PvP an</strong> angreifen, an denselben Orten wie Spieler. Die Streifen in der Safezone sind nicht angreifbar.</li>
+                <li>Wer eine Wache trifft, ist <strong>5 Minuten gesucht</strong>: Jede Wache in 100 m, die ihn sieht, schießt zurück (15 Schaden je Schuss), und die Torwache lässt ihn nicht in die Safezone. Der Tod beendet die Fahndung.</li>
+                <li>Eine getötete Wache bringt keine Beute und keine Punkte und kostet <strong>50 Militär-Ruf</strong>. Sie ist nach 10 Minuten wieder auf dem Posten, an der Safezone nach 5 Minuten.</li>
+            </ul>
         </div>
 </details>
         <div class="wiki-world-prep" id="weltgebaeude-info">
@@ -501,7 +474,7 @@
 
 </footer>
 
-<script src="assets/js/wiki-data.js?v=20261026-text1"></script>
+<script src="assets/js/wiki-data.js?v=20261102-v130"></script>
 <script src="assets/js/wiki.js?v=20260930-structure"></script>
 <script src="assets/js/visitor-counter.js?v=20261030-status1"></script>
 
