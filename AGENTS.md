@@ -134,9 +134,17 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
   Testseite nach `C:\ZHServer-Archiv\homepage-builds\<version>\` mit Manifest
   (Pfad, Größe, SHA-256) archivieren und gegen den Commit prüfen. Danach den
   Rückleitungseintrag nur dieser Testseite entfernen.
+- Welche Builds bleiben (Sebastian 02.11.2026, gilt ohne Nachfrage): die
+  aktuelle Version, ihr direkter Vorgänger als Rückweg und v129 als Rückfall zum
+  Server v129, solange Sebastian nichts anderes sagt. Der Rest wird archiviert
+  und entfernt.
+- Dateinamen (Dauerregel Sebastian 02.11.2026): Eine einmal veröffentlichte
+  Datei wird nie mit anderem Inhalt unter demselben Namen ausgeliefert. Jede
+  Spielversion hat eigene Dateinamen (`survival-v130-2.*`). Vorhandene Dateien
+  unter `game/` nie überschreiben. Weicht eine Prüfsumme ab: nicht kopieren,
+  melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
 - Stand 02.11.2026: Hauptversion v130-1 (`game.html`), Rückfall v129,
-  Testseiten `game-test-v129.html` (v129) und `game-test-v130.html` (v130-1).
-  `survival-v130.*` bleibt als Rückweg für den Hotfix liegen. v127 ist
-  archiviert und entfernt (vorher v128 und v119).
+  Testseiten `game-test-v129.html` (v129) und `game-test-v130.html` (v130-2).
+  v130 und v127 sind archiviert und entfernt (vorher v128 und v119).

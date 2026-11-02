@@ -24,10 +24,11 @@ Der gelieferte Loader setzt die Packteile verlustfrei zusammen. Kein einzelner
 Teil überschreitet 100 MiB. Keine zweite Auth-, Gasttimer- oder
 Persistence-Lösung auf der Homepage.
 
-Öffentlich liegen nur die Hauptversion, die vorherige Hauptversion v129 als
-Rückfall und höchstens eine nicht verlinkte Testversion. Testseiten:
-`game-test-v129.html` (v129) und `game-test-v130.html` (v130-1). Die Dateien
-`survival-v130.*` bleiben als Rückweg für den Hotfix liegen. Ältere Builds sind
-außerhalb des Repositorys archiviert.
+Öffentlich liegen höchstens drei Builds: die Hauptversion v130-1, die
+Testversion v130-2 (`game-test-v130.html`, Paket in vier Teilen
+`pck.part00` bis `pck.part03`) und v129 als Rückfall (`game-test-v129.html`).
+Jede Spielversion hat eigene Dateinamen; vorhandene Dateien werden nie
+überschrieben. Ältere Builds (zuletzt v130) sind außerhalb des Repositorys
+archiviert.
 
 Prüfstand und Freigabegrenzen: `../docs/GAME_ENTRY_CHECKPOINT.md`.
