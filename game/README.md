@@ -27,9 +27,10 @@ Der gelieferte Loader setzt die Packteile verlustfrei zusammen. Kein einzelner
 Teil überschreitet 100 MiB. Keine zweite Auth-, Gasttimer- oder
 Persistence-Lösung auf der Homepage.
 
-Öffentlich liegen höchstens drei Builds: die Hauptversion v130-2 (auch
-`game-test-v130.html`), ihr Vorgänger v130-1 als Rückweg und v129 als
-Rückfall zum Server v129 (`game-test-v129.html`).
+Öffentlich liegen höchstens drei Builds: die Hauptversion v130-2, ihr
+Vorgänger v130-1 als Rückweg und v129 als Rückfall zum Server v129
+(`game-test-v129.html`). Bis zum Release von v131 liegt zusätzlich der
+Testkandidat v131 auf `game-test-v130.html` (Freigabe Sebastian 02.11.2026).
 Jede Spielversion hat eigene Dateinamen; vorhandene Dateien werden nie
 überschrieben. Ältere Builds (zuletzt v130) sind außerhalb des Repositorys
 archiviert.
