@@ -23,7 +23,8 @@ const next=account.slice(account.indexOf('    const allowed ='),account.indexOf(
 const nextContext=vm.createContext({URL,root:new URL('https://www.zhserver.de/'),site:path=>new URL(path,'https://www.zhserver.de/').href});
 vm.runInContext(next,nextContext);
 for(const value of ['https://evil.invalid/','//evil.invalid/','javascript:alert(1)','https://www.zhserver.de@evil.invalid/','/profile/?access_token=secret','/profile/#refresh_token=secret','/profile/#%ZZ','/admin/../../evil'])
- test('return URL rejects '+value,()=>assert.equal(nextContext.safeNext(value),'https://www.zhserver.de/profile/'));
+ test('return URL rejects '+value,()=>assert.equal(nextContext.safeNext(value),'https://www.zhserver.de/'));
+test('legitimate profile return retained',()=>assert.equal(nextContext.safeNext('/profile/'),'https://www.zhserver.de/profile/'));
 test('legitimate forum return retained',()=>assert.equal(nextContext.safeNext('/forum/#category/general'),'https://www.zhserver.de/forum/#category/general'));
 // Exercise the actual handoff runtime with dummy tokens and no network.
 const handlers={},notifications=[],responses=[];
