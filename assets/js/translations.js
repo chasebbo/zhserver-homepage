@@ -3,6 +3,7 @@ window.ZHTranslations = {
   "copy": {
     "gameplay-screenshots": {de:"Spielscreenshots",en:"Gameplay screenshots"},
     "gameplay-development-note": {de:"Spiel und Grafik werden stetig verbessert.",en:"Gameplay and graphics are continuously being improved."},
+    "gameplay-start-4in1": {de:"Vier Szenen aus Zombiehölle Survival: das Portal der Militärbasis Ost hinter Sandsackstellungen, eine Horde vor Tor Nord, Gestrandete am Lagerfeuer und der Steinbruch Ost",en:"Four scenes from Zombie Hell Survival: the portal at Military Base East behind sandbag positions, a horde outside North Gate, stranded survivors at the campfire and the east quarry"},
     "gameplay-portal-east-night": {de:"Portal der Militärbasis Ost bei Nacht, Zombies auf der Rampe, MG-Nester an den Seiten",en:"The portal at Military Base East at night, zombies on the ramp and machine-gun nests on both sides"},
     "gameplay-market-day": {de:"Handelsplatz der Safezone am Tag mit Ständen und Händlern",en:"The safe-zone marketplace by day with stalls and traders"},
     "gameplay-quarry-east": {de:"Steinbruch Ost mit Bagger, Radlader und Muldenkipper",en:"The east quarry with excavator, wheel loader and dump truck"},
