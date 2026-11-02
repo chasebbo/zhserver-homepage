@@ -121,6 +121,7 @@
         if (last) article.classList.add('forum-post-last');
         const author = textNode('aside', '', 'forum-post-author');
         author.append(api.avatar(post.author, true), authorDetails(post.author));
+        window.ZHForumClan?.attach(author.querySelector('.forum-author-details'), post.author);
         const main = textNode('div', '', 'forum-post-content');
         const meta = textNode('div', '', 'forum-post-meta');
         const time = textNode('time', window.ZHForumChangelog.is(threadData?.topic)?window.ZHForumChangelog.date(threadData.topic):date(post.created_at));
@@ -350,6 +351,7 @@
         if(['admin','member'].includes(p.system_role))heading.dataset.systemRole=p.system_role;
         const labels = api.labels(p);
         $('forum-public-profile-labels').replaceChildren(labels); $('forum-public-profile-labels').hidden=labels.hidden;
+        window.ZHForumClan?.attach($('forum-public-profile-labels').parentElement, p);
         $('forum-public-profile-avatar').replaceChildren(api.avatar(p));
         $('forum-public-profile-bio').textContent=p.bio || lang.t('forum.noBio');
         $('forum-public-profile-since').textContent=lang.t('forum.memberSince',{date:date(p.created_at)});

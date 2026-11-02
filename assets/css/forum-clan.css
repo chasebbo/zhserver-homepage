@@ -1,0 +1,31 @@
+/* Public clan display: line under the author name and the clan page (#clan/TAG). */
+.forum-page .forum-author-clan { display: inline-flex; align-items: baseline; gap: 6px; margin-top: 8px; max-width: 100%; color: #d9bd74; font-size: .72rem; font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+.forum-page .forum-author-clan b { color: #f0d892; font-weight: 700; letter-spacing: .02em; }
+.forum-page .forum-author-clan:hover, .forum-page .forum-author-clan:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+.forum-page .forum-thread-posts .forum-post-author .forum-author-details > .forum-author-clan { display: flex; }
+.forum-page .forum-panel-heading .forum-author-clan { display: flex; font-size: .8rem; }
+
+.forum-page .forum-clan { padding: 22px 26px 26px; }
+.forum-page .forum-clan-head { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.forum-page .forum-clan-tag { display: inline-flex; align-items: center; justify-content: center; min-width: 64px; height: 64px; padding: 0 10px; border: 1px solid rgba(193,159,80,.45);
+  border-radius: 12px; background: rgba(193,159,80,.08); color: #f0d892; font: 700 1.05rem/1 Cinzel, Georgia, serif; letter-spacing: .04em; }
+.forum-page .forum-clan h2 { margin: 2px 0 4px; overflow-wrap: anywhere; }
+.forum-page .forum-clan-founded { color: #9caab3; font-size: .78rem; }
+.forum-page .forum-clan-description { margin: 18px 0; color: #c9d1d4; line-height: 1.7; font-size: .9rem; white-space: pre-line; overflow-wrap: anywhere; }
+.forum-page .forum-clan-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0 0 22px; }
+.forum-page .forum-clan-facts div { padding: 10px 12px; border: 1px solid rgba(181,190,195,.12); border-radius: 9px; background: rgba(5,8,12,.35); }
+.forum-page .forum-clan-facts dt { color: #9caab3; font-size: .7rem; }
+.forum-page .forum-clan-facts dd { margin: 4px 0 0; color: #e3e5dd; font-weight: 600; overflow-wrap: anywhere; }
+.forum-page .forum-clan-table { overflow-x: auto; }
+.forum-page .forum-clan table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.forum-page .forum-clan th { text-align: left; color: #9caab3; font-weight: 500; font-size: .72rem; padding: 0 8px 8px; border-bottom: 1px solid rgba(181,190,195,.14); }
+.forum-page .forum-clan td { padding: 10px 8px; border-bottom: 1px solid rgba(181,190,195,.08); color: #e3e5dd; overflow-wrap: anywhere; }
+.forum-page .forum-clan td.forum-clan-rank { color: #d9bd74; }
+.forum-page .forum-clan td.forum-clan-date { color: #9caab3; white-space: nowrap; }
+.forum-page .forum-clan-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin: 20px 0 0; color: #9caab3; }
+.forum-page .forum-clan-back { color: #e2c778; font-size: .82rem; }
+@media (max-width: 600px) {
+  .forum-page .forum-clan { padding: 18px 16px 20px; }
+  .forum-page .forum-clan-facts { grid-template-columns: minmax(0, 1fr); }
+  .forum-page .forum-clan td, .forum-page .forum-clan th { padding-inline: 4px; }
+}

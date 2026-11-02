@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="../assets/css/forum-changelog.css?v=20261015-changelog2">
 <link rel="stylesheet" href="../assets/css/forum-roles.css?v=20261015-roles1">
     <link rel="stylesheet" href="../assets/css/forum-suggestions.css?v=20261025-suggestion1">
+    <link rel="stylesheet" href="../assets/css/forum-clan.css?v=20261102-v130">
     <link rel="stylesheet" href="../assets/css/community-notices.css?v=20261016-merch3">
 </head>
 <body class="forum-page">
@@ -359,6 +360,17 @@
                         <div class="forum-profile-summary"><div id="forum-public-profile-avatar"></div><div><small id="forum-public-profile-since" data-i18n-ignore></small><p id="forum-public-profile-bio" data-i18n-ignore></p></div></div>
                         <div class="forum-profile-posts"><h3 data-forum-i18n="forum.publicTopics">Öffentliche Themen</h3><ul id="forum-public-profile-topics" class="forum-server-topics"></ul><p id="forum-profile-no-topics" data-forum-i18n="forum.noPublicTopics" hidden>Noch keine öffentlichen Themen.</p><h3 data-forum-i18n="forum.publicPosts">Letzte öffentliche Beiträge</h3><div id="forum-public-profile-posts"></div><p id="forum-profile-no-posts" data-forum-i18n="forum.noPublicPosts" hidden>Noch keine öffentlichen Beiträge.</p></div>
                     </section>
+                    <section class="forum-panel forum-clan" data-forum-view="clan" aria-labelledby="forum-clan-heading" hidden>
+                        <div class="forum-panel-heading"><div class="forum-clan-head"><span id="forum-clan-tag" class="forum-clan-tag" data-i18n-ignore hidden></span><div><span id="forum-clan-eyebrow" class="forum-eyebrow" data-i18n-ignore>Clan</span><h2 id="forum-clan-heading" tabindex="-1" data-i18n-ignore>Clan</h2><small id="forum-clan-founded" class="forum-clan-founded" data-i18n-ignore></small></div></div></div>
+                        <p id="forum-clan-status" class="forum-panel-description" role="status" data-i18n-ignore hidden></p>
+                        <div id="forum-clan-body" hidden>
+                            <p id="forum-clan-description" class="forum-clan-description" data-i18n-ignore></p>
+                            <dl id="forum-clan-facts" class="forum-clan-facts"></dl>
+                            <h3 id="forum-clan-members-heading" data-i18n-ignore>Mitglieder</h3>
+                            <div class="forum-clan-table"><table><thead><tr><th id="forum-clan-head-name" data-i18n-ignore>Name</th><th id="forum-clan-head-rank" data-i18n-ignore>Rang</th><th id="forum-clan-head-joined" data-i18n-ignore>Beigetreten</th></tr></thead><tbody id="forum-clan-members"></tbody></table></div>
+                        </div>
+                        <p class="forum-clan-foot"><small id="forum-clan-hint" data-i18n-ignore>Clans werden im Spiel gegründet und verwaltet.</small> <a id="forum-clan-back" class="forum-clan-back" href="#" data-i18n-ignore>Zurück zum Forum</a></p>
+                    </section>
                 </div>
 
                 <aside class="forum-sidebar" aria-label="Forum-Informationen" data-forum-label="forum.information">
@@ -620,8 +632,9 @@
     <script src="../assets/js/forum-changelog.js?v=20261015-changelog2"></script>
     <script src="../assets/js/forum-suggestions.js?v=20261025-suggestion1"></script>
     <script src="../assets/js/forum-activity.js?v=20261025-suggestion1"></script>
-    <script src="../assets/js/forum-content.js?v=20261027-google1"></script>
-    <script src="../assets/js/forum.js?v=20261027-google1"></script>
+    <script src="../assets/js/forum-clan.js?v=20261102-v130"></script>
+    <script src="../assets/js/forum-content.js?v=20261102-v130"></script>
+    <script src="../assets/js/forum.js?v=20261102-v130"></script>
     <script src="../assets/js/forum-atmosphere.js?v=20261015-release1"></script>
 </body>
 </html>

@@ -95,6 +95,8 @@
         if(editChangelog)return {view:'changelog',id:editChangelog[1],category:'changelog'};
         const publicRoute = /^#(thread|profile)\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i.exec(location.hash);
         if (publicRoute) return { view: publicRoute[1], id: publicRoute[2], category: null };
+        const clanRoute = /^#clan\/([^/?#]{1,40})$/.exec(location.hash);
+        if (clanRoute) { let tag = ''; try { tag = decodeURIComponent(clanRoute[1]); } catch (_) { /* Invalid tag shows not found. */ } return { view: 'clan', id: tag, category: null }; }
         const match = /^#(category|compose|draft|preview)\/([a-z]+)$/.exec(location.hash);
         return match && categories.has(match[2]) ? { view: match[1] === "compose" ? "draft" : match[1], category: match[2] } : { view: "overview", category: null };
     }
@@ -322,9 +324,10 @@
         if (route.view === 'overview') content?.overview();
         if (route.view === 'thread') content?.thread(route.id);
         if (route.view === 'profile') content?.profile(route.id);
+        if (route.view === 'clan') window.ZHForumClan?.page(route.id);
         if (route.view === 'changelog') window.ZHForumChangelog.editor({route:()=>route,title});
         if (focus) {
-            const heading = document.getElementById({ overview: "forum-categories-title", category: "forum-category-title", draft: "forum-draft-heading", auth: "forum-auth-heading", preview: "forum-preview-heading", thread: 'forum-thread-heading', profile: 'forum-public-profile-heading',changelog:'forum-changelog-heading' }[route.view]);
+            const heading = document.getElementById({ overview: "forum-categories-title", category: "forum-category-title", draft: "forum-draft-heading", auth: "forum-auth-heading", preview: "forum-preview-heading", thread: 'forum-thread-heading', profile: 'forum-public-profile-heading',changelog:'forum-changelog-heading', clan: 'forum-clan-heading' }[route.view]);
             heading.focus({ preventScroll: true });
             document.querySelector(".forum-workspace").scrollIntoView({ block: "start", behavior: "instant" });
         }
