@@ -2,7 +2,8 @@
   "id": "/game.html",
   "name": "ZHServer & Zombiehölle",
   "short_name": "Zombiehölle",
-  "start_url": "game.html",
+  "start_url": "/game.html",
+  "scope": "/",
   "icons": [
     {
       "src": "assets/images/android-chrome-192x192.png",

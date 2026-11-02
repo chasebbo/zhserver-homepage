@@ -5,8 +5,8 @@
     if (!box) return;
     const KEY = 'zh_game_home_hint_dismissed_v1';
     const texts = {
-        ios: { de: 'Tipp: Über Teilen und dann „Zum Home-Bildschirm“ läuft das Spiel ohne Browserleiste.',
-            en: 'Tip: Use Share and then “Add to Home Screen” to play without the browser bar.' },
+        ios: { de: 'Tipp: Über Teilen und dann „Zum Home-Bildschirm“ läuft das Spiel ohne Browserleiste. Die App hat einen eigenen Speicher, dort meldest du dich einmal neu an.',
+            en: 'Tip: Use Share and then “Add to Home Screen” to play without the browser bar. The app keeps its own storage, so sign in there once.' },
         other: { de: 'Tipp: Über das Browser-Menü „Zum Startbildschirm hinzufügen“, dann läuft das Spiel ohne Browserleiste.',
             en: 'Tip: Use the browser menu “Add to Home screen” to play without the browser bar.' },
         close: { de: 'Hinweis schließen', en: 'Close tip' }
