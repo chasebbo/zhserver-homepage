@@ -1,6 +1,8 @@
 {
+  "id": "/game.html",
   "name": "ZHServer & Zombiehölle",
-  "short_name": "ZHServer",
+  "short_name": "Zombiehölle",
+  "start_url": "game.html",
   "icons": [
     {
       "src": "assets/images/android-chrome-192x192.png",
@@ -11,6 +13,12 @@
       "src": "assets/images/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "assets/images/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "theme_color": "#0b1017",
