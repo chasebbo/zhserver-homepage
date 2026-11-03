@@ -28,16 +28,17 @@ body.zh-2026 .home-changelog-meta { margin-left: auto; display: inline-flex; gap
 
 /* Lagezentrum */
 .zh-lage-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-.zh-lage-grid > .zh-panel { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.zh-lage-grid > .zh-panel { display: flex; flex-direction: column; justify-content: flex-start; gap: 12px; min-width: 0; }
+/* Lagezentrum: in jeder Kachel Beschriftung, Hauptwort und Zeile darunter auf gleicher Höhe (Sebastian 03.11.2026) */
+.zh-lage-grid :is(.zh-server-meta, .zh-zombie-total [data-zombie-scope], .zh-zombie-total [data-zombie-status], .zh-newest > .zh-muted) { margin: 0; font-size: 14px; line-height: 1.4; color: var(--zh-ink-soft); }
 .zh-server-card { border-color: rgba(110, 195, 90, .35); background: radial-gradient(ellipse 80% 140px at 30% 0, rgba(110, 195, 90, .1), transparent 80%), linear-gradient(145deg, rgba(22, 32, 28, .9), rgba(14, 21, 19, .95)); }
 .zh-server-card .zh-eyebrow { color: #9fd38f; }
 .zh-server-state { display: flex; align-items: center; gap: 14px; }
-.zh-server-state [data-live-server-word] { display: inline-block; font: 700 var(--zh-size-value)/1 var(--zh-head); text-transform: uppercase; letter-spacing: .02em; color: #9be58a; animation: zhGlow 2.4s ease-in-out infinite; }
+.zh-server-state [data-live-server-word] { display: inline-block; font: 700 var(--zh-size-value)/1 var(--zh-head); text-transform: uppercase; letter-spacing: .02em; color: #9be58a; animation: zhGlow 2.6s ease-in-out infinite; }
 .zh-server-state [data-live-server-word]::first-letter { text-transform: uppercase; }
 .zh-server-card[data-state="offline"] { border-color: rgba(232, 96, 74, .4); background: radial-gradient(ellipse 80% 140px at 30% 0, rgba(232, 96, 74, .1), transparent 80%), var(--zh-panel); }
 .zh-server-card[data-state="offline"] [data-live-server-word] { color: #ef7f6a; animation: none; }
 .zh-server-card[data-state="checking"] [data-live-server-word] { color: var(--zh-muted); animation: none; }
-.zh-server-meta { font-size: 14px; color: var(--zh-ink-soft); }
 
 body.zh-2026 .zh-world-card { grid-column: span 2; gap: 16px !important; margin: 0; }
 body.zh-2026 .zh-world-card .zh-world-heading { display: flex; justify-content: space-between; align-items: center; }
@@ -69,10 +70,10 @@ body.zh-2026 .zh-world-card .era-world-link { align-self: flex-start; font-size:
 .zh-wave span:nth-child(2) { animation-delay: .15s; } .zh-wave span:nth-child(3) { animation-delay: .3s; } .zh-wave span:nth-child(4) { animation-delay: .45s; } .zh-wave span:nth-child(5) { animation-delay: .6s; }
 
 /* Neu dabei (community-stats.js) */
-.zh-newest { grid-column: span 2; justify-content: center; border-color: rgba(143, 184, 232, .35) !important; background: radial-gradient(ellipse 60% 120px at 20% 0, rgba(143, 184, 232, .1), transparent 80%), linear-gradient(145deg, rgba(22, 28, 36, .9), rgba(14, 19, 25, .95)) !important; }
+.zh-newest { grid-column: span 2; border-color: rgba(143, 184, 232, .35) !important; background: radial-gradient(ellipse 60% 120px at 20% 0, rgba(143, 184, 232, .1), transparent 80%), linear-gradient(145deg, rgba(22, 28, 36, .9), rgba(14, 19, 25, .95)) !important; }
 .zh-newest .zh-eyebrow { color: var(--zh-blue); }
-.zh-newest-name { align-self: flex-start; font: 700 var(--zh-size-value)/1.1 var(--zh-head); color: #9fc6f5; text-decoration: none; animation: zhBlueGlow 3s ease-in-out infinite; overflow-wrap: anywhere; }
-.zh-newest-link { align-self: flex-start; color: var(--zh-blue); border-bottom-color: rgba(169, 196, 230, .45); }
+.zh-newest-name { align-self: flex-start; font: 700 var(--zh-size-value)/1 var(--zh-head); text-transform: uppercase; letter-spacing: .02em; color: #9fc6f5; text-decoration: none; animation: zhBlueGlow 2.6s ease-in-out infinite; overflow-wrap: anywhere; }
+.zh-newest-link { align-self: flex-start; margin-top: auto; color: var(--zh-blue); border-bottom-color: rgba(169, 196, 230, .45); }
 .zh-newest-name:not([href]), .zh-newest-link:not([href]) { pointer-events: none; }
 .zh-newest-link:not([href]) { display: none; }
 /* Wenn Tore und Funk später eingeschaltet sind, steht "Neu dabei" als Leiste über die ganze Breite */
@@ -336,9 +337,7 @@ body.zh-2026 :is(.zh-gallery-main, .zh-gallery-upload) > .container { max-width:
 .zh-story-hero .zh-h1 { font-size: clamp(34px, 4.4vw, 56px); }
 
 /* Zombies erledigt (ersetzt die Top 5 Zombie-Killer, gleiche Kachelgröße) */
-.zh-zombie-total { justify-content: center; }
-.zh-zombie-since { margin-top: -8px; color: var(--zh-muted); font-size: 12px; }
-.zh-zombie-number { display: block; font: 700 var(--zh-size-value)/1 var(--zh-head); font-variant-numeric: tabular-nums; color: var(--zh-gold-strong); animation: zhGoldGlow 2.6s ease-in-out infinite; overflow-wrap: anywhere; }
+.zh-zombie-number { display: block; font: 700 var(--zh-size-value)/1 var(--zh-head); letter-spacing: .02em; font-variant-numeric: tabular-nums; color: var(--zh-gold-strong); animation: zhGoldGlow 2.6s ease-in-out infinite; overflow-wrap: anywhere; }
 
 /* NEU-Balken: nur der neue Rahmen; der Schimmer liegt im Link, der ihn mit gleichem Radius abschneidet */
 body.zh-2026.home-page.home-chapters .home-changelog-band { border: 0; border-radius: var(--zh-radius); background: none; box-shadow: none; }

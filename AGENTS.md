@@ -171,6 +171,9 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   Überschriften (h3, Abschnitte der Rechtstexte) normal. Fließtext, Knöpfe, Menü und kleine goldene Beschriftungen in Inter.
 - Größenordnung: Startbild-Titel > Abschnittstitel (`--zh-size-section`, PC 40 px, Handy 28 px) > Kachelwerte
   (`--zh-size-value`, 70 % davon: „Online“, Name bei „Neu dabei“, „Zombies erledigt“, Weltlage-Prozente) > Text.
+- Lagezentrum: alle Kacheln gleich aufgebaut und oben ausgerichtet. Beschriftung, Hauptwort (Großbuchstaben, Zeilenhöhe 1)
+  und Zeile darunter (14 px) liegen in jeder Kachel auf derselben Höhe; Leuchten grün, gold und blau gleich stark.
+  Unter „Zombies erledigt“ steht nur „auf dem ganzen Server“ (Sebastian 03.11.2026).
 - Keine Bilderleiste unter den Kapiteln der Startseite (Sebastian 03.11.2026). Bilder stehen im Slider und in der Galerie.
 - Gold wie Vorlage (Sebastian 03.11.2026): überall flach `#d4a84a` mit dunkler Schrift, beim Darüberfahren `#e0b85a`,
   ohne Verlauf und Glanz. Werte in `--zh-gold`, `--zh-gold-strong`, `--zh-gold-hover`; die älteren Variablen `--gold`,

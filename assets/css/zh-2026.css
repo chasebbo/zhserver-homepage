@@ -280,13 +280,14 @@ body.zh-2026 .legal-section h2 { text-transform: none; letter-spacing: 0; }
 /* Atmender Goldrand: nur weicher Glanz nach außen, keine zweite Linie neben dem Rand */
 @keyframes zhFrame { 0%, 100% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 14px rgba(217, 189, 124, .06); } 50% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 26px rgba(217, 189, 124, .2); } }
 @keyframes zhEmber { 0%, 100% { box-shadow: 0 0 8px rgba(224, 154, 72, .5); } 50% { box-shadow: 0 0 16px rgba(224, 154, 72, .95); } }
-@keyframes zhGlow { 0%, 100% { text-shadow: 0 0 6px rgba(120, 220, 100, .3); } 50% { text-shadow: 0 0 18px rgba(120, 220, 100, .85); } }
+/* Grün, Gold und Blau leuchten gleich stark */
+@keyframes zhGlow { 0%, 100% { text-shadow: 0 0 4px rgba(120, 220, 100, .25); } 50% { text-shadow: 0 0 12px rgba(120, 220, 100, .6); } }
 @keyframes zhFlash { 0% { filter: brightness(1.9); text-shadow: 0 0 22px currentColor; } 100% { filter: none; text-shadow: none; } }
 @keyframes zhBlink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
 @keyframes zhWave { 0%, 100% { transform: scaleY(.25); } 50% { transform: scaleY(1); } }
 @keyframes zhRedPulse { 0%, 100% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 0 0 rgba(232, 96, 74, 0); } 50% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 26px 0 rgba(232, 96, 74, .26); } }
-@keyframes zhGoldGlow { 0%, 100% { text-shadow: 0 0 4px rgba(212, 168, 74, .3); } 50% { text-shadow: 0 0 14px rgba(212, 168, 74, .9); } }
-@keyframes zhBlueGlow { 0%, 100% { text-shadow: 0 0 4px rgba(143, 184, 232, .3); } 50% { text-shadow: 0 0 14px rgba(143, 184, 232, .85); } }
+@keyframes zhGoldGlow { 0%, 100% { text-shadow: 0 0 4px rgba(212, 168, 74, .25); } 50% { text-shadow: 0 0 12px rgba(212, 168, 74, .6); } }
+@keyframes zhBlueGlow { 0%, 100% { text-shadow: 0 0 4px rgba(143, 184, 232, .25); } 50% { text-shadow: 0 0 12px rgba(143, 184, 232, .6); } }
 @media (prefers-reduced-motion: reduce) {
     .zh-2026 *, .zh-2026 *::before, .zh-2026 *::after { animation: none !important; transition: none !important; }
     html { scroll-behavior: auto !important; }

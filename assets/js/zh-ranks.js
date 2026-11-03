@@ -87,7 +87,7 @@
         const card = document.querySelector(".zh-zombie-total");
         if (!card || !on("worldZombieTotal")) return;
         const number = card.querySelector("[data-zombie-total]"), status = card.querySelector("[data-zombie-status]");
-        // "auf dem ganzen Server" und "Gezählt seit 31.10.2026." nur zusammen mit der Zahl
+        // "auf dem ganzen Server" nur zusammen mit der Zahl
         const scope = card.querySelectorAll("[data-zombie-scope]");
         try {
             const data = await readWorldTotal();
