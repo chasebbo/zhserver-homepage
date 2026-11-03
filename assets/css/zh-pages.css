@@ -189,6 +189,8 @@ body.zh-2026 .zh-shots .screenshot-development-note { font-size: 13px; color: va
 /* Bestehende Archiv-Abschnitte im neuen Kachelstil */
 .zh-archive-page .zh-archive > .section { position: relative; background: transparent; }
 .zh-archive-page .zh-archive > .section:nth-of-type(odd) { background: radial-gradient(ellipse at 18% 0, rgba(195, 164, 103, .06), transparent 58%), linear-gradient(180deg, #141a1e, #0e1418); }
+/* Wie im Entwurf: oben liegt das Hintergrundbild der Seite frei */
+.zh-archive-page .zh-archive > .section:first-of-type { background: transparent; }
 .zh-archive-page .zh-archive > .section::before { content: ""; position: absolute; top: 0; left: 50%; width: min(1000px, 92%); height: 1px; transform: translateX(-50%); background: linear-gradient(90deg, transparent, rgba(195, 164, 103, .25) 25%, rgba(195, 164, 103, .25) 75%, transparent); }
 .zh-archive-page .event-image, .zh-archive-page .event-gallery img, .zh-archive-page .video-card, .zh-archive-page .timeline-item, .zh-archive-page .guestbook-form, .zh-archive-page .guestbook-card, .zh-archive-page .gratitude-section .container > *:first-child {
     border-radius: 12px;
@@ -253,6 +255,7 @@ body.zh-archive-page #tdm-event .container > .event-text { grid-column: 1 / -1; 
 }
 
 /* ---------- Galerie ---------- */
+body.zh-2026.gallery-page .zh-gallery { background: none; }
 body.zh-2026.gallery-page:not(.wiki-page) .zh-gallery-hero { padding: 200px 0 26px; background: none; border: 0; text-align: center; }
 body.zh-2026.gallery-page:not(.wiki-page) .zh-gallery-hero::before, body.zh-2026.gallery-page:not(.wiki-page) .zh-gallery-hero::after { display: none; }
 body.zh-2026 .zh-gallery-hero-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; }

@@ -3942,13 +3942,14 @@ grid-template-columns:1fr;
     position: relative;
     padding: clamp(64px, 8vw, 108px) 0;
 }
-.section:nth-of-type(even) {
+/* Umbau-Seiten (zh-2026) setzen ihre Abschnittsflächen selbst, ohne !important */
+body:not(.zh-2026) .section:nth-of-type(even) {
     background: linear-gradient(180deg, #0a0d13 0%, #121720 100%) !important;
 }
-.section:nth-of-type(odd) {
+body:not(.zh-2026) .section:nth-of-type(odd) {
     background: linear-gradient(180deg, #121720 0%, #0a0d13 100%) !important;
 }
-.section.dark {
+body:not(.zh-2026) .section.dark {
     background: linear-gradient(180deg, #07090d 0%, #0d121a 100%) !important;
 }
 
