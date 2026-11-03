@@ -30,10 +30,10 @@ Persistence-Lösung auf der Homepage.
 Öffentlich liegen höchstens drei Builds: die Hauptversion v130-2, ihr
 Vorgänger v130-1 als Rückweg und v129 als Rückfall zum Server v129
 (`game-test-v129.html`). Bis zum Release von v131 liegen zusätzlich die
-Testkandidaten v131 und v131-2; `game-test-v130.html` lädt v131-2 (Freigabe
-Sebastian 02.11.2026).
+Testkandidaten v131-2 und v131-3; `game-test-v130.html` lädt v131-3 (Auftrag
+vom 03.11.2026).
 Jede Spielversion hat eigene Dateinamen; vorhandene Dateien werden nie
-überschrieben. Ältere Builds (zuletzt v130) sind außerhalb des Repositorys
+überschrieben. Ältere Builds (zuletzt v131) sind außerhalb des Repositorys
 archiviert.
 
 Prüfstand und Freigabegrenzen: `../docs/GAME_ENTRY_CHECKPOINT.md`.

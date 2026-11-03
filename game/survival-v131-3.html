@@ -90,8 +90,8 @@ body {
 	z-index: 1;
 }
 		</style>
-		<link id="-gd-engine-icon" rel="icon" type="image/png" href="survival-v131.icon.png" />
-<link rel="apple-touch-icon" href="survival-v131.apple-touch-icon.png"/>
+		<link id="-gd-engine-icon" rel="icon" type="image/png" href="survival-v131-3.icon.png" />
+<link rel="apple-touch-icon" href="survival-v131-3.apple-touch-icon.png"/>
 <script>(function(){function m(e){if(e.button===1){e.preventDefault();}}document.addEventListener('mousedown',m,true);document.addEventListener('auxclick',m,true);})();</script><script>(function(){try{var r=window.devicePixelRatio||1;if(r>2&&window.matchMedia&&matchMedia('(pointer:coarse)').matches){Object.defineProperty(window,'devicePixelRatio',{configurable:true,get:function(){return 2;}});}}catch(e){}})();</script><script>(function(){var g=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(t,a){if(t==='webgl2'||t==='webgl'){a=Object.assign({},a);if(!a.powerPreference||a.powerPreference==='default'){a.powerPreference='high-performance';}}return g.call(this,t,a);};})();</script><script>(function(){var W='Dein Browser oder Gerät unterstützt die nötige 3D-Grafik (WebGL 2) nicht. Bitte nutze einen aktuellen Chrome, Edge, Firefox oder Safari. Auf Fire-Tablets hilft oft Chrome statt Silk.',M='Zu wenig Arbeitsspeicher. Schließe andere Apps und Tabs und lade neu.';function de(s){if(/WebGL/i.test(s))return W;if(/memory|OOM|alloc/i.test(s))return M;return '';}function fix(n){var t=de(n.textContent||'');if(t&&n.textContent!==t){n.textContent=t;}}function watch(){var n=document.getElementById('status-notice');if(!n)return;fix(n);new MutationObserver(function(){fix(n);}).observe(n,{childList:true,characterData:true,subtree:true});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',watch);}else{watch();}})();</script><script>(function(){try{var P=WebGL2RenderingContext.prototype,S=new WeakSet(),cur=null,stop=/[?&]grundfassung=1/.test(location.search),fehl=false;try{stop=stop||localStorage.getItem('zh_grundfassung_aus')==='1';}catch(e){}function grund(g,p){var a=g.getAttachedShaders(p)||[];for(var i=0;i<a.length;i++){if(g.getShaderParameter(a[i],g.SHADER_TYPE)!==g.FRAGMENT_SHADER)continue;var c=g.getShaderSource(a[i])||'';return c.indexOf('#define MAX_FORWARD_LIGHTS')>=0&&c.indexOf('#define DISABLE_LIGHTMAP')<0&&c.indexOf('#define USE_LIGHTMAP')<0;}return false;}var L=P.linkProgram;P.linkProgram=function(p){if(!stop&&!fehl&&grund(this,p)){S.add(p);return;}return L.call(this,p);};var G=P.getProgramParameter;P.getProgramParameter=function(p,n){if(S.has(p))return n===this.LINK_STATUS?true:(n===this.ATTACHED_SHADERS?2:0);return G.call(this,p,n);};var I=P.getProgramInfoLog;P.getProgramInfoLog=function(p){return S.has(p)?'':I.call(this,p);};var U=P.useProgram;P.useProgram=function(p){if(p&&S.has(p)){cur=p;return;}cur=null;return U.call(this,p);};var O=P.getUniformLocation;P.getUniformLocation=function(p,n){return S.has(p)?null:O.call(this,p,n);};var B=P.getUniformBlockIndex;P.getUniformBlockIndex=function(p,n){return S.has(p)?this.INVALID_INDEX:B.call(this,p,n);};var K=P.uniformBlockBinding;P.uniformBlockBinding=function(p,i,b){if(!S.has(p))return K.call(this,p,i,b);};var A=P.getActiveUniform;P.getActiveUniform=function(p,i){return S.has(p)?null:A.call(this,p,i);};Object.getOwnPropertyNames(P).forEach(function(k){if(/^uniform([0-9]|Matrix)/.test(k)){var f=P[k];P[k]=function(){if(cur)return;return f.apply(this,arguments);};}else if(/^draw(Arrays|Elements|RangeElements)/.test(k)){var d=P[k];P[k]=function(){if(cur){if(!fehl){fehl=true;console.error('[GRUNDFASSUNG] uebersprungenes Programm gezeichnet, Seite wird ohne Ueberspringen neu geladen');try{localStorage.setItem('zh_grundfassung_aus','1');}catch(e){}setTimeout(function(){var h=location.href.split('#')[0];location.replace(h+(h.indexOf('?')<0?'?':'&')+'grundfassung=1');},0);}return;}return d.apply(this,arguments);};}});}catch(e){}})();</script>
 	</head>
 	<body>
@@ -104,15 +104,15 @@ body {
 		</noscript>
 
 		<div id="status">
-			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="survival-v131.png" alt="">
+			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="survival-v131-3.png" alt="">
 			<progress id="status-progress"></progress>
 			<div id="status-notice"></div>
 		</div>
 
-		<script src="survival-v131.pack-loader.js"></script>
-		<script src="survival-v131.js"></script>
+		<script src="survival-v131-3.pack-loader.js"></script>
+		<script src="survival-v131-3.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"survival-v131","experimentalVK":true,"fileSizes":{"survival-v131.pck":84234908,"survival-v131.wasm":39513091},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"survival-v131-3","experimentalVK":true,"fileSizes":{"survival-v131-3.pck":84254272,"survival-v131-3.wasm":39513091},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
