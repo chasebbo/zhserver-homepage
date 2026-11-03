@@ -18,13 +18,13 @@
         <link rel="stylesheet" href="assets/css/style.css?v=20261103-umbau10">
         <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en">
         <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
-        <script src="assets/js/translations.js?v=20261103-umbau12">
+        <script src="assets/js/translations.js?v=20261103-umbau13">
         </script>
         <script src="assets/js/i18n.js?v=20261103-umbau10">
         </script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="stylesheet" href="assets/vendor/fontawesome-6.7.2/css/all.min.css">
         <link rel="stylesheet" href="assets/css/game-stage.css?v=20261021-stage2">
-        <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261103-umbau12">
+        <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261103-umbau13">
         <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261103-umbau12">
     </head>
     <body class="game-entry-page zh-2026 zh-play-page" data-game-stage>
@@ -49,8 +49,7 @@
                         <li><a href="game.html" class="nav-game-link" aria-current="page">Spiel</a></li>
                         <li><a href="forum/" data-forum-route>Forum</a></li>
                         <li><a href="gallery.html">Galerie</a></li>
-                        <li data-zh-until="v131"><a href="archiv.html#history">Geschichte</a></li>
-                        <li data-zh-release="v131"><a data-zh-href="geschichte.html">Geschichte</a></li>
+                        <li><a href="geschichte.html">Geschichte</a></li>
                         <li><a href="archiv.html#timeline">Timeline</a></li>
                         <li><a href="archiv.html#guestbook">Gästebuch</a></li>
                         <li><a href="wiki.html">Wiki</a></li>
@@ -109,7 +108,8 @@
         </div>
             </section>
             <section class="zh-play-head">
-                <p class="zh-copy zh-play-load">Der Start dauert am PC etwa eine Minute, auf Handys länger. Lass den Tab dabei offen.</p>
+                <p class="zh-copy zh-play-load" data-zh-until="v131">Der erste Start kann ein paar Minuten dauern, danach geht es schneller. Lass den Tab dabei offen.</p>
+                <p class="zh-copy zh-play-load" data-zh-release="v131">Der Start dauert am PC etwa eine Minute, auf Handys länger. Lass den Tab dabei offen.</p>
                 <div class="zh-play-pills">
                     <span class="zh-pill zh-pill-green" data-live-server data-state="checking"><span class="zh-dot" aria-hidden="true"></span><span data-live-server-text data-i18n-ignore>Server wird geprüft</span></span>
                     <span class="zh-pill zh-pill-gold" data-live-release data-i18n-ignore hidden></span>
@@ -191,6 +191,8 @@
                     <p>
                         Seit 2013
                     </p>
+
+                    <p class="zh-footer-history"><a href="archiv.html#history">Community-Geschichte</a></p>
                     <p class="footer-visitor">
                         <span id="total-visitors">0</span> Besucher insgesamt</p>
                 </div>
@@ -234,7 +236,7 @@
         <script src="assets/js/visitor-counter.js?v=20261103-umbau10">
         </script>
         <script src="assets/js/radio.js?v=20261103-umbau2"></script>
-        <script src="assets/js/zh-ui.js?v=20261103-umbau7"></script>
+        <script src="assets/js/zh-ui.js?v=20261103-umbau8"></script>
         <script src="assets/js/zh-live.js?v=20261103-umbau3"></script>
     </body>
 </html>

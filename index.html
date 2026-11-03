@@ -30,23 +30,24 @@
     <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
     <link rel="stylesheet" href="assets/css/community-stats.css?v=20261103-umbau10">
     <link rel="stylesheet" href="assets/css/identity.css?v=20261027-google1">
-    <script src="assets/js/translations.js?v=20261103-umbau12"></script>
+    <script src="assets/js/translations.js?v=20261103-umbau13"></script>
     <link rel="stylesheet" href="assets/css/community-pulse.css?v=20261103-umbau10">
     <link rel="stylesheet" href="assets/css/homepage-chapters.css?v=20261025-band1">
     <link rel="stylesheet" href="assets/css/home-community.css?v=20261025-band1">
     <script src="assets/js/i18n.js?v=20261103-umbau10"></script>
     <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+      href="assets/vendor/fontawesome-6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261103-umbau12">
+    <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261103-umbau13">
     <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261103-umbau12">
     <script>
         // Abschnitte der früheren Startseite liegen jetzt im Archiv: alte Links und Anker weiterleiten.
         (function () {
-            var moved = /^(history|adminbase|halloffame|axe-event|convoy-event|helicopter-event|rallye-event|hungergames-event|tdm-event|creator-event|safezone-event|exile-maps|timeline|guestbook|forum|support-title|guestbook-.*)$/;
+            var moved = /^(history|adminbase|halloffame|axe-event|convoy-event|helicopter-event|rallye-event|hungergames-event|tdm-event|creator-event|safezone-event|exile-maps|timeline|guestbook|forum|guestbook-.*)$/;
             var id = decodeURIComponent(location.hash.slice(1));
             // Galerie-Hinweis und Archiv-Links stehen jetzt auf der Galerie-Seite
             if (/^(gallery|archive)$/.test(id)) location.replace("gallery.html");
+            else if (id === "support-title") location.replace("#support");
             else if (moved.test(id)) location.replace("archiv.html" + location.search + location.hash);
         })();
     </script>
@@ -75,8 +76,7 @@
                 <li><a href="game.html" class="nav-game-link">Spiel</a></li>
                 <li><a href="forum/" data-forum-route>Forum</a></li>
                 <li><a href="gallery.html">Galerie</a></li>
-                <li data-zh-until="v131"><a href="archiv.html#history">Geschichte</a></li>
-                <li data-zh-release="v131"><a data-zh-href="geschichte.html">Geschichte</a></li>
+                <li><a href="geschichte.html">Geschichte</a></li>
                 <li><a href="archiv.html#timeline">Timeline</a></li>
                 <li><a href="archiv.html#guestbook">Gästebuch</a></li>
                 <li><a href="wiki.html">Wiki</a></li>
@@ -375,6 +375,8 @@
                 Seit 2013
             </p>
 
+            <p class="zh-footer-history"><a href="archiv.html#history">Community-Geschichte</a></p>
+
             <p class="footer-visitor"><span id="total-visitors">0</span> Besucher insgesamt</p>
 
         </div>
@@ -450,7 +452,7 @@
 <script src="assets/js/home-forum-teaser.js?v=20261019-forum1"></script>
 <script src="assets/js/home-changelog-band.js?v=20261103-umbau2"></script>
 
-<script src="assets/js/zh-ui.js?v=20261103-umbau7"></script>
+<script src="assets/js/zh-ui.js?v=20261103-umbau8"></script>
 <script src="assets/js/zh-ranks.js?v=20261103-umbau11"></script>
 <script src="assets/js/zh-live.js?v=20261103-umbau3"></script>
 <script src="assets/js/zh-hero.js?v=20261103-umbau2"></script>

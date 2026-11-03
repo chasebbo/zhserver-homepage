@@ -148,13 +148,15 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Vorlage: `C:\ZHServer-Temp\homepage-entwurf-20261103\`. Gemeinsame Gestaltung in
   `assets/css/zh-2026.css` (nur unter `body.zh-2026`), Seiten in `assets/css/zh-pages.css`.
 - Schriften liegen selbst gehostet in `assets/fonts` (`assets/css/fonts.css`). Keine
-  Google-Fonts-Anfragen auf Homepage-Seiten. `game.html` und die Testseiten laden sie noch.
+  Google-Fonts-Anfragen auf Homepage-Seiten, auch `game.html` lädt keine mehr; nur die Testseiten laden sie noch.
+  Font Awesome Free 6.7.2 liegt selbst gehostet in `assets/vendor/fontawesome-6.7.2` (Lizenz dort), kein cdnjs mehr
+  auf den umgebauten Seiten.
 - Startseite `index.html` neu, die Community-Geschichte liegt in `archiv.html`. Alte
   Anker der Startseite (`#history`, `#timeline`, `#guestbook`, Events) leiten auf das Archiv um.
 - Vorbereitete Teile schaltet `assets/js/zh-ui.js` ein (`FEATURES`, `RELEASES`), nicht im HTML.
   Erst einschalten, wenn es echte Daten gibt bzw. die Version live ist: Tore der Safezone
-  (v132), Funk-Countdown, Ping und Laufzeit, Video im Startbild, Seite `geschichte.html` und
-  Ladetext (v131). Die Weltlage (`worldStatus`) ist an (Sebastian 03.11.2026): Kachel auf Startseite und `game.html`,
+  (v132), Funk-Countdown, Ping und Laufzeit, Video im Startbild, Ladetext und Startseiten-Abschnitt
+  TIEFENLICHT (v131). Die Weltlage (`worldStatus`) ist an (Sebastian 03.11.2026): Kachel auf Startseite und `game.html`,
   Seite `weltlage.html` mit den 12 Orten, alles in `assets/js/zh-live.js` aus `get_world_status` (v132). Antwortform nach
   `HOMEPAGE-UEBERGABE-WELTLAGE.md`, anpassen nur in `parseWorld()`. Alle 60 Sekunden neu, höchstens 60 Sekunden
   zwischengespeichert, Aufleuchten nur bei echter Änderung. Bei `online: false`, Fehler oder fehlender Antwort
@@ -162,7 +164,11 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   (`zh-wl-*`), damit die alten Konzept-Stile in `game-alpha-panels.css` nicht hineinwirken.
   `world-status.js` erzeugt nur Konzeptwerte und gehört nicht in den Umbau.
   Sebastian 03.11.2026: Der Umbau geht erst online, wenn die echte Weltlage drin ist.
-  Links auf `geschichte.html` bekommen ihr Ziel erst mit `RELEASES.v131`.
+  Seite `geschichte.html` ist online (Sebastian 03.11.2026), „Geschichte“ im Menü führt dorthin. Inhalt nur der
+  freigegebene Text G7 (DE und EN wörtlich aus `VORSCHLAG-GESCHICHTE-V131.md`, Abschnitt 4) und die Zeitleiste
+  Tromsø 2031 bis Heute; „Heute“ endet mit den offenen Fragen aus G7. Keine weiteren Sätze, nichts über Dinge, die es im
+  Spiel noch nicht gibt, kein „kommt bald“. Die Community-Geschichte seit 2013 bleibt in `archiv.html#history`,
+  erreichbar über den Fußlink „Community-Geschichte“ auf allen umgebauten Seiten.
 - Keine Anzeige der Spieler online auf der Homepage (Sebastian 03.11.2026), auch nicht versteckt
   vorbereitet.
 - Funkgerät steht in `assets/js/radio.js` (früher in `main.js`) und auf jeder Homepage-Seite.
@@ -185,12 +191,13 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Menüsymbol am Handy: zu „☰“, offen „✕“, `aria-label` Navigation öffnen bzw. schließen. Gesetzt zentral in
   `updateControls()` in `assets/js/i18n.js`; Escape schließt das Menü auf allen Seiten.
 - Ohne Gastzugang (Spiel ab v132): kein Gast-Knopf und kein Gastweg in `game-entry.js`, Willkommensfenster ohne
-  „Als Gast weitermachen“. Lesen im Forum und das Gästebuch bleiben ohne Account. Nutzungsbedingungen ohne Abschnitt
-  Gastmodus (Sebastian 03.11.2026), die Fassung bleibt `2026-10-08`, bis Sebastian über ein neues Datum entschieden hat.
+  „Als Gast weitermachen“. Lesen im Forum und das Gästebuch bleiben ohne Account. Der Abschnitt „5. Gastmodus“ der
+  Nutzungsbedingungen bleibt unverändert stehen, solange das Spiel einen Gastzugang hat (bis v132, Sebastian 03.11.2026);
+  die Fassung bleibt `2026-10-08`, bis Sebastian über ein neues Datum entschieden hat.
 - `game.html` im Umbau nach `spielen.html`: lädt die alten Spielseiten-Stile nicht mehr, nur `game-stage.css`.
   Bedienelemente und `data-src` unverändert (Release-Änderungen von main beim Neuaufsetzen übernehmen).
-  Geht erst mit dem Umbau online, wenn v131 (Ladehinweis) und die Spielversion ohne Gastzugang live sind;
-  vorher online mit ZH-Testbot den Start über die neue Seite prüfen.
+  Ladehinweis bis v131 für Client v130-2: „Der erste Start kann ein paar Minuten dauern, danach geht es schneller.“
+  (`data-zh-until="v131"`), der Satz „etwa eine Minute“ erst mit `RELEASES.v131`.
 - Ränge und Zombie-Zähler (Sebastian 03.11.2026) in `assets/js/zh-ranks.js`. `worldZombieTotal` ist an: die Kachel
   „Zombies erledigt“ ersetzt auf der Startseite die Top 5 Zombie-Killer (die Top 5 samt `get_top_zombie_killers` sind im
   Umbau entfernt) und zeigt „derzeit nicht verfügbar“, bis `get_world_zombie_total` antwortet. Antwort nach

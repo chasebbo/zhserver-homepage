@@ -17,7 +17,7 @@
         playerRanks: false  // Rang-Abzeichen im Forum, braucht get_player_ranks und die Abzeichen
     };
     const RELEASES = {
-        v131: false         // Seite "Geschichte" (Projekt TIEFENLICHT) und der neue Ladetext
+        v131: false         // Ladetext "etwa eine Minute" und der Abschnitt TIEFENLICHT auf der Startseite
     };
 
     function applySwitches(root = document) {
