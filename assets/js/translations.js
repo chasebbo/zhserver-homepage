@@ -4615,8 +4615,7 @@ Object.assign(window.ZHTranslations.messages, {
   "ranks.unavailable": {de:"derzeit nicht verfügbar",en:"currently unavailable"},
   "ranks.level": {de:"Level {level}",en:"Level {level}"},
   "ranks.xpToNext": {de:"{xp} von {next} EP bis {rank}",en:"{xp} of {next} XP to {rank}"},
-  "ranks.xpMax": {de:"{xp} EP, höchster Rang",en:"{xp} XP, highest rank"},
-  "zombies.week": {de:"davon diese Woche {count}",en:"{count} of them this week"}
+  "ranks.xpMax": {de:"{xp} EP, höchster Rang",en:"{xp} XP, highest rank"}
 });
 Object.assign(window.ZHTranslations.copy, {
   "umbau-alpha-play-now": {de:"Alpha · sofort spielbar, ohne Download",en:"Alpha · play now, no download"}

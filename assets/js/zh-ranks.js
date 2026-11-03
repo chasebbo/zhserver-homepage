@@ -37,10 +37,18 @@
     const row = data => Array.isArray(data) ? data[0] : data;
 
     // ---------- vorläufige Antwortformen, nach der Übergabe anpassen ----------
-    // Zombies erledigt: Form nach HOMEPAGE-UEBERGABE-ZOMBIEZAEHLER.md (Opus 3, noch nicht geliefert)
+    // Zombies erledigt nach HOMEPAGE-UEBERGABE-ZOMBIEZAEHLER.md: Antwort {"total": n}. Eine Wochenzahl gibt es nicht.
+    // Etwa 5 Minuten zwischengespeichert; eine ältere Zahl wird nie gezeigt, auch nicht bei einem Fehler.
+    const totalKey = "zh_world_zombie_total_v1", totalMaxAge = 5 * 60 * 1000;
     async function readWorldTotal() {
+        try {
+            const saved = JSON.parse(localStorage.getItem(totalKey) || "null");
+            if (saved && Date.now() - saved.at >= 0 && Date.now() - saved.at < totalMaxAge && int(saved.total) !== null) return { total: saved.total };
+        } catch (_) { /* ohne Speicher direkt fragen */ }
         const r = row(await call("get_world_zombie_total", {}));
-        return { total: int(r?.total ?? r?.zombies_total), week: int(r?.week ?? r?.zombies_week) };
+        const total = int(r?.total);
+        if (total !== null) try { localStorage.setItem(totalKey, JSON.stringify({ total, at: Date.now() })); } catch (_) { /* nur Zwischenspeicher */ }
+        return { total };
     }
     async function readPlayerStats(userId) {
         const r = row(await call("get_public_player_stats", { p_user_id: userId }));
@@ -78,7 +86,7 @@
     async function worldTotal() {
         const card = document.querySelector(".zh-zombie-total");
         if (!card || !on("worldZombieTotal")) return;
-        const number = card.querySelector("[data-zombie-total]"), week = card.querySelector("[data-zombie-week]"), status = card.querySelector("[data-zombie-status]");
+        const number = card.querySelector("[data-zombie-total]"), status = card.querySelector("[data-zombie-status]");
         const scope = card.querySelector("[data-zombie-scope]");
         try {
             const data = await readWorldTotal();
@@ -86,13 +94,10 @@
             status.hidden = true;
             scope.hidden = false;
             whenVisible(card, () => countTo(number, data.total));
-            week.hidden = data.week === null;
-            if (data.week !== null) week.textContent = lang.t("zombies.week", { count: data.week.toLocaleString(lang.locale) });
         } catch (_) {
             number.textContent = "";
             delete number.dataset.value;
             scope.hidden = true;
-            week.hidden = true;
             status.hidden = false;
             status.textContent = lang.t("ranks.unavailable");
         }
