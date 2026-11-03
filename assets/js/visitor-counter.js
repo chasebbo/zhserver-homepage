@@ -267,7 +267,7 @@
             !document.querySelector('link[href*="community-stats.css"]')) {
             const stylesheet = document.createElement("link");
             stylesheet.rel = "stylesheet";
-            stylesheet.href = new URL("../css/community-stats.css?v=20261102-newest2", counterScriptUrl).href;
+            stylesheet.href = new URL("../css/community-stats.css?v=20261103-umbau10", counterScriptUrl).href;
             document.head.append(stylesheet);
         }
         if (!window.ZHFooterStatus) await load("footer-status.js");

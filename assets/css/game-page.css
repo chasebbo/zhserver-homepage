@@ -27,7 +27,7 @@ body.game-product-page {
     margin: 12px 0 24px;
     max-width: 30ch;
     color: #f1eee5;
-    font: 700 clamp(1.8rem, 3vw, 2.6rem)/1.25 Cinzel, serif;
+    font: 700 clamp(1.8rem, 3vw, 2.6rem)/1.25 'Barlow Condensed', sans-serif;
     text-wrap: balance;
 }
 
@@ -246,7 +246,7 @@ body.game-product-page {
 }
 
 .game-product-page .game-origin-story h3 {
-    font: 700 clamp(1.2rem, 2vw, 1.5rem)/1.45 Cinzel, serif;
+    font: 700 clamp(1.2rem, 2vw, 1.5rem)/1.45 'Barlow Condensed', sans-serif;
     margin: 14px 0 20px;
     color: #f1eee5;
     text-wrap: balance;

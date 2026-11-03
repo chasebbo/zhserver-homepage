@@ -8,7 +8,7 @@
 .forum-page .forum-clan { padding: 22px 26px 26px; }
 .forum-page .forum-clan-head { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .forum-page .forum-clan-tag { display: inline-flex; align-items: center; justify-content: center; min-width: 64px; height: 64px; padding: 0 10px; border: 1px solid rgba(193,159,80,.45);
-  border-radius: 12px; background: rgba(193,159,80,.08); color: #f0d892; font: 700 1.05rem/1 Cinzel, Georgia, serif; letter-spacing: .04em; }
+  border-radius: 12px; background: rgba(193,159,80,.08); color: #f0d892; font: 700 1.05rem/1 'Barlow Condensed', sans-serif; letter-spacing: .04em; }
 .forum-page .forum-clan h2 { margin: 2px 0 4px; overflow-wrap: anywhere; }
 .forum-page .forum-clan-founded { color: #9caab3; font-size: .78rem; }
 .forum-page .forum-clan-description { margin: 18px 0; color: #c9d1d4; line-height: 1.7; font-size: .9rem; white-space: pre-line; overflow-wrap: anywhere; }

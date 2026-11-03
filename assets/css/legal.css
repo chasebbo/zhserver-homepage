@@ -2,7 +2,7 @@
 .legal-main { max-width: 960px; margin: 0 auto; padding: 204px 28px 80px; min-height: 65vh; }
 .legal-intro { max-width: 760px; margin-bottom: 36px; }
 .legal-eyebrow { display: block; margin-bottom: 13px; color: #ccb576; font-size: .68rem; font-weight: 600; letter-spacing: 2px; }
-.legal-main h1 { margin: 0 0 17px; color: #ecebe4; font-family: 'Cinzel', serif; font-size: clamp(1.7rem, 3vw, 2.55rem); line-height: 1.3; overflow-wrap: anywhere; }
+.legal-main h1 { margin: 0 0 17px; color: #ecebe4; font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.7rem, 3vw, 2.55rem); line-height: 1.3; overflow-wrap: anywhere; }
 .legal-intro p { color: #abb8c6; font-size: .9rem; line-height: 1.8; }
 .legal-version { display: block; margin-top: 15px; color: #b5a26e; font-size: .74rem; }
 .legal-document { max-width: 760px; }

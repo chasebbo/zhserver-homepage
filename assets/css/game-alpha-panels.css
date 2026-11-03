@@ -41,7 +41,7 @@
     padding-bottom: 13px;
     border-bottom: 1px solid #b895483d;
     color: #e4d7b4;
-    font: 700 1.05rem/1.35 Cinzel, serif;
+    font: 700 1.05rem/1.35 'Barlow Condensed', sans-serif;
     letter-spacing: .035em;
 }
 .game-entry-page .landing-alpha-card .landing-roadmap-list > div:last-child {

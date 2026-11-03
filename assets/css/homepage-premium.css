@@ -52,7 +52,7 @@ body.home-page > .section::before {
     pointer-events: none;
 }
 
-/* Keep Cinzel and Inter, with a quieter scale and readable line lengths. */
+/* Keep Barlow Condensed and Inter, with a quieter scale and readable line lengths. */
 .home-page .section h2 {
     font-size: clamp(1.8rem, 3.2vw, 2.65rem);
     line-height: 1.22;

@@ -52,7 +52,7 @@ body{
     padding:10px 24px;
 }
 .logo{
-    font-family:"Cinzel",serif;
+    font-family:'Barlow Condensed', sans-serif;
     color:#fff;
     text-decoration:none;
     letter-spacing:1px;
@@ -189,7 +189,7 @@ body{
 }
 
 .hero h1{
-    font-family:"Cinzel",serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:clamp(2.4rem,5.5vw,4.4rem);
     line-height:1.1;
     margin-bottom:24px;
@@ -354,7 +354,7 @@ body{
 }
 
 .section h2{
-    font-family:"Cinzel",serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:clamp(2rem,4vw,3.2rem);
     margin:14px 0 36px;
 }
@@ -434,7 +434,7 @@ body{
 .site-footer .footer h3{
     margin:0 0 8px;
     color:#fff;
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:1.1rem;
     letter-spacing:.05em;
 }
@@ -719,7 +719,7 @@ grid-template-columns:1fr;
 
 .adminbase-content h3{
 
-    font-family:Cinzel, serif;
+    font-family:'Barlow Condensed', sans-serif;
 
     font-size:32px;
 
@@ -793,7 +793,7 @@ grid-template-columns:1fr;
 
     text-align:right;
 
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
 
     font-size:42px;
 
@@ -839,7 +839,7 @@ grid-template-columns:1fr;
 
     margin-bottom:15px;
 
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
 
 }
 
@@ -999,7 +999,7 @@ font-size:13px;
 .gallery-info h3,
 .gallery-placeholder h3{
 
-font-family:Cinzel,serif;
+font-family:'Barlow Condensed', sans-serif;
 
 margin:15px 0;
 
@@ -1138,7 +1138,7 @@ grid-template-columns:1fr;
 
 .event-text h3{
 
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
 
     font-size:32px;
 
@@ -1314,7 +1314,7 @@ grid-template-columns:1fr;
 
 .event-text h3{
 
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
 
     font-size:32px;
 
@@ -1433,7 +1433,7 @@ grid-template-columns:1fr;
 
 .video-content h3{
 
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
 
     font-size:32px;
 
@@ -1550,7 +1550,7 @@ grid-template-columns:1fr;
 
 .map-content h3{
 
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
 
     font-size:32px;
 
@@ -1705,7 +1705,7 @@ grid-template-columns:1fr;
 
 .shop-text h3 {
 
-    font-family:"Cinzel",serif;
+    font-family:'Barlow Condensed', sans-serif;
 
     font-size:32px;
 
@@ -2022,7 +2022,7 @@ grid-template-columns:1fr;
 
 .stat-card h2{
     margin:0;
-    font-family:"Cinzel", serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:3.5rem;
     color:var(--gold);
 }
@@ -2267,7 +2267,7 @@ grid-template-columns:1fr;
 
 .game-page-title{
     margin:18px 0;
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:clamp(2rem, 5vw, 3.5rem);
 }
 
@@ -2347,7 +2347,7 @@ grid-template-columns:1fr;
 .game-placeholder h3{
     margin:0 0 12px;
     color:#fff;
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
 }
 
 .game-placeholder p{
@@ -2382,7 +2382,7 @@ grid-template-columns:1fr;
 .support-box h2{
     margin:0 0 7px;
     color:#fff;
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:1.1rem;
 }
 
@@ -2432,7 +2432,7 @@ grid-template-columns:1fr;
 
 .forum-copy h2{
     margin:0 0 8px;
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:1.35rem;
 }
 
@@ -2492,13 +2492,13 @@ grid-template-columns:1fr;
 }
 
 .leaderboard-heading .section-title{display:block;margin-bottom:7px;}
-.leaderboard-heading h2{margin:0;font-family:Cinzel,serif;font-size:1.45rem;color:#f2e6bd;}
+.leaderboard-heading h2{margin:0;font-family:'Barlow Condensed', sans-serif;font-size:1.45rem;color:#f2e6bd;}
 .leaderboard-heading h2 i{margin-right:9px;color:var(--gold);}
 .leaderboard-updated{font-size:.78rem;color:#9aa9a0;white-space:nowrap;}
 .leaderboard-list{display:grid;gap:7px;margin-top:18px;}
 .leaderboard-row{display:grid;grid-template-columns:48px minmax(0,1fr) auto;align-items:center;gap:14px;min-height:47px;padding:0 16px;border:1px solid rgba(255,255,255,.06);border-radius:7px;background:rgba(255,255,255,.025);}
 .leaderboard-row:hover{background:rgba(212,175,55,.075);}
-.leaderboard-place{font-family:Cinzel,serif;font-weight:700;font-size:1.1rem;color:#b4bcb6;}
+.leaderboard-place{font-family:'Barlow Condensed', sans-serif;font-weight:700;font-size:1.1rem;color:#b4bcb6;}
 .leaderboard-row.gold .leaderboard-place{color:#ffd85d;}.leaderboard-row.silver .leaderboard-place{color:#dce4e8;}.leaderboard-row.bronze .leaderboard-place{color:#d59361;}
 .leaderboard-player{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#e5ece6;font-weight:600;}
 .leaderboard-player i{margin-right:9px;color:#9db99c;font-size:.8rem;}
@@ -2585,7 +2585,7 @@ grid-template-columns:1fr;
 .changelog-summary h2{
     margin:0;
     color:#f0f3ed;
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:1.35rem;
 }
 .changelog-summary p{
@@ -2620,7 +2620,7 @@ grid-template-columns:1fr;
 .changelog-list{display:grid;gap:9px;margin:0;padding:0 24px 20px 43px;color:#bec9c0;font-size:.86rem;line-height:1.48;}
 .changelog-list strong{color:#e2eadf;}
 .changelog-archive{display:grid;gap:5px;padding:0 24px 20px;color:#acb9ae;font-size:.84rem;line-height:1.48;}
-.changelog-archive strong{color:#dce7dd;font-family:Cinzel,serif;font-size:.84rem;}
+.changelog-archive strong{color:#dce7dd;font-family:'Barlow Condensed', sans-serif;font-size:.84rem;}
 @media(max-width:700px){
     .survival-changelog{margin-top:18px;border-radius:10px;}
     .changelog-summary{align-items:flex-start;flex-direction:column;gap:12px;padding:18px 16px;}
@@ -2737,7 +2737,7 @@ grid-template-columns:1fr;
 .survival-cta-header{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .survival-cta-kicker{color:#f2c36b;font-size:.75rem;font-weight:700;letter-spacing:.18em}
 .survival-cta-badge{padding:6px 9px;border:1px solid rgba(132,196,141,.55);border-radius:999px;color:#bce5c0;background:rgba(43,91,57,.32);font-size:.68rem;font-weight:700;letter-spacing:.09em}
-.survival-hero-cta h2{margin:15px 0 9px;font-family:"Cinzel",serif;color:#f8f0df;font-size:clamp(1.35rem,2.5vw,1.9rem);line-height:1.2;}
+.survival-hero-cta h2{margin:15px 0 9px;font-family:'Barlow Condensed', sans-serif;color:#f8f0df;font-size:clamp(1.35rem,2.5vw,1.9rem);line-height:1.2;}
 .survival-hero-cta p{margin:0 0 17px;color:#d0c9bd;font-size:1rem;line-height:1.6}
 .survival-play-button{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px 20px;border-radius:8px;background:linear-gradient(135deg,#d6a74e,#f0cf83);color:#17130e;font-weight:800;font-size:1.05rem;letter-spacing:.08em;text-decoration:none;box-shadow:0 8px 18px rgba(0,0,0,.24);transition:transform .2s ease,box-shadow .2s ease}
 .survival-play-button:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(212,175,55,.24)}
@@ -3167,7 +3167,7 @@ grid-template-columns:1fr;
 .survival-changelog .version-log-list{display:grid;gap:9px;}
 .survival-changelog .changelog-details{margin:0;}
 .survival-changelog .changelog-details summary{gap:12px;min-height:52px;touch-action:manipulation;}
-.survival-changelog .changelog-version-title{display:inline-flex;align-items:center;gap:9px;color:#e6eee5;font-family:Cinzel,serif;font-size:.88rem;letter-spacing:.035em;}
+.survival-changelog .changelog-version-title{display:inline-flex;align-items:center;gap:9px;color:#e6eee5;font-family:'Barlow Condensed', sans-serif;font-size:.88rem;letter-spacing:.035em;}
 .survival-changelog .changelog-current{border-color:rgba(211,181,106,.56);box-shadow:0 0 0 1px rgba(211,181,106,.08),0 10px 26px rgba(0,0,0,.12);}
 .survival-changelog .changelog-current[open] summary{background:linear-gradient(90deg,rgba(116,104,61,.25),rgba(70,111,81,.19));}
 .changelog-current-badge{padding:4px 7px;border:1px solid rgba(218,189,106,.56);border-radius:999px;color:#f0d47e;font-family:Inter,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.1em;line-height:1;}
@@ -3192,7 +3192,7 @@ grid-template-columns:1fr;
 .survival-game-hero{width:min(980px,100%);margin:0 auto;padding-top:12px;text-align:center;}
 .survival-game-hero .game-eyebrow{margin-bottom:10px;}
 .survival-game-hero .game-page-title{margin:0;color:#f0f3ed;}
-.game-hero-tagline{margin:12px 0 8px;color:#efd47e;font-family:Cinzel,serif;font-size:clamp(1rem,2vw,1.28rem);letter-spacing:.04em;}
+.game-hero-tagline{margin:12px 0 8px;color:#efd47e;font-family:'Barlow Condensed', sans-serif;font-size:clamp(1rem,2vw,1.28rem);letter-spacing:.04em;}
 .survival-game-hero .game-intro{margin-bottom:18px;}
 .game-status-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:0 auto 18px;text-align:left;}
 .game-status-card{min-height:74px;padding:13px 14px;border:1px solid rgba(151,172,151,.22);border-radius:9px;background:rgba(20,31,28,.58);}
@@ -3241,10 +3241,10 @@ grid-template-columns:1fr;
 .game-development-note p{margin:8px 0 0;color:#c5d0c6;font-size:.88rem;line-height:1.5;}
 .game-roadmap{padding-top:3px;text-align:left;}
 .game-roadmap-heading{display:flex;align-items:baseline;gap:10px;margin:2px 0 10px;}
-.game-roadmap-heading h2{margin:0;color:#e9efe8;font-family:Cinzel,serif;font-size:1.12rem;letter-spacing:.045em;}
+.game-roadmap-heading h2{margin:0;color:#e9efe8;font-family:'Barlow Condensed', sans-serif;font-size:1.12rem;letter-spacing:.045em;}
 .game-roadmap-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;}
 .game-roadmap-grid article{min-height:150px;padding:15px;border:1px solid rgba(205,177,100,.2);border-radius:9px;background:rgba(90,75,43,.07);}
-.game-roadmap-grid h3{margin:0;color:#e7cf84;font-family:Cinzel,serif;font-size:.79rem;letter-spacing:.055em;}
+.game-roadmap-grid h3{margin:0;color:#e7cf84;font-family:'Barlow Condensed', sans-serif;font-size:.79rem;letter-spacing:.055em;}
 .game-roadmap-grid ul{display:grid;gap:7px;margin:11px 0 0;padding-left:18px;color:#becbc0;font-size:.82rem;line-height:1.42;}
 .game-roadmap-grid li::marker{color:#cbaa60;}
 .game-roadmap-vision-card{display:grid;gap:12px;min-height:150px;}
@@ -3277,7 +3277,7 @@ grid-template-columns:1fr;
 
 .game-community-help h2{
     margin:12px 0 20px;
-    font-family:"Cinzel",serif;
+    font-family:'Barlow Condensed', sans-serif;
 }
 
 .game-community-help p{
@@ -3375,7 +3375,7 @@ grid-template-columns:1fr;
 .survival-game-hero .game-page-title{
     margin:0;
     color:#f0f3ed;
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:clamp(2.1rem,4.5vw,3.15rem);
     letter-spacing:.02em;
     line-height:1.1;
@@ -3383,7 +3383,7 @@ grid-template-columns:1fr;
 .survival-game-hero .game-hero-tagline{
     margin:5px 0 22px;
     color:#efd47e;
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:clamp(.8rem,1.6vw,1rem);
     letter-spacing:.12em;
     font-weight:700;
@@ -3729,7 +3729,7 @@ grid-template-columns:1fr;
 .game-visions-heading h2{
     margin:8px 0 10px;
     color:#edf2eb;
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:clamp(1.35rem,3vw,2rem);
     letter-spacing:.045em;
 }
@@ -3777,7 +3777,7 @@ grid-template-columns:1fr;
 .game-vision-summary{display:grid;gap:8px;min-width:0;}
 .game-vision-title{
     color:#eee3be;
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:clamp(.93rem,2vw,1.14rem);
     font-weight:700;
     letter-spacing:.055em;
@@ -3804,7 +3804,7 @@ grid-template-columns:1fr;
 .game-vision-body h3{
     margin:0;
     color:#e7cd7c;
-    font-family:Cinzel,serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:.76rem;
     letter-spacing:.09em;
 }
@@ -4279,7 +4279,7 @@ body:not(.zh-2026) .section.dark {
 .feedback-hero h1{
     max-width:16ch;
     margin:0 0 18px;
-    font-family:"Cinzel",serif;
+    font-family:'Barlow Condensed', sans-serif;
     font-size:clamp(2.3rem,5vw,4.25rem);
     line-height:1.06;
     color:#f5f0e3;
@@ -4301,7 +4301,7 @@ body:not(.zh-2026) .section.dark {
 .feedback-column-ideas{border-top:3px solid rgba(133,190,139,.78);}
 .feedback-column-heading{margin-bottom:25px;}
 .feedback-column-heading .section-title,.feedback-list-heading .section-title{margin-bottom:8px;}
-.feedback-column h2,.feedback-list-heading h3{font-family:"Cinzel",serif;color:#f5f0df;line-height:1.15;}
+.feedback-column h2,.feedback-list-heading h3{font-family:'Barlow Condensed', sans-serif;color:#f5f0df;line-height:1.15;}
 .feedback-column h2{font-size:clamp(1.55rem,2.4vw,2rem);}
 .feedback-column-heading p{margin-top:12px;color:#b9c4bc;line-height:1.65;}
 .feedback-form{
@@ -5143,7 +5143,7 @@ body:not(.zh-2026) .section.dark {
 }
 
 .pulse-card h3 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1.45rem;
     color: #fff;
     margin: 0 0 8px;
@@ -5717,7 +5717,7 @@ body:not(.zh-2026) .section.dark {
 }
 
 .terminal-heading {
-    font-family: 'Cinzel', serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 2.1rem;
     color: #ffffff;
     margin: 0;
@@ -5824,7 +5824,7 @@ body:not(.zh-2026) .section.dark {
 }
 
 .terminal-mission-card h4 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1.06rem;
     color: #ffffff;
     margin: 0 0 6px;
@@ -6318,7 +6318,7 @@ body:not(.zh-2026) .section.dark {
 }
 
 .baumenue-header h3 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: clamp(1.6rem, 3.5vw, 2.3rem);
     color: #ffffff;
     margin: 0 0 14px;
@@ -6359,7 +6359,7 @@ body:not(.zh-2026) .section.dark {
 .building-compare-table th {
     background: rgba(21, 30, 24, 0.95);
     color: #d4af37;
-    font-family: 'Cinzel', serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.92rem;
     letter-spacing: 0.05em;
     border-bottom: 2px solid rgba(212, 175, 55, 0.4);
@@ -6411,7 +6411,7 @@ body:not(.zh-2026) .section.dark {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1.35rem;
     color: #ffd447;
     margin: 36px 0 20px;
@@ -6459,7 +6459,7 @@ body:not(.zh-2026) .section.dark {
 }
 
 .workflow-card h4 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1.02rem;
     color: #ffffff;
     margin: 0 0 8px;
@@ -6526,7 +6526,7 @@ body:not(.zh-2026) .section.dark {
 }
 
 .tier-card h4 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1.08rem;
     color: #fff;
     margin: 0 0 10px;
@@ -6590,7 +6590,7 @@ body:not(.zh-2026) .section.dark {
 }
 
 .baumenue-info-box h4 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1.15rem;
     color: #ffd447;
     margin: 0 0 12px;

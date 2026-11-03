@@ -18,7 +18,7 @@
 .forum-page .forum-content { max-width: 1200px; }
 .forum-page .forum-intro { max-width: 780px; margin-bottom: 40px; }
 .forum-page .forum-stage { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 15px; color: #cebd85; font-size: .69rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
-.forum-page .forum-intro h1 { margin: 0 0 17px; font-family: "Cinzel", serif; font-size: clamp(1.9rem, 3.7vw, 3.1rem); font-weight: 700; line-height: 1.25; letter-spacing: -.025em; color: #eff0e9; }
+.forum-page .forum-intro h1 { margin: 0 0 17px; font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.9rem, 3.7vw, 3.1rem); font-weight: 700; line-height: 1.25; letter-spacing: -.025em; color: #eff0e9; }
 .forum-page .forum-status { margin-bottom: 8px; color: #dde4ea; font-size: 1rem; line-height: 1.6; }
 .forum-page .forum-description { max-width: 73ch; color: var(--forum-soft); font-size: .9rem; line-height: 1.8; }
 .forum-page .forum-workspace { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 30px; align-items: start; scroll-margin-top: 184px; }

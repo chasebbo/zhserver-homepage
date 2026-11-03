@@ -31,7 +31,7 @@ html.zh-welcome-open { overflow: hidden; }
 .zh-welcome h2 {
     margin: 0 36px 10px 0;
     color: #f1e8cf;
-    font-family: "Cinzel", serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1.45rem;
     line-height: 1.25;
 }

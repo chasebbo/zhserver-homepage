@@ -166,6 +166,11 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   Schriftzug ZOMBIEHÖLLE / SURVIVAL (Barlow Condensed, selbst gehostet), Mitte Menü, rechts Konto und DE/EN; am Handy
   Menüknopf, Konto und Sprache im Menü. Gestaltung nur in `zh-2026.css`, Kopfhöhe in `--zh-head-h` (nicht `--zh-head`, das ist
   die Überschriftenschrift). Änderungen am Kopf immer auf allen Seiten gleich machen, keine Kopfregeln pro Seite.
+- Eine Überschriften-Schrift (Sebastian 03.11.2026): Barlow Condensed 700/800, selbst gehostet, in `--zh-head`. Cinzel ist
+  entfernt und wird nirgends mehr geladen. Seiten- und Abschnittstitel (h1, h2) in Großbuchstaben, Karten- und lange
+  Überschriften (h3, Abschnitte der Rechtstexte) normal. Fließtext, Knöpfe, Menü und kleine goldene Beschriftungen in Inter.
+- Größenordnung: Startbild-Titel > Abschnittstitel (`--zh-size-section`, PC 40 px, Handy 28 px) > Kachelwerte
+  (`--zh-size-value`, 70 % davon: „Online“, Name bei „Neu dabei“, „Zombies erledigt“, Weltlage-Prozente) > Text.
 - Keine Bilderleiste unter den Kapiteln der Startseite (Sebastian 03.11.2026). Bilder stehen im Slider und in der Galerie.
 - Gold wie Vorlage (Sebastian 03.11.2026): überall flach `#d4a84a` mit dunkler Schrift, beim Darüberfahren `#e0b85a`,
   ohne Verlauf und Glanz. Werte in `--zh-gold`, `--zh-gold-strong`, `--zh-gold-hover`; die älteren Variablen `--gold`,

@@ -68,7 +68,7 @@
 .account-main { max-width: 1160px; margin: 0 auto; padding: 202px 28px 86px; min-height: 70vh; }
 .account-intro { max-width: 650px; margin-bottom: 30px; }
 .account-eyebrow { display: block; margin-bottom: 13px; color: #ccb576; font-size: .68rem; letter-spacing: 2px; font-weight: 600; }
-.account-main h1 { margin: 0 0 17px; font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 3vw, 2.55rem); color: #ecebe4; line-height: 1.3; }
+.account-main h1 { margin: 0 0 17px; font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.8rem, 3vw, 2.55rem); color: #ecebe4; line-height: 1.3; }
 .account-intro p, .account-profile-note { color: #abb8c6; font-size: .88rem; line-height: 1.8; }
 .account-layout { display: grid; grid-template-columns: minmax(0, 520px) minmax(0, 1fr); gap: 52px; align-items: start; }
 .account-panel { padding: 25px 28px; border: 1px solid rgba(172, 191, 205, .13); border-radius: 10px; background: rgba(14, 22, 29, .65); }
@@ -150,7 +150,7 @@ form > .account-status { margin: 0 0 17px; overflow-wrap: anywhere; }
 }
 .account-turnstile { margin: 0 0 17px; }
 .account-main .account-resend { margin: 0 0 17px; min-height: 40px; padding: 8px 18px; font-size: .78rem; }
-.account-confirm h2 { margin: 0 0 14px; font-family: 'Cinzel', serif; font-size: 1.2rem; color: #ecebe4; line-height: 1.4; }
+.account-confirm h2 { margin: 0 0 14px; font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; color: #ecebe4; line-height: 1.4; }
 .account-confirm p:not(.account-status) { margin: 0 0 12px; color: #bdc8d2; font-size: .86rem; line-height: 1.8; overflow-wrap: anywhere; }
 .account-confirm .account-confirm-hint { color: #91a1af; font-size: .78rem; }
 .account-confirm .account-status { margin: 4px 0 16px; overflow-wrap: anywhere; }

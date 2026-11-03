@@ -221,7 +221,7 @@
         // One account component for every page using the shared homepage header.
         if (languageScriptUrl && document.querySelector('.header.zh-site-header') && !document.querySelector('[data-zh-account-loader]')) {
             const account = document.createElement('script');
-            account.src = new URL('account.js?v=20261103-umbau4', languageScriptUrl).href;
+            account.src = new URL('account.js?v=20261103-umbau10', languageScriptUrl).href;
             account.setAttribute('data-zh-account-loader', '');
             document.body.append(account);
         }

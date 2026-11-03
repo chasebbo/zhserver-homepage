@@ -57,7 +57,7 @@
             }
         });
     }
-    const cssUrl = site('assets/css/account.css?v=20261103-umbau4');
+    const cssUrl = site('assets/css/account.css?v=20261103-umbau10');
     if (![...document.querySelectorAll('link[rel="stylesheet"]')].some(node => node.href === cssUrl)) {
         const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = cssUrl;
         document.head.append(css);
@@ -344,7 +344,7 @@
             try {
                 await loadScript(site('assets/js/welcome.js?v=20261103-umbau4'), () => !!window.ZHWelcome);
                 welcomeShown = await window.ZHWelcome.open({
-                    cssUrl: site('assets/css/welcome.css?v=20261103-umbau4'),
+                    cssUrl: site('assets/css/welcome.css?v=20261103-umbau10'),
                     registerUrl: authUrl('register'),
                     loginUrl: authUrl('login'),
                     remember: () => { try { store.setItem(welcomeKey, new Date().toISOString().slice(0, 10)); } catch (_) { /* Optional. */ } }

@@ -35,7 +35,7 @@
 .gallery-page .zh-gallery-hero h1 {
     margin: 0 0 8px;
     color: #f0f3ed;
-    font-family: "Cinzel", serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: clamp(2rem, 4.4vw, 3.1rem);
     line-height: 1.1;
 }
@@ -71,7 +71,7 @@
 .gallery-page .zh-gallery-head h2 {
     margin: 0;
     color: #f0f3ed;
-    font-family: "Cinzel", serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: clamp(1.5rem, 2.8vw, 2.1rem);
     line-height: 1.2;
 }
@@ -270,7 +270,7 @@
 .gallery-page .zh-gallery-upload-bar h2 {
     margin: 0 0 4px;
     color: #f0f3ed;
-    font-family: "Cinzel", serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: clamp(1.15rem, 2vw, 1.4rem);
 }
 

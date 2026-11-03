@@ -32,11 +32,11 @@ body.zh-2026 .home-changelog-meta { margin-left: auto; display: inline-flex; gap
 .zh-server-card { border-color: rgba(110, 195, 90, .35); background: radial-gradient(ellipse 80% 140px at 30% 0, rgba(110, 195, 90, .1), transparent 80%), linear-gradient(145deg, rgba(22, 32, 28, .9), rgba(14, 21, 19, .95)); }
 .zh-server-card .zh-eyebrow { color: #9fd38f; }
 .zh-server-state { display: flex; align-items: center; gap: 14px; }
-.zh-server-state [data-live-server-word] { display: inline-block; font: 700 40px/1 var(--zh-head); color: #9be58a; animation: zhGlow 2.4s ease-in-out infinite; }
+.zh-server-state [data-live-server-word] { display: inline-block; font: 700 var(--zh-size-value)/1 var(--zh-head); text-transform: uppercase; letter-spacing: .02em; color: #9be58a; animation: zhGlow 2.4s ease-in-out infinite; }
 .zh-server-state [data-live-server-word]::first-letter { text-transform: uppercase; }
 .zh-server-card[data-state="offline"] { border-color: rgba(232, 96, 74, .4); background: radial-gradient(ellipse 80% 140px at 30% 0, rgba(232, 96, 74, .1), transparent 80%), var(--zh-panel); }
 .zh-server-card[data-state="offline"] [data-live-server-word] { color: #ef7f6a; animation: none; }
-.zh-server-card[data-state="checking"] [data-live-server-word] { color: var(--zh-muted); font-size: 28px; animation: none; }
+.zh-server-card[data-state="checking"] [data-live-server-word] { color: var(--zh-muted); animation: none; }
 .zh-server-meta { font-size: 14px; color: var(--zh-ink-soft); }
 
 body.zh-2026 .zh-world-card { grid-column: span 2; gap: 16px !important; margin: 0; }
@@ -45,7 +45,7 @@ body.zh-2026 .zh-world-card .zh-world-values { display: grid; grid-template-colu
 body.zh-2026 .zh-world-card .zh-world-values > div { display: flex; flex-direction: column; gap: 4px; }
 body.zh-2026 .zh-world-card .zh-world-values dt { font-size: 13px; letter-spacing: .14em; color: var(--zh-muted); }
 body.zh-2026 .zh-world-card .zh-world-values dd { margin: 0; }
-body.zh-2026 .zh-world-card .zh-world-number { display: inline-block; font: 500 42px/1 var(--zh-mono); font-variant-numeric: tabular-nums; transition: color .5s, text-shadow .5s; }
+body.zh-2026 .zh-world-card .zh-world-number { display: inline-block; font: 700 var(--zh-size-value)/1 var(--zh-head); font-variant-numeric: tabular-nums; transition: color .5s, text-shadow .5s; }
 body.zh-2026 .zh-world-card [data-world-value="military"] .zh-world-number { color: #7fd38a; }
 body.zh-2026 .zh-world-card [data-world-value="survivors"] .zh-world-number { color: #4fc3a8; }
 body.zh-2026 .zh-world-card [data-world-value="infected"] .zh-world-number { color: #ef5f58; }
@@ -71,7 +71,7 @@ body.zh-2026 .zh-world-card .era-world-link { align-self: flex-start; font-size:
 /* Neu dabei (community-stats.js) */
 .zh-newest { grid-column: span 2; justify-content: center; border-color: rgba(143, 184, 232, .35) !important; background: radial-gradient(ellipse 60% 120px at 20% 0, rgba(143, 184, 232, .1), transparent 80%), linear-gradient(145deg, rgba(22, 28, 36, .9), rgba(14, 19, 25, .95)) !important; }
 .zh-newest .zh-eyebrow { color: var(--zh-blue); }
-.zh-newest-name { align-self: flex-start; font: 700 28px/1.2 var(--zh-head); color: #9fc6f5; text-decoration: none; animation: zhBlueGlow 3s ease-in-out infinite; overflow-wrap: anywhere; }
+.zh-newest-name { align-self: flex-start; font: 700 var(--zh-size-value)/1.1 var(--zh-head); color: #9fc6f5; text-decoration: none; animation: zhBlueGlow 3s ease-in-out infinite; overflow-wrap: anywhere; }
 .zh-newest-link { align-self: flex-start; color: var(--zh-blue); border-bottom-color: rgba(169, 196, 230, .45); }
 .zh-newest-name:not([href]), .zh-newest-link:not([href]) { pointer-events: none; }
 .zh-newest-link:not([href]) { display: none; }
@@ -197,7 +197,6 @@ body.zh-2026 .zh-talk-grid .home-forum-link { align-self: flex-start; margin-top
     body.zh-2026 .zh-lage-grid, body.zh-2026 .zh-news-grid, body.zh-2026 .zh-camps, body.zh-2026 .zh-event-grid { grid-template-columns: 1fr; }
     body.zh-2026 .zh-world-card, body.zh-2026 .zh-newest { grid-column: auto; }
     body.zh-2026 .zh-world-card .zh-world-values { grid-template-columns: 1fr 1fr; }
-    body.zh-2026 .zh-world-card .zh-world-number, body.zh-2026 .zh-server-state [data-live-server-word] { font-size: 34px; }
     body.zh-2026 .zh-chapters { gap: 48px; }
     body.zh-2026 .zh-chapter { gap: 20px; }
     body.zh-2026 .zh-chapter > .zh-pic-wrap, body.zh-2026 .zh-chapter > .zh-chapter-copy { flex-basis: 100%; }
@@ -339,7 +338,7 @@ body.zh-2026 :is(.zh-gallery-main, .zh-gallery-upload) > .container { max-width:
 /* Zombies erledigt (ersetzt die Top 5 Zombie-Killer, gleiche Kachelgröße) */
 .zh-zombie-total { justify-content: center; }
 .zh-zombie-since { margin-top: -8px; color: var(--zh-muted); font-size: 12px; }
-.zh-zombie-number { display: block; font: 500 clamp(40px, 4.6vw, 56px)/1 var(--zh-mono); font-variant-numeric: tabular-nums; color: var(--zh-gold-strong); animation: zhGoldGlow 2.6s ease-in-out infinite; overflow-wrap: anywhere; }
+.zh-zombie-number { display: block; font: 700 var(--zh-size-value)/1 var(--zh-head); font-variant-numeric: tabular-nums; color: var(--zh-gold-strong); animation: zhGoldGlow 2.6s ease-in-out infinite; overflow-wrap: anywhere; }
 
 /* NEU-Balken: nur der neue Rahmen; der Schimmer liegt im Link, der ihn mit gleichem Radius abschneidet */
 body.zh-2026.home-page.home-chapters .home-changelog-band { border: 0; border-radius: var(--zh-radius); background: none; box-shadow: none; }
@@ -432,7 +431,7 @@ body.zh-play-page .zh-play-list { padding-left: 18px; color: var(--zh-ink-soft);
     body.zh-play-page .zh-play-logo { width: 72px; height: 72px; }
     body.zh-play-page .game-account-entry .btn { min-width: 240px; }
 }
-/* Forum: Überschriften der Bereiche in Cinzel wie im Entwurf */
+/* Forum: Überschriften der Bereiche in Barlow Condensed wie Kopf und Startbild */
 body.zh-2026.forum-page main :is(h1, h2) { font-family: var(--zh-head); }
 .zh-gallery-filter .zh-gallery-upload-link { margin-left: auto; }
 @media (max-width: 640px) { .zh-gallery-filter .zh-gallery-upload-link { margin-left: 0; width: 100%; } }
@@ -494,7 +493,7 @@ body.zh-archive-page #timeline .timeline-content { margin: 0; padding: 6px 16px 
 }
 
 /* Startbild-Titel wie in Sebastians Vorlage: schmale, sehr fette Blockschrift, zwei Zeilen, SURVIVAL in Gold */
-body.zh-2026 .zh-hero-title { display: flex; flex-direction: column; margin: 0; font: 800 clamp(40px, 5vw, 72px)/.95 "Barlow Condensed", var(--zh-text); letter-spacing: .005em; text-transform: uppercase; color: #f3eee2; text-shadow: 0 2px 24px rgba(0, 0, 0, .45); }
+body.zh-2026 .zh-hero-title { display: flex; flex-direction: column; margin: 0; font: 800 clamp(43px, 5vw, 72px)/.95 "Barlow Condensed", var(--zh-text); letter-spacing: .005em; text-transform: uppercase; color: #f3eee2; text-shadow: 0 2px 24px rgba(0, 0, 0, .45); }
 body.zh-2026 .zh-hero-title > .zh-hero-title-sub { color: var(--zh-gold-strong); }
 @media (max-width: 640px) { body.zh-2026 .zh-hero-title { font-size: clamp(34px, 10.7vw, 40px); } }
 

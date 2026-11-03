@@ -6,7 +6,7 @@
 }
 .zh-community-header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; }
 .zh-community .zh-community-title {
-    font-family: 'Cinzel', Georgia, serif;
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1rem;
     line-height: 1.45;
     letter-spacing: .02em;
