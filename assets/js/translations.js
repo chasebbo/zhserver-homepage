@@ -3378,12 +3378,12 @@ window.ZHTranslations = {
 
     "game.entry.brand": { "de": "ZOMBIEHÖLLE", "en": "ZOMBIE HELL" },
     "game.entry.status": { "de": "Web-Alpha jetzt spielbar", "en": "Web alpha now playable" },
-    "game.entry.intro": { "de": "Zombiehölle Survival: persistente 3D-Multiplayer-Welt in Entwicklung.", "en": "Zombie Hell Survival: a persistent 3D multiplayer world in development." },
+    "game.entry.intro": { "de": "Zombiehölle Survival spielen: 3D-Multiplayer-Welt, sofort spielbar ohne Download.", "en": "Play Zombie Hell Survival: a 3D multiplayer world, play now with no download." },
     "game.entry.welcome": { "de": "Willkommen zurück, {name}.", "en": "Welcome back, {name}." },
     "game.entry.saved": { "de": "Dein Fortschritt wird mit deinem ZHServer-Account gespeichert.", "en": "Your progress is saved to your ZHServer account." },
     "game.entry.signInNote": { "de": "Kostenlos anmelden und deinen Fortschritt dauerhaft speichern.", "en": "Sign in for free to save your progress." },
     "game.entry.login": { "de": "KOSTENLOS ANMELDEN & SPIELEN", "en": "SIGN IN & PLAY FOR FREE" },
-    "game.entry.play": { "de": "JETZT SPIELEN", "en": "PLAY NOW" },
+    "game.entry.play": { "de": "Spiel starten", "en": "Start game" },
     "game.entry.guest": { "de": "2 MINUTEN ALS GAST TESTEN", "en": "TRY AS A GUEST FOR 2 MINUTES" },
     "game.entry.guestSave": { "de": "Gastfortschritt wird nicht gespeichert.", "en": "Guest progress is not saved." },
     "game.entry.registerHint": { "de": "Registriere dich, um zu spielen.", "en": "Register to play." },
@@ -4640,4 +4640,38 @@ Object.assign(window.ZHTranslations.messages, {
 });
 Object.assign(window.ZHTranslations.copy, {
   "umbau-alpha-play-now": {de:"Alpha · sofort spielbar, ohne Download",en:"Alpha · play now, no download"}
+});
+Object.assign(window.ZHTranslations.copy, {
+  "umbau-play-title": {de:"Spielen",en:"Play"},
+  "umbau-play-load": {de:"Der Start dauert am PC etwa eine Minute, auf Handys länger. Lass den Tab dabei offen.",en:"Starting takes about a minute on a PC, longer on phones. Keep the tab open while it loads."},
+  "umbau-play-news": {de:"Was ist neu?",en:"What's new?"},
+  "umbau-controls-pc": {de:"Steuerung am PC",en:"Controls on PC"},
+  "umbau-controls-phone": {de:"Steuerung am Handy",en:"Controls on phones"},
+  "umbau-key-sprint": {de:"sprinten",en:"sprint"},
+  "umbau-key-walk": {de:"gehen",en:"walk"},
+  "umbau-key-sneak": {de:"schleichen",en:"sneak"},
+  "umbau-key-crouch": {de:"Hocke",en:"crouch"},
+  "umbau-key-wheel": {de:"Mausrad",en:"Mouse wheel"},
+  "umbau-key-rotate": {de:"gedrückt halten: Ansicht drehen",en:"hold: rotate the view"},
+  "umbau-key-north": {de:"Norden nach oben",en:"north up"},
+  "umbau-key-help": {de:"Hilfe und alle Tasten",en:"help and all keys"},
+  "umbau-key-ctrl": {de:"Strg",en:"Ctrl"},
+  "umbau-phone-ring": {de:"Rechts am Ring drehst du die Blickrichtung, FEUER in der Mitte greift an.",en:"Use the ring on the right to turn where you look, FIRE in the middle attacks."},
+  "umbau-phone-two": {de:"Zwei Finger drehen die Ansicht.",en:"Two fingers rotate the view."},
+  "umbau-phone-menu": {de:"Über MENÜ oben rechts kommst du zu Inventar, Karte und Aufträgen.",en:"MENU at the top right takes you to your inventory, map and jobs."},
+  "umbau-phone-hold": {de:"Lange auf einen Spieler tippen öffnet das Spielermenü.",en:"Press and hold a player to open the player menu."},
+  "umbau-app-title": {de:"Als App auf den Startbildschirm",en:"Add it to your home screen"},
+  "umbau-app-iphone": {de:"iPhone: In Safari auf Teilen tippen, dann „Zum Home-Bildschirm“.",en:"iPhone: in Safari tap Share, then \"Add to Home Screen\"."},
+  "umbau-app-android": {de:"Android: In Chrome das Menü öffnen, dann „Zum Startbildschirm hinzufügen“.",en:"Android: in Chrome open the menu, then \"Add to Home screen\"."},
+  "umbau-bug-title": {de:"Fehler gefunden?",en:"Found a bug?"},
+  "umbau-bug-copy": {de:"Schreib es ins Forum, mit Bild, wenn es geht.",en:"Post it in the forum, with a screenshot if you can."},
+  "umbau-to-forum": {de:"Zum Forum",en:"Go to forum"},
+  "umbau-game-frame": {de:"Spiel",en:"Game"},
+  "umbau-game-notes": {de:"Hinweise zum Spiel",en:"Notes on the game"}
+});
+Object.assign(window.ZHTranslations.copy, {
+  "umbau-upload-picture": {de:"Bild hochladen",en:"Upload a picture"}
+});
+Object.assign(window.ZHTranslations.copy, {
+  "umbau-fullscreen": {de:"Vollbild",en:"Fullscreen"}
 });

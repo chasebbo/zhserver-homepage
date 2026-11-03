@@ -26,52 +26,7 @@ body.home-page.home-chapters > .era-section + .section::before {
     max-height: none;
 }
 
-/* Landingpage-only greeting: the existing brand link keeps its shared sizing. */
-.home-page.home-chapters .home-header-welcome {
-    display: block;
-    margin-top: 4px;
-    color: #c8b377;
-    font: 500 .65rem/1.4 Inter, sans-serif;
-    letter-spacing: .07em;
-}
-
-/* Refine only this landingpage's shared header; other pages retain header.css. */
-@media (min-width: 901px) {
-    .home-page.home-chapters .header.zh-site-header .navbar {
-        gap: 3px;
-        padding: 6px 20px;
-    }
-    .home-page.home-chapters .header.zh-site-header .header-emblem { width: 56px; height: 56px; }
-    .home-page.home-chapters .header.zh-site-header .header-brand-row > .logo {
-        font-size: 16px;
-        line-height: 1.35;
-        letter-spacing: .7px;
-    }
-    .home-page.home-chapters .header.zh-site-header .home-header-welcome {
-        margin-top: 2px;
-        font-size: .625rem;
-        letter-spacing: .055em;
-    }
-    .home-page.home-chapters .header.zh-site-header .navbar > .nav-menu {
-        gap: clamp(14px, 1.4vw, 22px);
-        padding: 3px 0 0;
-        border-top-color: rgba(190, 183, 161, .12);
-    }
-    .home-page.home-chapters .header.zh-site-header .nav-menu > li > a {
-        display: inline-flex;
-        align-items: center;
-        min-height: 28px;
-        padding: 4px 2px;
-        line-height: 1.4;
-    }
-    .home-page.home-chapters .header.zh-site-header .nav-menu > li > a::after { bottom: 0; }
-}
-
-@media (max-width: 900px) {
-    .home-page.home-chapters .header.zh-site-header .navbar { padding-block: 8px; }
-    .home-page.home-chapters .header.zh-site-header .header-brand-row { row-gap: 4px; }
-    .home-page.home-chapters .header.zh-site-header .zh-account-quick-actions { padding-top: 3px; }
-}
+/* Kopf: im Homepage-Umbau gilt für alle Seiten zh-2026.css (keine eigenen Kopfregeln mehr für die Startseite). */
 
 /* Keep a meaningful page H1 for assistive technology without a visible hero title. */
 .home-page.home-chapters .home-intro-title {
@@ -353,7 +308,6 @@ body.home-page.home-chapters > .era-section + .section::before {
 }
 
 @media (max-width: 600px) {
-    .home-page.home-chapters .home-header-welcome { margin-top: 3px; font-size: .625rem; letter-spacing: .04em; }
     .home-page.home-chapters .era-split { --era-chapter-gap: 18px; }
     .home-page.home-chapters .era-split .era-story,
     .home-page.home-chapters .era-pulse { padding: 22px; }

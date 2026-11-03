@@ -85,7 +85,7 @@ body.home-page > .section::before {
 
 /* A common surface, radius and gentle hover for existing content panels.
    The shop box has its own stylesheet and is deliberately excluded. */
-.home-page :is(.card, .history-card, .pulse-card, .timeline-content, .gallery-card, .map-card, .guestbook-box, .guestbook-card, .support-box, .forum-card) {
+.home-page :is(.card, .history-card, .pulse-card, .gallery-card, .map-card, .guestbook-box, .guestbook-card, .support-box, .forum-card) {
     border: 1px solid var(--home-panel-border) !important;
     border-radius: 14px !important;
     background: linear-gradient(145deg, rgba(25, 32, 35, .86), rgba(15, 21, 25, .94)) !important;
@@ -111,7 +111,7 @@ body.home-page > .section::before {
 }
 
 @media (hover: hover) {
-    .home-page :is(.card, .history-card, .pulse-card, .timeline-content, .gallery-card, .map-card, .guestbook-card, .support-box, .forum-card):hover {
+    .home-page :is(.card, .history-card, .pulse-card, .gallery-card, .map-card, .guestbook-card, .support-box, .forum-card):hover {
         transform: translateY(-2px) !important;
         border-color: rgba(217, 189, 124, .36) !important;
         box-shadow: 0 16px 36px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .045) !important;
@@ -697,7 +697,7 @@ body.home-page > .support-section {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .home-page :is(.card, .history-card, .pulse-card, .timeline-content, .gallery-card, .map-card, .guestbook-box, .guestbook-card, .support-box, .forum-card) {
+    .home-page :is(.card, .history-card, .pulse-card, .gallery-card, .map-card, .guestbook-box, .guestbook-card, .support-box, .forum-card) {
         transition: none !important;
     }
 }

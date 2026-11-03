@@ -382,3 +382,109 @@ body.zh-2026 .zh-talk-grid .era-pulse { border: 1px solid rgba(217, 189, 124, .5
 /* Weltlage: keine Dauer-Animation aus game-alpha-panels.css, nur das kurze Aufleuchten bei echter Änderung */
 body.zh-2026 .zh-world-card .zh-world-number:not(.is-flash) { animation: none; transform: none; filter: none; text-shadow: none; }
 body.zh-2026 .zh-world-card .zh-world-number.is-flash { animation: zhFlash 1.4s ease-out; }
+
+/* ---------- Spielseite (game.html) nach spielen.html ----------
+   Die alten Spielseiten-Stile (game-page.css, game-entry.css, homepage-premium.css) lädt game.html nicht mehr.
+   Für das Spielen bleibt game-stage.css; die wenigen nötigen Regeln aus game-entry.css stehen hier. */
+body.zh-play-page .zh-play { display: block; max-width: 1200px; margin: 0 auto; padding: 196px 32px 60px; }
+body.zh-play-page .zh-play-head { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 26px; text-align: center; }
+body.zh-play-page .zh-play-head .zh-h1 { font-size: clamp(40px, 5vw, 56px); }
+body.zh-play-page .zh-play-load { max-width: 660px; font-size: 17px; }
+body.zh-play-page .zh-play-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 8px; }
+body.zh-play-page .zh-play-news { min-height: 32px; text-decoration: none; }
+body.zh-play-page .zh-play-news:hover { border-color: rgba(217, 189, 124, .5); color: #fff; }
+/* Alte Serverleiste: nur die Meldung bei Problemen ist sichtbar */
+body.zh-play-page .zh-play-server .landing-server-bar { margin: 6px 0 0; }
+body.zh-play-page .zh-play-server :is(.landing-server-heading, .landing-server-meta, .landing-server-worlds) { display: none; }
+body.zh-play-page .zh-play-server:not(:has([data-game-server-status][data-state="offline"])) { display: none; }
+body.zh-play-page .zh-play-server .game-server-message { margin: 0; color: #f0a08f; }
+body.zh-play-page .zh-play-server .game-server-retry { min-height: 44px; margin-top: 8px; }
+/* Kein Gastzugang mehr (fällt mit v132 weg); die Elemente bleiben für game-entry.js im Dokument */
+body.zh-play-page :is([data-game-guest-action], #game-guest-note, [data-game-guest-hint]) { display: none; }
+/* Großer Spielrahmen mit atmendem Goldrand und abgedunkeltem Portal */
+body.zh-play-page .zh-play-frame { overflow: hidden; border-radius: 16px; background: #0b1015; }
+body.zh-play-page .landing-play-stage { position: relative; display: flex; min-height: 600px; }
+body.zh-play-page .landing-play-stage:has(#game-wrapper:not([hidden])) :is(.landing-play-preview, .zh-play-start, .zh-play-fullscreen) { display: none; }
+body.zh-play-page .zh-play-preview { position: absolute; inset: 0; margin: 0; background: url("../images/umbau/portal.webp") center 30%/cover no-repeat; }
+body.zh-play-page .zh-play-preview::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 55% at 50% 50%, rgba(9, 12, 15, .55), rgba(9, 12, 15, .82)), linear-gradient(180deg, rgba(9, 12, 15, .35), rgba(9, 12, 15, .75)); }
+body.zh-play-page .zh-play-preview :is(img, figcaption) { display: none; }
+body.zh-play-page .zh-play-start { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; width: 100%; padding: 56px 24px; text-align: center; }
+body.zh-play-page .zh-play-logo { width: 92px; height: 92px; filter: drop-shadow(0 0 14px rgba(0, 0, 0, .6)); }
+body.zh-play-page .zh-play-title { margin: 0; font-size: clamp(30px, 4.4vw, 52px); color: #f3eee2; text-shadow: 0 2px 20px rgba(0, 0, 0, .7); }
+body.zh-play-page .game-account-entry { display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 0; }
+body.zh-play-page .game-entry-actions { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+body.zh-play-page .game-entry-action { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+body.zh-play-page .game-entry-action[hidden], body.zh-play-page .game-account-entry [hidden] { display: none; }
+/* "Spiel starten": großer, normaler Goldknopf wie "Jetzt spielen" auf der Startseite */
+body.zh-play-page .game-account-entry .btn { display: inline-flex; align-items: center; justify-content: center; min-width: 260px; min-height: 56px; padding: 0 30px; border-radius: 11px; font: 600 17px var(--zh-text); letter-spacing: 0; text-transform: none; text-decoration: none; cursor: pointer; }
+body.zh-play-page .game-account-entry .btn-outline { min-height: 44px; min-width: 0; font-size: 15px; border: 1px solid rgba(255, 255, 255, .13); background: rgba(10, 14, 17, .65); color: #ece8dc; }
+body.zh-play-page .game-account-entry :is(.btn, p, div)[hidden] { display: none; }
+body.zh-play-page .game-entry-welcome { margin: 0; color: #e6cd8e; font-size: 16px; }
+body.zh-play-page :is(.game-entry-hint, .game-home-hint) { margin: 0; color: var(--zh-ink-soft); font-size: 13px; }
+body.zh-play-page .game-entry-load-hint { display: none; }
+body.zh-play-page .game-home-hint { display: flex; align-items: flex-start; gap: 10px; max-width: 58ch; padding: 10px 12px; border: 1px solid var(--zh-gold-line); border-radius: 10px; background: rgba(10, 14, 17, .7); }
+body.zh-play-page .game-home-hint[hidden] { display: none; }
+body.zh-play-page .game-home-hint-close { min-width: 44px; min-height: 44px; margin: -12px -12px -12px 0; border: 0; background: none; color: #dedbd0; font-size: 1.1rem; cursor: pointer; }
+/* Vollbild unten rechts im Rahmen */
+body.zh-play-page .zh-play-fullscreen { position: absolute; right: 18px; bottom: 18px; z-index: 1; }
+/* Bühne und Spiel (das Vollbild der Bühne beim Spielen kommt aus game-stage.css) */
+body.zh-play-page #game-wrapper { width: 100%; margin: 0; }
+body.zh-play-page .game-embed { display: block; width: 100%; min-height: 520px; aspect-ratio: 16 / 9; margin: 0; border: 0; background: #050b10; }
+body.zh-play-page .game-technical-controls { margin-top: 14px; padding: 12px 16px; border: 1px solid var(--zh-gold-line); border-radius: 12px; background: var(--zh-panel); color: var(--zh-ink-soft); font-size: 13px; }
+body.zh-play-page .game-technical-controls[hidden] { display: none; }
+body.zh-play-page .game-controls-bar { display: flex; flex-wrap: wrap; gap: 5px 14px; }
+body.zh-play-page .game-controls-bar kbd { margin-right: 4px; color: #d8c8a1; font: inherit; }
+body.zh-play-page .landing-play-tools { display: flex; gap: 10px; margin-top: 8px; }
+body.zh-play-page .game-fullscreen-button { min-height: 44px; padding: 0 14px; border: 1px solid var(--zh-gold-line); border-radius: 9px; background: none; color: #e6cd8e; cursor: pointer; }
+/* Hinweiskarten: kleine goldene Beschriftung, darunter normale Schrift */
+body.zh-play-page .zh-play-info { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 24px; }
+body.zh-play-page .zh-play-card { display: flex; flex-direction: column; gap: 12px; }
+body.zh-play-page .zh-play-card > * { margin: 0; }
+body.zh-play-page .zh-keys { display: flex; flex-direction: column; gap: 8px; }
+body.zh-play-page .zh-keys > div { display: flex; align-items: center; gap: 14px; }
+body.zh-play-page .zh-keys dt { flex: 0 0 76px; }
+body.zh-play-page .zh-keys dd { margin: 0; color: var(--zh-ink-soft); }
+body.zh-play-page .zh-keys kbd { display: inline-flex; justify-content: center; min-width: 72px; padding: 4px 8px; border: 1px solid rgba(255, 255, 255, .18); border-radius: 6px; background: rgba(9, 14, 18, .7); font: 500 13px var(--zh-mono); color: #ece8dc; }
+body.zh-play-page .zh-play-list { padding-left: 18px; color: var(--zh-ink-soft); line-height: 1.7; }
+@media (max-width: 900px) { body.zh-play-page .zh-play { padding: 24px 16px 48px; } }
+@media (max-width: 640px) {
+    body.zh-play-page .zh-play-info { grid-template-columns: 1fr; }
+    body.zh-play-page .landing-play-stage { min-height: 520px; }
+    body.zh-play-page .zh-play-logo { width: 72px; height: 72px; }
+    body.zh-play-page .game-account-entry .btn { min-width: 240px; }
+}
+/* Forum: Überschriften der Bereiche in Cinzel wie im Entwurf */
+body.zh-2026.forum-page main :is(h1, h2) { font-family: var(--zh-head); }
+.zh-gallery-filter .zh-gallery-upload-link { margin-left: auto; }
+@media (max-width: 640px) { .zh-gallery-filter .zh-gallery-upload-link { margin-left: 0; width: 100%; } }
+/* Wiki: Inhalt liegt auf dem Seitenhintergrund wie im Entwurf, kein eigener Abschnittshintergrund */
+body.zh-2026.wiki-page .wiki-hero + .section { background: none; }
+
+/* Archiv wie im Entwurf: Event-Einträge erscheinen erst, wenn ihre Kachel (oder ein alter Link) sie anspringt */
+body.zh-archive-page .zh-archive > :is(#adminbase, [id$="-event"]):not(:target) { display: none; }
+body.zh-archive-page .zh-archive > :is(#adminbase, [id$="-event"]):target { scroll-margin-top: 170px; }
+/* Timeline waagerecht als fünf Kacheln an einer Linie; alle Texte bleiben */
+body.zh-archive-page #timeline .timeline-new { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; max-width: none; margin: 24px 0 0; padding: 0; }
+body.zh-archive-page #timeline .timeline-new::before, body.zh-archive-page #timeline .timeline-new::after { display: none; }
+body.zh-archive-page #timeline .timeline-entry { position: relative; inset: auto; display: block; width: auto; min-height: 0; margin: 26px 0 0; padding: 0; transform: none; text-align: left; }
+body.zh-archive-page #timeline .timeline-entry::before { content: ""; position: absolute; top: -14px; left: -14px; right: 0; height: 2px; background: linear-gradient(90deg, rgba(217, 189, 124, .5), rgba(217, 189, 124, .25)); }
+body.zh-archive-page #timeline .timeline-entry:last-child::before { background: linear-gradient(90deg, rgba(217, 189, 124, .4), rgba(232, 96, 74, .7)); }
+body.zh-archive-page #timeline .timeline-dot { position: absolute; top: -20px; left: 14px; width: 12px; height: 12px; margin: 0; border: 2px solid var(--zh-gold); border-radius: 50%; background: #0b1015; transform: none; }
+body.zh-archive-page #timeline .timeline-entry:last-child .timeline-dot { border-color: var(--zh-red); }
+body.zh-archive-page #timeline .timeline-content { position: static; width: auto; height: 100%; margin: 0; padding: 16px 16px 18px; border: 1px solid var(--zh-gold-line); border-radius: var(--zh-radius); background: var(--zh-panel); box-shadow: var(--zh-shadow); text-align: left; transform: none; }
+body.zh-archive-page #timeline .timeline-year { position: static; display: block; margin: 0 0 6px; font: 700 28px/1.1 var(--zh-head); color: #e9c86e; transform: none; }
+body.zh-archive-page #timeline .timeline-entry:last-child .timeline-year { color: #ef6a55; }
+body.zh-archive-page #timeline .timeline-content h3 { margin: 0 0 6px; font: 600 15px/1.35 var(--zh-text); color: var(--zh-ink); }
+body.zh-archive-page #timeline .timeline-content p { margin: 0; font-size: 13px; line-height: 1.6; color: var(--zh-ink-soft); }
+@media (max-width: 980px) { body.zh-archive-page #timeline .timeline-new { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { body.zh-archive-page #timeline .timeline-new { grid-template-columns: 1fr; } }
+/* Jahr steht in der Kachel über dem Titel */
+body.zh-archive-page #timeline .timeline-entry { display: flex; flex-direction: column; }
+body.zh-archive-page #timeline .timeline-year { order: 1; position: relative; z-index: 1; margin: 0; padding: 16px 16px 0; text-align: left; }
+body.zh-archive-page #timeline .timeline-content { order: 2; margin-top: -1px; padding-top: 6px; border-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+body.zh-archive-page #timeline .timeline-year { border: 1px solid var(--zh-gold-line); border-bottom: 0; border-radius: var(--zh-radius) var(--zh-radius) 0 0; background: var(--zh-panel); }
+body.zh-archive-page #timeline .timeline-year { align-self: stretch; width: auto; max-width: none; display: block; justify-content: flex-start; }
+/* Timeline: die ganze Kachel ist eine Fläche, Jahr und Text liegen ohne eigenen Rahmen darauf */
+body.zh-archive-page #timeline .timeline-entry { border: 1px solid var(--zh-gold-line); border-radius: var(--zh-radius); background: var(--zh-panel); box-shadow: var(--zh-shadow); }
+body.zh-archive-page #timeline :is(.timeline-year, .timeline-content) { border: 0; border-radius: 0; background: none; box-shadow: none; }
+body.zh-archive-page #timeline .timeline-content { margin: 0; padding: 6px 16px 18px; }

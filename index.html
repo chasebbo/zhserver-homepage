@@ -43,9 +43,11 @@
     <script>
         // Abschnitte der früheren Startseite liegen jetzt im Archiv: alte Links und Anker weiterleiten.
         (function () {
-            var moved = /^(history|adminbase|halloffame|axe-event|convoy-event|helicopter-event|rallye-event|hungergames-event|tdm-event|creator-event|safezone-event|exile-maps|timeline|gallery|archive|guestbook|forum|support-title|guestbook-.*)$/;
+            var moved = /^(history|adminbase|halloffame|axe-event|convoy-event|helicopter-event|rallye-event|hungergames-event|tdm-event|creator-event|safezone-event|exile-maps|timeline|guestbook|forum|support-title|guestbook-.*)$/;
             var id = decodeURIComponent(location.hash.slice(1));
-            if (moved.test(id)) location.replace("archiv.html" + location.search + location.hash);
+            // Galerie-Hinweis und Archiv-Links stehen jetzt auf der Galerie-Seite
+            if (/^(gallery|archive)$/.test(id)) location.replace("gallery.html");
+            else if (moved.test(id)) location.replace("archiv.html" + location.search + location.hash);
         })();
     </script>
 </head>
@@ -68,9 +70,7 @@
                         <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
                         <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
                     </div>
-                    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Navigation öffnen" aria-controls="nav-menu" aria-expanded="false">
-    ☰
-</button>
+                    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Navigation öffnen" aria-controls="nav-menu" aria-expanded="false">☰</button>
                 </div>
             </div>
             <ul class="nav-menu" id="nav-menu">

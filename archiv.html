@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Archiv | ZHServer Community</title>
+    <script>if (/^#(gallery|archive)$/.test(location.hash)) location.replace("gallery.html");</script>
 
     <meta name="description" content="Das Archiv der ZHServer Community seit 2013: Events, Karten, Timeline, Gästebuch und alte Bilder.">
 
@@ -60,9 +61,7 @@
                         <button type="button" data-language="de" lang="de" aria-pressed="true">DE</button>
                         <button type="button" data-language="en" lang="en" aria-pressed="false">EN</button>
                     </div>
-                    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Navigation öffnen" aria-controls="nav-menu" aria-expanded="false">
-    ☰
-</button>
+                    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Navigation öffnen" aria-controls="nav-menu" aria-expanded="false">☰</button>
                 </div>
             </div>
             <ul class="nav-menu" id="nav-menu">
@@ -1263,121 +1262,9 @@
 
 </section>
 
-<!-- ================= GALERIE ================= -->
 
 
-<section id="gallery" class="section">
 
-    <div class="container">
-
-        <span class="section-title">
-            GALERIE
-        </span>
-
-        <h2>
-            Du hast noch alte Screenshots? Her damit.
-        </h2>
-
-        <p>
-            Alte Screenshots aus ARMA 2, DayZ, Epoch, ARMA 3 oder Exile kannst du hier hochladen. Nach einer kurzen Prüfung erscheinen sie in der Galerie.
-        </p>
-
-        <div id="latestGallery" class="gallery-grid">
-
-        </div>
-
-        <div style="text-align:center; margin-top:50px;">
-
-            <a href="gallery.html" class="btn btn-gold">
-                Alle Bilder ansehen
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section id="archive" class="section">
-
-    <div class="container">
-
-<div class="cards">
-
-    <div class="card archive-card">
-
-        <i class="fa-solid fa-clock-rotate-left archive-icon"></i>
-
-        <h3>Wayback Machine</h3>
-
-        <p>
-            Hier findest du alte Versionen der Webseite aus der aktiven Zeit der Zombiehölle (ZHServer).
-        </p>
-
-        <a href="https://web.archive.org/web/20170516020643/http://www.zombieh%C3%B6lle.de/index.php"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-outline">
-            Archiv öffnen
-        </a>
-
-    </div>
-
-    <div class="card archive-card">
-
-        <i class="fa-brands fa-steam archive-icon"></i>
-
-        <h3>Steam Community</h3>
-
-        <p>
-            Besuche die Steam-Gruppe.
-        </p>
-
-        <a href="https://steamcommunity.com/groups/zombiehoelle"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-outline">
-            Steam öffnen
-        </a>
-
-    </div>
-
-    <div class="card archive-card">
-
-        <i class="fa-brands fa-youtube archive-icon"></i>
-
-        <h3>YouTube</h3>
-
-        <p>
-            Videos, Trailer und Missionen aus der Zeit der Zombiehölle (ZHServer).
-        </p>
-
-        <a href="https://www.youtube.com/results?search_query=Zombieh%C3%B6lle.de+ZHserver.de"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-outline">
-            YouTube öffnen
-        </a>
-
-    </div>
-
-    <div class="card archive-card">
-
-        <i class="fa-regular fa-images archive-icon"></i>
-
-        <h3>Screenshot-Galerie</h3>
-
-        <p>
-            Screenshots aus Arma 2, Arma 3 und von vielen Events der Community. Deine eigenen Bilder kannst du gerne hochladen.
-        </p>
-
-        <a href="#gallery"
-           class="btn btn-outline">
-            Galerie öffnen
-        </a>
-    </div>
-
-</section>
 
     </div>
 

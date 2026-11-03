@@ -52,7 +52,20 @@
         update();
     }
 
+    // Spielseite: "Vollbild" im Spielrahmen schaltet die ganze Seite in den Vollbildmodus (nur wo der Browser das kann)
+    function fullscreen() {
+        const root = document.documentElement;
+        document.querySelectorAll("[data-zh-fullscreen]").forEach(button => {
+            button.hidden = !root.requestFullscreen;
+            button.addEventListener("click", () => {
+                if (document.fullscreenElement) document.exitFullscreen?.();
+                else root.requestFullscreen?.().catch(() => {});
+            });
+        });
+    }
+
     applySwitches();
     toTop();
+    fullscreen();
     window.ZHUi = Object.freeze({ features: Object.freeze({ ...FEATURES }), releases: Object.freeze({ ...RELEASES }), applySwitches });
 })();
