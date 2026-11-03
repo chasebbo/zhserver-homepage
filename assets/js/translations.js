@@ -4661,7 +4661,8 @@ Object.assign(window.ZHTranslations.copy, {
   "umbau-upload-picture": {de:"Bild hochladen",en:"Upload a picture"}
 });
 Object.assign(window.ZHTranslations.copy, {
-  "umbau-fullscreen": {de:"Vollbild",en:"Fullscreen"}
+  "umbau-fullscreen": {de:"Vollbild",en:"Fullscreen"},
+  "umbau-fullscreen-exit": {de:"Vollbild verlassen",en:"Exit fullscreen"}
 });
 Object.assign(window.ZHTranslations.messages, {
   "brand.main": {de:"Zombiehölle",en:"Zombie Hell"},

@@ -57,15 +57,29 @@
         document.querySelectorAll("[data-zh-msg]").forEach(element => window.ZHLanguage?.bind(element, element.dataset.zhMsg));
     }
 
-    // Spielseite: "Vollbild" im Spielrahmen schaltet die ganze Seite in den Vollbildmodus (nur wo der Browser das kann)
+    // Spielseite: "Vollbild" im Spielrahmen vor dem Start zeigt nur den Spielrahmen bildschirmfüllend, nie die ganze Seite.
+    // Läuft das Spiel, gilt die Technik der Live-Seite aus game-entry.js: Vollbild nur für das Spiel-iframe.
     function fullscreen() {
-        const root = document.documentElement;
         document.querySelectorAll("[data-zh-fullscreen]").forEach(button => {
-            button.hidden = !root.requestFullscreen;
+            const area = button.closest(".zh-play-frame");
+            button.hidden = !area?.requestFullscreen;
+            if (button.hidden) return;
             button.addEventListener("click", () => {
-                if (document.fullscreenElement) document.exitFullscreen?.();
-                else root.requestFullscreen?.().catch(() => {});
+                if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+                else area.requestFullscreen().catch(() => {});
             });
+            const label = () => {
+                const text = document.fullscreenElement === area ? "Vollbild verlassen" : "Vollbild";
+                button.textContent = window.ZHLanguage?.text(text) ?? text;
+            };
+            // Wer das Vollbild des Spiels verlässt, landet wieder auf der Seite und nicht im Vollbild des Rahmens.
+            let last = null;
+            document.addEventListener("fullscreenchange", () => {
+                if (document.fullscreenElement === area && last && last !== area) document.exitFullscreen().catch(() => {});
+                last = document.fullscreenElement;
+                label();
+            });
+            document.addEventListener("zh:languagechange", label);
         });
     }
 

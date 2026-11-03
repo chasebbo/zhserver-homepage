@@ -173,6 +173,9 @@
             }
             if (stagePage) enterStage();
             else wrapper.scrollIntoView({ behavior: "auto", block: "start" });
+            // Started from the fullscreen play frame: the game itself takes over fullscreen, as with the stage bar button.
+            const fullscreenArea = document.fullscreenElement;
+            if (fullscreenArea && fullscreenArea !== frame && fullscreenArea.contains(frame)) void frame.requestFullscreen().catch(() => {});
         } finally {
             starting = false;
             renderAccess();
