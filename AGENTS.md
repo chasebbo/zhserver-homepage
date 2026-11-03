@@ -176,8 +176,9 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 02.11.2026: Hauptversion v130-2 (`game.html`), Rückweg v130-1, Rückfall
+- Stand 03.11.2026: Hauptversion v130-2 (`game.html`), Rückweg v130-1, Rückfall
   v129, Testseiten `game-test-v129.html` (v129) und `game-test-v130.html` (Testkandidat
-  v131-2, davor v131). Bis zum v131-Release dürfen die Builds liegen bleiben (Sebastian
+  v131-3, davor v131-2). Bis zum v131-Release dürfen die Builds liegen bleiben (Sebastian
   02.11.2026), aufgeräumt wird beim Release.
-  v130 und v127 sind archiviert und entfernt (vorher v128 und v119).
+  v131, v130 und v127 sind archiviert und entfernt (vorher v128 und v119). Die Seite
+  liegt ungepackt bei rund 886 MB, das Pages-Artefakt bei 710 MB.
