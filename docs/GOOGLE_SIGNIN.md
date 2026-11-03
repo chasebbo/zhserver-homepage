@@ -1,6 +1,6 @@
 # Mit Google anmelden
 
-Stand 27.10.2026. Die Migration ist am 27.10.2026 nach Sebastians Freigabe eingespielt (`homepage_google_oauth_onboarding`, Teil A und Teil B). Die Homepage folgt mit dem Push.
+Stand 27.10.2026. Die Migration ist am 27.10.2026 nach Sebastians Freigabe eingespielt (`homepage_google_oauth_onboarding`, Teil A und Teil B). Die Homepage ist mit `7417010` und `75de211` live.
 
 ## Ablauf
 
@@ -34,6 +34,13 @@ Stand 27.10.2026. Die Migration ist am 27.10.2026 nach Sebastians Freigabe einge
 1. Sebastian gibt die Migration frei, sie wird angewendet und gelesen geprüft. Erledigt am 27.10.2026.
 2. Danach „Push frei“ für die Homepage. Erteilt am 27.10.2026.
 3. Ohne Migration schlägt eine Google-Registrierung fehl und die Seite meldet „hat nicht geklappt“. Es wird kein Konto angelegt. Bestehende Konten können sich trotzdem über Google anmelden.
+
+## Live getestet
+
+- 27.10.2026, 13:28: Sebastian hat sich live mit seinem Google-Konto angemeldet. Es hat dieselbe E-Mail-Adresse wie sein bestehendes Konto.
+  - Google wurde mit dem bestehenden Konto verbunden. Er war direkt als sein Spieler angemeldet, ohne Willkommensseite.
+  - Laut Datenbank danach weiter 13 Konten, 0 offene Konten, 1 Google-Verknüpfung.
+- Noch ungetestet online: der Weg für ein ganz neues Google-Konto (Willkommensseite, Konto fertigstellen). Lokal ist er mit simulierter Anmeldung geprüft.
 
 ## Für Opus 3 (Spiel) und den Spielserver
 
