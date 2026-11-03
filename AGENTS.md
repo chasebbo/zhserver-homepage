@@ -161,6 +161,12 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - „Spieler online“ in der Kachel Spielserver: `get_online_player_count()` etwa einmal pro Minute,
   bei Fehler ausgeblendet. Zählt alle Einträge in `player_presence` der letzten 15 s, auch Testkonten. Links auf `geschichte.html` bekommen ihr Ziel erst mit `RELEASES.v131`.
 - Funkgerät steht in `assets/js/radio.js` (früher in `main.js`) und auf jeder Homepage-Seite.
+- Kopf: auf allen 16 umgebauten Seiten gleiches Markup (Logo, zweizeiliger Titel, Sprache, Menü), Gestaltung nur in
+  `zh-2026.css`. Änderungen am Kopf immer auf allen Seiten gleich machen, keine Kopfregeln pro Seite.
+- `game.html` im Umbau nach `spielen.html`: lädt die alten Spielseiten-Stile nicht mehr, nur `game-stage.css`.
+  Bedienelemente und `data-src` unverändert (Release-Änderungen von main beim Neuaufsetzen übernehmen).
+  Geht erst mit dem Umbau online, wenn v131 (Ladehinweis) und die Spielversion ohne Gastzugang live sind;
+  vorher online mit ZH-Testbot den Start über die neue Seite prüfen.
 - Ränge und Zombie-Zähler (Sebastian 03.11.2026) in `assets/js/zh-ranks.js`, versteckt hinter
   `worldZombieTotal`, `playerStats` und `playerRanks`. Daten von Opus 3 über `get_world_zombie_total`,
   `get_public_player_stats` und `get_player_ranks`; Antwortformen nach `HOMEPAGE-UEBERGABE-RAENGE.md`
