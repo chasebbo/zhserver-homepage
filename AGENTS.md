@@ -158,8 +158,9 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   ist (Antwortform nach `HOMEPAGE-UEBERGABE-WELTLAGE.md`, nur `readWorld()` in `assets/js/zh-live.js`
   anpassen). `world-status.js` erzeugt nur Konzeptwerte und gehört nicht in den Umbau.
   Sebastian 03.11.2026: Der Umbau geht erst online, wenn die echte Weltlage drin ist.
-- „Spieler online“ in der Kachel Spielserver: `get_online_player_count()` etwa einmal pro Minute,
-  bei Fehler ausgeblendet. Zählt alle Einträge in `player_presence` der letzten 15 s, auch Testkonten. Links auf `geschichte.html` bekommen ihr Ziel erst mit `RELEASES.v131`.
+  Links auf `geschichte.html` bekommen ihr Ziel erst mit `RELEASES.v131`.
+- Keine Anzeige der Spieler online auf der Homepage (Sebastian 03.11.2026), auch nicht versteckt
+  vorbereitet.
 - Funkgerät steht in `assets/js/radio.js` (früher in `main.js`) und auf jeder Homepage-Seite.
 - Kopf: auf allen 16 umgebauten Seiten gleiches Markup (Logo, zweizeiliger Titel, Sprache, Menü), Gestaltung nur in
   `zh-2026.css`. Änderungen am Kopf immer auf allen Seiten gleich machen, keine Kopfregeln pro Seite.

@@ -1,5 +1,5 @@
 /* Startseite: echte Live-Werte im Lagezentrum. Nur lesende Abfragen, keine Zähl- oder Anwesenheitsaufrufe.
-   Spieler online: get_online_player_count(), etwa jede Minute, nur solange die Seite sichtbar ist.
+   Keine Anzeige der Spieler online (Sebastian 03.11.2026).
    Weltlage: get_world_status() von Opus 3 (v132), versteckt hinter dem Schalter worldStatus in zh-ui.js.
    Die Antwortform der Weltlage ist vorläufig; maßgeblich wird HOMEPAGE-UEBERGABE-WELTLAGE.md (nur readWorld() anpassen). */
 (() => {
@@ -22,31 +22,6 @@
         el.classList.remove("is-flash");
         void el.offsetWidth;
         el.classList.add("is-flash");
-    }
-
-    // Spieler online: bei Fehler wird die Zeile ausgeblendet, nie 0 oder ein Beispielwert
-    const playersLine = document.querySelector("[data-live-players]");
-    const playersCount = playersLine?.querySelector("[data-live-players-count]");
-    let players = null;
-    function renderPlayers() {
-        if (!playersLine) return;
-        playersLine.hidden = players === null;
-        if (players === null) return;
-        playersLine.querySelector("[data-live-players-label]").textContent = lang.t("live.playersOnline");
-        playersCount.textContent = players.toLocaleString(lang.locale);
-    }
-    async function loadPlayers() {
-        if (!playersLine) return;
-        let next = null;
-        try {
-            const data = await call("get_online_player_count");
-            const value = Array.isArray(data) ? data[0] : data;
-            next = Number.isSafeInteger(value) && value >= 0 ? value : null;
-        } catch (_) { next = null; }
-        const changed = players !== null && next !== null && next !== players;
-        players = next;
-        renderPlayers();
-        if (changed) flash(playersCount);
     }
 
     // Weltlage: vier Prozente aus dem Spiel; Aufleuchten nur bei echter Änderung
@@ -92,11 +67,9 @@
         const wait = INTERVAL - (Date.now() - lastLoad);
         if (lastLoad && wait > 1000) { timer = setTimeout(tick, wait); return; }
         lastLoad = Date.now();
-        loadPlayers();
         loadWorld();
         timer = setTimeout(tick, INTERVAL);
     }
     document.addEventListener("visibilitychange", () => { if (!document.hidden) tick(); else clearTimeout(timer); });
-    document.addEventListener("zh:languagechange", renderPlayers);
     tick();
 })();

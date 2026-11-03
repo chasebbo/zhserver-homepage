@@ -4635,9 +4635,6 @@ Object.assign(window.ZHTranslations.messages, {
   "ranks.xpMax": {de:"{xp} EP, höchster Rang",en:"{xp} XP, highest rank"},
   "zombies.week": {de:"davon diese Woche {count}",en:"{count} of them this week"}
 });
-Object.assign(window.ZHTranslations.messages, {
-  "live.playersOnline": {de:"Spieler online:",en:"Players online:"}
-});
 Object.assign(window.ZHTranslations.copy, {
   "umbau-alpha-play-now": {de:"Alpha · sofort spielbar, ohne Download",en:"Alpha · play now, no download"}
 });
