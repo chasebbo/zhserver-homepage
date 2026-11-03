@@ -4672,3 +4672,7 @@ Object.assign(window.ZHTranslations.copy, {
 Object.assign(window.ZHTranslations.copy, {
   "umbau-fullscreen": {de:"Vollbild",en:"Fullscreen"}
 });
+Object.assign(window.ZHTranslations.messages, {
+  "brand.main": {de:"Zombiehölle",en:"Zombie Hell"},
+  "brand.sub": {de:"Survival",en:"Survival"}
+});

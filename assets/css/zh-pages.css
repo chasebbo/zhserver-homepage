@@ -295,7 +295,7 @@ body.zh-2026.wiki-page .wiki-quick-btn { min-height: 44px; display: inline-flex;
     body.zh-2026.wiki-page .wiki-hero + .section > .container { display: grid; grid-template-columns: 250px minmax(0, 1fr); column-gap: 28px; align-items: start; }
     body.zh-2026.wiki-page .wiki-hero + .section > .container > * { grid-column: 2; min-width: 0; }
     body.zh-2026.wiki-page .wiki-hero + .section > .container > .wiki-quick-nav {
-        grid-column: 1; grid-row: 1 / span 40; position: sticky; top: 170px; display: flex; flex-direction: column; flex-wrap: nowrap; gap: 4px; margin: 0;
+        grid-column: 1; grid-row: 1 / span 40; position: sticky; top: calc(var(--zh-head-h) + 20px); display: flex; flex-direction: column; flex-wrap: nowrap; gap: 4px; margin: 0;
         padding: 18px; border: 1px solid var(--zh-gold-line); border-radius: var(--zh-radius); background: var(--zh-panel); box-shadow: var(--zh-shadow); overflow: visible;
     }
     body.zh-2026.wiki-page .wiki-quick-nav .wiki-quick-btn { justify-content: flex-start; width: 100%; padding: 0 12px; border: 0; border-left: 2px solid transparent; border-radius: 8px; background: none; white-space: normal; text-align: left; }
@@ -333,7 +333,7 @@ body.zh-2026 :is(.zh-gallery-main, .zh-gallery-upload) > .container { max-width:
 .zh-story-hero-copy .zh-copy { font-size: 17px; color: #d5dcdc; }
 .zh-story-intro { max-width: 760px; margin-bottom: 30px; font-size: 18px; }
 .zh-story-timeline { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 40px; }
-.zh-story-timeline-head { display: flex; flex-direction: column; gap: 12px; align-self: start; position: sticky; top: 180px; }
+.zh-story-timeline-head { display: flex; flex-direction: column; gap: 12px; align-self: start; position: sticky; top: calc(var(--zh-head-h) + 30px); }
 .zh-story-steps { list-style: none; margin: 0; padding: 0 0 0 34px; display: flex; flex-direction: column; gap: 20px; border-left: 2px solid; border-image: linear-gradient(180deg, #8fb8e8, #d9bd7c 40%, #e8604a) 1; }
 .zh-story-steps > li { position: relative; display: flex; flex-direction: column; gap: 8px; }
 .zh-story-steps > li::before { content: ""; position: absolute; left: -43px; top: 26px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--zh-gold); background: #0b1015; }
@@ -507,3 +507,9 @@ body.zh-archive-page #timeline .timeline-content { margin: 0; padding: 6px 16px 
     .zh-hero-gallery { padding: 0 20px 22px; }
     .zh-hero-copy { padding: 200px 20px 16px; }
 }
+
+/* Startbild-Titel wie in Sebastians Vorlage: schmale, sehr fette Blockschrift, zwei Zeilen, SURVIVAL in Gold */
+body.zh-2026 .zh-hero-title { display: flex; flex-direction: column; margin: 0; font: 800 clamp(64px, 7.2vw, 104px)/.9 "Barlow Condensed", var(--zh-text); letter-spacing: .005em; text-transform: uppercase; color: #f3eee2; text-shadow: 0 2px 24px rgba(0, 0, 0, .45); }
+body.zh-2026 .zh-hero-title > .zh-hero-title-sub { color: var(--zh-gold-strong); }
+@media (max-width: 640px) { body.zh-2026 .zh-hero-title { font-size: clamp(52px, 16vw, 72px); } }
+

@@ -48,28 +48,24 @@ body.zh-2026::before {
 }
 :where(body.zh-2026) :where(h1, h2, h3) { font-family: var(--zh-head); }
 
-/* Kopf: schwebende abgerundete Leiste, Titel mittig, Menü darunter. Der feste Kopf hat einen dunklen Streifen
-   hinter sich, damit beim Scrollen nichts über oder neben ihm durchscheint. */
-@media (min-width: 901px) {
-    .zh-2026 .header.zh-site-header { background: linear-gradient(180deg, var(--zh-bg) 0%, var(--zh-bg) 88%, rgba(11, 16, 21, 0) 100%); }
-}
-.zh-2026 .header.zh-site-header .navbar {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 14px 22px 0;
-    border: 1px solid rgba(205, 183, 127, .16);
-    border-radius: 16px;
-    background: linear-gradient(180deg, rgba(17, 22, 26, .94), rgba(11, 15, 19, .94));
-    box-shadow: 0 18px 40px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .04);
-}
-.zh-2026 .header.zh-site-header .header-emblem { width: 58px; height: 58px; }
-.zh-2026 .header.zh-site-header .header-emblem img { opacity: 1; filter: drop-shadow(0 0 10px rgba(217, 189, 124, .15)); }
-/* Titel zweizeilig und zentriert, auf allen Seiten gleich */
-.zh-2026 .header.zh-site-header .header-brand-row > .logo { display: flex; flex-direction: column; align-items: center; font-family: var(--zh-head); font-weight: 700; font-size: 23px; line-height: 1.25; color: #f3eee2; letter-spacing: .02em; text-decoration: none; }
-.zh-2026 .header.zh-site-header .home-header-welcome { display: block; margin-top: 3px; font: 600 11px/1.4 var(--zh-text); letter-spacing: .16em; color: var(--zh-gold); }
-.zh-2026 .header.zh-site-header .home-header-welcome > span { display: inline; }
+/* Kopf wie in Sebastians Vorlage: schmale, flache Leiste über die volle Breite, dunkel und leicht durchscheinend.
+   Links Hand und Schriftzug, Mitte das Menü, rechts Konto und Sprache. Am Handy klappt das Menü mit Konto und Sprache auf. */
+body.zh-2026 { --zh-head-h: 72px; --zh-gold-strong: #d4a84a; }
+.zh-2026 .header.zh-site-header { padding: 0; border-bottom: 1px solid rgba(217, 189, 124, .14); background: rgba(9, 12, 15, .74); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(0, 0, 0, .28); }
+.zh-2026 .header.zh-site-header.scrolled { background: rgba(9, 12, 15, .9); }
+.zh-2026 .header.zh-site-header > .container { width: auto; max-width: none; margin: 0; padding: 0; }
+.zh-2026 .header.zh-site-header .navbar,
+.zh-2026 .header.zh-site-header.scrolled .navbar { flex-direction: row; align-items: center; gap: 28px; max-width: 1440px; min-height: var(--zh-head-h); margin: 0 auto; padding: 0 28px; border: 0; border-radius: 0; background: none; box-shadow: none; }
+.zh-2026 .header.zh-site-header .header-brand-row { display: contents; }
+.zh-2026 .header.zh-site-header .zh-wordmark { order: 1; display: flex; flex: none; align-items: center; gap: 12px; margin: 0; text-decoration: none; white-space: nowrap; }
+.zh-2026 .header.zh-site-header .zh-wordmark img { display: block; width: 44px; height: 44px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(217, 189, 124, .15)); }
+.zh-2026 .header.zh-site-header .zh-wordmark-text { display: flex; align-items: baseline; gap: 10px; text-transform: uppercase; line-height: 1; }
+.zh-2026 .header.zh-site-header .zh-wordmark-main { font: 800 30px/1 "Barlow Condensed", var(--zh-text); letter-spacing: .02em; color: #f3eee2; }
+.zh-2026 .header.zh-site-header .zh-wordmark-sub { font: 700 15px/1 "Barlow Condensed", var(--zh-text); letter-spacing: .24em; color: var(--zh-gold-strong); }
+.zh-2026 .header.zh-site-header .navbar > .nav-menu { order: 2; flex: 1 1 auto; justify-content: center; gap: clamp(16px, 1.5vw, 24px); width: auto; margin: 0; padding: 0; border: 0; }
+.zh-2026 .header.zh-site-header .header-controls { order: 3; flex: none; gap: 10px; }
+.zh-2026 .header.zh-site-header .nav-menu > .zh-menu-lang { display: none; }
 .zh-2026 .header.zh-site-header .nav-menu > li > a { display: inline-flex; align-items: center; min-height: 28px; padding: 4px 2px; line-height: 1.4; }
-.zh-2026 .header.zh-site-header .navbar > .nav-menu { padding: 11px 0 12px; margin-top: 4px; }
 /* Menü: genau ein Strich, gezeichnet über ::after aus style.css. Aktiv gold, beim Darüberfahren dezent. */
 .zh-2026 .header.zh-site-header .nav-menu a { font-family: var(--zh-text); font-size: 15px; font-weight: 500; color: #dddbd2; border: 0; text-decoration: none; }
 .zh-2026 .header.zh-site-header .nav-menu a::after { bottom: -6px; height: 2px; border-radius: 1px; background: rgba(217, 189, 124, .35); }
@@ -81,12 +77,37 @@ body.zh-2026::before {
 .zh-2026 .language-switcher button { min-height: 44px; min-width: 44px; }
 .zh-2026 .zh-account-guest, .zh-2026 .zh-account-register, .zh-2026 .zh-account-trigger,
 .zh-2026 .zh-account-quick-login, .zh-2026 .zh-account-quick-register { min-height: 44px; }
+/* Mittlere Breiten: Menü in einer zweiten Zeile, damit nichts abgeschnitten wird */
+@media (min-width: 901px) and (max-width: 1359px) {
+    body.zh-2026 { --zh-head-h: 116px; }
+    .zh-2026 .header.zh-site-header .navbar,
+    .zh-2026 .header.zh-site-header.scrolled .navbar { flex-wrap: wrap; align-content: center; row-gap: 0; padding: 0 22px; }
+    .zh-2026 .header.zh-site-header .zh-wordmark { min-height: 64px; }
+    .zh-2026 .header.zh-site-header .header-controls { margin-left: auto; }
+    .zh-2026 .header.zh-site-header .navbar > .nav-menu { order: 4; flex: 1 0 100%; min-height: 50px; gap: 22px; border-top: 1px solid rgba(255, 255, 255, .06); }
+}
 @media (max-width: 900px) {
-    .zh-2026 .header.zh-site-header .navbar { padding: 10px 14px; margin: 0 8px; }
-    .zh-2026 .header.zh-site-header .header-emblem { width: 46px; height: 46px; }
-    .zh-2026 .header.zh-site-header .header-brand-row > .logo { font-size: 15px; white-space: normal; }
+    body.zh-2026 { --zh-head-h: 60px; }
+    .zh-2026 .header.zh-site-header .navbar,
+    .zh-2026 .header.zh-site-header.scrolled .navbar { gap: 10px; padding: 0 12px 0 14px; }
+    .zh-2026 .header.zh-site-header .zh-wordmark { gap: 9px; }
+    .zh-2026 .header.zh-site-header .zh-wordmark img { width: 36px; height: 36px; }
+    .zh-2026 .header.zh-site-header .zh-wordmark-text { gap: 8px; }
+    .zh-2026 .header.zh-site-header .zh-wordmark-main { font-size: 23px; }
+    .zh-2026 .header.zh-site-header .zh-wordmark-sub { display: inline; font-size: 12px; }
+    .zh-2026 .header.zh-site-header .header-controls { margin-left: auto; }
+    .zh-2026 .header.zh-site-header .header-controls > .language-switcher,
+    .zh-2026 .header.zh-site-header .zh-account-quick-actions { display: none; }
     .zh-2026 .header.zh-site-header .menu-toggle { min-width: 44px; min-height: 44px; }
+    .zh-2026 .header.zh-site-header .navbar > .nav-menu { left: 8px; right: 8px; top: calc(100% + 6px); justify-content: flex-start; max-height: calc(100svh - 80px); padding: 14px 16px; border: 1px solid rgba(174, 184, 196, .2); background: #0c1218; }
     .zh-2026 .header.zh-site-header .nav-menu a { display: flex; align-items: center; min-height: 44px; }
+    .zh-2026 .header.zh-site-header .nav-menu > .zh-menu-lang { display: block; padding-top: 10px; margin-top: 4px; border-top: 1px solid rgba(183, 194, 205, .13); }
+    .zh-2026 .header.zh-site-header .zh-menu-lang .language-switcher { display: inline-flex; }
+}
+@media (max-width: 359px) {
+    .zh-2026 .header.zh-site-header .zh-wordmark-text { flex-direction: column; align-items: flex-start; gap: 3px; }
+    .zh-2026 .header.zh-site-header .zh-wordmark-main { font-size: 21px; }
+    .zh-2026 .header.zh-site-header .zh-wordmark-sub { font-size: 11px; }
 }
 
 /* Abschnitte und Bausteine aus dem Entwurf */
@@ -329,3 +350,25 @@ body.zh-2026 .site-footer.zh-global-footer .visitor-stat :is(dd, dd *) { color: 
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-release a { color: #e6cd8e; text-decoration: none; }
 @media (max-width: 900px) { body.zh-2026 .site-footer.zh-global-footer .zh-footer-links { justify-content: flex-start; } }
 body.zh-2026 .site-footer.zh-global-footer .visitor-stat #total-visitors { display: inline; margin: 0; font: 500 13px/1.3 var(--zh-mono); color: #f1ece0; }
+
+/* Abstand zum flacheren Kopf (fest am PC, im Fluss am Handy), für alle umgebauten Seiten. Gleicher sichtbarer Abstand wie vorher. */
+@media (min-width: 901px) {
+    body.zh-2026 .zh-start, body.zh-2026 .zh-story { padding-top: calc(var(--zh-head-h) + 24px); }
+    body.zh-2026.zh-archive-page .history { padding-top: calc(var(--zh-head-h) + 40px); }
+    body.zh-2026.zh-play-page .zh-play { padding-top: calc(var(--zh-head-h) + 46px); }
+    body.zh-2026.forum-page .forum-preparation { padding-top: calc(var(--zh-head-h) + 54px); }
+    body.zh-2026.forum-page .forum-workspace { scroll-margin-top: calc(var(--zh-head-h) + 34px); }
+    html body.zh-2026.gallery-page:not(.wiki-page) .zh-gallery-hero { padding-top: calc(var(--zh-head-h) + 50px); }
+    body.zh-2026 .account-main { padding-top: calc(var(--zh-head-h) + 52px); }
+    body.zh-2026.feedback-page .header.zh-site-header + main > .feedback-hero,
+    body.zh-2026.game-product-page .header.zh-site-header + .game-page { padding-top: calc(var(--zh-head-h) + 38px); }
+    body.zh-2026.arma-page .arma-main { padding-top: calc(var(--zh-head-h) + 46px); }
+    body.zh-2026 .legal-main { padding-top: calc(var(--zh-head-h) + 54px); }
+    body.zh-2026.game-product-page .game-page [id] { scroll-margin-top: calc(var(--zh-head-h) + 38px); }
+    body.zh-2026.wiki-page { --wiki-anchor-offset: calc(var(--zh-head-h) + 20px); }
+    body.zh-2026.zh-archive-page .zh-archive > :is(#adminbase, [id$="-event"]):target { scroll-margin-top: calc(var(--zh-head-h) + 20px); }
+}
+@media (max-width: 900px) {
+    body.zh-2026.zh-archive-page .history { padding-top: 34px; }
+    html body.zh-2026.gallery-page:not(.wiki-page) .zh-gallery-hero { padding-top: 34px; }
+}

@@ -52,6 +52,11 @@
         update();
     }
 
+    // Schriftzug "Zombiehölle Survival" im Kopf und im Startbild: zweifarbig, daher je Teil über die Übersetzungen gebunden
+    function brand() {
+        document.querySelectorAll("[data-zh-msg]").forEach(element => window.ZHLanguage?.bind(element, element.dataset.zhMsg));
+    }
+
     // Spielseite: "Vollbild" im Spielrahmen schaltet die ganze Seite in den Vollbildmodus (nur wo der Browser das kann)
     function fullscreen() {
         const root = document.documentElement;
@@ -65,6 +70,7 @@
     }
 
     applySwitches();
+    brand();
     toTop();
     fullscreen();
     window.ZHUi = Object.freeze({ features: Object.freeze({ ...FEATURES }), releases: Object.freeze({ ...RELEASES }), applySwitches });

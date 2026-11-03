@@ -7,3 +7,5 @@
 @font-face{font-family:'Cinzel';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/cinzel-latin-500-normal.woff2) format('woff2')}
 @font-face{font-family:'Cinzel';font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/cinzel-latin-700-normal.woff2) format('woff2')}
 @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/jetbrains-mono-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/barlow-condensed-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:800;font-display:swap;src:url(../fonts/barlow-condensed-latin-800-normal.woff2) format('woff2')}

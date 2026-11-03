@@ -162,8 +162,11 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Keine Anzeige der Spieler online auf der Homepage (Sebastian 03.11.2026), auch nicht versteckt
   vorbereitet.
 - Funkgerät steht in `assets/js/radio.js` (früher in `main.js`) und auf jeder Homepage-Seite.
-- Kopf: auf allen 16 umgebauten Seiten gleiches Markup (Logo, zweizeiliger Titel, Sprache, Menü), Gestaltung nur in
-  `zh-2026.css`. Änderungen am Kopf immer auf allen Seiten gleich machen, keine Kopfregeln pro Seite.
+- Kopf: auf allen 16 umgebauten Seiten gleiches Markup, flache Leiste nach `vorlage-kopf-startbild.png`: links Hand und
+  Schriftzug ZOMBIEHÖLLE / SURVIVAL (Barlow Condensed, selbst gehostet), Mitte Menü, rechts Konto und DE/EN; am Handy
+  Menüknopf, Konto und Sprache im Menü. Gestaltung nur in `zh-2026.css`, Kopfhöhe in `--zh-head-h` (nicht `--zh-head`, das ist
+  die Überschriftenschrift). Änderungen am Kopf immer auf allen Seiten gleich machen, keine Kopfregeln pro Seite.
+- Keine Bilderleiste unter den Kapiteln der Startseite (Sebastian 03.11.2026). Bilder stehen im Slider und in der Galerie.
 - `game.html` im Umbau nach `spielen.html`: lädt die alten Spielseiten-Stile nicht mehr, nur `game-stage.css`.
   Bedienelemente und `data-src` unverändert (Release-Änderungen von main beim Neuaufsetzen übernehmen).
   Geht erst mit dem Umbau online, wenn v131 (Ladehinweis) und die Spielversion ohne Gastzugang live sind;
