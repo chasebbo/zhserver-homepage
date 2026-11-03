@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
     <link rel="stylesheet" href="assets/css/community-stats.css?v=20261103-umbau10">
     <link rel="stylesheet" href="assets/css/identity.css?v=20261027-google1">
-    <script src="assets/js/translations.js?v=20261103-umbau11"></script>
+    <script src="assets/js/translations.js?v=20261103-umbau12"></script>
     <link rel="stylesheet" href="assets/css/community-pulse.css?v=20261103-umbau10">
     <link rel="stylesheet" href="assets/css/homepage-chapters.css?v=20261025-band1">
     <link rel="stylesheet" href="assets/css/home-community.css?v=20261025-band1">
@@ -38,8 +38,8 @@
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261103-umbau11">
-    <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261103-umbau11">
+    <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261103-umbau12">
+    <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261103-umbau12">
     <script>
         // Abschnitte der früheren Startseite liegen jetzt im Archiv: alte Links und Anker weiterleiten.
         (function () {
@@ -156,21 +156,17 @@
                 <span class="zh-small" data-zh-feature="serverUptime">Läuft seit <span data-live-uptime></span></span>
             </div>
 
-            <div class="zh-panel zh-hov zh-warm zh-pad-s zh-world-card era-world-note zh-world-status" data-zh-feature="worldStatus">
-                <div class="zh-world-heading">
-                    <span class="era-world-label zh-eyebrow">AKTUELLE WELTLAGE</span>
-                </div>
-                <p class="zh-small" data-world-status role="status" data-i18n-ignore hidden></p>
-                <dl class="zh-world-values" hidden>
-                    <div data-world-value="military"><dt>MILITÄR</dt><dd><span class="zh-world-number"></span></dd></div>
-                    <div data-world-value="survivors"><dt>ÜBERLEBENDE</dt><dd><span class="zh-world-number"></span></dd></div>
-                    <div data-world-value="infected"><dt>INFIZIERTE</dt><dd><span class="zh-world-number"></span></dd></div>
-                    <div data-world-value="contested"><dt>UMKÄMPFT</dt><dd><span class="zh-world-number"></span></dd></div>
+            <div class="zh-panel zh-hov zh-warm zh-pad-s zh-world-card" data-zh-feature="worldStatus" data-world-card aria-labelledby="world-title">
+                <span id="world-title" class="zh-eyebrow">AKTUELLE WELTLAGE</span>
+                <dl class="zh-wl-values" hidden>
+                    <div data-world-value="militaer"><dt>Militär</dt><dd class="zh-wl-num" data-i18n-ignore></dd></div>
+                    <div data-world-value="ueberlebende"><dt>Überlebende</dt><dd class="zh-wl-num" data-i18n-ignore></dd></div>
+                    <div data-world-value="infiziert"><dt>Infizierte</dt><dd class="zh-wl-num" data-i18n-ignore></dd></div>
+                    <div data-world-value="umkaempft"><dt>Umkämpft</dt><dd class="zh-wl-num" data-i18n-ignore></dd></div>
                 </dl>
-                <div class="zh-world-bar" aria-hidden="true" hidden>
-                    <span class="zh-world-military"></span><span class="zh-world-survivors"></span><span class="zh-world-infected"></span><span class="zh-world-contested"></span>
-                </div>
-                <a class="era-world-link zh-link" href="game.html#alpha-world-title"><span>Weltlage ansehen</span></a>
+                <p class="zh-wl-status" data-world-status role="status" data-i18n-ignore hidden></p>
+                <div class="zh-wl-bar" aria-hidden="true" hidden><span data-world-share="militaer"></span><span data-world-share="ueberlebende"></span><span data-world-share="infiziert"></span><span data-world-share="umkaempft"></span></div>
+                <a class="zh-link zh-wl-link" href="weltlage.html">Weltlage ansehen</a>
             </div>
 
             <div class="zh-panel zh-hov zh-pad-s zh-gates" data-zh-feature="gates" aria-labelledby="gates-title">
@@ -454,9 +450,9 @@
 <script src="assets/js/home-forum-teaser.js?v=20261019-forum1"></script>
 <script src="assets/js/home-changelog-band.js?v=20261103-umbau2"></script>
 
-<script src="assets/js/zh-ui.js?v=20261103-umbau6"></script>
+<script src="assets/js/zh-ui.js?v=20261103-umbau7"></script>
 <script src="assets/js/zh-ranks.js?v=20261103-umbau11"></script>
-<script src="assets/js/zh-live.js?v=20261103-umbau2"></script>
+<script src="assets/js/zh-live.js?v=20261103-umbau3"></script>
 <script src="assets/js/zh-hero.js?v=20261103-umbau2"></script>
 </body>
 

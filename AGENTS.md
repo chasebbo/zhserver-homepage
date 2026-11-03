@@ -154,21 +154,25 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Vorbereitete Teile schaltet `assets/js/zh-ui.js` ein (`FEATURES`, `RELEASES`), nicht im HTML.
   Erst einschalten, wenn es echte Daten gibt bzw. die Version live ist: Tore der Safezone
   (v132), Funk-Countdown, Ping und Laufzeit, Video im Startbild, Seite `geschichte.html` und
-  Ladetext (v131). Die Weltlage (`worldStatus`) bleibt aus, bis `get_world_status` von Opus 3 (v132) live
-  ist (Antwortform nach `HOMEPAGE-UEBERGABE-WELTLAGE.md`, nur `readWorld()` in `assets/js/zh-live.js`
-  anpassen). `world-status.js` erzeugt nur Konzeptwerte und gehört nicht in den Umbau.
+  Ladetext (v131). Die Weltlage (`worldStatus`) ist an (Sebastian 03.11.2026): Kachel auf Startseite und `game.html`,
+  Seite `weltlage.html` mit den 12 Orten, alles in `assets/js/zh-live.js` aus `get_world_status` (v132). Antwortform nach
+  `HOMEPAGE-UEBERGABE-WELTLAGE.md`, anpassen nur in `parseWorld()`. Alle 60 Sekunden neu, höchstens 60 Sekunden
+  zwischengespeichert, Aufleuchten nur bei echter Änderung. Bei `online: false`, Fehler oder fehlender Antwort
+  „derzeit nicht verfügbar“, nie Beispiel- oder alte Werte, keine Spielerzahl. Die Kachel nutzt eigene Klassen
+  (`zh-wl-*`), damit die alten Konzept-Stile in `game-alpha-panels.css` nicht hineinwirken.
+  `world-status.js` erzeugt nur Konzeptwerte und gehört nicht in den Umbau.
   Sebastian 03.11.2026: Der Umbau geht erst online, wenn die echte Weltlage drin ist.
   Links auf `geschichte.html` bekommen ihr Ziel erst mit `RELEASES.v131`.
 - Keine Anzeige der Spieler online auf der Homepage (Sebastian 03.11.2026), auch nicht versteckt
   vorbereitet.
 - Funkgerät steht in `assets/js/radio.js` (früher in `main.js`) und auf jeder Homepage-Seite.
-- Kopf: auf allen 16 umgebauten Seiten gleiches Markup, flache Leiste nach `vorlage-kopf-startbild.png`: links Hand und
+- Kopf: auf allen 17 umgebauten Seiten gleiches Markup, flache Leiste nach `vorlage-kopf-startbild.png`: links Hand und
   Schriftzug ZOMBIEHÖLLE / SURVIVAL (Barlow Condensed, selbst gehostet), Mitte Menü, rechts Konto und DE/EN; am Handy
   Menüknopf, Konto und Sprache im Menü. Gestaltung nur in `zh-2026.css`, Kopfhöhe in `--zh-head-h` (nicht `--zh-head`, das ist
   die Überschriftenschrift). Änderungen am Kopf immer auf allen Seiten gleich machen, keine Kopfregeln pro Seite.
 - Eine Überschriften-Schrift (Sebastian 03.11.2026): Barlow Condensed 700/800, selbst gehostet, in `--zh-head`. Cinzel ist
   entfernt und wird nirgends mehr geladen. Seiten- und Abschnittstitel (h1, h2) in Großbuchstaben, Karten- und lange
-  Überschriften (h3, Abschnitte der Rechtstexte) normal. Fließtext, Knöpfe, Menü und kleine goldene Beschriftungen in Inter.
+  Überschriften (h3, Abschnitte der Rechtstexte) normal; h2 mit `zh-eyebrow` behält den Abstand der kleinen Beschriftung. Fließtext, Knöpfe, Menü und kleine goldene Beschriftungen in Inter.
 - Größenordnung: Startbild-Titel > Abschnittstitel (`--zh-size-section`, PC 40 px, Handy 28 px) > Kachelwerte
   (`--zh-size-value`, 70 % davon: „Online“, Name bei „Neu dabei“, „Zombies erledigt“, Weltlage-Prozente) > Text.
 - Lagezentrum: alle Kacheln gleich aufgebaut und oben ausgerichtet. Beschriftung, Hauptwort (Großbuchstaben, Zeilenhöhe 1)

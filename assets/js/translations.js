@@ -4659,3 +4659,19 @@ Object.assign(window.ZHTranslations.messages, {
   "brand.main": {de:"Zombiehölle",en:"Zombie Hell"},
   "brand.sub": {de:"Survival",en:"Survival"}
 });
+Object.assign(window.ZHTranslations.copy, {
+  "umbau-world-military": {de:"Militär",en:"Military"},
+  "umbau-world-survivors": {de:"Überlebende",en:"Survivors"},
+  "umbau-world-infected-share": {de:"Infizierte",en:"Infected"},
+  "umbau-world-infected": {de:"Infiziert",en:"Infected"},
+  "umbau-world-contested": {de:"Umkämpft",en:"Contested"},
+  "umbau-world-title": {de:"Weltlage",en:"World status"},
+  "umbau-world-description": {de:"Weltlage in Zombiehölle Survival: die zwölf Orte und wer sie gerade hält.",en:"World status in Zombie Hell Survival: the twelve places and who holds them right now."},
+  "umbau-world-intro": {de:"Zwölf Orte, vier Zustände. Der Spielserver meldet jede Minute, wie es an jedem Ort aussieht.",en:"Twelve places, four states. Every minute the game server reports how things stand at each place."},
+  "umbau-world-places": {de:"Orte",en:"Places"},
+  "umbau-world-states": {de:"Was die Zustände bedeuten",en:"What the states mean"},
+  "umbau-world-state-military": {de:"Das Militär hält diesen Ort, solange er nicht umkämpft oder überrannt ist.",en:"The military holds this place as long as it is not under attack or overrun."},
+  "umbau-world-state-survivors": {de:"Hier sind Spieler oder eine Spielerbasis, und kaum Infizierte.",en:"Players or a player base are here, with hardly any infected."},
+  "umbau-world-state-infected": {de:"Viele Infizierte, kein Spieler weit und breit.",en:"Many infected and no player anywhere near."},
+  "umbau-world-state-contested": {de:"Hier wurde in den letzten Minuten gegen Infizierte gekämpft.",en:"Players fought the infected here in the last few minutes."}
+});

@@ -11,7 +11,7 @@
         serverPing: false,  // Ping des Spielservers
         serverUptime: false,// Laufzeit des Spielservers
         heroVideo: false,   // kurzes Video im Startbild
-        worldStatus: false, // Weltlage, erst mit echten Werten (heute erzeugt world-status.js nur ein Konzept)
+        worldStatus: true,  // Weltlage aus get_world_status (v132); bis die Abfrage antwortet: "derzeit nicht verfügbar"
         worldZombieTotal: true, // "Zombies erledigt" statt Top 5; bis get_world_zombie_total antwortet: "derzeit nicht verfügbar"
         playerStats: false, // Rang, Level, EP im Profil, braucht get_public_player_stats
         playerRanks: false  // Rang-Abzeichen im Forum, braucht get_player_ranks und die Abzeichen

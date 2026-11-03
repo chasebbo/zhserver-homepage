@@ -18,14 +18,14 @@
         <link rel="stylesheet" href="assets/css/style.css?v=20261103-umbau10">
         <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en">
         <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
-        <script src="assets/js/translations.js?v=20261103-umbau11">
+        <script src="assets/js/translations.js?v=20261103-umbau12">
         </script>
         <script src="assets/js/i18n.js?v=20261103-umbau10">
         </script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         <link rel="stylesheet" href="assets/css/game-stage.css?v=20261021-stage2">
-        <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261103-umbau11">
-        <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261103-umbau11">
+        <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261103-umbau12">
+        <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261103-umbau12">
     </head>
     <body class="game-entry-page zh-2026 zh-play-page" data-game-stage>
         <header class="header zh-site-header">
@@ -132,6 +132,20 @@
             </div>
                 </div>
             </section>
+            <section class="zh-play-world" aria-label="Weltlage">
+                <div class="zh-panel zh-hov zh-warm zh-pad-s zh-world-card" data-zh-feature="worldStatus" data-world-card aria-labelledby="play-world-title">
+                    <span id="play-world-title" class="zh-eyebrow">AKTUELLE WELTLAGE</span>
+                    <dl class="zh-wl-values" hidden>
+                        <div data-world-value="militaer"><dt>Militär</dt><dd class="zh-wl-num" data-i18n-ignore></dd></div>
+                        <div data-world-value="ueberlebende"><dt>Überlebende</dt><dd class="zh-wl-num" data-i18n-ignore></dd></div>
+                        <div data-world-value="infiziert"><dt>Infizierte</dt><dd class="zh-wl-num" data-i18n-ignore></dd></div>
+                        <div data-world-value="umkaempft"><dt>Umkämpft</dt><dd class="zh-wl-num" data-i18n-ignore></dd></div>
+                    </dl>
+                    <p class="zh-wl-status" data-world-status role="status" data-i18n-ignore hidden></p>
+                    <div class="zh-wl-bar" aria-hidden="true" hidden><span data-world-share="militaer"></span><span data-world-share="ueberlebende"></span><span data-world-share="infiziert"></span><span data-world-share="umkaempft"></span></div>
+                    <a class="zh-link zh-wl-link" href="weltlage.html">Weltlage ansehen</a>
+                </div>
+            </section>
             <section class="zh-play-info" aria-label="Hinweise zum Spiel">
                 <div class="zh-panel zh-pad zh-play-card">
                     <h2 class="zh-eyebrow">Steuerung am PC</h2>
@@ -220,6 +234,7 @@
         <script src="assets/js/visitor-counter.js?v=20261103-umbau10">
         </script>
         <script src="assets/js/radio.js?v=20261103-umbau2"></script>
-        <script src="assets/js/zh-ui.js?v=20261103-umbau6"></script>
+        <script src="assets/js/zh-ui.js?v=20261103-umbau7"></script>
+        <script src="assets/js/zh-live.js?v=20261103-umbau3"></script>
     </body>
 </html>
