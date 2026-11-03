@@ -52,25 +52,7 @@
         update();
     }
 
-    // Weltlage: Zahlen leuchten beim Ändern kurz auf (world-status.js schreibt nur den Text)
-    function flashOnChange() {
-        const numbers = document.querySelectorAll(".zh-world-number");
-        if (!numbers.length || !("MutationObserver" in window)) return;
-        const observer = new MutationObserver(records => {
-            for (const record of records) {
-                const el = record.target.nodeType === 1 ? record.target : record.target.parentElement;
-                const number = el?.closest(".zh-world-number");
-                if (!number) continue;
-                number.classList.remove("is-flash");
-                void number.offsetWidth;
-                number.classList.add("is-flash");
-            }
-        });
-        numbers.forEach(el => observer.observe(el, { childList: true, characterData: true, subtree: true }));
-    }
-
     applySwitches();
     toTop();
-    flashOnChange();
     window.ZHUi = Object.freeze({ features: Object.freeze({ ...FEATURES }), releases: Object.freeze({ ...RELEASES }), applySwitches });
 })();

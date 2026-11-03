@@ -152,8 +152,12 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Vorbereitete Teile schaltet `assets/js/zh-ui.js` ein (`FEATURES`, `RELEASES`), nicht im HTML.
   Erst einschalten, wenn es echte Daten gibt bzw. die Version live ist: Tore der Safezone
   (v132), Funk-Countdown, Ping und Laufzeit, Video im Startbild, Seite `geschichte.html` und
-  Ladetext (v131). Die Weltlage (`worldStatus`) bleibt aus, bis es echte Werte gibt; `world-status.js`
-  erzeugt nur Konzeptwerte und wird auf der neuen Startseite nicht geladen. Links auf `geschichte.html` bekommen ihr Ziel erst mit `RELEASES.v131`.
+  Ladetext (v131). Die Weltlage (`worldStatus`) bleibt aus, bis `get_world_status` von Opus 3 (v132) live
+  ist (Antwortform nach `HOMEPAGE-UEBERGABE-WELTLAGE.md`, nur `readWorld()` in `assets/js/zh-live.js`
+  anpassen). `world-status.js` erzeugt nur Konzeptwerte und gehört nicht in den Umbau.
+  Sebastian 03.11.2026: Der Umbau geht erst online, wenn die echte Weltlage drin ist.
+- „Spieler online“ in der Kachel Spielserver: `get_online_player_count()` etwa einmal pro Minute,
+  bei Fehler ausgeblendet. Zählt alle Einträge in `player_presence` der letzten 15 s, auch Testkonten. Links auf `geschichte.html` bekommen ihr Ziel erst mit `RELEASES.v131`.
 - Funkgerät steht in `assets/js/radio.js` (früher in `main.js`) und auf jeder Homepage-Seite.
 - Ränge und Zombie-Zähler (Sebastian 03.11.2026) in `assets/js/zh-ranks.js`, versteckt hinter
   `worldZombieTotal`, `playerStats` und `playerRanks`. Daten von Opus 3 über `get_world_zombie_total`,

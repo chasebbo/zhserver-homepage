@@ -374,3 +374,11 @@ body.zh-2026 .zh-lage-grid:not(:has(.zh-world-card.is-on)) .zh-newest { grid-col
 
 /* "Du entscheidest mit": fester Goldrand wie die anderen Kacheln mit Goldrahmen */
 body.zh-2026 .zh-talk-grid .era-pulse { border: 1px solid rgba(217, 189, 124, .55); border-radius: var(--zh-radius); }
+
+/* Spieler online in der Kachel Spielserver; leuchtet nur bei echter Änderung */
+.zh-players { font-size: 15px; color: var(--zh-ink-soft); }
+.zh-players [data-live-players-count] { font-size: 17px; color: #9be58a; }
+.zh-players [data-live-players-count].is-flash { animation: zhFlash 1.4s ease-out; }
+/* Weltlage: keine Dauer-Animation aus game-alpha-panels.css, nur das kurze Aufleuchten bei echter Änderung */
+body.zh-2026 .zh-world-card .zh-world-number:not(.is-flash) { animation: none; transform: none; filter: none; text-shadow: none; }
+body.zh-2026 .zh-world-card .zh-world-number.is-flash { animation: zhFlash 1.4s ease-out; }
