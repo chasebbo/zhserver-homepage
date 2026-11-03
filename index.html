@@ -163,13 +163,21 @@
                 <span class="zh-horde-message" data-horde-message></span>
             </div>
 
-            <div class="zh-panel zh-hov zh-pad-s zh-killers">
+            <div class="zh-panel zh-hov zh-pad-s zh-killers" data-zh-feature-off="worldZombieTotal">
                 <aside class="home-survivors" aria-labelledby="home-survivors-title">
                     <h3 id="home-survivors-title" class="zh-eyebrow" data-i18n-message="home.survivors.title">TOP 5 ZOMBIE-KILLER</h3>
                     <p class="home-survivors-kicker zh-small" data-i18n-message="home.survivors.kicker">Erledigte Zombies</p>
                     <p id="home-survivors-status" class="home-survivors-status" role="status" data-i18n-message="home.survivors.preparing">Rangliste in Vorbereitung</p>
                     <ol id="home-survivors-list" class="home-survivors-list" hidden data-i18n-ignore></ol>
                 </aside>
+            </div>
+
+            <div class="zh-panel zh-hov zh-pad-s zh-zombie-total" data-zh-feature="worldZombieTotal" aria-labelledby="zombie-total-title">
+                <span id="zombie-total-title" class="zh-eyebrow">Zombies erledigt</span>
+                <span class="zh-zombie-number" data-zombie-total data-i18n-ignore aria-live="polite"></span>
+                <span class="zh-small">auf dem ganzen Server</span>
+                <span class="zh-small zh-zombie-week" data-zombie-week data-i18n-ignore hidden></span>
+                <p class="zh-small" data-zombie-status role="status" data-i18n-ignore hidden></p>
             </div>
 
             <div class="zh-panel zh-hov zh-pad-s zh-newest" data-community-stats data-community-hide-empty hidden>
@@ -467,6 +475,7 @@
 <script src="assets/js/home-screenshot-gallery.js?v=20261020-gallery1"></script>
 
 <script src="assets/js/zh-ui.js?v=20261103-umbau1"></script>
+<script src="assets/js/zh-ranks.js?v=20261103-umbau1"></script>
 </body>
 
 </html>

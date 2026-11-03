@@ -254,3 +254,20 @@ body.zh-2026 h1, body.zh-2026 h2, body.zh-2026 h3 { font-family: var(--zh-head);
 /* Mindestens 44 Pixel hohe Knöpfe auch in bestehenden Teilen */
 .zh-2026 .voting-btn { min-height: 44px; }
 .zh-2026 .zh-gallery-save { min-width: 44px; min-height: 44px; }
+/* Ränge: Profilbereich und Abzeichen im Forum (versteckt, bis die Abfragen live sind) */
+.zh-2026 .zh-player-stats { margin: 22px 0; padding: 20px 22px; border: 1px solid var(--zh-gold-line); border-radius: var(--zh-radius); background: var(--zh-panel); box-shadow: var(--zh-shadow); }
+.zh-2026 .zh-player-stats h2 { margin: 0 0 12px; font: 700 20px var(--zh-head); color: #f0ece0; }
+.zh-2026 .zh-player-rank { display: flex; align-items: center; gap: 14px; }
+.zh-2026 .zh-player-rank strong { display: block; font: 700 22px var(--zh-head); color: #f0c766; }
+.zh-2026 .zh-player-rank span[data-stats-level] { color: var(--zh-ink-soft); font-size: 14px; }
+.zh-2026 .zh-player-badge:empty { display: none; }
+.zh-2026 .zh-xp-bar { height: 8px; margin: 14px 0 6px; border-radius: 4px; background: rgba(255, 255, 255, .07); overflow: hidden; }
+.zh-2026 .zh-xp-bar > span { display: block; height: 100%; width: 0; border-radius: 4px; background: linear-gradient(90deg, #c9a13a, #e4c25a); box-shadow: 0 0 10px rgba(217, 189, 124, .5); transition: width 1.2s ease; }
+.zh-2026 .zh-xp-text { margin: 0 0 12px; font-size: 13px; color: var(--zh-muted); }
+.zh-2026 .zh-player-figures { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0; }
+.zh-2026 .zh-player-figures dt { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--zh-muted); }
+.zh-2026 .zh-player-figures dd { margin: 4px 0 0; font: 500 26px var(--zh-mono); color: var(--zh-ink); }
+.zh-2026 .zh-rank-badge { display: inline-block; width: 16px; height: 16px; margin-right: 4px; vertical-align: -3px; object-fit: contain; }
+/* hidden gilt auch dort, wo Kachelregeln display setzen */
+.zh-2026 .zh-lage-grid > [hidden], .zh-2026 [data-zh-feature-off][hidden], .zh-2026 :is(.zh-lage-grid, .zh-player-stats, .zh-hero-pills, .zh-news-grid) [hidden] { display: none !important; }
+.zh-2026 .zh-player-badge .zh-rank-badge { width: 64px; height: 64px; margin: 0; vertical-align: middle; }

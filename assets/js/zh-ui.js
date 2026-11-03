@@ -10,7 +10,10 @@
         hordeRadio: false,  // Funk-Countdown zur nächsten Horde
         serverPing: false,  // Ping des Spielservers
         serverUptime: false,// Laufzeit des Spielservers
-        heroVideo: false    // kurzes Video im Startbild
+        heroVideo: false,   // kurzes Video im Startbild
+        worldZombieTotal: false, // "Zombies erledigt" statt Top 5, braucht get_world_zombie_total
+        playerStats: false, // Rang, Level, EP im Profil, braucht get_public_player_stats
+        playerRanks: false  // Rang-Abzeichen im Forum, braucht get_player_ranks und die Abzeichen
     };
     const RELEASES = {
         v131: false         // Seite "Geschichte" (Projekt TIEFENLICHT) und der neue Ladetext
@@ -20,6 +23,7 @@
         root.querySelectorAll("[data-zh-feature]").forEach(el => el.classList.toggle("is-on", FEATURES[el.dataset.zhFeature] === true));
         root.querySelectorAll("[data-zh-release]").forEach(el => el.classList.toggle("is-on", RELEASES[el.dataset.zhRelease] === true));
         root.querySelectorAll("[data-zh-until]").forEach(el => { el.hidden = RELEASES[el.dataset.zhUntil] === true; });
+        root.querySelectorAll("[data-zh-feature-off]").forEach(el => { el.hidden = FEATURES[el.dataset.zhFeatureOff] === true; });
         // Links auf vorbereitete Seiten bekommen ihr Ziel erst, wenn die Seite freigegeben ist.
         root.querySelectorAll("[data-zh-href]").forEach(link => {
             const box = link.closest("[data-zh-release]");

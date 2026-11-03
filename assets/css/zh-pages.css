@@ -357,3 +357,8 @@ body.zh-2026 :is(.zh-gallery-main, .zh-gallery-upload) > .container { max-width:
 }
 .zh-story-hero-copy { max-width: 780px; }
 .zh-story-hero .zh-h1 { font-size: clamp(34px, 4.4vw, 56px); }
+
+/* Zombies erledigt (ersetzt später Top 5, gleiche Kachelgröße) */
+.zh-zombie-total { justify-content: center; }
+.zh-zombie-number { display: block; font: 500 clamp(40px, 4.6vw, 56px)/1 var(--zh-mono); font-variant-numeric: tabular-nums; color: #f0c766; animation: zhGoldGlow 2.6s ease-in-out infinite; overflow-wrap: anywhere; }
+.zh-zombie-week { color: var(--zh-ink-soft); }

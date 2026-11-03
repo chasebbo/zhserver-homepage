@@ -76,6 +76,22 @@
                 <div><dt data-account-i18n="account.createdAt">Registriert seit</dt><dd><time id="profile-created-at" data-i18n-ignore>—</time></dd></div>
                 <div><dt data-account-i18n="account.statusLabel">Accountstatus</dt><dd id="profile-account-status" data-i18n-ignore>keine Angabe</dd></div>
             </dl>
+            <section class="zh-player-stats" data-zh-feature="playerStats" aria-labelledby="player-stats-title">
+                <h2 id="player-stats-title">Dein Rang</h2>
+                <p class="zh-player-stats-status" data-stats-status role="status" data-i18n-ignore></p>
+                <div class="zh-player-stats-body" data-stats-body hidden>
+                    <div class="zh-player-rank">
+                        <span class="zh-player-badge" data-stats-badge></span>
+                        <div><strong data-stats-rank data-i18n-ignore></strong><span data-stats-level data-i18n-ignore></span></div>
+                    </div>
+                    <div class="zh-xp-bar" aria-hidden="true"><span data-stats-bar></span></div>
+                    <p class="zh-xp-text" data-stats-xp data-i18n-ignore></p>
+                    <dl class="zh-player-figures">
+                        <div><dt>Zombies erledigt</dt><dd data-stats-zombies data-i18n-ignore></dd></div>
+                        <div><dt>Überlebenstage</dt><dd data-stats-days data-i18n-ignore></dd></div>
+                    </dl>
+                </div>
+            </section>
             <p id="profile-system-labels" hidden></p>
             <p class="profile-missing" id="profile-name-missing" data-account-i18n="account.nameMissing" hidden>Bitte lege einen öffentlichen Anzeigenamen fest, bevor du Beiträge oder Screenshots einreichst.</p>
             <form class="profile-name-form" id="profile-name-form" hidden>
@@ -149,5 +165,6 @@
 <script src="../assets/js/profile-community.js?v=20261012-account-roles1"></script>
 <script src="../assets/js/radio.js?v=20261103-umbau1"></script>
 <script src="../assets/js/zh-ui.js?v=20261103-umbau1"></script>
+<script src="../assets/js/zh-ranks.js?v=20261103-umbau1"></script>
 </body>
 </html>

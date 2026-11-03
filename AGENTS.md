@@ -154,6 +154,11 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   (v132), Funk-Countdown, Ping und Laufzeit, Video im Startbild, Seite `geschichte.html` und
   Ladetext (v131). Links auf `geschichte.html` bekommen ihr Ziel erst mit `RELEASES.v131`.
 - Funkgerät steht in `assets/js/radio.js` (früher in `main.js`) und auf jeder Homepage-Seite.
+- Ränge und Zombie-Zähler (Sebastian 03.11.2026) in `assets/js/zh-ranks.js`, versteckt hinter
+  `worldZombieTotal`, `playerStats` und `playerRanks`. Daten von Opus 3 über `get_world_zombie_total`,
+  `get_public_player_stats` und `get_player_ranks`; Antwortformen nach `HOMEPAGE-UEBERGABE-RAENGE.md`
+  nur in den `read*`-Funktionen anpassen. Abzeichen erst nach Freigabe über `BADGE_SRC`.
+  Namen nur als Text, bei Ausfall „derzeit nicht verfügbar“, nie Beispielwerte.
 
 
 ## Web-Alpha-Status ohne Datum

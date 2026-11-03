@@ -4613,3 +4613,25 @@ Object.assign(window.ZHTranslations.copy, {
   "umbau-story-now": {de:"Ob der Unfall in Kesselgrund wirklich ein Unfall war, weiß niemand. Das Militär weiß mehr, als es sagt. Über einen versiegelten Lagebericht vom 14. März 2044 spricht niemand. Und nicht jedes Signal der Wächter ist echt.",en:"Nobody knows whether the accident at Kesselgrund really was an accident. The military knows more than it says. Nobody talks about a sealed situation report from 14 March 2044. And not every signal from the Guardians is real."},
   "umbau-story-survive": {de:"Für dich zählt erst einmal nur, dass du überlebst.",en:"For now, all that matters is that you survive."}
 });
+// Ränge und Zombie-Zähler (vorbereitet, versteckt bis die Abfragen live sind)
+Object.assign(window.ZHTranslations.copy, {
+  "umbau-zombies-killed": {de:"Zombies erledigt",en:"Zombies killed"},
+  "umbau-whole-server": {de:"auf dem ganzen Server",en:"across the whole server"},
+  "umbau-your-rank": {de:"Dein Rang",en:"Your rank"},
+  "umbau-days-survived": {de:"Überlebenstage",en:"Days survived"}
+});
+Object.assign(window.ZHTranslations.messages, {
+  "rank.1": {de:"Neuling",en:"Rookie"},
+  "rank.2": {de:"Überlebender",en:"Survivor"},
+  "rank.3": {de:"Späher",en:"Scout"},
+  "rank.4": {de:"Jäger",en:"Hunter"},
+  "rank.5": {de:"Veteran",en:"Veteran"},
+  "rank.6": {de:"Elite",en:"Elite"},
+  "rank.7": {de:"Legende",en:"Legend"},
+  "rank.8": {de:"Unsterblich",en:"Immortal"},
+  "ranks.unavailable": {de:"derzeit nicht verfügbar",en:"currently unavailable"},
+  "ranks.level": {de:"Level {level}",en:"Level {level}"},
+  "ranks.xpToNext": {de:"{xp} von {next} EP bis {rank}",en:"{xp} of {next} XP to {rank}"},
+  "ranks.xpMax": {de:"{xp} EP, höchster Rang",en:"{xp} XP, highest rank"},
+  "zombies.week": {de:"davon diese Woche {count}",en:"{count} of them this week"}
+});
