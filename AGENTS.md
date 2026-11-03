@@ -179,8 +179,9 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   Bedienelemente und `data-src` unverändert (Release-Änderungen von main beim Neuaufsetzen übernehmen).
   Geht erst mit dem Umbau online, wenn v131 (Ladehinweis) und die Spielversion ohne Gastzugang live sind;
   vorher online mit ZH-Testbot den Start über die neue Seite prüfen.
-- Ränge und Zombie-Zähler (Sebastian 03.11.2026) in `assets/js/zh-ranks.js`, versteckt hinter
-  `worldZombieTotal`, `playerStats` und `playerRanks`. Daten von Opus 3 über `get_world_zombie_total`,
+- Ränge und Zombie-Zähler (Sebastian 03.11.2026) in `assets/js/zh-ranks.js`. `worldZombieTotal` ist an: die Kachel
+  „Zombies erledigt“ ersetzt auf der Startseite die Top 5 Zombie-Killer (die Top 5 samt `get_top_zombie_killers` sind im
+  Umbau entfernt) und zeigt „derzeit nicht verfügbar“, bis `get_world_zombie_total` antwortet. Versteckt bleiben `playerStats` und `playerRanks`. Daten von Opus 3 über `get_world_zombie_total`,
   `get_public_player_stats` und `get_player_ranks`; Antwortformen nach `HOMEPAGE-UEBERGABE-RAENGE.md`
   nur in den `read*`-Funktionen anpassen. Abzeichen erst nach Freigabe über `BADGE_SRC`.
   Namen nur als Text, bei Ausfall „derzeit nicht verfügbar“, nie Beispielwerte.

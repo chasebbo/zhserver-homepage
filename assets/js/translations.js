@@ -3973,15 +3973,7 @@ Object.assign(window.ZHTranslations.messages, {
   "home.forum.unavailable": {de: "Forum-Themen derzeit nicht verfügbar.", en: "Forum topics are currently unavailable."},
   "home.changelog.new": {de: "NEU", en: "NEW"},
   "home.changelog.more": {de: "Was sich geändert hat", en: "What has changed"},
-  "home.changelog.label": {de: "Neuester Changelog: {title}", en: "Latest changelog: {title}"},
-  "home.survivors.title": {de: "TOP 5 ZOMBIE-KILLER", en: "TOP 5 ZOMBIE KILLERS"},
-  "home.survivors.kicker": {de: "Erledigte Zombies", en: "Zombies defeated"},
-  "home.survivors.preparing": {de: "Rangliste in Vorbereitung", en: "Leaderboard in preparation"},
-  "home.survivors.loading": {de: "Rangliste wird geladen …", en: "Loading leaderboard…"},
-  "home.survivors.empty": {de: "Noch keine Zombies erledigt", en: "No zombies defeated yet"},
-  "home.survivors.unavailable": {de: "Rangliste derzeit nicht verfügbar.", en: "Leaderboard currently unavailable."},
-  "home.survivors.zombie": {de: "{count} Zombie", en: "{count} zombie"},
-  "home.survivors.zombies": {de: "{count} Zombies", en: "{count} zombies"}
+  "home.changelog.label": {de: "Neuester Changelog: {title}", en: "Latest changelog: {title}"}
 });
 
 /* Functional forum and public avatar UI use the existing central message catalog. */

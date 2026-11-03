@@ -37,6 +37,7 @@
     const row = data => Array.isArray(data) ? data[0] : data;
 
     // ---------- vorläufige Antwortformen, nach der Übergabe anpassen ----------
+    // Zombies erledigt: Form nach HOMEPAGE-UEBERGABE-ZOMBIEZAEHLER.md (Opus 3, noch nicht geliefert)
     async function readWorldTotal() {
         const r = row(await call("get_world_zombie_total", {}));
         return { total: int(r?.total ?? r?.zombies_total), week: int(r?.week ?? r?.zombies_week) };
@@ -66,19 +67,31 @@
         };
         requestAnimationFrame(tick);
     }
+    // Hochzählen erst, wenn die Kachel im Bild ist, damit man es auch sieht
+    function whenVisible(el, fn) {
+        if (!("IntersectionObserver" in window)) return fn();
+        const io = new IntersectionObserver(entries => {
+            if (entries.some(e => e.isIntersecting)) { io.disconnect(); fn(); }
+        }, { threshold: 0.4 });
+        io.observe(el);
+    }
     async function worldTotal() {
         const card = document.querySelector(".zh-zombie-total");
         if (!card || !on("worldZombieTotal")) return;
         const number = card.querySelector("[data-zombie-total]"), week = card.querySelector("[data-zombie-week]"), status = card.querySelector("[data-zombie-status]");
+        const scope = card.querySelector("[data-zombie-scope]");
         try {
             const data = await readWorldTotal();
             if (data.total === null) throw new Error("unavailable");
             status.hidden = true;
-            countTo(number, data.total);
+            scope.hidden = false;
+            whenVisible(card, () => countTo(number, data.total));
             week.hidden = data.week === null;
             if (data.week !== null) week.textContent = lang.t("zombies.week", { count: data.week.toLocaleString(lang.locale) });
         } catch (_) {
             number.textContent = "";
+            delete number.dataset.value;
+            scope.hidden = true;
             week.hidden = true;
             status.hidden = false;
             status.textContent = lang.t("ranks.unavailable");

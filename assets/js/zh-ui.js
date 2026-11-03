@@ -12,7 +12,7 @@
         serverUptime: false,// Laufzeit des Spielservers
         heroVideo: false,   // kurzes Video im Startbild
         worldStatus: false, // Weltlage, erst mit echten Werten (heute erzeugt world-status.js nur ein Konzept)
-        worldZombieTotal: false, // "Zombies erledigt" statt Top 5, braucht get_world_zombie_total
+        worldZombieTotal: true, // "Zombies erledigt" statt Top 5; bis get_world_zombie_total antwortet: "derzeit nicht verfügbar"
         playerStats: false, // Rang, Level, EP im Profil, braucht get_public_player_stats
         playerRanks: false  // Rang-Abzeichen im Forum, braucht get_player_ranks und die Abzeichen
     };

@@ -280,7 +280,7 @@ body.zh-2026 { --gold: #d4a84a; --gold-hover: #e0b85a; --home-gold: #d4a84a; --g
 @keyframes zhBlink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
 @keyframes zhWave { 0%, 100% { transform: scaleY(.25); } 50% { transform: scaleY(1); } }
 @keyframes zhRedPulse { 0%, 100% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 0 0 rgba(232, 96, 74, 0); } 50% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 26px 0 rgba(232, 96, 74, .26); } }
-@keyframes zhGoldGlow { 0%, 100% { text-shadow: 0 0 4px rgba(240, 199, 102, .3); } 50% { text-shadow: 0 0 14px rgba(240, 199, 102, .9); } }
+@keyframes zhGoldGlow { 0%, 100% { text-shadow: 0 0 4px rgba(212, 168, 74, .3); } 50% { text-shadow: 0 0 14px rgba(212, 168, 74, .9); } }
 @keyframes zhBlueGlow { 0%, 100% { text-shadow: 0 0 4px rgba(143, 184, 232, .3); } 50% { text-shadow: 0 0 14px rgba(143, 184, 232, .85); } }
 @media (prefers-reduced-motion: reduce) {
     .zh-2026 *, .zh-2026 *::before, .zh-2026 *::after { animation: none !important; transition: none !important; }

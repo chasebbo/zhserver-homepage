@@ -68,22 +68,6 @@ body.zh-2026 .zh-world-card .era-world-link { align-self: flex-start; font-size:
 .zh-wave span { display: block; width: 4px; height: 20px; background: var(--zh-red); border-radius: 2px; transform-origin: bottom; animation: zhWave .9s ease-in-out infinite; }
 .zh-wave span:nth-child(2) { animation-delay: .15s; } .zh-wave span:nth-child(3) { animation-delay: .3s; } .zh-wave span:nth-child(4) { animation-delay: .45s; } .zh-wave span:nth-child(5) { animation-delay: .6s; }
 
-/* Rangliste (home-survivors.js) */
-body.zh-2026 .zh-killers .home-survivors { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; background: none; border: 0; box-shadow: none; }
-body.zh-2026 .zh-killers .home-survivors h3 { margin: 0; }
-body.zh-2026 .zh-killers .home-survivors-kicker { margin: 0 0 4px; text-transform: none; letter-spacing: 0; }
-body.zh-2026 .zh-killers .home-survivors-status { color: var(--zh-muted); font-size: 14px; }
-body.zh-2026 .zh-killers .home-survivors-list { list-style: none; margin: 0; padding: 0; counter-reset: zhrank; }
-body.zh-2026 .zh-killers .home-survivors-list li { counter-increment: zhrank; display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 12px; margin: 0; padding: 9px 0; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .05); background: none; font-size: 15px; }
-body.zh-2026 .zh-killers .home-survivors-list li::before { content: counter(zhrank); display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; border: 1px solid #8f9aa1; color: #8f9aa1; font: 500 13px var(--zh-mono); }
-body.zh-2026 .zh-killers .home-survivors-list li:nth-child(1)::before { border-color: #f0c766; color: #f0c766; animation: zhGoldGlow 2.6s ease-in-out infinite; }
-body.zh-2026 .zh-killers .home-survivors-list li:nth-child(2)::before { border-color: #d8dcdf; color: #d8dcdf; }
-body.zh-2026 .zh-killers .home-survivors-list li:nth-child(3)::before { border-color: #d49a68; color: #d49a68; }
-body.zh-2026 .zh-killers .home-survivor-position { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-body.zh-2026 .zh-killers .home-survivor-name { font-weight: 600; overflow-wrap: anywhere; }
-body.zh-2026 .zh-killers .home-survivor-days { font: 500 14px var(--zh-mono); color: var(--zh-gold); white-space: nowrap; }
-body.zh-2026 .zh-killers .home-survivors { position: static; }
-
 /* Neu dabei (community-stats.js) */
 .zh-newest { grid-column: span 2; justify-content: center; border-color: rgba(143, 184, 232, .35) !important; background: radial-gradient(ellipse 60% 120px at 20% 0, rgba(143, 184, 232, .1), transparent 80%), linear-gradient(145deg, rgba(22, 28, 36, .9), rgba(14, 19, 25, .95)) !important; }
 .zh-newest .zh-eyebrow { color: var(--zh-blue); }
@@ -352,9 +336,9 @@ body.zh-2026 :is(.zh-gallery-main, .zh-gallery-upload) > .container { max-width:
 .zh-story-hero-copy { max-width: 780px; }
 .zh-story-hero .zh-h1 { font-size: clamp(34px, 4.4vw, 56px); }
 
-/* Zombies erledigt (ersetzt später Top 5, gleiche Kachelgröße) */
+/* Zombies erledigt (ersetzt die Top 5 Zombie-Killer, gleiche Kachelgröße) */
 .zh-zombie-total { justify-content: center; }
-.zh-zombie-number { display: block; font: 500 clamp(40px, 4.6vw, 56px)/1 var(--zh-mono); font-variant-numeric: tabular-nums; color: #f0c766; animation: zhGoldGlow 2.6s ease-in-out infinite; overflow-wrap: anywhere; }
+.zh-zombie-number { display: block; font: 500 clamp(40px, 4.6vw, 56px)/1 var(--zh-mono); font-variant-numeric: tabular-nums; color: var(--zh-gold-strong); animation: zhGoldGlow 2.6s ease-in-out infinite; overflow-wrap: anywhere; }
 .zh-zombie-week { color: var(--zh-ink-soft); }
 
 /* NEU-Balken: nur der neue Rahmen; der Schimmer liegt im Link, der ihn mit gleichem Radius abschneidet */
