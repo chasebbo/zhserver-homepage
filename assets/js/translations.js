@@ -4600,6 +4600,7 @@ Object.assign(window.ZHTranslations.copy, {
 Object.assign(window.ZHTranslations.copy, {
   "umbau-zombies-killed": {de:"Zombies erledigt",en:"Zombies killed"},
   "umbau-whole-server": {de:"auf dem ganzen Server",en:"across the whole server"},
+  "umbau-counted-since": {de:"Gezählt seit 31.10.2026.",en:"Counted since 31 Oct 2026."},
   "umbau-your-rank": {de:"Dein Rang",en:"Your rank"},
   "umbau-days-survived": {de:"Überlebenstage",en:"Days survived"}
 });

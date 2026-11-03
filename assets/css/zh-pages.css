@@ -338,6 +338,7 @@ body.zh-2026 :is(.zh-gallery-main, .zh-gallery-upload) > .container { max-width:
 
 /* Zombies erledigt (ersetzt die Top 5 Zombie-Killer, gleiche Kachelgröße) */
 .zh-zombie-total { justify-content: center; }
+.zh-zombie-since { margin-top: -8px; color: var(--zh-muted); font-size: 12px; }
 .zh-zombie-number { display: block; font: 500 clamp(40px, 4.6vw, 56px)/1 var(--zh-mono); font-variant-numeric: tabular-nums; color: var(--zh-gold-strong); animation: zhGoldGlow 2.6s ease-in-out infinite; overflow-wrap: anywhere; }
 
 /* NEU-Balken: nur der neue Rahmen; der Schimmer liegt im Link, der ihn mit gleichem Radius abschneidet */
