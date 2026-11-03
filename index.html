@@ -20,7 +20,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Zombiehölle">
 
-    <link rel="stylesheet" href="assets/css/fonts.css?v=20261103-umbau1">
+    <link rel="stylesheet" href="assets/css/fonts.css?v=20261103-umbau2">
     <link rel="stylesheet" href="assets/css/style.css?v=20261019-neutral-navigation1">
     <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en">
     <link rel="stylesheet" href="assets/css/merch.css?v=20260930-products">
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
     <link rel="stylesheet" href="assets/css/community-stats.css?v=20261008-release1">
     <link rel="stylesheet" href="assets/css/identity.css?v=20261027-google1">
-    <script src="assets/js/translations.js?v=20261103-umbau1"></script>
+    <script src="assets/js/translations.js?v=20261103-umbau2"></script>
     <link rel="stylesheet" href="assets/css/community-pulse.css?v=20261019-always-results1">
     <link rel="stylesheet" href="assets/css/homepage-chapters.css?v=20261025-band1">
     <link rel="stylesheet" href="assets/css/home-community.css?v=20261025-band1">
@@ -38,8 +38,8 @@
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261103-umbau1">
-    <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261103-umbau1">
+    <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261103-umbau2">
+    <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261103-umbau2">
     <script>
         // Abschnitte der früheren Startseite liegen jetzt im Archiv: alte Links und Anker weiterleiten.
         (function () {
@@ -95,7 +95,10 @@
 <section class="zh-hero-sec" aria-labelledby="era-title">
     <div class="zh-wrap">
         <div class="zh-panel zh-gold-frame zh-hero">
-            <img class="zh-hero-image" src="assets/images/umbau/portal.webp" width="1536" height="640" alt="Das Portal der Militärbasis Ost hinter Sandsackstellungen" fetchpriority="high" decoding="async">
+            <div class="zh-hero-slides" data-hero-slides>
+                <img class="zh-hero-image is-current" src="assets/images/gameplay/market-day-960.webp" width="960" height="540" alt="Handelsplatz der Safezone am Tag mit Ständen und Händlern" fetchpriority="high" decoding="async">
+                <img class="zh-hero-image" alt="" aria-hidden="true" decoding="async">
+            </div>
             <video class="zh-hero-video" data-zh-feature="heroVideo" muted loop playsinline preload="none" aria-hidden="true"></video>
             <div class="zh-hero-shade" aria-hidden="true"></div>
             <div class="zh-hero-copy">
@@ -112,6 +115,25 @@
                     <a href="#news" class="zh-btn zh-btn-dark zh-btn-big">Was ist neu?</a>
                 </div>
                 <span class="zh-small" data-zh-release="v131">Laden dauert am PC etwa eine Minute, auf Handys länger.</span>
+            </div>
+            <div class="zh-hero-gallery">
+                <div class="zh-hero-thumbs" role="group" aria-label="Bilder aus dem Spiel">
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/gameplay/market-day-960.webp" aria-label="Handelsplatz der Safezone am Tag mit Ständen und Händlern" aria-pressed="true"><img src="assets/images/gameplay/market-day-960.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/gameplay/start-4in1-960.webp" aria-label="Vier Szenen aus Zombiehölle Survival: das Portal der Militärbasis Ost hinter Sandsackstellungen, eine Horde vor Tor Nord, Gestrandete am Lagerfeuer und der Steinbruch Ost" aria-pressed="false"><img src="assets/images/gameplay/start-4in1-640.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/gameplay/quarry-east-960.webp" aria-label="Steinbruch Ost mit Bagger, Radlader und Muldenkipper" aria-pressed="false"><img src="assets/images/gameplay/quarry-east-960.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/gameplay/north-gate-pickup-960.webp" aria-label="Tor Nord: Ein Pickup fährt hinaus, die Streife sichert" aria-pressed="false"><img src="assets/images/gameplay/north-gate-pickup-960.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/gameplay/north-gate-eagle-960.webp" aria-label="Tor Nord am Abend: Ein Eagle V fährt in die Safezone ein" aria-pressed="false"><img src="assets/images/gameplay/north-gate-eagle-960.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/gameplay/base-east-8x8-960.webp" aria-label="Militär-Lkw 8x8 an der Einfahrt der Basis Ost" aria-pressed="false"><img src="assets/images/gameplay/base-east-8x8-960.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/gameplay/eagle-mg-action-960.webp" aria-label="Ein Eagle V feuert mit dem Fahrzeug-MG auf Zombies, ein Mitspieler schießt mit dem Gewehr" aria-pressed="false"><img src="assets/images/gameplay/eagle-mg-action-960.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/gameplay/north-gate-horde-960.webp" aria-label="Vor Tor Nord kommt eine Horde die Straße herunter, Überlebende halten am Tor dagegen" aria-pressed="false"><img src="assets/images/gameplay/north-gate-horde-960.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/gameplay/campfire-evening-960.webp" aria-label="Treffpunkt der Safezone am Abend, Gestrandete sitzen am Lagerfeuer" aria-pressed="false"><img src="assets/images/gameplay/campfire-evening-960.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/gameplay/boxing-ring-960.webp" aria-label="Der Boxring in der Safezone mit Kämpfern im Ring" aria-pressed="false"><img src="assets/images/gameplay/boxing-ring-960.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/gameplay/quarry-east-morning-960.webp" aria-label="Steinbruch Ost am Vormittag mit Bagger, Radlader, Muldenkipper und Erzkisten" aria-pressed="false"><img src="assets/images/gameplay/quarry-east-morning-960.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/gameplay/base-east-checkpoint-960.webp" aria-label="Kontrollpunkt an der Einfahrt der Basis Ost, ein 8x8 wartet an der Haltelinie" aria-pressed="false"><img src="assets/images/gameplay/base-east-checkpoint-960.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/gameplay/north-gate-horde-turned-960.webp" aria-label="Tor Nord aus schräger Sicht: Zombies drängen auf die Überlebenden vor dem Tor" aria-pressed="false"><img src="assets/images/gameplay/north-gate-horde-turned-960.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                        <button type="button" class="zh-hero-thumb" data-src="assets/images/umbau/portal.webp" aria-label="Das Portal der Militärbasis Ost hinter Sandsackstellungen" aria-pressed="false"><img src="assets/images/umbau/portal.webp" alt="" width="72" height="44" loading="lazy" decoding="async"></button>
+                </div>
+                <p class="zh-hero-note">Spiel und Grafik werden stetig verbessert.</p>
             </div>
         </div>
         <div class="home-changelog-band" hidden></div>
@@ -270,27 +292,6 @@
                 </div>
             </article>
         </div>
-                <div class="era-visual era-screenshot-collage zh-panel zh-pad-s zh-shots" role="group" aria-label="Spielscreenshots">
-                    <button type="button" class="screenshot-main" data-screenshot-open aria-haspopup="dialog" aria-controls="home-screenshot-dialog" aria-label="Screenshot vergrößern" disabled>
-                        <img src="assets/images/gameplay/start-4in1-640.webp" srcset="assets/images/gameplay/start-4in1-640.webp 640w, assets/images/gameplay/start-4in1-960.webp 960w, assets/images/gameplay/start-4in1.webp 2048w" sizes="(max-width: 900px) 92vw, 40vw" alt="Vier Szenen aus Zombiehölle Survival: das Portal der Militärbasis Ost hinter Sandsackstellungen, eine Horde vor Tor Nord, Gestrandete am Lagerfeuer und der Steinbruch Ost" width="2048" height="853" fetchpriority="high" decoding="async">
-                    </button>
-                    <div class="screenshot-strip">
-                        <button type="button" class="screenshot-thumb" data-screenshot-full="assets/images/gameplay/start-4in1-full.webp" data-screenshot-description="gameplay-start-4in1" aria-label="Vier Szenen aus Zombiehölle Survival: das Portal der Militärbasis Ost hinter Sandsackstellungen, eine Horde vor Tor Nord, Gestrandete am Lagerfeuer und der Steinbruch Ost" aria-pressed="true" disabled><img src="assets/images/gameplay/start-4in1-640.webp" alt="" width="640" height="267" decoding="async"></button>
-                        <button type="button" class="screenshot-thumb" data-screenshot-full="assets/images/gameplay/market-day-full.webp" data-screenshot-description="gameplay-market-day" aria-label="Handelsplatz der Safezone am Tag mit Ständen und Händlern" aria-pressed="false" disabled><img src="assets/images/gameplay/market-day-960.webp" alt="" width="960" height="540" decoding="async"></button>
-                        <button type="button" class="screenshot-thumb" data-screenshot-full="assets/images/gameplay/quarry-east-full.webp" data-screenshot-description="gameplay-quarry-east" aria-label="Steinbruch Ost mit Bagger, Radlader und Muldenkipper" aria-pressed="false" disabled><img src="assets/images/gameplay/quarry-east-960.webp" alt="" width="960" height="540" decoding="async"></button>
-                        <button type="button" class="screenshot-thumb" data-screenshot-full="assets/images/gameplay/north-gate-pickup-full.webp" data-screenshot-description="gameplay-north-gate-pickup" aria-label="Tor Nord: Ein Pickup fährt hinaus, die Streife sichert" aria-pressed="false" disabled><img src="assets/images/gameplay/north-gate-pickup-960.webp" alt="" width="960" height="540" decoding="async"></button>
-                        <button type="button" class="screenshot-thumb" data-screenshot-full="assets/images/gameplay/north-gate-eagle-full.webp" data-screenshot-description="gameplay-north-gate-eagle" aria-label="Tor Nord am Abend: Ein Eagle V fährt in die Safezone ein" aria-pressed="false" disabled><img src="assets/images/gameplay/north-gate-eagle-960.webp" alt="" width="960" height="540" decoding="async"></button>
-                        <button type="button" class="screenshot-thumb" data-screenshot-full="assets/images/gameplay/base-east-8x8-full.webp" data-screenshot-description="gameplay-base-east-8x8" aria-label="Militär-Lkw 8x8 an der Einfahrt der Basis Ost" aria-pressed="false" disabled><img src="assets/images/gameplay/base-east-8x8-960.webp" alt="" width="960" height="540" decoding="async"></button>
-                        <button type="button" class="screenshot-thumb" data-screenshot-full="assets/images/gameplay/eagle-mg-action-full.webp" data-screenshot-description="gameplay-eagle-mg-action" aria-label="Ein Eagle V feuert mit dem Fahrzeug-MG auf Zombies, ein Mitspieler schießt mit dem Gewehr" aria-pressed="false" disabled><img src="assets/images/gameplay/eagle-mg-action-960.webp" alt="" width="960" height="540" decoding="async"></button>
-                        <button type="button" class="screenshot-thumb" data-screenshot-full="assets/images/gameplay/north-gate-horde-full.webp" data-screenshot-description="gameplay-north-gate-horde" aria-label="Vor Tor Nord kommt eine Horde die Straße herunter, Überlebende halten am Tor dagegen" aria-pressed="false" disabled><img src="assets/images/gameplay/north-gate-horde-960.webp" alt="" width="960" height="540" decoding="async"></button>
-                        <button type="button" class="screenshot-thumb" data-screenshot-full="assets/images/gameplay/campfire-evening-full.webp" data-screenshot-description="gameplay-campfire-evening" aria-label="Treffpunkt der Safezone am Abend, Gestrandete sitzen am Lagerfeuer" aria-pressed="false" disabled><img src="assets/images/gameplay/campfire-evening-960.webp" alt="" width="960" height="540" decoding="async"></button>
-                        <button type="button" class="screenshot-thumb" data-screenshot-full="assets/images/gameplay/boxing-ring-full.webp" data-screenshot-description="gameplay-boxing-ring" aria-label="Der Boxring in der Safezone mit Kämpfern im Ring" aria-pressed="false" disabled><img src="assets/images/gameplay/boxing-ring-960.webp" alt="" width="960" height="540" decoding="async"></button>
-                        <button type="button" class="screenshot-thumb" data-screenshot-full="assets/images/gameplay/quarry-east-morning-full.webp" data-screenshot-description="gameplay-quarry-east-morning" aria-label="Steinbruch Ost am Vormittag mit Bagger, Radlader, Muldenkipper und Erzkisten" aria-pressed="false" disabled><img src="assets/images/gameplay/quarry-east-morning-960.webp" alt="" width="960" height="540" decoding="async"></button>
-                        <button type="button" class="screenshot-thumb" data-screenshot-full="assets/images/gameplay/base-east-checkpoint-full.webp" data-screenshot-description="gameplay-base-east-checkpoint" aria-label="Kontrollpunkt an der Einfahrt der Basis Ost, ein 8x8 wartet an der Haltelinie" aria-pressed="false" disabled><img src="assets/images/gameplay/base-east-checkpoint-960.webp" alt="" width="960" height="540" decoding="async"></button>
-                        <button type="button" class="screenshot-thumb" data-screenshot-full="assets/images/gameplay/north-gate-horde-turned-full.webp" data-screenshot-description="gameplay-north-gate-horde-turned" aria-label="Tor Nord aus schräger Sicht: Zombies drängen auf die Überlebenden vor dem Tor" aria-pressed="false" disabled><img src="assets/images/gameplay/north-gate-horde-turned-960.webp" alt="" width="960" height="540" decoding="async"></button>
-                    </div>
-                    <p class="screenshot-development-note">Spiel und Grafik werden stetig verbessert.</p>
-                </div>
     </div>
 </section>
 
@@ -412,18 +413,6 @@
 
 </footer>
 
-<dialog id="home-screenshot-dialog" class="home-screenshot-dialog" aria-label="Spielscreenshots">
-    <div class="screenshot-dialog-toolbar">
-        <span class="screenshot-position" aria-live="polite" aria-atomic="true"></span>
-        <button type="button" data-screenshot-close aria-label="Schließen" autofocus>&times;</button>
-    </div>
-    <div class="screenshot-dialog-stage">
-        <button type="button" data-screenshot-prev aria-label="Vorheriger Screenshot">&#8249;</button>
-        <img class="screenshot-dialog-image" alt="" decoding="async" draggable="false" data-i18n-ignore>
-        <button type="button" data-screenshot-next aria-label="Nächster Screenshot">&#8250;</button>
-    </div>
-    <p class="screenshot-dialog-caption" data-i18n-ignore></p>
-</dialog>
 
 <!-- ================= SURVIVAL FUNKGERÄT (AMBIENT SOUND) ================= -->
 <aside class="survival-radio-widget" id="survivalRadio" aria-label="Survival Funkgerät">
@@ -461,22 +450,22 @@
 </button>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0" integrity="sha384-UagCvVPT5XXA0Hx+nJYUAGBFseHT9zBgpJMSebsAxl9lciTwbT+39j5VfRjdP5Tp" crossorigin="anonymous"></script>
-<script src="assets/js/visitor-counter.js?v=20261103-umbau1"></script>
+<script src="assets/js/visitor-counter.js?v=20261103-umbau2"></script>
 <script src="assets/js/community-voting.js?v=20260930-shared-vote"></script>
-<script src="assets/js/radio.js?v=20261103-umbau1"></script>
-<script src="assets/js/main.js?v=20261103-umbau1"></script>
+<script src="assets/js/radio.js?v=20261103-umbau2"></script>
+<script src="assets/js/main.js?v=20261103-umbau2"></script>
 <script src="assets/js/identity.js?v=20261027-google1"></script>
 <script src="assets/js/community-features.js?v=20261013-pulse-active1"></script>
 <script src="assets/js/community-pulse-api.js?v=20261015-release1"></script>
 <script src="assets/js/community-pulse.js?v=20261019-always-results1"></script>
 <script src="assets/js/home-forum-teaser.js?v=20261019-forum1"></script>
-<script src="assets/js/home-changelog-band.js?v=20261103-umbau1"></script>
+<script src="assets/js/home-changelog-band.js?v=20261103-umbau2"></script>
 <script src="assets/js/home-survivors.js?v=20261031-killer"></script>
-<script src="assets/js/home-screenshot-gallery.js?v=20261020-gallery1"></script>
 
-<script src="assets/js/zh-ui.js?v=20261103-umbau1"></script>
-<script src="assets/js/zh-ranks.js?v=20261103-umbau1"></script>
-<script src="assets/js/zh-live.js?v=20261103-umbau1"></script>
+<script src="assets/js/zh-ui.js?v=20261103-umbau2"></script>
+<script src="assets/js/zh-ranks.js?v=20261103-umbau2"></script>
+<script src="assets/js/zh-live.js?v=20261103-umbau2"></script>
+<script src="assets/js/zh-hero.js?v=20261103-umbau2"></script>
 </body>
 
 </html>
