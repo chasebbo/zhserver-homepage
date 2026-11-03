@@ -21,36 +21,35 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Zombiehölle">
 
+    <link rel="stylesheet" href="assets/css/fonts.css?v=20261103-umbau1">
     <link rel="stylesheet" href="assets/css/style.css?v=20261019-neutral-navigation1">
     <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en-gallery">
     <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
     <link rel="stylesheet" href="assets/css/identity.css?v=20261027-google1">
     <link rel="stylesheet" href="assets/css/gallery.css?v=20261014-gallery-public1">
-    <script src="assets/js/translations.js?v=20261103-text1"></script>
+    <script src="assets/js/translations.js?v=20261103-umbau1"></script>
     <script src="assets/js/i18n.js?v=20261016-security1"></script>
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0" integrity="sha384-UagCvVPT5XXA0Hx+nJYUAGBFseHT9zBgpJMSebsAxl9lciTwbT+39j5VfRjdP5Tp" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261103-umbau1">
+    <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261103-umbau1">
 </head>
 
-<body class="gallery-page">
+<body class="gallery-page zh-2026">
 
 <header class="header zh-site-header">
     <div class="container">
         <nav class="navbar">
             <div class="header-brand-row">
                 <a href="index.html" class="header-emblem">
-                    <img src="assets/images/android-chrome-512x512.png" width="512" height="512" alt="Zombiehölle / ZHServer" decoding="async">
+                    <img src="assets/images/umbau/logo-hell2.png" width="512" height="512" alt="Zombiehölle / ZHServer" decoding="async">
                 </a>
                 <a href="index.html" class="logo">ZHServer.de / Zombiehölle.de</a>
                 <div class="header-controls">
@@ -64,13 +63,14 @@
                 </div>
             </div>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html#hero">Start</a></li>
+                <li><a href="index.html">Start</a></li>
                 <li><a href="game.html" class="nav-game-link">Spiel</a></li>
                 <li><a href="forum/" data-forum-route>Forum</a></li>
                 <li><a href="gallery.html" aria-current="page">Galerie</a></li>
-                <li><a href="index.html#history">Geschichte</a></li>
-                <li><a href="index.html#timeline">Timeline</a></li>
-                <li><a href="index.html#guestbook">Gästebuch</a></li>
+                <li data-zh-until="v131"><a href="archiv.html#history">Geschichte</a></li>
+                <li data-zh-release="v131"><a data-zh-href="geschichte.html">Geschichte</a></li>
+                <li><a href="archiv.html#timeline">Timeline</a></li>
+                <li><a href="archiv.html#guestbook">Gästebuch</a></li>
                 <li><a href="wiki.html">Wiki</a></li>
             </ul>
         </nav>
@@ -84,9 +84,9 @@
     <div class="container zh-gallery-hero-inner">
 
         <div class="zh-gallery-hero-copy">
-            <span class="zh-gallery-kicker">COMMUNITY</span>
-            <h1 id="galleryTitle">Screenshot Galerie</h1>
-            <p>Erinnerungen an Zombiehölle und ZHServer, festgehalten von der Community.</p>
+            <span class="zh-gallery-kicker">Bilder aus dem Spiel und von früher</span>
+            <h1 id="galleryTitle">Galerie</h1>
+            <p>Du hast noch alte Screenshots? Her damit.</p>
         </div>
 
         <a class="btn btn-outline zh-gallery-hero-upload" href="#upload" data-gallery-upload-link>Screenshot hochladen</a>
@@ -95,7 +95,57 @@
 
 </section>
 
-<section class="zh-gallery-main" aria-labelledby="galleryImagesTitle">
+<nav class="zh-gallery-filter zh-wrap" aria-label="Galerie filtern" data-gallery-filter>
+    <button type="button" data-filter="all" aria-pressed="true">Alle</button>
+    <button type="button" data-filter="game" aria-pressed="false">Spiel heute</button>
+    <button type="button" data-filter="archive" aria-pressed="false">Archiv 2013 bis 2021</button>
+    <button type="button" data-filter="community" aria-pressed="false">Von euch</button>
+    <button type="button" data-filter="videos" aria-pressed="false">Videos</button>
+</nav>
+<section class="zh-gallery-group" data-gallery-group="game" aria-labelledby="galleryGameTitle">
+    <div class="zh-wrap">
+        <h2 id="galleryGameTitle" class="zh-gallery-group-title">Spiel heute</h2>
+        <ul class="zh-pic-grid">
+            <li><a class="zh-pic-tile" href="assets/images/gameplay/start-4in1-full.webp" target="_blank" rel="noopener"><img src="assets/images/gameplay/start-4in1-640.webp" alt="Vier Szenen aus Zombiehölle Survival: das Portal der Militärbasis Ost hinter Sandsackstellungen, eine Horde vor Tor Nord, Gestrandete am Lagerfeuer und der Steinbruch Ost" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/gameplay/market-day-full.webp" target="_blank" rel="noopener"><img src="assets/images/gameplay/market-day-960.webp" alt="Handelsplatz der Safezone am Tag mit Ständen und Händlern" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/gameplay/quarry-east-full.webp" target="_blank" rel="noopener"><img src="assets/images/gameplay/quarry-east-960.webp" alt="Steinbruch Ost mit Bagger, Radlader und Muldenkipper" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/gameplay/north-gate-pickup-full.webp" target="_blank" rel="noopener"><img src="assets/images/gameplay/north-gate-pickup-960.webp" alt="Tor Nord: Ein Pickup fährt hinaus, die Streife sichert" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/gameplay/north-gate-eagle-full.webp" target="_blank" rel="noopener"><img src="assets/images/gameplay/north-gate-eagle-960.webp" alt="Tor Nord am Abend: Ein Eagle V fährt in die Safezone ein" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/gameplay/base-east-8x8-full.webp" target="_blank" rel="noopener"><img src="assets/images/gameplay/base-east-8x8-960.webp" alt="Militär-Lkw 8x8 an der Einfahrt der Basis Ost" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/gameplay/eagle-mg-action-full.webp" target="_blank" rel="noopener"><img src="assets/images/gameplay/eagle-mg-action-960.webp" alt="Ein Eagle V feuert mit dem Fahrzeug-MG auf Zombies, ein Mitspieler schießt mit dem Gewehr" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/gameplay/north-gate-horde-full.webp" target="_blank" rel="noopener"><img src="assets/images/gameplay/north-gate-horde-960.webp" alt="Vor Tor Nord kommt eine Horde die Straße herunter, Überlebende halten am Tor dagegen" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/gameplay/campfire-evening-full.webp" target="_blank" rel="noopener"><img src="assets/images/gameplay/campfire-evening-960.webp" alt="Treffpunkt der Safezone am Abend, Gestrandete sitzen am Lagerfeuer" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/gameplay/boxing-ring-full.webp" target="_blank" rel="noopener"><img src="assets/images/gameplay/boxing-ring-960.webp" alt="Der Boxring in der Safezone mit Kämpfern im Ring" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/gameplay/quarry-east-morning-full.webp" target="_blank" rel="noopener"><img src="assets/images/gameplay/quarry-east-morning-960.webp" alt="Steinbruch Ost am Vormittag mit Bagger, Radlader, Muldenkipper und Erzkisten" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/gameplay/base-east-checkpoint-full.webp" target="_blank" rel="noopener"><img src="assets/images/gameplay/base-east-checkpoint-960.webp" alt="Kontrollpunkt an der Einfahrt der Basis Ost, ein 8x8 wartet an der Haltelinie" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/gameplay/north-gate-horde-turned-full.webp" target="_blank" rel="noopener"><img src="assets/images/gameplay/north-gate-horde-turned-960.webp" alt="Tor Nord aus schräger Sicht: Zombies drängen auf die Überlebenden vor dem Tor" loading="lazy" decoding="async"></a></li>
+        </ul>
+    </div>
+</section>
+<section class="zh-gallery-group" data-gallery-group="archive" aria-labelledby="galleryArchiveTitle">
+    <div class="zh-wrap">
+        <h2 id="galleryArchiveTitle" class="zh-gallery-group-title">Archiv 2013 bis 2021</h2>
+        <ul class="zh-pic-grid">
+            <li><a class="zh-pic-tile" href="assets/images/adminbase.png" target="_blank" rel="noopener"><img src="assets/images/adminbase.png" alt="Adminbase Tag" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/adminbase2.png" target="_blank" rel="noopener"><img src="assets/images/adminbase2.png" alt="Adminbase Nacht" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/Axtevent2.jpg" target="_blank" rel="noopener"><img src="assets/images/Axtevent2.jpg" alt="Axt Event Vorbereitung" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/Axt.png" target="_blank" rel="noopener"><img src="assets/images/Axt.png" alt="Axt Event Kampf" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/convoy1.jpg" target="_blank" rel="noopener"><img src="assets/images/convoy1.jpg" alt="Convoy Event Zombiehölle" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/convoy2.jpg" target="_blank" rel="noopener"><img src="assets/images/convoy2.jpg" alt="Convoy Nachtfahrt" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/Helikopter1.jpg" target="_blank" rel="noopener"><img src="assets/images/Helikopter1.jpg" alt="Helikopter Wettbewerb Zombiehölle" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/Helikopter2.jpg" target="_blank" rel="noopener"><img src="assets/images/Helikopter2.jpg" alt="Helikopter Flug Zombiehölle" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/Ralley1.jpg" target="_blank" rel="noopener"><img src="assets/images/Ralley1.jpg" alt="Rallye Event Zombiehölle" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/Ralley2.jpg" target="_blank" rel="noopener"><img src="assets/images/Ralley2.jpg" alt="Rallye Teilnehmer" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/Hungergames.png" target="_blank" rel="noopener"><img src="assets/images/Hungergames.png" alt="Hunger-Games Event" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/Moondye7.png" target="_blank" rel="noopener"><img src="assets/images/Moondye7.png" alt="Moondye7 auf dem Zombiehölle Server" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/Safezone.png" target="_blank" rel="noopener"><img src="assets/images/Safezone.png" alt="Musikmoment in der Safezone" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/Chernarus.webp" target="_blank" rel="noopener"><img src="assets/images/Chernarus.webp" alt="Chernarus Karte" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/Tanoa.webp" target="_blank" rel="noopener"><img src="assets/images/Tanoa.webp" alt="Tanoa Karte" loading="lazy" decoding="async"></a></li>
+            <li><a class="zh-pic-tile" href="assets/images/Napf.webp" target="_blank" rel="noopener"><img src="assets/images/Napf.webp" alt="Napf Karte" loading="lazy" decoding="async"></a></li>
+        </ul>
+    </div>
+</section>
+<section class="zh-gallery-main" data-gallery-group="community" aria-labelledby="galleryImagesTitle">
 
     <div class="container">
 
@@ -117,6 +167,23 @@
 
 </section>
 
+<section class="zh-gallery-group" data-gallery-group="videos" aria-labelledby="galleryVideoTitle">
+    <div class="zh-wrap">
+        <h2 id="galleryVideoTitle" class="zh-gallery-group-title">Videos</h2>
+        <ul class="zh-video-list">
+            <li><a class="zh-panel zh-hov" href="https://www.youtube.com/watch?v=Q02B4DAZX_U" target="_blank" rel="noopener noreferrer"><span class="zh-h3">Das Convoy-Event</span><span class="zh-link">Video ansehen</span></a></li>
+            <li><a class="zh-panel zh-hov" href="https://www.youtube.com/watch?v=1mP5EaU8nQk" target="_blank" rel="noopener noreferrer"><span class="zh-h3">Hunger-Games Event</span><span class="zh-link">Video ansehen</span></a></li>
+            <li><a class="zh-panel zh-hov" href="https://www.youtube.com/watch?v=_WtQcEra0So" target="_blank" rel="noopener noreferrer"><span class="zh-h3">Team Deathmatch Event</span><span class="zh-link">Video ansehen</span></a></li>
+            <li><a class="zh-panel zh-hov" href="https://www.youtube.com/watch?v=CFkhH0SqeOk" target="_blank" rel="noopener noreferrer"><span class="zh-h3">Creator Besuch</span><span class="zh-link">Video ansehen</span></a></li>
+            <li><a class="zh-panel zh-hov" href="https://www.youtube.com/watch?v=NS8-37xr0UI" target="_blank" rel="noopener noreferrer"><span class="zh-h3">Musik in der Safezone</span><span class="zh-link">Video ansehen</span></a></li>
+        </ul>
+    </div>
+</section>
+<nav class="zh-gallery-links zh-wrap" aria-label="Weitere Bilder und Videos">
+    <a class="zh-btn zh-btn-dark" href="https://web.archive.org/web/20170516020643/http://www.zombieh%C3%B6lle.de/index.php" target="_blank" rel="noopener noreferrer">Alte Seite in der Wayback Machine</a>
+    <a class="zh-btn zh-btn-dark" href="https://steamcommunity.com/groups/zombiehoelle" target="_blank" rel="noopener noreferrer">Steam-Gruppe</a>
+    <a class="zh-btn zh-btn-dark" href="https://www.youtube.com/results?search_query=Zombieh%C3%B6lle.de+ZHserver.de" target="_blank" rel="noopener noreferrer">YouTube</a>
+</nav>
 <section class="zh-gallery-upload" id="upload" aria-labelledby="galleryUploadTitle">
 
     <div class="container">
@@ -228,11 +295,14 @@
 
 </footer>
 
-<script src="assets/js/visitor-counter.js?v=20261102-newest2"></script>
-<script src="assets/js/main.js?v=20261016-security1"></script>
+<script src="assets/js/visitor-counter.js?v=20261103-umbau1"></script>
+<script src="assets/js/main.js?v=20261103-umbau1"></script>
 <script src="assets/js/identity.js?v=20261027-google1"></script>
 <script src="assets/js/gallery.js?v=20261016-security1"></script>
 
+<script src="assets/js/radio.js?v=20261103-umbau1"></script>
+<script src="assets/js/gallery-filter.js?v=20261103-umbau1"></script>
+<script src="assets/js/zh-ui.js?v=20261103-umbau1"></script>
 </body>
 
 </html>

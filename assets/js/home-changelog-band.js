@@ -6,6 +6,32 @@
     if (!band || !lang) return;
     const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
     let entry = null;
+    // Neuigkeiten: die drei neuesten Changelog-Einträge aus derselben Abfrage, Bilder nur als Schmuck.
+    const news = document.querySelector('.zh-news-grid');
+    const newsImages = ['assets/images/gameplay/eagle-mg-action-960.webp', 'assets/images/gameplay/boxing-ring-960.webp', 'assets/images/gameplay/market-day-960.webp'];
+    let latest = [];
+
+    function renderNews() {
+        const section = news?.closest('section');
+        if (!news || !section) return;
+        section.hidden = !latest.length;
+        news.replaceChildren(...latest.map((item, index) => {
+            const card = document.createElement('a');
+            card.className = 'zh-panel zh-hov zh-news-card';
+            card.href = 'forum/#thread/' + item.id;
+            const image = document.createElement('img');
+            image.src = newsImages[index % newsImages.length];
+            image.alt = '';
+            image.loading = 'lazy';
+            image.decoding = 'async';
+            const body = text('div', 'zh-pad-s', '');
+            const date = item.date ? new Intl.DateTimeFormat(lang.locale, {dateStyle: 'medium', timeZone: 'Europe/Berlin'}).format(new Date(item.date + 'T12:00:00Z')) : '';
+            body.append(text('span', 'zh-eyebrow', date), text('span', 'zh-h3', item.title));
+            if (item.views !== null) body.append(text('span', 'zh-small', lang.t('forum.viewCount', {count: item.views.toLocaleString(lang.locale)})));
+            card.append(image, body);
+            return card;
+        }));
+    }
 
     function text(tag, className, value) {
         const node = document.createElement(tag);
@@ -59,16 +85,21 @@
             if (error || !data || !Array.isArray(data.topics)) throw new Error('unavailable');
             const day = topic => /^\d{4}-\d{2}-\d{2}$/.test(topic.changelog?.date || '') ? topic.changelog.date : '';
             // Newest by release date; the reader may list pinned entries first.
-            const newest = data.topics.filter(topic => topic && uuid.test(topic.id) && topic.category === 'changelog' && topic.hidden === false &&
+            const sorted = data.topics.filter(topic => topic && uuid.test(topic.id) && topic.category === 'changelog' && topic.hidden === false &&
                     typeof topic.title === 'string' && topic.title.trim() && Number.isFinite(Date.parse(topic.last_activity_at)))
-                .sort((a, b) => day(b).localeCompare(day(a)) || Date.parse(b.last_activity_at) - Date.parse(a.last_activity_at) || a.id.localeCompare(b.id))[0];
+                .sort((a, b) => day(b).localeCompare(day(a)) || Date.parse(b.last_activity_at) - Date.parse(a.last_activity_at) || a.id.localeCompare(b.id));
+            const newest = sorted[0];
+            latest = sorted.slice(0, 3).map(topic => ({id: topic.id, title: topic.title.trim(), date: day(topic),
+                views: Number.isSafeInteger(topic.views_count) && topic.views_count >= 0 ? topic.views_count : null}));
             entry = newest ? {id: newest.id, title: newest.title.trim(), date: day(newest),
                 views: Number.isSafeInteger(newest.views_count) && newest.views_count >= 0 ? newest.views_count : null} : null;
         } catch (_) {
             entry = null;
+            latest = [];
         }
         render();
+        renderNews();
     }
-    document.addEventListener('zh:languagechange', render);
+    document.addEventListener('zh:languagechange', () => { render(); renderNews(); });
     load();
 })();

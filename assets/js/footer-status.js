@@ -46,6 +46,15 @@
                 version.replaceChildren(anchor, note);
             } else version.textContent = text(releaseState === 'checking' ? 'checking' : 'unavailable');
         }
+        // Startseite: dieselben zwei Werte im Startbild und im Lagezentrum.
+        document.querySelectorAll('[data-live-server]').forEach(el => { el.dataset.state = server; });
+        const live = server === 'online' ? 'liveOnline' : server === 'offline' ? 'liveOffline' : 'liveChecking';
+        document.querySelectorAll('[data-live-server-text]').forEach(el => { el.textContent = text(live); });
+        document.querySelectorAll('[data-live-server-word]').forEach(el => { el.textContent = text(server === 'online' ? 'online' : server === 'offline' ? 'offline' : 'checking'); });
+        document.querySelectorAll('[data-live-release]').forEach(el => { el.hidden = !release; el.textContent = release ? release.label : ''; });
+        document.querySelectorAll('[data-live-release-text]').forEach(el => {
+            el.textContent = release ? release.label : text(releaseState === 'checking' ? 'checking' : 'unavailable');
+        });
     }
     function readCache() {
         try {

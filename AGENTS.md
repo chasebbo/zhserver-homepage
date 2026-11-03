@@ -141,6 +141,21 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   inhaltlich nur nach Sebastians Auftrag ändern; Auffälligkeiten melden.
 
 
+## Homepage-Umbau November 2026 (Branch `umbau-homepage-20261103`)
+
+- Vorlage: `C:\ZHServer-Temp\homepage-entwurf-20261103\`. Gemeinsame Gestaltung in
+  `assets/css/zh-2026.css` (nur unter `body.zh-2026`), Seiten in `assets/css/zh-pages.css`.
+- Schriften liegen selbst gehostet in `assets/fonts` (`assets/css/fonts.css`). Keine
+  Google-Fonts-Anfragen auf Homepage-Seiten. `game.html` und die Testseiten laden sie noch.
+- Startseite `index.html` neu, die Community-Geschichte liegt in `archiv.html`. Alte
+  Anker der Startseite (`#history`, `#timeline`, `#guestbook`, Events) leiten auf das Archiv um.
+- Vorbereitete Teile schaltet `assets/js/zh-ui.js` ein (`FEATURES`, `RELEASES`), nicht im HTML.
+  Erst einschalten, wenn es echte Daten gibt bzw. die Version live ist: Tore der Safezone
+  (v132), Funk-Countdown, Ping und Laufzeit, Video im Startbild, Seite `geschichte.html` und
+  Ladetext (v131). Links auf `geschichte.html` bekommen ihr Ziel erst mit `RELEASES.v131`.
+- Funkgerät steht in `assets/js/radio.js` (früher in `main.js`) und auf jeder Homepage-Seite.
+
+
 ## Web-Alpha-Status ohne Datum
 
 - Entscheidung Sebastian, 21.10.2026: Keine manuell gepflegten Versions- oder

@@ -8,7 +8,7 @@
 
     <title>ZHServer Community | Seit 2013</title>
 
-    <meta name="description" content="ZHServer seit 2013: Community-Archiv und die 3D-Entwicklung von Zombiehölle Survival.">
+    <meta name="description" content="Zombiehölle Survival: 3D-Multiplayer-Welt im Browser. Dazu das Archiv der ZHServer Community seit 2013.">
 
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
@@ -20,6 +20,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Zombiehölle">
 
+    <link rel="stylesheet" href="assets/css/fonts.css?v=20261103-umbau1">
     <link rel="stylesheet" href="assets/css/style.css?v=20261019-neutral-navigation1">
     <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en">
     <link rel="stylesheet" href="assets/css/merch.css?v=20260930-products">
@@ -30,31 +31,36 @@
     <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
     <link rel="stylesheet" href="assets/css/community-stats.css?v=20261008-release1">
     <link rel="stylesheet" href="assets/css/identity.css?v=20261027-google1">
-    <script src="assets/js/translations.js?v=20261103-text1"></script>
+    <script src="assets/js/translations.js?v=20261103-umbau1"></script>
     <link rel="stylesheet" href="assets/css/community-pulse.css?v=20261019-always-results1">
     <link rel="stylesheet" href="assets/css/homepage-chapters.css?v=20261025-band1">
     <link rel="stylesheet" href="assets/css/home-community.css?v=20261025-band1">
     <script src="assets/js/i18n.js?v=20261016-security1"></script>
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261103-umbau1">
+    <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261103-umbau1">
+    <script>
+        // Abschnitte der früheren Startseite liegen jetzt im Archiv: alte Links und Anker weiterleiten.
+        (function () {
+            var moved = /^(history|adminbase|halloffame|axe-event|convoy-event|helicopter-event|rallye-event|hungergames-event|tdm-event|creator-event|safezone-event|exile-maps|timeline|gallery|archive|guestbook|forum|support-title|guestbook-.*)$/;
+            var id = decodeURIComponent(location.hash.slice(1));
+            if (moved.test(id)) location.replace("archiv.html" + location.search + location.hash);
+        })();
+    </script>
 </head>
 
-
-<body class="home-page home-chapters">
+<body class="home-page home-chapters zh-2026 zh-home">
 
 <header class="header zh-site-header">
     <div class="container">
         <nav class="navbar">
             <div class="header-brand-row">
-                <a href="#" class="header-emblem">
-                    <img src="assets/images/android-chrome-512x512.png" width="512" height="512" alt="Zombiehölle / ZHServer" decoding="async">
+                <a href="index.html" class="header-emblem">
+                    <img src="assets/images/umbau/logo-hell2.png" width="512" height="512" alt="Zombiehölle / ZHServer" decoding="async">
                 </a>
-                <a href="#" class="logo">
+                <a href="index.html" class="logo">
                     <span>ZHServer.de / Zombiehölle.de</span>
                     <span class="home-header-welcome">EST. 2013 · <span>WILLKOMMEN ZURÜCK.</span></span>
                 </a>
@@ -69,30 +75,194 @@
                 </div>
             </div>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#hero">Start</a></li>
+                <li><a href="index.html" aria-current="page">Start</a></li>
                 <li><a href="game.html" class="nav-game-link">Spiel</a></li>
                 <li><a href="forum/" data-forum-route>Forum</a></li>
                 <li><a href="gallery.html">Galerie</a></li>
-                <li><a href="#history">Geschichte</a></li>
-                <li><a href="#timeline">Timeline</a></li>
-                <li><a href="#guestbook">Gästebuch</a></li>
+                <li data-zh-until="v131"><a href="archiv.html#history">Geschichte</a></li>
+                <li data-zh-release="v131"><a data-zh-href="geschichte.html">Geschichte</a></li>
+                <li><a href="archiv.html#timeline">Timeline</a></li>
+                <li><a href="archiv.html#guestbook">Gästebuch</a></li>
                 <li><a href="wiki.html">Wiki</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
+<!-- ================= START ================= -->
 
+<main id="hero" class="zh-start" aria-labelledby="era-title">
 
-<!-- ================= HERO ================= -->
+<section class="zh-hero-sec" aria-labelledby="era-title">
+    <div class="zh-wrap">
+        <div class="zh-panel zh-gold-frame zh-hero">
+            <img class="zh-hero-image" src="assets/images/umbau/portal.webp" width="1536" height="640" alt="Das Portal der Militärbasis Ost hinter Sandsackstellungen" fetchpriority="high" decoding="async">
+            <video class="zh-hero-video" data-zh-feature="heroVideo" muted loop playsinline preload="none" aria-hidden="true"></video>
+            <div class="zh-hero-shade" aria-hidden="true"></div>
+            <div class="zh-hero-copy">
+                <div class="zh-hero-pills">
+                    <span class="zh-pill zh-pill-green" data-live-server data-state="checking"><span class="zh-dot" aria-hidden="true"></span><span data-live-server-text data-i18n-ignore>Server wird geprüft</span></span>
+                    <span class="zh-pill zh-pill-gold" data-live-release data-i18n-ignore hidden></span>
+                    <span class="zh-pill">Web-Alpha jetzt spielbar</span>
+                </div>
+                <span class="zh-eyebrow" data-zh-release="v131">Die Welt nach dem 14. März 2044</span>
+                <h1 id="era-title" class="zh-h1">Zombiehölle Survival</h1>
+                <p class="zh-copy zh-hero-lead">Ein Survival-Spiel im Browser. Allein kommst du nicht weit, also such dir Leute.</p>
+                <div class="zh-hero-actions">
+                    <a href="game.html" class="zh-btn zh-btn-gold zh-btn-big">Jetzt spielen</a>
+                    <a href="#news" class="zh-btn zh-btn-dark zh-btn-big">Was ist neu?</a>
+                </div>
+                <span class="zh-small" data-zh-release="v131">Laden dauert am PC etwa eine Minute, auf Handys länger.</span>
+            </div>
+        </div>
+        <div class="home-changelog-band" hidden></div>
+    </div>
+</section>
 
-<section id="hero" class="section era-section" aria-labelledby="era-title">
-    <div id="then-now" class="container">
-        <div class="era-primary">
-        <h1 id="era-title" class="home-intro-title">ZHServer Community</h1>
-        <div class="era-split">
-            <article class="era-panel era-present" aria-labelledby="era-present-title">
-                <div class="era-visual era-screenshot-collage" role="group" aria-label="Spielscreenshots">
+<section id="lage" class="zh-sec zh-sec-a" aria-labelledby="lage-title">
+    <div class="zh-wrap">
+        <div class="zh-sec-head">
+            <div><span class="zh-eyebrow">Zombiehölle Survival</span><h2 id="lage-title" class="zh-h2">Lagezentrum</h2></div>
+        </div>
+        <div class="zh-lage-grid">
+            <div class="zh-panel zh-hov zh-pad-s zh-server-card" data-live-server data-state="checking">
+                <span class="zh-eyebrow">Spielserver</span>
+                <span class="zh-server-state"><span class="zh-dot zh-dot-big" aria-hidden="true"></span><span data-live-server-word data-i18n-ignore>Wird geprüft</span></span>
+                <span class="zh-server-meta"><span>Version</span> <span data-live-release-text data-i18n-ignore></span><span data-zh-feature="serverPing"> · Ping <span class="zh-num" data-live-ping></span></span></span>
+                <span class="zh-small" data-zh-feature="serverUptime">Läuft seit <span data-live-uptime></span></span>
+            </div>
+
+            <div class="zh-panel zh-hov zh-warm zh-pad-s zh-world-card era-world-note zh-world-status">
+                <div class="zh-world-heading">
+                    <span class="era-world-label zh-eyebrow">AKTUELLE WELTLAGE</span>
+                </div>
+                <dl class="zh-world-values">
+                    <div data-world-value="military"><dt>MILITÄR</dt><dd><span class="zh-world-number">72 %</span></dd></div>
+                    <div data-world-value="survivors"><dt>ÜBERLEBENDE</dt><dd><span class="zh-world-number">18 %</span></dd></div>
+                    <div data-world-value="infected"><dt>INFIZIERTE</dt><dd><span class="zh-world-number">7 %</span></dd></div>
+                    <div data-world-value="contested"><dt>UMKÄMPFT</dt><dd><span class="zh-world-number">3 %</span></dd></div>
+                </dl>
+                <div class="zh-world-bar" aria-hidden="true">
+                    <span class="zh-world-military"></span><span class="zh-world-survivors"></span><span class="zh-world-infected"></span><span class="zh-world-contested"></span>
+                </div>
+                <a class="era-world-link zh-link" href="game.html#alpha-world-title"><span>Weltlage ansehen</span></a>
+            </div>
+
+            <div class="zh-panel zh-hov zh-pad-s zh-gates" data-zh-feature="gates" aria-labelledby="gates-title">
+                <span id="gates-title" class="zh-eyebrow">Tore der Safezone</span>
+                <div class="zh-gate" data-gate="north"><span class="zh-gate-row"><span>Nord</span><span data-gate-state></span></span><span class="zh-gate-bar"><span data-gate-fill></span></span></div>
+                <div class="zh-gate" data-gate="west"><span class="zh-gate-row"><span>West</span><span data-gate-state></span></span><span class="zh-gate-bar"><span data-gate-fill></span></span></div>
+                <div class="zh-gate" data-gate="east"><span class="zh-gate-row"><span>Ost</span><span data-gate-state></span></span><span class="zh-gate-bar"><span data-gate-fill></span></span></div>
+                <div class="zh-gate" data-gate="south"><span class="zh-gate-row"><span>Süd</span><span data-gate-state></span></span><span class="zh-gate-bar"><span data-gate-fill></span></span></div>
+            </div>
+
+            <div class="zh-panel zh-pad-s zh-horde" data-zh-feature="hordeRadio" aria-labelledby="horde-title">
+                <span class="zh-horde-head"><span id="horde-title" class="zh-eyebrow">Funk · nächste Horde</span><span class="zh-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></span>
+                <span class="zh-h3" data-horde-place></span>
+                <span class="zh-num zh-horde-time" data-horde-countdown></span>
+                <span class="zh-horde-message" data-horde-message></span>
+            </div>
+
+            <div class="zh-panel zh-hov zh-pad-s zh-killers">
+                <aside class="home-survivors" aria-labelledby="home-survivors-title">
+                    <h3 id="home-survivors-title" class="zh-eyebrow" data-i18n-message="home.survivors.title">TOP 5 ZOMBIE-KILLER</h3>
+                    <p class="home-survivors-kicker zh-small" data-i18n-message="home.survivors.kicker">Erledigte Zombies</p>
+                    <p id="home-survivors-status" class="home-survivors-status" role="status" data-i18n-message="home.survivors.preparing">Rangliste in Vorbereitung</p>
+                    <ol id="home-survivors-list" class="home-survivors-list" hidden data-i18n-ignore></ol>
+                </aside>
+            </div>
+
+            <div class="zh-panel zh-hov zh-pad-s zh-newest" data-community-stats data-community-hide-empty hidden>
+                <span class="zh-eyebrow">Neu dabei</span>
+                <a class="zh-newest-name" data-community-member-link><span data-community-value="newest_member"></span></a>
+                <span class="zh-muted">Willkommen in der Zombiehölle.</span>
+                <a class="zh-link zh-newest-link" data-community-member-link>Profil ansehen</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="mitreden" class="zh-sec zh-sec-c" aria-labelledby="pulse-title">
+    <div class="zh-wrap zh-talk-grid">
+        <article class="zh-panel zh-gold-frame zh-pad era-pulse" id="community-pulse-card" aria-labelledby="pulse-title">
+            <span class="pulse-eyebrow zh-eyebrow">COMMUNITY PULSE</span>
+            <h2 id="pulse-title" class="zh-h2" data-i18n-message="pulse.title">Du entscheidest mit.</h2>
+            <p class="pulse-intro zh-copy" data-i18n-message="pulse.intro">Sag uns, was als Nächstes in Zombiehölle Survival kommen soll.</p>
+            <p id="pulse-status" role="status" data-i18n-message="pulse.preparing">Neue Abstimmungen werden vorbereitet.</p>
+            <div id="pulse-body" hidden>
+                <h3 id="pulse-question" data-i18n-ignore></h3>
+                <div id="pulse-options" class="pulse-options"></div>
+                <div class="pulse-messages">
+                    <p id="pulse-total" class="pulse-quiet" hidden></p>
+                    <p id="pulse-feedback" class="pulse-quiet" role="status" aria-live="polite" hidden></p>
+                    <p id="pulse-closed" class="pulse-quiet" data-i18n-message="pulse.closed" hidden>Diese Abstimmung ist geschlossen.</p>
+                    <p id="pulse-account" class="pulse-account">
+                        <span data-i18n-message="pulse.accountNote">Zum Abstimmen brauchst du deinen ZHServer-Account.</span>
+                        <a id="pulse-login" href="account/?next=%2F%23mitreden" data-i18n-message="account.signIn">Anmelden</a>
+                        <span aria-hidden="true"> · </span>
+                        <a href="account/?mode=register&amp;next=%2F%23mitreden" data-i18n-message="account.register">Registrieren</a>
+                    </p>
+                </div>
+                <div class="pulse-nav" aria-label="Abstimmungen" data-i18n-ignore>
+                    <button type="button" id="pulse-prev" data-i18n-message="pulse.previous">Zurück</button>
+                    <span id="pulse-position"></span>
+                    <button type="button" id="pulse-next" data-i18n-message="pulse.next">Weiter</button>
+                </div>
+                <div id="pulse-dots" class="pulse-dots"></div>
+            </div>
+        </article>
+        <aside class="zh-panel zh-warm zh-pad home-forum-teaser" aria-labelledby="home-forum-title">
+            <h3 id="home-forum-title" class="zh-eyebrow" data-i18n-message="home.forum.title">AKTUELLE THEMEN</h3>
+            <p class="home-forum-kicker zh-small" data-i18n-message="home.forum.kicker">AUS DEM FORUM</p>
+            <p id="home-forum-status" class="home-forum-status" role="status" data-i18n-message="forum.loading">Wird geladen …</p>
+            <ul id="home-forum-topics" class="home-forum-topics" hidden></ul>
+            <a class="home-forum-link zh-link" href="forum/"><span data-i18n-message="home.forum.allTopics">Zum Forum</span></a>
+        </aside>
+    </div>
+</section>
+
+<section id="welt" class="zh-sec zh-sec-b" aria-labelledby="era-present-title">
+    <div class="zh-wrap">
+        <div class="zh-sec-center">
+            <span id="era-present-title" class="zh-eyebrow">Zombiehölle Survival heute</span>
+            <h2 class="zh-h2">Eine Welt, die weiterwächst</h2>
+            <p class="zh-copy zh-world-intro">Zombiehölle Survival ist eine 3D-Multiplayer-Welt im Browser, in der dein Fortschritt gespeichert bleibt. Du suchst Ausrüstung, baust dir eine Basis und überlebst zusammen mit anderen. Die Welt wird laufend größer und besser.</p>
+        </div>
+        <div class="zh-chapters">
+            <article class="zh-chapter">
+                <div class="zh-pic-wrap"><img src="assets/images/gameplay/campfire-evening-960.webp" width="960" height="540" alt="Lagerfeuer am Treffpunkt der Safezone am Abend" loading="lazy" decoding="async"></div>
+                <div class="zh-chapter-copy">
+                    <span class="zh-eyebrow zh-chapter-no">Kapitel</span>
+                    <h3 class="zh-h2">Die Safezone</h3>
+                    <p class="zh-copy">Hier fängst du an. Es gibt Händler, Aufträge und ein Lagerfeuer, an dem sich alle treffen.</p>
+                </div>
+            </article>
+            <article class="zh-chapter" data-zh-feature="gates">
+                <div class="zh-pic-wrap"><img src="assets/images/gameplay/north-gate-horde-960.webp" width="960" height="540" alt="Horde vor dem Nordtor, Wachen schießen" loading="lazy" decoding="async"></div>
+                <div class="zh-chapter-copy">
+                    <span class="zh-eyebrow zh-chapter-no">Kapitel</span>
+                    <h3 class="zh-h2">Die Tore</h3>
+                    <p class="zh-copy">Nachts drücken die Horden gegen die Tore. Die Wachen halten, solange die Vorräte reichen.</p>
+                </div>
+            </article>
+            <article class="zh-chapter">
+                <div class="zh-pic-wrap"><img src="assets/images/gameplay/base-east-checkpoint-960.webp" width="960" height="540" alt="Kontrollpunkt der Militärbasis Ost" loading="lazy" decoding="async"></div>
+                <div class="zh-chapter-copy">
+                    <span class="zh-eyebrow zh-chapter-no">Kapitel</span>
+                    <h3 class="zh-h2">Militärbasis Ost</h3>
+                    <p class="zh-copy">Das Militär bewacht das Portal und redet nicht gern darüber. Wer mit anpackt, bekommt Arbeit.</p>
+                </div>
+            </article>
+            <article class="zh-chapter">
+                <div class="zh-pic-wrap"><img src="assets/images/gameplay/quarry-east-morning-960.webp" width="960" height="540" alt="Steinbruch Ost am Morgen" loading="lazy" decoding="async"></div>
+                <div class="zh-chapter-copy">
+                    <span class="zh-eyebrow zh-chapter-no">Kapitel</span>
+                    <h3 class="zh-h2">Bauen und halten</h3>
+                    <p class="zh-copy">Aus Holz und Stein ziehst du deine eigene Basis hoch. Mit Gruppe oder Clan wird sie größer.</p>
+                </div>
+            </article>
+        </div>
+                <div class="era-visual era-screenshot-collage zh-panel zh-pad-s zh-shots" role="group" aria-label="Spielscreenshots">
                     <button type="button" class="screenshot-main" data-screenshot-open aria-haspopup="dialog" aria-controls="home-screenshot-dialog" aria-label="Screenshot vergrößern" disabled>
                         <img src="assets/images/gameplay/start-4in1-640.webp" srcset="assets/images/gameplay/start-4in1-640.webp 640w, assets/images/gameplay/start-4in1-960.webp 960w, assets/images/gameplay/start-4in1.webp 2048w" sizes="(max-width: 900px) 92vw, 40vw" alt="Vier Szenen aus Zombiehölle Survival: das Portal der Militärbasis Ost hinter Sandsackstellungen, eine Horde vor Tor Nord, Gestrandete am Lagerfeuer und der Steinbruch Ost" width="2048" height="853" fetchpriority="high" decoding="async">
                     </button>
@@ -113,1535 +283,84 @@
                     </div>
                     <p class="screenshot-development-note">Spiel und Grafik werden stetig verbessert.</p>
                 </div>
-                <div class="era-story">
-                    <div class="era-copy">
-                        <h2 id="era-present-title">Zombiehölle Survival heute</h2>
-                        <p>Zombiehölle Survival ist eine 3D-Multiplayer-Welt im Browser, in der dein Fortschritt gespeichert bleibt. Du suchst Ausrüstung, baust dir eine Basis und überlebst zusammen mit anderen. Die Welt wird laufend größer und besser.</p>
-                        <span class="era-test-date">Web-Alpha jetzt spielbar</span>
-                        <a class="btn btn-gold" href="game.html">Zum Spiel (Alpha) <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                        <div class="era-world-note zh-world-status">
-                            <div class="zh-world-heading">
-                                <span class="era-world-label">AKTUELLE WELTLAGE</span>
-                            </div>
-                            <dl class="zh-world-values">
-                                <div data-world-value="military"><dt>MILITÄR</dt><dd><span class="zh-world-number">72 %</span></dd></div>
-                                <div data-world-value="survivors"><dt>ÜBERLEBENDE</dt><dd><span class="zh-world-number">18 %</span></dd></div>
-                                <div data-world-value="infected"><dt>INFIZIERTE</dt><dd><span class="zh-world-number">7 %</span></dd></div>
-                                <div data-world-value="contested"><dt>UMKÄMPFT</dt><dd><span class="zh-world-number">3 %</span></dd></div>
-                            </dl>
-                            <div class="zh-world-bar" aria-hidden="true">
-                                <span class="zh-world-military"></span><span class="zh-world-survivors"></span><span class="zh-world-infected"></span><span class="zh-world-contested"></span>
-                            </div>
-                            <a class="era-world-link" href="game.html#alpha-world-title"><span>Weltlage ansehen</span><span aria-hidden="true">→</span></a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <div class="home-changelog-band" hidden></div>
-            <div class="era-pulse-chapter">
-            <article class="era-panel era-pulse" id="community-pulse-card" aria-labelledby="pulse-title">
-                <span class="pulse-eyebrow">COMMUNITY PULSE</span>
-                <h2 id="pulse-title" data-i18n-message="pulse.title">Du entscheidest mit.</h2>
-                <p class="pulse-intro" data-i18n-message="pulse.intro">Sag uns, was als Nächstes in Zombiehölle Survival kommen soll.</p>
-                <p id="pulse-status" role="status" data-i18n-message="pulse.preparing">Neue Abstimmungen werden vorbereitet.</p>
-                <div id="pulse-body" hidden>
-                    <h3 id="pulse-question" data-i18n-ignore></h3>
-                    <div id="pulse-options" class="pulse-options"></div>
-                    <div class="pulse-messages">
-                        <p id="pulse-total" class="pulse-quiet" hidden></p>
-                        <p id="pulse-feedback" class="pulse-quiet" role="status" aria-live="polite" hidden></p>
-                        <p id="pulse-closed" class="pulse-quiet" data-i18n-message="pulse.closed" hidden>Diese Abstimmung ist geschlossen.</p>
-                        <p id="pulse-account" class="pulse-account">
-                            <span data-i18n-message="pulse.accountNote">Zum Abstimmen brauchst du deinen ZHServer-Account.</span>
-                            <a id="pulse-login" href="account/?next=%2F%23hero" data-i18n-message="account.signIn">Anmelden</a>
-                            <span aria-hidden="true"> · </span>
-                            <a href="account/?mode=register&amp;next=%2F%23hero" data-i18n-message="account.register">Registrieren</a>
-                        </p>
-                    </div>
-                    <div class="pulse-nav" aria-label="Abstimmungen" data-i18n-ignore>
-                        <button type="button" id="pulse-prev" data-i18n-message="pulse.previous">Zurück</button>
-                        <span id="pulse-position"></span>
-                        <button type="button" id="pulse-next" data-i18n-message="pulse.next">Weiter</button>
-                    </div>
-                    <div id="pulse-dots" class="pulse-dots"></div>
-                </div>
-            </article>
-                <div class="home-community-scene">
-                    <img class="home-community-image" src="assets/images/gameplay/campfire.webp" srcset="assets/images/gameplay/campfire-800.webp 800w, assets/images/gameplay/campfire.webp 1600w" sizes="(max-width: 900px) 92vw, 40vw" alt="Spieler am Lagerfeuer im Camp" width="1600" height="558" loading="lazy" decoding="async">
-                </div>
-                <div class="era-visual era-camp-visual">
-                    <aside class="home-forum-teaser" aria-labelledby="home-forum-title">
-                        <h3 id="home-forum-title" data-i18n-message="home.forum.title">AKTUELLE THEMEN</h3>
-                        <p class="home-forum-kicker" data-i18n-message="home.forum.kicker">AUS DEM FORUM</p>
-                        <p id="home-forum-status" class="home-forum-status" role="status" data-i18n-message="forum.loading">Wird geladen …</p>
-                        <ul id="home-forum-topics" class="home-forum-topics" hidden></ul>
-                        <a class="home-forum-link" href="forum/"><span data-i18n-message="home.forum.allTopics">Zum Forum</span><span aria-hidden="true">→</span></a>
-                    </aside>
-                </div>
-                <aside class="home-survivors" aria-labelledby="home-survivors-title">
-                    <h3 id="home-survivors-title" data-i18n-message="home.survivors.title">TOP 5 ZOMBIE-KILLER</h3>
-                    <p class="home-survivors-kicker" data-i18n-message="home.survivors.kicker">Erledigte Zombies</p>
-                    <p id="home-survivors-status" class="home-survivors-status" role="status" data-i18n-message="home.survivors.preparing">Rangliste in Vorbereitung</p>
-                    <ol id="home-survivors-list" class="home-survivors-list" hidden data-i18n-ignore></ol>
-                </aside>
+    </div>
+</section>
+
+<section id="tiefenlicht" class="zh-sec zh-sec-a" data-zh-release="v131" aria-labelledby="tiefenlicht-title">
+    <div class="zh-wrap">
+        <div class="zh-sec-head">
+            <div><span class="zh-eyebrow">Projekt TIEFENLICHT</span><h2 id="tiefenlicht-title" class="zh-h2">Auf der anderen Seite gibt es zwei Lager.</h2></div>
+        </div>
+        <div class="zh-camps">
+            <div class="zh-panel zh-hov zh-pad zh-camp-gold">
+                <h3 class="zh-h2">Die Wächter</h3>
+                <p class="zh-copy">Sie halten die Portale halb geschlossen. Dann leuchtet ein Portal golden. Sie warnen uns und brauchen etwas aus unserer Welt.</p>
             </div>
-            <article class="era-panel era-past" aria-labelledby="era-past-title">
-                <div class="era-visual">
-                    <img class="era-image" src="assets/images/zombiehoelle-archive-hero.webp" alt="" aria-hidden="true" width="1029" height="747" decoding="async">
-                </div>
-                <div class="era-story">
-                    <div class="era-copy">
-                        <h2 id="era-past-title">Zombiehölle damals</h2>
-                        <p>Angefangen hat alles mit einem Arma 2 DayZ Server. Timeline, alte Bilder und Erinnerungen findest du im Archiv.</p>
-                        <a class="btn btn-outline" href="#history">Zur Geschichte <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </article>
-            <svg class="era-connector" viewBox="0 0 100 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-                <defs>
-                    <linearGradient id="zh-pulse-thread-gold" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0" stop-color="#c7aa65" stop-opacity="0" />
-                        <stop offset=".25" stop-color="#c7aa65" stop-opacity=".6" />
-                        <stop offset=".6" stop-color="#e0c991" stop-opacity=".8" />
-                        <stop offset="1" stop-color="#c7aa65" stop-opacity="0" />
-                    </linearGradient>
-                </defs>
-                <path class="era-thread" d="M 38 0 C 38 24, 58 54, 58 80" />
-                <path class="era-thread era-thread-secondary" d="M 50 0 C 50 28, 70 52, 70 80" />
-                <path class="era-thread-pulse" d="M 38 0 C 38 24, 58 54, 58 80" pathLength="100" />
-            </svg>
+            <div class="zh-panel zh-hov zh-pad zh-camp-red">
+                <h3 class="zh-h2">Die Lenker</h3>
+                <p class="zh-copy">Sie steuern die Infizierten und schicken Horden. Bevor eine Horde kommt, pulsiert das Portal rot.</p>
+            </div>
         </div>
+        <p class="zh-camps-more"><a data-zh-href="geschichte.html" class="zh-btn zh-btn-dark">Die ganze Geschichte lesen</a></p>
+    </div>
+</section>
+
+<section id="news" class="zh-sec zh-sec-b" aria-labelledby="news-title" hidden>
+    <div class="zh-wrap">
+        <div class="zh-sec-head">
+            <div><span class="zh-eyebrow">Changelog</span><h2 id="news-title" class="zh-h2">Neuigkeiten</h2></div>
+            <a href="forum/#category/changelog" class="zh-link">Alle Änderungen im Forum</a>
         </div>
-        <aside class="era-arma-note" aria-labelledby="era-arma-title">
-            <h2 id="era-arma-title" data-i18n-message="pulse.armaTitle">Zombiehölle für Arma</h2>
-            <p data-i18n-message="pulse.armaNote">Zombiehölle hat mit Arma angefangen. Eine Rückkehr zu Arma 3 oder Arma Reforger ist im Moment nicht geplant.</p>
-            <a href="arma/"><span data-i18n-message="pulse.armaMore">Mehr dazu</span><span aria-hidden="true">→</span></a>
+        <div class="zh-news-grid" data-i18n-ignore></div>
+    </div>
+</section>
+
+<section id="damals" class="zh-sec zh-sec-a" aria-labelledby="era-past-title">
+    <div class="zh-wrap zh-then">
+        <a href="archiv.html" class="zh-panel zh-hov zh-then-card">
+            <img src="assets/images/umbau/adminbase2.webp" width="720" height="405" alt="Die Adminbase in Chernarus" loading="lazy" decoding="async">
+            <div class="zh-pad">
+                <span class="zh-eyebrow">Seit 2013</span>
+                <h2 id="era-past-title" class="zh-h2">Zombiehölle damals</h2>
+                <p class="zh-copy">Angefangen hat alles mit einem Arma 2 DayZ Server. Timeline, alte Bilder und Erinnerungen findest du im Archiv.</p>
+                <span class="zh-btn zh-btn-dark">Zur Geschichte</span>
+            </div>
+        </a>
+        <aside class="zh-panel zh-pad-s era-arma-note zh-arma" aria-labelledby="era-arma-title">
+            <h2 id="era-arma-title" class="zh-eyebrow" data-i18n-message="pulse.armaTitle">Zombiehölle für Arma</h2>
+            <p class="zh-copy" data-i18n-message="pulse.armaNote">Zombiehölle hat mit Arma angefangen. Eine Rückkehr zu Arma 3 oder Arma Reforger ist im Moment nicht geplant.</p>
+            <a href="arma/" class="zh-btn zh-btn-dark"><span data-i18n-message="pulse.armaMore">Mehr dazu</span></a>
         </aside>
     </div>
 </section>
 
-<!-- ================= GESCHICHTE ================= -->
-
-<section id="history" class="section history">
-
-    <div class="container">
-
-        <div class="history-grid">
-
-            <div class="history-left">
-
-                <span class="section-title">
-                    EST. 2013
-                </span>
-
-                <h2>
-                    Mehr als ein Spielserver.
-                </h2>
-
-                <p>
-                    2013 fing
-                    <strong>Zombiehölle</strong> als kleiner
-                    <strong>ARMA 2 DayZ</strong> Server an.
-                    Am Anfang haben sich dort nur ein paar Leute getroffen.
-                    Mit den Jahren wurde daraus eine richtige Community.
-                </p>
-
-                <p>
-                    Nach DayZ kamen Epoch, ARMA 3 und Exile. Mit jedem Projekt kamen neue Spieler dazu und es gab neue Geschichten.
-                </p>
-
-                <p>
-                    Die Server sind inzwischen abgeschaltet. Was damals passiert ist, haben wir hier gesammelt. Die Seite ist das Archiv einer Community, die es seit über zehn Jahren gibt.
-                </p>
-
-            </div>
-
-            <div class="history-card">
-
-                <span class="archive-number">
-                    ZH-001
-                </span>
-
-                <h3>
-                    Community Archiv
-                </h3>
-
-                <div class="history-info">
-
-                    <div>
-                        <span>Gegründet</span>
-                        <strong>2013</strong>
-                    </div>
-
-                    <div>
-                        <span>Ursprung</span>
-                        <strong>Zombiehölle</strong>
-                    </div>
-
-                    <div>
-                        <span>Begonnen mit</span>
-                        <strong>ARMA 2 DayZ</strong>
-                    </div>
-
-                    <div>
-                        <span>Entwicklung</span>
-                        <strong>Epoch · ARMA 3 · Exile</strong>
-                    </div>
-
-                    <div>
-                        <span>Aktuell</span>
-                        <strong>Zombiehölle Survival &middot; 3D-Entwicklung</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
+<section id="support" class="zh-sec zh-sec-b zh-shop-sec" aria-labelledby="shop-title">
+    <div class="zh-wrap">
+        <div class="zh-sec-head">
+            <div><span class="zh-eyebrow">Mach mit</span><h2 id="shop-title" class="zh-h2">Merch und Unterstützung</h2></div>
         </div>
-    </div>
-<div class="history-scroll">
-
-    <span>Weiter nach unten</span>
-
-    <div class="mouse">
-        <div class="wheel"></div>
-    </div>
-
-</div>
-</section>
-
-
-<!-- ================= ADMINBASE ARCHIV ================= -->
-
-<section id="adminbase" class="section adminbase">
-
-    <div class="container">
-
-        <div class="archive-header">
-
-            <span class="archive-number">
-                ZH-001
-            </span>
-
-            <span class="section-title">
-                ARCHIV EINTRAG
-            </span>
-
-            <h2>
-                Die Adminbase
-            </h2>
-
-            <p>
-                ARMA 2 DayZ · Chernarus · 2013
-            </p>
-
-        </div>
-
-
-<div class="adminbase-gallery">
-
-    <div class="adminbase-image">
-
-        <img src="assets/images/adminbase.png" alt="Adminbase Tag">
-
-    </div>
-
-
-    <div class="adminbase-image">
-
-        <img src="assets/images/adminbase2.png" alt="Adminbase Nacht">
-
-    </div>
-
-</div>
-
-
-        <div class="adminbase-content">
-
-            <h3>
-                Der alte Hauptstützpunkt.
-            </h3>
-
-
-            <p>
-                Die Adminbase war der Mittelpunkt des DayZ-Servers. Hier haben wir Stein auf Stein gebaut, Events vorbereitet oder einfach nächtelang abgehangen und gequatscht.
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-<!-- ================= HALL OF FAME ================= -->
-
-<section id="halloffame" class="section dark gratitude-section">
-
-    <div class="container">
-
-        <div class="gratitude-card">
-            <span class="section-title">
-                DANKE
-            </span>
-
-            <h2>AN ALLE, DIE DABEI WAREN.</h2>
-
-            <div class="gratitude-rule" aria-hidden="true"></div>
-
-            <p class="gratitude-copy">
-                Seit 2013 haben viele Spieler, Helfer und Freunde die Zombiehölle (ZHServer) mitgeprägt.
-                <br><br>
-                Danke für die Zeit, die ihr reingesteckt habt, und für alles, was wir zusammen erlebt haben.
-            </p>
-
-            <p class="gratitude-note">SEIT 2013 · ZOMBIEHÖLLE (ZHSERVER)</p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================= AXT EVENT ================= -->
-
-<section id="axe-event" class="section axe-event">
-
-    <div class="container">
-
-
-        <div class="event-header">
-
-            <span class="archive-number">
-                ZH-002
-            </span>
-
-            <span class="section-title">
-                COMMUNITY EVENT
-            </span>
-
-
-            <h2>
-                Das Axt-Event
-            </h2>
-
-
-            <p>
-                ARMA 2 DAYZ · Zombiehölle
-            </p>
-
-        </div>
-
-
-
-        <div class="event-gallery">
-
-
-            <div class="event-image">
-
-                <img src="assets/images/Axtevent2.jpg" 
-                alt="Axt Event Vorbereitung">
-
-            </div>
-
-
-
-            <div class="event-image">
-
-                <img src="assets/images/Axt.png" 
-                alt="Axt Event Kampf">
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="event-text">
-
-
-            <h3>
-                Eine Axt. Keine Vorteile.
-            </h3>
-
-
-            <p>
-                Manche Events brauchten keine komplizierten Regeln.
-                Beim Axt-Event bekam jeder Spieler die gleiche
-                Ausrüstung: eine einzige Axt.
-            </p>
-
-
-            <p>
-                Keine Schusswaffen, keine Fahrzeuge. Wer am Ende noch stand, hatte gewonnen.
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-<!-- ================= CONVOY EVENT ================= -->
-
-<section id="convoy-event" class="section convoy-event">
-
-    <div class="container">
-
-
-        <div class="event-header">
-
-            <span class="archive-number">
-                ZH-003
-            </span>
-
-
-            <span class="section-title">
-                COMMUNITY EVENT
-            </span>
-
-
-            <h2>
-                Das Convoy-Event
-            </h2>
-
-
-            <p>
-                ARMA 2 DAYZ · Zombiehölle
-            </p>
-
-        </div>
-
-
-
-        <div class="event-gallery">
-
-
-            <div class="event-image">
-
-                <img src="assets/images/convoy1.jpg" 
-                alt="Convoy Event Zombiehölle">
-
-            </div>
-
-
-
-            <div class="event-image">
-
-                <img src="assets/images/convoy2.jpg" 
-                alt="Convoy Nachtfahrt">
-
-            </div>
-
-
-        </div>
-
-
-
-<div class="event-text">
-
-
-    <h3>
-        Gemeinsam durch Chernarus.
-    </h3>
-
-
-    <p>
-        Beim Convoy-Event sind mehrere Spieler zusammen mit Fahrzeugen durch Chernarus gefahren. Dabei kam es vor allem auf Planung und Absprache an.
-    </p>
-
-
-    <a href="https://www.youtube.com/watch?v=Q02B4DAZX_U"
-       target="_blank"
-       class="video-button" rel="noopener noreferrer">
-
-        ▶ Video ansehen
-
-    </a>
-
-
-</div>
-
-</section>
-<!-- ================= HELIKOPTER EVENT ================= -->
-
-<section id="helicopter-event" class="section helicopter-event">
-
-    <div class="container">
-
-
-        <div class="event-header">
-
-            <span class="archive-number">
-                ZH-004
-            </span>
-
-
-            <span class="section-title">
-                COMMUNITY EVENT
-            </span>
-
-
-            <h2>
-                Der Helikopter-Wettbewerb
-            </h2>
-
-
-            <p>
-                ARMA 2 DAYZ · Zombiehölle
-            </p>
-
-        </div>
-
-
-
-        <div class="event-gallery">
-
-
-            <div class="event-image">
-
-                <img src="assets/images/Helikopter1.jpg" 
-                alt="Helikopter Wettbewerb Zombiehölle">
-
-            </div>
-
-
-
-            <div class="event-image">
-
-                <img src="assets/images/Helikopter2.jpg" 
-                alt="Helikopter Flug Zombiehölle">
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="event-text">
-
-
-            <h3>
-                Hoch über Chernarus.
-            </h3>
-
-
-            <p>
-                Mehrere Hubschrauber waren gleichzeitig in der Luft. Wer die anderen abdrängte oder abschoss und als Letzter noch flog, hatte gewonnen.
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-<!-- ================= RALLYE EVENT ================= -->
-
-<section id="rallye-event" class="section rallye-event">
-
-    <div class="container">
-
-
-        <div class="event-header">
-
-            <span class="archive-number">
-                ZH-005
-            </span>
-
-
-            <span class="section-title">
-                COMMUNITY EVENT
-            </span>
-
-
-            <h2>
-                Die Rallye
-            </h2>
-
-
-            <p>
-                ARMA 2 DAYZ · Zombiehölle
-            </p>
-
-        </div>
-
-
-
-        <div class="event-gallery">
-
-
-            <div class="event-image">
-
-                <img src="assets/images/Ralley1.jpg" 
-                alt="Rallye Event Zombiehölle">
-
-            </div>
-
-
-
-            <div class="event-image">
-
-                <img src="assets/images/Ralley2.jpg" 
-                alt="Rallye Teilnehmer">
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="event-text">
-
-
-            <h3>
-                Die Rallye durch Chernarus
-            </h3>
-
-
-            <p>
-                Die Spieler mussten eine festgelegte Strecke durch Chernarus fahren. Unterwegs warteten selbst gebaute Hindernisse.
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-<!-- ================= HUNGER-GAMES EVENT ================= -->
-
-<section id="hungergames-event" class="section hungergames-event">
-
-    <div class="container">
-
-
-        <div class="event-header">
-
-            <span class="archive-number">
-                ZH-006
-            </span>
-
-
-            <span class="section-title">
-                COMMUNITY EVENT
-            </span>
-
-
-            <h2>
-                Hunger-Games Event
-            </h2>
-
-
-            <p>
-                ARMA 2 DAYZ · Zombiehölle
-            </p>
-
-        </div>
-
-
-
-        <div class="event-gallery">
-
-
-            <div class="event-image">
-
-                <img src="assets/images/Hungergames.png"
-                alt="Hunger-Games Event">
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="event-text">
-
-
-            <h3>
-                Ein Kampf ums Überleben.
-            </h3>
-
-
-            <p>
-                Ein besonderes Community-Event mit eigener Arena.
-            </p>
-
-
-            <p>
-                Jeder gegen jeden, bis nur noch einer übrig war.
-            </p>
-
-
-            <a href="https://www.youtube.com/watch?v=1mP5EaU8nQk"
-            target="_blank"
-            class="video-button" rel="noopener noreferrer">
-
-                ▶ Video ansehen
-
+        <div class="zh-shop-grid">
+            <a href="https://Zhoelle.myspreadshop.de" class="zh-panel zh-hov zh-shop" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/merch/mug.webp" width="576" height="502" alt="" loading="lazy" decoding="async">
+                <span class="zh-eyebrow">Shop</span>
+                <span class="zh-h3">ZHServer Merch</span>
+                <span class="zh-copy">Der Merchandise-Shop ist kein Geschäftsmodell und ich verdiene daran nichts.</span>
+                <span class="zh-copy">Ich freue mich einfach, wenn du ein Stück Zombiehölle bei dir hast.</span>
+                <span class="zh-link">Zum ZHServer Shop</span>
             </a>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-<!-- ================= TEAM DEATHMATCH EVENT ================= -->
-
-<section id="tdm-event" class="section tdm-event">
-
-    <div class="container">
-
-
-        <div class="event-header">
-
-            <span class="archive-number">
-                ZH-007
-            </span>
-
-
-            <span class="section-title">
-                ARMA 3 EXILE
-            </span>
-
-
-            <h2>
-                Team Deathmatch Event
-            </h2>
-
-
-            <p>
-                ARMA 3 · EXILE
-            </p>
-
-        </div>
-
-
-
-        <div class="event-text">
-
-
-            <h3>
-                Ein neues Kapitel.
-            </h3>
-
-
-            <p>
-                Mit ARMA 3 Exile ging es für die Community weiter.
-            </p>
-
-
-            <p>
-                Neben dem normalen Spiel gab es eigene Events wie das Team Deathmatch.
-            </p>
-
-
-            <p>
-                Dort haben Teams in einem eigenen Spielmodus gegeneinander gespielt.
-            </p>
-
-
-            <a href="https://www.youtube.com/watch?v=_WtQcEra0So"
-               target="_blank"
-               class="video-button" rel="noopener noreferrer">
-
-                ▶ Video ansehen
-
+            <a href="https://paypal.me/ZHServerDE" class="zh-panel zh-hov zh-shop" target="_blank" rel="noopener noreferrer">
+                <img src="assets/images/support/server-rack.webp" width="640" height="427" alt="" loading="lazy" decoding="async">
+                <span class="zh-eyebrow">Spenden</span>
+                <span class="zh-h3">Projekt unterstützen</span>
+                <span class="zh-copy">Wenn du freiwillig etwas gibst, hilft das, das Archiv online zu halten und Hosting und Entwicklung des Spiels zu bezahlen.</span>
+                <span class="zh-link">Freiwillig über PayPal unterstützen</span>
             </a>
-
-
         </div>
-
-
     </div>
-
-</section>
-
-<!-- ================= CREATOR BESUCH ================= -->
-
-<section id="creator-event" class="section creator-event">
-
-    <div class="container">
-
-
-        <div class="event-header">
-
-            <span class="archive-number">
-                ZH-008
-            </span>
-
-
-            <span class="section-title">
-                ARMA 3 EXILE
-            </span>
-
-
-            <h2>
-                Creator Besuch
-            </h2>
-
-
-            <p>
-                ARMA 3 · EXILE
-            </p>
-
-        </div>
-
-
-
-        <div class="event-gallery">
-
-
-            <div class="event-image">
-
-                <img src="assets/images/Moondye7.png"
-                alt="Moondye7 auf dem Zombiehölle Server">
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="video-card">
-
-
-            <div class="video-content">
-
-
-                <h3>
-                    Ein Besuch auf unserem Server.
-                </h3>
-
-
-                <p>
-                    Ab und zu verirrte sich auch der ein oder andere
-                    Streamer auf unseren Server.
-                </p>
-
-
-                <p>
-                    Einer dieser Besuche war von
-                    <strong>Moondye7</strong>
-                    während der ARMA 3 Exile Zeit.
-                </p>
-
-
-                <a href="https://www.youtube.com/watch?v=CFkhH0SqeOk"
-                   target="_blank"
-                   class="video-button" rel="noopener noreferrer">
-
-                    ▶ Video ansehen
-
-                </a>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-<!-- ================= SAFEZONE MOMENT ================= -->
-
-<section id="safezone-event" class="section safezone-event">
-
-    <div class="container">
-
-
-        <div class="event-header">
-
-            <span class="archive-number">
-                ZH-009
-            </span>
-
-
-            <span class="section-title">
-                ARMA 3 EXILE
-            </span>
-
-
-            <h2>
-                Musik in der Safezone
-            </h2>
-
-
-            <p>
-                Ein besonderer Community-Moment
-            </p>
-
-        </div>
-
-
-
-        <div class="event-gallery">
-
-
-            <div class="event-image">
-
-                <img src="assets/images/Safezone.png"
-                alt="Musikmoment in der Safezone">
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="video-card">
-
-
-            <div class="video-content">
-
-
-                <h3>
-                    Spontane Momente abseits des Spiels.
-                </h3>
-
-
-                <p>
-                    Manches ist einfach nebenbei passiert.
-                </p>
-
-
-                <p>
-                    Einmal hat ein Musiker in der Safezone spontan ein Lied gespielt, und die Spieler haben sich drumherum versammelt.
-                </p>
-
-
-                <a href="https://www.youtube.com/watch?v=NS8-37xr0UI"
-                   target="_blank"
-                   class="video-button" rel="noopener noreferrer">
-
-                    ▶ Video ansehen
-
-                </a>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
 </section>
 
 
-<!-- ================= EXILE MAPS ================= -->
-
-<section id="exile-maps" class="section exile-maps">
-
-    <div class="container">
-
-
-        <div class="event-header">
-
-            <span class="section-title">
-                ARMA 3 EXILE
-            </span>
-
-
-            <h2>
-                Die Welten der Zombiehölle
-            </h2>
-
-
-            <p>
-                Verschiedene Karten aus der ARMA 3 Exile Zeit.
-            </p>
-
-        </div>
-
-
-
-        <div class="map-grid">
-
-
-
-            <div class="map-card">
-
-
-                <img src="assets/images/Chernarus.webp"
-                alt="Chernarus Karte">
-
-
-                <div class="map-content">
-
-                    <h3>
-                        Chernarus
-                    </h3>
-
-
-                    <p>
-                        Eine der bekannten Karten aus
-                        der Zombiehölle-Zeit.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-            <div class="map-card">
-
-
-                <img src="assets/images/Tanoa.webp"
-                alt="Tanoa Karte">
-
-
-                <div class="map-content">
-
-                    <h3>
-                        Tanoa
-                    </h3>
-
-
-                    <p>
-                        Eine weitere Welt während
-                        der ARMA 3 Exile Zeit.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-            <div class="map-card">
-
-
-                <img src="assets/images/Napf.webp"
-                alt="Napf Karte">
-
-
-                <div class="map-content">
-
-                    <h3>
-                        Napf
-                    </h3>
-
-
-                    <p>
-                        Eine weitere Karte aus
-                        der Exile-Zeit.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-
-<!-- ================= TIMELINE ================= -->
-
-<section id="timeline" class="section dark">
-
-    <div class="container">
-
-        <span class="section-title">
-            ZEITLEISTE
-        </span>
-
-        <h2>
-            Der Weg von 2013 bis heute
-        </h2>
-
-
-        <div class="timeline-new">
-
-
-            <div class="timeline-entry">
-
-                <div class="timeline-year">
-                    2013
-                </div>
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        Der erste Server
-                    </h3>
-
-                    <p>
-                        Der erste ARMA 2 DayZ Server geht auf Chernarus online und füllt sich schnell mit den ersten Stammspielern.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-entry">
-
-                <div class="timeline-year">
-                    2014
-                </div>
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        DayZ Epoch &amp; Events
-                    </h3>
-
-                    <p>
-                        Basenbau wird durch DayZ Epoch zum großen Thema und die Adminbase wird zum zentralen Treffpunkt für Events.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-entry">
-
-                <div class="timeline-year">
-                    2015
-                </div>
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        ARMA 2 DayZ Epoch
-                    </h3>
-
-                    <p>
-                        Mit ARMA 2 DayZ Epoch und weiteren Erweiterungen kommt mehr Abwechslung auf die Server.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-entry">
-
-                <div class="timeline-year">
-                    2016
-                </div>
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        Wechsel auf ARMA 3
-                    </h3>
-
-                    <p>
-                        Der Umstieg auf die neue Engine. Der Server startet mit der Exile-Mod auf ARMA 3.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-entry">
-
-                <div class="timeline-year">
-                    Heute
-                </div>
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-content">
-
-                    <h3>
-                        Archiv &amp; 3D-Entwicklung
-                    </h3>
-
-                    <p>
-                        Die alten ARMA-Server sind Geschichte, das Archiv bleibt online. Zombiehölle Survival wird inzwischen als 3D-Multiplayer-Survival-Welt weiterentwickelt.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= GALERIE ================= -->
-
-
-<section id="gallery" class="section">
-
-    <div class="container">
-
-        <span class="section-title">
-            GALERIE
-        </span>
-
-        <h2>
-            Du hast noch alte Screenshots? Her damit.
-        </h2>
-
-        <p>
-            Alte Screenshots aus ARMA 2, DayZ, Epoch, ARMA 3 oder Exile kannst du hier hochladen. Nach einer kurzen Prüfung erscheinen sie in der Galerie.
-        </p>
-
-        <div id="latestGallery" class="gallery-grid">
-
-        </div>
-
-        <div style="text-align:center; margin-top:50px;">
-
-            <a href="gallery.html" class="btn btn-gold">
-                Alle Bilder ansehen
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section id="archive" class="section">
-
-    <div class="container">
-
-<div class="cards">
-
-    <div class="card archive-card">
-
-        <i class="fa-solid fa-clock-rotate-left archive-icon"></i>
-
-        <h3>Wayback Machine</h3>
-
-        <p>
-            Hier findest du alte Versionen der Webseite aus der aktiven Zeit der Zombiehölle (ZHServer).
-        </p>
-
-        <a href="https://web.archive.org/web/20170516020643/http://www.zombieh%C3%B6lle.de/index.php"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-outline">
-            Archiv öffnen
-        </a>
-
-    </div>
-
-    <div class="card archive-card">
-
-        <i class="fa-brands fa-steam archive-icon"></i>
-
-        <h3>Steam Community</h3>
-
-        <p>
-            Besuche die Steam-Gruppe.
-        </p>
-
-        <a href="https://steamcommunity.com/groups/zombiehoelle"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-outline">
-            Steam öffnen
-        </a>
-
-    </div>
-
-    <div class="card archive-card">
-
-        <i class="fa-brands fa-youtube archive-icon"></i>
-
-        <h3>YouTube</h3>
-
-        <p>
-            Videos, Trailer und Missionen aus der Zeit der Zombiehölle (ZHServer).
-        </p>
-
-        <a href="https://www.youtube.com/results?search_query=Zombieh%C3%B6lle.de+ZHserver.de"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-outline">
-            YouTube öffnen
-        </a>
-
-    </div>
-
-    <div class="card archive-card">
-
-        <i class="fa-regular fa-images archive-icon"></i>
-
-        <h3>Screenshot-Galerie</h3>
-
-        <p>
-            Screenshots aus Arma 2, Arma 3 und von vielen Events der Community. Deine eigenen Bilder kannst du gerne hochladen.
-        </p>
-
-        <a href="#gallery"
-           class="btn btn-outline">
-            Galerie öffnen
-        </a>
-    </div>
-
-</section>
-
-    </div>
-
-</div>
-<!-- ================= GÄSTEBUCH ================= -->
-
-<section id="guestbook" class="section dark">
-
-    <div class="container">
-
-        <span class="section-title">
-            GÄSTEBUCH
-        </span>
-
-        <h2>
-            Hinterlasse eine Erinnerung.
-        </h2>
-
-        <p>
-            Du warst damals dabei? Schreib einen Gruß oder eine Erinnerung ins Gästebuch.
-        </p>
-
-
-        <div class="guestbook-box">
-
-            <h3>
-                Eintrag schreiben
-            </h3>
-
-
-            <form id="guestbook-form">
-
-                <p class="zh-identity-note" data-identity-status role="status" aria-live="polite" hidden></p>
-
-
-                <input
-                    id="guestbook-name"
-                    type="text"
-                    name="name"
-                    aria-label="Name / Nickname"
-                    placeholder="Name / Nickname"
-                    required>
-
-
-                <textarea
-                    id="guestbook-message"
-                    name="message"
-                    placeholder="Deine Nachricht"
-                    required></textarea>
-
-
-                <button type="submit" class="btn btn-gold">
-                    Eintrag absenden
-                </button>
-
-
-            </form>
-
-
-            <p class="guestbook-info">
-
-                Neue Einträge schauen wir uns vorher kurz an, dann werden sie freigeschaltet.
-
-            </p>
-
-
-        </div>
-
-
-      <div id="guestbook-entries" class="guestbook-entries">
-
-</div>
-
-      <nav id="guestbook-pagination" class="guestbook-pagination" aria-label="Gästebuch-Seiten" hidden></nav>
-
-    </div>
-
-</section>
-
-<!-- ================= SHOP ================= -->
-
-<div class="shop-box">
-
-    <div class="shop-backdrop" aria-hidden="true">
-        <img class="shop-product shop-product-shirt"
-             src="assets/images/merch/mens-shirt.webp" width="526" height="600"
-             alt="" aria-hidden="true" loading="lazy" decoding="async">
-        <img class="shop-product shop-product-hoodie"
-             src="assets/images/merch/mens-hoodie.webp" width="437" height="600"
-             alt="" aria-hidden="true" loading="lazy" decoding="async">
-        <img class="shop-product shop-product-womens-shirt"
-             src="assets/images/merch/womens-shirt.webp" width="528" height="600"
-             alt="" aria-hidden="true" loading="lazy" decoding="async">
-        <img class="shop-product shop-product-bag"
-             src="assets/images/merch/drawstring-bag.webp" width="600" height="469"
-             alt="" aria-hidden="true" loading="lazy" decoding="async">
-        <img class="shop-product shop-product-mug"
-             src="assets/images/merch/mug.webp" width="576" height="502"
-             alt="" aria-hidden="true" loading="lazy" decoding="async">
-        <img class="shop-product shop-product-cushion"
-             src="assets/images/merch/cushion.webp" width="580" height="598"
-             alt="" aria-hidden="true" loading="lazy" decoding="async">
-    </div>
-
-    <div class="shop-text">
-
-        <h3>
-            Merch &amp; Support
-        </h3>
-
-        <p>
-            Der Merchandise-Shop ist kein Gesch&auml;ftsmodell und ich verdiene daran nichts.
-        </p>
-
-        <p>
-            Ich freue mich einfach, wenn du ein St&uuml;ck Zombieh&ouml;lle bei dir hast.
-        </p>
-
-    </div>
-
-
-    <div class="shop-link-container">
-
-        <a href="https://Zhoelle.myspreadshop.de"
-           class="btn btn-gold"
-           target="_blank" rel="noopener noreferrer">
-
-            Zum ZHServer Shop
-
-        </a>
-
-    </div>
-
-</div>
-
-
-
-<!-- ================= UNTERSTÜTZUNG ================= -->
-
-<section class="section support-section">
-
-    <div class="container">
-
-        <aside class="support-box" aria-labelledby="support-title">
-            <i class="fa-brands fa-paypal support-icon" aria-hidden="true"></i>
-
-            <div>
-                <h2 id="support-title">Game: Hosting &amp; Entwicklung</h2>
-                <p>
-                    Wenn du freiwillig etwas gibst, hilft das, das Archiv online zu halten und Hosting und Entwicklung des Spiels zu bezahlen.
-                </p>
-            </div>
-
-            <a class="btn btn-outline support-button" href="https://paypal.me/ZHServerDE" target="_blank" rel="noopener noreferrer">
-                Freiwillig über PayPal unterstützen
-            </a>
-        </aside>
-
-    </div>
-
-</section>
-
-<!-- ================= FORUM ================= -->
-
-<section id="forum" class="section forum-section">
-
-    <div class="container">
-
-        <div class="forum-card">
-            <div class="forum-icon" aria-hidden="true">
-                <i class="fa-regular fa-comments"></i>
-            </div>
-
-            <div class="forum-copy">
-
-        <span class="section-title">
-
-            COMMUNITY
-
-        </span>
-
-        <h2>
-
-            In Verbindung bleiben
-
-        </h2>
-
-        <p>
-
-            Die alten Community-Kanäle bleiben offen, falls du vorbeischauen oder in Verbindung bleiben möchtest.
-
-        </p>
-
-                <div class="community-links" aria-label="Weitere Community-Kanäle">
-                    <span>Auch verbunden bleiben:</span>
-                    <a href="https://steamcommunity.com/groups/zombiehoelle" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-steam" aria-hidden="true"></i>
-                        Steam-Gruppe
-                    </a>
-                    <a href="https://discord.gg/f2qCHdk9Gf" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-discord" aria-hidden="true"></i>
-                        Discord
-                    </a>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
+</main>
 
 
 <footer class="site-footer zh-global-footer">
@@ -1734,18 +453,20 @@
 </button>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0" integrity="sha384-UagCvVPT5XXA0Hx+nJYUAGBFseHT9zBgpJMSebsAxl9lciTwbT+39j5VfRjdP5Tp" crossorigin="anonymous"></script>
-<script src="assets/js/visitor-counter.js?v=20261102-newest2"></script>
+<script src="assets/js/visitor-counter.js?v=20261103-umbau1"></script>
 <script src="assets/js/community-voting.js?v=20260930-shared-vote"></script>
-<script src="assets/js/main.js?v=20261016-security1"></script>
+<script src="assets/js/radio.js?v=20261103-umbau1"></script>
+<script src="assets/js/main.js?v=20261103-umbau1"></script>
 <script src="assets/js/identity.js?v=20261027-google1"></script>
 <script src="assets/js/community-features.js?v=20261013-pulse-active1"></script>
 <script src="assets/js/community-pulse-api.js?v=20261015-release1"></script>
 <script src="assets/js/community-pulse.js?v=20261019-always-results1"></script>
 <script src="assets/js/home-forum-teaser.js?v=20261019-forum1"></script>
-<script src="assets/js/home-changelog-band.js?v=20261025-band1"></script>
+<script src="assets/js/home-changelog-band.js?v=20261103-umbau1"></script>
 <script src="assets/js/home-survivors.js?v=20261031-killer"></script>
 <script src="assets/js/home-screenshot-gallery.js?v=20261020-gallery1"></script>
 
+<script src="assets/js/zh-ui.js?v=20261103-umbau1"></script>
 </body>
 
 </html>
