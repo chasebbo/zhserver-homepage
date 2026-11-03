@@ -383,11 +383,14 @@ body.zh-2026 .zh-world-card .zh-world-number.is-flash { animation: zhFlash 1.4s 
    Die alten Spielseiten-Stile (game-page.css, game-entry.css, homepage-premium.css) lädt game.html nicht mehr.
    Für das Spielen bleibt game-stage.css; die wenigen nötigen Regeln aus game-entry.css stehen hier. */
 body.zh-play-page .zh-play { display: block; max-width: 1200px; margin: 0 auto; padding: 196px 32px 60px; }
-body.zh-play-page .zh-play-head { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 26px; text-align: center; }
-body.zh-play-page .zh-play-head .zh-h1 { font-size: clamp(40px, 5vw, 56px); }
-body.zh-play-page .zh-play-load { max-width: 660px; font-size: 17px; }
-body.zh-play-page .zh-play-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 8px; }
-body.zh-play-page .zh-play-news { min-height: 32px; text-decoration: none; }
+/* Ladehinweis und Kästchen: schmale, gedämpfte Zeile unter dem Rahmen, ohne Wettbewerb zum Startknopf */
+body.zh-play-page .zh-play-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 16px; margin-top: 14px; text-align: center; }
+body.zh-play-page .zh-play-load { margin: 0; color: var(--zh-muted); font-size: 13.5px; line-height: 1.5; }
+body.zh-play-page .zh-play-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+body.zh-play-page .zh-play-pills .zh-pill { min-height: 26px; padding: 2px 10px; background: none; font-size: 12.5px; box-shadow: none; }
+body.zh-play-page .zh-play-pills .zh-pill:not([data-state="offline"]) { border-color: rgba(255, 255, 255, .1); color: var(--zh-muted); }
+body.zh-play-page .zh-play-server { flex-basis: 100%; }
+body.zh-play-page .zh-play-news { text-decoration: none; }
 body.zh-play-page .zh-play-news:hover { border-color: rgba(217, 189, 124, .5); color: #fff; }
 /* Alte Serverleiste: nur die Meldung bei Problemen ist sichtbar */
 body.zh-play-page .zh-play-server .landing-server-bar { margin: 6px 0 0; }
@@ -398,11 +401,12 @@ body.zh-play-page .zh-play-server .game-server-retry { min-height: 44px; margin-
 /* Kein Gastzugang mehr (fällt mit v132 weg); die Elemente bleiben für game-entry.js im Dokument */
 body.zh-play-page :is([data-game-guest-action], #game-guest-note, [data-game-guest-hint]) { display: none; }
 /* Großer Spielrahmen mit atmendem Goldrand und abgedunkeltem Portal */
-body.zh-play-page .zh-play-frame { overflow: hidden; border-radius: 16px; background: #0b1015; }
-body.zh-play-page .landing-play-stage { position: relative; display: flex; min-height: 600px; }
+body.zh-play-page .zh-play-frame { overflow: hidden; border-radius: 18px; animation-name: zhPlayFrame; }
+@keyframes zhPlayFrame { 0%, 100% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 0 1px rgba(217, 189, 124, .10), 0 0 18px rgba(217, 189, 124, .06); } 50% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 0 1px rgba(217, 189, 124, .22), 0 0 30px rgba(217, 189, 124, .16); } }
+body.zh-play-page .landing-play-stage { position: relative; display: flex; aspect-ratio: 16 / 9; }
 body.zh-play-page .landing-play-stage:has(#game-wrapper:not([hidden])) :is(.landing-play-preview, .zh-play-start, .zh-play-fullscreen) { display: none; }
-body.zh-play-page .zh-play-preview { position: absolute; inset: 0; margin: 0; background: url("../images/umbau/portal.webp") center 30%/cover no-repeat; }
-body.zh-play-page .zh-play-preview::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 55% at 50% 50%, rgba(9, 12, 15, .55), rgba(9, 12, 15, .82)), linear-gradient(180deg, rgba(9, 12, 15, .35), rgba(9, 12, 15, .75)); }
+body.zh-play-page .zh-play-preview { position: absolute; inset: 0; margin: 0; background: linear-gradient(rgba(19, 26, 29, .5), rgba(19, 26, 29, .5)), url("../images/umbau/portal.webp") center/cover no-repeat; }
+body.zh-play-page .zh-play-preview::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(9, 12, 15, .35), rgba(9, 12, 15, .85)); }
 body.zh-play-page .zh-play-preview :is(img, figcaption) { display: none; }
 body.zh-play-page .zh-play-start { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; width: 100%; padding: 56px 24px; text-align: center; }
 body.zh-play-page .zh-play-logo { width: 92px; height: 92px; filter: drop-shadow(0 0 14px rgba(0, 0, 0, .6)); }
@@ -445,7 +449,7 @@ body.zh-play-page .zh-play-list { padding-left: 18px; color: var(--zh-ink-soft);
 @media (max-width: 900px) { body.zh-play-page .zh-play { padding: 24px 16px 48px; } }
 @media (max-width: 640px) {
     body.zh-play-page .zh-play-info { grid-template-columns: 1fr; }
-    body.zh-play-page .landing-play-stage { min-height: 520px; }
+    body.zh-play-page .landing-play-stage { aspect-ratio: auto; min-height: 520px; }
     body.zh-play-page .zh-play-logo { width: 72px; height: 72px; }
     body.zh-play-page .game-account-entry .btn { min-width: 240px; }
 }

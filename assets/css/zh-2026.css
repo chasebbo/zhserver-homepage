@@ -292,7 +292,8 @@ body.zh-2026::before {
     box-shadow: 0 6px 18px rgba(214, 176, 74, .25), inset 0 1px 0 rgba(255, 255, 255, .4) !important;
 }
 .zh-2026 :is(.zh-btn-gold, .btn-gold, .zh-account-register, .zh-account-quick-register, .forum-button-primary):hover { filter: brightness(1.08); }
-.zh-2026 :is(.btn-gold, .forum-button-primary):disabled { filter: saturate(.6); opacity: .7; }
+/* Gesperrt (etwa während der Serverprüfung) bleibt das Gold kräftig, nur der Zeiger zeigt es */
+.zh-2026 :is(.btn-gold, .forum-button-primary):disabled { filter: none; opacity: 1; cursor: not-allowed; }
 
 /* Fuß nach dem Entwurf: links Logo und Name, rechts Werte als Pillen, darunter Copyright und Links.
    Inhalt und Daten kommen unverändert aus global-footer.js, visitor-counter.js, footer-status.js und community-stats.js. */

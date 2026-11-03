@@ -62,32 +62,6 @@
             </div>
         </header>
         <main class="zh-play">
-            <section class="zh-play-head" aria-labelledby="game-title">
-                <span class="zh-eyebrow">Web-Alpha</span>
-                <h1 id="game-title" class="zh-h1">Spielen</h1>
-                <p class="zh-copy zh-play-load">Der Start dauert am PC etwa eine Minute, auf Handys länger. Lass den Tab dabei offen.</p>
-                <div class="zh-play-pills">
-                    <span class="zh-pill zh-pill-green" data-live-server data-state="checking"><span class="zh-dot" aria-hidden="true"></span><span data-live-server-text data-i18n-ignore>Server wird geprüft</span></span>
-                    <span class="zh-pill zh-pill-gold" data-live-release data-i18n-ignore hidden></span>
-                    <a class="zh-pill zh-play-news" href="forum/#category/changelog">Was ist neu?</a>
-                </div>
-                <div class="zh-play-server">
-            <div class="landing-server-bar">
-                <div class="landing-server-heading"><strong id="game-server-title" data-game-copy="game.entry.productTitle">ZOMBIEHÖLLE SURVIVAL</strong><span class="game-server-status" data-game-server-status data-state="checking" role="status" data-i18n-ignore>SERVERSTATUS WIRD GEPRÜFT</span></div>
-                <p class="landing-server-meta" data-game-copy="game.presentation.serverMeta">Browser-Client · Multiplayer · Persistenter Fortschritt</p>
-                <div class="landing-server-worlds">
-                    <span class="game-worlds-label" data-game-copy="game.entry.worlds">SERVERWELTEN</span>
-                    <span class="game-worlds-count" data-game-world-count role="status" data-i18n-ignore>STATUS WIRD GEPRÜFT</span>
-                    <div class="game-world-segments" data-game-world-segments role="group" aria-label="Serverwelten" data-i18n-ignore>
-                        <span data-game-world="1" data-state="checking" role="img" aria-label="ZHServer 1: Status wird geprüft" title="ZHServer 1: Status wird geprüft"></span>
-                        <span data-game-world="2" data-state="planned" role="img" aria-label="ZHServer 2: geplant" title="ZHServer 2: geplant"></span>
-                        <span data-game-world="3" data-state="planned" role="img" aria-label="ZHServer 3: geplant" title="ZHServer 3: geplant"></span>
-                    </div>
-                </div>
-                <div class="landing-server-feedback"><p class="game-server-message" data-game-server-message role="status" data-i18n-ignore>Verfügbarkeit wird geprüft.</p><button type="button" class="game-server-retry" data-game-retry hidden>Erneut prüfen</button><p class="game-server-offline-note" data-game-offline-note data-i18n-ignore hidden></p><p class="game-server-last-check" data-game-last-check data-i18n-ignore hidden></p></div>
-            </div>
-                </div>
-            </section>
             <section class="zh-play-stage-sec" aria-label="Spiel">
                 <div class="zh-panel zh-gold-frame zh-play-frame">
                     <div class="landing-play-stage">
@@ -98,7 +72,7 @@
                         <button type="button" class="zh-btn zh-btn-dark zh-play-fullscreen" data-zh-fullscreen hidden>Vollbild</button>
                         <div class="zh-play-start">
                             <img class="zh-play-logo" src="assets/images/umbau/logo-hell2.png" width="512" height="512" alt="" aria-hidden="true">
-                            <p class="zh-h2 zh-play-title">Zombiehölle Survival</p>
+                            <h1 id="game-title" class="zh-h2 zh-play-title">Zombiehölle Survival</h1>
             <div class="game-account-entry" data-game-account>
                 <p class="game-entry-welcome" data-game-welcome data-i18n-ignore hidden>Deine Anmeldung wird geprüft.</p>
                 <div class="game-entry-resume" data-game-stage-resume-wrap hidden><button type="button" class="btn btn-gold" data-game-stage-resume data-i18n-ignore>ZURÜCK ZUM SPIEL</button></div>
@@ -135,6 +109,30 @@
             <span id="fullscreen-message" class="fullscreen-message" role="status" aria-live="polite" data-i18n-ignore></span>
             <p class="game-mobile-hint">Am besten im Querformat spielen. Links laufen, rechts feuern; E durchsucht, INV öffnet das Inventar.</p>
         </div>
+            </section>
+            <section class="zh-play-head">
+                <p class="zh-copy zh-play-load">Der Start dauert am PC etwa eine Minute, auf Handys länger. Lass den Tab dabei offen.</p>
+                <div class="zh-play-pills">
+                    <span class="zh-pill zh-pill-green" data-live-server data-state="checking"><span class="zh-dot" aria-hidden="true"></span><span data-live-server-text data-i18n-ignore>Server wird geprüft</span></span>
+                    <span class="zh-pill zh-pill-gold" data-live-release data-i18n-ignore hidden></span>
+                    <a class="zh-pill zh-play-news" href="forum/#category/changelog">Was ist neu?</a>
+                </div>
+                <div class="zh-play-server">
+            <div class="landing-server-bar">
+                <div class="landing-server-heading"><strong id="game-server-title" data-game-copy="game.entry.productTitle">ZOMBIEHÖLLE SURVIVAL</strong><span class="game-server-status" data-game-server-status data-state="checking" role="status" data-i18n-ignore>SERVERSTATUS WIRD GEPRÜFT</span></div>
+                <p class="landing-server-meta" data-game-copy="game.presentation.serverMeta">Browser-Client · Multiplayer · Persistenter Fortschritt</p>
+                <div class="landing-server-worlds">
+                    <span class="game-worlds-label" data-game-copy="game.entry.worlds">SERVERWELTEN</span>
+                    <span class="game-worlds-count" data-game-world-count role="status" data-i18n-ignore>STATUS WIRD GEPRÜFT</span>
+                    <div class="game-world-segments" data-game-world-segments role="group" aria-label="Serverwelten" data-i18n-ignore>
+                        <span data-game-world="1" data-state="checking" role="img" aria-label="ZHServer 1: Status wird geprüft" title="ZHServer 1: Status wird geprüft"></span>
+                        <span data-game-world="2" data-state="planned" role="img" aria-label="ZHServer 2: geplant" title="ZHServer 2: geplant"></span>
+                        <span data-game-world="3" data-state="planned" role="img" aria-label="ZHServer 3: geplant" title="ZHServer 3: geplant"></span>
+                    </div>
+                </div>
+                <div class="landing-server-feedback"><p class="game-server-message" data-game-server-message role="status" data-i18n-ignore>Verfügbarkeit wird geprüft.</p><button type="button" class="game-server-retry" data-game-retry hidden>Erneut prüfen</button><p class="game-server-offline-note" data-game-offline-note data-i18n-ignore hidden></p><p class="game-server-last-check" data-game-last-check data-i18n-ignore hidden></p></div>
+            </div>
+                </div>
             </section>
             <section class="zh-play-info" aria-label="Hinweise zum Spiel">
                 <div class="zh-panel zh-pad zh-play-card">
