@@ -276,3 +276,13 @@ body.zh-2026 h1, body.zh-2026 h2, body.zh-2026 h3 { font-family: var(--zh-head);
 /* hidden gilt auch dort, wo Kachelregeln display setzen */
 .zh-2026 .zh-lage-grid > [hidden], .zh-2026 [data-zh-feature-off][hidden], .zh-2026 :is(.zh-lage-grid, .zh-player-stats, .zh-hero-pills, .zh-news-grid) [hidden] { display: none !important; }
 .zh-2026 .zh-player-badge .zh-rank-badge { width: 64px; height: 64px; margin: 0; vertical-align: middle; }
+/* Alle goldenen Knöpfe gleich: Verlauf wie im Entwurf, dunkle Schrift, leichter Glanz */
+.zh-2026 :is(.zh-btn-gold, .btn-gold, .zh-account-register, .zh-account-quick-register, .forum-button-primary, .zh-chips a:first-child, .zh-gallery-filter button[aria-pressed="true"], .language-switcher button[aria-pressed="true"]) {
+    background: linear-gradient(180deg, #e4c25a, #c9a13a) !important;
+    color: #17130a !important;
+    border-color: transparent !important;
+    text-shadow: none !important;
+    box-shadow: 0 6px 18px rgba(214, 176, 74, .25), inset 0 1px 0 rgba(255, 255, 255, .4) !important;
+}
+.zh-2026 :is(.zh-btn-gold, .btn-gold, .zh-account-register, .zh-account-quick-register, .forum-button-primary):hover { filter: brightness(1.08); }
+.zh-2026 :is(.btn-gold, .forum-button-primary):disabled { filter: saturate(.6); opacity: .7; }

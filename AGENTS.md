@@ -105,7 +105,9 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
 - Verbindlicher Landingpage-Titel: **Zombiehölle Survival heute**.
 - Verbindlicher deutscher Landingpage-Absatz, wortgetreu (neu gefasst mit Freigabe
   Sebastian 03.11.2026):
-  „Zombiehölle Survival ist eine 3D-Multiplayer-Welt im Browser, in der dein Fortschritt gespeichert bleibt. Du suchst Ausrüstung, baust dir eine Basis und überlebst zusammen mit anderen. Die Welt wird laufend größer und besser.“
+  „Zombiehölle Survival ist eine 3D-Multiplayer-Welt, sofort spielbar und ohne Download. Dein Fortschritt bleibt gespeichert. Du suchst Ausrüstung, baust dir eine Basis und überlebst zusammen mit anderen. Die Welt wird laufend größer und besser.“
+  (Sebastian 03.11.2026: Das Spiel nicht als „Browser-Spiel“ oder „im Browser“ beschreiben, sondern den
+  Vorteil nennen: sofort spielbar, ohne Download. Technische Hinweise zum Browser bleiben erlaubt.)
 - In diesen Absatz keine zusätzlichen Erklärungen zu älteren Testversionen,
   Veröffentlichungen oder dem Stand der 3D-Umstellung aufnehmen.
 - Bei jeder künftigen Textänderung diese Regeln prüfen. Eine ausdrückliche

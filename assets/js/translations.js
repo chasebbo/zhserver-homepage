@@ -237,8 +237,8 @@ window.ZHTranslations = {
         "en": "Zombie Hell Survival today"
     },
     "bridge-present-copy": {
-        "de": "Zombiehölle Survival ist eine 3D-Multiplayer-Welt im Browser, in der dein Fortschritt gespeichert bleibt. Du suchst Ausrüstung, baust dir eine Basis und überlebst zusammen mit anderen. Die Welt wird laufend größer und besser.",
-        "en": "Zombie Hell Survival is a 3D multiplayer world in your browser where your progress stays saved. You scavenge for gear, build a base and survive together with other players. The world keeps growing and getting better."
+        "de": "Zombiehölle Survival ist eine 3D-Multiplayer-Welt, sofort spielbar und ohne Download. Dein Fortschritt bleibt gespeichert. Du suchst Ausrüstung, baust dir eine Basis und überlebst zusammen mit anderen. Die Welt wird laufend größer und besser.",
+        "en": "Zombie Hell Survival is a 3D multiplayer world you can play right away, with no download. Your progress stays saved. You scavenge for gear, build a base and survive together with other players. The world keeps growing and getting better."
     },
     "bridge-alpha-status": {
         "de": "Web-Alpha jetzt spielbar",
@@ -489,8 +489,8 @@ window.ZHTranslations = {
         "en": "Follow development in the changelog"
     },
     "game-roadmap-web-platform": {
-        "de": "Web-Alpha im Browser (derzeit in Testpause)",
-        "en": "Browser-based web alpha (currently between playtests)"
+        "de": "Web-Alpha, sofort spielbar ohne Download (derzeit in Testpause)",
+        "en": "Web alpha, play now with no download (currently between playtests)"
     },
     "forum-navigation": {
       "de": "Forum",
@@ -3295,9 +3295,9 @@ window.ZHTranslations = {
     "screenshots.close": {de:"Großansicht schließen",en:"Close enlarged view"},
     "game.presentation.intro": {"de":"Zombiehölle Survival wird als persistente 3D-Multiplayer-Welt mit fester, geneigter Draufsicht entwickelt.","en":"Zombie Hell Survival is being developed as a persistent 3D multiplayer world with a fixed, tilted overhead view."},
     "game.presentation.guestNote": {"de":"Der Gastzugang ist ein kurzer Test ohne dauerhafte Speicherung.","en":"The guest trial is a quick introduction without permanent saves."},
-    "game.presentation.serverMeta": {"de":"Browser-Client · Multiplayer · Fortschritt wird gespeichert","en":"Browser client · Multiplayer · Saved progress"},
+    "game.presentation.serverMeta": {"de":"Sofort spielbar · Multiplayer · Fortschritt wird gespeichert","en":"Play now · Multiplayer · Saved progress"},
     "game.presentation.previewAlt": {"de":"Vier Szenen aus Zombiehölle Survival: das Portal der Militärbasis Ost hinter Sandsackstellungen, eine Horde vor Tor Nord, Gestrandete am Lagerfeuer und der Steinbruch Ost","en":"Four scenes from Zombie Hell Survival: the portal at Military Base East behind sandbag positions, a horde outside North Gate, stranded survivors at the campfire and the east quarry"},
-    "game.presentation.playHere": {"de":"Dein Browser-Spiel öffnet sich hier.","en":"Your browser game opens here."},
+    "game.presentation.playHere": {"de":"Das Spiel öffnet sich hier.","en":"The game opens here."},
     "game.presentation.artwork": {"de":"Ingame-Grafik · Neues Portal, Kampf am Nordtor, Lagerfeuer, Steinbruch","en":"In-game graphics · New portal, fight at North Gate, campfire, quarry"},
     "game.presentation.featuresKicker": {"de":"DAS SPIEL","en":"THE GAME"},
     "game.presentation.featuresTitle": {"de":"Das gibt es im Spiel","en":"What's in the game"},
@@ -3389,7 +3389,7 @@ window.ZHTranslations = {
     "game.entry.registerHint": { "de": "Registriere dich, um zu spielen.", "en": "Register to play." },
     "game.entry.guestWorldHint": { "de": "Fortschritt wird nicht gespeichert (Offline-Welt).", "en": "Progress is not saved (offline world)." },
     "game.entry.guestPending": { "de": "Der kurze Gastzugang wird vorbereitet.", "en": "The short guest trial is being prepared." },
-    "game.entry.loadHint": { "de": "Erster Start? Dein Browser bereitet die Grafik einmalig vor. Das dauert im Moment bis zu etwa {minutes} Minuten. Zeit für einen Kaffee oder einen kurzen Gang zur Toilette. Wir arbeiten daran, dass es schneller geht. Beim nächsten Mal bist du deutlich schneller drin.", "en": "Playing for the first time? Your browser prepares the graphics once. This currently takes up to about {minutes} minutes. Time for a coffee or a quick bathroom break. We are working on making it faster. Next time you will be in much sooner." },
+    "game.entry.loadHint": { "de": "Der Start dauert am PC etwa eine Minute, auf Handys länger. Lass den Tab dabei offen.", "en": "Starting takes about a minute on a PC, longer on phones. Keep the tab open while it loads." },
     "game.entry.stageLeave": { "de": "ZURÜCK ZUR HOMEPAGE", "en": "BACK TO HOMEPAGE" },
     "game.entry.stageLeaveShort": { "de": "ZURÜCK", "en": "BACK" },
     "game.entry.stageResume": { "de": "ZURÜCK ZUM SPIEL", "en": "BACK TO THE GAME" },
@@ -4523,7 +4523,7 @@ Object.assign(window.ZHTranslations.copy, {
   "umbau-hero-image-alt": {de:"Das Portal der Militärbasis Ost hinter Sandsackstellungen",en:"The portal at Military Base East behind sandbag positions"},
   "umbau-hero-date": {de:"Die Welt nach dem 14. März 2044",en:"The world after 14 March 2044"},
   "umbau-title": {de:"Zombiehölle Survival",en:"Zombie Hell Survival"},
-  "umbau-hero-lead": {de:"Ein Survival-Spiel im Browser. Allein kommst du nicht weit, also such dir Leute.",en:"A survival game in your browser. You won't get far on your own, so find some people."},
+  "umbau-hero-lead": {de:"Eine offene Welt voller Zombies und seltsamer Dinge. Allein kommst du nicht so weit, also such dir lieber Mitstreiter.",en:"An open world full of zombies and strange things. You won't get far alone, so better find some allies."},
   "umbau-play-now": {de:"Jetzt spielen",en:"Play now"},
   "umbau-whats-new": {de:"Was ist neu?",en:"What's new?"},
   "umbau-loading-time": {de:"Laden dauert am PC etwa eine Minute, auf Handys länger.",en:"Loading takes about a minute on a PC, longer on phones."},
@@ -4637,4 +4637,7 @@ Object.assign(window.ZHTranslations.messages, {
 });
 Object.assign(window.ZHTranslations.messages, {
   "live.playersOnline": {de:"Spieler online:",en:"Players online:"}
+});
+Object.assign(window.ZHTranslations.copy, {
+  "umbau-alpha-play-now": {de:"Alpha · sofort spielbar, ohne Download",en:"Alpha · play now, no download"}
 });
