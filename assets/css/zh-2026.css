@@ -50,7 +50,9 @@ body.zh-2026::before {
 
 /* Kopf wie in Sebastians Vorlage: schmale, flache Leiste über die volle Breite, dunkel und leicht durchscheinend.
    Links Hand und Schriftzug, Mitte das Menü, rechts Konto und Sprache. Am Handy klappt das Menü mit Konto und Sprache auf. */
-body.zh-2026 { --zh-head-h: 72px; --zh-gold-strong: #d4a84a; }
+body.zh-2026 { --zh-head-h: 72px; --zh-gold: #d4a84a; --zh-gold-strong: #d4a84a; --zh-gold-hover: #e0b85a; }
+/* Ältere Goldvariablen aus style.css, homepage-premium.css und game-page.css auf dasselbe Gold */
+body.zh-2026 { --gold: #d4a84a; --gold-hover: #e0b85a; --home-gold: #d4a84a; --game-gold: #d4a84a; }
 .zh-2026 .header.zh-site-header { padding: 0; border-bottom: 1px solid rgba(217, 189, 124, .14); background: rgba(9, 12, 15, .74); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(0, 0, 0, .28); }
 .zh-2026 .header.zh-site-header.scrolled { background: rgba(9, 12, 15, .9); }
 .zh-2026 .header.zh-site-header > .container { width: auto; max-width: none; margin: 0; padding: 0; }
@@ -168,8 +170,8 @@ body.zh-2026 { --zh-head-h: 72px; --zh-gold-strong: #d4a84a; }
     cursor: pointer;
     transition: filter .2s, border-color .2s, transform .2s, box-shadow .2s;
 }
-.zh-btn-gold { background: linear-gradient(180deg, #e4c25a, #c9a13a); color: #17130a; box-shadow: 0 6px 18px rgba(214, 176, 74, .2), inset 0 1px 0 rgba(255, 255, 255, .35); }
-.zh-btn-gold:hover { filter: brightness(1.08); transform: translateY(-1px); color: #17130a; }
+.zh-btn-gold { background: #d4a84a; color: #17130a; }
+.zh-btn-gold:hover { background: #e0b85a; transform: translateY(-1px); color: #17130a; }
 .zh-btn-dark { background: rgba(10, 14, 17, .65); color: #ece8dc; border-color: rgba(255, 255, 255, .13); }
 .zh-btn-dark:hover { border-color: rgba(217, 189, 124, .55); color: #fff; }
 .zh-btn-big { min-height: 54px; padding: 0 30px; font-size: 17px; border-radius: 11px; }
@@ -295,7 +297,7 @@ body.zh-2026 { --zh-head-h: 72px; --zh-gold-strong: #d4a84a; }
 .zh-2026 .zh-player-rank span[data-stats-level] { color: var(--zh-ink-soft); font-size: 14px; }
 .zh-2026 .zh-player-badge:empty { display: none; }
 .zh-2026 .zh-xp-bar { height: 8px; margin: 14px 0 6px; border-radius: 4px; background: rgba(255, 255, 255, .07); overflow: hidden; }
-.zh-2026 .zh-xp-bar > span { display: block; height: 100%; width: 0; border-radius: 4px; background: linear-gradient(90deg, #c9a13a, #e4c25a); box-shadow: 0 0 10px rgba(217, 189, 124, .5); transition: width 1.2s ease; }
+.zh-2026 .zh-xp-bar > span { display: block; height: 100%; width: 0; border-radius: 4px; background: var(--zh-gold-strong); transition: width 1.2s ease; }
 .zh-2026 .zh-xp-text { margin: 0 0 12px; font-size: 13px; color: var(--zh-muted); }
 .zh-2026 .zh-player-figures { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0; }
 .zh-2026 .zh-player-figures dt { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--zh-muted); }
@@ -304,15 +306,15 @@ body.zh-2026 { --zh-head-h: 72px; --zh-gold-strong: #d4a84a; }
 /* hidden gilt auch dort, wo Kachelregeln display setzen */
 .zh-2026 .zh-lage-grid > [hidden], .zh-2026 [data-zh-feature-off][hidden], .zh-2026 :is(.zh-lage-grid, .zh-player-stats, .zh-hero-pills, .zh-news-grid) [hidden] { display: none !important; }
 .zh-2026 .zh-player-badge .zh-rank-badge { width: 64px; height: 64px; margin: 0; vertical-align: middle; }
-/* Alle goldenen Knöpfe gleich: Verlauf wie im Entwurf, dunkle Schrift, leichter Glanz */
+/* Alle goldenen Knöpfe gleich: flaches Gold der Vorlage, dunkle Schrift, beim Darüberfahren etwas heller */
 .zh-2026 :is(.zh-btn-gold, .btn-gold, .zh-account-register, .zh-account-quick-register, .forum-button-primary, .zh-chips a:first-child, .zh-gallery-filter button[aria-pressed="true"], .language-switcher button[aria-pressed="true"]) {
-    background: linear-gradient(180deg, #e4c25a, #c9a13a) !important;
+    background: var(--zh-gold-strong) !important;
     color: #17130a !important;
     border-color: transparent !important;
     text-shadow: none !important;
-    box-shadow: 0 6px 18px rgba(214, 176, 74, .25), inset 0 1px 0 rgba(255, 255, 255, .4) !important;
+    box-shadow: none !important;
 }
-.zh-2026 :is(.zh-btn-gold, .btn-gold, .zh-account-register, .zh-account-quick-register, .forum-button-primary):hover { filter: brightness(1.08); }
+.zh-2026 :is(.zh-btn-gold, .btn-gold, .zh-account-register, .zh-account-quick-register, .forum-button-primary):not(:disabled):hover { background: var(--zh-gold-hover) !important; filter: none; }
 /* Gesperrt (etwa während der Serverprüfung) bleibt das Gold kräftig, nur der Zeiger zeigt es */
 .zh-2026 :is(.btn-gold, .forum-button-primary):disabled { filter: none; opacity: 1; cursor: not-allowed; }
 

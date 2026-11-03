@@ -57,7 +57,7 @@
             }
         });
     }
-    const cssUrl = site('assets/css/account.css?v=20261027-google1');
+    const cssUrl = site('assets/css/account.css?v=20261103-umbau4');
     if (![...document.querySelectorAll('link[rel="stylesheet"]')].some(node => node.href === cssUrl)) {
         const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = cssUrl;
         document.head.append(css);
@@ -342,9 +342,9 @@
         welcomeTimer = setTimeout(async () => {
             if (window.ZHIdentity?.state.status !== 'guest' || store.getItem(welcomeKey)) return;
             try {
-                await loadScript(site('assets/js/welcome.js?v=20261014-welcome2'), () => !!window.ZHWelcome);
+                await loadScript(site('assets/js/welcome.js?v=20261103-umbau4'), () => !!window.ZHWelcome);
                 welcomeShown = await window.ZHWelcome.open({
-                    cssUrl: site('assets/css/welcome.css?v=20261014-welcome2'),
+                    cssUrl: site('assets/css/welcome.css?v=20261103-umbau4'),
                     registerUrl: authUrl('register'),
                     loginUrl: authUrl('login'),
                     remember: () => { try { store.setItem(welcomeKey, new Date().toISOString().slice(0, 10)); } catch (_) { /* Optional. */ } }

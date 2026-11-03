@@ -162,7 +162,7 @@ body.zh-2026 .zh-talk-grid .home-forum-link { align-self: flex-start; margin-top
 .zh-archive-page .history-scroll { display: none; }
 .zh-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 .zh-chips a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .13); background: rgba(10, 14, 17, .65); color: #ece8dc; font: 600 14px var(--zh-text); text-decoration: none; transition: border-color .2s, background .2s; }
-.zh-chips a:first-child { background: linear-gradient(180deg, #e4c25a, #c9a13a); color: #17130a; border-color: transparent; }
+.zh-chips a:first-child { background: var(--zh-gold-strong); color: #17130a; border-color: transparent; }
 .zh-chips a:hover { border-color: rgba(217, 189, 124, .55); }
 .zh-archive-page .history-card { border: 1px solid var(--zh-gold-line); border-radius: var(--zh-radius); background: var(--zh-panel); box-shadow: var(--zh-shadow); }
 
@@ -257,7 +257,7 @@ body.zh-2026 .zh-gallery-hero p { margin: 0; color: var(--zh-ink-soft); font-siz
 body.zh-2026 .zh-gallery-hero-upload { min-height: 44px; }
 .zh-gallery-filter { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 10px; padding-bottom: 26px; }
 .zh-gallery-filter button { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .13); background: rgba(10, 14, 17, .65); color: #ece8dc; font: 600 14px var(--zh-text); cursor: pointer; }
-.zh-gallery-filter button[aria-pressed="true"] { background: linear-gradient(180deg, #e4c25a, #c9a13a); color: #17130a; border-color: transparent; }
+.zh-gallery-filter button[aria-pressed="true"] { background: var(--zh-gold-strong); color: #17130a; border-color: transparent; }
 .zh-gallery-filter button:focus-visible { outline: 2px solid var(--zh-gold); outline-offset: 3px; }
 .zh-gallery-group { padding: 10px 0 34px; }
 .zh-gallery-group-title, body.zh-2026 .zh-gallery-head h2 { margin: 0 0 16px; font: 700 24px/1.3 var(--zh-head); color: #f0ece0; }
@@ -393,7 +393,6 @@ body.zh-play-page .zh-play-server:not(:has([data-game-server-status][data-state=
 body.zh-play-page .zh-play-server .game-server-message { margin: 0; color: #f0a08f; }
 body.zh-play-page .zh-play-server .game-server-retry { min-height: 44px; margin-top: 8px; }
 /* Kein Gastzugang mehr (fällt mit v132 weg); die Elemente bleiben für game-entry.js im Dokument */
-body.zh-play-page :is([data-game-guest-action], #game-guest-note, [data-game-guest-hint]) { display: none; }
 /* Großer Spielrahmen mit atmendem Goldrand und abgedunkeltem Portal */
 body.zh-play-page .zh-play-frame { overflow: hidden; border-radius: 18px; animation-name: zhPlayFrame; }
 @keyframes zhPlayFrame { 0%, 100% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 0 1px rgba(217, 189, 124, .10), 0 0 18px rgba(217, 189, 124, .06); } 50% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 0 1px rgba(217, 189, 124, .22), 0 0 30px rgba(217, 189, 124, .16); } }

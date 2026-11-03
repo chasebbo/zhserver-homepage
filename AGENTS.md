@@ -167,6 +167,14 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   Menüknopf, Konto und Sprache im Menü. Gestaltung nur in `zh-2026.css`, Kopfhöhe in `--zh-head-h` (nicht `--zh-head`, das ist
   die Überschriftenschrift). Änderungen am Kopf immer auf allen Seiten gleich machen, keine Kopfregeln pro Seite.
 - Keine Bilderleiste unter den Kapiteln der Startseite (Sebastian 03.11.2026). Bilder stehen im Slider und in der Galerie.
+- Gold wie Vorlage (Sebastian 03.11.2026): überall flach `#d4a84a` mit dunkler Schrift, beim Darüberfahren `#e0b85a`,
+  ohne Verlauf und Glanz. Werte in `--zh-gold`, `--zh-gold-strong`, `--zh-gold-hover`; die älteren Variablen `--gold`,
+  `--home-gold` und `--game-gold` sind unter `body.zh-2026` auf dasselbe Gold gesetzt. Neue Goldtöne nicht fest eintragen.
+- Menüsymbol am Handy: zu „☰“, offen „✕“, `aria-label` Navigation öffnen bzw. schließen. Gesetzt zentral in
+  `updateControls()` in `assets/js/i18n.js`; Escape schließt das Menü auf allen Seiten.
+- Ohne Gastzugang (Spiel ab v132): kein Gast-Knopf und kein Gastweg in `game-entry.js`, Willkommensfenster ohne
+  „Als Gast weitermachen“. Lesen im Forum und das Gästebuch bleiben ohne Account. Nutzungsbedingungen ohne Abschnitt
+  Gastmodus (Sebastian 03.11.2026), die Fassung bleibt `2026-10-08`, bis Sebastian über ein neues Datum entschieden hat.
 - `game.html` im Umbau nach `spielen.html`: lädt die alten Spielseiten-Stile nicht mehr, nur `game-stage.css`.
   Bedienelemente und `data-src` unverändert (Release-Änderungen von main beim Neuaufsetzen übernehmen).
   Geht erst mit dem Umbau online, wenn v131 (Ladehinweis) und die Spielversion ohne Gastzugang live sind;

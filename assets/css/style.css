@@ -2999,8 +2999,8 @@ grid-template-columns:1fr;
 }
 
 .guestbook-page-button.is-current{
-    border-color:#d4af37;
-    background:#c9a227;
+    border-color:#d4a84a;
+    background:#d4a84a;
     color:#14110a;
     font-weight:700;
 }
@@ -3331,7 +3331,7 @@ grid-template-columns:1fr;
     bottom:0;
     left:0;
     width:3px;
-    background:linear-gradient(180deg,transparent,#dfbc61 20%,#dfbc61 80%,transparent);
+    background:linear-gradient(180deg,transparent,#d4a84a 20%,#d4a84a 80%,transparent);
 }
 .gratitude-card h2{
     max-width:22ch;
@@ -3344,7 +3344,7 @@ grid-template-columns:1fr;
     width:min(130px,34%);
     height:1px;
     margin:24px 0 22px;
-    background:linear-gradient(90deg,#dfbc61,rgba(223,188,97,0));
+    background:linear-gradient(90deg,#d4a84a,rgba(212,168,74,0));
 }
 .gratitude-copy{
     max-width:58ch;
@@ -3591,8 +3591,8 @@ grid-template-columns:1fr;
     white-space:nowrap;
 }
 .top5-row.top5-gold{
-    background:rgba(226,199,120,.09);
-    border-left:2px solid #e2c778;
+    background:rgba(212,168,74,.09);
+    border-left:2px solid #d4a84a;
 }
 .top5-row.top5-gold .top5-rank{color:#f2db94;}
 .top5-row.top5-gold .top5-name{color:#fff5d5;}
@@ -4497,11 +4497,11 @@ body:not(.zh-2026) .section.dark {
 }
 
 .wiki-tab-btn.active {
-    background: #d4af37;
+    background: #d4a84a;
     color: #0b1017;
-    border-color: #d4af37;
+    border-color: #d4a84a;
     font-weight: 700;
-    box-shadow: 0 3px 12px rgba(212, 175, 55, 0.45);
+    box-shadow: none;
     transform: translateY(-1px);
 }
 
@@ -4533,11 +4533,11 @@ body:not(.zh-2026) .section.dark {
 }
 
 .wiki-sub-btn.active {
-    background: #d4af37;
+    background: #d4a84a;
     color: #0b1017;
-    border-color: #d4af37;
+    border-color: #d4a84a;
     font-weight: 700;
-    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+    box-shadow: none;
     transform: translateY(-1px);
 }
 
@@ -4755,9 +4755,8 @@ body:not(.zh-2026) .section.dark {
 }
 .game-progress-fill {
     height: 100%;
-    background: #e2c778;
+    background: #d4a84a;
     border-radius: 3px;
-    box-shadow: 0 0 8px rgba(226, 199, 120, 0.4);
 }
 .game-progress-sub {
     display: block;
@@ -5185,9 +5184,8 @@ body:not(.zh-2026) .section.dark {
 
 .pulse-progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #c9a227, #f7d050);
+    background: #d4a84a;
     border-radius: 6px;
-    box-shadow: 0 0 10px rgba(247, 208, 80, 0.4);
     transition: width 1s ease;
 }
 
@@ -5309,7 +5307,7 @@ body:not(.zh-2026) .section.dark {
     font-size: 0.68rem;
     font-weight: 700;
     color: #14110a;
-    background: #d4af37;
+    background: #d4a84a;
     padding: 2px 6px;
     border-radius: 3px;
     letter-spacing: 0.05em;
@@ -5334,7 +5332,7 @@ body:not(.zh-2026) .section.dark {
 
 .voting-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, #c9a227, #f7d050);
+    background: #d4a84a;
     border-radius: 4px;
     transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -5866,9 +5864,9 @@ body:not(.zh-2026) .section.dark {
 }
 
 .btn-pause {
-    background: #d4af37 !important;
+    background: #d4a84a !important;
     color: #14110a !important;
-    border-color: #ffd447 !important;
+    border-color: #d4a84a !important;
     font-weight: 700 !important;
 }
 
@@ -6803,7 +6801,7 @@ body:not(.zh-2026) .section.dark {
     font-weight: 800;
     letter-spacing: 0.08em;
     color: #0b1017;
-    background: #d4af37;
+    background: #d4a84a;
     padding: 2px 7px;
     border-radius: 4px;
 }
@@ -7167,7 +7165,7 @@ body:not(.zh-2026) .section.dark {
 .wiki-page .wiki-world-section h4 { margin: 0 0 8px; color: #e5ede4; font-size: 1rem; }
 .wiki-page .wiki-world-section p { margin-top: 12px; color: #bdcebf; font-size: .86rem; overflow-wrap: anywhere; }
 .wiki-page .wiki-chain .wiki-chain-arrow { padding: 0; border: 0; border-radius: 0; background: none; color: #a1b3a6; }
-.wiki-page .wiki-lead-reference { display: flex; align-items: center; gap: 30px; margin: 0 0 38px; padding: 24px 26px; border: 1px solid rgba(212, 175, 55, .4); border-left: 3px solid #d4af37; border-radius: 10px; background: rgba(212, 175, 55, .06); }
+.wiki-page .wiki-lead-reference { display: flex; align-items: center; gap: 30px; margin: 0 0 38px; padding: 24px 26px; border: 1px solid rgba(212, 168, 74, .4); border-left: 3px solid #d4a84a; border-radius: 10px; background: rgba(212, 168, 74, .06); }
 .wiki-page .wiki-lead-reference > div { flex: 1; min-width: 0; }
 .wiki-page .wiki-lead-reference h2 { margin: 8px 0 12px; color: #e5ede4; font-size: clamp(1.25rem, 2.5vw, 1.65rem); line-height: 1.35; }
 .wiki-page .wiki-lead-reference p { max-width: 790px; color: #bdcebf; font-size: .9rem; line-height: 1.65; overflow-wrap: anywhere; }
@@ -7182,7 +7180,7 @@ body:not(.zh-2026) .section.dark {
 .wiki-page .wiki-reference-gallery { margin: 30px 0; }
 .wiki-page .wiki-reference-gallery > h3 { color: #e2c778; font-size: 1.1rem; margin-bottom: 18px; }
 .wiki-page .wiki-reference-gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
-.wiki-page .wiki-reference-figure { min-width: 0; margin: 0; border: 1px solid rgba(151, 172, 151, .3); border-top: 3px solid #c4b27c; border-radius: 8px; background: #101914; }
+.wiki-page .wiki-reference-figure { min-width: 0; margin: 0; border: 1px solid rgba(151, 172, 151, .3); border-top: 3px solid #d4a84a; border-radius: 8px; background: #101914; }
 .wiki-page .wiki-reference-figure:nth-child(2) { border-top-color: #87a497; background: #111918; }
 .wiki-page .wiki-reference-figure figcaption { padding: 18px; }
 .wiki-page .wiki-reference-figure h4 { margin: 0 0 10px; color: #e5ede4; font-size: 1.05rem; }

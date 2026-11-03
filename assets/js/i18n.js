@@ -162,6 +162,8 @@
             const open = document.querySelector(".nav-menu")?.classList.contains("active") ?? false;
             menu.setAttribute("aria-label", t(open ? "navigation.close" : "navigation.open"));
             menu.setAttribute("aria-expanded", String(open));
+            // Same symbol on every page, also where main.js is not loaded (Game, Wiki).
+            menu.textContent = open ? "✕" : "☰";
         }
     }
 
@@ -219,7 +221,7 @@
         // One account component for every page using the shared homepage header.
         if (languageScriptUrl && document.querySelector('.header.zh-site-header') && !document.querySelector('[data-zh-account-loader]')) {
             const account = document.createElement('script');
-            account.src = new URL('account.js?v=20261101-v130-test1', languageScriptUrl).href;
+            account.src = new URL('account.js?v=20261103-umbau4', languageScriptUrl).href;
             account.setAttribute('data-zh-account-loader', '');
             document.body.append(account);
         }

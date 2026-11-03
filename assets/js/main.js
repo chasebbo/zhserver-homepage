@@ -239,6 +239,19 @@ if (menuToggle && navMenu) {
 
     });
 
+    // Escape closes the menu like on Game and Wiki.
+    document.addEventListener("keydown", event => {
+
+        if (event.key !== "Escape" || !navMenu.classList.contains("active")) return;
+
+        navMenu.classList.remove("active");
+        menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", window.ZHLanguage ? window.ZHLanguage.t("navigation.open") : "Navigation öffnen");
+        menuToggle.focus();
+
+    });
+
 }
 
 document.querySelectorAll(".nav-menu a").forEach(link => {

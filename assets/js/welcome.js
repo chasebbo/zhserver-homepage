@@ -4,7 +4,7 @@
     if (window.ZHWelcome) return;
     const language = window.ZHLanguage;
     const keys = ['welcome.dialog', 'welcome.title', 'welcome.text', 'welcome.benefits', 'welcome.game', 'welcome.forum', 'welcome.pulse',
-        'welcome.profile', 'welcome.name', 'welcome.accountNote', 'welcome.guestNote', 'welcome.register', 'welcome.login', 'welcome.guest', 'welcome.close'];
+        'welcome.profile', 'welcome.name', 'welcome.accountNote', 'welcome.playNote', 'welcome.register', 'welcome.login', 'welcome.close'];
     let dialog = null, returnFocus = null, remember = null;
 
     function loadCss(href) {
@@ -62,16 +62,13 @@
         login.href = loginUrl;
         // Choosing a path counts as seen; the link itself then follows the existing account flow.
         [register, login].forEach(link => link.addEventListener('click', () => remember?.()));
-        const guest = text('button', 'welcome.guest', 'zh-welcome-guest');
-        guest.type = 'button';
-        guest.addEventListener('click', () => finish());
-        actions.append(register, login, guest);
+        actions.append(register, login);
 
         inner.append(close, kicker, title, intro, text('p', 'welcome.benefits', 'zh-welcome-benefits-title'), list,
-            text('p', 'welcome.accountNote', 'zh-welcome-note'), text('p', 'welcome.guestNote', 'zh-welcome-note'), actions);
+            text('p', 'welcome.accountNote', 'zh-welcome-note'), text('p', 'welcome.playNote', 'zh-welcome-note'), actions);
         box.append(inner);
 
-        // Escape and backdrop clicks close like "continue as guest".
+        // Escape and backdrop clicks close like the × button.
         box.addEventListener('cancel', event => { event.preventDefault(); finish(); });
         box.addEventListener('click', event => { if (event.target === box) finish(); });
         // Browsers may also close a modal directly (e.g. a repeated Escape); treat that the same way.

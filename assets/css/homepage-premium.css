@@ -511,8 +511,8 @@ body.home-page > #community-pulse {
 }
 
 .home-page .timeline-dot {
-    border-color: #c9ae70 !important;
-    box-shadow: 0 0 0 4px rgba(201, 174, 112, .09) !important;
+    border-color: #d4a84a !important;
+    box-shadow: 0 0 0 4px rgba(212, 168, 74, .09) !important;
 }
 
 .home-page .timeline-entry:hover .timeline-dot {

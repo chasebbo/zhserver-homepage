@@ -24,6 +24,8 @@
     if (!menuToggle || !navMenu) return;
     navMenu.classList.remove("active");
     menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", window.ZHLanguage ? window.ZHLanguage.t("navigation.open") : "Navigation öffnen");
+    menuToggle.textContent = "☰";
   }
   if (menuToggle && navMenu) {
     menuToggle.addEventListener("click", function () {

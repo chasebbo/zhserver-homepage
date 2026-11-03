@@ -34,6 +34,7 @@
         navMenu?.classList.remove("active");
         menuToggle?.setAttribute("aria-expanded", "false");
         language.bind(menuToggle, "navigation.open", {}, "aria-label");
+        if (menuToggle) menuToggle.textContent = "☰";
     };
     menuToggle?.addEventListener("click", () => {
         const open = navMenu.classList.toggle("active");

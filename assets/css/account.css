@@ -4,14 +4,14 @@
 .header.zh-site-header .zh-account .zh-account-register {
     display: inline-flex; align-items: center; justify-content: center;
     min-height: 42px; padding: 8px 14px;
-    color: #15120a; background: #d4af37;
-    border: 1px solid #d4af37; border-radius: 7px;
+    color: #15120a; background: #d4a84a;
+    border: 1px solid #d4a84a; border-radius: 7px;
     font-size: .76rem; font-weight: 600; line-height: 1.4; text-decoration: none; white-space: nowrap;
 }
-.header.zh-site-header .zh-account .zh-account-register:hover { color: #15120a; background: #e7c45a; border-color: #e7c45a; }
+.header.zh-site-header .zh-account .zh-account-register:hover { color: #15120a; background: #e0b85a; border-color: #e0b85a; }
 .header.zh-site-header .zh-account-quick-register {
     display: inline-flex; align-items: center; min-height: 36px; padding: 6px 11px;
-    color: #15120a; background: #d4af37; border: 1px solid #d4af37; border-radius: 7px;
+    color: #15120a; background: #d4a84a; border: 1px solid #d4a84a; border-radius: 7px;
     font-size: .74rem; font-weight: 600; line-height: 1.2; letter-spacing: 0; text-transform: none; text-decoration: none; white-space: nowrap;
 }
 .header.zh-site-header .zh-account-quick-register[hidden] { display: none; }
@@ -24,7 +24,7 @@
 @media (max-width: 350px) {
     .header.zh-site-header .zh-account-quick-register { display: none; }
 }
-.header.zh-site-header .zh-account-quick-register:hover { background: #e7c45a; border-color: #e7c45a; }
+.header.zh-site-header .zh-account-quick-register:hover { background: #e0b85a; border-color: #e0b85a; }
 .header.zh-site-header .zh-account-quick-register:focus-visible { outline: 2px solid #d5b448; outline-offset: 3px; }
 .header.zh-site-header .zh-account-quick-actions {
     grid-column: 1 / -1; display: flex; justify-content: center; gap: 8px; padding-top: 7px;

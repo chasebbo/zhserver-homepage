@@ -28,7 +28,7 @@
 .pulse-dots { display: flex; justify-content: center; gap: 2px; padding-top: 4px; }
 .community-pulse-dot { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
 .community-pulse-dot::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #596257; }
-.community-pulse-dot[aria-pressed=true]::before { background: #c9b16f; }
+.community-pulse-dot[aria-pressed=true]::before { background: #d4a84a; }
 .era-pulse :is(button,a):focus-visible { outline: 2px solid #d1bd7d; outline-offset: 4px; }
 .era-pulse .pulse-forum { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(176,188,183,.12); }
 .era-pulse .pulse-forum-cta { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 8px 12px; border: 1px solid rgba(195,169,103,.25); border-radius: 5px; background: transparent; color: #cfbd87; font: 500 .74rem/1.5 Inter,sans-serif; text-decoration: none; }

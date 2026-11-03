@@ -3,9 +3,6 @@
     "use strict";
     if (!document.body.classList.contains("game-entry-page")) return;
 
-    // Delivered v118 and the production Dedicated both use a 120000 ms guest lease.
-    // The client/server enforce the duration; the homepage does not create a timer.
-    const guestTrialReady = true;
     const serverUrl = "wss://ws.zhserver.de/ws";
     // Current upper bound for the one-time graphics preparation on a first start.
     const firstStartMinutes = 4;
@@ -40,11 +37,8 @@
     bind("[data-game-start]", "play");
     bind("[data-game-login]", "play");
     bind("[data-game-profile]", "profile");
-    bind("[data-game-guest]", "guest");
     bind("[data-game-register-hint]", "registerHint");
-    bind("[data-game-guest-hint]", "guestWorldHint");
     bind("[data-game-retry]", "retry");
-    language.bind(document.getElementById("game-guest-note"), "game.entry.guestPending");
     bind("[data-game-load-hint]", "loadHint", { minutes: firstStartMinutes });
     show("[data-game-load-hint]", true);
 
@@ -67,22 +61,16 @@
         show("[data-game-login]", guest || unavailable);
         show("[data-game-profile]", noName);
         show("[data-game-primary-action]", member || guest || noName || unavailable);
-        show("[data-game-guest-action]", member || guest);
         show("[data-game-register-hint]", guest);
-        show("[data-game-guest-hint]", guestTrialReady && guest && serverStatus === "online" && !starting);
-        show("[data-game-guest-options]", member || guest);
-        show("#game-guest-note", (member || guest) && !guestTrialReady);
         all("[data-game-start]").forEach(button => {
             button.disabled = !member || serverStatus !== "online" || starting;
         });
-        all("[data-game-guest]").forEach(button => {
-            button.disabled = !guestTrialReady || !guest || serverStatus !== "online" || starting;
-        });
-        if (!member && !guestTrialReady) {
+        // Since v132 the game needs an account; there is no guest trial.
+        if (!member) {
             wrapper.hidden = true;
             wrapper.classList.remove("is-game-active");
         }
-        show("[data-game-controls]", (member || guest) && !wrapper.hidden);
+        show("[data-game-controls]", member && !wrapper.hidden);
         if (member && serverStatus === "online" && autoStart) {
             autoStart = false;
             void startGame();
@@ -156,7 +144,7 @@
             renderServer(status);
         };
         try {
-            // Transport reachability only: no game login, guest creation or gameplay messages.
+            // Transport reachability only: no game login or gameplay messages.
             socket = new WebSocket(serverUrl);
             socket.onopen = () => finish("online");
             socket.onerror = socket.onclose = () => finish("offline");
@@ -166,17 +154,15 @@
         }
     }
 
-    async function startGame(asGuest = false) {
-        const expectedStatus = asGuest ? "guest" : "member";
-        if (starting || serverStatus !== "online" || principal.status !== expectedStatus ||
-            (asGuest && !guestTrialReady)) return;
+    async function startGame() {
+        if (starting || serverStatus !== "online" || principal.status !== "member") return;
         starting = true;
         renderAccess();
         try {
             // Recheck the existing identity after the click, including logout/account-switch races.
             const verified = await identity.resolve();
-            if (verified.status !== expectedStatus || principal.status !== expectedStatus ||
-                (!asGuest && verified.userId !== principal.userId) || serverStatus !== "online") return;
+            if (verified.status !== "member" || principal.status !== "member" ||
+                verified.userId !== principal.userId || serverStatus !== "online") return;
             wrapper.hidden = false;
             if (!frame.getAttribute("src")) {
                 const url = new URL(frame.dataset.src, window.location.href);
@@ -289,7 +275,6 @@
 
     all("[data-game-start]").forEach(button => button.addEventListener("click", () => void startGame()));
     all("[data-game-retry]").forEach(button => button.addEventListener("click", probeServer));
-    all("[data-game-guest]").forEach(button => button.addEventListener("click", () => void startGame(true)));
     if (identity) identity.subscribe(state => { principal = state; renderAccess(); });
     else { principal = { status: "unavailable" }; renderAccess(); }
 

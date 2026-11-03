@@ -79,15 +79,13 @@ html.zh-welcome-open { overflow: hidden; }
 }
 .zh-welcome-register {
     grid-column: 1 / -1;
-    border: 1px solid #d4af37;
-    background: #d4af37;
+    border: 1px solid #d4a84a;
+    background: #d4a84a;
     color: #15120a;
 }
-.zh-welcome-register:hover { background: #e7c45a; border-color: #e7c45a; }
-.zh-welcome-login { border: 1px solid rgba(212, 175, 55, .45); background: rgba(212, 175, 55, .06); color: #ead9ad; }
-.zh-welcome-login:hover { background: rgba(212, 175, 55, .12); }
-.zh-welcome-guest { border: 1px solid rgba(184, 194, 203, .2); background: transparent; color: #b9c3cb; }
-.zh-welcome-guest:hover { border-color: rgba(184, 194, 203, .38); color: #e3e8ec; }
+.zh-welcome-register:hover { background: #e0b85a; border-color: #e0b85a; }
+.zh-welcome-login { grid-column: 1 / -1; border: 1px solid rgba(212, 168, 74, .45); background: rgba(212, 168, 74, .06); color: #ead9ad; }
+.zh-welcome-login:hover { background: rgba(212, 168, 74, .12); }
 .zh-welcome :is(a, button):focus-visible { outline: 2px solid #e2b85c; outline-offset: 3px; }
 
 .zh-welcome-close {
