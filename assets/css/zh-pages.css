@@ -494,7 +494,7 @@ body.zh-archive-page #timeline .timeline-content { margin: 0; padding: 6px 16px 
 }
 
 /* Startbild-Titel wie in Sebastians Vorlage: schmale, sehr fette Blockschrift, zwei Zeilen, SURVIVAL in Gold */
-body.zh-2026 .zh-hero-title { display: flex; flex-direction: column; margin: 0; font: 800 clamp(64px, 7.2vw, 104px)/.9 "Barlow Condensed", var(--zh-text); letter-spacing: .005em; text-transform: uppercase; color: #f3eee2; text-shadow: 0 2px 24px rgba(0, 0, 0, .45); }
+body.zh-2026 .zh-hero-title { display: flex; flex-direction: column; margin: 0; font: 800 clamp(40px, 5vw, 72px)/.95 "Barlow Condensed", var(--zh-text); letter-spacing: .005em; text-transform: uppercase; color: #f3eee2; text-shadow: 0 2px 24px rgba(0, 0, 0, .45); }
 body.zh-2026 .zh-hero-title > .zh-hero-title-sub { color: var(--zh-gold-strong); }
-@media (max-width: 640px) { body.zh-2026 .zh-hero-title { font-size: clamp(52px, 16vw, 72px); } }
+@media (max-width: 640px) { body.zh-2026 .zh-hero-title { font-size: clamp(34px, 10.7vw, 40px); } }
 
