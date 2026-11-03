@@ -24,7 +24,6 @@ body.zh-2026 .home-changelog-new { display: inline-flex; padding: 2px 9px; borde
 body.zh-2026 .home-changelog-title { font-weight: 700; font-size: 18px; }
 body.zh-2026 .home-changelog-more { color: var(--zh-muted); }
 body.zh-2026 .home-changelog-meta { margin-left: auto; display: inline-flex; gap: 12px; align-items: center; font-size: 13px; color: var(--zh-muted); }
-body.zh-2026 .home-changelog-views .fa-eye { display: none; }
 @keyframes zhShine { 0% { transform: translateX(-120%); } 60%, 100% { transform: translateX(320%); } }
 
 /* Lagezentrum */
@@ -365,10 +364,13 @@ body.zh-2026 :is(.zh-gallery-main, .zh-gallery-upload) > .container { max-width:
 .zh-zombie-week { color: var(--zh-ink-soft); }
 
 /* NEU-Balken: nur der neue Rahmen; der Schimmer liegt im Link, der ihn mit gleichem Radius abschneidet */
-body.zh-2026 .home-changelog-band { border: 0; border-radius: var(--zh-radius); background: none; box-shadow: none; }
-body.zh-2026 .home-changelog-band::before { display: none; }
+body.zh-2026.home-page.home-chapters .home-changelog-band { border: 0; border-radius: var(--zh-radius); background: none; box-shadow: none; }
+body.zh-2026.home-page.home-chapters .home-changelog-band::before { content: none; display: none; animation: none; }
 body.zh-2026 .home-changelog-band .home-changelog-link { overflow: hidden; border-radius: var(--zh-radius); isolation: isolate; }
 
 /* Ohne Weltlage stehen Spielserver, Top 5 bzw. Zombies und Neu dabei in einer Reihe */
 body.zh-2026 .zh-lage-grid:not(:has(.zh-world-card.is-on)) .zh-newest { grid-column: auto; }
 @media (max-width: 980px) and (min-width: 641px) { body.zh-2026 .zh-lage-grid:not(:has(.zh-world-card.is-on)) .zh-newest { grid-column: 1 / -1; } }
+
+/* "Du entscheidest mit": fester Goldrand wie die anderen Kacheln mit Goldrahmen */
+body.zh-2026 .zh-talk-grid .era-pulse { border: 1px solid rgba(217, 189, 124, .55); border-radius: var(--zh-radius); }

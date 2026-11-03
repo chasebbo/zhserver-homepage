@@ -110,7 +110,7 @@ body.zh-2026 h1, body.zh-2026 h2, body.zh-2026 h3 { font-family: var(--zh-head);
     box-shadow: var(--zh-shadow);
     transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
-.zh-hov:hover { transform: translateY(-2px); border-color: rgba(217, 189, 124, .4); box-shadow: 0 16px 36px rgba(0, 0, 0, .32), 0 0 0 1px rgba(217, 189, 124, .08), inset 0 1px 0 rgba(255, 255, 255, .045); }
+.zh-hov:hover { transform: translateY(-2px); border-color: rgba(217, 189, 124, .4); box-shadow: 0 16px 36px rgba(0, 0, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .045); }
 .zh-warm { border-top-color: rgba(205, 160, 86, .42); background: radial-gradient(ellipse 70% 140px at 50% 0, rgba(201, 135, 62, .07), transparent 80%), var(--zh-panel); }
 .zh-gold-frame { border-color: rgba(217, 189, 124, .55); animation: zhFrame 4s ease-in-out infinite; }
 .zh-pad { padding: 28px 30px; }
@@ -242,7 +242,8 @@ body.zh-2026 h1, body.zh-2026 h2, body.zh-2026 h3 { font-family: var(--zh-head);
 [data-zh-feature]:not(.is-on), [data-zh-release]:not(.is-on) { display: none !important; }
 
 @keyframes zhPing { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(2.8); opacity: 0; } }
-@keyframes zhFrame { 0%, 100% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 0 1px rgba(217, 189, 124, .1), 0 0 18px rgba(217, 189, 124, .06); } 50% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 0 1px rgba(217, 189, 124, .22), 0 0 30px rgba(217, 189, 124, .16); } }
+/* Atmender Goldrand: nur weicher Glanz nach außen, keine zweite Linie neben dem Rand */
+@keyframes zhFrame { 0%, 100% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 14px rgba(217, 189, 124, .06); } 50% { box-shadow: 0 12px 32px rgba(0, 0, 0, .25), 0 0 26px rgba(217, 189, 124, .2); } }
 @keyframes zhEmber { 0%, 100% { box-shadow: 0 0 8px rgba(224, 154, 72, .5); } 50% { box-shadow: 0 0 16px rgba(224, 154, 72, .95); } }
 @keyframes zhGlow { 0%, 100% { text-shadow: 0 0 6px rgba(120, 220, 100, .3); } 50% { text-shadow: 0 0 18px rgba(120, 220, 100, .85); } }
 @keyframes zhFlash { 0% { filter: brightness(1.9); text-shadow: 0 0 22px currentColor; } 100% { filter: none; text-shadow: none; } }
