@@ -41,8 +41,12 @@ window.ZHTranslations = {
       "en": "CONTESTED"
     },
     "world-status-plan-note": {
+      "de": "Geplant ist, dass wichtige Gebiete vom Militär, von Überlebenden oder von Infizierten gehalten werden. Wer angreift oder ein Gebiet zurückholt, verändert die Weltlage auf Dauer.",
+      "en": "Planned: key areas can be held by the military, survivors or the infected. Attacking an area or taking it back changes the world status for good."
+    },
+    "world-status-plan-note-game-html": {
       "de": "Geplant: Strategische Gebiete sollen künftig vom Militär, Überlebenden oder Infizierten kontrolliert werden können. Angriffe, Portale und Rückeroberungen sollen die Weltlage dauerhaft verändern.",
-      "en": "Planned: Strategic areas could be controlled by the military, survivors or infected. Attacks, portals and efforts to reclaim territory would have a lasting effect on the world."
+      "en": "Planned: key areas can be held by the military, survivors or the infected. Attacking an area or taking it back changes the world status for good."
     },
     "landing-current-world-status": {
       "de": "AKTUELLE WELTLAGE",
@@ -101,12 +105,12 @@ window.ZHTranslations = {
         "en": "Read more about Zombie Hell for Arma"
     },
     "arma-intro": {
-        "de": "Es gibt Überlegungen, Zombiehölle irgendwann noch einmal im Arma-Umfeld aufzugreifen.",
-        "en": "One idea is to bring Zombie Hell back to Arma at some point."
+        "de": "Vielleicht gibt es Zombiehölle irgendwann noch einmal in Arma.",
+        "en": "Maybe Zombie Hell will come back to Arma at some point."
     },
     "arma-possibilities": {
-        "de": "Als Grundlage kämen etwa Arma Reforger oder eine spätere Arma-Version infrage. Genauso gut könnte es bei einem einzelnen nostalgischen Serverabend mit alten Freunden bleiben.",
-        "en": "That could involve Arma Reforger or a future Arma game. It could just as easily be a one-off nostalgic evening on a server with old friends."
+        "de": "Infrage kämen Arma Reforger oder ein späteres Arma. Es kann aber genauso gut bei einem einzelnen Serverabend mit alten Freunden bleiben.",
+        "en": "That could be Arma Reforger or a later Arma. It might just as well stay a one-off server night with old friends."
     },
     "arma-no-plans": {
         "de": "Ob daraus jemals mehr wird, ist offen. Aktuell gibt es keine konkreten Pläne und nichts anzukündigen.",
@@ -213,12 +217,12 @@ window.ZHTranslations = {
         "en": "Zombie Hell then"
     },
     "bridge-past-copy": {
-        "de": "Ein Arma 2 DayZ Server und eine Community mit gemeinsamen Geschichten. Entdecke die Timeline, alte Bilder und Erinnerungen im Archiv.",
-        "en": "An Arma 2 DayZ server and a community with years of shared stories. Discover the timeline, old pictures and memories in the archive."
+        "de": "Angefangen hat alles mit einem Arma 2 DayZ Server. Timeline, alte Bilder und Erinnerungen findest du im Archiv.",
+        "en": "It all started with an Arma 2 DayZ server. You'll find the timeline, old pictures and memories in the archive."
     },
     "bridge-past-cta": {
-        "de": "Geschichte entdecken",
-        "en": "Discover the history"
+        "de": "Zur Geschichte",
+        "en": "Read the history"
     },
     "bridge-concept-label": {
         "de": "Konzept / visuelle Zielrichtung",
@@ -233,8 +237,8 @@ window.ZHTranslations = {
         "en": "Zombie Hell Survival today"
     },
     "bridge-present-copy": {
-        "de": "Erkunde die Welt von Zombiehölle Survival, sammle Ausrüstung, baue deine eigene Basis und überlebe gemeinsam mit anderen Spielern. Die persistente 3D-Multiplayer-Welt wird ständig erweitert und verbessert.",
-        "en": "Explore the world of Zombie Hell Survival, gather equipment, build your own base and survive alongside other players. This persistent 3D multiplayer world is continually expanded and improved."
+        "de": "Zombiehölle Survival ist eine 3D-Multiplayer-Welt im Browser, in der dein Fortschritt gespeichert bleibt. Du suchst Ausrüstung, baust dir eine Basis und überlebst zusammen mit anderen. Die Welt wird laufend größer und besser.",
+        "en": "Zombie Hell Survival is a 3D multiplayer world in your browser where your progress stays saved. You scavenge for gear, build a base and survive together with other players. The world keeps growing and getting better."
     },
     "bridge-alpha-status": {
         "de": "Web-Alpha jetzt spielbar",
@@ -449,12 +453,12 @@ window.ZHTranslations = {
         "en": "THE NEXT STEPS"
     },
     "game-roadmap-section-title": {
-        "de": "Wohin die Reise geht.",
+        "de": "Was als Nächstes kommt.",
         "en": "Where the game is heading."
     },
     "game-roadmap-intro": {
-        "de": "Diese Bereiche sind geplant und werden schrittweise weiterentwickelt. Die Zukunftsvisionen darunter reichen bewusst weiter; sie sind keine bereits verfügbaren Spielinhalte.",
-        "en": "These areas are planned and will be developed step by step. The visions below look further ahead; they describe ideas rather than features already available in the game."
+        "de": "Daran arbeite ich als Nächstes, Stück für Stück. Die Ideen weiter unten gehen bewusst weiter und sind noch nicht im Spiel.",
+        "en": "This is what I'm working on next, bit by bit. The ideas further down look further ahead and aren't in the game yet."
     },
     "game-community-kicker": {
         "de": "GEMEINSAM WEITERENTWICKELN",
@@ -725,8 +729,8 @@ window.ZHTranslations = {
       "en": "What should be added first?"
     },
     "die-features-sind-alle-geplant-und-kommen-nach-und-nach-ins-spiel-stim": {
-      "de": "Die Features sind alle geplant und kommen nach und nach ins Spiel. Stimme ab, was davon als Erstes umgesetzt werden soll!",
-      "en": "All of these features are planned and will be added over time. Vote for the one you'd like to see first!"
+      "de": "Geplant ist das alles, es kommt nach und nach ins Spiel. Stimm ab, was zuerst kommen soll.",
+      "en": "All of this is planned and will come bit by bit. Vote for what should come first."
     },
     "stimmen-abgegeben": {
       "de": "Stimmen abgegeben",
@@ -740,29 +744,25 @@ window.ZHTranslations = {
       "de": "Mehr als ein Spielserver.",
       "en": "More than a game server."
     },
-    "im-jahr": {
-      "de": "Im Jahr",
-      "en": "In"
-    },
-    "entstand": {
-      "de": "entstand",
-      "en": "we launched"
+    "2013-fing": {
+      "de": "2013 fing",
+      "en": "In 2013,"
     },
     "als-kleiner": {
       "de": "als kleiner",
-      "en": "as a small"
+      "en": "started as a small"
     },
-    "server-was-zunaechst-als-treffpunkt-einiger-weniger-spieler-begann-ent": {
-      "de": "-Server. Was zunächst als Treffpunkt einiger weniger Spieler begann, entwickelte sich über die Jahre zu einer Community, die weit über einen gewöhnlichen Gameserver hinausging.",
-      "en": " server. What began as a place for a handful of players to meet grew into a community that reached far beyond a typical game server."
+    "server-an-am-anfang-haben-sich-dort-nur-ein-paar-leute-getroffen": {
+      "de": "Server an. Am Anfang haben sich dort nur ein paar Leute getroffen. Mit den Jahren wurde daraus eine richtige Community.",
+      "en": "server. At first it was just a few people meeting up there. Over the years it turned into a real community."
     },
     "von-dayz-ueber-epoch-bis-hin-zu-arma-3-und-exile-jedes-projekt-brachte": {
-      "de": "Von DayZ über Epoch bis hin zu ARMA 3 und Exile: Jedes Projekt brachte neue Spieler, neue Geschichten und unzählige Erinnerungen hervor.",
-      "en": "From DayZ and Epoch to ARMA 3 and Exile, each project brought new players, new stories and countless memories."
+      "de": "Nach DayZ kamen Epoch, ARMA 3 und Exile. Mit jedem Projekt kamen neue Spieler dazu und es gab neue Geschichten.",
+      "en": "After DayZ came Epoch, ARMA 3 and Exile. Every project brought new players and new stories."
     },
     "heute-existieren-diese-server-nicht-mehr-doch-ihre-geschichte-bleibt-e": {
-      "de": "Heute existieren diese Server nicht mehr. Doch ihre Geschichte bleibt erhalten. Diese Webseite ist das digitale Archiv einer Community, die seit über zehn Jahren besteht.",
-      "en": "Those servers are no longer running, but their stories live on. This website is the digital archive of a community that has been around for over ten years."
+      "de": "Die Server sind inzwischen abgeschaltet. Was damals passiert ist, haben wir hier gesammelt. Die Seite ist das Archiv einer Community, die es seit über zehn Jahren gibt.",
+      "en": "The servers have been shut down since. We've collected what happened back then here. This site is the archive of a community that has been around for over ten years."
     },
     "community-archiv": {
       "de": "Community Archiv",
@@ -813,8 +813,8 @@ window.ZHTranslations = {
       "en": "Our old headquarters."
     },
     "die-adminbase-war-das-herzstueck-des-dayz-servers-hier-haben-wir-stein": {
-      "de": "Die Adminbase war das Herzstück des DayZ-Servers. Hier haben wir Stein auf Stein gebaut, Events vorbereitet oder einfach nur nächtelang die Basis gebaut, abgehangen und gequatscht.",
-      "en": "The admin base was the heart of the DayZ server. We built it piece by piece, prepared events and spent countless nights building, hanging out and chatting."
+      "de": "Die Adminbase war der Mittelpunkt des DayZ-Servers. Hier haben wir Stein auf Stein gebaut, Events vorbereitet oder einfach nächtelang abgehangen und gequatscht.",
+      "en": "The admin base was the centre of the DayZ server. We built it stone by stone, prepared events there or just hung out and chatted all night."
     },
     "danke": {
       "de": "DANKE",
@@ -825,12 +825,12 @@ window.ZHTranslations = {
       "en": "TO EVERYONE WHO WAS THERE."
     },
     "seit-2013-haben-viele-spieler-helfer-freunde-und-wegbegleiter-die-zomb": {
-      "de": "Seit 2013 haben viele Spieler, Helfer, Freunde und Wegbegleiter die Zombiehölle (ZHServer) mitgeprägt.",
-      "en": "Since 2013, players, helpers, friends and longtime companions have all helped shape Zombiehölle (ZHServer)."
+      "de": "Seit 2013 haben viele Spieler, Helfer und Freunde die Zombiehölle (ZHServer) mitgeprägt.",
+      "en": "Since 2013, lots of players, helpers and friends have shaped Zombiehölle (ZHServer)."
     },
     "danke-fuer-eure-zeit-eure-ideen-und-all-die-gemeinsamen-momente": {
-      "de": "Danke für eure Zeit, eure Ideen und all die gemeinsamen Momente.",
-      "en": "Thank you for your time, your ideas and all the moments we shared."
+      "de": "Danke für die Zeit, die ihr reingesteckt habt, und für alles, was wir zusammen erlebt haben.",
+      "en": "Thanks for the time you put in and for everything we went through together."
     },
     "seit-2013-zombiehoelle-zhserver": {
       "de": "SEIT 2013 · ZOMBIEHÖLLE (ZHSERVER)",
@@ -857,8 +857,8 @@ window.ZHTranslations = {
       "en": "Some events didn't need complicated rules. In the axe event, every player received the same equipment: a single axe."
     },
     "keine-schusswaffen-keine-fahrzeuge-keine-vorteile-nur-koennen-taktik-u": {
-      "de": "Keine Schusswaffen, keine Fahrzeuge, keine Vorteile. Nur Können, Taktik und der Wille, als letzter Spieler übrig zu bleiben.",
-      "en": "No guns, no vehicles, no head start. Just skill, tactics and the determination to be the last player standing."
+      "de": "Keine Schusswaffen, keine Fahrzeuge. Wer am Ende noch stand, hatte gewonnen.",
+      "en": "No guns, no vehicles. Whoever was still standing at the end won."
     },
     "das-convoy-event": {
       "de": "Das Convoy-Event",
@@ -877,7 +877,7 @@ window.ZHTranslations = {
       "en": "Through Chernarus together."
     },
     "beim-convoy-event-waren-mehrere-spieler-gemeinsam-mit-fahrzeugen-unter": {
-      "de": "Beim Convoy-Event waren mehrere Spieler gemeinsam mit Fahrzeugen unterwegs. Planung und Zusammenarbeit standen dabei im Mittelpunkt.",
+      "de": "Beim Convoy-Event sind mehrere Spieler zusammen mit Fahrzeugen durch Chernarus gefahren. Dabei kam es vor allem auf Planung und Absprache an.",
       "en": "Players travelled through Chernarus together in a convoy of vehicles. Planning and teamwork were what mattered most."
     },
     "video-ansehen": {
@@ -901,8 +901,8 @@ window.ZHTranslations = {
       "en": "High above Chernarus."
     },
     "mehrere-hubschrauber-gleichzeitig-in-der-luft-mit-nur-einem-ziel-die-a": {
-      "de": "Mehrere Hubschrauber gleichzeitig in der Luft mit nur einem Ziel: die anderen abzudrängen/abzuschiesen und als Letzter zu überleben.",
-      "en": "Several helicopters in the air at once, all with one goal: force the others out or shoot them down, and be the last to survive."
+      "de": "Mehrere Hubschrauber waren gleichzeitig in der Luft. Wer die anderen abdrängte oder abschoss und als Letzter noch flog, hatte gewonnen.",
+      "en": "Several helicopters were in the air at once. The last one still flying won, after pushing the others away or shooting them down."
     },
     "die-rallye": {
       "de": "Die Rallye",
@@ -921,7 +921,7 @@ window.ZHTranslations = {
       "en": "The rally through Chernarus"
     },
     "die-spieler-mussten-eine-vorgegebene-strecke-durch-chernarus-abfahren": {
-      "de": "Die Spieler mussten eine vorgegebene Strecke durch Chernarus abfahren. Dafür wurden eigene Hindernisse und Herausforderungen vorbereitet, die es zu bewältigen galt.",
+      "de": "Die Spieler mussten eine festgelegte Strecke durch Chernarus fahren. Unterwegs warteten selbst gebaute Hindernisse.",
       "en": "Players had to follow a set route through Chernarus, tackling custom obstacles and challenges along the way."
     },
     "ein-kampf-ums-ueberleben": {
@@ -933,24 +933,24 @@ window.ZHTranslations = {
       "en": "A special community event in a custom arena."
     },
     "die-spieler-traten-gegeneinander-an-und-nur-einer-konnte-am-ende-gewin": {
-      "de": "Die Spieler traten gegeneinander an und nur einer konnte am Ende gewinnen.",
-      "en": "Players fought one another, and only one could win."
+      "de": "Jeder gegen jeden, bis nur noch einer übrig war.",
+      "en": "Everyone against everyone until only one was left."
     },
     "ein-neues-kapitel": {
       "de": "Ein neues Kapitel.",
       "en": "A new chapter."
     },
     "mit-arma-3-exile-begann-ein-neues-kapitel-der-community": {
-      "de": "Mit ARMA 3 Exile begann ein neues Kapitel der Community.",
-      "en": "ARMA 3 Exile opened a new chapter for the community."
+      "de": "Mit ARMA 3 Exile ging es für die Community weiter.",
+      "en": "With ARMA 3 Exile, the community carried on."
     },
     "neben-dem-normalen-spielbetrieb-entstanden-auch-eigene-events-wie-das": {
-      "de": "Neben dem normalen Spielbetrieb entstanden auch eigene Events wie das Team Deathmatch.",
+      "de": "Neben dem normalen Spiel gab es eigene Events wie das Team Deathmatch.",
       "en": "Alongside regular gameplay, we ran our own events, including team deathmatch."
     },
     "spieler-traten-in-teams-gegeneinander-an-und-konnten-sich-in-einem-eig": {
-      "de": "Spieler traten in Teams gegeneinander an und konnten sich in einem eigenen Spielmodus messen.",
-      "en": "Players faced off in teams and put their skills to the test in a dedicated game mode."
+      "de": "Dort haben Teams in einem eigenen Spielmodus gegeneinander gespielt.",
+      "en": "Teams played against each other in a separate game mode."
     },
     "creator-besuch": {
       "de": "Creator Besuch",
@@ -993,12 +993,12 @@ window.ZHTranslations = {
       "en": "Spontaneous moments beyond the game."
     },
     "manchmal-entstanden-besondere-momente-ganz-nebenbei": {
-      "de": "Manchmal entstanden besondere Momente ganz nebenbei.",
-      "en": "Sometimes the best moments happened by chance."
+      "de": "Manches ist einfach nebenbei passiert.",
+      "en": "Some things just happened along the way."
     },
     "in-der-safezone-versammelten-sich-spieler-waehrend-ein-musiker-spontan": {
-      "de": "In der Safezone versammelten sich Spieler, während ein Musiker spontan ein Lied vor der Community spielte.",
-      "en": "Players gathered in the safe zone while a musician spontaneously performed a song for the community."
+      "de": "Einmal hat ein Musiker in der Safezone spontan ein Lied gespielt, und die Spieler haben sich drumherum versammelt.",
+      "en": "Once, a musician played a song in the safe zone on the spot, and players gathered round to listen."
     },
     "die-welten-der-zombiehoelle": {
       "de": "Die Welten der Zombiehölle",
@@ -1053,8 +1053,8 @@ window.ZHTranslations = {
       "en": "DayZ Epoch makes base building a big part of the game, and the admin base becomes the main meeting place for events."
     },
     "neue-projekte-und-erweiterungen-wie-arma-2-dayz-epoch-bringen-frischen": {
-      "de": "Neue Projekte und Erweiterungen wie ARMA 2 DayZ Epoch bringen frischen Wind und neue Möglichkeiten auf die Server.",
-      "en": "New projects and additions such as ARMA 2 DayZ Epoch bring fresh ideas and new possibilities to the servers."
+      "de": "Mit ARMA 2 DayZ Epoch und weiteren Erweiterungen kommt mehr Abwechslung auf die Server.",
+      "en": "ARMA 2 DayZ Epoch and other add-ons bring more variety to the servers."
     },
     "wechsel-auf-arma-3": {
       "de": "Wechsel auf ARMA 3",
@@ -1081,20 +1081,20 @@ window.ZHTranslations = {
       "en": "GALLERY"
     },
     "ihr-habt-noch-screenshots-oder-bilder-her-damit": {
-      "de": "Ihr habt noch Screenshots oder Bilder? Her damit.",
-      "en": "Still have screenshots or photos? Share them with us."
+      "de": "Du hast noch alte Screenshots? Her damit.",
+      "en": "Still got old screenshots? Send them in."
     },
     "ob-arma-2-dayz-epoch-arma-3-oder-exile-wenn-ihr-noch-alte-screenshots": {
-      "de": "Ob ARMA 2, DayZ, Epoch, ARMA 3 oder Exile: Wenn ihr noch alte Screenshots oder besondere Momente habt, könnt ihr sie hier teilen. Nach einer kurzen Prüfung erscheinen sie in der Galerie.",
-      "en": "Whether they're from ARMA 2, DayZ, Epoch, ARMA 3 or Exile, you can share your old screenshots and special moments here. They'll appear in the gallery after a quick review."
+      "de": "Alte Screenshots aus ARMA 2, DayZ, Epoch, ARMA 3 oder Exile kannst du hier hochladen. Nach einer kurzen Prüfung erscheinen sie in der Galerie.",
+      "en": "You can upload old screenshots from ARMA 2, DayZ, Epoch, ARMA 3 or Exile here. They show up in the gallery after a quick check."
     },
     "alle-bilder-ansehen": {
       "de": "Alle Bilder ansehen",
       "en": "View all pictures"
     },
     "entdecke-fruehere-versionen-der-webseite-und-reise-zurueck-in-die-akti": {
-      "de": "Entdecke frühere Versionen der Webseite und reise zurück in die aktive Zeit der Zombiehölle (ZHServer).",
-      "en": "Explore earlier versions of the website and revisit the active days of Zombiehölle (ZHServer)."
+      "de": "Hier findest du alte Versionen der Webseite aus der aktiven Zeit der Zombiehölle (ZHServer).",
+      "en": "Old versions of the website from the active days of Zombiehölle (ZHServer)."
     },
     "archiv-oeffnen": {
       "de": "Archiv öffnen",
@@ -1109,8 +1109,8 @@ window.ZHTranslations = {
       "en": "Open Steam"
     },
     "entdecke-videos-trailer-missionen-und-erinnerungen-aus-der-geschichte": {
-      "de": "Entdecke Videos, Trailer, Missionen und Erinnerungen aus der Geschichte der Zombiehölle (ZHServer).",
-      "en": "Discover videos, trailers, missions and memories from the history of Zombiehölle (ZHServer)."
+      "de": "Videos, Trailer und Missionen aus der Zeit der Zombiehölle (ZHServer).",
+      "en": "Videos, trailers and missions from the Zombiehölle (ZHServer) days."
     },
     "youtube-oeffnen": {
       "de": "YouTube öffnen",
@@ -1121,8 +1121,8 @@ window.ZHTranslations = {
       "en": "Screenshot gallery"
     },
     "screenshots-aufnahmen-aus-arma-2-arma-3-events-und-vielen-weiteren-mom": {
-      "de": "Screenshots/Aufnahmen aus Arma 2, Arma 3, Events und vielen weiteren Momenten der Community, lass uns deine Screenshots gerne zukommen.",
-      "en": "Screenshots from Arma 2, Arma 3, events and many other community moments. We'd love to see yours too."
+      "de": "Screenshots aus Arma 2, Arma 3 und von vielen Events der Community. Deine eigenen Bilder kannst du gerne hochladen.",
+      "en": "Screenshots from Arma 2, Arma 3 and lots of community events. Feel free to upload your own."
     },
     "galerie-oeffnen": {
       "de": "Galerie öffnen",
@@ -1137,8 +1137,8 @@ window.ZHTranslations = {
       "en": "Leave a memory."
     },
     "du-warst-teil-der-zhserver-community-teile-deine-erinnerungen-gruesse": {
-      "de": "Du warst Teil der ZHServer Community? Teile deine Erinnerungen, Grüße oder besonderen Momente mit anderen Spielern.",
-      "en": "Were you part of the ZHServer community? Share your memories, greetings or special moments with other players."
+      "de": "Du warst damals dabei? Schreib einen Gruß oder eine Erinnerung ins Gästebuch.",
+      "en": "Were you around back then? Leave a greeting or a memory in the guestbook."
     },
     "eintrag-schreiben": {
       "de": "Eintrag schreiben",
@@ -1153,8 +1153,8 @@ window.ZHTranslations = {
       "en": "Submit entry"
     },
     "hinweis-neue-gaestebucheintraege-werden-vor-der-veroeffentlichung-gepr": {
-      "de": "Hinweis: Neue Gästebucheinträge werden vor der Veröffentlichung geprüft und anschließend freigeschaltet.",
-      "en": "New guestbook entries are reviewed before they are published."
+      "de": "Neue Einträge schauen wir uns vorher kurz an, dann werden sie freigeschaltet.",
+      "en": "We take a quick look at new entries before they go live."
     },
     "gaestebuch-seiten": {
       "de": "Gästebuch-Seiten",
@@ -1165,8 +1165,8 @@ window.ZHTranslations = {
       "en": "The merchandise shop isn't a business, and I don't make any money from it."
     },
     "ich-freue-mich-einfach-wenn-ihr-die-geschichte-weitertragt-und-ein-stu": {
-      "de": "Ich freue mich einfach, wenn ihr die Geschichte weitertragt und ein Stück Zombiehölle bei euch habt.",
-      "en": "I simply enjoy seeing you keep the story alive and take a little piece of Zombiehölle with you."
+      "de": "Ich freue mich einfach, wenn du ein Stück Zombiehölle bei dir hast.",
+      "en": "I'm just glad when you keep a little piece of Zombiehölle with you."
     },
     "zum-zhserver-shop": {
       "de": "Zum ZHServer Shop",
@@ -1177,8 +1177,8 @@ window.ZHTranslations = {
       "en": "Game: Hosting & development"
     },
     "mit-einer-freiwilligen-unterstuetzung-hilfst-du-beim-erhalt-des-archiv": {
-      "de": "Mit einer freiwilligen Unterstützung hilfst du beim Erhalt des Archivs sowie bei Hosting und Entwicklung des ZH Games.",
-      "en": "Voluntary donations help keep the archive online and support hosting and development of the ZH game."
+      "de": "Wenn du freiwillig etwas gibst, hilft das, das Archiv online zu halten und Hosting und Entwicklung des Spiels zu bezahlen.",
+      "en": "A voluntary donation helps keep the archive online and pays for hosting and development of the game."
     },
     "freiwillig-ueber-paypal-unterstuetzen": {
       "de": "Freiwillig über PayPal unterstützen",
@@ -1465,8 +1465,8 @@ window.ZHTranslations = {
       "en": "Artwork & game world"
     },
     "staedte-und-gebaeude-werden-schrittweise-grafisch-ueberarbeitet-die-sp": {
-      "de": "Städte und Gebäude werden schrittweise grafisch überarbeitet. Die Spielwelt bekommt nach und nach neue und schönere Grafiken.",
-      "en": "Cities and buildings are gradually being reworked. The game world is getting new, more detailed artwork over time."
+      "de": "Städte und Gebäude bekommen nach und nach neue, schönere Grafiken.",
+      "en": "Cities and buildings are getting new, better-looking artwork bit by bit."
     },
     "02-bausystem": {
       "de": "02 / BAUSYSTEM",
@@ -2537,8 +2537,8 @@ window.ZHTranslations = {
       "en": "LONG-TERM IDEA"
     },
     "zhserver-soll-langfristig-weit-ueber-die-klassische-survival-welt-hina": {
-      "de": "ZHServer soll langfristig weit über die klassische Survival-Welt hinauswachsen. Einige der größeren Ideen sind bewusst für eine spätere Entwicklungsphase gedacht und können das Spiel irgendwann um völlig eigenständige Welten, Ressourcen und Spielweisen erweitern.",
-      "en": "In the long run, ZHServer could grow far beyond a traditional survival world. Some of the bigger ideas are intended for later stages of development and could eventually add entirely separate worlds, resources and ways to play."
+      "de": "Langfristig soll das Spiel mehr werden als eine Survival-Welt. Die größeren Ideen hier sind für später gedacht. Irgendwann könnten so ganz eigene Welten dazukommen, mit eigenen Ressourcen und einer anderen Art zu spielen.",
+      "en": "In the long run the game should become more than one survival world. The bigger ideas here are meant for later. At some point they could add separate worlds with their own resources and their own way to play."
     },
     "zukunftsvision-weltraum": {
       "de": "Zukunftsvision Weltraum",
@@ -2561,8 +2561,8 @@ window.ZHTranslations = {
       "en": "Portals could eventually provide access to small, separate dimensions. One of those worlds could take you into space."
     },
     "dort-gelten-teilweise-voellig-andere-voraussetzungen-als-in-der-normal": {
-      "de": "Dort gelten teilweise völlig andere Voraussetzungen als in der normalen Zombiehölle-Survival-Welt: neue Baumaterialien, neue Ressourcen, Raumschiffe, Raumbasen und eigene Gegner.",
-      "en": "Some of the rules there would be very different from the regular Zombiehölle Survival world, with new building materials, resources, spaceships, space bases and enemies."
+      "de": "Dort wäre vieles anders als in der normalen Survival-Welt. Es gäbe neue Baumaterialien und Ressourcen, Raumschiffe, Raumbasen und eigene Gegner.",
+      "en": "A lot would be different there compared to the regular survival world, with new building materials and resources, spaceships, space bases and enemies of its own."
     },
     "das-portal": {
       "de": "DAS PORTAL",
@@ -2585,8 +2585,8 @@ window.ZHTranslations = {
       "en": "REQUIREMENT: SPACESUIT"
     },
     "um-die-weltraumwelt-aus-der-normalen-survival-welt-heraus-betreten-zu": {
-      "de": "Um die Weltraumwelt aus der normalen Survival-Welt heraus betreten zu können, müsste zunächst ein Raumanzug gefunden werden. Er wäre dadurch selbst ein seltener und wichtiger Ausrüstungsgegenstand und Teil der Vorbereitung auf diese Welt.",
-      "en": "To enter the space world from the regular survival world, you would first need to find a spacesuit. It would be a rare and valuable piece of equipment, and an essential part of preparing for the journey."
+      "de": "Wer aus der normalen Survival-Welt in den Weltraum will, müsste zuerst einen Raumanzug finden. Der Raumanzug wäre also selten und wertvoll, und man müsste sich vorher darum kümmern.",
+      "en": "To get from the regular survival world into space, you would first have to find a spacesuit. That would make it rare and valuable, and something to sort out beforehand."
     },
     "das-prinzip-aehnelt-der-geplanten-seltenen-armbrust-fuer-die-ritterwel": {
       "de": "Das Prinzip ähnelt der geplanten seltenen Armbrust für die Ritterwelt.",
@@ -2641,8 +2641,8 @@ window.ZHTranslations = {
       "en": "other rare items"
     },
     "eine-weitere-gefahr-koennten-weltraumpiraten-sein-zwei-kleinere-pirate": {
-      "de": "Eine weitere Gefahr könnten Weltraumpiraten sein: Zwei kleinere Piratenschiffe patrouillieren durch den Weltraum, suchen nach Eindringlingen und greifen mit Lasern an. So entstünden nicht nur Kämpfe auf Planeten, sondern auch Gefahren zwischen den einzelnen Welten.",
-      "en": "Space pirates could pose another threat: two smaller pirate ships would patrol space, search for intruders and attack with lasers. Danger would await between worlds as well as on the planets themselves."
+      "de": "Gefährlich könnten auch Weltraumpiraten werden. Zwei kleinere Piratenschiffe fliegen Patrouille, suchen nach Eindringlingen und greifen mit Lasern an. Dann wäre es auch unterwegs zwischen den Planeten gefährlich.",
+      "en": "Space pirates could be another danger. Two smaller pirate ships patrol, look for intruders and attack with lasers. That would make the trip between planets dangerous too."
     },
     "eigenstaendiges-spielgefuehl": {
       "de": "EIGENSTÄNDIGES SPIELGEFÜHL",
@@ -2678,7 +2678,7 @@ window.ZHTranslations = {
     },
     "nur-spieler-koennen-hindurchgehen-nach-der-benutzung-gibt-es-einen-kur": {
       "de": "Nur Spieler können hindurchgehen. Nach der Benutzung gibt es einen kurzen Cooldown von ungefähr zwei Sekunden. In der Ritterwelt befindet sich dasselbe Portal für die Rückreise.",
-      "en": "Only players can pass through it. There is a short cooldown of around two seconds after use. A matching portal in the medieval world provides the return journey."
+      "en": "Only players can pass through it. There is a short cooldown of around two seconds after use. A matching portal in the medieval world takes you back."
     },
     "spaeter-koennten-gruppen-gemeinsam-teleportiert-werden-wenn-der-gruppe": {
       "de": "Später könnten Gruppen gemeinsam teleportiert werden, wenn der Gruppenführer das Portal benutzt.",
@@ -2705,8 +2705,8 @@ window.ZHTranslations = {
       "en": "The castle's main gate is closed, so players would need to find another way in."
     },
     "eine-moeglichkeit-waere-beispielsweise-zunaechst-eine-holzleiter-herzu": {
-      "de": "Eine Möglichkeit wäre beispielsweise, zunächst eine Holzleiter herzustellen und damit über die Burgmauer einzudringen. Dadurch wird bereits der Weg zum König Teil der Herausforderung.",
-      "en": "One option could be crafting a wooden ladder to climb over the castle wall. Reaching the king would become part of the challenge itself."
+      "de": "Zum Beispiel könnte man eine Holzleiter bauen und damit über die Mauer klettern. Schon der Weg zum König wäre so eine Aufgabe für sich.",
+      "en": "For example, you could build a wooden ladder and climb over the wall. Just getting to the king would be a challenge of its own."
     },
     "der-koenig": {
       "de": "DER KÖNIG",
@@ -2733,8 +2733,8 @@ window.ZHTranslations = {
       "en": "Crown"
     },
     "diese-gegenstaende-sollen-nicht-einfach-normale-ausruestung-mit-andere": {
-      "de": "Diese Gegenstände sollen nicht einfach normale Ausrüstung mit anderer Farbe sein, sondern besondere Erinnerungen und Belohnungen aus dieser Portalwelt darstellen.",
-      "en": "These items would be special keepsakes and rewards from the portal world, with more significance than ordinary equipment in a different colour."
+      "de": "Das soll keine normale Ausrüstung in Gold sein. Wer so etwas hat, hat es sich in der Portalwelt erkämpft.",
+      "en": "These shouldn't just be regular gear painted gold. If you own one, you earned it in the portal world."
     },
     "der-drache-die-seltene-armbrust": {
       "de": "DER DRACHE & DIE SELTENE ARMBRUST",
@@ -2749,8 +2749,8 @@ window.ZHTranslations = {
       "en": "Regular weapons could hurt the dragon, but would deal very little damage. A rare crossbow would be the most effective weapon against it."
     },
     "diese-armbrust-muesste-vorher-gefunden-werden-und-wuerde-dadurch-selbs": {
-      "de": "Diese Armbrust müsste vorher gefunden werden und würde dadurch selbst Teil der Vorbereitung auf die Ritterwelt. Spieler müssten sich also möglicherweise bereits in der normalen Survival-Welt auf die Reise vorbereiten.",
-      "en": "You would need to find that crossbow beforehand, making it part of your preparations. Players might have to get ready for the journey while still in the regular survival world."
+      "de": "Die Armbrust müsste man vorher in der normalen Survival-Welt finden. Wer gegen den Drachen bestehen will, bereitet sich also schon dort vor.",
+      "en": "You'd have to find the crossbow in the regular survival world first. So anyone who wants to take on the dragon starts preparing there."
     },
     "weitere-moeglichkeiten": {
       "de": "WEITERE MÖGLICHKEITEN",
@@ -2797,8 +2797,8 @@ window.ZHTranslations = {
       "en": "DEVELOPMENT FEEDBACK"
     },
     "zombiehoelle-survival-befindet-sich-in-einer-aktiven-alpha-und-ich-ent": {
-      "de": "Zombiehölle Survival befindet sich in einer aktiven Alpha und ich entwickle das Spiel komplett alleine. Wenn dir beim Testen Fehler auffallen oder du Ideen und Verbesserungsvorschläge hast, trage sie gerne ein. Ich schaue mir jeden Eintrag an und lasse sinnvolle Vorschläge direkt in die nächsten Schritte einfließen.",
-      "en": "Zombiehölle Survival is in active alpha development, and I'm building the game entirely on my own. If you find bugs while testing or have ideas for improvements, please send them in. I read every entry and use helpful suggestions to guide the next steps."
+      "de": "Zombiehölle Survival ist in der Alpha und ich entwickle das Spiel komplett alleine. Wenn dir beim Testen Fehler auffallen oder du eine Idee hast, trag sie gerne ein. Ich lese jeden Eintrag, und gute Vorschläge baue ich ein.",
+      "en": "Zombiehölle Survival is in alpha and I'm building it entirely on my own. If you find bugs while testing or have an idea, please post it. I read every entry and build in the good suggestions."
     },
     "bugs-ideen-und-wuensche-kannst-du-direkt-hier-auf-der-homepage-einreic": {
       "de": "Bugs, Ideen und Wünsche kannst du direkt hier auf der Homepage einreichen.",
@@ -2845,8 +2845,8 @@ window.ZHTranslations = {
       "en": "A note on current development"
     },
     "zombiehoelle-wird-aktuell-umfassend-ueberarbeitet-aeltere-meldungen-wu": {
-      "de": "Zombiehölle wird aktuell umfassend überarbeitet. Ältere Meldungen wurden deshalb zurückgesetzt. Neue Bugs und Ideen können weiterhin jederzeit eingereicht werden. Angenommene Bugs und Vorschläge werden aus der öffentlichen Liste entfernt, sobald sie in die Entwicklung übernommen bzw. abgearbeitet werden.",
-      "en": "Zombiehölle is undergoing a major rework, so older reports have been cleared. You can still submit new bugs and ideas at any time. Accepted reports and suggestions are removed from the public list once they are taken into development or addressed."
+      "de": "Zombiehölle wird gerade stark umgebaut, deshalb sind die alten Meldungen gelöscht. Neue Bugs und Ideen kannst du jederzeit eintragen. Sobald ich einen Bug oder Vorschlag übernehme oder erledige, verschwindet er aus der öffentlichen Liste.",
+      "en": "Zombiehölle is being heavily reworked right now, so the old reports have been cleared. You can add new bugs and ideas any time. Once I take on or fix a bug or suggestion, it disappears from the public list."
     },
     "fehler-melden": {
       "de": "FEHLER MELDEN",
@@ -2901,8 +2901,8 @@ window.ZHTranslations = {
       "en": "LOOKING AHEAD"
     },
     "welche-ergaenzung-verbesserung-oder-weltidee-wuenschst-du-dir-fuer-zom": {
-      "de": "Welche Ergänzung, Verbesserung oder Weltidee wünschst du dir für Zombiehölle Survival?",
-      "en": "What addition, improvement or idea for the world would you like to see in Zombiehölle Survival?"
+      "de": "Was fehlt dir in Zombiehölle Survival?",
+      "en": "What would you like to see in Zombiehölle Survival?"
     },
     "welt": {
       "de": "WELT",
@@ -3295,16 +3295,16 @@ window.ZHTranslations = {
     "screenshots.close": {de:"Großansicht schließen",en:"Close enlarged view"},
     "game.presentation.intro": {"de":"Zombiehölle Survival wird als persistente 3D-Multiplayer-Welt mit fester, geneigter Draufsicht entwickelt.","en":"Zombie Hell Survival is being developed as a persistent 3D multiplayer world with a fixed, tilted overhead view."},
     "game.presentation.guestNote": {"de":"Der Gastzugang ist ein kurzer Test ohne dauerhafte Speicherung.","en":"The guest trial is a quick introduction without permanent saves."},
-    "game.presentation.serverMeta": {"de":"Browser-Client · Multiplayer · Persistenter Fortschritt","en":"Browser client · Multiplayer · Saved progress"},
+    "game.presentation.serverMeta": {"de":"Browser-Client · Multiplayer · Fortschritt wird gespeichert","en":"Browser client · Multiplayer · Saved progress"},
     "game.presentation.previewAlt": {"de":"Vier Szenen aus Zombiehölle Survival: das Portal der Militärbasis Ost hinter Sandsackstellungen, eine Horde vor Tor Nord, Gestrandete am Lagerfeuer und der Steinbruch Ost","en":"Four scenes from Zombie Hell Survival: the portal at Military Base East behind sandbag positions, a horde outside North Gate, stranded survivors at the campfire and the east quarry"},
     "game.presentation.playHere": {"de":"Dein Browser-Spiel öffnet sich hier.","en":"Your browser game opens here."},
     "game.presentation.artwork": {"de":"Ingame-Grafik · Neues Portal, Kampf am Nordtor, Lagerfeuer, Steinbruch","en":"In-game graphics · New portal, fight at North Gate, campfire, quarry"},
     "game.presentation.featuresKicker": {"de":"DAS SPIEL","en":"THE GAME"},
-    "game.presentation.featuresTitle": {"de":"Was dich erwartet","en":"What to expect"},
+    "game.presentation.featuresTitle": {"de":"Das gibt es im Spiel","en":"What's in the game"},
     "game.presentation.multiplayer": {"de":"Multiplayer & Gruppen","en":"Multiplayer & groups"},
-    "game.presentation.multiplayerNote": {"de":"Erkunde die Welt gemeinsam, bilde eine Gruppe und bleib über den Chat in Verbindung.","en":"Explore together, form a group and stay in touch through chat."},
+    "game.presentation.multiplayerNote": {"de":"Spiel mit anderen in einer Gruppe und sprich dich im Chat ab.","en":"Team up with others in a group and coordinate in chat."},
     "game.presentation.building": {"de":"Basenbau","en":"Base building"},
-    "game.presentation.buildingNote": {"de":"Baue deine eigene Basis mit modularen Bauteilen und schaffe Platz für deine Vorräte.","en":"Build your own base with modular parts and make room for your supplies."},
+    "game.presentation.buildingNote": {"de":"Bau dir aus einzelnen Bauteilen eine eigene Basis, mit Platz für deine Vorräte.","en":"Build your own base with modular parts and make room for your supplies."},
     "game.presentation.persistence": {"de":"Persistente Welt","en":"Persistent world"},
     "game.presentation.persistenceNote": {"de":"Dein Charakter und dein Fortschritt bleiben mit deinem ZHServer-Account erhalten.","en":"Your character and progress are saved to your ZHServer account."},
     "game.presentation.loot": {"de":"Fahrzeuge & Loot","en":"Vehicles & loot"},
@@ -3325,7 +3325,7 @@ window.ZHTranslations = {
     "game.presentation.tabsLabel": {"de":"Alpha-Entwicklung","en":"Alpha development"},
     "game.presentation.progressLabel": {"de":"Änderungen dieser Alpha-Version","en":"Changes in this alpha version"},
     "game.presentation.communityKicker": {"de":"MITGESTALTEN","en":"GET INVOLVED"},
-    "game.presentation.communityTitle": {"de":"Deine Ideen zählen","en":"Your ideas matter"},
+    "game.presentation.communityTitle": {"de":"Sag uns, was fehlt","en":"Tell us what's missing"},
     "game.presentation.communityNote": {"de":"Melde Fehler, bring deine Ideen ein oder stimme über kommende Inhalte ab.","en":"Report bugs, share your ideas or vote on upcoming content."},
     "game.presentation.currentVote": {"de":"AKTUELLE ABSTIMMUNG","en":"CURRENT VOTE"},
     "game.presentation.voteDetails": {"de":"MEHR DETAILS","en":"MORE DETAILS"},
@@ -3405,7 +3405,7 @@ window.ZHTranslations = {
     "game.entry.stageKey.map": { "de": "Karte", "en": "Map" },
     "game.entry.stageKey.group": { "de": "Gruppe", "en": "Group" },
     "game.entry.stageKey.help": { "de": "Steuerung", "en": "Controls" },
-    "game.entry.stageRotate": { "de": "Für das beste Spielerlebnis Handy quer halten.", "en": "For the best experience, turn your phone sideways." },
+    "game.entry.stageRotate": { "de": "Halte das Handy quer, dann spielt es sich am besten.", "en": "Turn your phone sideways, it plays best that way." },
     "game.entry.stageRotateOk": { "de": "OK", "en": "OK" },
     "game.entry.checkAccount": { "de": "Deine Anmeldung wird geprüft.", "en": "Checking your sign-in status." },
     "game.entry.nameRequired": { "de": "Bitte lege zuerst einen öffentlichen Anzeigenamen fest.", "en": "Please set a public display name first." },
@@ -3430,7 +3430,7 @@ window.ZHTranslations = {
     "game.entry.serverOffline": { "de": "Der Spielserver ist momentan nicht erreichbar.", "en": "The game server is currently unavailable." },
     "game.entry.serverChecking": { "de": "Verfügbarkeit wird geprüft.", "en": "Checking server availability." },
     "game.entry.retry": { "de": "Erneut prüfen", "en": "Check again" },
-    "game.entry.offlineNote": { "de": "Meist werden gerade Wartungsarbeiten oder Updates durchgeführt. Normalerweise ist der Server nach wenigen Minuten wieder verfügbar.", "en": "This usually means maintenance or an update is in progress. The server is normally back within a few minutes." },
+    "game.entry.offlineNote": { "de": "Meistens läuft gerade eine Wartung oder ein Update. In der Regel ist der Server nach ein paar Minuten wieder da.", "en": "Usually this means maintenance or an update is running. The server is normally back within a few minutes." },
     "game.entry.lastCheck": { "de": "Letzte Statusprüfung: {time} Uhr", "en": "Last status check: {time}" },
     "game.entry.about": { "de": "Eine offene Online-Welt mit verlassenen Orten, knappen Vorräten und Zombies. Erkunde sie allein oder mit anderen und baue dir einen eigenen Platz zum Überleben.", "en": "An open online world with abandoned places, scarce supplies and zombies. Explore on your own or with others, and build a place to survive." },
     "game.entry.origin": { "de": "Von 2013 bis 2016 war Zombiehölle eine Arma-2-DayZ-Servercommunity. Heute wird Zombiehölle Survival als eigenständige 3D-Multiplayer-Survival-Welt weiterentwickelt.", "en": "From 2013 to 2016, Zombie Hell was an Arma 2 DayZ server community. Today, it is evolving into its own independent 3D multiplayer survival world." },
@@ -3511,8 +3511,8 @@ window.ZHTranslations = {
       "en": "Please check your name, category, title and description. The submitted details are invalid."
     },
     "feedback.error.duplicate": {
-      "de": "Dieser Eintrag wurde gerade bereits gesendet.",
-      "en": "This entry has just been submitted already."
+      "de": "Diesen Eintrag hast du gerade schon gesendet.",
+      "en": "You just sent this entry."
     },
     "feedback.error.save": {
       "de": "Die Meldung konnte gerade nicht gespeichert werden. Bitte versuche es erneut.",
@@ -3611,8 +3611,8 @@ window.ZHTranslations = {
       "en": "Your image was uploaded, but the gallery entry could not be saved. Please try again later."
     },
     "gallery.upload.success": {
-      "de": "Vielen Dank! Dein Screenshot wurde erfolgreich hochgeladen und wartet auf Freigabe.",
-      "en": "Thank you! Your screenshot has been uploaded and is awaiting approval."
+      "de": "Danke! Dein Screenshot ist hochgeladen und wird freigeschaltet, sobald er geprüft ist.",
+      "en": "Thanks! Your screenshot is uploaded and will go live once it's been checked."
     },
     "gallery.count": {
       "de": "{count} Screenshots",
@@ -3856,7 +3856,7 @@ window.ZHTranslations = {
     "turnstile.failed": { "de": "Die Sicherheitsprüfung hat nicht geklappt. Bitte lade die Seite neu und versuche es noch einmal.", "en": "The security check did not work. Please reload the page and try again." },
     "google.signIn": { "de": "Mit Google anmelden", "en": "Sign in with Google" },
     "google.signUp": { "de": "Mit Google registrieren", "en": "Sign up with Google" },
-    "google.registerNote": { "de": "Bei Google fragen wir dich danach nach deinem Spielernamen und den Regeln.", "en": "With Google we ask for your player name and the rules in the next step." },
+    "google.registerNote": { "de": "Bei Google fragen wir dich im Anschluss nach deinem Spielernamen und den Regeln.", "en": "If you use Google, we ask for your player name and the rules afterwards." },
     "google.or": { "de": "oder mit E-Mail", "en": "or with email" },
     "google.redirecting": { "de": "Weiter zu Google …", "en": "Continuing to Google …" },
     "google.cancelled": { "de": "Die Anmeldung mit Google wurde abgebrochen. Du kannst es noch einmal versuchen oder dich mit E-Mail anmelden.", "en": "Signing in with Google was cancelled. You can try again or sign in with email." },
@@ -3886,14 +3886,14 @@ window.ZHTranslations = {
     "account.unavailable": { "de": "Die Anmeldung ist gerade nicht verfügbar. Bitte versuche es erneut.", "en": "Sign-in is currently unavailable. Please try again." },
     "account.logoutFailed": { "de": "Abmelden ist gerade nicht möglich. Bitte erneut versuchen.", "en": "Sign-out failed. Please try again." },
     "account.profileTitle": { "de": "Mein ZHServer-Profil", "en": "My ZHServer profile" },
-    "account.profileIntro": { "de": "Deine zentrale Identität bei ZHServer. Spiel- und Community-Aktivität werden später hier zusammengeführt.", "en": "Your central ZHServer identity. Game and community activity will be brought together here later." },
+    "account.profileIntro": { "de": "Dein Konto bei ZHServer. Später siehst du hier auch, was du im Spiel und in der Community gemacht hast.", "en": "Your ZHServer account. Later you'll also see your game and community activity here." },
     "account.profileGuest": { "de": "Melde dich an, um dein eigenes Profil zu sehen.", "en": "Sign in to view your own profile." },
     "account.createdAt": { "de": "Registriert seit", "en": "Registered since" },
     "account.nameMissing": { "de": "Bitte lege einen öffentlichen Anzeigenamen fest, bevor du Beiträge oder Screenshots einreichst.", "en": "Set a public display name before submitting posts or screenshots." },
     "account.nameEditingPending": { "de": "Ein öffentlicher Anzeigename fehlt noch. Die Namensbearbeitung wird vorbereitet; Beiträge und Screenshots benötigen einen gültigen Anzeigenamen.", "en": "A public display name is still missing. Name editing is being prepared; posts and screenshots require a valid display name." },
     "account.statusLabel": { "de": "Accountstatus", "en": "Account status" },
     "account.active": { "de": "Aktiv", "en": "Active" },
-    "account.statusUnavailable": { "de": "—", "en": "—" },
+    "account.statusUnavailable": { "de": "keine Angabe", "en": "not available" },
     "account.emailPrivate": { "de": "Nur für dich sichtbar.", "en": "Visible only to you." },
     "account.profileUnavailable": { "de": "Deine Accountdaten konnten gerade nicht bestätigt werden. Bitte versuche es erneut.", "en": "Your account details could not be verified. Please try again." },
     "account.saveName": { "de": "Speichern", "en": "Save" },
@@ -3903,7 +3903,7 @@ window.ZHTranslations = {
     "account.characterTitle": { "de": "Spielcharakter", "en": "Game character" },
     "account.characterNote": { "de": "Charakter, Level, Ausrüstung und Spielzeit werden hier angezeigt, sobald die Spielschnittstelle dafür angebunden ist. Diese Daten sind noch nicht verfügbar.", "en": "Character details, level, equipment and play time will appear here once the game connection is available. These details are not available yet." },
     "account.activityTitle": { "de": "Community-Aktivität", "en": "Community activity" },
-    "account.activityNote": { "de": "Hier sollen später deine Forenbeiträge und Screenshots zusammenkommen. Die persönliche Übersicht ist noch in Vorbereitung.", "en": "This area will bring together your forum posts and screenshots. The personal overview is still being prepared." },
+    "account.activityNote": { "de": "Hier siehst du später deine Forenbeiträge und Screenshots. Die Übersicht ist noch nicht fertig.", "en": "Your forum posts and screenshots will show up here later. This overview isn't ready yet." },
     "account.toForum": { "de": "Zum Forum", "en": "Visit the forum" },
     "account.toGallery": { "de": "Zur Galerie", "en": "Visit the gallery" },
     "forum.createPost": { "de": "Beitrag erstellen", "en": "Create a post" },
@@ -4343,7 +4343,7 @@ Object.assign(window.ZHTranslations.messages, {
 
 Object.assign(window.ZHTranslations.messages, {
   "pulse.title": {de:"Du entscheidest mit.",en:"Have your say."},
-  "pulse.intro": {de:"Deine Meinung zur nächsten Etappe von Zombiehölle Survival.",en:"Your input on what comes next for Zombie Hell Survival."},
+  "pulse.intro": {de:"Sag uns, was als Nächstes in Zombiehölle Survival kommen soll.",en:"Tell us what should come next in Zombie Hell Survival."},
   "pulse.preparing": {de:"Neue Abstimmungen werden vorbereitet.",en:"New polls are being prepared."},
   "pulse.empty": {de:"Gerade gibt es keine aktive Abstimmung.",en:"There are no active polls at the moment."},
   "pulse.loading": {de:"Abstimmungen werden geladen …",en:"Loading polls…"},
@@ -4365,7 +4365,7 @@ Object.assign(window.ZHTranslations.messages, {
   "pulse.polls": {de:"Abstimmungen",en:"Polls"},
   "pulse.forumLink": {de:"Zum Forum",en:"Visit the forum"},
   "pulse.armaTitle": {de:"Zombiehölle für Arma",en:"Zombie Hell for Arma"},
-  "pulse.armaNote": {de:"Zombiehölle begann im Arma-Umfeld. Für eine Rückkehr zu Arma 3 oder Arma Reforger gibt es derzeit keine konkreten Pläne.",en:"Zombie Hell started in Arma. There are currently no concrete plans for a return with Arma 3 or Arma Reforger."},
+  "pulse.armaNote": {de:"Zombiehölle hat mit Arma angefangen. Eine Rückkehr zu Arma 3 oder Arma Reforger ist im Moment nicht geplant.",en:"Zombie Hell started out on Arma. A return to Arma 3 or Arma Reforger isn't planned right now."},
   "pulse.armaMore": {de:"Mehr dazu",en:"Read more"},
   "pulse.forbidden": {de:"Dafür brauchst du ZH-Adminrechte.",en:"This requires ZH-Admin permissions."},
   "pulse.invalid": {de:"Bitte prüfe Frage, Optionen und Einstellungen.",en:"Please check the question, options and settings."},

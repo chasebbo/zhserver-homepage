@@ -94,7 +94,8 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
 - Nur bestätigte Fakten nennen. Keine Spielinhalte, Termine oder fertigen
   Funktionen erfinden. Fehlende notwendige Informationen erfragen. Technische
   Details nur erklären, wenn sie an der jeweiligen Stelle relevant sind.
-- Das aktuelle Projekt als persistente **3D-Multiplayer-Welt** beschreiben.
+- Das aktuelle Projekt als **3D-Multiplayer-Welt** beschreiben, in der der
+  Fortschritt gespeichert bleibt. Das Fachwort „persistent“ in Spielertexten meiden.
   Historische 2D-Versionen dürfen weiterhin korrekt als 2D bezeichnet werden.
 - Gute bestehende Texte erhalten. Nur veraltete, falsche oder ausdrücklich
   beauftragte Texte ändern. Keine zusätzlichen Überschriften, Werbesprüche,
@@ -102,12 +103,42 @@ Aktueller Homepage-Checkpoint: `docs/HOMEPAGE_CHECKPOINT.md`.
 - DE und EN natürlich formulieren und das zentrale Übersetzungssystem nutzen.
   Englische Texte sinngemäß übersetzen.
 - Verbindlicher Landingpage-Titel: **Zombiehölle Survival heute**.
-- Verbindlicher deutscher Landingpage-Absatz, wortgetreu:
-  „Erkunde die Welt von Zombiehölle Survival, sammle Ausrüstung, baue deine eigene Basis und überlebe gemeinsam mit anderen Spielern. Die persistente 3D-Multiplayer-Welt wird ständig erweitert und verbessert.“
+- Verbindlicher deutscher Landingpage-Absatz, wortgetreu (neu gefasst mit Freigabe
+  Sebastian 03.11.2026):
+  „Zombiehölle Survival ist eine 3D-Multiplayer-Welt im Browser, in der dein Fortschritt gespeichert bleibt. Du suchst Ausrüstung, baust dir eine Basis und überlebst zusammen mit anderen. Die Welt wird laufend größer und besser.“
 - In diesen Absatz keine zusätzlichen Erklärungen zu älteren Testversionen,
   Veröffentlichungen oder dem Stand der 3D-Umstellung aufnehmen.
 - Bei jeder künftigen Textänderung diese Regeln prüfen. Eine ausdrückliche
   konkrete Formulierung des Nutzers hat Vorrang.
+
+### Prüfregel KI-Stil (Sebastian 03.11.2026, gilt für alle neuen Texte)
+
+Jeder neue oder geänderte sichtbare Text (DE und EN, auch Hinweise, Meldungen,
+Alt-Texte und Knöpfe) wird vor der Vorlage hierauf geprüft. Ziel: menschlich,
+umgangssprachlich und direkt, aber nicht künstlich lässig.
+
+- Keine Gedankenstriche („–“, „—“, „ - “ zwischen Satzteilen), auch nicht als
+  Platzhalter.
+- Kein „nicht nur … sondern auch“ und keine gestelzten Gegenüberstellungen
+  („nicht einfach X, sondern Y“).
+- Keine Dreierlisten aus Prinzip („Erkunde, sammle, baue“). Eine Aufzählung nur,
+  wenn wirklich so viele Dinge gemeint sind.
+- Keine Werbe- und Abenteuerfloskeln: „Tauche ein“, „erwartet dich“, „Mach dich
+  bereit“, „nahtlos“, „spannend“, „ultimativ“, „episch“, „Reise“, „entdecke“,
+  „Herzstück“, „frischer Wind“; EN „dive into“, „await“, „journey“, „seamless“,
+  „epic“, „ultimate“, „discover“.
+- Keine Doppelpunkt-Zuspitzungen („Das Ergebnis: …“, „mit nur einem Ziel: …“).
+- Keine rhetorischen Fragen und keine pathetischen Schlusssätze („Doch ihre
+  Geschichte bleibt erhalten.“). Eine echte Frage an den Leser ist erlaubt.
+- Satzbau abwechseln, keine Reihe gleich gebauter Sätze. Kein Amts- und
+  Hauptwortstil („wird durchgeführt“, „zur Verfügung gestellt“, „bzw.“).
+- Keine steifen, englisch gedachten Sätze. Englisch ebenso natürlich schreiben,
+  nicht Wort für Wort übersetzen.
+- Anrede einheitlich „du“ (EN „you“). „Ihr“ nur, wo bewusst alle gemeint sind,
+  etwa beim Dank an die Community. Entwicklung in der Ich-Form (Sebastian
+  entwickelt allein), Community-Geschichte in der Wir-Form.
+- Rechtstexte (Impressum, Datenschutz, Nutzungsbedingungen, Community-Regeln)
+  inhaltlich nur nach Sebastians Auftrag ändern; Auffälligkeiten melden.
 
 
 ## Web-Alpha-Status ohne Datum
