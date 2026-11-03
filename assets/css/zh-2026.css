@@ -63,10 +63,14 @@ body.zh-2026 h1, body.zh-2026 h2, body.zh-2026 h3 { font-family: var(--zh-head);
 .zh-2026 .header.zh-site-header .header-brand-row > .logo { font-family: var(--zh-head); font-weight: 700; font-size: 23px; color: #f3eee2; letter-spacing: .02em; }
 .zh-2026 .header.zh-site-header .home-header-welcome { font-family: var(--zh-text); font-size: 11px; font-weight: 600; letter-spacing: .16em; color: var(--zh-gold); }
 .zh-2026 .header.zh-site-header .navbar > .nav-menu { padding: 11px 0 12px; margin-top: 4px; }
-.zh-2026 .header.zh-site-header .nav-menu a { font-family: var(--zh-text); font-size: 15px; font-weight: 500; color: #dddbd2; padding-bottom: 4px; border-bottom: 2px solid transparent; }
-.zh-2026 .header.zh-site-header .nav-menu a:hover { color: #fff; border-bottom-color: rgba(217, 189, 124, .4); }
+/* Menü: genau ein Strich, gezeichnet über ::after aus style.css. Aktiv gold, beim Darüberfahren dezent. */
+.zh-2026 .header.zh-site-header .nav-menu a { font-family: var(--zh-text); font-size: 15px; font-weight: 500; color: #dddbd2; border: 0; text-decoration: none; }
+.zh-2026 .header.zh-site-header .nav-menu a::after { bottom: -6px; height: 2px; border-radius: 1px; background: rgba(217, 189, 124, .35); }
+.zh-2026 .header.zh-site-header .nav-menu a:hover { color: #fff; }
 .zh-2026 .header.zh-site-header .nav-menu a.active,
-.zh-2026 .header.zh-site-header .nav-menu a[aria-current="page"] { color: #fff; border-bottom-color: var(--zh-gold); }
+.zh-2026 .header.zh-site-header .nav-menu a[aria-current="page"] { color: #fff !important; }
+.zh-2026 .header.zh-site-header .nav-menu a.active::after,
+.zh-2026 .header.zh-site-header .nav-menu a[aria-current="page"]::after { width: 100% !important; background: var(--zh-gold) !important; }
 .zh-2026 .language-switcher button { min-height: 44px; min-width: 44px; }
 .zh-2026 .zh-account-guest, .zh-2026 .zh-account-register, .zh-2026 .zh-account-trigger,
 .zh-2026 .zh-account-quick-login, .zh-2026 .zh-account-quick-register { min-height: 44px; }

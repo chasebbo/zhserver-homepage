@@ -152,7 +152,8 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Vorbereitete Teile schaltet `assets/js/zh-ui.js` ein (`FEATURES`, `RELEASES`), nicht im HTML.
   Erst einschalten, wenn es echte Daten gibt bzw. die Version live ist: Tore der Safezone
   (v132), Funk-Countdown, Ping und Laufzeit, Video im Startbild, Seite `geschichte.html` und
-  Ladetext (v131). Links auf `geschichte.html` bekommen ihr Ziel erst mit `RELEASES.v131`.
+  Ladetext (v131). Die Weltlage (`worldStatus`) bleibt aus, bis es echte Werte gibt; `world-status.js`
+  erzeugt nur Konzeptwerte und wird auf der neuen Startseite nicht geladen. Links auf `geschichte.html` bekommen ihr Ziel erst mit `RELEASES.v131`.
 - Funkgerät steht in `assets/js/radio.js` (früher in `main.js`) und auf jeder Homepage-Seite.
 - Ränge und Zombie-Zähler (Sebastian 03.11.2026) in `assets/js/zh-ranks.js`, versteckt hinter
   `worldZombieTotal`, `playerStats` und `playerRanks`. Daten von Opus 3 über `get_world_zombie_total`,

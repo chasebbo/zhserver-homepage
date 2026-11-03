@@ -52,7 +52,8 @@ body.zh-2026 .zh-world-card [data-world-value="survivors"] .zh-world-number { co
 body.zh-2026 .zh-world-card [data-world-value="infected"] .zh-world-number { color: #ef5f58; }
 body.zh-2026 .zh-world-card [data-world-value="contested"] .zh-world-number { color: #d6d6d6; }
 .zh-world-number.is-flash { animation: zhFlash 1.4s ease-out; }
-body.zh-2026 .zh-world-card .zh-world-bar { display: flex; gap: 3px; height: 8px; background: none; border-radius: 4px; overflow: visible; }
+/* Der Glanzstreifen (game-alpha-panels.css) bleibt im Balken und damit in der Kachel */
+body.zh-2026 .zh-world-card .zh-world-bar { display: flex; gap: 3px; height: 8px; background: none; border-radius: 4px; overflow: hidden; isolation: isolate; }
 body.zh-2026 .zh-world-card .zh-world-bar > span { border-radius: 4px; transition: flex-basis 1.2s ease, width 1.2s ease; }
 body.zh-2026 .zh-world-card .era-world-link { align-self: flex-start; font-size: 14px; }
 
@@ -362,3 +363,12 @@ body.zh-2026 :is(.zh-gallery-main, .zh-gallery-upload) > .container { max-width:
 .zh-zombie-total { justify-content: center; }
 .zh-zombie-number { display: block; font: 500 clamp(40px, 4.6vw, 56px)/1 var(--zh-mono); font-variant-numeric: tabular-nums; color: #f0c766; animation: zhGoldGlow 2.6s ease-in-out infinite; overflow-wrap: anywhere; }
 .zh-zombie-week { color: var(--zh-ink-soft); }
+
+/* NEU-Balken: nur der neue Rahmen; der Schimmer liegt im Link, der ihn mit gleichem Radius abschneidet */
+body.zh-2026 .home-changelog-band { border: 0; border-radius: var(--zh-radius); background: none; box-shadow: none; }
+body.zh-2026 .home-changelog-band::before { display: none; }
+body.zh-2026 .home-changelog-band .home-changelog-link { overflow: hidden; border-radius: var(--zh-radius); isolation: isolate; }
+
+/* Ohne Weltlage stehen Spielserver, Top 5 bzw. Zombies und Neu dabei in einer Reihe */
+body.zh-2026 .zh-lage-grid:not(:has(.zh-world-card.is-on)) .zh-newest { grid-column: auto; }
+@media (max-width: 980px) and (min-width: 641px) { body.zh-2026 .zh-lage-grid:not(:has(.zh-world-card.is-on)) .zh-newest { grid-column: 1 / -1; } }
