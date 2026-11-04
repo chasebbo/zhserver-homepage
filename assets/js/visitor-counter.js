@@ -68,7 +68,7 @@
         if (!counterScriptUrl) return false;
         return new Promise((resolve) => {
             const script = document.createElement("script");
-            script.src = new URL("translations.js?v=20261104-besucher2", counterScriptUrl).href;
+            script.src = new URL("translations.js?v=20261103-umbau2", counterScriptUrl).href;
             script.onload = () => resolve(translationsReady());
             script.onerror = () => resolve(false);
             document.head.append(script);

@@ -329,21 +329,25 @@ body.zh-2026 .legal-section h2 { text-transform: none; letter-spacing: 0; }
 body.zh-2026 .site-footer.zh-global-footer { padding: 40px 0 48px; background: #0a0e12; border-top: 0; }
 body.zh-2026 .site-footer.zh-global-footer .footer { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "brand stats" "legal legal"; gap: 26px 24px; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-brand { grid-area: brand; display: grid; grid-template-columns: 54px auto; column-gap: 16px; align-items: center; }
-body.zh-2026 .site-footer.zh-global-footer .zh-footer-brand::before { content: ""; grid-row: 1 / span 2; width: 54px; height: 54px; background: url("../images/umbau/logo-hell2.png") center/contain no-repeat; }
+body.zh-2026 .site-footer.zh-global-footer .zh-footer-brand::before { content: ""; grid-row: 1 / span 2; width: 54px; height: 54px; background: url("../images/umbau/logo-hell2.png") -9px center/contain no-repeat; } /* Das Bild hat links 9 px durchsichtigen Rand. */
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-brand h3 { margin: 0; font: 700 19px/1.3 var(--zh-head); color: #f0ece0; }
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-brand p { margin: 0; font-size: 13px; color: var(--zh-muted); }
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-brand p:not(.zh-footer-history)::after { content: " · zhserver.de · zombiehölle.de"; }
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-brand .zh-footer-history { grid-column: 2; margin-top: 2px; }
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-history a { display: inline-flex; align-items: center; min-height: 24px; color: #a7b0b4; text-decoration: none; }
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-history a:hover { color: #fff; }
-body.zh-2026 .site-footer.zh-global-footer .zh-footer-stats { grid-area: stats; display: grid; grid-template-columns: fit-content(100%); justify-content: end; gap: 14px; margin: 0; padding: 0; border: 0; background: none; }
-body.zh-2026 .site-footer.zh-global-footer .zh-footer-community { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; max-width: none; }
+body.zh-2026 .site-footer.zh-global-footer .zh-footer-stats { grid-area: stats; display: grid; grid-template-columns: fit-content(100%); justify-content: end; gap: 10px; margin: 0; padding: 0; border: 0; background: none; }
+body.zh-2026 .site-footer.zh-global-footer .zh-footer-community { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px 12px; max-width: none; }
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-community dl { display: contents; }
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-community-heading { display: none; }
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-visitors { border: 0; padding: 0; }
-body.zh-2026 .site-footer.zh-global-footer .visitor-stats { display: flex; align-items: center; gap: 18px; width: auto; }
-body.zh-2026 .site-footer.zh-global-footer .visitor-stats-title { margin: 0; font-family: 'Inter', sans-serif; line-height: 1.3; }
-body.zh-2026 .site-footer.zh-global-footer .visitor-stats-grid { grid-template-columns: repeat(2, 140px); }
+body.zh-2026 .site-footer.zh-global-footer .visitor-stats { display: flex; justify-content: flex-end; align-items: center; gap: 14px; }
+body.zh-2026 .site-footer.zh-global-footer .visitor-stats-title { margin: 0; line-height: 1.3; color: var(--gold); white-space: nowrap; }
+body.zh-2026 .site-footer.zh-global-footer .visitor-stats-grid { display: flex; gap: 8px; }
+body.zh-2026 .site-footer.zh-global-footer .visitor-stat { display: inline-flex; align-items: center; gap: 8px; min-height: 33.5px; padding: 5px 12px; }
+body.zh-2026 .site-footer.zh-global-footer .visitor-stat dt { font-size: 12px; line-height: 1.3; white-space: nowrap; }
+body.zh-2026 .site-footer.zh-global-footer .visitor-stat :is(dd, #total-visitors) { margin: 0; font-size: 13px; line-height: 1.3; white-space: nowrap; }
+body.zh-2026 .site-footer.zh-global-footer .visitor-stat-total { border-color: rgba(212, 168, 74, .42); background: rgba(212, 168, 74, .055); }
 body.zh-2026 .site-footer.zh-global-footer .zh-community-line { display: inline-flex; align-items: center; gap: 8px; min-height: 32px; margin: 0; padding: 6px 13px; border: 1px solid rgba(255, 255, 255, .1); border-radius: 999px; background: rgba(10, 14, 17, .72); font-size: 13px; color: #d7d9d3; }
 body.zh-2026 .site-footer.zh-global-footer .zh-community-line[hidden] { display: none; }
 body.zh-2026 .site-footer.zh-global-footer .zh-community-line dt { margin: 0; font-size: 13px; font-weight: 500; letter-spacing: 0; text-transform: none; color: #d7d9d3; }
@@ -357,15 +361,18 @@ body.zh-2026 .site-footer.zh-global-footer .zh-footer-links a { display: inline-
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-links a:hover { color: #fff; }
 @media (max-width: 900px) {
     body.zh-2026 .site-footer.zh-global-footer .footer { grid-template-columns: 1fr; grid-template-areas: "brand" "stats" "legal"; padding: 0 16px; }
-    body.zh-2026 .site-footer.zh-global-footer .zh-footer-stats { justify-content: start; }
+    body.zh-2026 .site-footer.zh-global-footer .zh-footer-stats { grid-template-columns: minmax(0, 1fr); }
+    body.zh-2026 .site-footer.zh-global-footer .zh-community-line { flex: 1 1 auto; justify-content: space-between; }
     body.zh-2026 .site-footer.zh-global-footer .zh-footer-legal { flex-direction: column; align-items: flex-start; }
 }
 body.zh-2026 .site-footer.zh-global-footer .zh-community-line :is(dd, dd *) { font-size: 13px; line-height: 1.3; white-space: nowrap; text-align: left; }
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-release a { color: #e6cd8e; text-decoration: none; }
-@media (max-width: 900px) { body.zh-2026 .site-footer.zh-global-footer .zh-footer-links { justify-content: flex-start; } }
+@media (max-width: 900px) { body.zh-2026 .site-footer.zh-global-footer .zh-footer-links { justify-content: space-between; width: 100%; } }
 @media (max-width: 600px) {
-    body.zh-2026 .site-footer.zh-global-footer .visitor-stats { flex-direction: column; align-items: flex-start; gap: 10px; }
-    body.zh-2026 .site-footer.zh-global-footer .visitor-stats-grid { grid-template-columns: repeat(2, minmax(0, 140px)); }
+    body.zh-2026 .site-footer.zh-global-footer .footer { row-gap: 18px; }
+    body.zh-2026 .site-footer.zh-global-footer .zh-footer-legal { gap: 10px; }
+    body.zh-2026 .site-footer.zh-global-footer .visitor-stats { flex-direction: column; align-items: stretch; gap: 4px; }
+    body.zh-2026 .site-footer.zh-global-footer .visitor-stat { flex: 1 1 auto; justify-content: space-between; gap: 6px; padding: 5px 10px; }
 }
 
 /* Abstand zum flacheren Kopf (fest am PC, im Fluss am Handy), für alle umgebauten Seiten. Gleicher sichtbarer Abstand wie vorher. */
