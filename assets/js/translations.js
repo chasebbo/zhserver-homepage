@@ -3383,7 +3383,7 @@ window.ZHTranslations = {
     "game.entry.login": { "de": "KOSTENLOS ANMELDEN & SPIELEN", "en": "SIGN IN & PLAY FOR FREE" },
     "game.entry.play": { "de": "Spiel starten", "en": "Start game" },
     "game.entry.registerHint": { "de": "Registriere dich, um zu spielen.", "en": "Register to play." },
-    "game.entry.loadHint": { "de": "Der Start dauert am PC etwa eine Minute, auf Handys länger. Lass den Tab dabei offen.", "en": "Starting takes about a minute on a PC, longer on phones. Keep the tab open while it loads." },
+    "game.entry.loadHint": { "de": "Der Start dauert am PC etwa eine Minute, auf Handys länger, weil dein Browser die Grafik vorbereitet. Lass den Tab dabei offen.", "en": "Starting takes about a minute on a PC and longer on phones while your browser prepares the graphics. Keep this tab open." },
     "game.entry.stageLeave": { "de": "ZURÜCK ZUR HOMEPAGE", "en": "BACK TO HOMEPAGE" },
     "game.entry.stageLeaveShort": { "de": "ZURÜCK", "en": "BACK" },
     "game.entry.stageSize": { "de": "Spielfeldgröße", "en": "Playing field size" },
@@ -4510,7 +4510,6 @@ Object.assign(window.ZHTranslations.messages, {
 // Homepage-Umbau November 2026: neue Texte auf Startseite, Archiv und in den gemeinsamen Bausteinen.
 Object.assign(window.ZHTranslations.copy, {
   "umbau-hero-image-alt": {de:"Das Portal der Militärbasis Ost hinter Sandsackstellungen",en:"The portal at Military Base East behind sandbag positions"},
-  "umbau-hero-date": {de:"Die Welt nach dem 14. März 2044",en:"The world after 14 March 2044"},
   "umbau-title": {de:"Zombiehölle Survival",en:"Zombie Hell Survival"},
   "umbau-hero-lead": {de:"Eine offene Welt voller Zombies und seltsamer Dinge. Allein kommst du nicht so weit, also such dir lieber Mitstreiter.",en:"An open world full of zombies and strange things. You won't get far alone, so better find some allies."},
   "umbau-play-now": {de:"Jetzt spielen",en:"Play now"},
@@ -4609,7 +4608,7 @@ Object.assign(window.ZHTranslations.copy, {
 });
 Object.assign(window.ZHTranslations.copy, {
   "umbau-play-title": {de:"Spielen",en:"Play"},
-  "umbau-play-load": {de:"Der Start dauert am PC etwa eine Minute, auf Handys länger. Lass den Tab dabei offen.",en:"Starting takes about a minute on a PC, longer on phones. Keep the tab open while it loads."},
+  "umbau-play-load": {de:"Der Start dauert am PC etwa eine Minute, auf Handys länger, weil dein Browser die Grafik vorbereitet. Lass den Tab dabei offen.",en:"Starting takes about a minute on a PC and longer on phones while your browser prepares the graphics. Keep this tab open."},
   "umbau-play-news": {de:"Was ist neu?",en:"What's new?"},
   "umbau-controls-pc": {de:"Steuerung am PC",en:"Controls on PC"},
   "umbau-controls-phone": {de:"Steuerung am Handy",en:"Controls on phones"},

@@ -17,7 +17,7 @@
         playerRanks: false  // Rang-Abzeichen im Forum, braucht get_player_ranks und die Abzeichen
     };
     const RELEASES = {
-        v131: false         // Ladetext "etwa eine Minute" und der Abschnitt TIEFENLICHT auf der Startseite
+        v131: true          // Ladetext "etwa eine Minute" und der Kasten "Die Vorgeschichte" auf der Startseite
     };
 
     function applySwitches(root = document) {

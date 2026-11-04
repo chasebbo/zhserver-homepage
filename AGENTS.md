@@ -165,7 +165,7 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   `world-status.js` erzeugt nur Konzeptwerte und gehört nicht in den Umbau.
   Sebastian 03.11.2026: Der Umbau geht erst online, wenn die echte Weltlage drin ist.
   Seite `geschichte.html`: „Geschichte“ im Menü führt dorthin. Inhalt ist Sebastians Fassung vom 04.11.2026, wörtlich aus
-  `wasstehtan/GESCHICHTE-SEBASTIAN.md` im Spiel-Projekt (Teil 1 bis 3). Geht erst mit dem Release von v131 online. Nichts
+  `wasstehtan/GESCHICHTE-SEBASTIAN.md` im Spiel-Projekt (Teil 1 bis 3). Online seit dem Release von v131 (04.11.2026). Nichts
   kürzen, nichts dazuschreiben. Die Community-Geschichte seit 2013 bleibt in `archiv.html#history`,
   erreichbar über den Fußlink „Community-Geschichte“ auf allen umgebauten Seiten.
 - Keine Anzeige der Spieler online auf der Homepage (Sebastian 03.11.2026), auch nicht versteckt
@@ -240,7 +240,8 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 04.11.2026: Hauptversion v130-2 (`game.html`), Testkandidat v131-11 mit den Paketen
-  `pc` und `handy` auf `game-test-v130.html` (`gamePackageSource` in `game-entry.js` wählt das
-  Paket). v131-8 und v130-1 sind archiviert und entfernt, vorher v129 mit `game-test-v129.html`,
-  v131-3 und v131-4. Solange v130-2 live ist, ist sie zugleich der Rückweg.
+- Stand 04.11.2026: Hauptversion v131-11 mit den Paketen `pc` und `handy` auf `game.html` und
+  `game-test-v130.html` (`gamePackageSource` in `game-entry.js` wählt das Paket). Rückweg v130-2:
+  `game.html` zurück auf `game/survival-v130-2.html?build=v130-2-20261102`, `data-src-handy` weg.
+  v131-8 und v130-1 sind archiviert und entfernt, vorher v129 mit `game-test-v129.html`,
+  v131-3 und v131-4.
