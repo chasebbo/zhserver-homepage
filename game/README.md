@@ -28,12 +28,11 @@ Teil überschreitet 100 MiB. Keine zweite Auth-, Gasttimer- oder
 Persistence-Lösung auf der Homepage.
 
 Öffentlich liegen höchstens drei Builds: die Hauptversion v130-2, ihr
-Vorgänger v130-1 als Rückweg und v129 als Rückfall zum Server v129
-(`game-test-v129.html`). Bis zum Release von v131 liegen zusätzlich die
-Testkandidaten v131-3 und v131-4; `game-test-v130.html` lädt v131-4 (Auftrag
-vom 03.11.2026).
+Vorgänger v130-1 als Rückweg und der Testkandidat v131-8 (nur fürs Handy, am PC
+zeigt er einen Hinweis); `game-test-v130.html` lädt v131-8 (Auftrag vom
+04.11.2026).
 Jede Spielversion hat eigene Dateinamen; vorhandene Dateien werden nie
-überschrieben. Ältere Builds (zuletzt v131-2) sind außerhalb des Repositorys
+überschrieben. Ältere Builds (zuletzt v129, v131-3 und v131-4) sind außerhalb des Repositorys
 archiviert.
 
 Prüfstand und Freigabegrenzen: `../docs/GAME_ENTRY_CHECKPOINT.md`.

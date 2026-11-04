@@ -231,10 +231,9 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   Testseite nach `C:\ZHServer-Archiv\homepage-builds\<version>\` mit Manifest
   (Pfad, Größe, SHA-256) archivieren und gegen den Commit prüfen. Danach den
   Rückleitungseintrag nur dieser Testseite entfernen.
-- Welche Builds bleiben (Sebastian 02.11.2026, gilt ohne Nachfrage): die
-  aktuelle Version, ihr direkter Vorgänger als Rückweg und v129 als Rückfall zum
-  Server v129, solange Sebastian nichts anderes sagt. Der Rest wird archiviert
-  und entfernt.
+- Welche Builds bleiben (Sebastian 04.11.2026, gilt ohne Nachfrage): die
+  aktuelle Version, ihr direkter Vorgänger als Rückweg und der aktuelle
+  Testkandidat. Der Rest wird archiviert und entfernt.
 - Dateinamen (Dauerregel Sebastian 02.11.2026): Eine einmal veröffentlichte
   Datei wird nie mit anderem Inhalt unter demselben Namen ausgeliefert. Jede
   Spielversion hat eigene Dateinamen (`survival-v130-2.*`). Vorhandene Dateien
@@ -242,9 +241,6 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 03.11.2026: Hauptversion v130-2 (`game.html`), Rückweg v130-1, Rückfall
-  v129, Testseiten `game-test-v129.html` (v129) und `game-test-v130.html` (Testkandidat
-  v131-3, davor v131-2). Bis zum v131-Release dürfen die Builds liegen bleiben (Sebastian
-  02.11.2026), aufgeräumt wird beim Release.
-  v131, v130 und v127 sind archiviert und entfernt (vorher v128 und v119). Die Seite
-  liegt ungepackt bei rund 886 MB, das Pages-Artefakt bei 710 MB.
+- Stand 04.11.2026: Hauptversion v130-2 (`game.html`), Rückweg v130-1, Testkandidat
+  v131-8 nur fürs Handy auf `game-test-v130.html` (am PC zeigt die Seite einen Hinweis).
+  v129 mit `game-test-v129.html`, v131-3 und v131-4 sind archiviert und entfernt.
