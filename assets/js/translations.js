@@ -4683,5 +4683,12 @@ Object.assign(window.ZHTranslations.copy, {
   "umbau-story-wardens": {de:"Die Wächter halten die Portale halb geschlossen, dann leuchtet ein Portal golden. Sie warnen uns und brauchen etwas aus unserer Welt, um die Durchgänge zu versiegeln.",en:"The Wardens keep the portals half closed; then a portal glows golden. They warn us and need something from our world to seal the passages."},
   "umbau-story-handlers": {de:"Die Lenker steuern die Infizierten und schicken Horden. Bevor eine Horde kommt, pulsiert das Portal rot.",en:"The Handlers control the infected and send hordes. Before a horde comes, the portal pulses red."},
   "umbau-footer-community-history": {de:"Community-Geschichte",en:"Community history"},
+  "umbau-play-features-title": {de:"Das gibt es im Spiel",en:"What's in the game"},
+  "umbau-play-features-multiplayer": {de:"Multiplayer & Gruppen",en:"Multiplayer & groups"},
+  "umbau-play-features-multiplayer-note": {de:"Erkunde die Welt gemeinsam, bilde eine Gruppe und bleib über den Chat in Verbindung.",en:"Explore together, form a group and stay in touch through chat."},
+  "umbau-play-features-building-note": {de:"Baue deine eigene Basis mit modularen Bauteilen und schaffe Platz für deine Vorräte.",en:"Build your own base with modular parts and make room for your supplies."},
+  "umbau-play-features-persistence-note": {de:"Dein Charakter und dein Fortschritt bleiben mit deinem ZHServer-Account erhalten.",en:"Your character and progress are saved to your ZHServer account."},
+  "umbau-play-features-loot": {de:"Fahrzeuge & Loot",en:"Vehicles & loot"},
+  "umbau-play-features-loot-note": {de:"Finde Fahrzeuge, durchsuche verlassene Orte und stell deine Ausrüstung zusammen.",en:"Find vehicles, search abandoned places and put together your equipment."},
   "umbau-play-load-first": {de:"Der erste Start kann ein paar Minuten dauern, danach geht es schneller. Lass den Tab dabei offen.",en:"The first start can take a few minutes, after that it gets faster. Keep the tab open while it loads."}
 });

@@ -441,6 +441,14 @@ body.zh-play-page .game-technical-controls .game-mobile-hint { width: auto; marg
 body.zh-play-page .game-fullscreen-button { min-height: 44px; padding: 0 14px; border: 1px solid var(--zh-gold-line); border-radius: 9px; background: none; color: #e6cd8e; cursor: pointer; }
 /* Hinweiskarten: kleine goldene Beschriftung, darunter normale Schrift */
 body.zh-play-page .zh-play-world { margin-top: 24px; }
+/* Die vier Kästen zum Spiel: bewusst leiser als die Weltlage darüber */
+body.zh-play-page .zh-play-features { margin-top: 24px; }
+body.zh-play-page .zh-play-features-title { margin: 4px 0 10px; font: 700 18px/1.2 var(--zh-head); letter-spacing: .01em; text-transform: uppercase; color: #d7d9d3; }
+body.zh-play-page .zh-play-features-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+body.zh-play-page .zh-play-features-grid li { display: flex; flex-direction: column; gap: 4px; min-width: 0; padding: 12px 14px; border: 1px solid rgba(255, 255, 255, .07); border-radius: 10px; }
+body.zh-play-page .zh-play-features-grid h3 { margin: 0; font: 600 14px/1.3 var(--zh-text); letter-spacing: 0; text-transform: none; color: #d7d9d3; }
+body.zh-play-page .zh-play-features-grid p { margin: 0; font-size: 13px; line-height: 1.45; color: var(--zh-ink-soft); }
+@media (max-width: 900px) { body.zh-play-page .zh-play-features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 body.zh-play-page .zh-play-info { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 24px; }
 body.zh-play-page .zh-play-card { display: flex; flex-direction: column; gap: 12px; }
 body.zh-play-page .zh-play-card > * { margin: 0; }
