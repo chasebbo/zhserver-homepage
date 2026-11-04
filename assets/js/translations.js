@@ -3953,14 +3953,6 @@ window.ZHTranslations = {
       "de": "Insgesamt",
       "en": "Total"
     },
-    "visitor.stats.monthFull": {
-      "de": "Besucher diesen Monat",
-      "en": "Visitors this month"
-    },
-    "visitor.stats.totalFull": {
-      "de": "Besucher insgesamt",
-      "en": "Visitors total"
-    },
     "visitor.stats.none": {
       "de": "keine",
       "en": "none"

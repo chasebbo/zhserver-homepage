@@ -61,7 +61,6 @@
 
     async function loadVisitorTranslations() {
         const translationsReady = () => Boolean(window.ZHTranslations?.messages["visitor.stats.title"] &&
-            window.ZHTranslations?.messages["visitor.stats.totalFull"] &&
             window.ZHTranslations?.messages["visitor.stats.partial"] &&
             window.ZHTranslations?.messages["visitor.stats.none"] &&
             window.ZHTranslations?.messages["footer.status.title"]);
@@ -69,7 +68,7 @@
         if (!counterScriptUrl) return false;
         return new Promise((resolve) => {
             const script = document.createElement("script");
-            script.src = new URL("translations.js?v=20261104-besucher", counterScriptUrl).href;
+            script.src = new URL("translations.js?v=20261104-besucher2", counterScriptUrl).href;
             script.onload = () => resolve(translationsReady());
             script.onerror = () => resolve(false);
             document.head.append(script);
@@ -96,11 +95,6 @@
         totalValue.replaceChildren(totalVisitors);
         totalVisitors.setAttribute("data-visitor-value", "total");
         original.replaceWith(visitorWidget);
-    }
-
-    // Redesigned pages hide the "Visitors" heading, so each field names the visitors itself.
-    function visitorLabel(field) {
-        return visitorText(`visitor.stats.${field}${document.body.classList.contains("zh-2026") ? "Full" : ""}`);
     }
 
     function visitorCount(value) {
@@ -159,7 +153,7 @@
             }
         }
         for (const field of statFields) {
-            visitorWidget.querySelector(`[data-visitor-label="${field}"]`).textContent = visitorLabel(field);
+            visitorWidget.querySelector(`[data-visitor-label="${field}"]`).textContent = visitorText(`visitor.stats.${field}`);
             const value = visitorWidget.querySelector(`[data-visitor-value="${field}"]`);
             value.textContent = values[field] === null ? visitorText("visitor.stats.none") : values[field].toLocaleString(locale);
             const isFallback = fallbackPeriods.has(field);
@@ -169,14 +163,14 @@
             if (isFallback) {
                 const minimum = visitorText("visitor.stats.minimum", { count: value.textContent });
                 value.title = minimum;
-                value.setAttribute("aria-label", `${visitorLabel(field)}: ${minimum}`);
+                value.setAttribute("aria-label", `${visitorText(`visitor.stats.${field}`)}: ${minimum}`);
             } else if (isPartial) {
                 const coverage = visitorText("visitor.stats.partial", {
                     count: value.textContent,
                     date: started.toLocaleString(locale, { timeZone: "Europe/Berlin", dateStyle: "short", timeStyle: "short" })
                 });
                 value.title = coverage;
-                value.setAttribute("aria-label", `${visitorLabel(field)}: ${coverage}`);
+                value.setAttribute("aria-label", `${visitorText(`visitor.stats.${field}`)}: ${coverage}`);
             } else {
                 value.removeAttribute("title");
                 value.removeAttribute("aria-label");
