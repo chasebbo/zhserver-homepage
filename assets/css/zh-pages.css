@@ -124,6 +124,8 @@ body.zh-2026 .zh-talk-grid .home-forum-link { align-self: flex-start; margin-top
 .zh-camp-red { border-color: rgba(232, 96, 74, .45); background: radial-gradient(ellipse 70% 160px at 30% 0, rgba(232, 96, 74, .12), transparent 80%), linear-gradient(145deg, rgba(34, 22, 20, .9), rgba(19, 15, 15, .95)); }
 .zh-camp-red h3 { color: #ef6a55; font-size: 34px; }
 .zh-camps-more { margin: 30px 0 0; }
+.zh-backstory { display: flex; flex-direction: column; gap: 12px; }
+.zh-backstory .zh-copy { font-size: 18px; }
 
 /* Neuigkeiten aus dem Changelog */
 .zh-news-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
