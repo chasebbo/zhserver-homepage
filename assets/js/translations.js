@@ -4587,20 +4587,8 @@ Object.assign(window.ZHTranslations.copy, {
 });
 Object.assign(window.ZHTranslations.copy, {
   "umbau-story-title": {de:"Die Geschichte von Zombiehölle",en:"The story of Zombiehölle"},
-  "umbau-story-lead": {de:"Im Jahr 2044 öffnet Projekt TIEFENLICHT in der Versuchsanlage Kesselgrund Durchgänge in eine andere Welt. Funksprüche nennen sie Kaldra.",en:"In 2044, Project TIEFENLICHT opens passages into another world at the Kesselgrund test facility. Radio messages call it Kaldra."},
-  "umbau-story-intro": {de:"Kaldra ist schon verloren. Die Seuche hat dort fast alles Leben verwandelt, lange bevor der erste Durchgang aufging. Mit den Durchgängen kommt sie zu uns. Das Militär riegelt die Portale ab und schweigt.",en:"Kaldra is already lost. The plague transformed almost all life there long before the first passage opened. Through the passages it reaches us. The military seals off the portals and stays silent."},
-  "umbau-story-camps": {de:"Die zwei Lager",en:"The two camps"},
   "umbau-story-guardians": {de:"Sie halten die Portale halb geschlossen, dann leuchtet ein Portal golden. Sie warnen uns und brauchen etwas aus unserer Welt, um die Durchgänge zu versiegeln.",en:"They keep the portals half closed, then a portal glows gold. They warn us, and they need something from our world to seal the passages."},
-  "umbau-story-timeline": {de:"Zeitleiste",en:"Chronology"},
-  "umbau-story-how": {de:"Wie es dazu kam",en:"How it came to this"},
-  "umbau-story-how-copy": {de:"Von einem Labor in Norwegen bis zur Nacht, in der sich die Risse öffneten.",en:"From a lab in Norway to the night the rifts opened."},
   "umbau-story-today": {de:"Heute",en:"Today"},
-  "umbau-story-2031": {de:"Im Labor der Universität Tromsø misst der Physiker Dr. Eirik Halvorsen etwas, das es nicht geben dürfte. Für Bruchteile einer Sekunde verschwindet Licht zwischen zwei Magnetspulen und kommt nicht zurück.",en:"In a lab at the University of Tromsø, physicist Dr Eirik Halvorsen measures something that shouldn't exist. For a fraction of a second, light disappears between two magnetic coils and doesn't come back."},
-  "umbau-story-2041": {de:"Das Tor bleibt jetzt minutenlang offen. Sonden fahren hindurch und senden Bilder von fremden Welten. Das Militär übernimmt die Aufsicht. Aus dem Stromspeicher-Projekt wird Projekt TIEFENLICHT, streng geheim.",en:"The gate now stays open for minutes at a time. Probes drive through and send back pictures of strange worlds. The military takes charge. The energy storage project becomes Project TIEFENLICHT, top secret."},
-  "umbau-story-2044-date": {de:"Kesselgrund · 14. März 2044 · 03:12 Uhr",en:"Kesselgrund · 14 March 2044 · 03:12"},
-  "umbau-story-2044": {de:"TIEFENLICHT fährt auf volle Leistung. Die Messwerte springen über jede Grenze, dann bricht die Verbindung zur Leitstelle ab. Noch in derselben Nacht öffnen sich an vielen Orten Risse in der Luft.",en:"TIEFENLICHT runs at full power. The readings jump past every limit, then the link to the control room goes dead. That same night, rifts open in the air in many places."},
-  "umbau-story-now": {de:"Ob der Unfall in Kesselgrund wirklich ein Unfall war, weiß niemand. Das Militär weiß mehr, als es sagt. Über einen versiegelten Lagebericht vom 14. März 2044 spricht niemand. Und nicht jedes Signal der Wächter ist echt.",en:"Nobody knows whether the accident at Kesselgrund really was an accident. The military knows more than it says. Nobody talks about a sealed situation report from 14 March 2044. And not every signal from the Wardens is real."},
-  "umbau-story-survive": {de:"Für dich zählt erst einmal nur, dass du überlebst.",en:"For now, all that matters is that you survive."}
 });
 // Ränge und Zombie-Zähler (vorbereitet, versteckt bis die Abfragen live sind)
 Object.assign(window.ZHTranslations.copy, {
@@ -4680,8 +4668,6 @@ Object.assign(window.ZHTranslations.copy, {
   "umbau-world-state-survivors": {de:"Hier sind Spieler oder eine Spielerbasis, und kaum Infizierte.",en:"Players or a player base are here, with hardly any infected."},
   "umbau-world-state-infected": {de:"Viele Infizierte, kein Spieler weit und breit.",en:"Many infected and no player anywhere near."},
   "umbau-world-state-contested": {de:"Hier wurde in den letzten Minuten gegen Infizierte gekämpft.",en:"Players fought the infected here in the last few minutes."},
-  "umbau-story-wardens": {de:"Die Wächter halten die Portale halb geschlossen, dann leuchtet ein Portal golden. Sie warnen uns und brauchen etwas aus unserer Welt, um die Durchgänge zu versiegeln.",en:"The Wardens keep the portals half closed; then a portal glows golden. They warn us and need something from our world to seal the passages."},
-  "umbau-story-handlers": {de:"Die Lenker steuern die Infizierten und schicken Horden. Bevor eine Horde kommt, pulsiert das Portal rot.",en:"The Handlers control the infected and send hordes. Before a horde comes, the portal pulses red."},
   "umbau-footer-community-history": {de:"Community-Geschichte",en:"Community history"},
   "umbau-play-features-title": {de:"Das gibt es im Spiel",en:"What's in the game"},
   "umbau-play-features-multiplayer": {de:"Multiplayer & Gruppen",en:"Multiplayer & groups"},
@@ -4691,5 +4677,9 @@ Object.assign(window.ZHTranslations.copy, {
   "umbau-play-features-loot": {de:"Fahrzeuge & Loot",en:"Vehicles & loot"},
   "umbau-play-features-loot-note": {de:"Finde Fahrzeuge, durchsuche verlassene Orte und stell deine Ausrüstung zusammen.",en:"Find vehicles, search abandoned places and put together your equipment."},
   "umbau-test-version": {de:"Testversion v131-8 · nicht öffentlich · Stand 04.11.2026",en:"Test version v131-8 · not public · as of 04.11.2026"},
+  "umbau-story-backstory": {de:"Die Vorgeschichte",en:"The backstory"},
+  "umbau-story-part1": {de:"Teil 1: Die Bergsteiger",en:"Part 1: The climbers"},
+  "umbau-story-part2": {de:"Teil 2: Die Portale",en:"Part 2: The portals"},
+  "umbau-story-part3": {de:"Teil 3: Der Rückkehrer",en:"Part 3: The one who came back"},
   "umbau-play-load-first": {de:"Der erste Start kann ein paar Minuten dauern, danach geht es schneller. Lass den Tab dabei offen.",en:"The first start can take a few minutes, after that it gets faster. Keep the tab open while it loads."}
 });
