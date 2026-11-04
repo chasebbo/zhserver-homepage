@@ -4690,6 +4690,6 @@ Object.assign(window.ZHTranslations.copy, {
   "umbau-play-features-persistence-note": {de:"Dein Charakter und dein Fortschritt bleiben mit deinem ZHServer-Account erhalten.",en:"Your character and progress are saved to your ZHServer account."},
   "umbau-play-features-loot": {de:"Fahrzeuge & Loot",en:"Vehicles & loot"},
   "umbau-play-features-loot-note": {de:"Finde Fahrzeuge, durchsuche verlassene Orte und stell deine Ausrüstung zusammen.",en:"Find vehicles, search abandoned places and put together your equipment."},
-  "umbau-test-version": {de:"Testversion v131-8 · nicht öffentlich · Stand 04.11.2026",en:"Test version v131-8 · not public · as of 04.11.2026"},
+  "umbau-test-version": {de:"Testversion v131-11 · nicht öffentlich · Stand 04.11.2026",en:"Test version v131-11 · not public · as of 04.11.2026"},
   "umbau-play-load-first": {de:"Der erste Start kann ein paar Minuten dauern, danach geht es schneller. Lass den Tab dabei offen.",en:"The first start can take a few minutes, after that it gets faster. Keep the tab open while it loads."}
 });

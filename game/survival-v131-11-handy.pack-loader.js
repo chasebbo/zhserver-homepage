@@ -1,9 +1,9 @@
-// Generated v131-8 delivery adapter. Only the virtual main pack is intercepted.
+// Generated v131-11 delivery adapter. Only the virtual main pack is intercepted.
 // Every part is below GitHub's 100-MiB limit. The Godot pack bytes stay unchanged.
 (() => {
-  const pack = new URL('survival-v131-8.pck', document.baseURI).href;
-  const parts = [{"file":"survival-v131-8.pck.part00","bytes":25165824,"sha256":"8d4248424e8163061c8489cff15bed0c766843b2ecd916612ec3f2fb97cac051"},{"file":"survival-v131-8.pck.part01","bytes":25165824,"sha256":"9325f7d131d9bac9d86c1a7e79d1b53684afb3f0a99fc8ac664959a029ee5330"},{"file":"survival-v131-8.pck.part02","bytes":25165824,"sha256":"d4414e6fe49d69a4d40e0e6d957b0c388cc74e4d5fe3f992627d7ea3770f5eef"},{"file":"survival-v131-8.pck.part03","bytes":25165824,"sha256":"560132c407fa012b58ee0d2fa251a7beee3f17492360bb4592be51c914e98a16"},{"file":"survival-v131-8.pck.part04","bytes":7208616,"sha256":"1c6b5d59de92b3d8306b37628a90b8b48c1dc2b2d1af9286f739c969bfc09d5b"}];
-  const size = 107871912;
+  const pack = new URL('survival-v131-11-handy.pck', document.baseURI).href;
+  const parts = [{"file":"survival-v131-11-handy.pck.part00","bytes":25165824,"sha256":"81985e20c4ad10643e86be77fc1b89173dee1913c3c2c170417dcdd3ebfcdb19"},{"file":"survival-v131-11-handy.pck.part01","bytes":25165824,"sha256":"e498982b16a347d333d1817f1c70c5032f8bb094cd544159c6203289dc1d2492"},{"file":"survival-v131-11-handy.pck.part02","bytes":25165824,"sha256":"fd8527ce1b603bdf87228234f9a5946bfcf98e6a439dfda820aef75a67a52f56"},{"file":"survival-v131-11-handy.pck.part03","bytes":25165824,"sha256":"0577652f06b04def46bc01aa1c990dfd46b52e21da51e7e0ebda8ef1726699fa"},{"file":"survival-v131-11-handy.pck.part04","bytes":8407164,"sha256":"6fe98f06472ec55ea4d9812e2f6135cb06c29d718937e73345afe7746acac0d6"}];
+  const size = 109070460;
   const originalFetch = window.fetch.bind(window);
   window.fetch = async (input, init) => {
     const url = new URL(typeof input === 'string' || input instanceof URL ? input : input.url, document.baseURI).href;

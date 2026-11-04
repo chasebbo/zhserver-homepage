@@ -165,7 +165,7 @@
                 verified.userId !== principal.userId || serverStatus !== "online") return;
             wrapper.hidden = false;
             if (!frame.getAttribute("src")) {
-                const url = new URL(frame.dataset.src, window.location.href);
+                const url = new URL(gamePackageSource(frame), window.location.href);
                 const server = params.get("server");
                 // A shared link must not redirect an account-bearing client to another server.
                 if (server === serverUrl) url.searchParams.set("server", server);
@@ -180,6 +180,16 @@
             starting = false;
             renderAccess();
         }
+    }
+
+    function gamePackageSource(frame) {
+        if (!frame.dataset.srcHandy) return frame.dataset.src;
+        try {
+            const gl = document.createElement("canvas").getContext("webgl2");
+            // Nur ETC2 und kein S3TC: das Paket für Handys. Alles andere, auch ohne WebGL2: das Paket für den PC.
+            if (gl && !gl.getExtension("WEBGL_compressed_texture_s3tc") && gl.getExtension("WEBGL_compressed_texture_etc")) return frame.dataset.srcHandy;
+        } catch (_) { /* Dann das Paket für den PC. */ }
+        return frame.dataset.src;
     }
 
     // A focused game canvas scrolls its iframe into view without regard to the fixed header.

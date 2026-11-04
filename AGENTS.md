@@ -241,6 +241,7 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 04.11.2026: Hauptversion v130-2 (`game.html`), Rückweg v130-1, Testkandidat
-  v131-8 nur fürs Handy auf `game-test-v130.html` (am PC zeigt die Seite einen Hinweis).
-  v129 mit `game-test-v129.html`, v131-3 und v131-4 sind archiviert und entfernt.
+- Stand 04.11.2026: Hauptversion v130-2 (`game.html`), Testkandidat v131-11 mit den Paketen
+  `pc` und `handy` auf `game-test-v130.html` (`gamePackageSource` in `game-entry.js` wählt das
+  Paket). v131-8 und v130-1 sind archiviert und entfernt, vorher v129 mit `game-test-v129.html`,
+  v131-3 und v131-4. Solange v130-2 live ist, ist sie zugleich der Rückweg.
