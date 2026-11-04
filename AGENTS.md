@@ -164,10 +164,9 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   (`zh-wl-*`), damit die alten Konzept-Stile in `game-alpha-panels.css` nicht hineinwirken.
   `world-status.js` erzeugt nur Konzeptwerte und gehört nicht in den Umbau.
   Sebastian 03.11.2026: Der Umbau geht erst online, wenn die echte Weltlage drin ist.
-  Seite `geschichte.html` ist online (Sebastian 03.11.2026), „Geschichte“ im Menü führt dorthin. Inhalt nur der
-  freigegebene Text G7 (DE und EN wörtlich aus `VORSCHLAG-GESCHICHTE-V131.md`, Abschnitt 4) und die Zeitleiste
-  Tromsø 2031 bis Heute; „Heute“ endet mit den offenen Fragen aus G7. Keine weiteren Sätze, nichts über Dinge, die es im
-  Spiel noch nicht gibt, kein „kommt bald“. Die Community-Geschichte seit 2013 bleibt in `archiv.html#history`,
+  Seite `geschichte.html`: „Geschichte“ im Menü führt dorthin. Inhalt ist Sebastians Fassung vom 04.11.2026, wörtlich aus
+  `wasstehtan/GESCHICHTE-SEBASTIAN.md` im Spiel-Projekt (Teil 1 bis 3). Geht erst mit dem Release von v131 online. Nichts
+  kürzen, nichts dazuschreiben. Die Community-Geschichte seit 2013 bleibt in `archiv.html#history`,
   erreichbar über den Fußlink „Community-Geschichte“ auf allen umgebauten Seiten.
 - Keine Anzeige der Spieler online auf der Homepage (Sebastian 03.11.2026), auch nicht versteckt
   vorbereitet.

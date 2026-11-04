@@ -124,6 +124,8 @@ body.zh-2026 .zh-talk-grid .home-forum-link { align-self: flex-start; margin-top
 .zh-camp-red { border-color: rgba(232, 96, 74, .45); background: radial-gradient(ellipse 70% 160px at 30% 0, rgba(232, 96, 74, .12), transparent 80%), linear-gradient(145deg, rgba(34, 22, 20, .9), rgba(19, 15, 15, .95)); }
 .zh-camp-red h3 { color: #ef6a55; font-size: 34px; }
 .zh-camps-more { margin: 30px 0 0; }
+.zh-backstory { display: flex; flex-direction: column; gap: 12px; }
+.zh-backstory .zh-copy { font-size: 18px; }
 
 /* Neuigkeiten aus dem Changelog */
 .zh-news-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
@@ -318,6 +320,9 @@ body.zh-2026 :is(.zh-gallery-main, .zh-gallery-upload) > .container { max-width:
 .zh-story-hero-copy { position: relative; display: flex; flex-direction: column; gap: 16px; max-width: 680px; padding: 52px; }
 .zh-story-hero-copy .zh-copy { font-size: 17px; color: #d5dcdc; }
 .zh-story-intro { max-width: 760px; margin-bottom: 30px; font-size: 18px; }
+.zh-story-part { display: flex; flex-direction: column; gap: 18px; max-width: 760px; }
+.zh-story-part .zh-copy { font-size: 18px; }
+.zh-story-part .zh-story-play { margin: 10px 0 0; }
 .zh-story-timeline { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 40px; }
 .zh-story-timeline-head { display: flex; flex-direction: column; gap: 12px; align-self: start; position: sticky; top: calc(var(--zh-head-h) + 30px); }
 .zh-story-steps { list-style: none; margin: 0; padding: 0 0 0 34px; display: flex; flex-direction: column; gap: 20px; border-left: 2px solid; border-image: linear-gradient(180deg, #8fb8e8, #d9bd7c 40%, #e8604a) 1; }
