@@ -35,9 +35,9 @@ html.zh-game-stage .game-entry-page .game-stage-bar { display: flex; }
 .game-entry-page .game-stage-button-primary { border-color: #d9b46a; background: #1a1710; }
 .game-entry-page .game-stage-leave-short { display: none; }
 
-/* Playing field size, only with a mouse and on windows where the sizes really differ. Below that the stage rule above applies. */
+/* Playing field size, only with a mouse. Flat windows use the rail further below, it already fills the height. */
 .game-entry-page .game-stage-sizes { display: none; }
-@media (hover: hover) and (pointer: fine) and (min-width: 1180px) and (min-height: 740px) {
+@media (hover: hover) and (pointer: fine) and (min-width: 760px) and (min-height: 501px) {
     .game-entry-page .game-stage-sizes { display: flex; margin-right: 8px; }
     .game-entry-page .game-stage-sizes .game-stage-button { min-width: 62px; border-radius: 0; }
     .game-entry-page .game-stage-sizes .game-stage-button + .game-stage-button { margin-left: -1px; }
@@ -45,14 +45,10 @@ html.zh-game-stage .game-entry-page .game-stage-bar { display: flex; }
     .game-entry-page .game-stage-sizes .game-stage-button:last-child { border-radius: 0 3px 3px 0; }
     .game-entry-page .game-stage-sizes .game-stage-button:focus-visible { position: relative; z-index: 1; }
     .game-entry-page .game-stage-sizes .game-stage-button[aria-pressed="true"] { position: relative; border-color: #d9b46a; background: #2a2212; color: #f6e3b0; }
-    /* Small is the former stage size, large leaves a narrow margin below the bar and above the key row, medium lies in between. */
-    html.zh-game-stage[data-zh-stage-size] .game-entry-page #game-wrapper {
-        --zh-stage-small: min(calc(100% - 48px), calc((var(--zh-stage-height, 100dvh) - 120px) * 16 / 9), 1080px);
-        --zh-stage-large: min(calc(100% - 16px), calc((var(--zh-stage-height, 100dvh) - 108px) * 16 / 9));
-    }
-    html.zh-game-stage[data-zh-stage-size="klein"] .game-entry-page .game-embed { width: var(--zh-stage-small); max-width: none; }
-    html.zh-game-stage[data-zh-stage-size="mittel"] .game-entry-page .game-embed { width: calc((var(--zh-stage-small) + var(--zh-stage-large)) / 2); max-width: none; }
-    html.zh-game-stage[data-zh-stage-size="gross"] .game-entry-page .game-embed { width: var(--zh-stage-large); max-width: none; }
+    /* Medium is the stage rule above. Small is at most 960 wide and always clearly below medium. Large gives up the key row for height. */
+    html.zh-game-stage[data-zh-stage-size="klein"] .game-entry-page .game-embed { width: min(960px, calc(min(calc(100% - 48px), calc((var(--zh-stage-height, 100dvh) - 120px) * 16 / 9)) * .8)); }
+    html.zh-game-stage[data-zh-stage-size="gross"] .game-entry-page .game-embed { width: min(calc(100% - 16px), calc((var(--zh-stage-height, 100dvh) - 68px) * 16 / 9)); }
+    html.zh-game-stage[data-zh-stage-size="gross"] .game-entry-page .game-stage-keys { display: none; }
 }
 
 .game-entry-page .game-stage-keys { flex: none; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px 18px; height: 40px; margin: 0; padding: 0 16px; color: #8f9a96; font-size: .64rem; letter-spacing: .04em; }
