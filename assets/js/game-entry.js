@@ -266,6 +266,26 @@
         window.visualViewport?.addEventListener("resize", syncStageViewport);
         window.visualViewport?.addEventListener("scroll", syncStageViewport);
         all("[data-game-stage-leave-button]").forEach(button => button.addEventListener("click", leaveStage));
+        // Playing field size on the desktop stage; pages without these buttons keep their size.
+        const stageSizeButtons = [...all("[data-game-stage-size]")], stageSizeKey = "zh_game_stage_size", stageSizeDefault = "mittel";
+        const applyStageSize = size => {
+            document.documentElement.dataset.zhStageSize = size;
+            stageSizeButtons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.gameStageSize === size)));
+        };
+        if (stageSizeButtons.length) {
+            bind('[data-game-stage-size="klein"]', "stageSizeSmall");
+            bind('[data-game-stage-size="mittel"]', "stageSizeMedium");
+            bind('[data-game-stage-size="gross"]', "stageSizeLarge");
+            all("[data-game-stage-sizes]").forEach(element => language.bind(element, "game.entry.stageSize", {}, "aria-label"));
+            let savedSize = null;
+            try { savedSize = localStorage.getItem(stageSizeKey); } catch (_) { /* The default size applies. */ }
+            applyStageSize(stageSizeButtons.some(button => button.dataset.gameStageSize === savedSize) ? savedSize : stageSizeDefault);
+            stageSizeButtons.forEach(button => button.addEventListener("click", () => {
+                applyStageSize(button.dataset.gameStageSize);
+                try { localStorage.setItem(stageSizeKey, button.dataset.gameStageSize); } catch (_) { /* Convenience only. */ }
+                focusGame();
+            }));
+        }
         all("[data-game-stage-resume], #btn-activate-game").forEach(button => button.addEventListener("click", enterStage));
         // Only a real page exit ends the game, so the browser's own leave prompt is used for that case.
         window.addEventListener("beforeunload", event => {
