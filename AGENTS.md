@@ -245,3 +245,6 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   `game.html` zurück auf `game/survival-v130-2.html?build=v130-2-20261102`, `data-src-handy` weg.
   v131-8 und v130-1 sind archiviert und entfernt, vorher v129 mit `game-test-v129.html`,
   v131-3 und v131-4.
+- Stand 06.11.2026: Handy-Probepaket `survival-probe1-handy.*` auf der Testadresse
+  `game-test-handy.html`, damit sind v130-2, v131-11 und probe1 online. Rückweg: Seite und Dateien
+  löschen.
