@@ -217,7 +217,7 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Auf `index.html` (Freigabe Sebastian, 21.10.2026) steht nur noch
   „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
-- Hauptversion für `game.html`: v132-2 mit den Paketen `pc` und `handy` (veröffentlicht am 07.11.2026).
+- Hauptversion für `game.html`: v132-3 mit den Paketen `pc` und `handy` (Hotfix, veröffentlicht am 07.11.2026).
 
 ## Spiel-Builds online (Dauerregel, Sebastian 22.10.2026)
 
@@ -240,13 +240,14 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 07.11.2026 (Release v132-2): Hauptversion v132-2 mit den Paketen `pc` und `handy` auf `game.html`
+- Stand 07.11.2026 (Hotfix v132-3): Hauptversion v132-3 mit den Paketen `pc` und `handy` auf `game.html`
   und `game-test-v130.html` (`gamePackageSource` in `game-entry.js` wählt das Paket). Rückweg v131-11:
   `game.html` zurück auf `game/survival-v131-11-pc.html?build=v131-11-pc-20261104` und
   `data-src-handy` auf `game/survival-v131-11-handy.html?build=v131-11-handy-20261104`, Abschnitt
   Gastmodus der Nutzungsbedingungen wieder einsetzen. Handy-Probepaket `survival-probe3-handy.*` auf
   der Testadresse `game-test-handy.html` (steht in der Rückleitungsliste).
-- Archiviert und entfernt: v132-1 (`C:\ZHServer-Archiv\homepage-builds\v132-1\`), v130-2
+- Archiviert und entfernt: v132-2 (`C:\ZHServer-Archiv\homepage-builds\v132-2\`), v132-1
+  (`C:\ZHServer-Archiv\homepage-builds\v132-1\`), v130-2
   (`C:\ZHServer-Archiv\homepage-builds\v130-2\`) und probe1
   (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`), vorher v131-8, v130-1, v129 mit
   `game-test-v129.html`, v131-3 und v131-4.
