@@ -4668,7 +4668,7 @@ Object.assign(window.ZHTranslations.copy, {
   "umbau-play-features-persistence-note": {de:"Dein Charakter und dein Fortschritt bleiben mit deinem ZHServer-Account erhalten.",en:"Your character and progress are saved to your ZHServer account."},
   "umbau-play-features-loot": {de:"Fahrzeuge & Loot",en:"Vehicles & loot"},
   "umbau-play-features-loot-note": {de:"Finde Fahrzeuge, durchsuche verlassene Orte und stell deine Ausrüstung zusammen.",en:"Find vehicles, search abandoned places and put together your equipment."},
-  "umbau-test-version": {de:"Testversion v132-1 · nicht öffentlich · Stand 07.11.2026",en:"Test version v132-1 · not public · as of 07.11.2026"},
+  "umbau-test-version": {de:"Testversion v132-2 · nicht öffentlich · Stand 07.11.2026",en:"Test version v132-2 · not public · as of 07.11.2026"},
   "umbau-story-backstory": {de:"Die Vorgeschichte",en:"The backstory"},
   "umbau-box-1": {de:"Vier Bergsteiger waren in den deutschen Alpen unterwegs.",en:"Four climbers were out in the German Alps."},
   "umbau-box-2": {de:"Tief unten schimmerte Wasser, und darüber stand ein gelber Ring. Ein Portal.",en:"Far below, water glimmered, and above it stood a yellow ring. A portal."},

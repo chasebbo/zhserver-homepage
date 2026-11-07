@@ -241,9 +241,10 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
 - Stand 07.11.2026: Hauptversion v131-11 mit den Paketen `pc` und `handy` auf `game.html`, zugleich
-  der Rückweg. Testkandidat v132-1 mit den Paketen `pc` und `handy` auf `game-test-v130.html`
+  der Rückweg. Testkandidat v132-2 mit den Paketen `pc` und `handy` auf `game-test-v130.html`
   (`gamePackageSource` in `game-entry.js` wählt das Paket). Handy-Probepaket `survival-probe3-handy.*`
   auf der Testadresse `game-test-handy.html` (steht in der Rückleitungsliste).
-- Archiviert und entfernt: v130-2 (`C:\ZHServer-Archiv\homepage-builds\v130-2\`) und probe1
+- Archiviert und entfernt: v132-1 (`C:\ZHServer-Archiv\homepage-builds\v132-1\`), v130-2
+  (`C:\ZHServer-Archiv\homepage-builds\v130-2\`) und probe1
   (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`), vorher v131-8, v130-1, v129 mit
   `game-test-v129.html`, v131-3 und v131-4.

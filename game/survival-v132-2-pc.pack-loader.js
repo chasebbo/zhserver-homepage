@@ -1,9 +1,9 @@
-// Generated v132-1 delivery adapter. Only the virtual main pack is intercepted.
+// Generated v132-2 delivery adapter. Only the virtual main pack is intercepted.
 // Every part is below GitHub's 100-MiB limit. The Godot pack bytes stay unchanged.
 (() => {
-  const pack = new URL('survival-v132-1-handy.pck', document.baseURI).href;
-  const parts = [{"file":"survival-v132-1-handy.pck.part00","bytes":25165824,"sha256":"6a5878ecd3886e61d476ec15698016eda272425f2f21a8759b97092fd43efc57"},{"file":"survival-v132-1-handy.pck.part01","bytes":25165824,"sha256":"f33c08b680be3333515a59a494f52e2cb498a2eacf4200c2a2827b6577bea7bd"},{"file":"survival-v132-1-handy.pck.part02","bytes":25165824,"sha256":"b545383cd47b518e296fd412906d38ebedd7dff9218a093f03914a8f077930ab"},{"file":"survival-v132-1-handy.pck.part03","bytes":25165824,"sha256":"09a5db0a6f55c55d04c2897ca66895d842b2fb682023bdc8b11dd3d50df618ad"},{"file":"survival-v132-1-handy.pck.part04","bytes":4244200,"sha256":"3237d675a750150a756616a2f3bf58b2ba02d9b14145b32a70df0056b5fe01aa"}];
-  const size = 104907496;
+  const pack = new URL('survival-v132-2-pc.pck', document.baseURI).href;
+  const parts = [{"file":"survival-v132-2-pc.pck.part00","bytes":25165824,"sha256":"0d5412f97bab517c955c9caef40d6512f6c05aa35f38a167fb7d2bf4b6033165"},{"file":"survival-v132-2-pc.pck.part01","bytes":25165824,"sha256":"8ed2db6589ccaa60fbbb4d6272d6644d6038b9f40db4cde3521b78ec8894f783"},{"file":"survival-v132-2-pc.pck.part02","bytes":25165824,"sha256":"da97491349f3bb152055783de5143c60ca3cafdbb0a3067283569cc22f7e15ed"},{"file":"survival-v132-2-pc.pck.part03","bytes":25165824,"sha256":"c027f2944e8d6a58a2596ce46239439cfa863db1b9f6a84a7d1266b1ca1c0e0f"},{"file":"survival-v132-2-pc.pck.part04","bytes":4247812,"sha256":"433e8dc2c3dfa58629c919a7934a52dc4ce294a141a1950d6e2cce7ef9615902"}];
+  const size = 104911108;
   const originalFetch = window.fetch.bind(window);
   window.fetch = async (input, init) => {
     const url = new URL(typeof input === 'string' || input instanceof URL ? input : input.url, document.baseURI).href;
