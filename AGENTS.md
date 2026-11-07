@@ -191,8 +191,8 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   `updateControls()` in `assets/js/i18n.js`; Escape schließt das Menü auf allen Seiten.
 - Ohne Gastzugang (Spiel ab v132): kein Gast-Knopf und kein Gastweg in `game-entry.js`, Willkommensfenster ohne
   „Als Gast weitermachen“. Lesen im Forum und das Gästebuch bleiben ohne Account. Der Abschnitt „5. Gastmodus“ der
-  Nutzungsbedingungen bleibt unverändert stehen, solange das Spiel einen Gastzugang hat (bis v132, Sebastian 03.11.2026);
-  die Fassung bleibt `2026-10-08`, bis Sebastian über ein neues Datum entschieden hat.
+  Nutzungsbedingungen ist mit dem Release v132-2 gestrichen (Sebastian 03.11. und 07.11.2026), die folgenden
+  Abschnitte heißen jetzt 5 und 6. Die Fassung bleibt `2026-10-08`, bis Sebastian über ein neues Datum entschieden hat.
 - `game.html` im Umbau nach `spielen.html`: lädt die alten Spielseiten-Stile nicht mehr, nur `game-stage.css`.
   Bedienelemente und `data-src` unverändert (Release-Änderungen von main beim Neuaufsetzen übernehmen).
   Ladehinweis bis v131 für Client v130-2: „Der erste Start kann ein paar Minuten dauern, danach geht es schneller.“
@@ -217,7 +217,7 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Auf `index.html` (Freigabe Sebastian, 21.10.2026) steht nur noch
   „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
-- Hauptversion für `game.html`: v131-11 mit den Paketen `pc` und `handy` (veröffentlicht am 04.11.2026).
+- Hauptversion für `game.html`: v132-2 mit den Paketen `pc` und `handy` (veröffentlicht am 07.11.2026).
 
 ## Spiel-Builds online (Dauerregel, Sebastian 22.10.2026)
 
@@ -240,10 +240,12 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 07.11.2026: Hauptversion v131-11 mit den Paketen `pc` und `handy` auf `game.html`, zugleich
-  der Rückweg. Testkandidat v132-2 mit den Paketen `pc` und `handy` auf `game-test-v130.html`
-  (`gamePackageSource` in `game-entry.js` wählt das Paket). Handy-Probepaket `survival-probe3-handy.*`
-  auf der Testadresse `game-test-handy.html` (steht in der Rückleitungsliste).
+- Stand 07.11.2026 (Release v132-2): Hauptversion v132-2 mit den Paketen `pc` und `handy` auf `game.html`
+  und `game-test-v130.html` (`gamePackageSource` in `game-entry.js` wählt das Paket). Rückweg v131-11:
+  `game.html` zurück auf `game/survival-v131-11-pc.html?build=v131-11-pc-20261104` und
+  `data-src-handy` auf `game/survival-v131-11-handy.html?build=v131-11-handy-20261104`, Abschnitt
+  Gastmodus der Nutzungsbedingungen wieder einsetzen. Handy-Probepaket `survival-probe3-handy.*` auf
+  der Testadresse `game-test-handy.html` (steht in der Rückleitungsliste).
 - Archiviert und entfernt: v132-1 (`C:\ZHServer-Archiv\homepage-builds\v132-1\`), v130-2
   (`C:\ZHServer-Archiv\homepage-builds\v130-2\`) und probe1
   (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`), vorher v131-8, v130-1, v129 mit
