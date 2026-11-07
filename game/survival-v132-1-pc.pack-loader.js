@@ -1,9 +1,9 @@
-// Generated v130-2 delivery adapter. Only the virtual main pack is intercepted.
+// Generated v132-1 delivery adapter. Only the virtual main pack is intercepted.
 // Every part is below GitHub's 100-MiB limit. The Godot pack bytes stay unchanged.
 (() => {
-  const pack = new URL('survival-v130-2.pck', document.baseURI).href;
-  const parts = [{"file":"survival-v130-2.pck.part00","bytes":25165824,"sha256":"f9ddf59ea9942002790a05e739e6f50ff09a20e5d8079f979dcf3be1ea35212a"},{"file":"survival-v130-2.pck.part01","bytes":25165824,"sha256":"4f3c3b93e2e3a25733d04bed5be33413f8817d4c02e5c13ffa601af035b4db7a"},{"file":"survival-v130-2.pck.part02","bytes":25165824,"sha256":"039c1b2b7e35e2ebef6ee014c6c270e2184e4bb9ecc9a2f5c9c7b1112796516e"},{"file":"survival-v130-2.pck.part03","bytes":8633884,"sha256":"75eec69ec29ce8275c443d0d40befa81b10bd40d50942a38eb68a30d10a944a6"}];
-  const size = 84131356;
+  const pack = new URL('survival-v132-1-pc.pck', document.baseURI).href;
+  const parts = [{"file":"survival-v132-1-pc.pck.part00","bytes":25165824,"sha256":"f0bd8c685327887662bc193d4dc2625356f8384db3fae6fe81ba3290d52c12df"},{"file":"survival-v132-1-pc.pck.part01","bytes":25165824,"sha256":"7f113740b6f813dddd2b2d39d4fd8065bcde0c3d058ac38bc2355273df1bc7bc"},{"file":"survival-v132-1-pc.pck.part02","bytes":25165824,"sha256":"08b9e3d682706703e1552fd44c741874c2ac1f2968182e8c262414acf3b60bff"},{"file":"survival-v132-1-pc.pck.part03","bytes":25165824,"sha256":"346d7e0103290c997dbbddf8c51b6c181f54f39318964d0e8545ba2d5d869da5"},{"file":"survival-v132-1-pc.pck.part04","bytes":4244200,"sha256":"d8bcb8165d3c9973721781a5cfc80b32bfe80d5817493f51a39955edb667b58f"}];
+  const size = 104907496;
   const originalFetch = window.fetch.bind(window);
   window.fetch = async (input, init) => {
     const url = new URL(typeof input === 'string' || input instanceof URL ? input : input.url, document.baseURI).href;

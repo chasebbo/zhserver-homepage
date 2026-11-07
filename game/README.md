@@ -29,17 +29,18 @@ Der gelieferte Loader setzt die Packteile verlustfrei zusammen. Kein einzelner
 Teil überschreitet 100 MiB. Keine zweite Auth-, Gasttimer- oder
 Persistence-Lösung auf der Homepage.
 
-Öffentlich liegen die Hauptversion v131-11 mit den Paketen `pc` und `handy` und
-v130-2 als Rückweg (`game.html` zurück auf
-`game/survival-v130-2.html?build=v130-2-20261102`, `data-src-handy` weg);
-`game-test-v130.html` lädt ebenfalls v131-11.
+Öffentlich liegen die Hauptversion v131-11 mit den Paketen `pc` und `handy` auf `game.html`,
+zugleich der Rückweg, und der Testkandidat v132-1 mit den Paketen `pc` und `handy` auf
+`game-test-v130.html` (`game/survival-v132-1-pc.html?build=v132-1-pc-20261107`, auf Handys
+`game/survival-v132-1-handy.html?build=v132-1-handy-20261107`).
 Dazu das Handy-Probepaket `survival-probe3-handy.*` auf der nicht öffentlichen Testadresse
 `game-test-handy.html` (`game/survival-probe3-handy.html?build=probe3-handy-20261107`), für einen
-iPhone-Lauf. probe1 ist archiviert (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`).
+iPhone-Lauf. Archiviert sind probe1 (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`) und
+v130-2 (`C:\ZHServer-Archiv\homepage-builds\v130-2\`).
 Rückweg: probe1 aus dem Archiv nach `game/`, `data-src` zurück auf
 `game/survival-probe1-handy.html?build=probe1-handy-20261105`, `game/survival-probe3-handy.*` löschen.
 Jede Spielversion hat eigene Dateinamen; vorhandene Dateien werden nie
-überschrieben. Ältere Builds (zuletzt v131-8 und v130-1) sind außerhalb des Repositorys
+überschrieben. Ältere Builds (zuletzt v130-2 und probe1) sind außerhalb des Repositorys
 archiviert.
 
 Prüfstand und Freigabegrenzen: `../docs/GAME_ENTRY_CHECKPOINT.md`.

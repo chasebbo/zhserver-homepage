@@ -217,7 +217,7 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Auf `index.html` (Freigabe Sebastian, 21.10.2026) steht nur noch
   „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
-- Hauptversion für `game.html`: v130-2, Client-Update zu v130 (veröffentlicht am 02.11.2026).
+- Hauptversion für `game.html`: v131-11 mit den Paketen `pc` und `handy` (veröffentlicht am 04.11.2026).
 
 ## Spiel-Builds online (Dauerregel, Sebastian 22.10.2026)
 
@@ -240,12 +240,10 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 04.11.2026: Hauptversion v131-11 mit den Paketen `pc` und `handy` auf `game.html` und
-  `game-test-v130.html` (`gamePackageSource` in `game-entry.js` wählt das Paket). Rückweg v130-2:
-  `game.html` zurück auf `game/survival-v130-2.html?build=v130-2-20261102`, `data-src-handy` weg.
-  v131-8 und v130-1 sind archiviert und entfernt, vorher v129 mit `game-test-v129.html`,
-  v131-3 und v131-4.
-- Stand 07.11.2026: Handy-Probepaket `survival-probe3-handy.*` auf der Testadresse
-  `game-test-handy.html` (steht in der Rückleitungsliste), damit sind v130-2, v131-11 und probe3
-  online. probe1 ist archiviert und entfernt. Rückweg: probe1 aus dem Archiv, `data-src` zurück,
-  probe3 löschen.
+- Stand 07.11.2026: Hauptversion v131-11 mit den Paketen `pc` und `handy` auf `game.html`, zugleich
+  der Rückweg. Testkandidat v132-1 mit den Paketen `pc` und `handy` auf `game-test-v130.html`
+  (`gamePackageSource` in `game-entry.js` wählt das Paket). Handy-Probepaket `survival-probe3-handy.*`
+  auf der Testadresse `game-test-handy.html` (steht in der Rückleitungsliste).
+- Archiviert und entfernt: v130-2 (`C:\ZHServer-Archiv\homepage-builds\v130-2\`) und probe1
+  (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`), vorher v131-8, v130-1, v129 mit
+  `game-test-v129.html`, v131-3 und v131-4.
