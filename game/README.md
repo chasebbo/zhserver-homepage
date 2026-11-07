@@ -33,9 +33,11 @@ Persistence-Lösung auf der Homepage.
 v130-2 als Rückweg (`game.html` zurück auf
 `game/survival-v130-2.html?build=v130-2-20261102`, `data-src-handy` weg);
 `game-test-v130.html` lädt ebenfalls v131-11.
-Dazu das Handy-Probepaket `survival-probe1-handy.*` auf der nicht öffentlichen Testadresse
-`game-test-handy.html` (`game/survival-probe1-handy.html?build=probe1-handy-20261105`), für einen
-iPhone-Lauf. Rückweg: `game-test-handy.html` und `game/survival-probe1-handy.*` löschen.
+Dazu das Handy-Probepaket `survival-probe3-handy.*` auf der nicht öffentlichen Testadresse
+`game-test-handy.html` (`game/survival-probe3-handy.html?build=probe3-handy-20261107`), für einen
+iPhone-Lauf. probe1 ist archiviert (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`).
+Rückweg: probe1 aus dem Archiv nach `game/`, `data-src` zurück auf
+`game/survival-probe1-handy.html?build=probe1-handy-20261105`, `game/survival-probe3-handy.*` löschen.
 Jede Spielversion hat eigene Dateinamen; vorhandene Dateien werden nie
 überschrieben. Ältere Builds (zuletzt v131-8 und v130-1) sind außerhalb des Repositorys
 archiviert.

@@ -1,9 +1,9 @@
-// Generated probe1 delivery adapter. Only the virtual main pack is intercepted.
+// Generated probe3 delivery adapter. Only the virtual main pack is intercepted.
 // Every part is below GitHub's 100-MiB limit. The Godot pack bytes stay unchanged.
 (() => {
-  const pack = new URL('survival-probe1-handy.pck', document.baseURI).href;
-  const parts = [{"file":"survival-probe1-handy.pck.part00","bytes":25165824,"sha256":"b08782b9d653adfe24fb9ecb8bbb4f1f1456589353fc375f124d37559b09a172"},{"file":"survival-probe1-handy.pck.part01","bytes":25165824,"sha256":"18bdcd84e3d54bf8aae2b284c84e6b2ee9f387095ade3ac8e39beaccacd2322b"},{"file":"survival-probe1-handy.pck.part02","bytes":25165824,"sha256":"9a2a6f42080af33a8f325e80c8fe267b4ae629556d0fa18abf72e01be73d3eb1"},{"file":"survival-probe1-handy.pck.part03","bytes":25165824,"sha256":"f483845bcbba2b288eba7f27ee1a16f59bfccf4a495b23c732545567d26e77d5"},{"file":"survival-probe1-handy.pck.part04","bytes":1043600,"sha256":"84d75734d22a1cc755e81077533363423beb173f5556f5ff117ab9cbbde49830"}];
-  const size = 101706896;
+  const pack = new URL('survival-probe3-handy.pck', document.baseURI).href;
+  const parts = [{"file":"survival-probe3-handy.pck.part00","bytes":25165824,"sha256":"84c43b22b5ef003ee1213ff728297dd94f20651a18e0e45692f1999943ad8e69"},{"file":"survival-probe3-handy.pck.part01","bytes":25165824,"sha256":"4b81a754d3fd6f3e0b00fb8afa472c772a7132a941a03692613e991a7c1e0507"},{"file":"survival-probe3-handy.pck.part02","bytes":25165824,"sha256":"9c8bd909958919ca01d6f624e172c4bb86a2391d0a6f4515fdcfc791d125af58"},{"file":"survival-probe3-handy.pck.part03","bytes":25165824,"sha256":"7cf374ff9a0f60815f580f168d9cc0ea3cc2d3ad6c0209e6b3bf1f14a2314c30"},{"file":"survival-probe3-handy.pck.part04","bytes":3892440,"sha256":"cb56153d31132c00b3d7c6206ca8b2c3d60a991717883c7fa8bfc28b0853a85f"}];
+  const size = 104555736;
   const originalFetch = window.fetch.bind(window);
   window.fetch = async (input, init) => {
     const url = new URL(typeof input === 'string' || input instanceof URL ? input : input.url, document.baseURI).href;
