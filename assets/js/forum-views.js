@@ -25,25 +25,17 @@
         node.dataset.label=lang.t('forum.views'); node.setAttribute('aria-label',lang.t('forum.views'));
         node.setAttribute('data-i18n-ignore',''); const value=count(topic); node.textContent=value===null?'—':value.toLocaleString(lang.locale); return node;
     }
-    function browserId() {
-        try {
-            const key='zh_forum_view_browser_v1'; let id=localStorage.getItem(key);
-            if(!/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(id||'')) {
-                id=crypto.randomUUID(); localStorage.setItem(key,id);
-            }
-            return id;
-        } catch (_) { return null; } // Without durable guest identity, do not invent a fresh view on every reload.
-    }
+    // Views keep nothing in the browser: the server counts guests by a daily one-way value. Remove the former browser ID once.
+    try { localStorage.removeItem('zh_forum_view_browser_v1'); } catch (_) { /* Storage blocked: nothing to remove. */ }
     async function observe(next, drafts) {
         controller=drafts; data=next; update(next.topic);
         if(!window.ZHCommunityFeatures?.forumViews||next.views_version!==1||document.hidden||controller.route().view!=='thread')return;
         if(identity.state.status==='checking'||identity.state.status==='unavailable')return;
         const key=next.topic.id+':'+(identity.state.userId||'guest');
         if(lastOpen===key)return;
-        const browser=browserId(); if(!browser&&!identity.state.userId)return;
         lastOpen=key; const ticket=++generation;
         try {
-            const result=await api.rpc('register_zh_forum_view',{p_topic_id:next.topic.id,p_browser_id:browser});
+            const result=await api.rpc('register_zh_forum_view',{p_topic_id:next.topic.id});
             if(ticket!==generation||controller.route().id!==next.topic.id||key!==next.topic.id+':'+(identity.state.userId||'guest'))return;
             if(result.topic_id===next.topic.id&&valid(result.views_count)){next.topic.views_count=result.views_count;update(next.topic);}
         } catch (_) { document.getElementById('forum-thread-views').title=lang.t('forum.viewUnavailable'); }

@@ -154,8 +154,6 @@
             <p>
                 - die gewählte Sprache<br>
                 - dein Anmeldeschlüssel, solange du angemeldet bist<br>
-                - zufällige Kennungen für die Besucherzählung und die
-                Aufrufzahlen im Forum<br>
                 - Entwürfe, die du im Forum noch nicht abgeschickt hast<br>
                 - deine Stimme bei Umfragen und deine Likes<br>
                 - kurz zwischengespeicherte öffentliche Angaben wie
@@ -175,17 +173,20 @@
 
             <p>
                 Unten auf jeder Seite zeigen wir, wie viele Besucher es im
-                laufenden Monat und insgesamt gab. Dafür schickt dein Browser
-                einmal am Tag eine zufällige Kennung aus Abschnitt 5 an unsere
-                Datenbank bei Supabase. Gespeichert wird daraus nur ein
-                abgeleiteter Schlüssel je Tag. IP-Adressen, Namen und
-                aufgerufene Seiten speichern wir dafür nicht.
+                laufenden Monat und insgesamt gab. Damit du am selben Tag nur
+                einmal zählst, bildet unsere Datenbank bei Supabase aus deiner
+                IP-Adresse, deinem Browsertyp und einem geheimen Tageswert
+                einen Einwegwert und speichert nur diesen. Deine IP-Adresse
+                speichern wir dafür nicht. Der geheime Tageswert wird jeden Tag
+                neu erzeugt und am nächsten Tag gelöscht. Danach lässt sich der
+                gespeicherte Wert niemandem mehr zuordnen. In deinem Browser
+                wird für die Zählung nichts gespeichert.
             </p>
 
             <p>
                 Genauso zählen wir, wie oft ein Thema im Forum aufgerufen
-                wurde. Auch hier speichern wir nur daraus berechnete
-                Prüfwerte und keine IP-Adressen.
+                wurde. Bist du angemeldet, zählt dein Konto einmal in 24
+                Stunden.
             </p>
 
             <p>
@@ -462,7 +463,7 @@
 
 </footer>
 
-<script src="../assets/js/visitor-counter.js?v=20261103-umbau2"></script>
+<script src="../assets/js/visitor-counter.js?v=20261108-zaehlung1"></script>
 
 </body>
 

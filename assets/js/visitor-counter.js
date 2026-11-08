@@ -2,8 +2,12 @@
     const SUPABASE_URL = "https://yawadxzeyyrozmlrokun.supabase.co";
     const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlhd2FkeHpleXlyb3ptbHJva3VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMzQ4MTIsImV4cCI6MjEwMDkxMDgxMn0.B53O3gHURnfxUkVGKaZJ5ssx27Bj9FNMU70Yn85tfxE";
     const totalVisitors = document.querySelector("#total-visitors");
-    const VISITOR_KEY = "zhserver_last_visit";
-    const DEVICE_ID_KEY = "zhserver_device_id";
+    // Counting keeps nothing in the browser. Entries of the former browser-based count are removed once.
+    for (const store of ["localStorage", "sessionStorage"]) {
+        try {
+            ["zhserver_last_visit", "zhserver_device_id"].forEach((key) => window[store].removeItem(key));
+        } catch (_) { /* Storage blocked: nothing to remove. */ }
+    }
 
     // ================= 1. VISITOR STATISTICS (FOOTER) =================
     const counterScriptUrl = document.currentScript?.src;
@@ -23,23 +27,6 @@
             } catch (_) { /* Use session storage when persistent storage is blocked. */ }
         }
         return null;
-    }
-
-    function writeVisitorStorage(key, value) {
-        for (const store of ["localStorage", "sessionStorage"]) {
-            try {
-                window[store].setItem(key, value);
-                return true;
-            } catch (_) { /* Without either store, read statistics without registering. */ }
-        }
-        return false;
-    }
-
-    function getStatsDeviceId() {
-        const stored = readVisitorStorage(DEVICE_ID_KEY);
-        if (stored) return stored;
-        const id = "zh_" + (window.crypto?.randomUUID?.() || Math.random().toString(36).slice(2) + "_" + Date.now().toString(36));
-        return writeVisitorStorage(DEVICE_ID_KEY, id) ? id : null;
     }
 
     function berlinDate(date = new Date()) {
@@ -206,20 +193,14 @@
         if (!visitorWidget || statsLoading) return;
         statsLoading = true;
         renderVisitorStats();
-        const deviceId = getStatsDeviceId();
         const fetchStats = async () => {
-            const savedVisit = Number(readVisitorStorage(VISITOR_KEY) || 0);
-            const lastVisit = Number.isFinite(savedVisit) && savedVisit <= Date.now() ? savedVisit : 0;
-            // Preserve the inherited total counter's once-per-24-hours behaviour.
-            const newVisit = deviceId && (!lastVisit || Date.now() - lastVisit >= 24 * 60 * 60 * 1000);
-            legacyStats = await callVisitorStats(newVisit ? "register_visitor" : "get_visitor_stats");
-            if (newVisit && visitorCount(legacyStats?.total_visitors) !== null) writeVisitorStorage(VISITOR_KEY, String(Date.now()));
-            // The server deduplicates each calendar day and sums its recorded daily counts.
-            periodStats = await callVisitorStats(deviceId ? "register_visitor_period" : "get_visitor_period_stats", deviceId ? { p_device_id: deviceId } : {});
+            // The server counts each visitor once per Berlin calendar day (daily one-way value, see Datenschutz).
+            await callVisitorStats("register_visitor_today");
+            legacyStats = await callVisitorStats("get_visitor_stats");
+            periodStats = await callVisitorStats("get_visitor_period_stats");
         };
         try {
-            if (deviceId && navigator.locks?.request) await navigator.locks.request("zhserver_visitor_stats", fetchStats);
-            else await fetchStats();
+            await fetchStats();
         } finally {
             lastStatsDate = berlinDate();
             statsLoading = false;
