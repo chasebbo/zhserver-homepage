@@ -384,7 +384,6 @@ body.zh-2026 .site-footer.zh-global-footer .zh-footer-release a { color: #e6cd8e
     body.zh-2026.forum-page .forum-workspace { scroll-margin-top: calc(var(--zh-head-h) + 34px); }
     html body.zh-2026.gallery-page:not(.wiki-page) .zh-gallery-hero { padding-top: calc(var(--zh-head-h) + 50px); }
     body.zh-2026 .account-main { padding-top: calc(var(--zh-head-h) + 52px); }
-    body.zh-2026.feedback-page .header.zh-site-header + main > .feedback-hero,
     body.zh-2026.game-product-page .header.zh-site-header + .game-page { padding-top: calc(var(--zh-head-h) + 38px); }
     body.zh-2026.arma-page .arma-main { padding-top: calc(var(--zh-head-h) + 46px); }
     body.zh-2026 .legal-main { padding-top: calc(var(--zh-head-h) + 54px); }

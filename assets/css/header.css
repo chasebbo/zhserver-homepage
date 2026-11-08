@@ -108,8 +108,7 @@
 
 @media (min-width: 901px) {
     /* Clearance for the taller fixed header, without altering page content. */
-    .game-product-page .header.zh-site-header + .game-page,
-    .feedback-page .header.zh-site-header + main > .feedback-hero {
+    .game-product-page .header.zh-site-header + .game-page {
         padding-top: 188px;
     }
 

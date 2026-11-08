@@ -222,12 +222,6 @@ if (guestbookEntries) {
 const menuToggle = document.querySelector("#menu-toggle");
 const navMenu = document.querySelector(".nav-menu");
 
-if (window.location.protocol !== "file:") {
-    document.querySelectorAll("[data-bugs-route]").forEach(link => {
-        link.setAttribute("href", "/forum/#category/bugs");
-    });
-}
-
 if (menuToggle && navMenu) {
 
     menuToggle.addEventListener("click", () => {
@@ -273,7 +267,7 @@ function initActiveNav() {
 
     const currentPath = window.location.pathname.toLowerCase();
     const isForumPage = /\/forum(?:\/(?:index\.html)?)?$/.test(currentPath);
-    const isSubpage = isForumPage || currentPath.includes("gallery") || currentPath.includes("wiki") || currentPath.includes("game") || currentPath.includes("play") || currentPath.includes("/bugs");
+    const isSubpage = isForumPage || currentPath.includes("gallery") || currentPath.includes("wiki") || currentPath.includes("game") || currentPath.includes("play");
 
     function setActiveLink(targetLink) {
         if (!targetLink) return;
@@ -289,8 +283,6 @@ function initActiveNav() {
         navLinks.forEach(link => {
             const href = (link.getAttribute("href") || "").toLowerCase();
             if (isForumPage && link.hasAttribute("data-forum-route")) {
-                setActiveLink(link);
-            } else if (currentPath.includes("/bugs") && (href.includes("bugs") || link.hasAttribute("data-bugs-route"))) {
                 setActiveLink(link);
             } else if (currentPath.includes("gallery") && href.includes("gallery")) {
                 setActiveLink(link);

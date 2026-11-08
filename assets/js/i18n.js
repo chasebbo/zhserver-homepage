@@ -17,8 +17,8 @@
         "script", "style", "svg", "[data-i18n-ignore]", "[data-i18n-message]",
         ".guestbook-card h3", ".guestbook-card > p", ".gallery-info > span",
         ".gallery-info-head > span", ".gallery-card img", "#lightboxImage",
-        ".gallery-info > p:not(.gallery-pending-sub)", ".feedback-card h4",
-        ".feedback-description", ".top5-name", ".leaderboard-player", ".recent-name"
+        ".gallery-info > p:not(.gallery-pending-sub)",
+        ".top5-name", ".leaderboard-player", ".recent-name"
     ].join(",");
     const textRecords = new Map();
     const attributeRecords = new Map();

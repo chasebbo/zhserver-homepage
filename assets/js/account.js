@@ -13,7 +13,7 @@
     const nameEditingEnabled = false;
     const site = path => new URL(path, root).href;
     const allowed = new Set(['', 'index.html', 'game.html', 'game-test-v130.html', 'game-test-handy.html', 'gallery.html', 'wiki.html', 'forum/',
-        'forum/index.html', 'arma/', 'arma/index.html', 'bugs/', 'bugs/index.html', 'profile/', 'profile/index.html',
+        'forum/index.html', 'arma/', 'arma/index.html', 'profile/', 'profile/index.html',
         'admin/', 'admin/index.html']);
     // Allowed targets that need more than a signed-in account. They are reached after sign-in only when
     // the existing server role check passes; otherwise the start page is used.
@@ -320,7 +320,7 @@
     // First-visit welcome for guests on content pages only. A local flag (never a cookie) stops repeats;
     // without any usable browser storage the welcome is skipped rather than shown on every page.
     const welcomeKey = 'zh_welcome_seen_v1';
-    const welcomePages = new Set(['', 'index.html', 'gallery.html', 'forum/', 'forum/index.html', 'bugs/', 'bugs/index.html',
+    const welcomePages = new Set(['', 'index.html', 'gallery.html', 'forum/', 'forum/index.html',
         'arma/', 'arma/index.html', 'game-development.html']);
     let welcomeTimer = 0, welcomeShown = false;
     function welcomeStore() {

@@ -3488,58 +3488,6 @@ window.ZHTranslations = {
       "de": "Weitere {count} Spieler anzeigen",
       "en": "Show {count} more players"
     },
-    "feedback.author": {
-      "de": "von {name}",
-      "en": "by {name}"
-    },
-    "feedback.screenshot.open": {
-      "de": "Screenshot zu {title} vergrößern",
-      "en": "Enlarge screenshot for {title}"
-    },
-    "feedback.screenshot.alt": {
-      "de": "Screenshot zu {title}",
-      "en": "Screenshot for {title}"
-    },
-    "feedback.id.idea": {
-      "de": "IDEE-{id}",
-      "en": "IDEA-{id}"
-    },
-    "feedback.invalid": {
-      "de": "{detail}",
-      "en": "Please check your name, category, title and description. The submitted details are invalid."
-    },
-    "feedback.error.duplicate": {
-      "de": "Diesen Eintrag hast du gerade schon gesendet.",
-      "en": "You just sent this entry."
-    },
-    "feedback.error.save": {
-      "de": "Die Meldung konnte gerade nicht gespeichert werden. Bitte versuche es erneut.",
-      "en": "Your submission could not be saved. Please try again."
-    },
-    "feedback.screenshot.type": {
-      "de": "Bitte nur PNG-, JPG- oder WebP-Screenshots auswählen.",
-      "en": "Please choose a PNG, JPG or WebP screenshot."
-    },
-    "feedback.screenshot.size": {
-      "de": "Der Screenshot darf maximal 5 MB groß sein.",
-      "en": "The screenshot must be no larger than 5 MB."
-    },
-    "feedback.required": {
-      "de": "Bitte fülle alle Pflichtfelder vollständig aus.",
-      "en": "Please complete all required fields."
-    },
-    "feedback.saving": {
-      "de": "Wird gespeichert …",
-      "en": "Saving …"
-    },
-    "feedback.published.bug": {
-      "de": "Bug wurde veröffentlicht.",
-      "en": "Your bug report has been published."
-    },
-    "feedback.published.idea": {
-      "de": "Idee wurde veröffentlicht.",
-      "en": "Your idea has been published."
-    },
     "gallery.file.empty": {
       "de": "Keine Datei ausgewählt",
       "en": "No file selected"
@@ -4380,8 +4328,6 @@ Object.assign(window.ZHTranslations.messages, {
   "admin.guestbookText": {"de":"Einträge prüfen, freigeben und verwalten.","en":"Review, approve and manage guestbook entries."},
   "admin.gallery": {"de":"Galerie / Screenshots","en":"Gallery / Screenshots"},
   "admin.galleryText": {"de":"Eingereichte Screenshots prüfen und verwalten.","en":"Review and manage submitted screenshots."},
-  "admin.feedback": {"de":"Bugs / Ideen / Feedback","en":"Bugs / Ideas / Feedback"},
-  "admin.feedbackText": {"de":"Bestehende Bug-, Ideen- und Feedbackmeldungen verwalten.","en":"Manage existing bug reports, ideas and feedback."},
   "pulse.admin.create": {de:"Neue Umfrage",en:"New poll"},
   "pulse.admin.refresh": {de:"Liste aktualisieren",en:"Refresh list"},
   "pulse.admin.ready": {de:"Umfragen geladen.",en:"Polls loaded."},
