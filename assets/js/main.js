@@ -224,7 +224,7 @@ const navMenu = document.querySelector(".nav-menu");
 
 if (window.location.protocol !== "file:") {
     document.querySelectorAll("[data-bugs-route]").forEach(link => {
-        link.setAttribute("href", "/bugs");
+        link.setAttribute("href", "/forum/#category/bugs");
     });
 }
 
