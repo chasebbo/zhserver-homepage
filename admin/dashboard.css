@@ -20,3 +20,6 @@ body[data-zh-admin-protected]:not([data-zh-admin-verified]) .admin-hub-content {
 .admin-hub :is(a, button):focus-visible { outline: 2px solid #d5b448; outline-offset: 4px; }
 @media (max-width: 900px) { .admin-hub { padding: 42px 24px 60px; } }
 @media (max-width: 600px) { .admin-hub { padding: 34px 18px 50px; } .admin-hub-grid { grid-template-columns: minmax(0, 1fr); } .admin-hub-link { padding: 20px; } .admin-hub-gate { padding: 20px; } }
+.admin-hub-server:hover { border-color: rgba(179, 194, 207, .16); background: rgba(13, 22, 30, .78); }
+.admin-hub-server p { color: #e5e7e2; font-size: .95rem; }
+.admin-hub-server-age { color: #9cacbb; font-size: .76rem; }
