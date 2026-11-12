@@ -36,15 +36,16 @@ v132-3 mit den Paketen `pc` und `handy` ist der Rückweg, nur zusammen mit dem S
 (`game.html` und `game-test-v130.html` zurück auf `game/survival-v132-3-pc.html?build=v132-3-pc-20261107`,
 `data-src-handy` auf `game/survival-v132-3-handy.html?build=v132-3-handy-20261107`, `game-test-handy.html`
 zurück auf `game/survival-probe3-handy.html?build=probe3-handy-20261107`).
-v132-3, v131-11 und `survival-probe3-handy.*` bleiben in `game/`, bis Sebastian das Archivieren freigibt.
-Archiviert sind probe1 (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`),
+v132-3 und `survival-probe3-handy.*` bleiben in `game/`. probe3-handy wird erst archiviert, wenn v133 ein
+paar Tage gut läuft. Archiviert sind v131-11 (`C:\ZHServer-Archiv\homepage-builds\v131-11\`),
+probe1 (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`),
 v130-2 (`C:\ZHServer-Archiv\homepage-builds\v130-2\`), v132-1
 (`C:\ZHServer-Archiv\homepage-builds\v132-1\`) und v132-2
 (`C:\ZHServer-Archiv\homepage-builds\v132-2\`).
 Rückweg: probe1 aus dem Archiv nach `game/`, `data-src` zurück auf
 `game/survival-probe1-handy.html?build=probe1-handy-20261105`, `game/survival-probe3-handy.*` löschen.
 Jede Spielversion hat eigene Dateinamen; vorhandene Dateien werden nie
-überschrieben. Ältere Builds (zuletzt v132-2, v132-1, v130-2 und probe1) sind außerhalb des Repositorys
+überschrieben. Ältere Builds (zuletzt v131-11, v132-2, v132-1, v130-2 und probe1) sind außerhalb des Repositorys
 archiviert.
 
 Prüfstand und Freigabegrenzen: `../docs/GAME_ENTRY_CHECKPOINT.md`.
