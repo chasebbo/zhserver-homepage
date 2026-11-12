@@ -1,41 +1,43 @@
 # Gelieferter Godot-Webbuild
 
-Aktuelle Hauptversion: **v132-3** mit den Paketen `pc` und `handy` (Hotfix), veröffentlicht am 07.11.2026.
+Aktuelle Hauptversion: **v133** mit den Paketen `pc` und `handy`, veröffentlicht am 12.11.2026.
 
 `game.html` lädt den Client erst nach dem bestehenden Account-/Gaststart:
-`game/survival-v132-3-pc.html?build=v132-3-pc-20261107`, auf Handys
-`game/survival-v132-3-handy.html?build=v132-3-handy-20261107` (nur ETC2 und kein S3TC, `gamePackageSource` in `game-entry.js`).
+`game/survival-v133-pc.html?build=v133-pc-20261112`, auf Handys
+`game/survival-v133-handy.html?build=v133-handy-20261112` (nur ETC2 und kein S3TC, `gamePackageSource` in `game-entry.js`).
 Die bestehende zentrale ZHServer-Sitzung wird über die unveränderte
 `game-auth-bridge.js` übernommen.
 
-Ein Paket besteht aus vierzehn zusammengehörigen Dateien (das Spielpaket in fünf Teilen zu höchstens 24 MiB, damit Browser es zwischenspeichern), hier am Beispiel `pc`:
+Ein Paket besteht aus fünfzehn zusammengehörigen Dateien (das Spielpaket in sechs Teilen zu höchstens 24 MiB, damit Browser es zwischenspeichern), hier am Beispiel `pc`:
 
-- `survival-v132-3-pc.html`
-- `survival-v132-3-pc.js`
-- `survival-v132-3-pc.wasm`
-- `survival-v132-3-pc.pack-loader.js`
-- `survival-v132-3-pc.pck.part00`
-- `survival-v132-3-pc.pck.part01`
-- `survival-v132-3-pc.pck.part02`
-- `survival-v132-3-pc.pck.part03`
-- `survival-v132-3-pc.pck.part04`
-- `survival-v132-3-pc.audio.worklet.js`
-- `survival-v132-3-pc.audio.position.worklet.js`
-- `survival-v132-3-pc.apple-touch-icon.png`
-- `survival-v132-3-pc.icon.png`
-- `survival-v132-3-pc.png`
+- `survival-v133-pc.html`
+- `survival-v133-pc.js`
+- `survival-v133-pc.wasm`
+- `survival-v133-pc.pack-loader.js`
+- `survival-v133-pc.pck.part00`
+- `survival-v133-pc.pck.part01`
+- `survival-v133-pc.pck.part02`
+- `survival-v133-pc.pck.part03`
+- `survival-v133-pc.pck.part04`
+- `survival-v133-pc.pck.part05`
+- `survival-v133-pc.audio.worklet.js`
+- `survival-v133-pc.audio.position.worklet.js`
+- `survival-v133-pc.apple-touch-icon.png`
+- `survival-v133-pc.icon.png`
+- `survival-v133-pc.png`
 
 Der gelieferte Loader setzt die Packteile verlustfrei zusammen. Kein einzelner
 Teil überschreitet 100 MiB. Keine zweite Auth-, Gasttimer- oder
 Persistence-Lösung auf der Homepage.
 
-Öffentlich liegen die Hauptversion v132-3 mit den Paketen `pc` und `handy` auf `game.html` und
-`game-test-v130.html` und v131-11 mit den Paketen `pc` und `handy` als Rückweg (`game.html` zurück auf
-`game/survival-v131-11-pc.html?build=v131-11-pc-20261104`, `data-src-handy` auf
-`game/survival-v131-11-handy.html?build=v131-11-handy-20261104`).
-Dazu das Handy-Probepaket `survival-probe3-handy.*` auf der nicht öffentlichen Testadresse
-`game-test-handy.html` (`game/survival-probe3-handy.html?build=probe3-handy-20261107`), für einen
-iPhone-Lauf. Archiviert sind probe1 (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`),
+Öffentlich liegt die Hauptversion v133 mit den Paketen `pc` und `handy` auf `game.html`,
+`game-test-v130.html` und `game-test-handy.html`. Am Server v133 laufen nur Clients mit v133.
+v132-3 mit den Paketen `pc` und `handy` ist der Rückweg, nur zusammen mit dem Server-Rückweg auf v132-3
+(`game.html` und `game-test-v130.html` zurück auf `game/survival-v132-3-pc.html?build=v132-3-pc-20261107`,
+`data-src-handy` auf `game/survival-v132-3-handy.html?build=v132-3-handy-20261107`, `game-test-handy.html`
+zurück auf `game/survival-probe3-handy.html?build=probe3-handy-20261107`).
+v132-3, v131-11 und `survival-probe3-handy.*` bleiben in `game/`, bis Sebastian das Archivieren freigibt.
+Archiviert sind probe1 (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`),
 v130-2 (`C:\ZHServer-Archiv\homepage-builds\v130-2\`), v132-1
 (`C:\ZHServer-Archiv\homepage-builds\v132-1\`) und v132-2
 (`C:\ZHServer-Archiv\homepage-builds\v132-2\`).
