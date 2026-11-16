@@ -217,7 +217,7 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Auf `index.html` (Freigabe Sebastian, 21.10.2026) steht nur noch
   „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
-- Hauptversion für `game.html`: v134-1 mit den Paketen `pc` und `handy` (veröffentlicht am 16.11.2026).
+- Hauptversion für `game.html`: v134-2 mit den Paketen `pc` und `handy` (veröffentlicht am 16.11.2026).
 
 ## Spiel-Builds online (Dauerregel, Sebastian 22.10.2026)
 
@@ -240,15 +240,15 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 16.11.2026 (Hotfix v134-1): Hauptversion v134-1 mit den Paketen `pc` und `handy` auf `game.html`,
+- Stand 16.11.2026 (Hotfix v134-2): Hauptversion v134-2 mit den Paketen `pc` und `handy` auf `game.html`,
   `game-test-v130.html` und `game-test-handy.html` (`gamePackageSource` in `game-entry.js` wählt das Paket,
-  Apple-Mobilgeräte mit ETC2 bekommen `handy`). Am Server v134-1 laufen nur Clients mit v134-1.
-- Rückweg v134 nur zusammen mit dem Server-Rückweg auf v134, alle drei Seiten in einem Commit: `game.html`,
-  `game-test-v130.html` und `game-test-handy.html` auf `game/survival-v134-pc.html?build=v134-pc-20261116` und
-  `game/survival-v134-handy.html?build=v134-handy-20261116`.
-  v134 bleibt in `game/`, bis Sebastian das Archivieren freigibt.
-- Stand 16.11.2026: v134-2 mit den Paketen `pc` und `handy` liegt in `game/` bereit, noch zeigt keine Seite
-  darauf. In `game/` liegen v134, v134-1 und v134-2 (Sebastian 16.11.2026).
+  Apple-Mobilgeräte mit ETC2 bekommen `handy`).
+- Rückweg v134-1, alle drei Seiten in einem Commit, auch unabhängig vom Server möglich (Sebastian 16.11.2026):
+  `game.html`, `game-test-v130.html` und `game-test-handy.html` auf
+  `game/survival-v134-1-pc.html?build=v134-1-pc-20261116` und
+  `game/survival-v134-1-handy.html?build=v134-1-handy-20261116`.
+  v134 und v134-1 bleiben in `game/`, bis Sebastian das Archivieren freigibt. In `game/` liegen v134, v134-1
+  und v134-2.
 - Archiviert und entfernt: v133 (`C:\ZHServer-Archiv\homepage-builds\v133\`, 16.11.2026), v132-3 (`C:\ZHServer-Archiv\homepage-builds\v132-3\`, 16.11.2026), probe3-handy
   (`C:\ZHServer-Archiv\homepage-builds\probe3-handy\`, 16.11.2026), v131-11 (`C:\ZHServer-Archiv\homepage-builds\v131-11\`, 12.11.2026), v132-2 (`C:\ZHServer-Archiv\homepage-builds\v132-2\`), v132-1
   (`C:\ZHServer-Archiv\homepage-builds\v132-1\`), v130-2
