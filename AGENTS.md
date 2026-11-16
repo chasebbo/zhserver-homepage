@@ -246,8 +246,10 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Rückweg v134 nur zusammen mit dem Server-Rückweg auf v134, alle drei Seiten in einem Commit: `game.html`,
   `game-test-v130.html` und `game-test-handy.html` auf `game/survival-v134-pc.html?build=v134-pc-20261116` und
   `game/survival-v134-handy.html?build=v134-handy-20261116`.
-  v134 und v133 bleiben in `game/`, bis Sebastian das Archivieren freigibt. In `game/` liegen v134-1, v134 und v133.
-- Archiviert und entfernt: v132-3 (`C:\ZHServer-Archiv\homepage-builds\v132-3\`, 16.11.2026), probe3-handy
+  v134 bleibt in `game/`, bis Sebastian das Archivieren freigibt.
+- Stand 16.11.2026: v134-2 mit den Paketen `pc` und `handy` liegt in `game/` bereit, noch zeigt keine Seite
+  darauf. In `game/` liegen v134, v134-1 und v134-2 (Sebastian 16.11.2026).
+- Archiviert und entfernt: v133 (`C:\ZHServer-Archiv\homepage-builds\v133\`, 16.11.2026), v132-3 (`C:\ZHServer-Archiv\homepage-builds\v132-3\`, 16.11.2026), probe3-handy
   (`C:\ZHServer-Archiv\homepage-builds\probe3-handy\`, 16.11.2026), v131-11 (`C:\ZHServer-Archiv\homepage-builds\v131-11\`, 12.11.2026), v132-2 (`C:\ZHServer-Archiv\homepage-builds\v132-2\`), v132-1
   (`C:\ZHServer-Archiv\homepage-builds\v132-1\`), v130-2
   (`C:\ZHServer-Archiv\homepage-builds\v130-2\`) und probe1

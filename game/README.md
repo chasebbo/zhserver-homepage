@@ -34,14 +34,16 @@ Persistence-Lösung auf der Homepage.
 `game-test-v130.html` und `game-test-handy.html`. Am Server v134-1 laufen nur Clients mit v134-1.
 v134 bleibt als Rückweg in `game/`, nur zusammen mit dem Server-Rückweg auf v134: dann zeigen die drei
 Seiten in einem Commit auf `game/survival-v134-pc.html?build=v134-pc-20261116` und
-`game/survival-v134-handy.html?build=v134-handy-20261116`. In `game/` liegen v134-1, v134 und v133. Archiviert sind v132-3 (`C:\ZHServer-Archiv\homepage-builds\v132-3\`), probe3-handy
+`game/survival-v134-handy.html?build=v134-handy-20261116`.
+v134-2 mit den Paketen `pc` und `handy` liegt bereit, noch zeigt keine Seite darauf. In `game/` liegen
+v134, v134-1 und v134-2. Archiviert sind v133 (`C:\ZHServer-Archiv\homepage-builds\v133\`), v132-3 (`C:\ZHServer-Archiv\homepage-builds\v132-3\`), probe3-handy
 (`C:\ZHServer-Archiv\homepage-builds\probe3-handy\`), v131-11 (`C:\ZHServer-Archiv\homepage-builds\v131-11\`),
 probe1 (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`),
 v130-2 (`C:\ZHServer-Archiv\homepage-builds\v130-2\`), v132-1
 (`C:\ZHServer-Archiv\homepage-builds\v132-1\`) und v132-2
 (`C:\ZHServer-Archiv\homepage-builds\v132-2\`).
 Jede Spielversion hat eigene Dateinamen; vorhandene Dateien werden nie
-überschrieben. Ältere Builds (zuletzt v132-3, probe3-handy, v131-11, v132-2, v132-1, v130-2 und probe1) sind außerhalb des Repositorys
+überschrieben. Ältere Builds (zuletzt v133, v132-3, probe3-handy, v131-11, v132-2, v132-1, v130-2 und probe1) sind außerhalb des Repositorys
 archiviert.
 
 Prüfstand und Freigabegrenzen: `../docs/GAME_ENTRY_CHECKPOINT.md`.
