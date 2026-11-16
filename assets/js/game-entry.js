@@ -163,9 +163,16 @@
             const verified = await identity.resolve();
             if (verified.status !== "member" || principal.status !== "member" ||
                 verified.userId !== principal.userId || serverStatus !== "online") return;
+            const source = frame.getAttribute("src") ? null : gamePackageSource(frame);
+            // Ohne WebGL2 kein Ladeversuch: der Hinweis steht dann statt des Ladehinweises unter dem Startknopf.
+            if (source === false) {
+                bind("[data-game-load-hint]", "noWebgl2");
+                show("[data-game-load-hint]", true);
+                return;
+            }
             wrapper.hidden = false;
-            if (!frame.getAttribute("src")) {
-                const url = new URL(gamePackageSource(frame), window.location.href);
+            if (source) {
+                const url = new URL(source, window.location.href);
                 const server = params.get("server");
                 // A shared link must not redirect an account-bearing client to another server.
                 if (server === serverUrl) url.searchParams.set("server", server);
@@ -182,14 +189,28 @@
         }
     }
 
+    // Wählt das Spielpaket und schreibt die Wahl mit Grund in die Konsole. Ohne WebGL2: false, dann kein Ladeversuch.
     function gamePackageSource(frame) {
-        if (!frame.dataset.srcHandy) return frame.dataset.src;
-        try {
-            const gl = document.createElement("canvas").getContext("webgl2");
-            // Nur ETC2 und kein S3TC: das Paket für Handys. Alles andere, auch ohne WebGL2: das Paket für den PC.
-            if (gl && !gl.getExtension("WEBGL_compressed_texture_s3tc") && gl.getExtension("WEBGL_compressed_texture_etc")) return frame.dataset.srcHandy;
-        } catch (_) { /* Dann das Paket für den PC. */ }
-        return frame.dataset.src;
+        let gl = null;
+        try { gl = document.createElement("canvas").getContext("webgl2"); } catch (_) { /* Dann ohne WebGL2. */ }
+        if (!gl) {
+            console.log("[SPIEL] Kein Paket: Browser ohne WebGL2");
+            return false;
+        }
+        const pick = (kind, reason) => {
+            console.log("[SPIEL] Paket " + kind + " (" + reason + ")");
+            return kind === "handy" && frame.dataset.srcHandy ? frame.dataset.srcHandy : frame.dataset.src;
+        };
+        if (!frame.dataset.srcHandy) return pick(/-handy\./.test(frame.dataset.src) ? "handy" : "pc", "nur ein Paket auf dieser Seite");
+        const etc2 = !!gl.getExtension("WEBGL_compressed_texture_etc");
+        const s3tc = !!gl.getExtension("WEBGL_compressed_texture_s3tc");
+        const agent = navigator.userAgent;
+        // iPads mit M-Chip melden S3TC und ETC2 und geben sich als Macintosh mit Touch aus.
+        const appleMobile = /iPhone|iPad|iPod/.test(agent) || (/Macintosh/.test(agent) && navigator.maxTouchPoints > 1);
+        if (appleMobile && etc2) return pick("handy", s3tc ? "Apple-Mobilgerät mit ETC2, S3TC gemeldet" : "Apple-Mobilgerät mit ETC2");
+        // Nur ETC2 und kein S3TC: das Paket für Handys. Alles andere: das Paket für den PC.
+        if (etc2 && !s3tc) return pick("handy", "ETC2 ohne S3TC");
+        return pick("pc", s3tc ? "S3TC vorhanden" : "kein ETC2");
     }
 
     // A focused game canvas scrolls its iframe into view without regard to the fixed header.
