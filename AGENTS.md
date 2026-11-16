@@ -242,13 +242,11 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   deutlich unter 1 GB.
 - Stand 12.11.2026 (Release v133): Hauptversion v133 mit den Paketen `pc` und `handy` auf `game.html`,
   `game-test-v130.html` und `game-test-handy.html` (`gamePackageSource` in `game-entry.js` wählt das Paket).
-  Am Server v133 laufen nur Clients mit v133. Rückweg v132-3 nur zusammen mit dem Server-Rückweg auf
-  v132-3: `game.html` und `game-test-v130.html` zurück auf `game/survival-v132-3-pc.html?build=v132-3-pc-20261107`
-  und `data-src-handy` auf `game/survival-v132-3-handy.html?build=v132-3-handy-20261107`,
-  `game-test-handy.html` zurück auf `game/survival-probe3-handy.html?build=probe3-handy-20261107`.
-  v132-3 und `survival-probe3-handy.*` bleiben in `game/`. probe3-handy wird erst archiviert, wenn v133 ein
-  paar Tage gut läuft (Sebastian 12.11.2026).
-- Archiviert und entfernt: v131-11 (`C:\ZHServer-Archiv\homepage-builds\v131-11\`, 12.11.2026), v132-2 (`C:\ZHServer-Archiv\homepage-builds\v132-2\`), v132-1
+  Am Server v133 laufen nur Clients mit v133.
+- Stand 16.11.2026: v134 mit den Paketen `pc` und `handy` liegt in `game/` bereit, noch zeigt keine Seite
+  darauf. In `game/` liegen nur v134 und v133 (Sebastian 16.11.2026).
+- Archiviert und entfernt: v132-3 (`C:\ZHServer-Archiv\homepage-builds\v132-3\`, 16.11.2026), probe3-handy
+  (`C:\ZHServer-Archiv\homepage-builds\probe3-handy\`, 16.11.2026), v131-11 (`C:\ZHServer-Archiv\homepage-builds\v131-11\`, 12.11.2026), v132-2 (`C:\ZHServer-Archiv\homepage-builds\v132-2\`), v132-1
   (`C:\ZHServer-Archiv\homepage-builds\v132-1\`), v130-2
   (`C:\ZHServer-Archiv\homepage-builds\v130-2\`) und probe1
   (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`), vorher v131-8, v130-1, v129 mit
