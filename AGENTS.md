@@ -217,7 +217,7 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Auf `index.html` (Freigabe Sebastian, 21.10.2026) steht nur noch
   „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
-- Hauptversion für `game.html`: v133 mit den Paketen `pc` und `handy` (veröffentlicht am 12.11.2026).
+- Hauptversion für `game.html`: v134 mit den Paketen `pc` und `handy` (veröffentlicht am 16.11.2026).
 
 ## Spiel-Builds online (Dauerregel, Sebastian 22.10.2026)
 
@@ -240,11 +240,13 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 12.11.2026 (Release v133): Hauptversion v133 mit den Paketen `pc` und `handy` auf `game.html`,
-  `game-test-v130.html` und `game-test-handy.html` (`gamePackageSource` in `game-entry.js` wählt das Paket).
-  Am Server v133 laufen nur Clients mit v133.
-- Stand 16.11.2026: v134 mit den Paketen `pc` und `handy` liegt in `game/` bereit, noch zeigt keine Seite
-  darauf. In `game/` liegen nur v134 und v133 (Sebastian 16.11.2026).
+- Stand 16.11.2026 (Release v134): Hauptversion v134 mit den Paketen `pc` und `handy` auf `game.html`,
+  `game-test-v130.html` und `game-test-handy.html` (`gamePackageSource` in `game-entry.js` wählt das Paket,
+  Apple-Mobilgeräte mit ETC2 bekommen `handy`). Am Server v134 laufen nur Clients mit v134.
+- Rückweg v133 nur zusammen mit dem Server-Rückweg auf v133: `game.html`, `game-test-v130.html` und
+  `game-test-handy.html` auf `game/survival-v133-pc.html?build=v133-pc-20261112` und
+  `game/survival-v133-handy.html?build=v133-handy-20261112`. Die iPad-Regel in `game-entry.js` darf bleiben.
+  v133 bleibt in `game/`, bis Sebastian das Archivieren freigibt. In `game/` liegen nur v134 und v133.
 - Archiviert und entfernt: v132-3 (`C:\ZHServer-Archiv\homepage-builds\v132-3\`, 16.11.2026), probe3-handy
   (`C:\ZHServer-Archiv\homepage-builds\probe3-handy\`, 16.11.2026), v131-11 (`C:\ZHServer-Archiv\homepage-builds\v131-11\`, 12.11.2026), v132-2 (`C:\ZHServer-Archiv\homepage-builds\v132-2\`), v132-1
   (`C:\ZHServer-Archiv\homepage-builds\v132-1\`), v130-2
