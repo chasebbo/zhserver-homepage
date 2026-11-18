@@ -5442,13 +5442,6 @@ body:not(.zh-2026) .section.dark {
     cursor: pointer;
 }
 
-.radio-info small {
-    font-size: 0.72rem;
-    color: #6d7f90;
-    line-height: 1.35;
-    display: block;
-}
-
 @media (max-width: 600px) {
     .survival-radio-widget {
         bottom: 16px;

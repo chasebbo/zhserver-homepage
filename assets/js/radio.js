@@ -74,10 +74,31 @@
             masterGain.connect(audioCtx.destination);
         }
 
-        // Stimmen im Funk: echte Sprachaufnahmen (CC0, Quellen in assets/audio/README.md), zur Laufzeit schmal,
-        // knisternd und teils abgeschnitten gespielt. Je Eintrag: [Start in s, Länge in s, Sprecher].
-        // Sprecher "t" sind ganze Sätze, die im Rauschen undeutlich bleiben, die übrigen einzelne Wörter.
-        const VOICE_CLIPS = [[0, 0.37, "d1"], [0.45, 1.03, "d2"], [1.56, 1.7, "d3"], [3.34, 0.53, "w"], [3.95, 0.44, "w"], [4.47, 0.73, "w"], [5.28, 0.47, "g"], [5.83, 0.25, "g"], [6.16, 0.49, "g"], [6.73, 0.43, "s"], [7.24, 0.55, "s"], [7.87, 3.08, "t"], [11.03, 5.23, "t"], [16.34, 2.38, "t"]];
+        // Stimmen im Funk: echte Sprachaufnahmen (CC0, Quellen in assets/audio/README.md). Ein Funkspruch besteht aus
+        // Bruchstücken mit Rauschen dazwischen: Wörter reißen mitten im Wort ab, gehen ganz verloren oder kommen kurz
+        // deutlicher durch. Je Abschnitt der Datei: Name: [Start in s, Länge in s]. t1 und t2 sind ganze Sätze, die nur
+        // gedämpft durchkommen, sodass man lediglich hört, dass jemand spricht.
+        const VOICE_CLIPS = { help: [0, 0.25], hello: [0.33, 0.47], anyone: [0.88, 0.63], hear: [1.59, 0.37], me: [2.04, 0.39], can: [2.51, 0.43], someone: [3.02, 0.52], please: [3.62, 0.49], north: [4.19, 0.38], east: [4.65, 0.39], south: [5.12, 0.44], west: [5.64, 0.41], zero: [6.13, 0.56], one: [6.77, 0.52], two: [7.37, 0.46], three: [7.91, 0.54], four: [8.53, 0.48], five: [9.09, 0.58], six: [9.75, 0.46], seven: [10.29, 0.48], eight: [10.85, 0.33], nine: [11.26, 0.56], position: [11.9, 0.63], over: [12.61, 0.46], repeat: [13.15, 0.52], injured: [13.75, 0.53], Hilfe: [14.36, 1.7], Hallo: [16.14, 0.37], eins: [16.59, 0.89], zwei: [17.56, 0.55], drei: [18.19, 0.51], vier: [18.78, 0.47], "fünf": [19.33, 0.48], sechs: [19.89, 0.59], sieben: [20.56, 1.02], acht: [21.66, 0.48], neun: [22.22, 0.52], "hören": [22.82, 0.63], kommen: [23.53, 0.62], "t1": [24.23, 5.99], "t2": [30.3, 3.41] };
+        // Funksprüche: Wörter aus VOICE_CLIPS, "#e" und "#d" eine englische oder deutsche Zahl, "~" ein Stück gedämpftes Sprechen.
+        const MESSAGES = [
+            ["help", "help", "~", "anyone"],
+            ["hello", "anyone", "hear", "me"],
+            ["can", "anyone", "hear", "me", "over"],
+            ["position", "#e", "#e", "north", "#e", "#e", "#e", "east"],
+            ["injured", "~", "please", "help"],
+            ["repeat", "position", "#e", "#e", "south", "#e", "west"],
+            ["someone", "~", "help", "over"],
+            ["Hilfe", "~", "Hilfe"],
+            ["Hallo", "hören", "~", "kommen"],
+            ["#d", "#d", "#d", "~", "#d", "#d"],
+            ["Hallo", "~", "help", "position", "#e", "#e"],
+            ["Hilfe", "anyone", "hear", "~", "#d", "#d", "#d"],
+            ["~", "~"]
+        ];
+        const DIGITS = {
+            e: ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"],
+            d: ["eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun"]
+        };
         let voiceBuffer = null;
         let voiceLoading = null;
         let voiceTimer = null;
@@ -100,7 +121,8 @@
 
         function scheduleVoice(first) {
             clearTimeout(voiceTimer);
-            const wait = first ? between(6, 14) : between(14, 42);
+            // Lange Pausen mit nur Rauschen gehören dazu.
+            const wait = first ? between(5, 12) : between(20, 50);
             voiceTimer = setTimeout(() => {
                 if (!isPlaying) return;
                 playTransmission();
@@ -149,82 +171,110 @@
             source.stop(at + length + 0.02);
         }
 
-        function playTransmission() {
-            if (!voiceBuffer || !audioCtx || audioCtx.state !== "running" || !VOICE_CLIPS.length) return;
-            const talk = Math.random() < 0.4;
-            const pool = VOICE_CLIPS.filter((clip) => (clip[2] === "t") === talk);
-            if (!pool.length) return;
-            let clips = [pick(pool)];
-            if (!talk) {
-                const speaker = clips[0][2];
-                const own = pool.filter((clip) => clip[2] === speaker).sort(() => Math.random() - 0.5);
-                clips = own.slice(0, 1 + Math.floor(Math.random() * Math.min(3, own.length)));
-            }
-
-            // Schmales Funkband, leicht übersteuert. Ganze Sätze bekommen ein noch engeres Band und bleiben dadurch undeutlich.
+        // Ein Zweig des Funkbands: Hochpass, Tiefpass, leichte Übersteuerung, Aussetzer-Regler, Pegel.
+        function radioBand(low, high, drive, boost, destination) {
             const highpass = audioCtx.createBiquadFilter();
             highpass.type = "highpass";
-            highpass.frequency.value = talk ? 260 : 420;
+            highpass.frequency.value = low;
             const lowpass = audioCtx.createBiquadFilter();
             lowpass.type = "lowpass";
-            lowpass.frequency.value = talk ? between(620, 820) : between(2300, 2900);
+            lowpass.frequency.value = high;
             const shaper = audioCtx.createWaveShaper();
             const curve = new Float32Array(1024);
-            const drive = talk ? 2.2 : 3.2;
             for (let i = 0; i < curve.length; i++) curve[i] = Math.tanh(drive * (i / 511.5 - 1)) / Math.tanh(drive);
             shaper.curve = curve;
             const gate = audioCtx.createGain();
-            const level = audioCtx.createGain();
-            level.gain.value = talk ? between(0.5, 0.7) : between(0.35, 0.5);
             highpass.connect(lowpass);
             lowpass.connect(shaper);
             shaper.connect(gate);
-            gate.connect(level);
+            const out = audioCtx.createGain();
+            out.gain.value = boost;
+            gate.connect(out);
+            out.connect(destination);
+            return { input: highpass, gate, nodes: [highpass, lowpass, shaper, gate, out] };
+        }
+
+        // Kurzer Aussetzer im Empfang mit Knacken.
+        function dropout(band, start, span, destination) {
+            band.gate.gain.setValueAtTime(1, start);
+            band.gate.gain.linearRampToValueAtTime(0.04, start + 0.01);
+            band.gate.gain.setValueAtTime(0.04, start + span);
+            band.gate.gain.linearRampToValueAtTime(1, start + span + 0.015);
+            crackle(destination, start, 0.05, 0.22);
+        }
+
+        function playPart(band, offset, part, at, abrupt) {
+            const rate = between(0.97, 1.03);
+            const length = part / rate;
+            const source = audioCtx.createBufferSource();
+            source.buffer = voiceBuffer;
+            source.playbackRate.value = rate;
+            const env = audioCtx.createGain();
+            env.gain.setValueAtTime(0, at);
+            env.gain.linearRampToValueAtTime(1, at + 0.012);
+            env.gain.setValueAtTime(1, at + length - (abrupt ? 0.006 : 0.03));
+            env.gain.linearRampToValueAtTime(0, at + length);
+            source.connect(env);
+            env.connect(band.input);
+            track(source);
+            source.start(at, offset, part);
+            return length;
+        }
+
+        function playTransmission() {
+            if (!voiceBuffer || !audioCtx || audioCtx.state !== "running" || !VOICE_CLIPS.help) return;
+            const tokens = pick(MESSAGES).map((token) => token[0] === "#" ? pick(DIGITS[token[1]]) : token);
+            // Wie gut der Spruch durchkommt: mal fast nichts, mal ein Stück deutlicher.
+            const clarity = between(0.15, 1);
+
+            const level = audioCtx.createGain();
             level.connect(masterGain);
+            const words = radioBand(420, 1500 + clarity * 1300, 3, 1, level);
+            const talk = radioBand(180, between(360, 480), 2.4, 1.8, level);
 
-            let at = audioCtx.currentTime + 0.25;
-            crackle(level, at - 0.12, between(0.08, 0.16), 0.5);
-            clips.forEach((clip, index) => {
-                // Teils abgeschnitten: manchmal fehlt das Ende, Sätze brechen öfter ab.
-                const cut = Math.random() < (talk ? 0.5 : 0.2) ? between(0.65, 0.9) : 1;
-                const part = clip[1] * cut;
-                const rate = between(0.97, 1.03);
-                const length = part / rate;
-                const source = audioCtx.createBufferSource();
-                source.buffer = voiceBuffer;
-                source.playbackRate.value = rate;
-                const env = audioCtx.createGain();
-                env.gain.setValueAtTime(0, at);
-                env.gain.linearRampToValueAtTime(1, at + 0.012);
-                env.gain.setValueAtTime(1, at + length - 0.02);
-                env.gain.linearRampToValueAtTime(0, at + length);
-                source.connect(env);
-                env.connect(highpass);
-                track(source);
-                source.start(at, clip[0], part);
+            let at = audioCtx.currentTime + 0.3;
+            const base = between(0.28, 0.42) * (0.55 + 0.45 * clarity);
+            // Schwund: die Lautstärke wandert langsam auf und ab.
+            level.gain.setValueAtTime(base, at);
+            crackle(level, at - 0.15, between(0.08, 0.16), 0.45);
 
-                // Kurze Aussetzer im Empfang, bei Wörtern selten, bei Sätzen öfter.
-                const dropouts = talk ? 2 + Math.floor(Math.random() * 3) : (Math.random() < 0.35 ? 1 : 0);
-                const starts = [];
-                for (let d = 0; d < dropouts; d++) starts.push(at + between(0.1, Math.max(0.15, length - 0.15)));
-                starts.sort((a, b) => a - b);
-                gate.gain.setValueAtTime(1, at);
-                let free = at;
-                for (const start of starts) {
-                    if (start < free) continue;
-                    const span = talk ? between(0.08, 0.25) : between(0.04, 0.09);
-                    free = start + span + 0.05;
-                    gate.gain.setValueAtTime(1, start);
-                    gate.gain.linearRampToValueAtTime(0.06, start + 0.01);
-                    gate.gain.setValueAtTime(0.06, start + span);
-                    gate.gain.linearRampToValueAtTime(1, start + span + 0.01);
-                    crackle(level, start, 0.05, 0.25);
+            const lose = 0.15 + (1 - clarity) * 0.35;
+            const lost = tokens.map(() => Math.random() < lose);
+            if (lost.every(Boolean)) lost[Math.floor(Math.random() * lost.length)] = false;
+
+            tokens.forEach((token, index) => {
+                if (lost[index]) {
+                    // Geht ganz verloren: nur Rauschen, manchmal ein Knacken.
+                    if (Math.random() < 0.4) crackle(level, at + between(0.05, 0.3), 0.06, 0.3);
+                    at += between(0.35, 0.9);
+                    return;
                 }
-                at += length + (index < clips.length - 1 ? between(0.35, 0.9) : 0);
+                let length;
+                if (token === "~") {
+                    // Gedämpftes Sprechen aus einem der Sätze, ohne verständliche Wörter.
+                    const sentence = VOICE_CLIPS[pick(["t1", "t2"])];
+                    const part = Math.min(sentence[1] - 0.2, tokens.length === 2 ? between(1.8, 3.4) : between(0.8, 2));
+                    const offset = sentence[0] + between(0, sentence[1] - part);
+                    length = playPart(talk, offset, part, at, false);
+                    const count = 1 + Math.floor(Math.random() * 3);
+                    for (let d = 0; d < count; d++) dropout(talk, at + (d + between(0.2, 0.7)) * length / count, between(0.06, 0.2), level);
+                } else {
+                    const clip = VOICE_CLIPS[token];
+                    if (!clip) return;
+                    // Reißt mitten im Wort ab, am Ende des Spruchs öfter.
+                    const abrupt = Math.random() < (index === tokens.length - 1 ? 0.5 : 0.3);
+                    const part = clip[1] * (abrupt ? between(0.35, 0.8) : 1);
+                    length = playPart(words, clip[0], part, at, abrupt);
+                    if (abrupt) crackle(level, at + length, between(0.04, 0.09), 0.35);
+                    else if (Math.random() < 0.3) dropout(words, at + between(0.1, 0.6) * length, between(0.04, 0.08), level);
+                }
+                level.gain.linearRampToValueAtTime(base * between(0.35, 1), at + length);
+                // Rauschen zwischen den Bruchstücken, manchmal länger.
+                at += length + (Math.random() < 0.2 ? between(1.4, 2.4) : between(0.25, 1));
             });
-            crackle(level, at + 0.03, between(0.1, 0.2), 0.45);
+            crackle(level, at, between(0.1, 0.2), 0.4);
             setTimeout(() => {
-                [highpass, lowpass, shaper, gate, level].forEach((node) => {
+                [level, ...words.nodes, ...talk.nodes].forEach((node) => {
                     try { node.disconnect(); } catch (e) {}
                 });
             }, (at - audioCtx.currentTime + 1) * 1000);
