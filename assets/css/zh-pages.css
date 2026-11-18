@@ -406,7 +406,7 @@ body.zh-play-page .zh-play-frame { overflow: hidden; border-radius: 18px; animat
 body.zh-play-page .landing-play-stage { position: relative; display: flex; aspect-ratio: 16 / 9; }
 body.zh-play-page .landing-play-stage:has(#game-wrapper:not([hidden])) :is(.landing-play-preview, .zh-play-start, .zh-play-fullscreen) { display: none; }
 body.zh-play-page .landing-play-stage:has(#game-wrapper:not([hidden])) { display: block; aspect-ratio: auto; min-height: 0; }
-body.zh-play-page .zh-play-preview { position: absolute; inset: 0; margin: 0; background: linear-gradient(rgba(19, 26, 29, .5), rgba(19, 26, 29, .5)), url("../images/umbau/portal.webp") center/cover no-repeat; }
+body.zh-play-page .zh-play-preview { position: absolute; inset: 0; margin: 0; background: linear-gradient(rgba(19, 26, 29, .5), rgba(19, 26, 29, .5)), url("../images/gameplay/game-hero-collage-grid-1536.webp") center/cover no-repeat; }
 body.zh-play-page .zh-play-preview::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(9, 12, 15, .35), rgba(9, 12, 15, .85)); }
 body.zh-play-page .zh-play-preview :is(img, figcaption) { display: none; }
 body.zh-play-page .zh-play-start { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; width: 100%; padding: 56px 24px; text-align: center; }
@@ -468,6 +468,8 @@ body.zh-play-page .zh-play-list { padding-left: 18px; color: var(--zh-ink-soft);
 @media (max-width: 640px) {
     body.zh-play-page .zh-play-info { grid-template-columns: 1fr; }
     body.zh-play-page .landing-play-stage { aspect-ratio: auto; min-height: 520px; }
+    /* Collage am Handy: Viertel oben links (Lagerfeuer) in voller Höhe, Trennlinien liegen außerhalb der Fläche */
+    body.zh-play-page .zh-play-preview { background-size: auto, auto 210%; background-position: center, 21% 0; }
     body.zh-play-page .zh-play-logo { width: 72px; height: 72px; }
     body.zh-play-page .game-account-entry .btn { min-width: 240px; }
 }
