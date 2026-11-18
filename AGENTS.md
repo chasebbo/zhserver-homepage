@@ -217,7 +217,7 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Auf `index.html` (Freigabe Sebastian, 21.10.2026) steht nur noch
   „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
-- Hauptversion für `game.html`: v134-3 mit den Paketen `pc` und `handy` (veröffentlicht am 17.11.2026).
+- Hauptversion für `game.html`: v134-6 mit den Paketen `pc` und `handy` (veröffentlicht am 18.11.2026).
 
 ## Spiel-Builds online (Dauerregel, Sebastian 22.10.2026)
 
@@ -240,14 +240,15 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 17.11.2026 (Hotfix v134-3): Hauptversion v134-3 mit den Paketen `pc` und `handy` auf `game.html`,
+- Stand 18.11.2026 (Release v134-6): Hauptversion v134-6 mit den Paketen `pc` und `handy` auf `game.html`,
   `game-test-v130.html` und `game-test-handy.html` (`gamePackageSource` in `game-entry.js` wählt das Paket,
   Apple-Mobilgeräte mit ETC2 bekommen `handy`).
-- Rückweg v134-2, alle drei Seiten in einem Commit (Sebastian 17.11.2026): `game.html`, `game-test-v130.html`
-  und `game-test-handy.html` auf `game/survival-v134-2-pc.html?build=v134-2-pc-20261116` und
-  `game/survival-v134-2-handy.html?build=v134-2-handy-20261116`.
-  In `game/` liegen v134-2, v134-3 und v134-6. v134-6 liegt bereit, noch zeigt keine Seite darauf (Sebastian 18.11.2026).
-- Archiviert und entfernt: v134-1 (`C:\ZHServer-Archiv\homepage-builds\v134-1\`, 17.11.2026), v134 (`C:\ZHServer-Archiv\homepage-builds\v134\`, 17.11.2026),
+- Rückweg v134-3, alle drei Seiten in einem Commit (Sebastian 18.11.2026): `game.html`, `game-test-v130.html`
+  und `game-test-handy.html` auf `game/survival-v134-3-pc.html?build=v134-3-pc-20261117` und
+  `game/survival-v134-3-handy.html?build=v134-3-handy-20261117`.
+  In `game/` liegen nur v134-3 und v134-6.
+- Archiviert und entfernt: v134-2 (`C:\ZHServer-Archiv\homepage-builds\v134-2\`, 18.11.2026),
+  v134-1 (`C:\ZHServer-Archiv\homepage-builds\v134-1\`, 17.11.2026), v134 (`C:\ZHServer-Archiv\homepage-builds\v134\`, 17.11.2026),
   v133 (`C:\ZHServer-Archiv\homepage-builds\v133\`, 16.11.2026), v132-3 (`C:\ZHServer-Archiv\homepage-builds\v132-3\`, 16.11.2026), probe3-handy
   (`C:\ZHServer-Archiv\homepage-builds\probe3-handy\`, 16.11.2026), v131-11 (`C:\ZHServer-Archiv\homepage-builds\v131-11\`, 12.11.2026), v132-2 (`C:\ZHServer-Archiv\homepage-builds\v132-2\`), v132-1
   (`C:\ZHServer-Archiv\homepage-builds\v132-1\`), v130-2
