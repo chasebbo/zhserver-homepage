@@ -1260,10 +1260,6 @@ window.ZHTranslations = {
       "de": "Lautstärke",
       "en": "Volume"
     },
-    "synthetische-endzeit-kulisse-funkrauschen-ferner-wind-knistern-laeuft": {
-      "de": "Synthetische Endzeit-Kulisse (Funkrauschen, ferner Wind & Knistern). Läuft 100% lokal im Browser.",
-      "en": "Synthetic post-apocalyptic ambience: radio static, distant wind and crackling. Runs entirely in your browser."
-    },
     "spiele-das-zh-game-der-zhserver-community": {
       "de": "Spiele das ZH Game der ZHServer Community.",
       "en": "Play the ZH game from the ZHServer community."
@@ -3032,9 +3028,9 @@ window.ZHTranslations = {
       "de": "STOPPEN",
       "en": "STOP"
     },
-    "status-empfange-notfunk-wind": {
-      "de": "Status: Empfange Notfunk & Wind...",
-      "en": "Status: Receiving emergency radio & wind..."
+    "status-empfange-notfunk": {
+      "de": "Status: Empfange Notfunk",
+      "en": "Status: Receiving emergency radio"
     },
     "vollbild-verlassen": {
       "de": "VOLLBILD VERLASSEN",

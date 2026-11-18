@@ -171,6 +171,8 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Keine Anzeige der Spieler online auf der Homepage (Sebastian 03.11.2026), auch nicht versteckt
   vorbereitet.
 - Funkgerät steht in `assets/js/radio.js` (früher in `main.js`) und auf jeder Homepage-Seite.
+  Stimmen im Funk kommen aus `assets/audio/funk-stimmen.wav` (echte Aufnahmen, CC0, Lingua Libre). Quelle und Lizenz
+  jeder Aufnahme stehen in `assets/audio/README.md` (Sebastian 18.11.2026).
 - Kopf: auf allen 17 umgebauten Seiten gleiches Markup, flache Leiste nach `vorlage-kopf-startbild.png`: links Hand und
   Schriftzug ZOMBIEHÖLLE / SURVIVAL (Barlow Condensed, selbst gehostet), Mitte Menü, rechts Konto und DE/EN; am Handy
   Menüknopf, Konto und Sprache im Menü. Gestaltung nur in `zh-2026.css`, Kopfhöhe in `--zh-head-h` (nicht `--zh-head`, das ist
