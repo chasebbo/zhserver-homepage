@@ -246,7 +246,7 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Rückweg v134-2, alle drei Seiten in einem Commit (Sebastian 17.11.2026): `game.html`, `game-test-v130.html`
   und `game-test-handy.html` auf `game/survival-v134-2-pc.html?build=v134-2-pc-20261116` und
   `game/survival-v134-2-handy.html?build=v134-2-handy-20261116`.
-  In `game/` liegen nur v134-2 und v134-3.
+  In `game/` liegen v134-2, v134-3 und v134-6. v134-6 liegt bereit, noch zeigt keine Seite darauf (Sebastian 18.11.2026).
 - Archiviert und entfernt: v134-1 (`C:\ZHServer-Archiv\homepage-builds\v134-1\`, 17.11.2026), v134 (`C:\ZHServer-Archiv\homepage-builds\v134\`, 17.11.2026),
   v133 (`C:\ZHServer-Archiv\homepage-builds\v133\`, 16.11.2026), v132-3 (`C:\ZHServer-Archiv\homepage-builds\v132-3\`, 16.11.2026), probe3-handy
   (`C:\ZHServer-Archiv\homepage-builds\probe3-handy\`, 16.11.2026), v131-11 (`C:\ZHServer-Archiv\homepage-builds\v131-11\`, 12.11.2026), v132-2 (`C:\ZHServer-Archiv\homepage-builds\v132-2\`), v132-1
