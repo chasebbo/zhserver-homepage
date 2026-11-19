@@ -446,7 +446,8 @@ body.zh-play-page .zh-play-world { margin-top: 24px; }
 /* Orte und Zustände unter Prozenten und Farbbalken, durch eine feine Linie getrennt; Anker unter dem festen Kopf */
 @media (min-width: 901px) { body.zh-play-page #weltlage { scroll-margin-top: calc(var(--zh-head-h) + 16px); } }
 body.zh-play-page .zh-play-world .zh-wp-grid { margin-top: 6px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, .07); }
-body.zh-play-page .zh-play-world .zh-wp-states { gap: 10px; }
+/* Erster Punkt der Erklärung auf der Höhe des ersten Punkts der Orte: Zeile der Orte hat 12 px Innenabstand, ihr Punkt sitzt 23 px unter der Oberkante, der Punkt im dt 10 px */
+body.zh-play-page .zh-play-world .zh-wp-states { gap: 10px; padding-top: 13px; }
 body.zh-play-page .zh-play-world .zh-wp-states dd { font-size: 14px; line-height: 1.5; }
 /* Die vier Punkte zum Spiel: Karte wie die Weltlage, Text wie in der Steuerung am Handy */
 body.zh-play-page .zh-play-features { margin-top: 24px; }
