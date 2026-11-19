@@ -359,22 +359,31 @@ body.zh-2026 .zh-lage-grid:not(:has(.zh-world-card.is-on)) .zh-newest { grid-col
 body.zh-2026 .zh-talk-grid .era-pulse { border: 1px solid rgba(217, 189, 124, .55); border-radius: var(--zh-radius); }
 
 /* ---------- Weltlage auf game.html (#weltlage): 12 Orte mit Zustand, daneben kompakt was die Zustände bedeuten. Eine Karte kommt später. ---------- */
-.zh-wp-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 20px; align-items: start; }
+/* Orte über die ganze Breite, darunter die Legende der Zustände */
+.zh-wp-grid { display: flex; flex-direction: column; gap: 22px; }
 .zh-wp-panel { display: flex; flex-direction: column; gap: 14px; }
 .zh-wp-panel > * { margin: 0; }
-.zh-wp-places { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
+/* Am PC drei Spalten, so viele Zeilen wie nötig: neue Orte kommen ohne Änderung der Gestaltung dazu */
+.zh-wp-places { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; }
 /* Zustand in fester Breite, Punkt und Wort linksbündig: alle Punkte einer Spalte stehen untereinander, auch neben zweizeiligen Namen */
 .zh-wp-places > li { display: grid; grid-template-columns: minmax(0, 1fr) 7rem; align-items: baseline; gap: 12px; min-height: 48px; padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, .07); }
 .zh-wp-name { font-weight: 600; color: var(--zh-ink); }
 .zh-wp-state { display: inline-flex; align-items: center; justify-self: start; gap: 8px; white-space: nowrap; font-size: 14px; font-weight: 600; color: var(--zh-w); }
 .zh-wp-state[hidden] { display: none; }
 .zh-wp-dot { display: inline-block; flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: var(--zh-w); box-shadow: 0 0 8px var(--zh-w); }
-.zh-wp-states { display: flex; flex-direction: column; gap: 16px; }
-.zh-wp-states > div { display: flex; flex-direction: column; gap: 4px; }
-.zh-wp-states dt { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--zh-w); }
-.zh-wp-states dd { margin: 0 0 0 18px; color: var(--zh-ink-soft); line-height: 1.6; }
+/* Legende 2 x 2: je Punkt und Name in derselben festen Breite wie der Zustand in der Liste, Text daneben */
+.zh-wp-states { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 32px; }
+.zh-wp-states > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); column-gap: 12px; align-items: baseline; }
+.zh-wp-states dt { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; font-size: 14px; font-weight: 600; color: var(--zh-w); }
+.zh-wp-states dd { margin: 0; color: var(--zh-ink-soft); font-size: 14px; line-height: 1.5; }
+@media (max-width: 1000px) and (min-width: 761px) {
+    body.zh-2026 .zh-wp-places { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* Handy: Orte einspaltig, Legende einspaltig mit dem Text unter dem Namen */
 @media (max-width: 760px) {
-    body.zh-2026 .zh-wp-grid, body.zh-2026 .zh-wp-places { grid-template-columns: 1fr; }
+    body.zh-2026 .zh-wp-places, body.zh-2026 .zh-wp-states { grid-template-columns: 1fr; }
+    body.zh-2026 .zh-wp-states > div { grid-template-columns: 1fr; row-gap: 4px; }
+    body.zh-2026 .zh-wp-states dd { margin-left: 18px; }
 }
 
 /* ---------- Spielseite (game.html) nach spielen.html ----------
@@ -446,9 +455,6 @@ body.zh-play-page .zh-play-world { margin-top: 24px; }
 /* Orte und Zustände unter Prozenten und Farbbalken, durch eine feine Linie getrennt; Anker unter dem festen Kopf */
 @media (min-width: 901px) { body.zh-play-page #weltlage { scroll-margin-top: calc(var(--zh-head-h) + 16px); } }
 body.zh-play-page .zh-play-world .zh-wp-grid { margin-top: 6px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, .07); }
-/* Erster Punkt der Erklärung auf der Höhe des ersten Punkts der Orte: Zeile der Orte hat 12 px Innenabstand, ihr Punkt sitzt 23 px unter der Oberkante, der Punkt im dt 10 px */
-body.zh-play-page .zh-play-world .zh-wp-states { gap: 10px; padding-top: 13px; }
-body.zh-play-page .zh-play-world .zh-wp-states dd { font-size: 14px; line-height: 1.5; }
 /* Die vier Punkte zum Spiel: Karte wie die Weltlage, Text wie in der Steuerung am Handy */
 body.zh-play-page .zh-play-features { margin-top: 24px; }
 body.zh-play-page .zh-play-features .zh-eyebrow { margin: 0; }

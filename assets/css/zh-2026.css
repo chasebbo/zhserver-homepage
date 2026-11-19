@@ -327,6 +327,8 @@ body.zh-2026 .legal-section h2 { text-transform: none; letter-spacing: 0; }
 /* Fuß nach dem Entwurf: links Logo und Name, rechts Werte als Pillen und darunter die Besucher in Kästen, unten Copyright und Links.
    Inhalt und Daten kommen unverändert aus global-footer.js, visitor-counter.js, footer-status.js und community-stats.js. */
 body.zh-2026 .site-footer.zh-global-footer { padding: 40px 0 48px; background: #0a0e12; border-top: 0; }
+/* Handy: Funkgerät und "Nach oben" schweben unten (12 px Abstand, 48 px hoch). Unten im Fuß genug Platz, damit sich jede Zeile darüber scrollen lässt */
+@media (max-width: 640px) { body.zh-2026 .site-footer.zh-global-footer, body.zh-2026 .site-footer { padding-bottom: 88px; } }
 body.zh-2026 .site-footer.zh-global-footer .footer { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "brand stats" "legal legal"; gap: 26px 24px; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-brand { grid-area: brand; display: grid; grid-template-columns: 54px auto; column-gap: 16px; align-items: center; }
 body.zh-2026 .site-footer.zh-global-footer .zh-footer-brand::before { content: ""; grid-row: 1 / span 2; width: 54px; height: 54px; background: url("../images/umbau/logo-hell2.png") -9px center/contain no-repeat; } /* Das Bild hat links 9 px durchsichtigen Rand. */
