@@ -363,9 +363,10 @@ body.zh-2026 .zh-talk-grid .era-pulse { border: 1px solid rgba(217, 189, 124, .5
 .zh-wp-panel { display: flex; flex-direction: column; gap: 14px; }
 .zh-wp-panel > * { margin: 0; }
 .zh-wp-places { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
-.zh-wp-places > li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; min-height: 48px; padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, .07); }
+/* Zustand in fester Breite, Punkt und Wort linksbündig: alle Punkte einer Spalte stehen untereinander, auch neben zweizeiligen Namen */
+.zh-wp-places > li { display: grid; grid-template-columns: minmax(0, 1fr) 7rem; align-items: baseline; gap: 12px; min-height: 48px; padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, .07); }
 .zh-wp-name { font-weight: 600; color: var(--zh-ink); }
-.zh-wp-state { display: inline-flex; align-items: center; gap: 8px; flex: 0 0 auto; font-size: 14px; font-weight: 600; color: var(--zh-w); }
+.zh-wp-state { display: inline-flex; align-items: center; justify-self: start; gap: 8px; white-space: nowrap; font-size: 14px; font-weight: 600; color: var(--zh-w); }
 .zh-wp-state[hidden] { display: none; }
 .zh-wp-dot { display: inline-block; flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: var(--zh-w); box-shadow: 0 0 8px var(--zh-w); }
 .zh-wp-states { display: flex; flex-direction: column; gap: 16px; }
