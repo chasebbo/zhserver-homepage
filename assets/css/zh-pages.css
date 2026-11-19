@@ -358,11 +358,7 @@ body.zh-2026 .zh-lage-grid:not(:has(.zh-world-card.is-on)) .zh-newest { grid-col
 /* "Du entscheidest mit": fester Goldrand wie die anderen Kacheln mit Goldrahmen */
 body.zh-2026 .zh-talk-grid .era-pulse { border: 1px solid rgba(217, 189, 124, .55); border-radius: var(--zh-radius); }
 
-/* ---------- Seite Weltlage (weltlage.html): 12 Orte mit Zustand, darunter was die Zustände bedeuten. Eine Karte kommt später. ---------- */
-/* Am PC unter dem festen Kopf, am Handy steht der Kopf im Fluss */
-.zh-world-page { display: block; }
-@media (min-width: 901px) { body.zh-2026 .zh-world-page { padding-top: var(--zh-head-h); } }
-.zh-wp-intro { max-width: 680px; margin-bottom: 28px; }
+/* ---------- Weltlage auf game.html (#weltlage): 12 Orte mit Zustand, daneben kompakt was die Zustände bedeuten. Eine Karte kommt später. ---------- */
 .zh-wp-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 20px; align-items: start; }
 .zh-wp-panel { display: flex; flex-direction: column; gap: 14px; }
 .zh-wp-panel > * { margin: 0; }
@@ -446,6 +442,11 @@ body.zh-play-page .game-technical-controls .game-mobile-hint { width: auto; marg
 body.zh-play-page .game-fullscreen-button { min-height: 44px; padding: 0 14px; border: 1px solid var(--zh-gold-line); border-radius: 9px; background: none; color: #e6cd8e; cursor: pointer; }
 /* Hinweiskarten: kleine goldene Beschriftung, darunter normale Schrift */
 body.zh-play-page .zh-play-world { margin-top: 24px; }
+/* Orte und Zustände unter Prozenten und Farbbalken, durch eine feine Linie getrennt; Anker unter dem festen Kopf */
+@media (min-width: 901px) { body.zh-play-page #weltlage { scroll-margin-top: calc(var(--zh-head-h) + 16px); } }
+body.zh-play-page .zh-play-world .zh-wp-grid { margin-top: 6px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, .07); }
+body.zh-play-page .zh-play-world .zh-wp-states { gap: 10px; }
+body.zh-play-page .zh-play-world .zh-wp-states dd { font-size: 14px; line-height: 1.5; }
 /* Die vier Punkte zum Spiel: Karte wie die Weltlage, Text wie in der Steuerung am Handy */
 body.zh-play-page .zh-play-features { margin-top: 24px; }
 body.zh-play-page .zh-play-features .zh-eyebrow { margin: 0; }

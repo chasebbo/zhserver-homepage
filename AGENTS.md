@@ -157,7 +157,8 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   Erst einschalten, wenn es echte Daten gibt bzw. die Version live ist: Tore der Safezone
   (v132), Funk-Countdown, Ping und Laufzeit, Video im Startbild, Ladetext und Startseiten-Abschnitt
   TIEFENLICHT (v131). Die Weltlage (`worldStatus`) ist an (Sebastian 03.11.2026): Kachel auf Startseite und `game.html`,
-  Seite `weltlage.html` mit den 12 Orten, alles in `assets/js/zh-live.js` aus `get_world_status` (v132). Antwortform nach
+  auf `game.html` darunter die 12 Orte mit Zustand und kurz was die Zustände bedeuten (Anker `game.html#weltlage`;
+  `weltlage.html` leitet seit 19.11.2026 dorthin weiter), alles in `assets/js/zh-live.js` aus `get_world_status` (v132). Antwortform nach
   `HOMEPAGE-UEBERGABE-WELTLAGE.md`, anpassen nur in `parseWorld()`. Alle 60 Sekunden neu, höchstens 60 Sekunden
   zwischengespeichert, Aufleuchten nur bei echter Änderung. Bei `online: false`, Fehler oder fehlender Antwort
   „derzeit nicht verfügbar“, nie Beispiel- oder alte Werte, keine Spielerzahl. Die Kachel nutzt eigene Klassen

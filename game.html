@@ -18,14 +18,14 @@
         <link rel="stylesheet" href="assets/css/style.css?v=20261103-umbau10">
         <link rel="stylesheet" href="assets/css/i18n.css?v=20260930-de-en">
         <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
-        <script src="assets/js/translations.js?v=20261118-bilder1">
+        <script src="assets/js/translations.js?v=20261119-weltlage1">
         </script>
         <script src="assets/js/i18n.js?v=20261103-umbau10">
         </script>
         <link rel="stylesheet" href="assets/vendor/fontawesome-6.7.2/css/all.min.css">
         <link rel="stylesheet" href="assets/css/game-stage.css?v=20261104-spielfeld2">
         <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261104-besucher3">
-        <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261118-bilder1">
+        <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261119-weltlage1">
     </head>
     <body class="game-entry-page zh-2026 zh-play-page" data-game-stage>
         <header class="header zh-site-header">
@@ -132,7 +132,7 @@
             </div>
                 </div>
             </section>
-            <section class="zh-play-world" aria-label="Weltlage">
+            <section id="weltlage" class="zh-play-world" aria-label="Weltlage">
                 <div class="zh-panel zh-hov zh-warm zh-pad-s zh-world-card" data-zh-feature="worldStatus" data-world-card aria-labelledby="play-world-title">
                     <span id="play-world-title" class="zh-eyebrow">AKTUELLE WELTLAGE</span>
                     <dl class="zh-wl-values" hidden>
@@ -143,7 +143,34 @@
                     </dl>
                     <p class="zh-wl-status" data-world-status role="status" data-i18n-ignore hidden></p>
                     <div class="zh-wl-bar" aria-hidden="true" hidden><span data-world-share="militaer"></span><span data-world-share="ueberlebende"></span><span data-world-share="infiziert"></span><span data-world-share="umkaempft"></span></div>
-                    <a class="zh-link zh-wl-link" href="weltlage.html">Weltlage ansehen</a>
+                    <div class="zh-wp-grid">
+                        <div class="zh-wp-panel">
+                            <h2 id="play-world-places" class="zh-eyebrow">Orte</h2>
+                            <ol class="zh-wp-places" data-world-places data-i18n-ignore aria-labelledby="play-world-places">
+                                <li data-place="safezone"><span class="zh-wp-name" data-place-name>Safezone</span><span class="zh-wp-state" data-place-state hidden><span class="zh-wp-dot" aria-hidden="true"></span><span data-place-state-text></span></span></li>
+                                <li data-place="hof_ost"><span class="zh-wp-name" data-place-name>Hof Ost</span><span class="zh-wp-state" data-place-state hidden><span class="zh-wp-dot" aria-hidden="true"></span><span data-place-state-text></span></span></li>
+                                <li data-place="steinbruch_ost"><span class="zh-wp-name" data-place-name>Steinbruch Ost</span><span class="zh-wp-state" data-place-state hidden><span class="zh-wp-dot" aria-hidden="true"></span><span data-place-state-text></span></span></li>
+                                <li data-place="altdorf"><span class="zh-wp-name" data-place-name>Altdorf</span><span class="zh-wp-state" data-place-state hidden><span class="zh-wp-dot" aria-hidden="true"></span><span data-place-state-text></span></span></li>
+                                <li data-place="tankstelle_ost"><span class="zh-wp-name" data-place-name>Tankstelle Ost</span><span class="zh-wp-state" data-place-state hidden><span class="zh-wp-dot" aria-hidden="true"></span><span data-place-state-text></span></span></li>
+                                <li data-place="konvoi"><span class="zh-wp-name" data-place-name>Ausgebrannter Konvoi</span><span class="zh-wp-state" data-place-state hidden><span class="zh-wp-dot" aria-hidden="true"></span><span data-place-state-text></span></span></li>
+                                <li data-place="grenzstadt"><span class="zh-wp-name" data-place-name>Grenzstadt</span><span class="zh-wp-state" data-place-state hidden><span class="zh-wp-dot" aria-hidden="true"></span><span data-place-state-text></span></span></li>
+                                <li data-place="kontrollpunkt_ost"><span class="zh-wp-name" data-place-name>Kontrollpunkt Ost</span><span class="zh-wp-state" data-place-state hidden><span class="zh-wp-dot" aria-hidden="true"></span><span data-place-state-text></span></span></li>
+                                <li data-place="militaerbasis_ost"><span class="zh-wp-name" data-place-name>Militärbasis Ost</span><span class="zh-wp-state" data-place-state hidden><span class="zh-wp-dot" aria-hidden="true"></span><span data-place-state-text></span></span></li>
+                                <li data-place="portal_ost"><span class="zh-wp-name" data-place-name>Portal Ost</span><span class="zh-wp-state" data-place-state hidden><span class="zh-wp-dot" aria-hidden="true"></span><span data-place-state-text></span></span></li>
+                                <li data-place="gefaengnis"><span class="zh-wp-name" data-place-name>Gefängnis</span><span class="zh-wp-state" data-place-state hidden><span class="zh-wp-dot" aria-hidden="true"></span><span data-place-state-text></span></span></li>
+                                <li data-place="handelsposten_nw"><span class="zh-wp-name" data-place-name>Handelsposten Nordwest</span><span class="zh-wp-state" data-place-state hidden><span class="zh-wp-dot" aria-hidden="true"></span><span data-place-state-text></span></span></li>
+                            </ol>
+                        </div>
+                        <div class="zh-wp-panel">
+                            <h2 class="zh-eyebrow">Was die Zustände bedeuten</h2>
+                            <dl class="zh-wp-states">
+                                <div data-state="militaer"><dt><span class="zh-wp-dot" aria-hidden="true"></span>Militär</dt><dd>Das Militär hält diesen Ort, solange er nicht umkämpft oder überrannt ist.</dd></div>
+                                <div data-state="ueberlebende"><dt><span class="zh-wp-dot" aria-hidden="true"></span>Überlebende</dt><dd>Hier sind Spieler oder eine Spielerbasis, und kaum Infizierte.</dd></div>
+                                <div data-state="infiziert"><dt><span class="zh-wp-dot" aria-hidden="true"></span>Infiziert</dt><dd>Viele Infizierte, kein Spieler weit und breit.</dd></div>
+                                <div data-state="umkaempft"><dt><span class="zh-wp-dot" aria-hidden="true"></span>Umkämpft</dt><dd>Hier wurde in den letzten Minuten gegen Infizierte gekämpft.</dd></div>
+                            </dl>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section class="zh-play-features" aria-labelledby="play-features-title">
@@ -248,6 +275,6 @@
         </script>
         <script src="assets/js/radio.js?v=20261118-funk1"></script>
         <script src="assets/js/zh-ui.js?v=20261104-release"></script>
-        <script src="assets/js/zh-live.js?v=20261103-umbau3"></script>
+        <script src="assets/js/zh-live.js?v=20261119-weltlage1"></script>
     </body>
 </html>

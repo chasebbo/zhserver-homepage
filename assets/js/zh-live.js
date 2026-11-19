@@ -1,4 +1,4 @@
-/* Weltlage aus get_world_status() von Opus 3 (v132): Kachel auf Startseite und game.html, Liste der Orte auf weltlage.html.
+/* Weltlage aus get_world_status() von Opus 3 (v132): Kachel auf Startseite und game.html, auf game.html darunter die Liste der Orte (#weltlage).
    Nur lesende Abfragen, keine Zähl- oder Anwesenheitsaufrufe. Keine Spielerzahl (Sebastian 03.11.2026).
    Antwortform nach HOMEPAGE-UEBERGABE-WELTLAGE.md, anpassen nur in parseWorld(). Schalter worldStatus in zh-ui.js. */
 (() => {
@@ -89,15 +89,10 @@
             });
         });
     }
-    // Seite "Weltlage ansehen": Zustand je Ort; ohne gültige Antwort nur die Namen und "derzeit nicht verfügbar"
+    // Orte auf game.html: Zustand je Ort; ohne gültige Antwort nur die Namen, "derzeit nicht verfügbar" steht dann in der Kachel
     function renderPlaces(world) {
         const list = document.querySelector("[data-world-places]");
         if (!list) return;
-        const status = document.querySelector("[data-world-page-status]");
-        if (status) {
-            status.hidden = Boolean(world);
-            status.textContent = world ? "" : lang.t("ranks.unavailable");
-        }
         list.querySelectorAll("[data-place]").forEach(item => {
             const names = PLACES[item.dataset.place], got = world?.places.get(item.dataset.place);
             if (names) item.querySelector("[data-place-name]").textContent = en() ? names[1] : (got?.name || names[0]);

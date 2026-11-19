@@ -4616,8 +4616,6 @@ Object.assign(window.ZHTranslations.copy, {
   "umbau-world-infected": {de:"Infiziert",en:"Infected"},
   "umbau-world-contested": {de:"Umkämpft",en:"Contested"},
   "umbau-world-title": {de:"Weltlage",en:"World status"},
-  "umbau-world-description": {de:"Weltlage in Zombiehölle Survival: die zwölf Orte und wer sie gerade hält.",en:"World status in Zombie Hell Survival: the twelve places and who holds them right now."},
-  "umbau-world-intro": {de:"Zwölf Orte, vier Zustände. Der Spielserver meldet jede Minute, wie es an jedem Ort aussieht.",en:"Twelve places, four states. Every minute the game server reports how things stand at each place."},
   "umbau-world-places": {de:"Orte",en:"Places"},
   "umbau-world-states": {de:"Was die Zustände bedeuten",en:"What the states mean"},
   "umbau-world-state-military": {de:"Das Militär hält diesen Ort, solange er nicht umkämpft oder überrannt ist.",en:"The military holds this place as long as it is not under attack or overrun."},
