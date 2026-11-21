@@ -220,7 +220,7 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Auf `index.html` (Freigabe Sebastian, 21.10.2026) steht nur noch
   „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
-- Hauptversion für `game.html`: v134-8 mit den Paketen `pc` und `handy` (veröffentlicht am 19.11.2026).
+- Hauptversion für `game.html`: v134-9 mit den Paketen `pc` und `handy` (veröffentlicht am 21.11.2026).
 
 ## Spiel-Builds online (Dauerregel, Sebastian 22.10.2026)
 
@@ -243,14 +243,15 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 19.11.2026 (Release v134-8): Hauptversion v134-8 mit den Paketen `pc` und `handy` auf `game.html`,
+- Stand 21.11.2026 (Release v134-9): Hauptversion v134-9 mit den Paketen `pc` und `handy` auf `game.html`,
   `game-test-v130.html` und `game-test-handy.html` (`gamePackageSource` in `game-entry.js` wählt das Paket,
-  Apple-Mobilgeräte mit ETC2 bekommen `handy`).
-- Rückweg v134-6, alle drei Seiten in einem Commit, gleichzeitig mit dem Rückweg des Servers auf v134-6
-  (Sebastian 19.11.2026): `game.html`, `game-test-v130.html` und `game-test-handy.html` auf
-  `game/survival-v134-6-pc.html?build=v134-6-pc-20261117` und `game/survival-v134-6-handy.html?build=v134-6-handy-20261117`.
-  In `game/` liegen v134-6, v134-8 und v134-9. v134-9 liegt bereit, noch zeigt keine Seite darauf (Sebastian 21.11.2026).
-- Archiviert und entfernt: v134-3 (`C:\ZHServer-Archiv\homepage-builds\v134-3\`, 19.11.2026),
+  Apple-Mobilgeräte mit ETC2 bekommen `handy`). Spiel v134-9 nur zusammen mit Server v134-9 (Protokoll Fassung 5).
+- Rückweg v134-8, alle drei Seiten in einem Commit, gleichzeitig mit dem Rückweg des Servers auf v134-8
+  (Sebastian 21.11.2026): `game.html`, `game-test-v130.html` und `game-test-handy.html` auf
+  `game/survival-v134-8-pc.html?build=v134-8-pc-20261119` und `game/survival-v134-8-handy.html?build=v134-8-handy-20261119`.
+  In `game/` liegen nur v134-8 und v134-9.
+- Archiviert und entfernt: v134-6 (`C:\ZHServer-Archiv\homepage-builds\v134-6\`, 21.11.2026),
+  v134-3 (`C:\ZHServer-Archiv\homepage-builds\v134-3\`, 19.11.2026),
   v134-2 (`C:\ZHServer-Archiv\homepage-builds\v134-2\`, 18.11.2026),
   v134-1 (`C:\ZHServer-Archiv\homepage-builds\v134-1\`, 17.11.2026), v134 (`C:\ZHServer-Archiv\homepage-builds\v134\`, 17.11.2026),
   v133 (`C:\ZHServer-Archiv\homepage-builds\v133\`, 16.11.2026), v132-3 (`C:\ZHServer-Archiv\homepage-builds\v132-3\`, 16.11.2026), probe3-handy
