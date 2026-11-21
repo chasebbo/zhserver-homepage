@@ -35,7 +35,7 @@ Persistence-Lösung auf der Homepage.
 v134-6 ist der Rückweg, alle drei Seiten in einem Commit und gleichzeitig mit dem Server: dann zeigen sie auf
 `game/survival-v134-6-pc.html?build=v134-6-pc-20261117` und
 `game/survival-v134-6-handy.html?build=v134-6-handy-20261117`. In `game/` liegen
-nur v134-6 und v134-8. Archiviert sind v134-3 (`C:\ZHServer-Archiv\homepage-builds\v134-3\`), v134-2 (`C:\ZHServer-Archiv\homepage-builds\v134-2\`), v134-1 (`C:\ZHServer-Archiv\homepage-builds\v134-1\`), v134 (`C:\ZHServer-Archiv\homepage-builds\v134\`),
+v134-6, v134-8 und v134-9. v134-9 liegt bereit, noch zeigt keine Seite darauf. Archiviert sind v134-3 (`C:\ZHServer-Archiv\homepage-builds\v134-3\`), v134-2 (`C:\ZHServer-Archiv\homepage-builds\v134-2\`), v134-1 (`C:\ZHServer-Archiv\homepage-builds\v134-1\`), v134 (`C:\ZHServer-Archiv\homepage-builds\v134\`),
 v133 (`C:\ZHServer-Archiv\homepage-builds\v133\`), v132-3 (`C:\ZHServer-Archiv\homepage-builds\v132-3\`), probe3-handy
 (`C:\ZHServer-Archiv\homepage-builds\probe3-handy\`), v131-11 (`C:\ZHServer-Archiv\homepage-builds\v131-11\`),
 probe1 (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`),
