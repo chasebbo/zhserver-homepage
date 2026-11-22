@@ -8,6 +8,7 @@
     const FEATURES = {
         gates: false,       // Tore der Safezone, kommt mit v132
         hordeRadio: false,  // Funk-Countdown zur nächsten Horde
+        radioTicker: false, // Funk-Ticker mit den Meldungen aus dem Spiel, braucht "radio" in get_world_status (Entwurf 22.11.2026)
         serverPing: false,  // Ping des Spielservers
         serverUptime: false,// Laufzeit des Spielservers
         heroVideo: false,   // kurzes Video im Startbild
@@ -83,9 +84,22 @@
         });
     }
 
+    // Kopf der Spielfigur neben dem Namen (Entwurf 22.11.2026, Sebastian 19:30): nur Forum, Profil und "Neu dabei",
+    // nur mit echtem Kopfbild aus dem Spiel. Ohne Bild gibt es nichts, auch kein Ersatzsymbol. Mit ?kopf=beispiel nur fürs Entwurfsbild.
+    const headExample = new URLSearchParams(location.search).get("kopf") === "beispiel";
+    function head(url, size) {
+        if (headExample && !url) url = "/assets/images/kopf-beispiel.png";
+        if (typeof url !== "string" || !/^(https:\/\/[a-z0-9.-]+\/|\/)[^\s"'<>]+\.(png|webp|jpg)(\?[^\s"'<>]*)?$/i.test(url)) return null;
+        const node = document.createElement("span"), img = document.createElement("img");
+        node.className = "zh-head" + (["s", "m", "l"].includes(size) ? " zh-head-" + size : ""); node.setAttribute("aria-hidden", "true");
+        img.src = url; img.alt = ""; img.loading = "lazy"; img.decoding = "async";
+        img.addEventListener("error", () => node.remove(), { once: true });
+        node.append(img); return node;
+    }
+
     applySwitches();
     brand();
     toTop();
     fullscreen();
-    window.ZHUi = Object.freeze({ features: Object.freeze({ ...FEATURES }), releases: Object.freeze({ ...RELEASES }), applySwitches });
+    window.ZHUi = Object.freeze({ features: Object.freeze({ ...FEATURES }), releases: Object.freeze({ ...RELEASES }), applySwitches, head });
 })();

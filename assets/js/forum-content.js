@@ -25,7 +25,10 @@
     }
     function authorDetails(profile) {
         const node = textNode('span', '', 'forum-author-details');
-        node.append(authorLink(profile), api.labels(profile)); return node;
+        const face = window.ZHUi?.head?.(profile?.head_url, 's');
+        if (!face) { node.append(authorLink(profile), api.labels(profile)); return node; }
+        const named = textNode('span', '', 'zh-name-with-head'); named.append(face, authorLink(profile));
+        node.append(named, api.labels(profile)); return node;
     }
     function error(id, e) { bind(id, e.message?.startsWith('forum.') || e.message?.startsWith('identity.') ? e.message : 'forum.networkError'); $(id).classList.add('forum-error'); }
     function permissionFields(topic) {
@@ -346,7 +349,7 @@
     }
     function renderProfile() {
         if (!profileData) return;
-        const p=profileData.profile; const heading=$('forum-public-profile-heading'); heading.textContent=p.display_name;
+        const p=profileData.profile; const heading=$('forum-public-profile-heading'); heading.textContent=p.display_name; const face = window.ZHUi?.head?.(p.head_url, 'l'); if (face) heading.prepend(face);
         heading.classList.add('zh-public-name'); heading.removeAttribute('data-system-role');
         if(['admin','member'].includes(p.system_role))heading.dataset.systemRole=p.system_role;
         const labels = api.labels(p);

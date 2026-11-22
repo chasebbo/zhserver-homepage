@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ZHServer Community | Seit 2013</title>
+    <title>Zombiehölle Survival | ZHServer</title>
 
     <meta name="description" content="Zombiehölle Survival: 3D-Multiplayer-Welt, sofort spielbar ohne Download. Dazu das Archiv der ZHServer Community seit 2013.">
 
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="assets/css/header.css?v=20261001-original-logo">
     <link rel="stylesheet" href="assets/css/community-stats.css?v=20261103-umbau10">
     <link rel="stylesheet" href="assets/css/identity.css?v=20261027-google1">
-    <script src="assets/js/translations.js?v=20261119-weltlage1"></script>
+    <script src="assets/js/translations.js?v=20261122-name1"></script>
     <link rel="stylesheet" href="assets/css/community-pulse.css?v=20261103-umbau10">
     <link rel="stylesheet" href="assets/css/homepage-chapters.css?v=20261025-band1">
     <link rel="stylesheet" href="assets/css/home-community.css?v=20261025-band1">
@@ -39,7 +39,8 @@
       href="assets/vendor/fontawesome-6.7.2/css/all.min.css">
 
     <link rel="stylesheet" href="assets/css/zh-2026.css?v=20261119-weltlage4">
-    <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261104-release">
+    <link rel="stylesheet" href="assets/css/zh-pages.css?v=20261122-stimmig1">
+    <link rel="stylesheet" href="assets/css/zh-kopf.css?v=20261122-stimmig1">
     <script>
         // Abschnitte der früheren Startseite liegen jetzt im Archiv: alte Links und Anker weiterleiten.
         (function () {
@@ -194,9 +195,15 @@
 
             <div class="zh-panel zh-hov zh-pad-s zh-newest" data-community-stats data-community-hide-empty hidden>
                 <span class="zh-eyebrow">Neu dabei</span>
-                <a class="zh-newest-name" data-community-member-link><span data-community-value="newest_member"></span></a>
+                <span class="zh-newest-row"><span data-community-head></span><a class="zh-newest-name" data-community-member-link><span data-community-value="newest_member"></span></a></span>
                 <span class="zh-muted">Willkommen in der Zombiehölle.</span>
                 <a class="zh-link zh-newest-link" data-community-member-link>Profil ansehen</a>
+            </div>
+
+            <div class="zh-panel zh-pad-s zh-funk" data-zh-feature="radioTicker" data-radio-panel aria-labelledby="funk-title">
+                <span class="zh-horde-head"><span id="funk-title" class="zh-eyebrow">Funk aus dem Spiel</span><span class="zh-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></span>
+                <ul class="zh-funk-list" data-radio-list data-i18n-ignore aria-live="polite"></ul>
+                <span class="zh-small zh-funk-note" data-radio-example hidden>Beispielmeldungen, noch keine echten Daten</span>
             </div>
         </div>
     </div>
@@ -317,11 +324,6 @@
                 <span class="zh-btn zh-btn-dark">Zur Geschichte</span>
             </div>
         </a>
-        <aside class="zh-panel zh-pad-s era-arma-note zh-arma" aria-labelledby="era-arma-title">
-            <h2 id="era-arma-title" class="zh-eyebrow" data-i18n-message="pulse.armaTitle">Zombiehölle für Arma</h2>
-            <p class="zh-copy" data-i18n-message="pulse.armaNote">Zombiehölle hat mit Arma angefangen. Eine Rückkehr zu Arma 3 oder Arma Reforger ist im Moment nicht geplant.</p>
-            <a href="arma/" class="zh-btn zh-btn-dark"><span data-i18n-message="pulse.armaMore">Mehr dazu</span></a>
-        </aside>
     </div>
 </section>
 
@@ -442,9 +444,9 @@
 <script src="assets/js/home-forum-teaser.js?v=20261019-forum1"></script>
 <script src="assets/js/home-changelog-band.js?v=20261103-umbau2"></script>
 
-<script src="assets/js/zh-ui.js?v=20261104-release"></script>
+<script src="assets/js/zh-ui.js?v=20261122-stimmig1"></script>
 <script src="assets/js/zh-ranks.js?v=20261103-umbau11"></script>
-<script src="assets/js/zh-live.js?v=20261119-weltlage1"></script>
+<script src="assets/js/zh-live.js?v=20261122-stimmig1"></script>
 <script src="assets/js/zh-hero.js?v=20261103-umbau2"></script>
 </body>
 

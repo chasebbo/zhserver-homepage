@@ -48,7 +48,10 @@
         for (const p of Array.isArray(r.places) ? r.places : []) {
             if (p && typeof p.id === "string" && STATES.includes(p.state)) places.set(p.id, { name: typeof p.name === "string" ? p.name.trim() : "", state: p.state });
         }
-        return { percents, places };
+        // Funkmeldungen wie im Spiel oben rechts, neueste zuerst. Form siehe Entwurf 22.11.2026: {id, at, de, en}.
+        const radio = (Array.isArray(r.radio) ? r.radio : []).filter(m => m && typeof m.de === "string" && m.de.trim() && !Number.isNaN(Date.parse(m.at)))
+            .map(m => ({ at: Date.parse(m.at), de: m.de.trim(), en: typeof m.en === "string" && m.en.trim() ? m.en.trim() : m.de.trim() })).slice(0, 6);
+        return { percents, places, radio };
     }
     // Höchstens 60 Sekunden zwischengespeichert, nur für den ersten Aufruf einer Seite; danach jede Minute frisch.
     // Eine ungültige Antwort oder ein Fehler löscht den Zwischenspeicher, damit nie alte Werte als live erscheinen.
@@ -103,6 +106,25 @@
         });
     }
 
+    // Funk-Ticker im Lagezentrum. Mit ?funk=beispiel zeigt die Seite Beispielmeldungen (nur Entwurf, keine echten Daten).
+    const radioExample = new URLSearchParams(location.search).get("funk") === "beispiel";
+    const EXAMPLES = [[2, "Portalbasis Ost braucht Nachschub", "Portal Base East needs supplies"], [6, "Horde bei Ausgebrannter Konvoi", "Horde at Burnt-out Convoy"],
+        [14, "Horde bei Tankstelle Ost", "Horde at Gas Station East"], [27, "Militärbasis Ost braucht Nachschub", "Military Base East needs supplies"]];
+    function renderRadio(world) {
+        const panel = document.querySelector("[data-radio-panel]");
+        if (!panel) return;
+        const messages = radioExample ? EXAMPLES.map(([min, de, enText]) => ({ at: Date.now() - min * 60000, de, en: enText })) : (ui.features.radioTicker ? world?.radio || [] : []);
+        panel.classList.toggle("is-on", messages.length > 0);
+        panel.querySelector("[data-radio-example]").hidden = !radioExample;
+        const ago = at => { const min = Math.max(0, Math.round((Date.now() - at) / 60000)); return en() ? (min < 1 ? "just now" : min + " min ago") : (min < 1 ? "gerade eben" : "vor " + min + " Min."); };
+        panel.querySelector("[data-radio-list]").replaceChildren(...messages.map(m => {
+            const item = document.createElement("li"), time = document.createElement("span"), text = document.createElement("span");
+            time.className = "zh-funk-time"; time.textContent = ago(m.at);
+            text.className = "zh-funk-text"; text.textContent = en() ? m.en : m.de;
+            item.append(time, text); return item;
+        }));
+    }
+
     let current = null, firstLoad = true;
     async function loadWorld() {
         let world = null;
@@ -114,8 +136,9 @@
         current = world;
         renderCards(world, changed);
         renderPlaces(world);
+        renderRadio(world);
     }
-    document.addEventListener("zh:languagechange", () => { renderCards(current, null); renderPlaces(current); });
+    document.addEventListener("zh:languagechange", () => { renderCards(current, null); renderPlaces(current); renderRadio(current); });
 
     function tick() {
         clearTimeout(timer);

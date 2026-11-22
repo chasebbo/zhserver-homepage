@@ -46,7 +46,9 @@
         const memberRole = memberId && ['admin', 'member'].includes(row.newest_member_role) ? row.newest_member_role : null;
         return { online_total: total, online_members: members, online_guests: guests,
             registered_members: count(row.registered_members), newest_member: publicName,
-            newest_member_id: memberId, newest_member_role: memberRole };
+            newest_member_id: memberId, newest_member_role: memberRole,
+            // Kopfbild der Spielfigur (Entwurf 22.11.2026), kommt später aus dem Spiel; ohne Bild bleibt der Platz leer
+            newest_member_head_url: publicName && typeof row.newest_member_head_url === 'string' ? row.newest_member_head_url : null };
     }
     function render() {
         const lang = language(), fresh = snapshot && Date.now() - receivedAt < ONLINE_WINDOW;
@@ -70,6 +72,11 @@
                 const id = fresh ? snapshot.newest_member_id : null, role = fresh ? snapshot.newest_member_role : null;
                 if (id) el.href = new URL('#profile/' + id, forumUrl).href; else el.removeAttribute('href');
                 if (role) el.dataset.systemRole = role; else el.removeAttribute('data-system-role');
+            });
+            // Kopf neben dem neuesten Mitglied, nur mit echtem Kopfbild
+            panel.querySelectorAll('[data-community-head]').forEach(el => {
+                const face = fresh && snapshot.newest_member ? window.ZHUi?.head?.(snapshot.newest_member_head_url, 'm') : null;
+                el.replaceChildren(...(face ? [face] : []));
             });
             const status = panel.querySelector('[data-community-status]');
             if (status) status.textContent = fresh ? '' : text('unavailable');

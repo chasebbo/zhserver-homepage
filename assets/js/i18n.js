@@ -18,7 +18,7 @@
         ".guestbook-card h3", ".guestbook-card > p", ".gallery-info > span",
         ".gallery-info-head > span", ".gallery-card img", "#lightboxImage",
         ".gallery-info > p:not(.gallery-pending-sub)",
-        ".top5-name", ".leaderboard-player", ".recent-name"
+        ".recent-name"
     ].join(",");
     const textRecords = new Map();
     const attributeRecords = new Map();
@@ -92,16 +92,12 @@
     }
 
     function formatValues(root) {
-        const selector = "[data-i18n-date], [data-i18n-datetime], [data-i18n-number], [data-i18n-score], [data-i18n-more-players], [data-i18n-versions]";
+        const selector = "[data-i18n-date], [data-i18n-datetime], [data-i18n-number], [data-i18n-versions]";
         const elements = [...root.querySelectorAll(selector)];
         if (root.matches?.(selector)) elements.push(root);
         elements.forEach((element) => {
             let value;
-            if (element.hasAttribute("data-i18n-score")) {
-                value = t("score.short", { count: Number(element.dataset.i18nScore) });
-            } else if (element.hasAttribute("data-i18n-more-players")) {
-                value = t("leaderboard.more", { count: Number(element.dataset.i18nMorePlayers) });
-            } else if (element.hasAttribute("data-i18n-versions")) {
+            if (element.hasAttribute("data-i18n-versions")) {
                 value = t("changelog.versions", { count: Number(element.dataset.i18nVersions) });
             } else if (element.hasAttribute("data-i18n-number")) {
                 const amount = Number(element.dataset.i18nNumber);

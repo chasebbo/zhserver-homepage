@@ -19,7 +19,7 @@ window.ZHTranslations = {
     "gameplay-zh-15-safezone-north-gate": {de:"Tor Nord der Safezone",en:"North gate of the safe zone"},
     "gameplay-zh-16-airbase-hangar": {de:"Hangar am Fliegerhorst mit Loch im Dach",en:"Hangar at the airbase with a hole in the roof"},
     "gameplay-development-note": {de:"Spiel und Grafik werden stetig verbessert.",en:"Gameplay and graphics are continuously being improved."},
-    "gameplay-start-4in1": {de:"Vier Szenen aus Zombiehölle Survival: das Portal der Militärbasis Ost hinter Sandsackstellungen, eine Horde vor Tor Nord, Gestrandete am Lagerfeuer und der Steinbruch Ost",en:"Four scenes from Zombie Hell Survival: the portal at Military Base East behind sandbag positions, a horde outside North Gate, stranded survivors at the campfire and the east quarry"},
+    "gameplay-start-4in1": {de:"Vier Szenen aus Zombiehölle Survival: das Portal der Militärbasis Ost hinter Sandsackstellungen, eine Horde vor Tor Nord, Gestrandete am Lagerfeuer und der Steinbruch Ost",en:"Four scenes from Zombiehölle Survival: the portal at Military Base East behind sandbag positions, a horde outside North Gate, stranded survivors at the campfire and the east quarry"},
     "gameplay-market-day": {de:"Handelsplatz der Safezone am Tag mit Ständen und Händlern",en:"The safe-zone marketplace by day with stalls and traders"},
     "gameplay-quarry-east": {de:"Steinbruch Ost mit Bagger, Radlader und Muldenkipper",en:"The east quarry with excavator, wheel loader and dump truck"},
     "gameplay-north-gate-pickup": {de:"Tor Nord: Ein Pickup fährt hinaus, die Streife sichert",en:"North Gate: a pickup drives out while the patrol stands guard"},
@@ -33,7 +33,7 @@ window.ZHTranslations = {
     "gameplay-base-east-checkpoint": {de:"Kontrollpunkt an der Einfahrt der Basis Ost, ein 8x8 wartet an der Haltelinie",en:"Checkpoint at the entrance of Base East, an 8x8 waits at the stop line"},
     "gameplay-north-gate-horde-turned": {de:"Tor Nord aus schräger Sicht: Zombies drängen auf die Überlebenden vor dem Tor",en:"North Gate from an angle: zombies press in on the survivors in front of the gate"},
     "gameplay-campfire": {de:"Spieler am Lagerfeuer im Camp",en:"Players gathered around the campfire"},
-    "home-game-current": { "de": "Zombiehölle Survival · 3D-Entwicklung", "en": "Zombie Hell Survival · 3D development" },
+    "home-game-current": { "de": "Zombiehölle Survival · 3D-Entwicklung", "en": "Zombiehölle Survival · 3D development" },
     "development-3d-label": { "de": "04 / 3D-ENTWICKLUNG", "en": "04 / 3D DEVELOPMENT" },
 
     "world-status-example": {
@@ -78,7 +78,7 @@ window.ZHTranslations = {
     },
     "notice-merch-description": {
       "de": "Ein kleines Stück Zombiehölle für zuhause.",
-      "en": "A little piece of Zombie Hell for your home."
+      "en": "A little piece of Zombiehölle for your home."
     },
     "notice-merch-link": {
       "de": "Shop ansehen",
@@ -98,19 +98,19 @@ window.ZHTranslations = {
     },
     "arma-title": {
         "de": "Zombiehölle für Arma",
-        "en": "Zombie Hell for Arma"
+        "en": "Zombiehölle for Arma"
     },
     "arma-page-title": {
         "de": "Zombiehölle für Arma | ZHServer",
-        "en": "Zombie Hell for Arma | ZHServer"
+        "en": "Zombiehölle for Arma | ZHServer"
     },
     "arma-page-description": {
         "de": "Überlegungen zu Zombiehölle im Arma-Umfeld. Aktuell gibt es keine konkreten Pläne oder Ankündigungen.",
-        "en": "Thoughts on bringing Zombie Hell back to Arma. There are currently no concrete plans or announcements."
+        "en": "Thoughts on bringing Zombiehölle back to Arma. There are currently no concrete plans or announcements."
     },
     "arma-teaser": {
         "de": "Zombiehölle noch einmal im Arma-Umfeld: als kleines Projekt oder als Serverabend mit alten Freunden. Aktuell gibt es keine konkreten Pläne.",
-        "en": "Zombie Hell in Arma again: perhaps a small project, perhaps an evening on a server with old friends. There are currently no concrete plans."
+        "en": "Zombiehölle in Arma again: perhaps a small project, perhaps an evening on a server with old friends. There are currently no concrete plans."
     },
     "arma-more": {
         "de": "Mehr dazu",
@@ -118,11 +118,11 @@ window.ZHTranslations = {
     },
     "arma-more-label": {
         "de": "Mehr zu Zombiehölle für Arma",
-        "en": "Read more about Zombie Hell for Arma"
+        "en": "Read more about Zombiehölle for Arma"
     },
     "arma-intro": {
         "de": "Vielleicht gibt es Zombiehölle irgendwann noch einmal in Arma.",
-        "en": "Maybe Zombie Hell will come back to Arma at some point."
+        "en": "Maybe Zombiehölle will come back to Arma at some point."
     },
     "arma-possibilities": {
         "de": "Infrage kämen Arma Reforger oder ein späteres Arma. Es kann aber genauso gut bei einem einzelnen Serverabend mit alten Freunden bleiben.",
@@ -198,7 +198,7 @@ window.ZHTranslations = {
     },
     "game-concept-alt": {
         "de": "Konzeptgrafik einer befestigten Zombiehölle-Adminbasis mit beleuchtetem Hof, Checkpoint und Helipads",
-        "en": "Concept art of a fortified Zombie Hell admin base with a floodlit courtyard, checkpoint and helipads"
+        "en": "Concept art of a fortified Zombiehölle admin base with a floodlit courtyard, checkpoint and helipads"
     },
     "game-concept-caption": {
         "de": "Konzeptgrafik, kein aktueller Gameplay-Screenshot. Maßstab und Details können vom späteren Spiel abweichen.",
@@ -226,11 +226,11 @@ window.ZHTranslations = {
     },
     "bridge-intro": {
         "de": "Aus der früheren Arma-2-DayZ-Community entsteht heute ein eigenes Survival-Spiel. Beides gehört zu Zombiehölle.",
-        "en": "A new survival game is growing out of the former Arma 2 DayZ community. Both are part of the Zombie Hell story."
+        "en": "A new survival game is growing out of the former Arma 2 DayZ community. Both are part of the Zombiehölle story."
     },
     "bridge-past-title": {
         "de": "Zombiehölle damals",
-        "en": "Zombie Hell then"
+        "en": "Zombiehölle then"
     },
     "bridge-past-copy": {
         "de": "Angefangen hat alles mit einem Arma 2 DayZ Server. Timeline, alte Bilder und Erinnerungen findest du im Archiv.",
@@ -250,11 +250,11 @@ window.ZHTranslations = {
     },
     "bridge-present-title": {
         "de": "Zombiehölle Survival heute",
-        "en": "Zombie Hell Survival today"
+        "en": "Zombiehölle Survival today"
     },
     "bridge-present-copy": {
         "de": "Zombiehölle Survival ist eine 3D-Multiplayer-Welt, sofort spielbar und ohne Download. Dein Fortschritt bleibt gespeichert. Du suchst Ausrüstung, baust dir eine Basis und überlebst zusammen mit anderen. Die Welt wird laufend größer und besser.",
-        "en": "Zombie Hell Survival is a 3D multiplayer world you can play right away, with no download. Your progress stays saved. You scavenge for gear, build a base and survive together with other players. The world keeps growing and getting better."
+        "en": "Zombiehölle Survival is a 3D multiplayer world you can play right away, with no download. Your progress stays saved. You scavenge for gear, build a base and survive together with other players. The world keeps growing and getting better."
     },
     "bridge-alpha-status": {
         "de": "Web-Alpha jetzt spielbar",
@@ -346,7 +346,7 @@ window.ZHTranslations = {
     },
     "game-product-title": {
         "de": "ZOMBIEHÖLLE SURVIVAL",
-        "en": "ZOMBIE HELL SURVIVAL"
+        "en": "ZOMBIEHÖLLE SURVIVAL"
     },
     "game-hero-description": {
         "de": "In Entwicklung: Eine persistente 3D-Multiplayer-Survival-Welt mit fester, geneigter Draufsicht.",
@@ -406,7 +406,7 @@ window.ZHTranslations = {
     },
     "game-overview-description": {
         "de": "Verlassene Städte, knappe Vorräte und Zombies: Zombiehölle Survival verbindet Erkundung und Überleben mit einer Online-Welt, in der du deinen eigenen Platz aufbauen kannst.",
-        "en": "Abandoned towns, scarce supplies and zombies: Zombie Hell Survival brings exploration and survival together in an online world where you can build a place of your own."
+        "en": "Abandoned towns, scarce supplies and zombies: Zombiehölle Survival brings exploration and survival together in an online world where you can build a place of your own."
     },
     "game-origin-summary": {
         "de": "Die Verbindung zur früheren Community",
@@ -514,15 +514,15 @@ window.ZHTranslations = {
     },
     "forum-page-title": {
       "de": "Forum | Zombiehölle",
-      "en": "Forum | Zombie Hell"
+      "en": "Forum | Zombiehölle"
     },
     "forum-page-description": {
       "de": "Das Zombiehölle-Forum befindet sich im Aufbau. Eine erste Vorschau der geplanten Community-Kategorien.",
-      "en": "The Zombie Hell forum is under construction. A first preview of its planned community categories."
+      "en": "The Zombiehölle forum is under construction. A first preview of its planned community categories."
     },
     "forum-heading": {
       "de": "ZOMBIEHÖLLE FORUM",
-      "en": "ZOMBIE HELL FORUM"
+      "en": "ZOMBIEHÖLLE FORUM"
     },
     "forum-stage": {
       "de": "Frühe Vorbereitung",
@@ -534,7 +534,7 @@ window.ZHTranslations = {
     },
     "forum-introduction": {
       "de": "Hier entsteht die Community-Plattform für Diskussionen, Guides, Vorschläge, Fehlermeldungen und alles rund um Zombiehölle.",
-      "en": "This will become the community hub for discussions, guides, suggestions, bug reports and everything related to Zombie Hell."
+      "en": "This will become the community hub for discussions, guides, suggestions, bug reports and everything related to Zombiehölle."
     },
     "forum-categories-heading": {
       "de": "Geplante Kategorien",
@@ -581,12 +581,12 @@ window.ZHTranslations = {
       "en": "© 2013 to 2026 ZHServer Community"
     },
     "zhserver-community-seit-2013": {
-      "de": "ZHServer Community | Seit 2013",
-      "en": "ZHServer Community | Since 2013"
+      "de": "Zombiehölle Survival | ZHServer",
+      "en": "Zombiehölle Survival | ZHServer"
     },
     "die-geschichte-der-zhserver-community-gegruendet-2013-als-zombiehoelle": {
       "de": "ZHServer seit 2013: Community-Archiv und die 3D-Entwicklung von Zombiehölle Survival.",
-      "en": "ZHServer since 2013: the community archive and the 3D development of Zombie Hell Survival."
+      "en": "ZHServer since 2013: the community archive and the 3D development of Zombiehölle Survival."
     },
     "start": {
       "de": "Start",
@@ -618,7 +618,7 @@ window.ZHTranslations = {
     },
     "erinnerungen-aus-ueber-10-jahren-zombiehoelle-und-der-einstieg-in-das": {
       "de": "Erinnerungen aus über 10 Jahren Zombiehölle und Einblicke in die 3D-Entwicklung von Zombiehölle Survival.",
-      "en": "Memories from over ten years of Zombiehölle and a look at the 3D development of Zombie Hell Survival."
+      "en": "Memories from over ten years of Zombiehölle and a look at the 3D development of Zombiehölle Survival."
     },
     "community-entdecken": {
       "de": "Community entdecken",
@@ -1090,7 +1090,7 @@ window.ZHTranslations = {
     },
     "die-alten-arma-server-sind-geschichte-aber-das-archiv-bleibt-online-ne": {
       "de": "Die alten ARMA-Server sind Geschichte, das Archiv bleibt online. Zombiehölle Survival wird inzwischen als 3D-Multiplayer-Survival-Welt weiterentwickelt.",
-      "en": "The old ARMA servers are part of our history, and the archive remains online. Zombie Hell Survival is now being developed as a 3D multiplayer survival world."
+      "en": "The old ARMA servers are part of our history, and the archive remains online. Zombiehölle Survival is now being developed as a 3D multiplayer survival world."
     },
     "galerie-2": {
       "de": "GALERIE",
@@ -1364,14 +1364,6 @@ window.ZHTranslations = {
       "de": "14 von 20 Punkten für Alpha 0.2.3",
       "en": "14 of 20 updates for Alpha 0.2.3"
     },
-    "top-5-spieler": {
-      "de": "TOP 5 SPIELER",
-      "en": "TOP 5 PLAYERS"
-    },
-    "lade-top-5": {
-      "de": "Lade Top 5 …",
-      "en": "Loading top 5 …"
-    },
     "testlauf-ab-24-oktober": {
       "de": "TESTLAUF AB 24. OKTOBER",
       "en": "PLAYTEST FROM 24 OCTOBER"
@@ -1562,7 +1554,7 @@ window.ZHTranslations = {
     },
     "zombiehoelle-war-von-2013-bis-2016-eine-eigene-servercommunity-rund-um": {
       "de": "Zombiehölle war von 2013 bis 2016 eine eigene Servercommunity rund um DayZ und Arma. Heute wird Zombiehölle Survival als eigenständige 3D-Multiplayer-Survival-Welt weiterentwickelt.",
-      "en": "From 2013 to 2016, Zombie Hell was an Arma 2 DayZ server community. Today, it is evolving into its own independent 3D multiplayer survival world."
+      "en": "From 2013 to 2016, Zombiehölle was an Arma 2 DayZ server community. Today, it is evolving into its own independent 3D multiplayer survival world."
     },
     "du-erkundest-verlassene-staedte-kaempfst-gegen-zombies-sammelst-loot-f": {
       "de": "Du erkundest verlassene Städte, kämpfst gegen Zombies, sammelst Loot, fährst Fahrzeuge und baust gemeinsam deine Basis auf. Die Welt wird stetig erweitert. Jedes Feedback und jeder gefundene Bug helfen direkt bei den kommenden Patches.",
@@ -2492,10 +2484,6 @@ window.ZHTranslations = {
       "de": "Handelsplatz und Safe Zone mit Händlern und Wachen.",
       "en": "Trading area and safe zone with traders and guards."
     },
-    "geld-punkte-rangliste-und-belohnungen": {
-      "de": "Geld, Punkte, Rangliste und Belohnungen.",
-      "en": "Money, points, a leaderboard and rewards."
-    },
     "inventar-raster-schnellleiste-und-mausbedienung": {
       "de": "Inventar, Raster, Schnellleiste und Mausbedienung.",
       "en": "Inventory grid, quickbar and mouse controls."
@@ -3068,33 +3056,9 @@ window.ZHTranslations = {
       "de": "Vollbild wurde vom Browser nicht geoeffnet. Bitte erneut versuchen.",
       "en": "The browser could not open fullscreen mode. Please try again."
     },
-    "keine-spieler": {
-      "de": "Keine Spieler",
-      "en": "No players"
-    },
     "punkte": {
       "de": "Punkte",
       "en": "Points"
-    },
-    "noch-keine-registrierten-spieler": {
-      "de": "Noch keine registrierten Spieler.",
-      "en": "No registered players yet."
-    },
-    "aktualisierung-alle-24-stunden": {
-      "de": "Aktualisierung: alle 24 Stunden",
-      "en": "Updated every 24 hours"
-    },
-    "rangliste-folgt": {
-      "de": "Rangliste folgt",
-      "en": "Leaderboard coming soon"
-    },
-    "die-rangliste-wird-gerade-vorbereitet": {
-      "de": "Die Rangliste wird gerade vorbereitet.",
-      "en": "The leaderboard is being prepared."
-    },
-    "aktualisierung-folgt": {
-      "de": "Aktualisierung folgt",
-      "en": "Update coming soon"
     },
     "noch-keine-spieler": {
       "de": "Noch keine Spieler",
@@ -3305,10 +3269,10 @@ window.ZHTranslations = {
     "screenshots.select": {de:"Bild {number}: {description}",en:"Image {number}: {description}"},
     "screenshots.open": {de:"Screenshot vergrößern: {description}",en:"Enlarge screenshot: {description}"},
     "screenshots.close": {de:"Großansicht schließen",en:"Close enlarged view"},
-    "game.presentation.intro": {"de":"Zombiehölle Survival wird als persistente 3D-Multiplayer-Welt mit fester, geneigter Draufsicht entwickelt.","en":"Zombie Hell Survival is being developed as a persistent 3D multiplayer world with a fixed, tilted overhead view."},
+    "game.presentation.intro": {"de":"Zombiehölle Survival wird als persistente 3D-Multiplayer-Welt mit fester, geneigter Draufsicht entwickelt.","en":"Zombiehölle Survival is being developed as a persistent 3D multiplayer world with a fixed, tilted overhead view."},
     "game.presentation.serverMeta": {"de":"Sofort spielbar · Multiplayer · Fortschritt wird gespeichert","en":"Play now · Multiplayer · Saved progress"},
     "game.presentation.collageAlt": {"de":"Vier Bilder aus dem Spiel: Lagerfeuer in der Safezone, Wrack der C-130, Kampf bei Nacht, Militärbasis Ost","en":"Four pictures from the game: campfire in the safe zone, wreck of the C-130, fight at night, Military Base East"},
-    "game.presentation.previewAlt": {"de":"Vier Szenen aus Zombiehölle Survival: das Portal der Militärbasis Ost hinter Sandsackstellungen, eine Horde vor Tor Nord, Gestrandete am Lagerfeuer und der Steinbruch Ost","en":"Four scenes from Zombie Hell Survival: the portal at Military Base East behind sandbag positions, a horde outside North Gate, stranded survivors at the campfire and the east quarry"},
+    "game.presentation.previewAlt": {"de":"Vier Szenen aus Zombiehölle Survival: das Portal der Militärbasis Ost hinter Sandsackstellungen, eine Horde vor Tor Nord, Gestrandete am Lagerfeuer und der Steinbruch Ost","en":"Four scenes from Zombiehölle Survival: the portal at Military Base East behind sandbag positions, a horde outside North Gate, stranded survivors at the campfire and the east quarry"},
     "game.presentation.playHere": {"de":"Das Spiel öffnet sich hier.","en":"The game opens here."},
     "game.presentation.artwork": {"de":"Ingame-Grafik · Neues Portal, Kampf am Nordtor, Lagerfeuer, Steinbruch","en":"In-game graphics · New portal, fight at North Gate, campfire, quarry"},
     "game.presentation.featuresKicker": {"de":"DAS SPIEL","en":"THE GAME"},
@@ -3352,8 +3316,8 @@ window.ZHTranslations = {
     "game.landing.persistenceNote": {"de":"Fortschritt bleibt gespeichert","en":"Keep your progress"},
     "game.landing.loot": {"de":"FAHRZEUGE & LOOT","en":"VEHICLES & LOOT"},
     "game.landing.lootNote": {"de":"Erkunden, sammeln, ausrüsten","en":"Explore, gather, gear up"},
-    "game.landing.discoverKicker": {"de":"DIE WELT VON ZOMBIEHÖLLE","en":"THE WORLD OF ZOMBIE HELL"},
-    "game.landing.discoverTitle": {"de":"Zombiehölle entdecken","en":"Discover Zombie Hell"},
+    "game.landing.discoverKicker": {"de":"DIE WELT VON ZOMBIEHÖLLE","en":"THE WORLD OF ZOMBIEHÖLLE"},
+    "game.landing.discoverTitle": {"de":"Zombiehölle entdecken","en":"Discover Zombiehölle"},
     "game.landing.artNote": {"de":"Einblicke in die Spielgrafik · keine Gameplay-Screenshots","en":"A look at the game artwork · not gameplay screenshots"},
     "game.landing.graphicBadge": {"de":"SPIELGRAFIK","en":"GAME ARTWORK"},
     "game.landing.garageTitle": {"de":"Orte zum Erkunden.","en":"Places to explore."},
@@ -3373,10 +3337,10 @@ window.ZHTranslations = {
     "game.landing.gameplayTitle": {"de":"GAMEPLAY","en":"GAMEPLAY"},
     "game.landing.gameplayNote": {"de":"Weitere Inhalte, Systeme und Balancing.","en":"More content, systems and balancing updates."},
     "game.landing.developmentLink": {"de":"ENTWICKLUNGSSTAND ANSEHEN","en":"VIEW DEVELOPMENT PROGRESS"},
-    "game.landing.communityTitle": {"de":"Zombiehölle entsteht mit der Community","en":"Building Zombie Hell with its community"},
+    "game.landing.communityTitle": {"de":"Zombiehölle entsteht mit der Community","en":"Building Zombiehölle with its community"},
     "game.landing.communityNote": {"de":"Stimme über kommende Inhalte ab, melde Bugs oder bring deine Ideen ein.","en":"Vote on upcoming content, report bugs or share your ideas."},
     "game.landing.vote": {"de":"ABSTIMMEN","en":"VOTE"},
-    "game.entry.pageTitle": { "de": "Zombiehölle Survival | ZHServer", "en": "Zombie Hell Survival | ZHServer" },
+    "game.entry.pageTitle": { "de": "Zombiehölle Survival | ZHServer", "en": "Zombiehölle Survival | ZHServer" },
     "game.entry.featureMultiplayer": {"de":"Online Multiplayer","en":"Online multiplayer"},
     "game.entry.featurePersistence": {"de":"Persistente Welt","en":"Persistent world"},
     "game.entry.featureBuilding": {"de":"Basenbau","en":"Base building"},
@@ -3384,12 +3348,12 @@ window.ZHTranslations = {
     "game.entry.featureVehicles": {"de":"Fahrzeuge","en":"Vehicles"},
     "game.entry.featureSurvival": {"de":"Zombies & Überleben","en":"Zombies & survival"},
     "game.entry.updatesLabel": {"de":"Entwicklung und Community","en":"Development and community"},
-    "game.entry.detailPageTitle": {"de":"Entwicklung & Community | Zombiehölle","en":"Development & community | Zombie Hell"},
-    "game.entry.detailPageDescription": {"de":"Die 3D-Entwicklung und Roadmap von Zombiehölle Survival.","en":"The 3D development and roadmap of Zombie Hell Survival."},
+    "game.entry.detailPageTitle": {"de":"Entwicklung & Community | Zombiehölle","en":"Development & community | Zombiehölle"},
+    "game.entry.detailPageDescription": {"de":"Die 3D-Entwicklung und Roadmap von Zombiehölle Survival.","en":"The 3D development and roadmap of Zombiehölle Survival."},
 
-    "game.entry.brand": { "de": "ZOMBIEHÖLLE", "en": "ZOMBIE HELL" },
+    "game.entry.brand": { "de": "ZOMBIEHÖLLE", "en": "ZOMBIEHÖLLE" },
     "game.entry.status": { "de": "Web-Alpha jetzt spielbar", "en": "Web alpha now playable" },
-    "game.entry.intro": { "de": "Zombiehölle Survival spielen: 3D-Multiplayer-Welt, sofort spielbar ohne Download.", "en": "Play Zombie Hell Survival: a 3D multiplayer world, play now with no download." },
+    "game.entry.intro": { "de": "Zombiehölle Survival spielen: 3D-Multiplayer-Welt, sofort spielbar ohne Download.", "en": "Play Zombiehölle Survival: a 3D multiplayer world, play now with no download." },
     "game.entry.welcome": { "de": "Willkommen zurück, {name}.", "en": "Welcome back, {name}." },
     "game.entry.saved": { "de": "Dein Fortschritt wird mit deinem ZHServer-Account gespeichert.", "en": "Your progress is saved to your ZHServer account." },
     "game.entry.signInNote": { "de": "Kostenlos anmelden und deinen Fortschritt dauerhaft speichern.", "en": "Sign in for free to save your progress." },
@@ -3426,7 +3390,7 @@ window.ZHTranslations = {
     "game.entry.consentRequired": { "de": "Bitte schließe zuerst deine Anmeldung ab: Spielername und Regeln.", "en": "Please finish your sign-up first: player name and rules." },
     "game.entry.finish": { "de": "Anmeldung abschließen", "en": "Finish sign-up" },
     "game.entry.server": { "de": "Spielserver", "en": "Game server" },
-    "game.entry.productTitle": { "de": "ZOMBIEHÖLLE SURVIVAL", "en": "ZOMBIE HELL SURVIVAL" },
+    "game.entry.productTitle": { "de": "ZOMBIEHÖLLE SURVIVAL", "en": "ZOMBIEHÖLLE SURVIVAL" },
     "game.entry.worlds": { "de": "SERVERWELTEN", "en": "SERVER WORLDS" },
     "game.entry.worldsOnline": { "de": "{online} VON {total} SERVERN ONLINE", "en": "{online} OF {total} SERVERS ONLINE" },
     "game.entry.worldsChecking": { "de": "STATUS WIRD GEPRÜFT", "en": "CHECKING STATUS" },
@@ -3445,7 +3409,7 @@ window.ZHTranslations = {
     "game.entry.offlineNote": { "de": "Meistens läuft gerade eine Wartung oder ein Update. In der Regel ist der Server nach ein paar Minuten wieder da.", "en": "Usually this means maintenance or an update is running. The server is normally back within a few minutes." },
     "game.entry.lastCheck": { "de": "Letzte Statusprüfung: {time} Uhr", "en": "Last status check: {time}" },
     "game.entry.about": { "de": "Eine offene Online-Welt mit verlassenen Orten, knappen Vorräten und Zombies. Erkunde sie allein oder mit anderen und baue dir einen eigenen Platz zum Überleben.", "en": "An open online world with abandoned places, scarce supplies and zombies. Explore on your own or with others, and build a place to survive." },
-    "game.entry.origin": { "de": "Von 2013 bis 2016 war Zombiehölle eine Arma-2-DayZ-Servercommunity. Heute wird Zombiehölle Survival als eigenständige 3D-Multiplayer-Survival-Welt weiterentwickelt.", "en": "From 2013 to 2016, Zombie Hell was an Arma 2 DayZ server community. Today, it is evolving into its own independent 3D multiplayer survival world." },
+    "game.entry.origin": { "de": "Von 2013 bis 2016 war Zombiehölle eine Arma-2-DayZ-Servercommunity. Heute wird Zombiehölle Survival als eigenständige 3D-Multiplayer-Survival-Welt weiterentwickelt.", "en": "From 2013 to 2016, Zombiehölle was an Arma 2 DayZ server community. Today, it is evolving into its own independent 3D multiplayer survival world." },
     "game.entry.multiplayer": { "de": "Gemeinsam überleben, Gruppen bilden und im Chat in Verbindung bleiben.", "en": "Survive together, form groups and stay in touch through chat." },
     "game.entry.persistence": { "de": "Dein Charakter und dein Fortschritt bleiben mit deinem Account erhalten.", "en": "Your character and progress are saved to your account." },
     "game.entry.building": { "de": "Eine eigene Basis aufbauen und Schritt für Schritt erweitern.", "en": "Build a base of your own and expand it over time." },
@@ -3456,7 +3420,7 @@ window.ZHTranslations = {
     "game.entry.concept": { "de": "Konzept / visuelle Zielrichtung", "en": "Concept / visual direction" },
     "game.entry.conceptNote": { "de": "Diese Grafik zeigt die geplante Richtung, keinen aktuellen Gameplay-Screenshot.", "en": "This artwork illustrates the planned direction, not a current gameplay screenshot." },
     "game.entry.developmentTitle": { "de": "AKTUELLE ENTWICKLUNG", "en": "CURRENT DEVELOPMENT" },
-    "game.entry.development": { "de": "Zombiehölle wird aktiv weiterentwickelt. Neue Gebäude, Bauteile, Orte und Gameplay-Inhalte kommen laufend hinzu.", "en": "Zombie Hell is in active development, with new buildings, building parts, locations and gameplay content being added over time." },
+    "game.entry.development": { "de": "Zombiehölle wird aktiv weiterentwickelt. Neue Gebäude, Bauteile, Orte und Gameplay-Inhalte kommen laufend hinzu.", "en": "Zombiehölle is in active development, with new buildings, building parts, locations and gameplay content being added over time." },
     "game.entry.viewDevelopment": { "de": "ENTWICKLUNG ANSEHEN", "en": "VIEW DEVELOPMENT" },
     "game.entry.nextTitle": { "de": "Was kommt als Nächstes?", "en": "What comes next?" },
     "game.entry.next": { "de": "Neue Orte, mehr Bauteile, Fahrzeuge, Gegner und Gameplay-Systeme.", "en": "New locations, more building parts, vehicles, enemies and gameplay systems." },
@@ -3468,12 +3432,12 @@ window.ZHTranslations = {
     "game.entry.viewChanges": { "de": "ÄNDERUNGEN ANSEHEN", "en": "VIEW CHANGES" },
     "game.entry.feedbackTitle": { "de": "ALPHA MITGESTALTEN", "en": "HELP SHAPE THE ALPHA" },
     "game.entry.feedback": { "de": "Bug gefunden oder eine Idee? Hilf bei der Entwicklung.", "en": "Found a bug or have an idea? Help improve the game." },
-    "game.entry.alphaNote": { "de": "Zombiehölle befindet sich in einer frühen Alpha und wird aktiv weiterentwickelt. Inhalte, Balancing und Spielstände können während der Entwicklung angepasst werden.", "en": "Zombie Hell is in early alpha and is being actively developed. Content, balancing and saved progress may change during development." },
-    "game.entry.access": { "de": "Dein Einstieg in Zombiehölle", "en": "Start playing Zombie Hell" },
+    "game.entry.alphaNote": { "de": "Zombiehölle befindet sich in einer frühen Alpha und wird aktiv weiterentwickelt. Inhalte, Balancing und Spielstände können während der Entwicklung angepasst werden.", "en": "Zombiehölle is in early alpha and is being actively developed. Content, balancing and saved progress may change during development." },
+    "game.entry.access": { "de": "Dein Einstieg in Zombiehölle", "en": "Start playing Zombiehölle" },
     "game.entry.detailTitle": { "de": "Entwicklung & Community", "en": "Development & community" },
     "game.entry.detailIntro": { "de": "Hier findest du aktuelle Arbeiten an der 3D-Umstellung, geplante Inhalte und bisherige Änderungen.", "en": "Here you can find current work on the transition to 3D, planned features and past changes." },
     "game.entry.back": { "de": "ZUR SPIELSEITE", "en": "BACK TO THE GAME" },
-    "game.entry.detailWork": { "de": "Zombiehölle Survival wird als persistente 3D-Multiplayer-Welt mit fester, geneigter 75°-Kamera entwickelt. 3D-Charaktere, Fahrzeuge und begehbare Gebäude sind bereits vorhanden. Erste Gebäude haben mehrere Stockwerke.", "en": "Zombie Hell Survival is being developed as a persistent 3D multiplayer world with a fixed camera tilted at 75°. 3D characters, vehicles and enterable buildings are already present. Some buildings now have multiple floors." },
+    "game.entry.detailWork": { "de": "Zombiehölle Survival wird als persistente 3D-Multiplayer-Welt mit fester, geneigter 75°-Kamera entwickelt. 3D-Charaktere, Fahrzeuge und begehbare Gebäude sind bereits vorhanden. Erste Gebäude haben mehrere Stockwerke.", "en": "Zombiehölle Survival is being developed as a persistent 3D multiplayer world with a fixed camera tilted at 75°. 3D characters, vehicles and enterable buildings are already present. Some buildings now have multiple floors." },
     "game.entry.detailTesting": { "de": "Neue Inhalte werden anhand von Feedback und Fehlermeldungen weiter überarbeitet.", "en": "New content is being refined using feedback and bug reports." },
     "game.entry.detailAlphaTitle": { "de": "3D-Umstellung", "en": "Transition to 3D" },
     "game.entry.detailAlpha": { "de": "Die große zusammenhängende Welt wird clusterweise nachgeladen. Der persistente Online-Multiplayer ist auf einen gemeinsamen Dedicated Server ausgelegt. Die 3D-Umstellung läuft noch. Einzelne Bestandteile nutzen weiterhin 2D-Darstellungen. 3D-Zombies und eine überarbeitete Spawnlogik sind geplant.", "en": "The large continuous world loads in clusters. Persistent online multiplayer is designed around a shared dedicated server. The transition to 3D is still underway. Some elements still use 2D visuals. 3D zombies and revised spawning logic are planned." },
@@ -3490,17 +3454,9 @@ window.ZHTranslations = {
       "de": "Navigation schließen",
       "en": "Close navigation"
     },
-    "score.short": {
-      "de": "{count} Pkt.",
-      "en": "{count} pts"
-    },
     "changelog.versions": {
       "de": "{count} Versionen",
       "en": "{count} versions"
-    },
-    "leaderboard.more": {
-      "de": "Weitere {count} Spieler anzeigen",
-      "en": "Show {count} more players"
     },
     "gallery.file.empty": {
       "de": "Keine Datei ausgewählt",
@@ -3615,14 +3571,14 @@ window.ZHTranslations = {
     "forum.lastActivity": { "de": "Letzte Aktivität", "en": "Last activity" },
     "forum.unavailable": { "de": "Noch nicht verfügbar", "en": "Not available yet" },
     "forum.notLive": { "de": "Noch nicht aktiv", "en": "Not active yet" },
-    "forum.description.announcements": { "de": "Neuigkeiten, wichtige Hinweise und Updates von Zombiehölle.", "en": "News, important notices and updates from Zombie Hell." },
+    "forum.description.announcements": { "de": "Neuigkeiten, wichtige Hinweise und Updates von Zombiehölle.", "en": "News, important notices and updates from Zombiehölle." },
     "forum.description.general": { "de": "Austausch über das Spiel und die Community.", "en": "Talk about the game and the community." },
     "forum.description.bugs": { "de": "Fehler melden, Probleme beschreiben und mögliche Lösungen vorschlagen.", "en": "Report bugs, describe issues and suggest possible solutions." },
     "forum.description.ideas": { "de": "Bring deine Ideen ein und stell sie der Community und den Admins vor.", "en": "Share your ideas with the community and the admins." },
     "forum.description.guides": { "de": "Tipps, Anleitungen und Antworten für neue und erfahrene Spieler.", "en": "Tips, guides and answers for new and experienced players." },
     "forum.description.groups": { "de": "Mitspieler finden, Gruppen vorstellen und gemeinsame Pläne machen.", "en": "Find players, introduce your group and make plans together." },
     "forum.description.trading": { "de": "Angebote, Gesuche und Absprachen rund um den Handel im Spiel.", "en": "Offers, requests and arrangements for in-game trading." },
-    "forum.description.offtopic": { "de": "Alles, was die Community abseits von Zombiehölle beschäftigt.", "en": "Community conversations beyond Zombie Hell." },
+    "forum.description.offtopic": { "de": "Alles, was die Community abseits von Zombiehölle beschäftigt.", "en": "Community conversations beyond Zombiehölle." },
     "forum.noCategories": { "de": "Keine passende Kategorie", "en": "No matching categories" },
     "forum.searchHint": { "de": "Versuche einen anderen Begriff oder setze die Suche zurück.", "en": "Try a different term or clear the search." },
     "forum.resetSearch": { "de": "Suche zurücksetzen", "en": "Clear search" },
@@ -3722,12 +3678,12 @@ window.ZHTranslations = {
     "legal.toRegistration": { "de": "Zur Registrierung", "en": "Go to registration" },
     "legal.reportBug": { "de": "Fehler oder Exploit melden", "en": "Report a bug or exploit" },
     "legal.2026-10-08.terms.scope.title": { "de": "1. Geltungsbereich und kostenlose Nutzung", "en": "1. Scope and free use" },
-    "legal.2026-10-08.terms.scope.body": { "de": "Diese Nutzungsbedingungen gelten für den zentralen ZHServer-Account sowie die damit verbundenen Funktionen der Homepage, des Forums, der Galerie und des Spiels Zombiehölle. Die aktuelle Nutzung von ZHServer ist kostenlos. Die Community-Regeln gehören zu diesen Bedingungen.", "en": "These Terms of Use apply to the central ZHServer account and the connected features of the homepage, forum, gallery and Zombie Hell game. ZHServer is currently free to use. The Community Rules form part of these terms." },
+    "legal.2026-10-08.terms.scope.body": { "de": "Diese Nutzungsbedingungen gelten für den zentralen ZHServer-Account sowie die damit verbundenen Funktionen der Homepage, des Forums, der Galerie und des Spiels Zombiehölle. Die aktuelle Nutzung von ZHServer ist kostenlos. Die Community-Regeln gehören zu diesen Bedingungen.", "en": "These Terms of Use apply to the central ZHServer account and the connected features of the homepage, forum, gallery and Zombiehölle game. ZHServer is currently free to use. The Community Rules form part of these terms." },
     "legal.2026-10-08.terms.account.title": { "de": "2. Dein Account und deine Zugangsdaten", "en": "2. Your account and sign-in details" },
     "legal.2026-10-08.terms.account.body": { "de": "Dein Account ist persönlich und für deine eigene Nutzung bestimmt. Verwende ihn nicht missbräuchlich und überlasse ihn niemandem zur Umgehung von Regeln oder Sperren. Halte deine Zugangsdaten vertraulich und wähle ein sicheres Passwort. Du bist dafür verantwortlich, deinen Zugang zu schützen. Wenn du einen unbefugten Zugriff bemerkst, ändere dein Passwort und melde den Vorfall über die Kontaktmöglichkeiten im Impressum.", "en": "Your account is personal and intended for your own use. Do not misuse it or let others use it to bypass rules or suspensions. Keep your sign-in details private and choose a secure password. You are responsible for protecting access to your account. If you notice unauthorised access, change your password and report it using the contact details in the Legal Notice." },
     "legal.2026-10-08.terms.availability.title": { "de": "3. Verfügbarkeit und Änderungen", "en": "3. Availability and changes" },
     "legal.2026-10-08.terms.availability.body": { "de": "Ein Anspruch auf permanente Verfügbarkeit besteht nicht. Wartung, Fehler oder technische Probleme können einzelne Funktionen oder das gesamte Angebot vorübergehend einschränken. Funktionen und Inhalte können im Laufe der Entwicklung ergänzt, geändert oder entfernt werden. Deine gesetzlichen Rechte bleiben unberührt.", "en": "Continuous availability is not guaranteed. Maintenance, bugs or technical problems may temporarily limit individual features or the service as a whole. Features and content may be added, changed or removed during development. Your statutory rights remain unaffected." },
-    "legal.2026-10-08.terms.alpha.title": { "de": "4. Zombiehölle befindet sich in der Alpha.", "en": "4. Zombie Hell is in alpha." },
+    "legal.2026-10-08.terms.alpha.title": { "de": "4. Zombiehölle befindet sich in der Alpha.", "en": "4. Zombiehölle is in alpha." },
     "legal.2026-10-08.terms.alpha.body": { "de": "Das Spiel ist noch nicht fertig. Fehler können auftreten und einzelne Funktionen können unvollständig sein.", "en": "The game is still in development. Bugs can occur, and some features may be incomplete." },
     "legal.2026-10-08.terms.alpha.changes": { "de": "Balancing, Spielsysteme und Inhalte können sich ändern. Inhalte können ergänzt oder entfernt werden.", "en": "Balancing, game systems and content may change. Content may be added or removed." },
     "legal.2026-10-08.terms.alpha.saves": { "de": "In begründeten technischen Ausnahmefällen können Spielstände und Fortschritt angepasst oder zurückgesetzt werden, etwa wenn Fehler behoben oder grundlegende Systeme geändert werden müssen. Es besteht kein Anspruch auf einen dauerhaft unveränderten Alpha-Spielstand.", "en": "In exceptional cases where there is a technical reason, saved games and progress may need to be adjusted or reset, for example to fix bugs or change core systems. An alpha save is not guaranteed to remain unchanged indefinitely." },
@@ -3954,7 +3910,7 @@ Object.assign(window.ZHTranslations.messages, {
   },
   "forum.liveIntro": {
     "de": "Diskussionen, Fragen und Ideen rund um Zombiehölle.",
-    "en": "Discussions, questions and ideas about Zombie Hell."
+    "en": "Discussions, questions and ideas about Zombiehölle."
   },
   "forum.liveDescription": {
     "de": "Lies mit oder melde dich mit deinem ZHServer-Account an, um ein Thema zu eröffnen oder zu antworten.",
@@ -4293,7 +4249,7 @@ Object.assign(window.ZHTranslations.messages, {
 
 Object.assign(window.ZHTranslations.messages, {
   "pulse.title": {de:"Du entscheidest mit.",en:"Have your say."},
-  "pulse.intro": {de:"Sag uns, was als Nächstes in Zombiehölle Survival kommen soll.",en:"Tell us what should come next in Zombie Hell Survival."},
+  "pulse.intro": {de:"Sag uns, was als Nächstes in Zombiehölle Survival kommen soll.",en:"Tell us what should come next in Zombiehölle Survival."},
   "pulse.preparing": {de:"Neue Abstimmungen werden vorbereitet.",en:"New polls are being prepared."},
   "pulse.empty": {de:"Gerade gibt es keine aktive Abstimmung.",en:"There are no active polls at the moment."},
   "pulse.loading": {de:"Abstimmungen werden geladen …",en:"Loading polls…"},
@@ -4314,8 +4270,8 @@ Object.assign(window.ZHTranslations.messages, {
   "pulse.questionNumber": {de:"Frage {number} anzeigen",en:"Show question {number}"},
   "pulse.polls": {de:"Abstimmungen",en:"Polls"},
   "pulse.forumLink": {de:"Zum Forum",en:"Visit the forum"},
-  "pulse.armaTitle": {de:"Zombiehölle für Arma",en:"Zombie Hell for Arma"},
-  "pulse.armaNote": {de:"Zombiehölle hat mit Arma angefangen. Eine Rückkehr zu Arma 3 oder Arma Reforger ist im Moment nicht geplant.",en:"Zombie Hell started out on Arma. A return to Arma 3 or Arma Reforger isn't planned right now."},
+  "pulse.armaTitle": {de:"Zombiehölle für Arma",en:"Zombiehölle for Arma"},
+  "pulse.armaNote": {de:"Zombiehölle hat mit Arma angefangen. Eine Rückkehr zu Arma 3 oder Arma Reforger ist im Moment nicht geplant.",en:"Zombiehölle started out on Arma. A return to Arma 3 or Arma Reforger isn't planned right now."},
   "pulse.armaMore": {de:"Mehr dazu",en:"Read more"},
   "pulse.forbidden": {de:"Dafür brauchst du ZH-Adminrechte.",en:"This requires ZH-Admin permissions."},
   "pulse.invalid": {de:"Bitte prüfe Frage, Optionen und Einstellungen.",en:"Please check the question, options and settings."},
@@ -4383,11 +4339,11 @@ Object.assign(window.ZHTranslations.messages, {
 
 /* First-visit community welcome for guests; names only features that exist today. */
 Object.assign(window.ZHTranslations.messages, {
-  "welcome.dialog": {de:"Willkommen bei Zombiehölle",en:"Welcome to Zombie Hell"},
-  "welcome.title": {de:"Willkommen bei Zombiehölle",en:"Welcome to Zombie Hell"},
+  "welcome.dialog": {de:"Willkommen bei Zombiehölle",en:"Welcome to Zombiehölle"},
+  "welcome.title": {de:"Willkommen bei Zombiehölle",en:"Welcome to Zombiehölle"},
   "welcome.text": {de:"Du kannst dich als Gast umsehen oder kostenlos einen Account anlegen.",en:"You can look around as a guest or create a free account."},
   "welcome.benefits": {de:"Mit einem Account kannst du:",en:"With an account you can:"},
-  "welcome.game": {de:"Zombiehölle mit deinem eigenen Spielkonto starten, direkt von der Homepage und ohne zweiten Login",en:"start Zombie Hell with your own game account, straight from the website and without a second login"},
+  "welcome.game": {de:"Zombiehölle mit deinem eigenen Spielkonto starten, direkt von der Homepage und ohne zweiten Login",en:"start Zombiehölle with your own game account, straight from the website and without a second login"},
   "welcome.forum": {de:"im Forum Themen eröffnen und antworten",en:"start topics and reply in the forum"},
   "welcome.pulse": {de:"bei Community-Pulse-Abstimmungen mitmachen",en:"take part in Community Pulse votes"},
   "welcome.profile": {de:"ein eigenes Profil mit Avatar anlegen",en:"set up your own profile with an avatar"},
@@ -4412,7 +4368,7 @@ Object.assign(window.ZHTranslations.copy, {
   "forum-category-changelog": {de:"Changelog",en:"Changelog"}
 });
 Object.assign(window.ZHTranslations.messages, {
-  "forum.description.changelog": {de:"Entwicklung und größere Änderungen an Zombiehölle.",en:"Development updates and major changes to Zombie Hell."},
+  "forum.description.changelog": {de:"Entwicklung und größere Änderungen an Zombiehölle.",en:"Development updates and major changes to Zombiehölle."},
   "forum.changelogUpdate": {de:"UPDATE",en:"UPDATE"},
   "game.changelogForumIntro": {de:"Alle Änderungen und Entwicklungsstände findest du im Forum.",en:"You can find all changes and development updates in the forum."},
   "game.changelogForumLink": {de:"Zum Changelog",en:"View changelog"},
@@ -4474,12 +4430,14 @@ Object.assign(window.ZHTranslations.messages, {
 // Homepage-Umbau November 2026: neue Texte auf Startseite, Archiv und in den gemeinsamen Bausteinen.
 Object.assign(window.ZHTranslations.copy, {
   "umbau-hero-image-alt": {de:"Das Portal der Militärbasis Ost hinter Sandsackstellungen",en:"The portal at Military Base East behind sandbag positions"},
-  "umbau-title": {de:"Zombiehölle Survival",en:"Zombie Hell Survival"},
+  "umbau-title": {de:"Zombiehölle Survival",en:"Zombiehölle Survival"},
   "umbau-hero-lead": {de:"Eine offene Welt voller Zombies und seltsamer Dinge. Allein kommst du nicht so weit, also such dir lieber Mitstreiter.",en:"An open world full of zombies and strange things. You won't get far alone, so better find some allies."},
   "umbau-play-now": {de:"Jetzt spielen",en:"Play now"},
   "umbau-whats-new": {de:"Was ist neu?",en:"What's new?"},
   "umbau-loading-time": {de:"Laden dauert am PC etwa eine Minute, auf Handys länger.",en:"Loading takes about a minute on a PC, longer on phones."},
   "umbau-situation-room": {de:"Lagezentrum",en:"Situation room"},
+  "umbau-funk-title": {de:"Funk aus dem Spiel",en:"Radio from the game"},
+  "umbau-funk-example": {de:"Beispielmeldungen, noch keine echten Daten",en:"Example messages, no live data yet"},
   "umbau-game-server": {de:"Spielserver",en:"Game server"},
   "umbau-version": {de:"Version",en:"Version"},
   "umbau-running-since": {de:"Läuft seit",en:"Running since"},
@@ -4490,7 +4448,7 @@ Object.assign(window.ZHTranslations.copy, {
   "umbau-gate-south": {de:"Süd",en:"South"},
   "umbau-horde-radio": {de:"Funk · nächste Horde",en:"Radio · next horde"},
   "umbau-newest": {de:"Neu dabei",en:"New here"},
-  "umbau-welcome": {de:"Willkommen in der Zombiehölle.",en:"Welcome to Zombie Hell."},
+  "umbau-welcome": {de:"Willkommen in der Zombiehölle.",en:"Welcome to Zombiehölle."},
   "umbau-view-profile": {de:"Profil ansehen",en:"View profile"},
   "umbau-world-grows": {de:"Eine Welt, die weiterwächst",en:"A world that keeps growing"},
   "umbau-chapter": {de:"Kapitel",en:"Chapter"},
@@ -4606,7 +4564,7 @@ Object.assign(window.ZHTranslations.copy, {
   "umbau-fullscreen-exit": {de:"Vollbild verlassen",en:"Exit fullscreen"}
 });
 Object.assign(window.ZHTranslations.messages, {
-  "brand.main": {de:"Zombiehölle",en:"Zombie Hell"},
+  "brand.main": {de:"Zombiehölle",en:"Zombiehölle"},
   "brand.sub": {de:"Survival",en:"Survival"}
 });
 Object.assign(window.ZHTranslations.copy, {

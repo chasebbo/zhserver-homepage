@@ -48,8 +48,6 @@
         return;
     }
 
-    const leaderboardList = document.getElementById("leaderboard-list");
-    const leaderboardUpdated = document.getElementById("leaderboard-updated");
     const registeredPlayerCount = document.getElementById("registered-player-count");
     function escapeHtml(value) {
         const element = document.createElement("span");
@@ -71,8 +69,7 @@
             registeredPlayerCount.dataset.i18nNumber = String(total);
             registeredPlayerCount.textContent = total.toLocaleString(window.ZHLanguage?.locale || "de-DE");
         } catch (error) {
-            // The existing public ranking endpoint below supplies an exact fallback
-            // while fewer than 100 registered accounts exist.
+            // Without the count the field stays at "--".
         }
     }
 
@@ -88,60 +85,6 @@
         }).join("");
     }
 
-    async function loadLeaderboard() {
-        const top5List = document.getElementById("top5-player-list");
-        try {
-            const response = await fetch(`${supabaseUrl}/rest/v1/rpc/get_leaderboard`, {
-                method: "POST",
-                headers: { "apikey": supabaseAnonKey, "Content-Type": "application/json" },
-                body: "{}"
-            });
-            if (!response.ok) throw new Error("Rangliste nicht verfuegbar");
-            const players = await response.json();
-            if (top5List) {
-                if (!Array.isArray(players) || players.length === 0) {
-                    top5List.innerHTML = '<span class="top5-loading">Keine Spieler</span>';
-                } else {
-                    const top5 = players.slice(0, 5);
-                    top5List.innerHTML = top5.map((player, index) => {
-                        const place = Number(player.rank || index + 1);
-                        const medal = place === 1 ? "top5-gold" : place === 2 ? "top5-silver" : place === 3 ? "top5-bronze" : "";
-                        return `<div class="top5-row ${medal}"><span class="top5-rank">#${place}</span><span class="top5-name">${escapeHtml(player.nickname)}</span><span class="top5-points" data-i18n-score="${Number(player.points || 0)}">${Number(player.points || 0).toLocaleString(window.ZHLanguage?.locale || "de-DE")} Pkt.</span></div>`;
-                    }).join("");
-                }
-            }
-            if (leaderboardList) {
-                if (!Array.isArray(players) || players.length === 0) {
-                    leaderboardList.innerHTML = '<p class="leaderboard-loading">Noch keine registrierten Spieler.</p>';
-                } else {
-                    const createRows = (entries) => entries.map((player, index) => {
-                        const place = Number(player.rank || index + 1);
-                        const medal = place === 1 ? "gold" : place === 2 ? "silver" : place === 3 ? "bronze" : "normal";
-                        return `<article class="leaderboard-row ${medal}"><span class="leaderboard-place">${place}</span><span class="leaderboard-player"><i class="fa-solid fa-user" aria-hidden="true"></i>${escapeHtml(player.nickname)}</span><strong><span data-i18n-number="${Number(player.points || 0)}">${Number(player.points || 0).toLocaleString(window.ZHLanguage?.locale || "de-DE")}</span> <small>Punkte</small></strong></article>`;
-                    }).join("");
-                    const visiblePlayers = players.slice(0, 15);
-                    const furtherPlayers = players.slice(15);
-                    const morePlayers = furtherPlayers.length
-                        ? `<details class="leaderboard-more"><summary data-i18n-more-players="${furtherPlayers.length}">Weitere ${furtherPlayers.length} Spieler anzeigen</summary><div class="leaderboard-list leaderboard-list-more">${createRows(furtherPlayers)}</div></details>`
-                        : "";
-                    leaderboardList.innerHTML = createRows(visiblePlayers) + morePlayers;
-                }
-            }
-            if (registeredPlayerCount && registeredPlayerCount.textContent === "--" && players.length < 100) {
-                registeredPlayerCount.dataset.i18nNumber = String(players.length);
-                registeredPlayerCount.textContent = String(players.length);
-            }
-            if (leaderboardUpdated) leaderboardUpdated.textContent = "Aktualisierung: alle 24 Stunden";
-        } catch (error) {
-            if (top5List) top5List.innerHTML = '<span class="top5-loading">Rangliste folgt</span>';
-            if (leaderboardList) leaderboardList.innerHTML = '<p class="leaderboard-loading">Die Rangliste wird gerade vorbereitet.</p>';
-            if (leaderboardUpdated) leaderboardUpdated.textContent = "Aktualisierung folgt";
-            if (registeredPlayerCount) {
-                delete registeredPlayerCount.dataset.i18nNumber;
-                registeredPlayerCount.textContent = "--";
-            }
-        }
-    }
     async function loadRecentPlayers() {
         const recentList = document.getElementById("recent-player-list");
         if (!recentList) return;
@@ -171,8 +114,6 @@
     window.setInterval(loadRegisteredPlayerCount, 24 * 60 * 60 * 1000);
     loadRecentPlayers();
     window.setInterval(loadRecentPlayers, 5 * 60 * 1000);
-    loadLeaderboard();
-    window.setInterval(loadLeaderboard, 24 * 60 * 60 * 1000);
 
     const versionLog = document.querySelector(".version-log-list");
     const changelogEntries = versionLog ? Array.from(versionLog.querySelectorAll(":scope > .changelog-details")) : [];

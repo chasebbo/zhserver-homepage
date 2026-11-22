@@ -1,0 +1,13 @@
+/* Kopf der Spielfigur neben dem Namen (Entwurf 22.11.2026): Forum, Profil, Neu dabei. Nur mit echtem Kopfbild aus dem Spiel. */
+.zh-head { display: inline-flex; width: 24px; height: 24px; flex: 0 0 auto; overflow: hidden; border-radius: 50%; border: 1px solid rgba(198, 181, 132, .5); background: #15191b; vertical-align: middle; }
+.zh-head img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.zh-head-m { width: 40px; height: 40px; }
+.zh-head-l { width: 56px; height: 56px; border-width: 2px; }
+.zh-name-with-head { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+.zh-newest-row { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.zh-newest-row [data-community-head]:empty { display: none; }
+#forum-public-profile-heading:has(.zh-head) { display: flex; align-items: center; gap: 14px; }
+/* Forum: Name neben dem Kopf behält Schrift und Rollenfarbe wie vorher */
+.forum-page .forum-thread-posts .forum-post-author .forum-author-details > .zh-name-with-head { margin-top: 10px; }
+.forum-page .forum-thread-posts .forum-post-author .forum-author-details > .zh-name-with-head > a { margin: 0; font-size: .86rem; font-weight: 600; line-height: 1.5; color: #e3e5dd; }
+.forum-page .forum-thread-posts .forum-post-author .forum-author-details > .zh-name-with-head > .zh-public-name[data-system-role] { color: var(--role-ink); }
