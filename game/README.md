@@ -35,7 +35,7 @@ Persistence-Lösung auf der Homepage.
 v134-9 ist der Rückweg, alle drei Seiten in einem Commit und gleichzeitig mit dem Server: dann zeigen sie auf
 `game/survival-v134-9-pc.html?build=v134-9-pc-20261121` und
 `game/survival-v134-9-handy.html?build=v134-9-handy-20261121`. In `game/` liegen
-nur v134-9 und v134-10. Archiviert sind v134-8 (`C:\ZHServer-Archiv\homepage-builds\v134-8\`), v134-6 (`C:\ZHServer-Archiv\homepage-builds\v134-6\`), v134-3 (`C:\ZHServer-Archiv\homepage-builds\v134-3\`), v134-2 (`C:\ZHServer-Archiv\homepage-builds\v134-2\`), v134-1 (`C:\ZHServer-Archiv\homepage-builds\v134-1\`), v134 (`C:\ZHServer-Archiv\homepage-builds\v134\`),
+v134-9, v134-10 und v134-12 (v134-12 nur auf `game-test-handy.html`, Diagnose zu Fund 208). Archiviert sind v134-11 (`C:\ZHServer-Archiv\homepage-builds\v134-11\`), v134-8 (`C:\ZHServer-Archiv\homepage-builds\v134-8\`), v134-6 (`C:\ZHServer-Archiv\homepage-builds\v134-6\`), v134-3 (`C:\ZHServer-Archiv\homepage-builds\v134-3\`), v134-2 (`C:\ZHServer-Archiv\homepage-builds\v134-2\`), v134-1 (`C:\ZHServer-Archiv\homepage-builds\v134-1\`), v134 (`C:\ZHServer-Archiv\homepage-builds\v134\`),
 v133 (`C:\ZHServer-Archiv\homepage-builds\v133\`), v132-3 (`C:\ZHServer-Archiv\homepage-builds\v132-3\`), probe3-handy
 (`C:\ZHServer-Archiv\homepage-builds\probe3-handy\`), v131-11 (`C:\ZHServer-Archiv\homepage-builds\v131-11\`),
 probe1 (`C:\ZHServer-Archiv\homepage-builds\probe1-handy\`),
@@ -43,7 +43,7 @@ v130-2 (`C:\ZHServer-Archiv\homepage-builds\v130-2\`), v132-1
 (`C:\ZHServer-Archiv\homepage-builds\v132-1\`) und v132-2
 (`C:\ZHServer-Archiv\homepage-builds\v132-2\`).
 Jede Spielversion hat eigene Dateinamen; vorhandene Dateien werden nie
-überschrieben. Ältere Builds (zuletzt v134-8, v134-6, v134-3, v134-2, v134-1, v134, v133, v132-3, probe3-handy, v131-11, v132-2, v132-1, v130-2 und probe1) sind außerhalb des Repositorys
+überschrieben. Ältere Builds (zuletzt v134-11, v134-8, v134-6, v134-3, v134-2, v134-1, v134, v133, v132-3, probe3-handy, v131-11, v132-2, v132-1, v130-2 und probe1) sind außerhalb des Repositorys
 archiviert.
 
 Prüfstand und Freigabegrenzen: `../docs/GAME_ENTRY_CHECKPOINT.md`.
