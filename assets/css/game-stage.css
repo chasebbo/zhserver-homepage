@@ -95,3 +95,17 @@ html.zh-game-stage .game-entry-page .game-stage-keys { display: flex; }
     html.zh-game-stage .game-entry-page .game-embed { flex: 1 1 0; width: auto; margin: 0; height: calc(var(--zh-stage-height, 100dvh) - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); aspect-ratio: auto; border: 0; border-radius: 0; box-shadow: none; }
 }
 body[data-game-stage] #game-wrapper { position: relative; }
+
+/* Fensterfüllendes Vollbild am PC (Fund 163): Leiste, Tastenzeile und Rand weg, das Spiel füllt das ganze Fenster und folgt seiner Größe.
+   Kein Browser-Vollbild, deshalb beendet ESC es nicht. Zurück über den kleinen Knopf oben rechts. */
+.game-entry-page .game-fill-exit, .game-entry-page .game-fill-return, .game-entry-page .game-fill-note { display: none; }
+html.zh-game-stage.zh-game-fill .game-entry-page #game-wrapper { padding: 0; background: #000; }
+html.zh-game-stage.zh-game-fill .game-entry-page .game-stage-bar,
+html.zh-game-stage.zh-game-fill .game-entry-page .game-stage-keys { display: none; }
+html.zh-game-stage.zh-game-fill .game-entry-page .game-embed { flex: 1 1 0; width: 100%; height: auto; min-height: 0; margin: 0; aspect-ratio: auto; border: 0; border-radius: 0; box-shadow: none; }
+html.zh-game-stage.zh-game-fill .game-entry-page .game-fill-exit { position: absolute; top: 6px; right: 6px; z-index: 3; display: block; min-height: 24px; padding: 4px 8px; border: 1px solid #c9a45c59; border-radius: 3px; background: #06090c99; color: #e7d09a; font: 600 .56rem/1.2 Inter, system-ui, sans-serif; letter-spacing: .1em; opacity: .45; cursor: pointer; transition: opacity .2s; }
+html.zh-game-stage.zh-game-fill .game-entry-page .game-fill-exit:is(:hover, :focus-visible) { opacity: 1; background: #0c1218; }
+html.zh-game-stage.zh-game-fill .game-entry-page .game-fill-exit:focus-visible { outline: 2px solid #d5b448; outline-offset: 2px; }
+html.zh-game-stage.zh-game-fill .game-entry-page .game-fill-note:not([hidden]) { position: absolute; top: 14px; left: 50%; z-index: 3; display: block; max-width: calc(100% - 40px); margin: 0; padding: 9px 16px; translate: -50% 0; border: 1px solid #c9a45c80; border-radius: 6px; background: #0b1117e6; color: #e9dcb8; font: 500 .8rem/1.4 Inter, system-ui, sans-serif; text-align: center; pointer-events: none; box-shadow: 0 10px 30px #0009; }
+html.zh-game-stage.zh-game-fill .game-entry-page .game-fill-return:not([hidden]) { position: absolute; top: 14px; left: 50%; z-index: 4; display: block; min-height: 40px; padding: 8px 18px; translate: -50% 0; border: 1px solid #d9b46a; border-radius: 4px; background: #1a1710f2; color: #f6e3b0; font: 600 .72rem/1.2 Inter, system-ui, sans-serif; letter-spacing: .08em; cursor: pointer; box-shadow: 0 10px 30px #0009; }
+html.zh-game-stage.zh-game-fill .game-entry-page .game-fill-return:focus-visible { outline: 2px solid #d5b448; outline-offset: 2px; }

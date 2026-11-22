@@ -182,7 +182,10 @@
             else wrapper.scrollIntoView({ behavior: "auto", block: "start" });
             // Started from the fullscreen play frame: the game itself takes over fullscreen, as with the stage bar button.
             const fullscreenArea = document.fullscreenElement;
-            if (fullscreenArea && fullscreenArea !== frame && fullscreenArea.contains(frame)) void frame.requestFullscreen().catch(() => {});
+            if (fullscreenArea && fullscreenArea !== frame && fullscreenArea.contains(frame)) {
+                if (fillDesktop()) void enterFill();
+                else void frame.requestFullscreen().catch(() => {});
+            }
         } finally {
             starting = false;
             renderAccess();
@@ -266,6 +269,7 @@
         // Leaves only the stage; the game keeps running in its unchanged iframe.
         if (!stageActive) return;
         stageActive = false;
+        leaveFill();
         if (document.fullscreenElement) void document.exitFullscreen().catch(() => {});
         document.documentElement.classList.remove("zh-game-stage");
         syncStageViewport();
@@ -332,12 +336,125 @@
     if (identity) identity.subscribe(state => { principal = state; renderAccess(); });
     else { principal = { status: "unavailable" }; renderAccess(); }
 
+    // Fensterfüllendes Vollbild am PC (Fund 163): kein Browser-Vollbild, deshalb beendet ESC es nicht.
+    // Nur auf Bühnen-Seiten mit Maus; Handy und Tablet (auch iPads mit Trackpad) behalten das bisherige Vollbild.
+    const keyboardLock = !!(navigator.keyboard && typeof navigator.keyboard.lock === "function");
+    let fillActive = false, fillLeaving = false, fillNoteSource = "", fillNoteTimer = 0, fillReturnTimer = 0;
+    let fillExit = null, fillReturn = null, fillNote = null;
+    function fillDesktop() {
+        const agent = navigator.userAgent;
+        const appleMobile = /iPhone|iPad|iPod/.test(agent) || (/Macintosh/.test(agent) && navigator.maxTouchPoints > 1);
+        return stagePage && !appleMobile && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    }
+    if (stagePage) {
+        fillExit = document.createElement("button");
+        fillExit.type = "button";
+        fillExit.className = "game-fill-exit";
+        fillExit.setAttribute("data-i18n-ignore", "");
+        fillExit.textContent = language.text("VOLLBILD VERLASSEN");
+        fillExit.addEventListener("click", () => leaveFill());
+        fillReturn = document.createElement("button");
+        fillReturn.type = "button";
+        fillReturn.className = "game-fill-return";
+        fillReturn.setAttribute("data-i18n-ignore", "");
+        fillReturn.hidden = true;
+        fillReturn.textContent = language.text("Zurück ins Vollbild");
+        fillReturn.addEventListener("click", async () => {
+            hideFillReturn();
+            if (await enterRealFullscreen() === "denied") showFillReturn();
+            focusGame();
+        });
+        fillNote = document.createElement("p");
+        fillNote.className = "game-fill-note";
+        fillNote.setAttribute("role", "status");
+        fillNote.setAttribute("data-i18n-ignore", "");
+        fillNote.hidden = true;
+        wrapper.append(fillExit, fillReturn, fillNote);
+    }
+    // Jeder Hinweis erscheint einmal pro Browsersitzung kurz oben in der Mitte.
+    function showFillNote(key, source) {
+        let seen = false;
+        try { seen = sessionStorage.getItem(key) === "1"; } catch (_) { /* Then shown again next time. */ }
+        if (seen || !fillNote) return;
+        try { sessionStorage.setItem(key, "1"); } catch (_) { /* Memory only. */ }
+        fillNoteSource = source;
+        fillNote.textContent = language.text(source);
+        fillNote.hidden = false;
+        clearTimeout(fillNoteTimer);
+        fillNoteTimer = setTimeout(() => { fillNote.hidden = true; fillNoteSource = ""; }, 4500);
+    }
+    function showFillReturn() {
+        if (!fillReturn) return;
+        fillReturn.hidden = false;
+        clearTimeout(fillReturnTimer);
+        fillReturnTimer = setTimeout(hideFillReturn, 8000);
+    }
+    function hideFillReturn() {
+        clearTimeout(fillReturnTimer);
+        if (fillReturn) fillReturn.hidden = true;
+    }
+    function unlockEscape() {
+        try { if (keyboardLock) navigator.keyboard.unlock(); } catch (_) { /* Nothing was locked. */ }
+    }
+    // Echtes Vollbild nur mit ESC-Sperre: kurzes ESC geht an das Spiel, langes Halten verlässt das Vollbild.
+    // Gelingt die Sperre nicht, bleibt es beim fensterfüllenden Spiel ohne Browser-Vollbild.
+    async function enterRealFullscreen() {
+        if (!keyboardLock || !document.documentElement.requestFullscreen) return "nolock";
+        try {
+            if (document.fullscreenElement !== document.documentElement) await document.documentElement.requestFullscreen({ navigationUI: "hide" });
+        } catch (_) { return "denied"; }
+        try {
+            await navigator.keyboard.lock(["Escape"]);
+            return true;
+        } catch (_) {
+            fillLeaving = true;
+            await document.exitFullscreen().catch(() => {});
+            return "nolock";
+        }
+    }
+    async function enterFill() {
+        if (!stagePage || wrapper.hidden) return;
+        enterStage();
+        fillActive = true;
+        document.documentElement.classList.add("zh-game-fill");
+        hideFillReturn();
+        updateFullscreen();
+        // Erst das Vollbild anfordern, dann den Fokus ans Spiel geben: Chrome lehnt die Anfrage sonst ab.
+        const real = await enterRealFullscreen();
+        if (real === true) showFillNote("zh_fill_note_esc", "Zum Verlassen ESC gedrückt halten");
+        else {
+            // Ein Vollbild aus der Zeit vor dem Start (Spielrahmen) wird nicht weitergeführt: ESC soll beim Spiel bleiben.
+            if (document.fullscreenElement) { fillLeaving = true; await document.exitFullscreen().catch(() => {}); }
+            const mac = /Mac/.test(navigator.platform || navigator.userAgent);
+            if (real === "denied") showFillReturn();
+            else showFillNote("zh_fill_note_key", mac ? "Für ganz ohne Leiste Ctrl + Cmd + F drücken" : "Für ganz ohne Leiste F11 drücken");
+        }
+        updateFullscreen();
+        focusGame();
+    }
+    function leaveFill() {
+        if (!fillActive) return;
+        fillActive = false;
+        document.documentElement.classList.remove("zh-game-fill");
+        hideFillReturn();
+        if (fillNote) { fillNote.hidden = true; fillNoteSource = ""; }
+        unlockEscape();
+        if (document.fullscreenElement) { fillLeaving = true; void document.exitFullscreen().catch(() => {}); }
+        updateFullscreen();
+        if (stageActive) focusGame();
+    }
+
     // The stage bar has its own fullscreen button; both share one handler.
     const fullscreenButtons = [document.getElementById("game-fullscreen"), ...all("[data-game-fullscreen]")];
     const fullscreenMessage = document.getElementById("fullscreen-message");
     let fullscreenSource = "";
     const fullscreenText = source => { fullscreenSource = source; fullscreenMessage.textContent = language.text(source); };
     fullscreenButtons.forEach(button => button.addEventListener("click", async () => {
+        if (fillDesktop()) {
+            if (fillActive) leaveFill();
+            else await enterFill();
+            return;
+        }
         try {
             if (document.fullscreenElement) await document.exitFullscreen();
             else if (frame.requestFullscreen) await frame.requestFullscreen();
@@ -350,14 +467,25 @@
     show("[data-game-fullscreen]", !!frame.requestFullscreen);
     const updateFullscreen = () => {
         fullscreenButtons.forEach(button => {
-            button.textContent = language.text(document.fullscreenElement ? "VOLLBILD VERLASSEN" : "VOLLBILD");
+            button.textContent = language.text(document.fullscreenElement || fillActive ? "VOLLBILD VERLASSEN" : "VOLLBILD");
         });
+        if (fillExit) fillExit.textContent = language.text("VOLLBILD VERLASSEN");
+        if (fillReturn) fillReturn.textContent = language.text("Zurück ins Vollbild");
+        if (fillNoteSource) fillNote.textContent = language.text(fillNoteSource);
         if (fullscreenSource) fullscreenMessage.textContent = language.text(fullscreenSource);
         // Keyboard input belongs to the game again after entering or leaving fullscreen in the stage.
         if (stageActive) focusGame();
     };
     document.addEventListener("fullscreenchange", updateFullscreen);
     document.addEventListener("zh:languagechange", updateFullscreen);
+    // Endet das echte Vollbild, ohne dass es über den Eckknopf verlassen wurde, bleibt das Spiel fensterfüllend
+    // und ein Knopf bietet kurz die Rückkehr an. Die ESC-Sperre gilt nur im Vollbild und wird dann gelöst.
+    document.addEventListener("fullscreenchange", () => {
+        if (document.fullscreenElement) return;
+        unlockEscape();
+        if (fillActive && !fillLeaving && keyboardLock) showFillReturn();
+        fillLeaving = false;
+    });
     document.getElementById("btn-activate-game").addEventListener("click", () => {
         // On stage pages this button re-enters the stage instead.
         if (!stagePage) wrapper.classList.add("is-game-active");

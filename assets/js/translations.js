@@ -4690,5 +4690,9 @@ Object.assign(window.ZHTranslations.copy, {
   "umbau-story-news-note-1": {de:"Portal Ost jetzt auch rot.",en:"Portal East is red now too."},
   "umbau-story-news-note-2": {de:"Einer kam raus, der ein Mensch war.",en:"One came out who was human."},
   "umbau-story-news-note-3": {de:"Er sagt nur: Tod. Kaldra.",en:"All he says is: Death. Kaldra."},
+  "game-fill-vollbild-zurueck": {de:"Zurück ins Vollbild",en:"Back to full screen"},
+  "game-fill-vollbild-f11": {de:"Für ganz ohne Leiste F11 drücken",en:"Press F11 to hide the browser bar as well"},
+  "game-fill-vollbild-mac": {de:"Für ganz ohne Leiste Ctrl + Cmd + F drücken",en:"Press Ctrl + Cmd + F to hide the browser bar as well"},
+  "game-fill-vollbild-esc-halten": {de:"Zum Verlassen ESC gedrückt halten",en:"Hold ESC to leave full screen"},
   "umbau-play-load-first": {de:"Der erste Start kann ein paar Minuten dauern, danach geht es schneller. Lass den Tab dabei offen.",en:"The first start can take a few minutes, after that it gets faster. Keep the tab open while it loads."}
 });
