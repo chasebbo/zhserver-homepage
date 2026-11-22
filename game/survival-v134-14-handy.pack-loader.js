@@ -1,9 +1,9 @@
-// Generated v134-9 delivery adapter. Only the virtual main pack is intercepted.
+// Generated v134-14 delivery adapter. Only the virtual main pack is intercepted.
 // Every part is below GitHub's 100-MiB limit. The Godot pack bytes stay unchanged.
 (() => {
-  const pack = new URL('survival-v134-9-handy.pck', document.baseURI).href;
-  const parts = [{"file":"survival-v134-9-handy.pck.part00","bytes":25165824,"sha256":"50b04c7706a97ae5cad432e241a50ff81ddaef08b456dd0c92aa892e37d1bfe1"},{"file":"survival-v134-9-handy.pck.part01","bytes":25165824,"sha256":"062325f9f1610241d05959520808413c92807bb75b0c985b7943e54462b7ec27"},{"file":"survival-v134-9-handy.pck.part02","bytes":25165824,"sha256":"f9c607fb9f105f350a8ef0e41ce3003b347075c5a669abfbcbf67ef6e973de89"},{"file":"survival-v134-9-handy.pck.part03","bytes":25165824,"sha256":"c3880da2f2302d8e310c36a8895af20c9647e9d33c630e30deb137acf9308c7d"},{"file":"survival-v134-9-handy.pck.part04","bytes":25165824,"sha256":"9aa34832b195064d3e9fd53f7fcd2085bf27ca46a816801097898a00fe960c10"},{"file":"survival-v134-9-handy.pck.part05","bytes":7854528,"sha256":"10e02bd8da7bb0736d4fb9b95d9f724c984522208a053bd2559866915c99b60c"}];
-  const size = 133683648;
+  const pack = new URL('survival-v134-14-handy.pck', document.baseURI).href;
+  const parts = [{"file":"survival-v134-14-handy.pck.part00","bytes":25165824,"sha256":"a8c27d6a9a1b42c65a6c5ecd92f48936ff15fbee815169bfe9292e73d3acd1d0"},{"file":"survival-v134-14-handy.pck.part01","bytes":25165824,"sha256":"e07dc20a19bf0beca6eed4ffc1a492b42fa6224109b21416cc2813cb16acd5eb"},{"file":"survival-v134-14-handy.pck.part02","bytes":25165824,"sha256":"cce6a47b1c00766b8810e0b2b5eaa26f8eaff7c7b896a16689ddc2fd7bf66b49"},{"file":"survival-v134-14-handy.pck.part03","bytes":25165824,"sha256":"d028dd2088cdc3fa4d5b5e5127d6c40d505702094c6b6fd123aab36ecf4907a2"},{"file":"survival-v134-14-handy.pck.part04","bytes":25165824,"sha256":"0a0d50fd01e99139ca774e64042c642be77dbd13c23fd9a24c5195f40f7ce39e"},{"file":"survival-v134-14-handy.pck.part05","bytes":7902168,"sha256":"2d7e09dbf66c876190f2d087ba43e9bef2810de2c7121ea10cd107422e372455"}];
+  const size = 133731288;
   const originalFetch = window.fetch.bind(window);
   window.fetch = async (input, init) => {
     const url = new URL(typeof input === 'string' || input instanceof URL ? input : input.url, document.baseURI).href;

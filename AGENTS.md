@@ -246,13 +246,12 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Stand 22.11.2026 (Release v134-10): Hauptversion v134-10 mit den Paketen `pc` und `handy` auf `game.html`,
   `game-test-v130.html` und `game-test-handy.html` (`gamePackageSource` in `game-entry.js` wählt das Paket,
   Apple-Mobilgeräte mit ETC2 bekommen `handy`). Release-Freigabe Sebastian 22.11.2026 07:11.
-- Rückweg v134-9, alle drei Seiten in einem Commit, gleichzeitig mit dem Rückweg des Servers auf v134-9
-  (Sebastian 22.11.2026): `game.html`, `game-test-v130.html` und `game-test-handy.html` auf
-  `game/survival-v134-9-pc.html?build=v134-9-pc-20261121` und `game/survival-v134-9-handy.html?build=v134-9-handy-20261121`.
-  In `game/` liegen v134-9, v134-10 und v134-13 (v134-13 nur als Handy-Fassung). Nur `game-test-handy.html` zeigt auf
+- v134-9 ist archiviert (Release v134-14, Sebastian 22.11.2026). Nach der Umstellung auf v134-14 ist v134-10 der Rückweg.
+  In `game/` liegen v134-10, v134-13 (nur als Handy-Fassung) und v134-14 (bereitgelegt, noch auf keiner Seite). Nur `game-test-handy.html` zeigt auf
   `game/survival-v134-13-handy.html?build=v134-13-handy-20261122` (Fix zu Fund 208, Sebastian 22.11.2026),
   Rückweg der Handy-Testseite `game/survival-v134-10-handy.html?build=v134-10-handy-20261122`.
-- Archiviert und entfernt: v134-12 (`C:\ZHServer-Archiv\homepage-builds\v134-12\`, 22.11.2026, Diagnose zu Fund 208, in v134-13 enthalten),
+- Archiviert und entfernt: v134-9 (`C:\ZHServer-Archiv\homepage-builds\v134-9\`, 22.11.2026, Release v134-14),
+  v134-12 (`C:\ZHServer-Archiv\homepage-builds\v134-12\`, 22.11.2026, Diagnose zu Fund 208, in v134-13 enthalten),
   v134-11 (`C:\ZHServer-Archiv\homepage-builds\v134-11\`, 22.11.2026, Fund 208 nicht behoben, in v134-12 enthalten),
   v134-8 (`C:\ZHServer-Archiv\homepage-builds\v134-8\`, 22.11.2026),
   v134-6 (`C:\ZHServer-Archiv\homepage-builds\v134-6\`, 21.11.2026),
