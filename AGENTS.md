@@ -249,10 +249,11 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Rückweg v134-9, alle drei Seiten in einem Commit, gleichzeitig mit dem Rückweg des Servers auf v134-9
   (Sebastian 22.11.2026): `game.html`, `game-test-v130.html` und `game-test-handy.html` auf
   `game/survival-v134-9-pc.html?build=v134-9-pc-20261121` und `game/survival-v134-9-handy.html?build=v134-9-handy-20261121`.
-  In `game/` liegen v134-9, v134-10 und v134-12. Nur `game-test-handy.html` zeigt auf
-  `game/survival-v134-12-handy.html?build=v134-12-handy-20261122` (Diagnose zu Fund 208, Sebastian 22.11.2026),
+  In `game/` liegen v134-9, v134-10 und v134-13 (v134-13 nur als Handy-Fassung). Nur `game-test-handy.html` zeigt auf
+  `game/survival-v134-13-handy.html?build=v134-13-handy-20261122` (Fix zu Fund 208, Sebastian 22.11.2026),
   Rückweg der Handy-Testseite `game/survival-v134-10-handy.html?build=v134-10-handy-20261122`.
-- Archiviert und entfernt: v134-11 (`C:\ZHServer-Archiv\homepage-builds\v134-11\`, 22.11.2026, Fund 208 nicht behoben, in v134-12 enthalten),
+- Archiviert und entfernt: v134-12 (`C:\ZHServer-Archiv\homepage-builds\v134-12\`, 22.11.2026, Diagnose zu Fund 208, in v134-13 enthalten),
+  v134-11 (`C:\ZHServer-Archiv\homepage-builds\v134-11\`, 22.11.2026, Fund 208 nicht behoben, in v134-12 enthalten),
   v134-8 (`C:\ZHServer-Archiv\homepage-builds\v134-8\`, 22.11.2026),
   v134-6 (`C:\ZHServer-Archiv\homepage-builds\v134-6\`, 21.11.2026),
   v134-3 (`C:\ZHServer-Archiv\homepage-builds\v134-3\`, 19.11.2026),
