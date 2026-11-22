@@ -220,7 +220,7 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Auf `index.html` (Freigabe Sebastian, 21.10.2026) steht nur noch
   „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
-- Hauptversion für `game.html`: v134-10 mit den Paketen `pc` und `handy` (veröffentlicht am 22.11.2026).
+- Hauptversion für `game.html`: v134-14 mit den Paketen `pc` und `handy` (veröffentlicht am 22.11.2026).
 
 ## Spiel-Builds online (Dauerregel, Sebastian 22.10.2026)
 
@@ -243,14 +243,16 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 22.11.2026 (Release v134-10): Hauptversion v134-10 mit den Paketen `pc` und `handy` auf `game.html`,
-  `game-test-v130.html` und `game-test-handy.html` (`gamePackageSource` in `game-entry.js` wählt das Paket,
-  Apple-Mobilgeräte mit ETC2 bekommen `handy`). Release-Freigabe Sebastian 22.11.2026 07:11.
-- v134-9 ist archiviert (Release v134-14, Sebastian 22.11.2026). Nach der Umstellung auf v134-14 ist v134-10 der Rückweg.
-  In `game/` liegen v134-10, v134-13 (nur als Handy-Fassung) und v134-14 (bereitgelegt, noch auf keiner Seite). Nur `game-test-handy.html` zeigt auf
-  `game/survival-v134-13-handy.html?build=v134-13-handy-20261122` (Fix zu Fund 208, Sebastian 22.11.2026),
-  Rückweg der Handy-Testseite `game/survival-v134-10-handy.html?build=v134-10-handy-20261122`.
-- Archiviert und entfernt: v134-9 (`C:\ZHServer-Archiv\homepage-builds\v134-9\`, 22.11.2026, Release v134-14),
+- Stand 22.11.2026 (Release v134-14, Hotfix 208 für alle, nur Spiel): Hauptversion v134-14 mit den Paketen `pc` und `handy`
+  auf `game.html`, `game-test-v130.html` und `game-test-handy.html` (`gamePackageSource` in `game-entry.js` wählt
+  das Paket, Apple-Mobilgeräte mit ETC2 bekommen `handy`). Der Server bleibt v134-10 (dedicated-v134-10-dcbf1b11b764,
+  Protokoll Fassung 6). Release-Freigabe Sebastian 22.11.2026 12:57.
+- Rückweg v134-10, alle drei Seiten in einem Commit, am Server ändert sich nichts (Sebastian 22.11.2026):
+  `game.html`, `game-test-v130.html` und `game-test-handy.html` auf
+  `game/survival-v134-10-pc.html?build=v134-10-pc-20261122` und `game/survival-v134-10-handy.html?build=v134-10-handy-20261122`.
+  In `game/` liegen nur v134-14 und v134-10.
+- Archiviert und entfernt: v134-13 (`C:\ZHServer-Archiv\homepage-builds\v134-13\`, 22.11.2026, Handy-Fix zu Fund 208, in v134-14 enthalten),
+  v134-9 (`C:\ZHServer-Archiv\homepage-builds\v134-9\`, 22.11.2026, Release v134-14),
   v134-12 (`C:\ZHServer-Archiv\homepage-builds\v134-12\`, 22.11.2026, Diagnose zu Fund 208, in v134-13 enthalten),
   v134-11 (`C:\ZHServer-Archiv\homepage-builds\v134-11\`, 22.11.2026, Fund 208 nicht behoben, in v134-12 enthalten),
   v134-8 (`C:\ZHServer-Archiv\homepage-builds\v134-8\`, 22.11.2026),
