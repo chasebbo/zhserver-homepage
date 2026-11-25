@@ -250,7 +250,7 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Rückweg v134-10, alle drei Seiten in einem Commit, am Server ändert sich nichts (Sebastian 22.11.2026):
   `game.html`, `game-test-v130.html` und `game-test-handy.html` auf
   `game/survival-v134-10-pc.html?build=v134-10-pc-20261122` und `game/survival-v134-10-handy.html?build=v134-10-handy-20261122`.
-  In `game/` liegen nur v134-14 und v134-10.
+  In `game/` liegen v134-14, v134-10 und v134-15 (v134-15 bereitgelegt, noch auf keiner Seite, Release Sebastian 25.11.2026 06:03).
 - Archiviert und entfernt: v134-13 (`C:\ZHServer-Archiv\homepage-builds\v134-13\`, 22.11.2026, Handy-Fix zu Fund 208, in v134-14 enthalten),
   v134-9 (`C:\ZHServer-Archiv\homepage-builds\v134-9\`, 22.11.2026, Release v134-14),
   v134-12 (`C:\ZHServer-Archiv\homepage-builds\v134-12\`, 22.11.2026, Diagnose zu Fund 208, in v134-13 enthalten),
