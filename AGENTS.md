@@ -220,7 +220,7 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
 - Auf `index.html` (Freigabe Sebastian, 21.10.2026) steht nur noch
   „Web-Alpha jetzt spielbar“; Katalogeinträge ebenfalls ohne Datum.
 - Nicht verlinkte Testseiten dürfen ihre Testversion und ihren Stand nennen.
-- Hauptversion für `game.html`: v134-16 mit den Paketen `pc` und `handy` (veröffentlicht am 25.11.2026, Hotfix).
+- Hauptversion für `game.html`: v134-17 mit den Paketen `pc` und `handy` (veröffentlicht am 25.11.2026, Hotfix).
 
 ## Spiel-Builds online (Dauerregel, Sebastian 22.10.2026)
 
@@ -243,14 +243,15 @@ umgangssprachlich und direkt, aber nicht künstlich lässig.
   melden.
 - Nach dem Deployment die Größe des Pages-Artefakts messen und berichten. Ziel
   deutlich unter 1 GB.
-- Stand 25.11.2026 (Hotfix v134-16, Spiel und Server zusammen): Hauptversion v134-16 mit den Paketen `pc` und `handy`
+- Stand 25.11.2026 (Hotfix v134-17, Spiel und Server zusammen): Hauptversion v134-17 mit den Paketen `pc` und `handy`
   auf `game.html`, `game-test-v130.html` und `game-test-handy.html` (`gamePackageSource` in `game-entry.js` wählt
-  das Paket, Apple-Mobilgeräte mit ETC2 bekommen `handy`). Server v134-16.
-- Rückweg v134-15, alle drei Seiten in einem Commit, gleichzeitig mit dem Server zurück auf v134-15
+  das Paket, Apple-Mobilgeräte mit ETC2 bekommen `handy`). Server v134-17.
+- Rückweg v134-16, alle drei Seiten in einem Commit, gleichzeitig mit dem Server zurück auf v134-16
   (Sebastian 25.11.2026): `game.html`, `game-test-v130.html` und `game-test-handy.html` auf
-  `game/survival-v134-15-pc.html?build=v134-15-pc-20261124` und `game/survival-v134-15-handy.html?build=v134-15-handy-20261124`.
-  In `game/` liegen v134-16, v134-15 und v134-17 (v134-17 bereitgelegt, noch auf keiner Seite, Hotfix 25.11.2026).
-- Archiviert und entfernt: v134-14 (`C:\ZHServer-Archiv\homepage-builds\v134-14\`, 25.11.2026, Hotfix v134-16),
+  `game/survival-v134-16-pc.html?build=v134-16-pc-20261125` und `game/survival-v134-16-handy.html?build=v134-16-handy-20261125`.
+  In `game/` liegen nur v134-17 und v134-16.
+- Archiviert und entfernt: v134-15 (`C:\ZHServer-Archiv\homepage-builds\v134-15\`, 25.11.2026, Hotfix v134-17),
+  v134-14 (`C:\ZHServer-Archiv\homepage-builds\v134-14\`, 25.11.2026, Hotfix v134-16),
   v134-10 (`C:\ZHServer-Archiv\homepage-builds\v134-10\`, 25.11.2026, Release v134-15),
   v134-13 (`C:\ZHServer-Archiv\homepage-builds\v134-13\`, 22.11.2026, Handy-Fix zu Fund 208, in v134-14 enthalten),
   v134-9 (`C:\ZHServer-Archiv\homepage-builds\v134-9\`, 22.11.2026, Release v134-14),
