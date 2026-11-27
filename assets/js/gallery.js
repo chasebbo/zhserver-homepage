@@ -292,11 +292,9 @@ function updateGalleryFileName() {
 
         ZHLanguage.bind(uploadStatus, "gallery.uploading");
         stage = "upload";
-        const fileName = `${crypto.randomUUID()}.${extension}`;
-        const { error: uploadError } = await supabaseClient.storage.from("gallery")
-            .upload(fileName, file, { cacheControl: "31536000", contentType: file.type, upsert: false });
-        if (uploadError) throw uploadError;
-        const { data: urlData } = supabaseClient.storage.from("gallery").getPublicUrl(fileName);
+        // Gemeinsames Hochladen mit dem Forum (zh-bild-hochladen.js), gleicher Speicher und gleiche Regeln.
+        const { url: publicUrl } = await window.ZHBildHochladen.upload(supabaseClient, file, extension);
+        const urlData = { publicUrl };
         stage = "save";
         const current = await supabaseClient.auth.getSession();
         if (current.error || (current.data.session?.access_token || SUPABASE_KEY) !== principal.accessToken) {

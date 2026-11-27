@@ -174,7 +174,7 @@
         categorySelect.value = route.category;
         // Do not replace unchanged values on a language switch: keep text and caret.
         if (titleInput.value !== draft.title) titleInput.value = draft.title;
-        if (bodyInput.value !== draft.body) bodyInput.value = draft.body;
+        if (bodyInput.value !== draft.body) { bodyInput.value = draft.body; window.ZHForumBilder?.refresh(); }
         updateDraftStatus();
     }
 
@@ -207,7 +207,8 @@
         document.getElementById("forum-edit-draft").href = "#compose/" + route.category;
         // Text only: browser-local input is never HTML and never auto-translated.
         document.getElementById("forum-preview-title").textContent = draft.title;
-        document.getElementById("forum-preview-body").textContent = draft.body;
+        const previewBody = document.getElementById("forum-preview-body");
+        if (window.ZHForumBilder) window.ZHForumBilder.fill(previewBody, draft.body); else previewBody.textContent = draft.body;
         document.getElementById("forum-preview-saved").textContent = isDirty(route.category) ? language.t("forum.unsavedChanges") : formatSaved(draft);
     }
 

@@ -133,7 +133,7 @@
         if (last) meta.append(textNode('span', lang.t('forum.latestPost'), 'forum-latest-post-note'));
         if (post.updated_at !== post.created_at) meta.append(textNode('span', lang.t('forum.editedAt', { date:date(post.updated_at) })));
         if (post.hidden) meta.append(textNode('span', lang.t('forum.hidden')));
-        main.append(meta, textNode('div', post.body, 'forum-post-body'));
+        main.append(meta, window.ZHForumBilder ? window.ZHForumBilder.body(post.body) : textNode('div', post.body, 'forum-post-body'));
         const actions = textNode('div', '', 'forum-post-footer');
         if (post.can_edit && identity.state.status === 'member' && (post.can_moderate || (!threadData.topic.closed && !threadData.topic.hidden && !post.hidden))) {
             const button = textNode('button', lang.t(post.opener ? 'forum.editPost' : 'forum.editReply'), 'forum-text-button'); button.type = 'button';
@@ -232,7 +232,7 @@
             if ($('forum-thread-suggestion')) $('forum-thread-suggestion').hidden = true;
             $('forum-thread-views').hidden = true;
             $('forum-thread-login').hidden = true; $('forum-load-posts').hidden = true;
-            $('forum-reply-body').value = ''; replyRequest = null;
+            $('forum-reply-body').value = ''; replyRequest = null; window.ZHForumBilder?.refresh();
         }
         threadKey = key; const ticket = ++threadTicket;
         $('forum-reply-form').hidden = true; bind('forum-thread-server-status', 'forum.loading');
@@ -294,7 +294,7 @@
         try {
             await api.rpc('reply_zh_forum_topic',{p_request_id:replyRequest,p_topic_id:topicId,p_body:body},true);
             if (drafts.route().id !== topicId) return;
-            $('forum-reply-body').value=''; replyRequest=null; $('forum-reply-status').hidden=true;
+            $('forum-reply-body').value=''; replyRequest=null; $('forum-reply-status').hidden=true; window.ZHForumBilder?.refresh();
             categoryKey=''; overviewKey=''; await thread(topicId,false,true);
             window.ZHForumActivity.invalidate();
         } catch(e) { error('forum-reply-status',e); }

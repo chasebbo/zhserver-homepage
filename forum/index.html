@@ -19,10 +19,11 @@
     <link rel="stylesheet" href="../assets/css/i18n.css?v=20260930-de-en-gallery">
     <link rel="stylesheet" href="../assets/css/homepage-premium.css?v=20261103-umbau10">
     <link rel="stylesheet" href="../assets/css/forum.css?v=20261103-umbau10">
+    <link rel="stylesheet" href="../assets/css/forum-bilder.css?v=20261127-bilder1">
     <link rel="stylesheet" href="../assets/css/community-stats.css?v=20261103-umbau10">
     <link rel="stylesheet" href="../assets/css/header.css?v=20261001-original-logo">
     <link rel="stylesheet" href="../assets/css/identity.css?v=20261027-google1">
-    <script src="../assets/js/translations.js?v=20261122-name1"></script>
+    <script src="../assets/js/translations.js?v=20261127-bilder1"></script>
     <script src="../assets/js/i18n.js?v=20261103-umbau10"></script>
     <link rel="stylesheet" href="../assets/css/forum-content.css?v=20261102-profile1">
     <link rel="stylesheet" href="../assets/css/forum-polish.css?v=20261014-depth1">
@@ -304,6 +305,11 @@
                                 <textarea id="forum-draft-body" name="body" rows="10" maxlength="8000" placeholder="Beschreibe deine Frage, Beobachtung oder Idee …" data-forum-placeholder="forum.bodyPlaceholder" data-i18n-ignore aria-describedby="forum-body-hint forum-body-error"></textarea>
                                 <div class="forum-field-meta"><span id="forum-body-hint" data-forum-i18n="forum.bodyHint">Einfacher Text, Absätze bleiben erhalten. Anhänge folgen später.</span><span id="forum-body-count"></span></div>
                                 <p class="forum-field-error" id="forum-body-error" hidden></p>
+                                <div class="forum-attach" data-forum-attach="forum-draft-body">
+                                    <label class="forum-button forum-button-secondary forum-attach-button"><input type="file" accept="image/*" data-forum-attach-input hidden><span data-forum-i18n="forum.attachImage">Bild anhängen</span></label>
+                                    <p class="forum-attach-status" role="status" data-forum-attach-status hidden></p>
+                                    <div class="forum-attach-list" data-forum-attach-list hidden></div>
+                                </div>
                             </div>
                             <div class="forum-draft-actions">
                                 <button type="button" class="forum-button forum-button-primary" data-forum-publish data-forum-i18n="forum.publishTopic">Thema veröffentlichen</button>
@@ -372,7 +378,13 @@
                         <div class="forum-reply-state"><p id="forum-thread-write-note" role="status" hidden></p><a id="forum-thread-login" class="forum-button forum-button-secondary" href="../account/" data-forum-i18n="account.signIn" hidden>Anmelden</a></div>
                         <form id="forum-reply-form" class="forum-reply-form" hidden>
                             <h3 data-forum-i18n="forum.replyTitle">Antwort schreiben</h3>
-                            <div class="forum-field"><label for="forum-reply-body" data-forum-i18n="forum.bodyLabel">Dein Beitrag</label><textarea id="forum-reply-body" rows="5" maxlength="8000" minlength="10" required data-i18n-ignore></textarea></div>
+                            <div class="forum-field"><label for="forum-reply-body" data-forum-i18n="forum.bodyLabel">Dein Beitrag</label><textarea id="forum-reply-body" rows="5" maxlength="8000" minlength="10" required data-i18n-ignore></textarea>
+                            <div class="forum-attach" data-forum-attach="forum-reply-body">
+                                <label class="forum-button forum-button-secondary forum-attach-button"><input type="file" accept="image/*" data-forum-attach-input hidden><span data-forum-i18n="forum.attachImage">Bild anhängen</span></label>
+                                <p class="forum-attach-status" role="status" data-forum-attach-status hidden></p>
+                                <div class="forum-attach-list" data-forum-attach-list hidden></div>
+                            </div>
+                            </div>
                             <button type="submit" id="forum-reply-submit" class="forum-button forum-button-primary" data-forum-i18n="forum.publishReply">Antwort veröffentlichen</button><p id="forum-reply-status" role="status" hidden></p>
                         </form>
                     </section>
@@ -657,8 +669,10 @@
     <script src="../assets/js/forum-suggestions.js?v=20261025-suggestion1"></script>
     <script src="../assets/js/forum-activity.js?v=20261102-views1"></script>
     <script src="../assets/js/forum-clan.js?v=20261102-v130"></script>
-    <script src="../assets/js/forum-content.js?v=20261122-stimmig1"></script>
-    <script src="../assets/js/forum.js?v=20261102-v130"></script>
+    <script src="../assets/js/zh-bild-hochladen.js?v=20261127-bilder1"></script>
+    <script src="../assets/js/forum-bilder.js?v=20261127-bilder1"></script>
+    <script src="../assets/js/forum-content.js?v=20261127-bilder1"></script>
+    <script src="../assets/js/forum.js?v=20261127-bilder1"></script>
     <script src="../assets/js/forum-atmosphere.js?v=20261015-release1"></script>
 <script src="../assets/js/radio.js?v=20261118-funk1"></script>
 <script src="../assets/js/zh-ui.js?v=20261122-stimmig1"></script>
