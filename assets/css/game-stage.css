@@ -81,6 +81,8 @@ html.zh-game-stage .game-entry-page .game-stage-keys { display: flex; }
 @media (orientation: portrait) and (max-width: 600px) and (pointer: coarse) {
     html.zh-game-stage .game-entry-page .game-stage-rotate { display: flex; }
 }
+/* Nach OK bleibt die Karte weg, auch hochkant (Fund 227). */
+.game-entry-page .game-stage-rotate[hidden] { display: none !important; }
 /* Flat landscape (phones): a slim rail on the right instead of a top bar, the game keeps the full height. */
 @media (orientation: landscape) and (max-height: 500px) {
     html.zh-game-stage .game-entry-page #game-wrapper { flex-direction: row-reverse; align-items: stretch; }
